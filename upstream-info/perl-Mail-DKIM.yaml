@@ -1,0 +1,216 @@
+---
+version_control: metacpan
+src_repo: Mail-DKIM
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:30.396539670 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "fail" : 0,
+          "unknown" : 0,
+          "pass" : 70,
+          "na" : 0
+       },
+       "metadata" : {
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "release_status" : "stable",
+          "name" : "Mail-DKIM",
+          "license" : [
+             "unknown"
+          ],
+          "author" : [
+             "Jason Long <jason@long.name>"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.36, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::Simple" : "0",
+                   "Test::RequiresInternet" : "0",
+                   "Mail::Address" : "0",
+                   "MIME::Base64" : "0",
+                   "Net::DNS::Resolver::Mock" : "0",
+                   "YAML::XS" : "0",
+                   "Digest::SHA" : "0",
+                   "Crypt::OpenSSL::RSA" : "0.24",
+                   "Mail::AuthenticationResults" : "1.20180215",
+                   "Net::DNS" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "abstract" : "Signs/verifies Internet mail with DKIM/DomainKey signatures",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "0.58",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "deprecated" : false,
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1573618730,
+          "size" : 166307
+       },
+       "version" : "0.58",
+       "authorized" : true,
+       "provides" : [
+          "Mail::DKIM",
+          "Mail::DKIM::ARC::MessageSignature",
+          "Mail::DKIM::ARC::Seal",
+          "Mail::DKIM::ARC::Signer",
+          "Mail::DKIM::ARC::Verifier",
+          "Mail::DKIM::Algorithm::Base",
+          "Mail::DKIM::Algorithm::dk_rsa_sha1",
+          "Mail::DKIM::Algorithm::rsa_sha1",
+          "Mail::DKIM::Algorithm::rsa_sha256",
+          "Mail::DKIM::AuthorDomainPolicy",
+          "Mail::DKIM::Canonicalization::Base",
+          "Mail::DKIM::Canonicalization::DkCommon",
+          "Mail::DKIM::Canonicalization::DkimCommon",
+          "Mail::DKIM::Canonicalization::dk_nofws",
+          "Mail::DKIM::Canonicalization::dk_simple",
+          "Mail::DKIM::Canonicalization::nowsp",
+          "Mail::DKIM::Canonicalization::relaxed",
+          "Mail::DKIM::Canonicalization::seal",
+          "Mail::DKIM::Canonicalization::simple",
+          "Mail::DKIM::Common",
+          "Mail::DKIM::DNS",
+          "Mail::DKIM::DkPolicy",
+          "Mail::DKIM::DkSignature",
+          "Mail::DKIM::DkimPolicy",
+          "Mail::DKIM::Key",
+          "Mail::DKIM::KeyValueList",
+          "Mail::DKIM::MessageParser",
+          "Mail::DKIM::Policy",
+          "Mail::DKIM::PrivateKey",
+          "Mail::DKIM::PublicKey",
+          "Mail::DKIM::Signature",
+          "Mail::DKIM::Signer",
+          "Mail::DKIM::SignerPolicy",
+          "Mail::DKIM::TextWrap",
+          "Mail::DKIM::Verifier"
+       ],
+       "id" : "XznyGMPa80QdnOugYO5epZG80qM",
+       "checksum_md5" : "9b03bcd334cbf22a93fd94af9935e11b",
+       "main_module" : "Mail::DKIM",
+       "resources" : {},
+       "checksum_sha256" : "0a43a42b528a435f9e393171bf8ca1dc0cb54092f1d120d6299e615c0c55f331",
+       "changes_file" : "ChangeLog",
+       "author" : "MBRADSHAW",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Mail-DKIM-0.58.tar.gz",
+       "version_numified" : 0.58,
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "YAML::XS"
+          },
+          {
+             "module" : "Test::RequiresInternet",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::Simple",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Net::DNS::Resolver::Mock",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.24",
+             "phase" : "runtime",
+             "module" : "Crypt::OpenSSL::RSA"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "1.20180215",
+             "relationship" : "requires",
+             "module" : "Mail::AuthenticationResults"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "MIME::Base64"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Digest::SHA"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Net::DNS"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Mail::Address"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "Signs/verifies Internet mail with DKIM/DomainKey signatures",
+       "status" : "latest",
+       "distribution" : "Mail-DKIM",
+       "date" : "2019-11-13T04:18:50",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MB/MBRADSHAW/Mail-DKIM-0.58.tar.gz",
+       "name" : "Mail-DKIM-0.58"
+    }

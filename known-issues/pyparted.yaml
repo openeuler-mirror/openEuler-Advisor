@@ -1,0 +1,13 @@
+---
+version_control: github
+src_repo: rhboot/pyparted
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:40:41.225038530 +00:00
+  raw_data: |
+    {
+      "message": "Not Found",
+      "documentation_url": "https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository"
+    }
+query_type: api.github.releases

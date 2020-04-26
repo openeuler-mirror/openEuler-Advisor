@@ -1,0 +1,143 @@
+---
+version_control: metacpan
+src_repo: JSON-PP
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:07.434451110 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1561801960,
+          "size" : 52165,
+          "mode" : 33188
+       },
+       "maturity" : "released",
+       "distribution" : "JSON-PP",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "JSON-PP-4.04.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/makamaka/JSON-PP/issues"
+          },
+          "repository" : {
+             "url" : "https://github.com/makamaka/JSON-PP"
+          }
+       },
+       "main_module" : "JSON::PP",
+       "metadata" : {
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Scalar::Util" : "1.08",
+                   "Test::More" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/makamaka/JSON-PP"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/makamaka/JSON-PP/issues"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "version" : "4.04",
+          "author" : [
+             "Makamaka Hannyaharamitu, E<lt>makamaka[at]cpan.orgE<gt>"
+          ],
+          "name" : "JSON-PP",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "JSON::XS compatible pure-Perl module."
+       },
+       "checksum_sha256" : "81311c56d7b94bbf8003cf421e87961efba576189198e516fd5426889650b66a",
+       "date" : "2019-06-29T09:52:40",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.08",
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "4.04",
+       "tests" : {
+          "unknown" : 4,
+          "fail" : 2,
+          "na" : 0,
+          "pass" : 2022
+       },
+       "name" : "JSON-PP-4.04",
+       "changes_file" : "Changes",
+       "id" : "ujMXCs6H48FzortCLFRpGAqvRsI",
+       "provides" : [
+          "JSON::PP",
+          "JSON::PP::Boolean",
+          "JSON::PP::IncrParser"
+       ],
+       "version_numified" : 4.04,
+       "author" : "ISHIGAKI",
+       "download_url" : "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-PP-4.04.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "abstract" : "JSON::XS compatible pure-Perl module.",
+       "checksum_md5" : "5268ef58fc8ed59a63e61bd36675b6ba",
+       "authorized" : true,
+       "status" : "latest"
+    }

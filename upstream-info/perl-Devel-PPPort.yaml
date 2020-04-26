@@ -1,0 +1,133 @@
+---
+version_control: metacpan
+src_repo: Devel-PPPort
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:05.762710640 +00:00
+  raw_data: |
+    {
+       "version_numified" : 3.58,
+       "provides" : [
+          "Devel::PPPort"
+       ],
+       "id" : "SvVLqrd8W4I3Kh3nK0Wr_4xoAfw",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "20bf4875bf1a0d0ec5696a00e5ed0929",
+       "abstract" : "Perl/Pollution/Portability",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Devel-PPPort-3.58.tar.gz",
+       "author" : "ATOOMIC",
+       "date" : "2020-03-09T20:42:29",
+       "checksum_sha256" : "531ff79f9e74962df2dba7b2e526b8a5208cfb6bcdc01d85732fda8c1fde0c00",
+       "metadata" : {
+          "version" : "3.58",
+          "author" : [
+             "Marcus Holland-Moritz <mhx@cpan.org>"
+          ],
+          "name" : "Devel-PPPort",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Perl/Pollution/Portability",
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "FindBin" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/Dual-Life/Devel-PPPort/issues"
+             },
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/Dual-Life/Devel-PPPort.git",
+                "web" : "https://github.com/Dual-Life/Devel-PPPort"
+             }
+          },
+          "provides" : {
+             "Devel::PPPort" : {
+                "file" : "PPPort.pm",
+                "version" : "3.58"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "main_module" : "Devel::PPPort",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "git://github.com/Dual-Life/Devel-PPPort.git",
+             "web" : "https://github.com/Dual-Life/Devel-PPPort"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/Dual-Life/Devel-PPPort/issues"
+          }
+       },
+       "distribution" : "Devel-PPPort",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Devel-PPPort-3.58.tar.gz",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 357803,
+          "mode" : 33204,
+          "mtime" : 1583786549
+       },
+       "name" : "Devel-PPPort-3.58",
+       "tests" : {
+          "unknown" : 3,
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 788
+       },
+       "version" : "3.58",
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "FindBin",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ]
+    }

@@ -1,0 +1,133 @@
+---
+version_control: metacpan
+src_repo: Devel-Size
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:24.771023480 +00:00
+  raw_data: |
+    {
+       "changes_file" : "CHANGES",
+       "version_numified" : 0.83,
+       "provides" : [
+          "Devel::Size"
+       ],
+       "id" : "JP_4HYAoXXHhfH8_TiL65i9qKeo",
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.83.tar.gz",
+       "author" : "NWCLARK",
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "0b5335d69402c75d5ab9978027ae2f66",
+       "abstract" : "Perl extension for finding the memory usage of Perl variables",
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 75372,
+          "mtime" : 1556039943
+       },
+       "date" : "2019-04-23T17:19:03",
+       "checksum_sha256" : "757a67e0aa59ae103ea5ca092cbecc025644ebdc326731688ffab6f8823ef4b3",
+       "metadata" : {
+          "version" : "0.83",
+          "author" : [
+             "unknown"
+          ],
+          "name" : "Devel-Size",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "unknown",
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "XSLoader" : "0",
+                   "perl" : "5.005"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "resources" : {},
+       "main_module" : "Devel::Size",
+       "distribution" : "Devel-Size",
+       "archive" : "Devel-Size-0.83.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version" : "0.83",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "XSLoader"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "5.005",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "name" : "Devel-Size-0.83",
+       "tests" : {
+          "unknown" : 0,
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 2478
+       }
+    }

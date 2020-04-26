@@ -1,0 +1,105 @@
+---
+version_control: metacpan
+src_repo: NTLM
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:21.992704480 +00:00
+  raw_data: |
+    {
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1315534331,
+          "size" : 28766,
+          "gid" : 1009,
+          "uid" : 1009,
+          "mode" : 33188
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NB/NBEBOUT/NTLM-1.09.tar.gz",
+       "author" : "NBEBOUT",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "da314ee94b14af2a2f39b6f2c0046e73",
+       "resources" : {},
+       "archive" : "NTLM-1.09.tar.gz",
+       "version_numified" : 1.09,
+       "tests" : {
+          "pass" : 5163,
+          "unknown" : 10,
+          "na" : 0,
+          "fail" : 1
+       },
+       "distribution" : "NTLM",
+       "id" : "i5B08jtbq0IteflvbPOpGFLKNIA",
+       "main_module" : "Authen::NTLM",
+       "status" : "latest",
+       "version" : "1.09",
+       "abstract" : "An NTLM authentication module",
+       "changes_file" : "Changes",
+       "name" : "NTLM-1.09",
+       "first" : false,
+       "date" : "2011-09-09T02:12:11",
+       "dependency" : [
+          {
+             "module" : "Digest::HMAC_MD5",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "MIME::Base64",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "provides" : [
+          "Authen::NTLM",
+          "Authen::NTLM::DES",
+          "Authen::NTLM::MD4"
+       ],
+       "checksum_sha256" : "c823e30cda76bc15636e584302c960e2b5eeef9517c2448f7454498893151f85",
+       "authorized" : true,
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Authen-NTLM",
+          "dynamic_config" : 1,
+          "author" : [
+             "David (Buzz) Bussenschutt <davidbuzz@gmail.com>, Mark Bush <Mark.Bush@bushnet.demon.co.uk>, Nick Bebout <nbebout@cpan.org>"
+          ],
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 6.42, CPAN::Meta::Converter version 2.150005",
+          "release_status" : "stable",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "MIME::Base64" : "0",
+                   "Digest::HMAC_MD5" : "0"
+                }
+             }
+          },
+          "version" : "1.09",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "maturity" : "released"
+    }

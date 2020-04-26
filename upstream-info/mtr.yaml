@@ -1,0 +1,311 @@
+---
+version_control: github
+src_repo: traviscross/mtr
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:25:17.039398270 +00:00
+  raw_data: |
+    [
+      {
+        "name": "v0.93",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.93",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.93",
+        "commit": {
+          "sha": "304349bad86229aedbc62c07d5e98a8292967991",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/304349bad86229aedbc62c07d5e98a8292967991"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC45Mw=="
+      },
+      {
+        "name": "v0.92",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.92",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.92",
+        "commit": {
+          "sha": "6cddfc6e8f0e20af4af218b545f83d43b3f9a387",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/6cddfc6e8f0e20af4af218b545f83d43b3f9a387"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC45Mg=="
+      },
+      {
+        "name": "v0.91",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.91",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.91",
+        "commit": {
+          "sha": "e45d242d942313048f4883f9db12671308b75567",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/e45d242d942313048f4883f9db12671308b75567"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC45MQ=="
+      },
+      {
+        "name": "v0.90",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.90",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.90",
+        "commit": {
+          "sha": "654f7bf2934ee3c271042ee86f79f386ddd4e8af",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/654f7bf2934ee3c271042ee86f79f386ddd4e8af"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC45MA=="
+      },
+      {
+        "name": "v0.89",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.89",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.89",
+        "commit": {
+          "sha": "d130a0788f092169da9074bad71d7343f1f32f02",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/d130a0788f092169da9074bad71d7343f1f32f02"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44OQ=="
+      },
+      {
+        "name": "v0.88",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.88",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.88",
+        "commit": {
+          "sha": "80b423881b561ba149047d54eab0f89e889598df",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/80b423881b561ba149047d54eab0f89e889598df"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44OA=="
+      },
+      {
+        "name": "v0.87",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.87",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.87",
+        "commit": {
+          "sha": "a4ff54cd61ac0d9e95f30257253b1bc818b15e59",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/a4ff54cd61ac0d9e95f30257253b1bc818b15e59"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44Nw=="
+      },
+      {
+        "name": "v0.86",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.86",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.86",
+        "commit": {
+          "sha": "6377a5ae7cbb4d2a9cd8280a903f85d44d4ae21d",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/6377a5ae7cbb4d2a9cd8280a903f85d44d4ae21d"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44Ng=="
+      },
+      {
+        "name": "v0.85",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.85",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.85",
+        "commit": {
+          "sha": "1c37778ccd5dfaae3dc5933062402e669b0d6210",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/1c37778ccd5dfaae3dc5933062402e669b0d6210"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44NQ=="
+      },
+      {
+        "name": "v0.84",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.84",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.84",
+        "commit": {
+          "sha": "0285f399981efa15149c2259df9939286d9339ae",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/0285f399981efa15149c2259df9939286d9339ae"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44NA=="
+      },
+      {
+        "name": "v0.83",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.83",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.83",
+        "commit": {
+          "sha": "ec39a1ed4e440a7431d600df3b7bc21ead65ecb9",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/ec39a1ed4e440a7431d600df3b7bc21ead65ecb9"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44Mw=="
+      },
+      {
+        "name": "v0.82",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.82",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.82",
+        "commit": {
+          "sha": "a932cb2abc85651ca6f33a06d7b64448c1d27f65",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/a932cb2abc85651ca6f33a06d7b64448c1d27f65"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44Mg=="
+      },
+      {
+        "name": "v0.81",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.81",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.81",
+        "commit": {
+          "sha": "b955477adae70b044a828e6c4d9e860504a8b8b3",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/b955477adae70b044a828e6c4d9e860504a8b8b3"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44MQ=="
+      },
+      {
+        "name": "v0.80",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.80",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.80",
+        "commit": {
+          "sha": "d2d0342ad94f0303700509b97f48c894a3d0ea8c",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/d2d0342ad94f0303700509b97f48c894a3d0ea8c"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC44MA=="
+      },
+      {
+        "name": "v0.79",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.79",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.79",
+        "commit": {
+          "sha": "8e6b377aca81d3de7c0ac4036b331814105cdc23",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/8e6b377aca81d3de7c0ac4036b331814105cdc23"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43OQ=="
+      },
+      {
+        "name": "v0.78",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.78",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.78",
+        "commit": {
+          "sha": "f80a0855347efb0211752802ee32a57253847271",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/f80a0855347efb0211752802ee32a57253847271"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43OA=="
+      },
+      {
+        "name": "v0.77",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.77",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.77",
+        "commit": {
+          "sha": "6c054ac317534e23345b98a77a2f14382aeac2bd",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/6c054ac317534e23345b98a77a2f14382aeac2bd"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43Nw=="
+      },
+      {
+        "name": "v0.76",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.76",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.76",
+        "commit": {
+          "sha": "5c7494c44f2be27d67399743b52eb27f395d1a8a",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/5c7494c44f2be27d67399743b52eb27f395d1a8a"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43Ng=="
+      },
+      {
+        "name": "v0.75",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.75",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.75",
+        "commit": {
+          "sha": "ae6cb801f130aad5ce79d5c7317aa3d927f390dc",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/ae6cb801f130aad5ce79d5c7317aa3d927f390dc"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43NQ=="
+      },
+      {
+        "name": "v0.74",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.74",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.74",
+        "commit": {
+          "sha": "0697fbe70740022b207b3c9bf93e4316db64a1b2",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/0697fbe70740022b207b3c9bf93e4316db64a1b2"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43NA=="
+      },
+      {
+        "name": "v0.73",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.73",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.73",
+        "commit": {
+          "sha": "de3d6bc16efea7e63910cce568498eed0e2cf45a",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/de3d6bc16efea7e63910cce568498eed0e2cf45a"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43Mw=="
+      },
+      {
+        "name": "v0.72",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.72",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.72",
+        "commit": {
+          "sha": "a8c1d0d5978c2fd4f8ec304564956f1d0c3936c9",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/a8c1d0d5978c2fd4f8ec304564956f1d0c3936c9"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43Mg=="
+      },
+      {
+        "name": "v0.71",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.71",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.71",
+        "commit": {
+          "sha": "7fc783cecb6a7aa8160ae1665b27bb2c7df52f76",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/7fc783cecb6a7aa8160ae1665b27bb2c7df52f76"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43MQ=="
+      },
+      {
+        "name": "v0.70",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.70",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.70",
+        "commit": {
+          "sha": "1217d66e6b8ccddf3297a5ddf9507c18fb1c14d9",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/1217d66e6b8ccddf3297a5ddf9507c18fb1c14d9"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC43MA=="
+      },
+      {
+        "name": "v0.69",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.69",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.69",
+        "commit": {
+          "sha": "c7dc45b525f62abafaaae4c4e4f2e67bbd32ceed",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/c7dc45b525f62abafaaae4c4e4f2e67bbd32ceed"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC42OQ=="
+      },
+      {
+        "name": "v0.68",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.68",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.68",
+        "commit": {
+          "sha": "fc3fcefbc29a540def2826790c2f5fc77e5838fa",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/fc3fcefbc29a540def2826790c2f5fc77e5838fa"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC42OA=="
+      },
+      {
+        "name": "v0.67",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.67",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.67",
+        "commit": {
+          "sha": "8dc40aaaf5f23632a61a28eb17ae082f73268f65",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/8dc40aaaf5f23632a61a28eb17ae082f73268f65"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC42Nw=="
+      },
+      {
+        "name": "v0.66",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.66",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.66",
+        "commit": {
+          "sha": "1f8386e1fa9a8d4fa2c8463b17b462700e32f084",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/1f8386e1fa9a8d4fa2c8463b17b462700e32f084"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC42Ng=="
+      },
+      {
+        "name": "v0.65",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.65",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.65",
+        "commit": {
+          "sha": "6ca6e8879138b14f3bd5e28604d6617fc415da0c",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/6ca6e8879138b14f3bd5e28604d6617fc415da0c"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC42NQ=="
+      },
+      {
+        "name": "v0.64",
+        "zipball_url": "https://api.github.com/repos/traviscross/mtr/zipball/v0.64",
+        "tarball_url": "https://api.github.com/repos/traviscross/mtr/tarball/v0.64",
+        "commit": {
+          "sha": "3210151c58dd98731816b57b0e375250aeb8fb6f",
+          "url": "https://api.github.com/repos/traviscross/mtr/commits/3210151c58dd98731816b57b0e375250aeb8fb6f"
+        },
+        "node_id": "MDM6UmVmNzk3MjQwMjp2MC42NA=="
+      }
+    ]
+query_type: api.github.tags

@@ -1,0 +1,186 @@
+---
+version_control: metacpan
+src_repo: Test-Pod-Coverage
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:36.034280790 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz",
+       "name" : "Test-Pod-Coverage-1.10",
+       "date" : "2014-07-17T17:10:11",
+       "maturity" : "released",
+       "first" : false,
+       "abstract" : "Check for pod coverage in your distribution",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "module" : "strict",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Pod::Coverage",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.006"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::Builder"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::Builder::Tester"
+          },
+          {
+             "module" : "lib",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "distribution" : "Test-Pod-Coverage",
+       "status" : "latest",
+       "checksum_sha256" : "48c9cca9f7d99eee741176445b431adf09c029e1aa57c4703c9f46f7601d40d4",
+       "changes_file" : "Changes",
+       "archive" : "Test-Pod-Coverage-1.10.tar.gz",
+       "license" : [
+          "artistic_2"
+       ],
+       "author" : "NEILB",
+       "version_numified" : 1.1,
+       "checksum_md5" : "c9ea5f4182415b13d2db18484a38c01b",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/neilbowers/Test-Pod-Coverage.git",
+             "web" : "https://github.com/neilbowers/Test-Pod-Coverage",
+             "type" : "git"
+          }
+       },
+       "main_module" : "Test::Pod::Coverage",
+       "version" : "1.10",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 8083,
+          "gid" : 1009,
+          "mtime" : 1405617011,
+          "uid" : 1009
+       },
+       "provides" : [
+          "Test::Pod::Coverage"
+       ],
+       "authorized" : true,
+       "id" : "RmZQxJWc2KOjR0lha3WEUJasMKI",
+       "tests" : {
+          "fail" : 107,
+          "na" : 0,
+          "pass" : 15386,
+          "unknown" : 4
+       },
+       "metadata" : {
+          "name" : "Test-Pod-Coverage",
+          "author" : [
+             "unknown"
+          ],
+          "license" : [
+             "artistic_2"
+          ],
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/neilbowers/Test-Pod-Coverage",
+                "url" : "git://github.com/neilbowers/Test-Pod-Coverage.git"
+             }
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "1.10",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141170, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "lib" : "0",
+                   "Test::More" : "0",
+                   "Test::Builder::Tester" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Test::Builder" : "0",
+                   "Pod::Coverage" : "0",
+                   "warnings" : "0",
+                   "strict" : "0"
+                }
+             }
+          },
+          "abstract" : "Check for pod coverage in your distribution"
+       },
+       "deprecated" : "false"
+    }

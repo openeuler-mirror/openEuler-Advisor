@@ -1,0 +1,162 @@
+---
+version_control: metacpan
+src_repo: Net-Server
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:31.500551980 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "checksum_sha256" : "8267c6560355e2e0f483d3cc16195f342f32fe13cae9dde75a0a1ece5e9a813f",
+       "version_numified" : 2.009,
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Net-Server-2.009.tar.gz",
+       "author" : "RHANDOM",
+       "main_module" : "Net::Server",
+       "resources" : {},
+       "checksum_md5" : "d45a0700d820b3eebd1e9e14611b1613",
+       "provides" : [
+          "Net::Server",
+          "Net::Server::Daemonize",
+          "Net::Server::Fork",
+          "Net::Server::HTTP",
+          "Net::Server::INET",
+          "Net::Server::INET::Handle",
+          "Net::Server::Log::Log::Log4perl",
+          "Net::Server::Log::Sys::Syslog",
+          "Net::Server::MultiType",
+          "Net::Server::Multiplex",
+          "Net::Server::Multiplex::MUX",
+          "Net::Server::PSGI",
+          "Net::Server::PreFork",
+          "Net::Server::PreForkSimple",
+          "Net::Server::Proto",
+          "Net::Server::Proto::SSL",
+          "Net::Server::Proto::SSLEAY",
+          "Net::Server::Proto::TCP",
+          "Net::Server::Proto::UDP",
+          "Net::Server::Proto::UNIX",
+          "Net::Server::Proto::UNIXDGRAM",
+          "Net::Server::SIG",
+          "Net::Server::Single",
+          "Net::Server::TiedHandle"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "mode" : 33188,
+          "size" : 146781,
+          "mtime" : 1502399581
+       },
+       "version" : "2.009",
+       "id" : "m1VFEp9JRpdTWWPjDivXEYrOC60",
+       "deprecated" : "false",
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 2.27300_01",
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "name" : "Net-Server",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Paul Seamons <paul@seamons.com> and Rob Brown <bbb@cpan.org>"
+          ],
+          "abstract" : "Extensible Perl internet server",
+          "generated_by" : "ExtUtils::MakeMaker version 7.1002, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "POSIX" : "0",
+                   "File::Temp" : "0",
+                   "Socket" : "0",
+                   "Time::HiRes" : "0",
+                   "IO::Socket" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.009",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "tests" : {
+          "fail" : 488,
+          "unknown" : 0,
+          "pass" : 4120,
+          "na" : 0
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RH/RHANDOM/Net-Server-2.009.tar.gz",
+       "name" : "Net-Server-2.009",
+       "date" : "2017-08-10T21:13:01",
+       "maturity" : "released",
+       "abstract" : "Extensible Perl internet server",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.30",
+             "relationship" : "requires",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Socket"
+          },
+          {
+             "module" : "POSIX",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Temp"
+          },
+          {
+             "module" : "Time::HiRes",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "IO::Socket",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          }
+       ],
+       "first" : false,
+       "distribution" : "Net-Server",
+       "status" : "latest"
+    }

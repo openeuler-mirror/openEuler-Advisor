@@ -1,0 +1,222 @@
+---
+version_control: metacpan
+src_repo: GD
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:23.666596740 +00:00
+  raw_data: |
+    {
+       "first" : false,
+       "abstract" : "Perl interface to the gd2 graphics library",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::Constant",
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0.23"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "List::MoreUtils"
+          },
+          {
+             "version" : "0",
+             "relationship" : "recommends",
+             "phase" : "runtime",
+             "module" : "Class::XSAccessor"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0.88",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "1.00",
+             "module" : "Test::Pod"
+          },
+          {
+             "module" : "Text::CSV_XS",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "module" : "Pod::Spell::CommonMistakes",
+             "version" : "0",
+             "relationship" : "recommends",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::Kwalitee",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Math::Trig"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0.02",
+             "module" : "Test::Fork"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "ExtUtils::Constant",
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0.22"
+          },
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::PkgConfig"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "distribution" : "GD",
+       "status" : "latest",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/GD-2.71.tar.gz",
+       "name" : "GD-2.71",
+       "date" : "2019-02-12T11:53:42",
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 256845,
+          "mtime" : 1549972422
+       },
+       "version" : "2.71",
+       "authorized" : true,
+       "provides" : [
+          "GD",
+          "GD::Group",
+          "GD::Image",
+          "GD::Polygon",
+          "GD::Polyline",
+          "GD::Simple"
+       ],
+       "id" : "P0aX5onoA_WbEVeD22UyOMfbpIM",
+       "tests" : {
+          "unknown" : 299,
+          "pass" : 1865,
+          "na" : 19,
+          "fail" : 2
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "abstract" : "Perl interface to the gd2 graphics library",
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "Test::Pod" : "1.00",
+                   "List::MoreUtils" : "0",
+                   "ExtUtils::Constant" : "0.23",
+                   "Pod::Spell::CommonMistakes" : "0",
+                   "Test::More" : "0.88",
+                   "Text::CSV_XS" : "0",
+                   "Test::Kwalitee" : "0",
+                   "Class::XSAccessor" : "0"
+                },
+                "requires" : {
+                   "Math::Trig" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::PkgConfig" : "0",
+                   "ExtUtils::Constant" : "0.22"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::Fork" : "0.02",
+                   "Test::More" : "0.88"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 8.3506, CPAN::Meta::Converter version 2.150010",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.71",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001_04",
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/lstein/Perl-GD"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "name" : "GD",
+          "author" : [
+             "Lincoln Stein <lincoln.stein@gmail.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "checksum_sha256" : "451be4873b2ad7261cc5679698cd9d2e84dbdde4309971869fc7734b569b7ac7",
+       "changes_file" : "ChangeLog",
+       "archive" : "GD-2.71.tar.gz",
+       "author" : "RURBAN",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 2.71,
+       "checksum_md5" : "1e2534e1d0db57d6aad438f15ca63253",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "http://github.com/lstein/Perl-GD"
+          }
+       },
+       "main_module" : "GD"
+    }

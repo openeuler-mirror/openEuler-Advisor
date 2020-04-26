@@ -1,0 +1,318 @@
+---
+version_control: metacpan
+src_repo: Net-DNS
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:55.075003260 +00:00
+  raw_data: |
+    {
+       "distribution" : "Net-DNS",
+       "status" : "latest",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0.01",
+             "module" : "Digest::BubbleBabble"
+          },
+          {
+             "module" : "Net::LibIDN2",
+             "relationship" : "recommends",
+             "version" : "1",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Digest::HMAC",
+             "version" : "1.03",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Time::Local",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.19"
+          },
+          {
+             "module" : "MIME::Base64",
+             "version" : "2.13",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.08",
+             "module" : "IO::File"
+          },
+          {
+             "module" : "IO::Socket::IP",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.38"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.05",
+             "module" : "PerlIO"
+          },
+          {
+             "module" : "Digest::MD5",
+             "version" : "2.13",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "relationship" : "requires",
+             "version" : "0.52",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0.86",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.25",
+             "phase" : "runtime",
+             "module" : "Scalar::Util"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.14",
+             "module" : "IO::Select"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.23",
+             "phase" : "runtime",
+             "module" : "Digest::SHA"
+          }
+       ],
+       "abstract" : "Perl Interface to the Domain Name System",
+       "maturity" : "released",
+       "date" : "2020-03-18T14:55:27",
+       "name" : "Net-DNS-1.23",
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.23.tar.gz",
+       "tests" : {
+          "fail" : 4,
+          "unknown" : 0,
+          "na" : 0,
+          "pass" : 938
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "abstract" : "Perl Interface to the Domain Name System",
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "Digest::BubbleBabble" : "0.01",
+                   "Net::LibIDN2" : "1"
+                },
+                "requires" : {
+                   "perl" : "5.006",
+                   "Digest::MD5" : "2.13",
+                   "File::Spec" : "0.86",
+                   "IO::File" : "1.08",
+                   "Digest::SHA" : "5.23",
+                   "Test::More" : "0.52",
+                   "MIME::Base64" : "2.13",
+                   "IO::Select" : "1.14",
+                   "Digest::HMAC" : "1.03",
+                   "Scalar::Util" : "1.25",
+                   "Time::Local" : "1.19",
+                   "PerlIO" : "1.05",
+                   "IO::Socket::IP" : "0.38"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.23",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "dynamic_config" : 1,
+          "author" : [
+             "Dick Franks",
+             "Olaf Kolkman",
+             "Michael Fuhr"
+          ],
+          "name" : "Net-DNS",
+          "license" : [
+             "mit"
+          ]
+       },
+       "id" : "3FHm7rkcBiRD_XBe5QeZsTacxw8",
+       "version" : "1.23",
+       "stat" : {
+          "size" : 257796,
+          "mtime" : 1584543327,
+          "mode" : 33188
+       },
+       "provides" : [
+          "Net::DNS",
+          "Net::DNS::Domain",
+          "Net::DNS::DomainName",
+          "Net::DNS::DomainName1035",
+          "Net::DNS::DomainName2535",
+          "Net::DNS::Header",
+          "Net::DNS::Mailbox",
+          "Net::DNS::Mailbox1035",
+          "Net::DNS::Mailbox2535",
+          "Net::DNS::Nameserver",
+          "Net::DNS::Packet",
+          "Net::DNS::Parameters",
+          "Net::DNS::Question",
+          "Net::DNS::RR",
+          "Net::DNS::RR::A",
+          "Net::DNS::RR::AAAA",
+          "Net::DNS::RR::AFSDB",
+          "Net::DNS::RR::APL",
+          "Net::DNS::RR::APL::Item",
+          "Net::DNS::RR::CAA",
+          "Net::DNS::RR::CDNSKEY",
+          "Net::DNS::RR::CDS",
+          "Net::DNS::RR::CERT",
+          "Net::DNS::RR::CNAME",
+          "Net::DNS::RR::CSYNC",
+          "Net::DNS::RR::DHCID",
+          "Net::DNS::RR::DNAME",
+          "Net::DNS::RR::DNSKEY",
+          "Net::DNS::RR::DS",
+          "Net::DNS::RR::EUI48",
+          "Net::DNS::RR::EUI64",
+          "Net::DNS::RR::GPOS",
+          "Net::DNS::RR::HINFO",
+          "Net::DNS::RR::HIP",
+          "Net::DNS::RR::IPSECKEY",
+          "Net::DNS::RR::ISDN",
+          "Net::DNS::RR::KEY",
+          "Net::DNS::RR::KX",
+          "Net::DNS::RR::L32",
+          "Net::DNS::RR::L64",
+          "Net::DNS::RR::LOC",
+          "Net::DNS::RR::LP",
+          "Net::DNS::RR::MB",
+          "Net::DNS::RR::MG",
+          "Net::DNS::RR::MINFO",
+          "Net::DNS::RR::MR",
+          "Net::DNS::RR::MX",
+          "Net::DNS::RR::NAPTR",
+          "Net::DNS::RR::NID",
+          "Net::DNS::RR::NS",
+          "Net::DNS::RR::NSEC",
+          "Net::DNS::RR::NSEC3",
+          "Net::DNS::RR::NSEC3PARAM",
+          "Net::DNS::RR::NULL",
+          "Net::DNS::RR::OPENPGPKEY",
+          "Net::DNS::RR::OPT",
+          "Net::DNS::RR::OPT::CHAIN",
+          "Net::DNS::RR::OPT::CLIENT_SUBNET",
+          "Net::DNS::RR::OPT::COOKIE",
+          "Net::DNS::RR::OPT::DAU",
+          "Net::DNS::RR::OPT::DHU",
+          "Net::DNS::RR::OPT::EXPIRE",
+          "Net::DNS::RR::OPT::KEY_TAG",
+          "Net::DNS::RR::OPT::N3U",
+          "Net::DNS::RR::OPT::PADDING",
+          "Net::DNS::RR::OPT::TCP_KEEPALIVE",
+          "Net::DNS::RR::PTR",
+          "Net::DNS::RR::PX",
+          "Net::DNS::RR::RP",
+          "Net::DNS::RR::RRSIG",
+          "Net::DNS::RR::RT",
+          "Net::DNS::RR::SIG",
+          "Net::DNS::RR::SMIMEA",
+          "Net::DNS::RR::SOA",
+          "Net::DNS::RR::SPF",
+          "Net::DNS::RR::SRV",
+          "Net::DNS::RR::SSHFP",
+          "Net::DNS::RR::TKEY",
+          "Net::DNS::RR::TLSA",
+          "Net::DNS::RR::TSIG",
+          "Net::DNS::RR::TXT",
+          "Net::DNS::RR::URI",
+          "Net::DNS::RR::X25",
+          "Net::DNS::RR::ZONEMD",
+          "Net::DNS::Resolver",
+          "Net::DNS::Resolver::Base",
+          "Net::DNS::Resolver::MSWin32",
+          "Net::DNS::Resolver::Recurse",
+          "Net::DNS::Resolver::UNIX",
+          "Net::DNS::Resolver::android",
+          "Net::DNS::Resolver::cygwin",
+          "Net::DNS::Resolver::os2",
+          "Net::DNS::Resolver::os390",
+          "Net::DNS::Text",
+          "Net::DNS::Update",
+          "Net::DNS::ZoneFile",
+          "Net::DNS::ZoneFile::Generator",
+          "Net::DNS::ZoneFile::Text"
+       ],
+       "authorized" : true,
+       "checksum_md5" : "105517139b39650f78c21b2e461ac97e",
+       "main_module" : "Net::DNS",
+       "resources" : {},
+       "author" : "NLNETLABS",
+       "license" : [
+          "mit"
+       ],
+       "archive" : "Net-DNS-1.23.tar.gz",
+       "version_numified" : 1.23,
+       "checksum_sha256" : "cf327f31063b96cd3421be43a1d6cb41eaa61d0595450032e57905b1bd6b2c3e",
+       "changes_file" : "Changes"
+    }

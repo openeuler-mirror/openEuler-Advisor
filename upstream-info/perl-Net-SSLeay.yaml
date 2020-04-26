@@ -1,0 +1,180 @@
+---
+version_control: metacpan
+src_repo: Net-SSLeay
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:28.704368630 +00:00
+  raw_data: |
+    {
+       "version_numified" : 1.88,
+       "tests" : {
+          "fail" : 57,
+          "na" : 1,
+          "unknown" : 123,
+          "pass" : 3429
+       },
+       "distribution" : "Net-SSLeay",
+       "id" : "Y5lI3EFWOFZ_GBIeVu94cnXcRxg",
+       "license" : [
+          "artistic_2"
+       ],
+       "checksum_md5" : "fcef4985f5f7e0381e3dddd0ee7878d1",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/radiator-software/p5-net-ssleay",
+             "type" : "git"
+          },
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=net-ssleay"
+          }
+       },
+       "archive" : "Net-SSLeay-1.88.tar.gz",
+       "download_url" : "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz",
+       "author" : "CHRISN",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 436215,
+          "mode" : 33204,
+          "mtime" : 1557520602
+       },
+       "metadata" : {
+          "version" : "1.88",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "helper_script",
+                "examples",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Kwalitee" : "1.00",
+                   "Test::Pod::Coverage" : "1.00"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.60_01"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "MIME::Base64" : "0",
+                   "perl" : "5.008001"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "abstract" : "Perl extension for using OpenSSL",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 0,
+          "author" : [
+             "Sampo KellomÃ¤ki <sampo@iki.fi>",
+             "Florian Ragwitz <rafl@debian.org>",
+             "Mike McCauley <mikem@airspayce.com>",
+             "Chris Novakovic <chris@chrisn.me.uk>",
+             "Tuure Vartiainen <vartiait@radiatorsoftware.com>",
+             "Heikki Vatiainen <hvn@radiatorsoftware.com>"
+          ],
+          "name" : "Net-SSLeay",
+          "license" : [
+             "artistic_2"
+          ],
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/radiator-software/p5-net-ssleay"
+             },
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=net-ssleay"
+             }
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "maturity" : "released",
+       "name" : "Net-SSLeay-1.88",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "MIME::Base64"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008001"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.60_01",
+             "phase" : "test",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.00",
+             "module" : "Test::Kwalitee",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage",
+             "version" : "1.00",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2019-05-10T20:36:42",
+       "provides" : [
+          "Net::SSLeay",
+          "Net::SSLeay::Handle"
+       ],
+       "first" : false,
+       "authorized" : true,
+       "checksum_sha256" : "2000da483c8471a0b61e06959e92a6fca7b9e40586d5c828de977d3d2081cfdd",
+       "abstract" : "Perl extension for using OpenSSL",
+       "changes_file" : "Changes",
+       "main_module" : "Net::SSLeay",
+       "status" : "latest",
+       "version" : "1.88"
+    }

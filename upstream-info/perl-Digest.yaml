@@ -1,0 +1,145 @@
+---
+version_control: metacpan
+src_repo: Digest
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:41.029696510 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-1.17.tar.gz",
+       "name" : "Digest-1.17",
+       "date" : "2011-10-02T10:14:32",
+       "maturity" : "released",
+       "dependency" : [
+          {
+             "module" : "MIME::Base64",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.004",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.47",
+             "phase" : "runtime",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "Modules that calculate message digests",
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "Digest",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "2f6a54459fc7f37c0669d548bb224b695eb8d2ddc089aa5547645ce1f5fd86f7",
+       "version_numified" : 1.17,
+       "author" : "GAAS",
+       "archive" : "Digest-1.17.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "main_module" : "Digest",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/digest"
+          }
+       },
+       "checksum_md5" : "2f8a38f7f6c1bd2df36feb16d8208d6d",
+       "authorized" : true,
+       "provides" : [
+          "Digest",
+          "Digest::base",
+          "Digest::file"
+       ],
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1317550472,
+          "uid" : 1009,
+          "size" : 9034,
+          "gid" : 1009
+       },
+       "version" : "1.17",
+       "id" : "s28cotdaj30r4LZua7D1DSJ7Biw",
+       "deprecated" : "false",
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "name" : "Digest",
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/gisle/digest"
+             }
+          },
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.17",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "abstract" : "Modules that calculate message digests",
+          "generated_by" : "ExtUtils::MakeMaker version 6.57_05, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.004",
+                   "MIME::Base64" : "0",
+                   "Test::More" : "0.47"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       },
+       "tests" : {
+          "fail" : 2,
+          "unknown" : 5,
+          "pass" : 2682,
+          "na" : 0
+       }
+    }

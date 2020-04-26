@@ -1,0 +1,180 @@
+---
+version_control: metacpan
+src_repo: podlators
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:01.259076710 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1578180749,
+          "size" : 137056,
+          "mode" : 33188
+       },
+       "maturity" : "released",
+       "main_module" : "Pod::Man",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Dist/Display.html?Name=podlators",
+             "mailto" : "bug-podlators@rt.cpan.org"
+          },
+          "homepage" : "https://www.eyrie.org/~eagle/software/podlators/",
+          "repository" : {
+             "url" : "https://github.com/rra/podlators.git",
+             "type" : "git",
+             "web" : "https://github.com/rra/podlators"
+          }
+       },
+       "distribution" : "podlators",
+       "archive" : "podlators-4.14.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_sha256" : "7af1c41de34b2e4dbff700a29d7387549c2b6cf16142214450c924707ddb0f82",
+       "date" : "2020-01-04T23:32:29",
+       "metadata" : {
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008",
+                   "Pod::Simple" : "3.06"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 1,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/rra/podlators.git",
+                "web" : "https://github.com/rra/podlators"
+             },
+             "homepage" : "https://www.eyrie.org/~eagle/software/podlators/",
+             "bugtracker" : {
+                "mailto" : "bug-podlators@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Dist/Display.html?Name=podlators"
+             }
+          },
+          "provides" : {
+             "Pod::ParseLink" : {
+                "version" : "4.14",
+                "file" : "lib/Pod/ParseLink.pm"
+             },
+             "Pod::Text::Color" : {
+                "version" : "4.14",
+                "file" : "lib/Pod/Text/Color.pm"
+             },
+             "Pod::Man" : {
+                "version" : "4.14",
+                "file" : "lib/Pod/Man.pm"
+             },
+             "Pod::Text::Overstrike" : {
+                "version" : "4.14",
+                "file" : "lib/Pod/Text/Overstrike.pm"
+             },
+             "Pod::Text::Termcap" : {
+                "version" : "4.14",
+                "file" : "lib/Pod/Text/Termcap.pm"
+             },
+             "Pod::Text" : {
+                "version" : "4.14",
+                "file" : "lib/Pod/Text.pm"
+             }
+          },
+          "version" : "4.14",
+          "author" : [
+             "Russ Allbery <rra@cpan.org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "podlators",
+          "abstract" : "Convert POD data to various other formats"
+       },
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Pod::Simple",
+             "version" : "3.06"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "version" : "5.008",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "4.14",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 1105,
+          "unknown" : 0
+       },
+       "name" : "podlators-4.14",
+       "changes_file" : "Changes",
+       "provides" : [
+          "Pod::Man",
+          "Pod::ParseLink",
+          "Pod::Text",
+          "Pod::Text::Color",
+          "Pod::Text::Overstrike",
+          "Pod::Text::Termcap"
+       ],
+       "id" : "cKnacZTlyONp2i83_UN_lyh9MEo",
+       "version_numified" : 4.14,
+       "author" : "RRA",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RR/RRA/podlators-4.14.tar.gz",
+       "authorized" : true,
+       "checksum_md5" : "c79b17d0d352c8aa4f9bee01422026ae",
+       "abstract" : "Convert POD data to various other formats",
+       "status" : "latest"
+    }

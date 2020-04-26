@@ -1,0 +1,478 @@
+---
+version_control: metacpan
+src_repo: Module-Build
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:01.821482040 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "unknown" : 5,
+          "pass" : 711,
+          "fail" : 28,
+          "na" : 0
+       },
+       "version_numified" : 0.4231,
+       "id" : "y9go71fmNGSxomP_pF6vUN3yfAY",
+       "distribution" : "Module-Build",
+       "checksum_md5" : "066b193e461d7dfe1eca17a139353001",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Module-Build-0.4231.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/Perl-Toolchain-Gang/Module-Build"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "author" : "LEONT",
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1580284361,
+          "size" : 303466,
+          "mode" : 33188
+       },
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "resources" : {
+             "x_MailingList" : "mailto:module-build@perl.org",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/Perl-Toolchain-Gang/Module-Build"
+             },
+             "x_IRC" : "irc://irc.perl.org/#toolchain"
+          },
+          "provides" : {
+             "Module::Build::Platform::aix" : {
+                "file" : "lib/Module/Build/Platform/aix.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::Windows" : {
+                "version" : "0.4231",
+                "file" : "lib/Module/Build/Platform/Windows.pm"
+             },
+             "Module::Build::Compat" : {
+                "version" : "0.4231",
+                "file" : "lib/Module/Build/Compat.pm"
+             },
+             "Module::Build::Platform::cygwin" : {
+                "file" : "lib/Module/Build/Platform/cygwin.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Base" : {
+                "file" : "lib/Module/Build/Base.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Cookbook" : {
+                "file" : "lib/Module/Build/Cookbook.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Config" : {
+                "file" : "lib/Module/Build/Config.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build" : {
+                "file" : "lib/Module/Build.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::PPMMaker" : {
+                "version" : "0.4231",
+                "file" : "lib/Module/Build/PPMMaker.pm"
+             },
+             "Module::Build::Dumper" : {
+                "file" : "lib/Module/Build/Dumper.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::darwin" : {
+                "file" : "lib/Module/Build/Platform/darwin.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::VMS" : {
+                "version" : "0.4231",
+                "file" : "lib/Module/Build/Platform/VMS.pm"
+             },
+             "Module::Build::Notes" : {
+                "file" : "lib/Module/Build/Notes.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::MacOS" : {
+                "file" : "lib/Module/Build/Platform/MacOS.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::PodParser" : {
+                "file" : "lib/Module/Build/PodParser.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::Unix" : {
+                "file" : "lib/Module/Build/Platform/Unix.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::VOS" : {
+                "file" : "lib/Module/Build/Platform/VOS.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::Default" : {
+                "file" : "lib/Module/Build/Platform/Default.pm",
+                "version" : "0.4231"
+             },
+             "Module::Build::Platform::os2" : {
+                "file" : "lib/Module/Build/Platform/os2.pm",
+                "version" : "0.4231"
+             }
+          },
+          "name" : "Module-Build",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "ExtUtils::Install" : "0.3",
+                   "ExtUtils::Manifest" : "1.54"
+                },
+                "requires" : {
+                   "Pod::Man" : "2.17",
+                   "File::Compare" : "0",
+                   "Perl::OSType" : "1",
+                   "Text::ParseWords" : "0",
+                   "Cwd" : "0",
+                   "Data::Dumper" : "0",
+                   "ExtUtils::ParseXS" : "2.21",
+                   "ExtUtils::Manifest" : "0",
+                   "version" : "0.87",
+                   "CPAN::Meta" : "2.142060",
+                   "ExtUtils::Install" : "0",
+                   "Getopt::Long" : "0",
+                   "ExtUtils::CBuilder" : "0.27",
+                   "File::Basename" : "0",
+                   "File::Copy" : "0",
+                   "ExtUtils::Mkbootstrap" : "0",
+                   "perl" : "5.006001",
+                   "TAP::Harness" : "3.29",
+                   "Text::Abbrev" : "0",
+                   "Module::Metadata" : "1.000002",
+                   "File::Find" : "0",
+                   "File::Path" : "0",
+                   "File::Spec" : "0.82"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "TAP::Harness" : "3.29",
+                   "Parse::CPAN::Meta" : "1.4401",
+                   "CPAN::Meta::YAML" : "0.003",
+                   "Test::More" : "0.49",
+                   "File::Temp" : "0.15"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "File::Spec" : "0.82",
+                   "CPAN::Meta" : "2.142060",
+                   "version" : "0.87",
+                   "File::Path" : "0",
+                   "Module::Metadata" : "1.000002",
+                   "File::Copy" : "0",
+                   "File::Basename" : "0",
+                   "Perl::OSType" : "1"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "0.4231",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "Ken Williams <kwilliams@cpan.org>",
+             "Module-Build mailing list at <module-build@perl.org>."
+          ],
+          "abstract" : "Build and install Perl modules",
+          "generated_by" : "Module::Build version 0.4231, CPAN::Meta::Converter version 2.150010"
+       },
+       "maturity" : "released",
+       "first" : false,
+       "date" : "2020-01-29T07:52:41",
+       "provides" : [
+          "Module::Build",
+          "Module::Build::Base",
+          "Module::Build::Compat",
+          "Module::Build::Config",
+          "Module::Build::Cookbook",
+          "Module::Build::Dumper",
+          "Module::Build::Notes",
+          "Module::Build::PPMMaker",
+          "Module::Build::Platform::Default",
+          "Module::Build::Platform::MacOS",
+          "Module::Build::Platform::Unix",
+          "Module::Build::Platform::VMS",
+          "Module::Build::Platform::VOS",
+          "Module::Build::Platform::Windows",
+          "Module::Build::Platform::aix",
+          "Module::Build::Platform::cygwin",
+          "Module::Build::Platform::darwin",
+          "Module::Build::Platform::os2",
+          "Module::Build::PodParser"
+       ],
+       "dependency" : [
+          {
+             "version" : "0.003",
+             "phase" : "test",
+             "module" : "CPAN::Meta::YAML",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.15",
+             "module" : "File::Temp",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Parse::CPAN::Meta",
+             "phase" : "test",
+             "version" : "1.4401"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "3.29",
+             "phase" : "test",
+             "module" : "TAP::Harness"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.49",
+             "module" : "Test::More",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Copy"
+          },
+          {
+             "version" : "1.000002",
+             "phase" : "configure",
+             "module" : "Module::Metadata",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "CPAN::Meta",
+             "version" : "2.142060"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Path"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "File::Spec",
+             "version" : "0.82"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Basename",
+             "phase" : "configure"
+          },
+          {
+             "version" : "1",
+             "phase" : "configure",
+             "module" : "Perl::OSType",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.87",
+             "phase" : "configure",
+             "module" : "version"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Compare",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.27",
+             "module" : "ExtUtils::CBuilder",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Metadata",
+             "phase" : "runtime",
+             "version" : "1.000002"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Text::ParseWords",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Getopt::Long"
+          },
+          {
+             "module" : "File::Find",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "2.21",
+             "module" : "ExtUtils::ParseXS",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Text::Abbrev",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "ExtUtils::Mkbootstrap",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Basename",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Copy",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "module" : "ExtUtils::Install",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "3.29",
+             "phase" : "runtime",
+             "module" : "TAP::Harness",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "CPAN::Meta",
+             "phase" : "runtime",
+             "version" : "2.142060"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006001",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "module" : "ExtUtils::Manifest",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "2.17",
+             "phase" : "runtime",
+             "module" : "Pod::Man",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Path",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.82",
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Data::Dumper",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0.87",
+             "module" : "version",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Perl::OSType",
+             "version" : "1"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "ExtUtils::Install",
+             "phase" : "runtime",
+             "version" : "0.3"
+          },
+          {
+             "version" : "1.54",
+             "module" : "ExtUtils::Manifest",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          }
+       ],
+       "name" : "Module-Build-0.4231",
+       "authorized" : true,
+       "checksum_sha256" : "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717",
+       "abstract" : "Build and install Perl modules",
+       "changes_file" : "Changes",
+       "version" : "0.4231",
+       "status" : "latest",
+       "main_module" : "Module::Build"
+    }

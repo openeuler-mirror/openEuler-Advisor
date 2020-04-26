@@ -1,0 +1,171 @@
+---
+version_control: metacpan
+src_repo: IO-Socket-SSL
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:29.874016800 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.068.tar.gz",
+       "author" : "SULLR",
+       "stat" : {
+          "mtime" : 1585635339,
+          "size" : 248709,
+          "mode" : 33188
+       },
+       "deprecated" : false,
+       "distribution" : "IO-Socket-SSL",
+       "id" : "85CwmI6g7kPZaST_yld_Yohhtic",
+       "version_numified" : 2.068,
+       "tests" : {
+          "fail" : 6,
+          "na" : 0,
+          "pass" : 587,
+          "unknown" : 5
+       },
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/noxxi/p5-io-socket-ssl"
+          },
+          "homepage" : "https://github.com/noxxi/p5-io-socket-ssl",
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Dist/Display.html?Queue=IO-Socket-SSL"
+          }
+       },
+       "archive" : "IO-Socket-SSL-2.068.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "4230c829c8875889848093b2b46a7284",
+       "changes_file" : "Changes",
+       "abstract" : "Nearly transparent SSL encapsulation for IO::Socket::INET.",
+       "main_module" : "IO::Socket::SSL",
+       "status" : "latest",
+       "version" : "2.068",
+       "maturity" : "released",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "author" : [
+             "Steffen Ullrich <sullr@cpan.org>, Peter Behroozi, Marko Asplund"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Nearly transparent SSL encapsulation for IO::Socket::INET.",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "Net::SSLeay" : "1.46"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Mozilla::CA" : "0",
+                   "Scalar::Util" : "0",
+                   "Net::SSLeay" : "1.46"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "2.068",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/noxxi/p5-io-socket-ssl"
+             },
+             "homepage" : "https://github.com/noxxi/p5-io-socket-ssl",
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Dist/Display.html?Queue=IO-Socket-SSL"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "IO-Socket-SSL"
+       },
+       "authorized" : true,
+       "checksum_sha256" : "4420fc0056f1827b4dd1245eacca0da56e2182b4ef6fc078f107dc43c3fb8ff9",
+       "name" : "IO-Socket-SSL-2.068",
+       "provides" : [
+          "IO::Socket::SSL",
+          "IO::Socket::SSL::Intercept",
+          "IO::Socket::SSL::OCSP_Cache",
+          "IO::Socket::SSL::OCSP_Resolver",
+          "IO::Socket::SSL::PublicSuffix",
+          "IO::Socket::SSL::SSL_Context",
+          "IO::Socket::SSL::SSL_HANDLE",
+          "IO::Socket::SSL::Session_Cache",
+          "IO::Socket::SSL::Utils"
+       ],
+       "date" : "2020-03-31T06:15:39",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Scalar::Util"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Mozilla::CA",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Net::SSLeay",
+             "phase" : "runtime",
+             "version" : "1.46"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "Net::SSLeay",
+             "version" : "1.46"
+          }
+       ],
+       "first" : false
+    }

@@ -1,0 +1,4 @@
+version_control: gitlab.gnome
+src_repo:  gobject-intrtion
+tag_prefix: ^v
+seperator: .

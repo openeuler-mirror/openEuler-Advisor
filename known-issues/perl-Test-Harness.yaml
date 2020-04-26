@@ -1,0 +1,190 @@
+---
+version_control: metacpan
+src_repo: Test-Harness
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 06:57:44.523430440 +00:00
+  raw_data: |
+    {
+       "version" : "3.42",
+       "status" : "latest",
+       "main_module" : "Test::Harness",
+       "abstract" : "contributing to TAP::Harness",
+       "changes_file" : "Changes",
+       "provides" : [
+          "App::Prove",
+          "App::Prove::State",
+          "App::Prove::State::Result",
+          "App::Prove::State::Result::Test",
+          "TAP::Base",
+          "TAP::Formatter::Base",
+          "TAP::Formatter::Color",
+          "TAP::Formatter::Console",
+          "TAP::Formatter::Console::ParallelSession",
+          "TAP::Formatter::Console::Session",
+          "TAP::Formatter::File",
+          "TAP::Formatter::File::Session",
+          "TAP::Formatter::Session",
+          "TAP::Harness",
+          "TAP::Harness::Env",
+          "TAP::Object",
+          "TAP::Parser",
+          "TAP::Parser::Aggregator",
+          "TAP::Parser::Grammar",
+          "TAP::Parser::Iterator",
+          "TAP::Parser::Iterator::Array",
+          "TAP::Parser::Iterator::Process",
+          "TAP::Parser::Iterator::Stream",
+          "TAP::Parser::IteratorFactory",
+          "TAP::Parser::Multiplexer",
+          "TAP::Parser::Result",
+          "TAP::Parser::Result::Bailout",
+          "TAP::Parser::Result::Comment",
+          "TAP::Parser::Result::Plan",
+          "TAP::Parser::Result::Pragma",
+          "TAP::Parser::Result::Test",
+          "TAP::Parser::Result::Unknown",
+          "TAP::Parser::Result::Version",
+          "TAP::Parser::Result::YAML",
+          "TAP::Parser::ResultFactory",
+          "TAP::Parser::Scheduler",
+          "TAP::Parser::Scheduler::Job",
+          "TAP::Parser::Scheduler::Spinner",
+          "TAP::Parser::Source",
+          "TAP::Parser::SourceHandler",
+          "TAP::Parser::SourceHandler::Executable",
+          "TAP::Parser::SourceHandler::File",
+          "TAP::Parser::SourceHandler::Handle",
+          "TAP::Parser::SourceHandler::Perl",
+          "TAP::Parser::SourceHandler::RawTAP",
+          "TAP::Parser::YAMLish::Reader",
+          "TAP::Parser::YAMLish::Writer",
+          "Test::Harness"
+       ],
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Pod::Usage",
+             "version" : "1.12",
+             "relationship" : "recommends"
+          }
+       ],
+       "date" : "2018-03-19T18:30:19",
+       "name" : "Test-Harness-3.42",
+       "authorized" : true,
+       "checksum_sha256" : "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53",
+       "metadata" : {
+          "resources" : {
+             "homepage" : "http://testanything.org/",
+             "repository" : {
+                "url" : "http://github.com/Perl-Toolchain-Gang/Test-Harness/tree/master"
+             },
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Test-Harness"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Test-Harness",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "Pod::Usage" : "1.12"
+                },
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "3.42",
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "keywords" : [
+             "TAP",
+             "test",
+             "harness",
+             "prove"
+          ],
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005"
+       },
+       "maturity" : "released",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1521484219,
+          "mode" : 33204,
+          "size" : 213232
+       },
+       "author" : "LEONT",
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz",
+       "checksum_md5" : "c794906473f88d6b74194e2d56f16bd6",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Test-Harness-3.42.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/Perl-Toolchain-Gang/Test-Harness/tree/master"
+          },
+          "homepage" : "http://testanything.org/",
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Test-Harness"
+          }
+       },
+       "tests" : {
+          "fail" : 33,
+          "na" : 0,
+          "pass" : 1813,
+          "unknown" : 0
+       },
+       "version_numified" : 3.42,
+       "id" : "BRzWTxJcGbRcx_oJoNWk7Hp8Kvw",
+       "distribution" : "Test-Harness"
+    }

@@ -1,0 +1,168 @@
+---
+version_control: metacpan
+src_repo: LWP-Protocol-https
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:42.772519440 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "b8943dfb7d187af63c36fc18ab15947d",
+       "main_module" : "LWP::Protocol::https",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/libwww-perl/lwp-protocol-https"
+          }
+       },
+       "author" : "OALDERS",
+       "archive" : "LWP-Protocol-https-6.07.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 6.07,
+       "checksum_sha256" : "522cc946cf84a1776304a5737a54b8822ec9e79b264d0ba0722a70473dbfb9e7",
+       "changes_file" : "Changes",
+       "tests" : {
+          "unknown" : 16,
+          "pass" : 6738,
+          "na" : 8,
+          "fail" : 410
+       },
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/libwww-perl/lwp-protocol-https"
+             },
+             "x_MailingList" : "mailto:libwww@perl.org"
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "LWP-Protocol-https",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::RequiresInternet" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Net::HTTPS" : "6",
+                   "perl" : "5.008001",
+                   "Mozilla::CA" : "20110101",
+                   "IO::Socket::SSL" : "1.54",
+                   "LWP::UserAgent" : "6.06"
+                }
+             }
+          },
+          "abstract" : "Provide https support for LWP::UserAgent",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "6.07"
+       },
+       "deprecated" : "false",
+       "id" : "yxo9Ix4LupcXLdPsQNxKxLbuwwE",
+       "version" : "6.07",
+       "stat" : {
+          "size" : 9184,
+          "mtime" : 1487558803,
+          "mode" : 33188
+       },
+       "authorized" : true,
+       "provides" : [
+          "LWP::Protocol::https",
+          "LWP::Protocol::https::Socket"
+       ],
+       "maturity" : "released",
+       "date" : "2017-02-20T02:46:43",
+       "name" : "LWP-Protocol-https-6.07",
+       "download_url" : "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.07.tar.gz",
+       "distribution" : "LWP-Protocol-https",
+       "status" : "latest",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "Test::RequiresInternet",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "LWP::UserAgent",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "6.06"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.008001",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "6",
+             "relationship" : "requires",
+             "module" : "Net::HTTPS"
+          },
+          {
+             "module" : "IO::Socket::SSL",
+             "version" : "1.54",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Mozilla::CA",
+             "phase" : "runtime",
+             "version" : "20110101",
+             "relationship" : "requires"
+          }
+       ],
+       "abstract" : "Provide https support for LWP::UserAgent"
+    }

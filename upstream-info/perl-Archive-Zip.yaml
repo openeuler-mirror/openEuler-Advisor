@@ -1,0 +1,244 @@
+---
+version_control: metacpan
+src_repo: Archive-Zip
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:32.633721750 +00:00
+  raw_data: |
+    {
+       "first" : false,
+       "abstract" : "Provide an interface to ZIP archive files.",
+       "dependency" : [
+          {
+             "module" : "File::Path",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Encode"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.80"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Find"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::Seekable"
+          },
+          {
+             "module" : "File::Temp",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Compress::Raw::Zlib",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "2.017"
+          },
+          {
+             "module" : "File::Basename",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Copy"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::Handle"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Time::Local"
+          },
+          {
+             "module" : "IO::File",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.88",
+             "relationship" : "requires"
+          }
+       ],
+       "distribution" : "Archive-Zip",
+       "status" : "latest",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.68.tar.gz",
+       "name" : "Archive-Zip-1.68",
+       "date" : "2020-03-12T17:59:46",
+       "maturity" : "released",
+       "version" : "1.68",
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1584035986,
+          "size" : 163490
+       },
+       "provides" : [
+          "Archive::Zip",
+          "Archive::Zip::Archive",
+          "Archive::Zip::BufferedFileHandle",
+          "Archive::Zip::DirectoryMember",
+          "Archive::Zip::FileMember",
+          "Archive::Zip::Member",
+          "Archive::Zip::MemberRead",
+          "Archive::Zip::MockFileHandle",
+          "Archive::Zip::NewFileMember",
+          "Archive::Zip::StringMember",
+          "Archive::Zip::Tree",
+          "Archive::Zip::ZipFileMember"
+       ],
+       "authorized" : true,
+       "id" : "fBUEQqG93zOZyk5BJF7G8OGuI0o",
+       "tests" : {
+          "fail" : 42,
+          "unknown" : 4,
+          "pass" : 884,
+          "na" : 0
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Archive-Zip",
+          "author" : [
+             "Ned Konz <perl@bike-nomad.com>"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/redhotpenguin/perl-Archive-Zip.git",
+                "type" : "git",
+                "web" : "https://github.com/redhotpenguin/perl-Archive-Zip"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/redhotpenguin/perl-Archive-Zip/issues"
+             }
+          },
+          "dynamic_config" : 0,
+          "x_serialization_backend" : "JSON::PP version 2.97000",
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.68",
+          "generated_by" : "ExtUtils::MakeMaker version 7.3, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "File::Basename" : "0",
+                   "IO::Seekable" : "0",
+                   "File::Path" : "0",
+                   "File::Spec" : "0.80",
+                   "IO::File" : "0",
+                   "File::Copy" : "0",
+                   "Compress::Raw::Zlib" : "2.017",
+                   "File::Temp" : "0",
+                   "File::Find" : "0",
+                   "IO::Handle" : "0",
+                   "Encode" : "0",
+                   "Time::Local" : "0"
+                }
+             }
+          },
+          "abstract" : "Provide an interface to ZIP archive files."
+       },
+       "checksum_sha256" : "984e185d785baf6129c6e75f8eb44411745ac00bf6122fb1c8e822a3861ec650",
+       "changes_file" : "Changes",
+       "author" : "PHRED",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Archive-Zip-1.68.tar.gz",
+       "version_numified" : 1.68,
+       "checksum_md5" : "a33993309322164867c99e04a4000ee3",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/redhotpenguin/perl-Archive-Zip.git",
+             "web" : "https://github.com/redhotpenguin/perl-Archive-Zip",
+             "type" : "git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/redhotpenguin/perl-Archive-Zip/issues"
+          }
+       },
+       "main_module" : "Archive::Zip"
+    }

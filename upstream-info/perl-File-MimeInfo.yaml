@@ -1,0 +1,198 @@
+---
+version_control: metacpan
+src_repo: File-MimeInfo
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:59.577217580 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "unknown" : 3,
+          "na" : 0,
+          "pass" : 1831,
+          "fail" : 403
+       },
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "release_status" : "stable",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/mbeijen/File-MimeInfo/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/mbeijen/File-MimeInfo"
+             }
+          },
+          "dynamic_config" : 1,
+          "name" : "File-MimeInfo",
+          "author" : [
+             "Jaap Karssenberg <pardus@cpan.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "abstract" : "Determine file types",
+          "generated_by" : "ExtUtils::MakeMaker version 7.18, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006001"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "File::DesktopEntry" : "0.04",
+                   "File::BaseDir" : "0.03",
+                   "Pod::Usage" : "0",
+                   "Fcntl" : "0",
+                   "Exporter" : "0",
+                   "Carp" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "x_contributors" : [
+             "Bernhard RosenkrÃ¤nzer <bero@lindev.ch>",
+             "Christian Ludwig <chrissicool@gmail.com>",
+             "David Steinbrunner <dsteinbrunner@pobox.com>",
+             "Jitka Plesnikova <jplesnik@redhat.com>",
+             "Jonathan Dowland <jmtd@debian.org>",
+             "Michiel Beijen <michiel.beijen@gmail.com>",
+             "Nitish Bezzala <nbezzala@yahoo.com>",
+             "Patrick Burroughs (Celti) <celti@celti.name>",
+             "Rudolf Leermakers <rudolf@hatsuseno.org>",
+             "Sean Smith <ssmith@ncsgraphics.com>",
+             "Stefan Seifert <nine@detonation.org>",
+             "brian m. carlson <sandals@crustytoothpaste.net>",
+             "gregor herrmann <gregoa@debian.org>"
+          ],
+          "version" : "0.29",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "deprecated" : false,
+       "version" : "0.29",
+       "stat" : {
+          "mtime" : 1533463064,
+          "size" : 33113,
+          "mode" : 33204
+       },
+       "provides" : [
+          "File::MimeInfo",
+          "File::MimeInfo::Applications",
+          "File::MimeInfo::Magic",
+          "File::MimeInfo::Rox"
+       ],
+       "authorized" : true,
+       "id" : "TL8n03P43SLEh3ClNG3c8WyKIWk",
+       "checksum_md5" : "cbd870b04c528eee2ad36706cd2d12d5",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/mbeijen/File-MimeInfo"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/mbeijen/File-MimeInfo/issues"
+          }
+       },
+       "main_module" : "File::MimeInfo",
+       "checksum_sha256" : "f1962779652eae1d5a6e722a5220e3c50465deac52bb8dea47e0fbcfb6c908ea",
+       "changes_file" : "Changes",
+       "archive" : "File-MimeInfo-0.29.tar.gz",
+       "author" : "MICHIELB",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 0.29,
+       "first" : false,
+       "abstract" : "Determine file types",
+       "dependency" : [
+          {
+             "module" : "Test::More",
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "requires",
+             "version" : "5.006001",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "6.30",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "Pod::Usage",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::DesktopEntry",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0.04"
+          },
+          {
+             "module" : "Fcntl",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Carp",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "module" : "File::BaseDir",
+             "phase" : "build",
+             "version" : "0.03",
+             "relationship" : "requires"
+          }
+       ],
+       "status" : "latest",
+       "distribution" : "File-MimeInfo",
+       "date" : "2018-08-05T09:57:44",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/File-MimeInfo-0.29.tar.gz",
+       "name" : "File-MimeInfo-0.29"
+    }

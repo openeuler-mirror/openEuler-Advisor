@@ -1,0 +1,283 @@
+---
+version_control: metacpan
+src_repo: Net-SNMP
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:45.022130140 +00:00
+  raw_data: |
+    {
+       "author" : "DTOWN",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DT/DTOWN/Net-SNMP-v6.0.1.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 94664,
+          "gid" : 1009,
+          "mtime" : 1284077752
+       },
+       "version_numified" : 6.000001,
+       "id" : "jRgnFmiP_LjzjQE0ocAWZkKXVys",
+       "distribution" : "Net-SNMP",
+       "checksum_md5" : "6137f04f9942d703f66179f890e3d096",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Net-SNMP-v6.0.1.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Net-SNMP"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "abstract" : "Object oriented interface to SNMP",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "version" : "v6.0.1",
+       "main_module" : "Net::SNMP",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "resources" : {
+             "x_CPANForum" : "http://www.cpanforum.com/dist/Net-SNMP",
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Net-SNMP"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Net-SNMP",
+          "provides" : {
+             "Net::SNMP::Dispatcher" : {
+                "file" : "lib/Net/SNMP/Dispatcher.pm",
+                "version" : "v4.0.1"
+             },
+             "Net::SNMP::MessageProcessing" : {
+                "file" : "lib/Net/SNMP/MessageProcessing.pm",
+                "version" : "v3.0.1"
+             },
+             "Net::SNMP::Transport::IPv4::TCP" : {
+                "version" : "v3.0.0",
+                "file" : "lib/Net/SNMP/Transport/IPv4/TCP.pm"
+             },
+             "Net::SNMP::Transport" : {
+                "version" : "v3.0.0",
+                "file" : "lib/Net/SNMP/Transport.pm"
+             },
+             "Net::SNMP::Transport::IPv6" : {
+                "file" : "lib/Net/SNMP/Transport/IPv6.pm",
+                "version" : "v1.0.0"
+             },
+             "Net::SNMP::Message" : {
+                "file" : "lib/Net/SNMP/Message.pm",
+                "version" : "v3.0.1"
+             },
+             "Net::SNMP::Security" : {
+                "version" : "v2.0.0",
+                "file" : "lib/Net/SNMP/Security.pm"
+             },
+             "Net::SNMP::Transport::IPv4::UDP" : {
+                "version" : "v4.0.0",
+                "file" : "lib/Net/SNMP/Transport/IPv4/UDP.pm"
+             },
+             "Net::SNMP::PDU" : {
+                "version" : "v3.0.1",
+                "file" : "lib/Net/SNMP/PDU.pm"
+             },
+             "Net::SNMP::Transport::IPv6::TCP" : {
+                "version" : "v3.0.0",
+                "file" : "lib/Net/SNMP/Transport/IPv6/TCP.pm"
+             },
+             "Net::SNMP::Transport::IPv6::UDP" : {
+                "file" : "lib/Net/SNMP/Transport/IPv6/UDP.pm",
+                "version" : "v3.0.0"
+             },
+             "Net::SNMP::Transport::IPv4" : {
+                "file" : "lib/Net/SNMP/Transport/IPv4.pm",
+                "version" : "v1.0.0"
+             },
+             "Net::SNMP::Security::Community" : {
+                "file" : "lib/Net/SNMP/Security/Community.pm",
+                "version" : "v2.0.0"
+             },
+             "Net::SNMP" : {
+                "file" : "lib/Net/SNMP.pm",
+                "version" : "v6.0.1"
+             },
+             "Net::SNMP::Security::USM" : {
+                "version" : "v4.0.1",
+                "file" : "lib/Net/SNMP/Security/USM.pm"
+             }
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "David M. Town <dtown@cpan.org>"
+          ],
+          "generated_by" : "Module::Build version 0.3607, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Object oriented interface to SNMP",
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Test" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "Digest::MD5" : "2.11",
+                   "Digest::SHA1" : "1.02",
+                   "Socket6" : "0.23",
+                   "Digest::HMAC" : "1.00",
+                   "Crypt::Rijndael" : "1.02",
+                   "Crypt::DES" : "2.03"
+                },
+                "requires" : {
+                   "perl" : "5.006",
+                   "Carp" : "0",
+                   "Errno" : "0",
+                   "Math::BigInt" : "0",
+                   "Exporter" : "0",
+                   "IO::Socket" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0.36"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "v6.0.1"
+       },
+       "maturity" : "released",
+       "provides" : [
+          "Net::SNMP",
+          "Net::SNMP::Dispatcher",
+          "Net::SNMP::Message",
+          "Net::SNMP::MessageProcessing",
+          "Net::SNMP::PDU",
+          "Net::SNMP::Security",
+          "Net::SNMP::Security::Community",
+          "Net::SNMP::Security::USM",
+          "Net::SNMP::Transport",
+          "Net::SNMP::Transport::IPv4",
+          "Net::SNMP::Transport::IPv4::TCP",
+          "Net::SNMP::Transport::IPv4::UDP",
+          "Net::SNMP::Transport::IPv6",
+          "Net::SNMP::Transport::IPv6::TCP",
+          "Net::SNMP::Transport::IPv6::UDP"
+       ],
+       "date" : "2010-09-10T00:15:52",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "Module::Build",
+             "version" : "0.36"
+          },
+          {
+             "version" : "0",
+             "module" : "Math::BigInt",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::Socket"
+          },
+          {
+             "module" : "Errno",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Exporter"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "1.02",
+             "module" : "Digest::SHA1",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "Digest::HMAC",
+             "phase" : "runtime",
+             "version" : "1.00"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "Crypt::Rijndael",
+             "phase" : "runtime",
+             "version" : "1.02"
+          },
+          {
+             "relationship" : "recommends",
+             "phase" : "runtime",
+             "module" : "Crypt::DES",
+             "version" : "2.03"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Digest::MD5",
+             "version" : "2.11",
+             "relationship" : "recommends"
+          },
+          {
+             "module" : "Socket6",
+             "phase" : "runtime",
+             "version" : "0.23",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test",
+             "phase" : "build"
+          }
+       ],
+       "name" : "Net-SNMP-v6.0.1",
+       "authorized" : true,
+       "checksum_sha256" : "14c37bc1cbb3f3cdc7d6c13e0f27a859f14cdcfd5ea54a0467a88bc259b0b741"
+    }

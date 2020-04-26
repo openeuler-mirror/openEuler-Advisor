@@ -1,0 +1,161 @@
+---
+version_control: metacpan
+src_repo: Pod-Escapes
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:48.319207280 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "name" : "Pod-Escapes",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/neilbowers/Pod-Escapes.git",
+                "web" : "https://github.com/neilbowers/Pod-Escapes"
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "1.07",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Exporter" : "0",
+                   "strict" : "0",
+                   "vars" : "0",
+                   "warnings" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.02, CPAN::Meta::Converter version 2.143240, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "unknown",
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ]
+       },
+       "maturity" : "released",
+       "date" : "2014-12-09T21:35:04",
+       "first" : false,
+       "provides" : [
+          "Pod::Escapes"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "strict",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "vars",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Pod-Escapes-1.07",
+       "checksum_sha256" : "dbf7c827984951fb248907f940fd8f19f2696bc5545c0a15287e0fbe56a52308",
+       "authorized" : true,
+       "abstract" : "for resolving Pod Elt...gt sequences",
+       "changes_file" : "Changes",
+       "version" : "1.07",
+       "status" : "latest",
+       "main_module" : "Pod::Escapes",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 2131,
+          "unknown" : 32
+       },
+       "version_numified" : 1.07,
+       "id" : "r0TXxOCCr2Y9_0MQwhKlx8PIgzM",
+       "distribution" : "Pod-Escapes",
+       "checksum_md5" : "7d0c0470284733eca869cb5d146ab372",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Pod-Escapes-1.07.tar.gz",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/neilbowers/Pod-Escapes",
+             "url" : "git://github.com/neilbowers/Pod-Escapes.git",
+             "type" : "git"
+          }
+       },
+       "author" : "NEILB",
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-Escapes-1.07.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "gid" : 1009,
+          "size" : 11652,
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1418160904
+       }
+    }

@@ -1,0 +1,226 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-InstallPaths
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:31.522948150 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "metadata" : {
+          "release_status" : "stable",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "ExtUtils::Config" : "0.002",
+                   "strict" : "0",
+                   "perl" : "5.006",
+                   "Carp" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "File::Spec::Functions" : "0.83",
+                   "File::Temp" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::Pod" : "1.41",
+                   "Test::Pod::Coverage" : "1.08",
+                   "Pod::Coverage::TrustPod" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "version" : "0.012",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 0,
+          "author" : [
+             "Ken Williams <kwilliams@cpan.org>",
+             "Leon Timmermans <leont@cpan.org>"
+          ],
+          "generated_by" : "Dist::Zilla version 6.010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Build.PL install path logic made easy",
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0215",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=ExtUtils-InstallPaths",
+                "mailto" : "bug-extutils-installpaths at rt.cpan.org"
+             },
+             "repository" : {
+                "web" : "https://github.com/Leont/extutils-installpaths",
+                "type" : "git",
+                "url" : "git://github.com/Leont/extutils-installpaths.git"
+             }
+          },
+          "provides" : {
+             "ExtUtils::InstallPaths" : {
+                "version" : "0.012",
+                "file" : "lib/ExtUtils/InstallPaths.pm"
+             }
+          },
+          "name" : "ExtUtils-InstallPaths",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "authorized" : true,
+       "checksum_sha256" : "84735e3037bab1fdffa3c2508567ad412a785c91599db3c12593a50a1dd434ed",
+       "first" : false,
+       "date" : "2018-05-10T19:04:12",
+       "provides" : [
+          "ExtUtils::InstallPaths"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "version" : "1.41"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage",
+             "version" : "1.08"
+          },
+          {
+             "module" : "Pod::Coverage::TrustPod",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Temp",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.83",
+             "module" : "File::Spec::Functions",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Carp",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.002",
+             "module" : "ExtUtils::Config",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          }
+       ],
+       "name" : "ExtUtils-InstallPaths-0.012",
+       "changes_file" : "Changes",
+       "abstract" : "Build.PL install path logic made easy",
+       "version" : "0.012",
+       "status" : "latest",
+       "main_module" : "ExtUtils::InstallPaths",
+       "id" : "VCK6JMbxKnybAtVP2DPWD7vh4ps",
+       "distribution" : "ExtUtils-InstallPaths",
+       "tests" : {
+          "unknown" : 4,
+          "pass" : 5886,
+          "na" : 0,
+          "fail" : 5
+       },
+       "version_numified" : 0.012,
+       "archive" : "ExtUtils-InstallPaths-0.012.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/Leont/extutils-installpaths.git",
+             "type" : "git",
+             "web" : "https://github.com/Leont/extutils-installpaths"
+          },
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=ExtUtils-InstallPaths",
+             "mailto" : "bug-extutils-installpaths at rt.cpan.org"
+          }
+       },
+       "checksum_md5" : "9a8d66aab1ffec98ea260faf03ac612b",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "LEONT",
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-InstallPaths-0.012.tar.gz",
+       "stat" : {
+          "mtime" : 1525979052,
+          "mode" : 33204,
+          "size" : 17991
+       },
+       "deprecated" : false
+    }

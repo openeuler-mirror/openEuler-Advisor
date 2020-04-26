@@ -1,0 +1,4619 @@
+---
+version_control: metacpan
+src_repo: Date-Manip
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:39.350304870 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "stat" : {
+          "size" : 2016495,
+          "mode" : 33188,
+          "mtime" : 1583159291
+       },
+       "date" : "2020-03-02T14:28:11",
+       "checksum_sha256" : "044c319e2213dad73abd32b7f731bf4593d1e9fa96024bdc6b6475a2e768949b",
+       "metadata" : {
+          "author" : [
+             "Sullivan Beck (sbeck@cpan.org)"
+          ],
+          "version" : "6.81",
+          "abstract" : "Date manipulation routines",
+          "name" : "Date-Manip",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::Inter" : "1.09"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.67_01"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "utf8" : "0",
+                   "Encode" : "0",
+                   "Carp" : "0",
+                   "File::Spec" : "0",
+                   "File::Find" : "0",
+                   "perl" : "5.006",
+                   "Storable" : "0",
+                   "IO::File" : "0",
+                   "Cwd" : "0",
+                   "Data::Dumper" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "provides" : {
+             "Date::Manip::TZ::amvinc00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amvinc00.pm"
+             },
+             "Date::Manip::TZ::n00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/n00.pm"
+             },
+             "Date::Manip::Offset::off113" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off113.pm"
+             },
+             "Date::Manip::Offset::off034" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off034.pm"
+             },
+             "Date::Manip::Offset::off406" : {
+                "file" : "lib/Date/Manip/Offset/off406.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off436" : {
+                "file" : "lib/Date/Manip/Offset/off436.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::b00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/b00.pm"
+             },
+             "Date::Manip::TZ::paeast00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/paeast00.pm"
+             },
+             "Date::Manip::TZ::ammont01" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammont01.pm"
+             },
+             "Date::Manip::TZ::m00" : {
+                "file" : "lib/Date/Manip/TZ/m00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pafaka00" : {
+                "file" : "lib/Date/Manip/TZ/pafaka00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off293" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off293.pm"
+             },
+             "Date::Manip::Offset::off419" : {
+                "file" : "lib/Date/Manip/Offset/off419.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off149" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off149.pm"
+             },
+             "Date::Manip::Offset::off167" : {
+                "file" : "lib/Date/Manip/Offset/off167.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aubris00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aubris00.pm"
+             },
+             "Date::Manip::TZ::antrol00" : {
+                "file" : "lib/Date/Manip/TZ/antrol00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::anroth00" : {
+                "file" : "lib/Date/Manip/TZ/anroth00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off414" : {
+                "file" : "lib/Date/Manip/Offset/off414.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off206" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off206.pm"
+             },
+             "Date::Manip::TZ::asmaca00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asmaca00.pm"
+             },
+             "Date::Manip::Offset::off068" : {
+                "file" : "lib/Date/Manip/Offset/off068.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amport01" : {
+                "file" : "lib/Date/Manip/TZ/amport01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off384" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off384.pm"
+             },
+             "Date::Manip::TZ::afabid00" : {
+                "file" : "lib/Date/Manip/TZ/afabid00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off261" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off261.pm"
+             },
+             "Date::Manip::Offset::off009" : {
+                "file" : "lib/Date/Manip/Offset/off009.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off078" : {
+                "file" : "lib/Date/Manip/Offset/off078.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::afjoha00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afjoha00.pm"
+             },
+             "Date::Manip::TZ::amthun00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amthun00.pm"
+             },
+             "Date::Manip::TZ::ambois00" : {
+                "file" : "lib/Date/Manip/TZ/ambois00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off091" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off091.pm"
+             },
+             "Date::Manip::Offset::off383" : {
+                "file" : "lib/Date/Manip/Offset/off383.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::assred00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/assred00.pm"
+             },
+             "Date::Manip::TZ::paende00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/paende00.pm"
+             },
+             "Date::Manip::TZ::ammace00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammace00.pm"
+             },
+             "Date::Manip::Delta" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Delta.pm"
+             },
+             "Date::Manip::Offset::off251" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off251.pm"
+             },
+             "Date::Manip::Offset::off026" : {
+                "file" : "lib/Date/Manip/Offset/off026.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::DM5" : {
+                "file" : "lib/Date/Manip/DM5.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off067" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off067.pm"
+             },
+             "Date::Manip::TZ::eubrus00" : {
+                "file" : "lib/Date/Manip/TZ/eubrus00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::anpalm00" : {
+                "file" : "lib/Date/Manip/TZ/anpalm00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off104" : {
+                "file" : "lib/Date/Manip/Offset/off104.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off082" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off082.pm"
+             },
+             "Date::Manip::TZ::etgmtp04" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp04.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off337" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off337.pm"
+             },
+             "Date::Manip::TZ::amyaku00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amyaku00.pm"
+             },
+             "Date::Manip::TZ::amcura00" : {
+                "file" : "lib/Date/Manip/TZ/amcura00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::patahi00" : {
+                "file" : "lib/Date/Manip/TZ/patahi00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amcanc00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amcanc00.pm"
+             },
+             "Date::Manip::TZ::amdaws01" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amdaws01.pm"
+             },
+             "Date::Manip::Offset::off298" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off298.pm"
+             },
+             "Date::Manip::TZ::amphoe00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amphoe00.pm"
+             },
+             "Date::Manip::TZ::amport00" : {
+                "file" : "lib/Date/Manip/TZ/amport00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off142" : {
+                "file" : "lib/Date/Manip/Offset/off142.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammana00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammana00.pm"
+             },
+             "Date::Manip::TZ::amtucu00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amtucu00.pm"
+             },
+             "Date::Manip::TZ::etgmtp00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtp00.pm"
+             },
+             "Date::Manip::Offset::off025" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off025.pm"
+             },
+             "Date::Manip::Offset::off312" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off312.pm"
+             },
+             "Date::Manip::TZ::asyeka00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asyeka00.pm"
+             },
+             "Date::Manip::Offset::off364" : {
+                "file" : "lib/Date/Manip/Offset/off364.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::askabu00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askabu00.pm"
+             },
+             "Date::Manip::TZ::eutira00" : {
+                "file" : "lib/Date/Manip/TZ/eutira00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off029" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off029.pm"
+             },
+             "Date::Manip::Offset::off386" : {
+                "file" : "lib/Date/Manip/Offset/off386.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off403" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off403.pm"
+             },
+             "Date::Manip::TZ::amsant00" : {
+                "file" : "lib/Date/Manip/TZ/amsant00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amtiju00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amtiju00.pm"
+             },
+             "Date::Manip::Offset::off415" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off415.pm"
+             },
+             "Date::Manip::TZ::eubuch00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eubuch00.pm"
+             },
+             "Date::Manip::TZ::paboug00" : {
+                "file" : "lib/Date/Manip/TZ/paboug00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asqost00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asqost00.pm"
+             },
+             "Date::Manip::TZ::amreci00" : {
+                "file" : "lib/Date/Manip/TZ/amreci00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off255" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off255.pm"
+             },
+             "Date::Manip::Offset::off105" : {
+                "file" : "lib/Date/Manip/Offset/off105.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off291" : {
+                "file" : "lib/Date/Manip/Offset/off291.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amgodt00" : {
+                "file" : "lib/Date/Manip/TZ/amgodt00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eulond00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eulond00.pm"
+             },
+             "Date::Manip::Offset::off270" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off270.pm"
+             },
+             "Date::Manip::TZ::etgmtp05" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp05.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::inmald00" : {
+                "file" : "lib/Date/Manip/TZ/inmald00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eusara00" : {
+                "file" : "lib/Date/Manip/TZ/eusara00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off202" : {
+                "file" : "lib/Date/Manip/Offset/off202.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off042" : {
+                "file" : "lib/Date/Manip/Offset/off042.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ampunt00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ampunt00.pm"
+             },
+             "Date::Manip::TZ::anmaws00" : {
+                "file" : "lib/Date/Manip/TZ/anmaws00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amojin00" : {
+                "file" : "lib/Date/Manip/TZ/amojin00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm05" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm05.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off220" : {
+                "file" : "lib/Date/Manip/Offset/off220.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ_Base" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ_Base.pm"
+             },
+             "Date::Manip::TZ::asbang00" : {
+                "file" : "lib/Date/Manip/TZ/asbang00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::askolk00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askolk00.pm"
+             },
+             "Date::Manip::Offset::off408" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off408.pm"
+             },
+             "Date::Manip::Offset::off366" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off366.pm"
+             },
+             "Date::Manip::Offset::off193" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off193.pm"
+             },
+             "Date::Manip::Offset::off347" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off347.pm"
+             },
+             "Date::Manip::Offset::off148" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off148.pm"
+             },
+             "Date::Manip::TZ::aubrok00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aubrok00.pm"
+             },
+             "Date::Manip::Offset::off218" : {
+                "file" : "lib/Date/Manip/Offset/off218.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off421" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off421.pm"
+             },
+             "Date::Manip::TZ::amasun00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amasun00.pm"
+             },
+             "Date::Manip::TZ::amanch00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amanch00.pm"
+             },
+             "Date::Manip::Offset::off375" : {
+                "file" : "lib/Date/Manip/Offset/off375.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::paefat00" : {
+                "file" : "lib/Date/Manip/TZ/paefat00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off069" : {
+                "file" : "lib/Date/Manip/Offset/off069.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off232" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off232.pm"
+             },
+             "Date::Manip::Offset::off246" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off246.pm"
+             },
+             "Date::Manip::Base" : {
+                "file" : "lib/Date/Manip/Base.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asirku00" : {
+                "file" : "lib/Date/Manip/TZ/asirku00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off137" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off137.pm"
+             },
+             "Date::Manip::Offset::off248" : {
+                "file" : "lib/Date/Manip/Offset/off248.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off213" : {
+                "file" : "lib/Date/Manip/Offset/off213.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off236" : {
+                "file" : "lib/Date/Manip/Offset/off236.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off267" : {
+                "file" : "lib/Date/Manip/Offset/off267.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eucope00" : {
+                "file" : "lib/Date/Manip/TZ/eucope00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off269" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off269.pm"
+             },
+             "Date::Manip::TZ::amdanm00" : {
+                "file" : "lib/Date/Manip/TZ/amdanm00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amushu00" : {
+                "file" : "lib/Date/Manip/TZ/amushu00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtp08" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp08.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off028" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off028.pm"
+             },
+             "Date::Manip::TZ::asdhak00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asdhak00.pm"
+             },
+             "Date::Manip::Offset::off106" : {
+                "file" : "lib/Date/Manip/Offset/off106.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amwinn00" : {
+                "file" : "lib/Date/Manip/TZ/amwinn00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off374" : {
+                "file" : "lib/Date/Manip/Offset/off374.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off197" : {
+                "file" : "lib/Date/Manip/Offset/off197.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off094" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off094.pm"
+             },
+             "Date::Manip::TZ::amrio_00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amrio_00.pm"
+             },
+             "Date::Manip::Offset::off153" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off153.pm"
+             },
+             "Date::Manip::Offset::off398" : {
+                "file" : "lib/Date/Manip/Offset/off398.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amtell00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amtell00.pm"
+             },
+             "Date::Manip::Lang::danish" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/danish.pm"
+             },
+             "Date::Manip::TZ::ammont00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammont00.pm"
+             },
+             "Date::Manip::Offset::off053" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off053.pm"
+             },
+             "Date::Manip::TZ::w00" : {
+                "file" : "lib/Date/Manip/TZ/w00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::afnair00" : {
+                "file" : "lib/Date/Manip/TZ/afnair00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off439" : {
+                "file" : "lib/Date/Manip/Offset/off439.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off223" : {
+                "file" : "lib/Date/Manip/Offset/off223.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off417" : {
+                "file" : "lib/Date/Manip/Offset/off417.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off344" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off344.pm"
+             },
+             "Date::Manip::Offset::off079" : {
+                "file" : "lib/Date/Manip/Offset/off079.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::met00" : {
+                "file" : "lib/Date/Manip/TZ/met00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atfaro00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/atfaro00.pm"
+             },
+             "Date::Manip::TZ::pamarq00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pamarq00.pm"
+             },
+             "Date::Manip::TZ::amrank00" : {
+                "file" : "lib/Date/Manip/TZ/amrank00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aucurr00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aucurr00.pm"
+             },
+             "Date::Manip::Offset::off103" : {
+                "file" : "lib/Date/Manip/Offset/off103.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amknox00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amknox00.pm"
+             },
+             "Date::Manip::Offset::off047" : {
+                "file" : "lib/Date/Manip/Offset/off047.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atstan00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/atstan00.pm"
+             },
+             "Date::Manip::Offset::off214" : {
+                "file" : "lib/Date/Manip/Offset/off214.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off124" : {
+                "file" : "lib/Date/Manip/Offset/off124.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off238" : {
+                "file" : "lib/Date/Manip/Offset/off238.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amguay00" : {
+                "file" : "lib/Date/Manip/TZ/amguay00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eurome00" : {
+                "file" : "lib/Date/Manip/TZ/eurome00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off170" : {
+                "file" : "lib/Date/Manip/Offset/off170.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::index" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/index.pm"
+             },
+             "Date::Manip::Offset::off196" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off196.pm"
+             },
+             "Date::Manip::Lang::norwegian" : {
+                "file" : "lib/Date/Manip/Lang/norwegian.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::d00" : {
+                "file" : "lib/Date/Manip/TZ/d00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off228" : {
+                "file" : "lib/Date/Manip/Offset/off228.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aspyon00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aspyon00.pm"
+             },
+             "Date::Manip::Offset::off164" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off164.pm"
+             },
+             "Date::Manip::Offset::off343" : {
+                "file" : "lib/Date/Manip/Offset/off343.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off396" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off396.pm"
+             },
+             "Date::Manip::TZ::asyaku00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asyaku00.pm"
+             },
+             "Date::Manip::Offset::off285" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off285.pm"
+             },
+             "Date::Manip::Offset::off370" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off370.pm"
+             },
+             "Date::Manip::Offset::off065" : {
+                "file" : "lib/Date/Manip/Offset/off065.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off397" : {
+                "file" : "lib/Date/Manip/Offset/off397.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off032" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off032.pm"
+             },
+             "Date::Manip::Offset::off174" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off174.pm"
+             },
+             "Date::Manip::TZ::amregi00" : {
+                "file" : "lib/Date/Manip/TZ/amregi00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::afel_a00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afel_a00.pm"
+             },
+             "Date::Manip::TZ::eukiro00" : {
+                "file" : "lib/Date/Manip/TZ/eukiro00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ambeul00" : {
+                "file" : "lib/Date/Manip/TZ/ambeul00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off006" : {
+                "file" : "lib/Date/Manip/Offset/off006.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::askamc00" : {
+                "file" : "lib/Date/Manip/TZ/askamc00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amsant01" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amsant01.pm"
+             },
+             "Date::Manip::Offset::off147" : {
+                "file" : "lib/Date/Manip/Offset/off147.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off333" : {
+                "file" : "lib/Date/Manip/Offset/off333.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off107" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off107.pm"
+             },
+             "Date::Manip::Offset::off242" : {
+                "file" : "lib/Date/Manip/Offset/off242.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aulind00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aulind00.pm"
+             },
+             "Date::Manip::TZ::euvolg00" : {
+                "file" : "lib/Date/Manip/TZ/euvolg00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::assing00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/assing00.pm"
+             },
+             "Date::Manip::Offset::off254" : {
+                "file" : "lib/Date/Manip/Offset/off254.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtp03" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtp03.pm"
+             },
+             "Date::Manip::Offset::off240" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off240.pm"
+             },
+             "Date::Manip::TZ::amcata00" : {
+                "file" : "lib/Date/Manip/TZ/amcata00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::askara00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askara00.pm"
+             },
+             "Date::Manip::TZ::ammaza00" : {
+                "file" : "lib/Date/Manip/TZ/ammaza00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::askath00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askath00.pm"
+             },
+             "Date::Manip::Offset::off186" : {
+                "file" : "lib/Date/Manip/Offset/off186.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off377" : {
+                "file" : "lib/Date/Manip/Offset/off377.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::french" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/french.pm"
+             },
+             "Date::Manip::TZ::aumelb00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aumelb00.pm"
+             },
+             "Date::Manip::Offset::off045" : {
+                "file" : "lib/Date/Manip/Offset/off045.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asurum00" : {
+                "file" : "lib/Date/Manip/TZ/asurum00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eudubl00" : {
+                "file" : "lib/Date/Manip/TZ/eudubl00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off327" : {
+                "file" : "lib/Date/Manip/Offset/off327.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ampete00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ampete00.pm"
+             },
+             "Date::Manip::Offset::off331" : {
+                "file" : "lib/Date/Manip/Offset/off331.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off020" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off020.pm"
+             },
+             "Date::Manip::TZ::ambarb00" : {
+                "file" : "lib/Date/Manip/TZ/ambarb00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amcara00" : {
+                "file" : "lib/Date/Manip/TZ/amcara00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off075" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off075.pm"
+             },
+             "Date::Manip::Offset::off294" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off294.pm"
+             },
+             "Date::Manip::Offset::off247" : {
+                "file" : "lib/Date/Manip/Offset/off247.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asfama00" : {
+                "file" : "lib/Date/Manip/TZ/asfama00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euberl00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euberl00.pm"
+             },
+             "Date::Manip::TZ::ammata00" : {
+                "file" : "lib/Date/Manip/TZ/ammata00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off076" : {
+                "file" : "lib/Date/Manip/Offset/off076.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::p00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/p00.pm"
+             },
+             "Date::Manip::Offset::off141" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off141.pm"
+             },
+             "Date::Manip::Offset::off280" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off280.pm"
+             },
+             "Date::Manip::TZ::pawall00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pawall00.pm"
+             },
+             "Date::Manip::TZ::ashong00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ashong00.pm"
+             },
+             "Date::Manip::TZ::eumosc00" : {
+                "file" : "lib/Date/Manip/TZ/eumosc00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off189" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off189.pm"
+             },
+             "Date::Manip::DM5abbrevs" : {
+                "file" : "lib/Date/Manip/DM5abbrevs.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::papohn00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/papohn00.pm"
+             },
+             "Date::Manip::Offset::off021" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off021.pm"
+             },
+             "Date::Manip::Offset::off200" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off200.pm"
+             },
+             "Date::Manip::Offset::off256" : {
+                "file" : "lib/Date/Manip/Offset/off256.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off281" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off281.pm"
+             },
+             "Date::Manip::TZ::asseou00" : {
+                "file" : "lib/Date/Manip/TZ/asseou00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amcamp00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amcamp00.pm"
+             },
+             "Date::Manip::TZ::amcamb00" : {
+                "file" : "lib/Date/Manip/TZ/amcamb00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off260" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off260.pm"
+             },
+             "Date::Manip::Offset::off198" : {
+                "file" : "lib/Date/Manip/Offset/off198.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off040" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off040.pm"
+             },
+             "Date::Manip::TZ::euastr00" : {
+                "file" : "lib/Date/Manip/TZ/euastr00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amiqal00" : {
+                "file" : "lib/Date/Manip/TZ/amiqal00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off313" : {
+                "file" : "lib/Date/Manip/Offset/off313.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off335" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off335.pm"
+             },
+             "Date::Manip::Offset::off161" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off161.pm"
+             },
+             "Date::Manip::TZ::pagamb00" : {
+                "file" : "lib/Date/Manip/TZ/pagamb00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euviln00" : {
+                "file" : "lib/Date/Manip/TZ/euviln00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off354" : {
+                "file" : "lib/Date/Manip/Offset/off354.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off217" : {
+                "file" : "lib/Date/Manip/Offset/off217.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euzapo00" : {
+                "file" : "lib/Date/Manip/TZ/euzapo00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amherm00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amherm00.pm"
+             },
+             "Date::Manip::TZ::euchis00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euchis00.pm"
+             },
+             "Date::Manip::Offset::off112" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off112.pm"
+             },
+             "Date::Manip::TZ::etgmtp07" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp07.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::panorf00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/panorf00.pm"
+             },
+             "Date::Manip::Offset::off110" : {
+                "file" : "lib/Date/Manip/Offset/off110.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off284" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off284.pm"
+             },
+             "Date::Manip::Offset::off338" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off338.pm"
+             },
+             "Date::Manip::TZ::afsao_00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afsao_00.pm"
+             },
+             "Date::Manip::TZ::euwars00" : {
+                "file" : "lib/Date/Manip/TZ/euwars00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off231" : {
+                "file" : "lib/Date/Manip/Offset/off231.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off351" : {
+                "file" : "lib/Date/Manip/Offset/off351.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::x00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/x00.pm"
+             },
+             "Date::Manip::TZ::askhan00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askhan00.pm"
+             },
+             "Date::Manip::Offset::off253" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off253.pm"
+             },
+             "Date::Manip::Offset::off046" : {
+                "file" : "lib/Date/Manip/Offset/off046.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off395" : {
+                "file" : "lib/Date/Manip/Offset/off395.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euista00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euista00.pm"
+             },
+             "Date::Manip::TZ::astoky00" : {
+                "file" : "lib/Date/Manip/TZ/astoky00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amdaws00" : {
+                "file" : "lib/Date/Manip/TZ/amdaws00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off059" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off059.pm"
+             },
+             "Date::Manip::Offset::off036" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off036.pm"
+             },
+             "Date::Manip::TZ::astbil00" : {
+                "file" : "lib/Date/Manip/TZ/astbil00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off216" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off216.pm"
+             },
+             "Date::Manip::TZ::amthul00" : {
+                "file" : "lib/Date/Manip/TZ/amthul00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pafuna00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pafuna00.pm"
+             },
+             "Date::Manip::TZ::asbrun00" : {
+                "file" : "lib/Date/Manip/TZ/asbrun00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammeri00" : {
+                "file" : "lib/Date/Manip/TZ/ammeri00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aulord00" : {
+                "file" : "lib/Date/Manip/TZ/aulord00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off184" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off184.pm"
+             },
+             "Date::Manip::Offset::off349" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off349.pm"
+             },
+             "Date::Manip::Offset::off157" : {
+                "file" : "lib/Date/Manip/Offset/off157.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off159" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off159.pm"
+             },
+             "Date::Manip::Offset::off324" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off324.pm"
+             },
+             "Date::Manip::TZ::amedmo00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amedmo00.pm"
+             },
+             "Date::Manip::TZ::asriya00" : {
+                "file" : "lib/Date/Manip/TZ/asriya00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off378" : {
+                "file" : "lib/Date/Manip/Offset/off378.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off061" : {
+                "file" : "lib/Date/Manip/Offset/off061.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off018" : {
+                "file" : "lib/Date/Manip/Offset/off018.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::paport00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/paport00.pm"
+             },
+             "Date::Manip::Offset::off426" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off426.pm"
+             },
+             "Date::Manip::TZ::amtegu00" : {
+                "file" : "lib/Date/Manip/TZ/amtegu00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::g00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/g00.pm"
+             },
+             "Date::Manip::Offset::off015" : {
+                "file" : "lib/Date/Manip/Offset/off015.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off073" : {
+                "file" : "lib/Date/Manip/Offset/off073.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off126" : {
+                "file" : "lib/Date/Manip/Offset/off126.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::german" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/german.pm"
+             },
+             "Date::Manip::TZ::eukali00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eukali00.pm"
+             },
+             "Date::Manip::Offset::off371" : {
+                "file" : "lib/Date/Manip/Offset/off371.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtp01" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off077" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off077.pm"
+             },
+             "Date::Manip::Offset::off287" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off287.pm"
+             },
+             "Date::Manip::Offset::off233" : {
+                "file" : "lib/Date/Manip/Offset/off233.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off085" : {
+                "file" : "lib/Date/Manip/Offset/off085.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off305" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off305.pm"
+             },
+             "Date::Manip::Offset::off341" : {
+                "file" : "lib/Date/Manip/Offset/off341.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atreyk00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/atreyk00.pm"
+             },
+             "Date::Manip::Lang::english" : {
+                "file" : "lib/Date/Manip/Lang/english.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtp02" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtp02.pm"
+             },
+             "Date::Manip::TZ::eumalt00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eumalt00.pm"
+             },
+             "Date::Manip::TZ::asshan00" : {
+                "file" : "lib/Date/Manip/TZ/asshan00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::anmacq00" : {
+                "file" : "lib/Date/Manip/TZ/anmacq00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off416" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off416.pm"
+             },
+             "Date::Manip::TZ::h00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/h00.pm"
+             },
+             "Date::Manip::Offset::off207" : {
+                "file" : "lib/Date/Manip/Offset/off207.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off292" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off292.pm"
+             },
+             "Date::Manip::Zones" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Zones.pm"
+             },
+             "Date::Manip::TZ::amguat00" : {
+                "file" : "lib/Date/Manip/TZ/amguat00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amvanc00" : {
+                "file" : "lib/Date/Manip/TZ/amvanc00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amla_p00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amla_p00.pm"
+             },
+             "Date::Manip::TZ::amsan_00" : {
+                "file" : "lib/Date/Manip/TZ/amsan_00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off194" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off194.pm"
+             },
+             "Date::Manip::Offset::off380" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off380.pm"
+             },
+             "Date::Manip::TZ::askual00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askual00.pm"
+             },
+             "Date::Manip::TZ::eubuda00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eubuda00.pm"
+             },
+             "Date::Manip::TZ::amcuia00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amcuia00.pm"
+             },
+             "Date::Manip::Offset::off252" : {
+                "file" : "lib/Date/Manip/Offset/off252.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off279" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off279.pm"
+             },
+             "Date::Manip::Offset::off086" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off086.pm"
+             },
+             "Date::Manip::TZ::ut00" : {
+                "file" : "lib/Date/Manip/TZ/ut00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip" : {
+                "file" : "lib/Date/Manip.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Recur" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Recur.pm"
+             },
+             "Date::Manip::TZ::astash00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/astash00.pm"
+             },
+             "Date::Manip::TZ::ammeno00" : {
+                "file" : "lib/Date/Manip/TZ/ammeno00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off221" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off221.pm"
+             },
+             "Date::Manip::TZ::amboa_00" : {
+                "file" : "lib/Date/Manip/TZ/amboa_00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ashovd00" : {
+                "file" : "lib/Date/Manip/TZ/ashovd00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ambele00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ambele00.pm"
+             },
+             "Date::Manip::Offset::off302" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off302.pm"
+             },
+             "Date::Manip::Offset::off359" : {
+                "file" : "lib/Date/Manip/Offset/off359.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aspont00" : {
+                "file" : "lib/Date/Manip/TZ/aspont00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off273" : {
+                "file" : "lib/Date/Manip/Offset/off273.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amdenv00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amdenv00.pm"
+             },
+             "Date::Manip::TZ::asmaka00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asmaka00.pm"
+             },
+             "Date::Manip::TZ::amcord00" : {
+                "file" : "lib/Date/Manip/TZ/amcord00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZdata" : {
+                "file" : "lib/Date/Manip/TZdata.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off275" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off275.pm"
+             },
+             "Date::Manip::TZ::afaccr00" : {
+                "file" : "lib/Date/Manip/TZ/afaccr00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off027" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off027.pm"
+             },
+             "Date::Manip::Offset::off325" : {
+                "file" : "lib/Date/Manip/Offset/off325.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off083" : {
+                "file" : "lib/Date/Manip/Offset/off083.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off277" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off277.pm"
+             },
+             "Date::Manip::Offset::off440" : {
+                "file" : "lib/Date/Manip/Offset/off440.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::y00" : {
+                "file" : "lib/Date/Manip/TZ/y00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amglac00" : {
+                "file" : "lib/Date/Manip/TZ/amglac00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off306" : {
+                "file" : "lib/Date/Manip/Offset/off306.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off402" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off402.pm"
+             },
+             "Date::Manip::Offset::off145" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off145.pm"
+             },
+             "Date::Manip::Lang::swedish" : {
+                "file" : "lib/Date/Manip/Lang/swedish.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off429" : {
+                "file" : "lib/Date/Manip/Offset/off429.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asthim00" : {
+                "file" : "lib/Date/Manip/TZ/asthim00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off001" : {
+                "file" : "lib/Date/Manip/Offset/off001.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asjaka00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asjaka00.pm"
+             },
+             "Date::Manip::TZ::amel_s00" : {
+                "file" : "lib/Date/Manip/TZ/amel_s00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ascolo00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ascolo00.pm"
+             },
+             "Date::Manip::Offset::off423" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off423.pm"
+             },
+             "Date::Manip::TZ::asjeru00" : {
+                "file" : "lib/Date/Manip/TZ/asjeru00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off282" : {
+                "file" : "lib/Date/Manip/Offset/off282.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aflago00" : {
+                "file" : "lib/Date/Manip/TZ/aflago00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off357" : {
+                "file" : "lib/Date/Manip/Offset/off357.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::afmapu00" : {
+                "file" : "lib/Date/Manip/TZ/afmapu00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off093" : {
+                "file" : "lib/Date/Manip/Offset/off093.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::afmonr00" : {
+                "file" : "lib/Date/Manip/TZ/afmonr00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off031" : {
+                "file" : "lib/Date/Manip/Offset/off031.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off288" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off288.pm"
+             },
+             "Date::Manip::Offset::off008" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off008.pm"
+             },
+             "Date::Manip::Offset::off100" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off100.pm"
+             },
+             "Date::Manip::TZ::pakwaj00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pakwaj00.pm"
+             },
+             "Date::Manip::Offset::off011" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off011.pm"
+             },
+             "Date::Manip::Offset::off387" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off387.pm"
+             },
+             "Date::Manip::Lang::polish" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/polish.pm"
+             },
+             "Date::Manip::Offset::off437" : {
+                "file" : "lib/Date/Manip/Offset/off437.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off332" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off332.pm"
+             },
+             "Date::Manip::Offset::off090" : {
+                "file" : "lib/Date/Manip/Offset/off090.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aupert00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aupert00.pm"
+             },
+             "Date::Manip::TZ::amjune00" : {
+                "file" : "lib/Date/Manip/TZ/amjune00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off146" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off146.pm"
+             },
+             "Date::Manip::TZ::asdama00" : {
+                "file" : "lib/Date/Manip/TZ/asdama00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atsout00" : {
+                "file" : "lib/Date/Manip/TZ/atsout00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::z00" : {
+                "file" : "lib/Date/Manip/TZ/z00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atcana00" : {
+                "file" : "lib/Date/Manip/TZ/atcana00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::k00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/k00.pm"
+             },
+             "Date::Manip::TZ::euriga00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euriga00.pm"
+             },
+             "Date::Manip::TZ::etgmtp06" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp06.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amsalt00" : {
+                "file" : "lib/Date/Manip/TZ/amsalt00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off410" : {
+                "file" : "lib/Date/Manip/Offset/off410.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off152" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off152.pm"
+             },
+             "Date::Manip::TZ::ambahi01" : {
+                "file" : "lib/Date/Manip/TZ/ambahi01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammetl00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammetl00.pm"
+             },
+             "Date::Manip::Offset::off014" : {
+                "file" : "lib/Date/Manip/Offset/off014.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammare00" : {
+                "file" : "lib/Date/Manip/TZ/ammare00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off005" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off005.pm"
+             },
+             "Date::Manip::Offset::off289" : {
+                "file" : "lib/Date/Manip/Offset/off289.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amfort01" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amfort01.pm"
+             },
+             "Date::Manip::TZ::l00" : {
+                "file" : "lib/Date/Manip/TZ/l00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off342" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off342.pm"
+             },
+             "Date::Manip::Offset::off307" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off307.pm"
+             },
+             "Date::Manip::Offset::off191" : {
+                "file" : "lib/Date/Manip/Offset/off191.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off301" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off301.pm"
+             },
+             "Date::Manip::Offset::off438" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off438.pm"
+             },
+             "Date::Manip::Offset::off050" : {
+                "file" : "lib/Date/Manip/Offset/off050.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off019" : {
+                "file" : "lib/Date/Manip/Offset/off019.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off117" : {
+                "file" : "lib/Date/Manip/Offset/off117.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off080" : {
+                "file" : "lib/Date/Manip/Offset/off080.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ambogo00" : {
+                "file" : "lib/Date/Manip/TZ/ambogo00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::anvost00" : {
+                "file" : "lib/Date/Manip/TZ/anvost00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off321" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off321.pm"
+             },
+             "Date::Manip::Offset::off353" : {
+                "file" : "lib/Date/Manip/Offset/off353.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off121" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off121.pm"
+             },
+             "Date::Manip::Offset::off444" : {
+                "file" : "lib/Date/Manip/Offset/off444.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euamst00" : {
+                "file" : "lib/Date/Manip/TZ/euamst00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off390" : {
+                "file" : "lib/Date/Manip/Offset/off390.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asbaku00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asbaku00.pm"
+             },
+             "Date::Manip::Offset::off299" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off299.pm"
+             },
+             "Date::Manip::Offset::off017" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off017.pm"
+             },
+             "Date::Manip::TZ::inmaur00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/inmaur00.pm"
+             },
+             "Date::Manip::TZ::pakiri00" : {
+                "file" : "lib/Date/Manip/TZ/pakiri00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::andavi00" : {
+                "file" : "lib/Date/Manip/TZ/andavi00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::paguad00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/paguad00.pm"
+             },
+             "Date::Manip::TZ::asnovo01" : {
+                "file" : "lib/Date/Manip/TZ/asnovo01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off173" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off173.pm"
+             },
+             "Date::Manip::Offset::off151" : {
+                "file" : "lib/Date/Manip/Offset/off151.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asqata00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asqata00.pm"
+             },
+             "Date::Manip::Offset::off208" : {
+                "file" : "lib/Date/Manip/Offset/off208.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off245" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off245.pm"
+             },
+             "Date::Manip::TZ::asmaga00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asmaga00.pm"
+             },
+             "Date::Manip::TZ::ampara00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ampara00.pm"
+             },
+             "Date::Manip::Offset::off212" : {
+                "file" : "lib/Date/Manip/Offset/off212.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm01" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eubelg00" : {
+                "file" : "lib/Date/Manip/TZ/eubelg00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off219" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off219.pm"
+             },
+             "Date::Manip::Offset::off262" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off262.pm"
+             },
+             "Date::Manip::TZ::afceut00" : {
+                "file" : "lib/Date/Manip/TZ/afceut00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::DM6" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/DM6.pm"
+             },
+             "Date::Manip::TZ::amgran00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amgran00.pm"
+             },
+             "Date::Manip::Offset::off108" : {
+                "file" : "lib/Date/Manip/Offset/off108.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asoral00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asoral00.pm"
+             },
+             "Date::Manip::Offset::off381" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off381.pm"
+             },
+             "Date::Manip::TZ::panaur00" : {
+                "file" : "lib/Date/Manip/TZ/panaur00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammend00" : {
+                "file" : "lib/Date/Manip/TZ/ammend00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off334" : {
+                "file" : "lib/Date/Manip/Offset/off334.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm09" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm09.pm"
+             },
+             "Date::Manip::TZ::afndja00" : {
+                "file" : "lib/Date/Manip/TZ/afndja00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off177" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off177.pm"
+             },
+             "Date::Manip::Offset::off136" : {
+                "file" : "lib/Date/Manip/Offset/off136.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm04" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm04.pm"
+             },
+             "Date::Manip::TZ::atmade00" : {
+                "file" : "lib/Date/Manip/TZ/atmade00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::italian" : {
+                "file" : "lib/Date/Manip/Lang/italian.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off311" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off311.pm"
+             },
+             "Date::Manip::TZ::amreso00" : {
+                "file" : "lib/Date/Manip/TZ/amreso00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off385" : {
+                "file" : "lib/Date/Manip/Offset/off385.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asdush00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asdush00.pm"
+             },
+             "Date::Manip::TZ::papitc00" : {
+                "file" : "lib/Date/Manip/TZ/papitc00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aminuv00" : {
+                "file" : "lib/Date/Manip/TZ/aminuv00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off201" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off201.pm"
+             },
+             "Date::Manip::TZ::a00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/a00.pm"
+             },
+             "Date::Manip::TZ::etgmtp10" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp10.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::finnish" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/finnish.pm"
+             },
+             "Date::Manip::TZ::amnoro00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amnoro00.pm"
+             },
+             "Date::Manip::TZ::etgmtm06" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm06.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off181" : {
+                "file" : "lib/Date/Manip/Offset/off181.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off199" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off199.pm"
+             },
+             "Date::Manip::Offset::off172" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off172.pm"
+             },
+             "Date::Manip::TZ::afcair00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afcair00.pm"
+             },
+             "Date::Manip::TZ::inchri00" : {
+                "file" : "lib/Date/Manip/TZ/inchri00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off241" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off241.pm"
+             },
+             "Date::Manip::Offset::off336" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off336.pm"
+             },
+             "Date::Manip::TZ::asalma00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asalma00.pm"
+             },
+             "Date::Manip::Offset::off404" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off404.pm"
+             },
+             "Date::Manip::TZ::eutall00" : {
+                "file" : "lib/Date/Manip/TZ/eutall00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off222" : {
+                "file" : "lib/Date/Manip/Offset/off222.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off044" : {
+                "file" : "lib/Date/Manip/Offset/off044.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off323" : {
+                "file" : "lib/Date/Manip/Offset/off323.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off234" : {
+                "file" : "lib/Date/Manip/Offset/off234.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asulaa00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asulaa00.pm"
+             },
+             "Date::Manip::Offset::off392" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off392.pm"
+             },
+             "Date::Manip::TZ::ampuer00" : {
+                "file" : "lib/Date/Manip/TZ/ampuer00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off295" : {
+                "file" : "lib/Date/Manip/Offset/off295.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off224" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off224.pm"
+             },
+             "Date::Manip::Lang::catalan" : {
+                "file" : "lib/Date/Manip/Lang/catalan.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off023" : {
+                "file" : "lib/Date/Manip/Offset/off023.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pachuu00" : {
+                "file" : "lib/Date/Manip/TZ/pachuu00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off328" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off328.pm"
+             },
+             "Date::Manip::TZ::etgmtm13" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm13.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off340" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off340.pm"
+             },
+             "Date::Manip::TZ::asanad00" : {
+                "file" : "lib/Date/Manip/TZ/asanad00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off244" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off244.pm"
+             },
+             "Date::Manip::Offset::off425" : {
+                "file" : "lib/Date/Manip/Offset/off425.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::r00" : {
+                "file" : "lib/Date/Manip/TZ/r00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off399" : {
+                "file" : "lib/Date/Manip/Offset/off399.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amguya00" : {
+                "file" : "lib/Date/Manip/TZ/amguya00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off376" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off376.pm"
+             },
+             "Date::Manip::TZ::amsitk00" : {
+                "file" : "lib/Date/Manip/TZ/amsitk00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aschit00" : {
+                "file" : "lib/Date/Manip/TZ/aschit00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off210" : {
+                "file" : "lib/Date/Manip/Offset/off210.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off037" : {
+                "file" : "lib/Date/Manip/Offset/off037.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amnass00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amnass00.pm"
+             },
+             "Date::Manip::Offset::off101" : {
+                "file" : "lib/Date/Manip/Offset/off101.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off134" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off134.pm"
+             },
+             "Date::Manip::Offset::off119" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off119.pm"
+             },
+             "Date::Manip::TZ::askuch00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askuch00.pm"
+             },
+             "Date::Manip::TZ::amdetr00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amdetr00.pm"
+             },
+             "Date::Manip::TZ::askras00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/askras00.pm"
+             },
+             "Date::Manip::Offset::off227" : {
+                "file" : "lib/Date/Manip/Offset/off227.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off428" : {
+                "file" : "lib/Date/Manip/Offset/off428.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eusimf00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eusimf00.pm"
+             },
+             "Date::Manip::Offset::off162" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off162.pm"
+             },
+             "Date::Manip::Offset::off314" : {
+                "file" : "lib/Date/Manip/Offset/off314.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off030" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off030.pm"
+             },
+             "Date::Manip::TZ::afkhar00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afkhar00.pm"
+             },
+             "Date::Manip::Offset::off308" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off308.pm"
+             },
+             "Date::Manip::Offset::off296" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off296.pm"
+             },
+             "Date::Manip::TZ::afbiss00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afbiss00.pm"
+             },
+             "Date::Manip::Offset::off070" : {
+                "file" : "lib/Date/Manip/Offset/off070.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eulisb00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eulisb00.pm"
+             },
+             "Date::Manip::TZ::euhels00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euhels00.pm"
+             },
+             "Date::Manip::TZ::ancase00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ancase00.pm"
+             },
+             "Date::Manip::Offset::off016" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off016.pm"
+             },
+             "Date::Manip::Offset::off052" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off052.pm"
+             },
+             "Date::Manip::Offset::off393" : {
+                "file" : "lib/Date/Manip/Offset/off393.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off043" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off043.pm"
+             },
+             "Date::Manip::TZ::q00" : {
+                "file" : "lib/Date/Manip/TZ/q00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asbeir00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asbeir00.pm"
+             },
+             "Date::Manip::Offset::off125" : {
+                "file" : "lib/Date/Manip/Offset/off125.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off129" : {
+                "file" : "lib/Date/Manip/Offset/off129.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off054" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off054.pm"
+             },
+             "Date::Manip::Offset::off135" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off135.pm"
+             },
+             "Date::Manip::TZ::amsant02" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amsant02.pm"
+             },
+             "Date::Manip::TZ::amwhit00" : {
+                "file" : "lib/Date/Manip/TZ/amwhit00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off441" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off441.pm"
+             },
+             "Date::Manip::Offset::off435" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off435.pm"
+             },
+             "Date::Manip::Offset::off411" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off411.pm"
+             },
+             "Date::Manip::TZ::ampana00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ampana00.pm"
+             },
+             "Date::Manip::TZ::asaqta00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asaqta00.pm"
+             },
+             "Date::Manip::Offset::off365" : {
+                "file" : "lib/Date/Manip/Offset/off365.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off372" : {
+                "file" : "lib/Date/Manip/Offset/off372.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off243" : {
+                "file" : "lib/Date/Manip/Offset/off243.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off187" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off187.pm"
+             },
+             "Date::Manip::Offset::off171" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off171.pm"
+             },
+             "Date::Manip::TZ::atcape00" : {
+                "file" : "lib/Date/Manip/TZ/atcape00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::patara00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/patara00.pm"
+             },
+             "Date::Manip::TZ::inkerg00" : {
+                "file" : "lib/Date/Manip/TZ/inkerg00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off276" : {
+                "file" : "lib/Date/Manip/Offset/off276.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::assakh00" : {
+                "file" : "lib/Date/Manip/TZ/assakh00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off297" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off297.pm"
+             },
+             "Date::Manip::TZ::etgmtm02" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm02.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off433" : {
+                "file" : "lib/Date/Manip/Offset/off433.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off443" : {
+                "file" : "lib/Date/Manip/Offset/off443.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off097" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off097.pm"
+             },
+             "Date::Manip::Offset::off405" : {
+                "file" : "lib/Date/Manip/Offset/off405.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amloui00" : {
+                "file" : "lib/Date/Manip/TZ/amloui00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::astehr00" : {
+                "file" : "lib/Date/Manip/TZ/astehr00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off290" : {
+                "file" : "lib/Date/Manip/Offset/off290.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::russian" : {
+                "file" : "lib/Date/Manip/Lang/russian.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm08" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm08.pm"
+             },
+             "Date::Manip::TZ::amindi00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amindi00.pm"
+             },
+             "Date::Manip::Offset::off394" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off394.pm"
+             },
+             "Date::Manip::TZ::afalgi00" : {
+                "file" : "lib/Date/Manip/TZ/afalgi00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off063" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off063.pm"
+             },
+             "Date::Manip::Offset::off132" : {
+                "file" : "lib/Date/Manip/Offset/off132.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amatik00" : {
+                "file" : "lib/Date/Manip/TZ/amatik00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off268" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off268.pm"
+             },
+             "Date::Manip::Offset::off391" : {
+                "file" : "lib/Date/Manip/Offset/off391.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asgaza00" : {
+                "file" : "lib/Date/Manip/TZ/asgaza00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atazor00" : {
+                "file" : "lib/Date/Manip/TZ/atazor00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off182" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off182.pm"
+             },
+             "Date::Manip::Offset::off096" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off096.pm"
+             },
+             "Date::Manip::Lang::spanish" : {
+                "file" : "lib/Date/Manip/Lang/spanish.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::auhoba00" : {
+                "file" : "lib/Date/Manip/TZ/auhoba00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmt00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmt00.pm"
+             },
+             "Date::Manip::Offset::off382" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off382.pm"
+             },
+             "Date::Manip::TZ::ammana01" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammana01.pm"
+             },
+             "Date::Manip::Offset::off348" : {
+                "file" : "lib/Date/Manip/Offset/off348.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off060" : {
+                "file" : "lib/Date/Manip/Offset/off060.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off204" : {
+                "file" : "lib/Date/Manip/Offset/off204.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off329" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off329.pm"
+             },
+             "Date::Manip::TZ::ausydn00" : {
+                "file" : "lib/Date/Manip/TZ/ausydn00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off265" : {
+                "file" : "lib/Date/Manip/Offset/off265.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::incoco00" : {
+                "file" : "lib/Date/Manip/TZ/incoco00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off205" : {
+                "file" : "lib/Date/Manip/Offset/off205.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off431" : {
+                "file" : "lib/Date/Manip/Offset/off431.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off055" : {
+                "file" : "lib/Date/Manip/Offset/off055.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amarag00" : {
+                "file" : "lib/Date/Manip/TZ/amarag00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amveva00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amveva00.pm"
+             },
+             "Date::Manip::Offset::off062" : {
+                "file" : "lib/Date/Manip/Offset/off062.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off278" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off278.pm"
+             },
+             "Date::Manip::Offset::off358" : {
+                "file" : "lib/Date/Manip/Offset/off358.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ampang00" : {
+                "file" : "lib/Date/Manip/TZ/ampang00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off095" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off095.pm"
+             },
+             "Date::Manip::TZ::papala00" : {
+                "file" : "lib/Date/Manip/TZ/papala00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::assama00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/assama00.pm"
+             },
+             "Date::Manip::Offset::off092" : {
+                "file" : "lib/Date/Manip/Offset/off092.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::audarw00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/audarw00.pm"
+             },
+             "Date::Manip::Offset::off430" : {
+                "file" : "lib/Date/Manip/Offset/off430.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off089" : {
+                "file" : "lib/Date/Manip/Offset/off089.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off180" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off180.pm"
+             },
+             "Date::Manip::Offset::off420" : {
+                "file" : "lib/Date/Manip/Offset/off420.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::patong00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/patong00.pm"
+             },
+             "Date::Manip::Offset::off144" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off144.pm"
+             },
+             "Date::Manip::Offset::off424" : {
+                "file" : "lib/Date/Manip/Offset/off424.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amcres00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amcres00.pm"
+             },
+             "Date::Manip::Offset::off163" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off163.pm"
+             },
+             "Date::Manip::Offset::off346" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off346.pm"
+             },
+             "Date::Manip::TZ::aftrip00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aftrip00.pm"
+             },
+             "Date::Manip::TZ::paapia00" : {
+                "file" : "lib/Date/Manip/TZ/paapia00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eustoc00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eustoc00.pm"
+             },
+             "Date::Manip::Offset::off099" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off099.pm"
+             },
+             "Date::Manip::TZ::o00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/o00.pm"
+             },
+             "Date::Manip::Offset::off087" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off087.pm"
+             },
+             "Date::Manip::TZ::amla_r00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amla_r00.pm"
+             },
+             "Date::Manip::TZ::asbish00" : {
+                "file" : "lib/Date/Manip/TZ/asbish00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off004" : {
+                "file" : "lib/Date/Manip/Offset/off004.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ambeli00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ambeli00.pm"
+             },
+             "Date::Manip::Offset::off211" : {
+                "file" : "lib/Date/Manip/Offset/off211.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off084" : {
+                "file" : "lib/Date/Manip/Offset/off084.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off427" : {
+                "file" : "lib/Date/Manip/Offset/off427.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::v00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/v00.pm"
+             },
+             "Date::Manip::TZ::amnew_01" : {
+                "file" : "lib/Date/Manip/TZ/amnew_01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amcaye00" : {
+                "file" : "lib/Date/Manip/TZ/amcaye00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asustm00" : {
+                "file" : "lib/Date/Manip/TZ/asustm00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off066" : {
+                "file" : "lib/Date/Manip/Offset/off066.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::paauck00" : {
+                "file" : "lib/Date/Manip/TZ/paauck00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off434" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off434.pm"
+             },
+             "Date::Manip::Offset::off360" : {
+                "file" : "lib/Date/Manip/Offset/off360.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euathe00" : {
+                "file" : "lib/Date/Manip/TZ/euathe00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off266" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off266.pm"
+             },
+             "Date::Manip::TZ::amswif00" : {
+                "file" : "lib/Date/Manip/TZ/amswif00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off412" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off412.pm"
+             },
+             "Date::Manip::Offset::off155" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off155.pm"
+             },
+             "Date::Manip::TZ::asatyr00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asatyr00.pm"
+             },
+             "Date::Manip::Offset::off369" : {
+                "file" : "lib/Date/Manip/Offset/off369.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::dutch" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Lang/dutch.pm"
+             },
+             "Date::Manip::Offset::off389" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off389.pm"
+             },
+             "Date::Manip::Offset::off361" : {
+                "file" : "lib/Date/Manip/Offset/off361.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off123" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off123.pm"
+             },
+             "Date::Manip::TZ::euando00" : {
+                "file" : "lib/Date/Manip/TZ/euando00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off175" : {
+                "file" : "lib/Date/Manip/Offset/off175.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off120" : {
+                "file" : "lib/Date/Manip/Offset/off120.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm00.pm"
+             },
+             "Date::Manip::Offset::off315" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off315.pm"
+             },
+             "Date::Manip::TZ::inchag00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/inchag00.pm"
+             },
+             "Date::Manip::TZ::aftuni00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aftuni00.pm"
+             },
+             "Date::Manip::Offset::off320" : {
+                "file" : "lib/Date/Manip/Offset/off320.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off388" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off388.pm"
+             },
+             "Date::Manip::Offset::off264" : {
+                "file" : "lib/Date/Manip/Offset/off264.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off418" : {
+                "file" : "lib/Date/Manip/Offset/off418.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amcent00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amcent00.pm"
+             },
+             "Date::Manip::TZ::asho_c00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asho_c00.pm"
+             },
+             "Date::Manip::TZ::eet00" : {
+                "file" : "lib/Date/Manip/TZ/eet00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asnovo00" : {
+                "file" : "lib/Date/Manip/TZ/asnovo00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Obj" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Obj.pm"
+             },
+             "Date::Manip::Offset::off409" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off409.pm"
+             },
+             "Date::Manip::Offset::off259" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off259.pm"
+             },
+             "Date::Manip::TZ::ammart00" : {
+                "file" : "lib/Date/Manip/TZ/ammart00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off115" : {
+                "file" : "lib/Date/Manip/Offset/off115.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amst_j00" : {
+                "file" : "lib/Date/Manip/TZ/amst_j00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off130" : {
+                "file" : "lib/Date/Manip/Offset/off130.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off179" : {
+                "file" : "lib/Date/Manip/Offset/off179.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off139" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off139.pm"
+             },
+             "Date::Manip::TZ::pachat00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pachat00.pm"
+             },
+             "Date::Manip::TZ::euvien00" : {
+                "file" : "lib/Date/Manip/TZ/euvien00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off310" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off310.pm"
+             },
+             "Date::Manip::Offset::off038" : {
+                "file" : "lib/Date/Manip/Offset/off038.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asomsk00" : {
+                "file" : "lib/Date/Manip/TZ/asomsk00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::inmahe00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/inmahe00.pm"
+             },
+             "Date::Manip::TZ::pakosr00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pakosr00.pm"
+             },
+             "Date::Manip::Offset::off185" : {
+                "file" : "lib/Date/Manip/Offset/off185.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amwina00" : {
+                "file" : "lib/Date/Manip/TZ/amwina00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::romanian" : {
+                "file" : "lib/Date/Manip/Lang/romanian.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off230" : {
+                "file" : "lib/Date/Manip/Offset/off230.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off190" : {
+                "file" : "lib/Date/Manip/Offset/off190.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off363" : {
+                "file" : "lib/Date/Manip/Offset/off363.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pararo00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pararo00.pm"
+             },
+             "Date::Manip::Offset::off140" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off140.pm"
+             },
+             "Date::Manip::Offset::off239" : {
+                "file" : "lib/Date/Manip/Offset/off239.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asduba00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asduba00.pm"
+             },
+             "Date::Manip::TZ::utc00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/utc00.pm"
+             },
+             "Date::Manip::TZ::eumins00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eumins00.pm"
+             },
+             "Date::Manip::TZ::i00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/i00.pm"
+             },
+             "Date::Manip::Offset::off165" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off165.pm"
+             },
+             "Date::Manip::Offset::off195" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off195.pm"
+             },
+             "Date::Manip::TZ::s00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/s00.pm"
+             },
+             "Date::Manip::TZ::amyell00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amyell00.pm"
+             },
+             "Date::Manip::TZ::amnome00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amnome00.pm"
+             },
+             "Date::Manip::Offset::off127" : {
+                "file" : "lib/Date/Manip/Offset/off127.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ambahi00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ambahi00.pm"
+             },
+             "Date::Manip::Offset::off114" : {
+                "file" : "lib/Date/Manip/Offset/off114.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off176" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off176.pm"
+             },
+             "Date::Manip::TZ::amcost00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amcost00.pm"
+             },
+             "Date::Manip::Offset::off156" : {
+                "file" : "lib/Date/Manip/Offset/off156.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::andumo00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/andumo00.pm"
+             },
+             "Date::Manip::TZ::asbarn00" : {
+                "file" : "lib/Date/Manip/TZ/asbarn00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off003" : {
+                "file" : "lib/Date/Manip/Offset/off003.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off150" : {
+                "file" : "lib/Date/Manip/Offset/off150.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amport02" : {
+                "file" : "lib/Date/Manip/TZ/amport02.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amjama00" : {
+                "file" : "lib/Date/Manip/TZ/amjama00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off229" : {
+                "file" : "lib/Date/Manip/Offset/off229.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amrain00" : {
+                "file" : "lib/Date/Manip/TZ/amrain00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::aschoi00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aschoi00.pm"
+             },
+             "Date::Manip::TZ::paniue00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/paniue00.pm"
+             },
+             "Date::Manip::Offset::off192" : {
+                "file" : "lib/Date/Manip/Offset/off192.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::panoum00" : {
+                "file" : "lib/Date/Manip/TZ/panoum00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off057" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off057.pm"
+             },
+             "Date::Manip::Offset::off226" : {
+                "file" : "lib/Date/Manip/Offset/off226.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ashebr00" : {
+                "file" : "lib/Date/Manip/TZ/ashebr00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::paguam00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/paguam00.pm"
+             },
+             "Date::Manip::Offset::off283" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off283.pm"
+             },
+             "Date::Manip::Offset::off413" : {
+                "file" : "lib/Date/Manip/Offset/off413.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off237" : {
+                "file" : "lib/Date/Manip/Offset/off237.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off330" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off330.pm"
+             },
+             "Date::Manip::TZ::afwind00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/afwind00.pm"
+             },
+             "Date::Manip::TZ::afcasa00" : {
+                "file" : "lib/Date/Manip/TZ/afcasa00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off274" : {
+                "file" : "lib/Date/Manip/Offset/off274.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtp09" : {
+                "file" : "lib/Date/Manip/TZ/etgmtp09.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amtoro00" : {
+                "file" : "lib/Date/Manip/TZ/amtoro00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::papago00" : {
+                "file" : "lib/Date/Manip/TZ/papago00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off131" : {
+                "file" : "lib/Date/Manip/Offset/off131.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off116" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off116.pm"
+             },
+             "Date::Manip::TZ::amfort00" : {
+                "file" : "lib/Date/Manip/TZ/amfort00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ambuen00" : {
+                "file" : "lib/Date/Manip/TZ/ambuen00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off286" : {
+                "file" : "lib/Date/Manip/Offset/off286.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::auadel00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/auadel00.pm"
+             },
+             "Date::Manip::TZ::amlima00" : {
+                "file" : "lib/Date/Manip/TZ/amlima00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off138" : {
+                "file" : "lib/Date/Manip/Offset/off138.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pagala00" : {
+                "file" : "lib/Date/Manip/TZ/pagala00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amscor00" : {
+                "file" : "lib/Date/Manip/TZ/amscor00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off263" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off263.pm"
+             },
+             "Date::Manip::Offset::off098" : {
+                "file" : "lib/Date/Manip/Offset/off098.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asvlad00" : {
+                "file" : "lib/Date/Manip/TZ/asvlad00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off154" : {
+                "file" : "lib/Date/Manip/Offset/off154.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off368" : {
+                "file" : "lib/Date/Manip/Offset/off368.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asnico00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asnico00.pm"
+             },
+             "Date::Manip::TZ::amrio_01" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amrio_01.pm"
+             },
+             "Date::Manip::TZ::pawake00" : {
+                "file" : "lib/Date/Manip/TZ/pawake00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off407" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off407.pm"
+             },
+             "Date::Manip::TZ::astaip00" : {
+                "file" : "lib/Date/Manip/TZ/astaip00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off007" : {
+                "file" : "lib/Date/Manip/Offset/off007.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off442" : {
+                "file" : "lib/Date/Manip/Offset/off442.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off074" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off074.pm"
+             },
+             "Date::Manip::TZ::amhava00" : {
+                "file" : "lib/Date/Manip/TZ/amhava00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eusofi00" : {
+                "file" : "lib/Date/Manip/TZ/eusofi00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off309" : {
+                "file" : "lib/Date/Manip/Offset/off309.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off039" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off039.pm"
+             },
+             "Date::Manip::Offset::off304" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off304.pm"
+             },
+             "Date::Manip::Offset::off056" : {
+                "file" : "lib/Date/Manip/Offset/off056.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off322" : {
+                "file" : "lib/Date/Manip/Offset/off322.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::portugue" : {
+                "file" : "lib/Date/Manip/Lang/portugue.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off303" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off303.pm"
+             },
+             "Date::Manip::Offset::off022" : {
+                "file" : "lib/Date/Manip/Offset/off022.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off158" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off158.pm"
+             },
+             "Date::Manip::Offset::off178" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off178.pm"
+             },
+             "Date::Manip::Offset::off257" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off257.pm"
+             },
+             "Date::Manip::Offset::off318" : {
+                "file" : "lib/Date/Manip/Offset/off318.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euzuri00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euzuri00.pm"
+             },
+             "Date::Manip::Offset::off072" : {
+                "file" : "lib/Date/Manip/Offset/off072.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off258" : {
+                "file" : "lib/Date/Manip/Offset/off258.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amsao_00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amsao_00.pm"
+             },
+             "Date::Manip::Offset::off422" : {
+                "file" : "lib/Date/Manip/Offset/off422.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pamaju00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/pamaju00.pm"
+             },
+             "Date::Manip::Offset::off033" : {
+                "file" : "lib/Date/Manip/Offset/off033.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::f00" : {
+                "file" : "lib/Date/Manip/TZ/f00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off300" : {
+                "file" : "lib/Date/Manip/Offset/off300.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off000" : {
+                "file" : "lib/Date/Manip/Offset/off000.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amnipi00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amnipi00.pm"
+             },
+             "Date::Manip::TZ::ameiru00" : {
+                "file" : "lib/Date/Manip/TZ/ameiru00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off051" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off051.pm"
+             },
+             "Date::Manip::Offset::off203" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off203.pm"
+             },
+             "Date::Manip::TZ::etgmtm10" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm10.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off049" : {
+                "file" : "lib/Date/Manip/Offset/off049.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off143" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off143.pm"
+             },
+             "Date::Manip::Offset::off356" : {
+                "file" : "lib/Date/Manip/Offset/off356.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off362" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off362.pm"
+             },
+             "Date::Manip::TZ::amnew_00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amnew_00.pm"
+             },
+             "Date::Manip::Offset::off071" : {
+                "file" : "lib/Date/Manip/Offset/off071.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eusama00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eusama00.pm"
+             },
+             "Date::Manip::Offset::off064" : {
+                "file" : "lib/Date/Manip/Offset/off064.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off013" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off013.pm"
+             },
+             "Date::Manip::TZ::asmani00" : {
+                "file" : "lib/Date/Manip/TZ/asmani00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off250" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off250.pm"
+             },
+             "Date::Manip::TZ" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ.pm"
+             },
+             "Date::Manip::TZ::asyere00" : {
+                "file" : "lib/Date/Manip/TZ/asyere00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off081" : {
+                "file" : "lib/Date/Manip/Offset/off081.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off012" : {
+                "file" : "lib/Date/Manip/Offset/off012.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ansyow00" : {
+                "file" : "lib/Date/Manip/TZ/ansyow00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off367" : {
+                "file" : "lib/Date/Manip/Offset/off367.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eupari00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eupari00.pm"
+             },
+             "Date::Manip::Offset::off271" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off271.pm"
+             },
+             "Date::Manip::TZ::asashg00" : {
+                "file" : "lib/Date/Manip/TZ/asashg00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eumona00" : {
+                "file" : "lib/Date/Manip/TZ/eumona00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asjaya00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asjaya00.pm"
+             },
+             "Date::Manip::TZ::amadak00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amadak00.pm"
+             },
+             "Date::Manip::Offset::off024" : {
+                "file" : "lib/Date/Manip/Offset/off024.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::atberm00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/atberm00.pm"
+             },
+             "Date::Manip::TZ::pafiji00" : {
+                "file" : "lib/Date/Manip/TZ/pafiji00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammexi00" : {
+                "file" : "lib/Date/Manip/TZ/ammexi00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asaqto00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asaqto00.pm"
+             },
+             "Date::Manip::TZ::amsan_01" : {
+                "file" : "lib/Date/Manip/TZ/amsan_01.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asdili00" : {
+                "file" : "lib/Date/Manip/TZ/asdili00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm12" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm12.pm"
+             },
+             "Date::Manip::TZ::e00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/e00.pm"
+             },
+             "Date::Manip::Offset::off215" : {
+                "file" : "lib/Date/Manip/Offset/off215.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amhali00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amhali00.pm"
+             },
+             "Date::Manip::Offset::off166" : {
+                "file" : "lib/Date/Manip/Offset/off166.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off432" : {
+                "file" : "lib/Date/Manip/Offset/off432.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off317" : {
+                "file" : "lib/Date/Manip/Offset/off317.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::pahono00" : {
+                "file" : "lib/Date/Manip/TZ/pahono00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Lang::turkish" : {
+                "file" : "lib/Date/Manip/Lang/turkish.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off002" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off002.pm"
+             },
+             "Date::Manip::TZ::eumadr00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eumadr00.pm"
+             },
+             "Date::Manip::TZ::amgoos00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amgoos00.pm"
+             },
+             "Date::Manip::TZ::euulya00" : {
+                "file" : "lib/Date/Manip/TZ/euulya00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::u00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/u00.pm"
+             },
+             "Date::Manip::Offset::off400" : {
+                "file" : "lib/Date/Manip/Offset/off400.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off183" : {
+                "file" : "lib/Date/Manip/Offset/off183.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off326" : {
+                "file" : "lib/Date/Manip/Offset/off326.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtp11" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtp11.pm"
+             },
+             "Date::Manip::TZ::eukiev00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eukiev00.pm"
+             },
+             "Date::Manip::Offset::off133" : {
+                "file" : "lib/Date/Manip/Offset/off133.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm03" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm03.pm"
+             },
+             "Date::Manip::TZ::astoms00" : {
+                "file" : "lib/Date/Manip/TZ/astoms00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off169" : {
+                "file" : "lib/Date/Manip/Offset/off169.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off339" : {
+                "file" : "lib/Date/Manip/Offset/off339.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off058" : {
+                "file" : "lib/Date/Manip/Offset/off058.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off401" : {
+                "file" : "lib/Date/Manip/Offset/off401.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::c00" : {
+                "file" : "lib/Date/Manip/TZ/c00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammonc00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammonc00.pm"
+             },
+             "Date::Manip::TZ::afjuba00" : {
+                "file" : "lib/Date/Manip/TZ/afjuba00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off041" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off041.pm"
+             },
+             "Date::Manip::Date" : {
+                "file" : "lib/Date/Manip/Date.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off272" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off272.pm"
+             },
+             "Date::Manip::TZ::inreun00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/inreun00.pm"
+             },
+             "Date::Manip::Offset::off168" : {
+                "file" : "lib/Date/Manip/Offset/off168.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm11" : {
+                "file" : "lib/Date/Manip/TZ/etgmtm11.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::euuzhg00" : {
+                "file" : "lib/Date/Manip/TZ/euuzhg00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off188" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off188.pm"
+             },
+             "Date::Manip::TZ::amchic00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amchic00.pm"
+             },
+             "Date::Manip::TZ::asbagh00" : {
+                "file" : "lib/Date/Manip/TZ/asbagh00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off350" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off350.pm"
+             },
+             "Date::Manip::Offset::off088" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off088.pm"
+             },
+             "Date::Manip::Offset::off345" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off345.pm"
+             },
+             "Date::Manip::TZ::aueucl00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/aueucl00.pm"
+             },
+             "Date::Manip::Offset::off249" : {
+                "file" : "lib/Date/Manip/Offset/off249.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amchih00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amchih00.pm"
+             },
+             "Date::Manip::TZ::euoslo00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euoslo00.pm"
+             },
+             "Date::Manip::Offset::off048" : {
+                "file" : "lib/Date/Manip/Offset/off048.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off122" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off122.pm"
+             },
+             "Date::Manip::TZ::asqyzy00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asqyzy00.pm"
+             },
+             "Date::Manip::Offset::off319" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off319.pm"
+             },
+             "Date::Manip::Offset::off355" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off355.pm"
+             },
+             "Date::Manip::TZ::cet00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/cet00.pm"
+             },
+             "Date::Manip::TZ::wet00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/wet00.pm"
+             },
+             "Date::Manip::Offset::off111" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off111.pm"
+             },
+             "Date::Manip::TZ::t00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/t00.pm"
+             },
+             "Date::Manip::Offset::off379" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off379.pm"
+             },
+             "Date::Manip::TZ::asyang00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/asyang00.pm"
+             },
+             "Date::Manip::Offset::off235" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off235.pm"
+             },
+             "Date::Manip::Offset::off118" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off118.pm"
+             },
+             "Date::Manip::Offset::off102" : {
+                "file" : "lib/Date/Manip/Offset/off102.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::ammont02" : {
+                "file" : "lib/Date/Manip/TZ/ammont02.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off160" : {
+                "file" : "lib/Date/Manip/Offset/off160.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off352" : {
+                "file" : "lib/Date/Manip/Offset/off352.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::etgmtm07" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/etgmtm07.pm"
+             },
+             "Date::Manip::TZ::euprag00" : {
+                "file" : "lib/Date/Manip/TZ/euprag00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off373" : {
+                "file" : "lib/Date/Manip/Offset/off373.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::eugibr00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/eugibr00.pm"
+             },
+             "Date::Manip::Offset::off010" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off010.pm"
+             },
+             "Date::Manip::TZ::amblan00" : {
+                "file" : "lib/Date/Manip/TZ/amblan00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off316" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off316.pm"
+             },
+             "Date::Manip::TZ::euluxe00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/euluxe00.pm"
+             },
+             "Date::Manip::Offset::off035" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off035.pm"
+             },
+             "Date::Manip::Offset::off209" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off209.pm"
+             },
+             "Date::Manip::TZ::amlos_00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/amlos_00.pm"
+             },
+             "Date::Manip::TZ::ammiqu00" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/TZ/ammiqu00.pm"
+             },
+             "Date::Manip::Offset::off109" : {
+                "file" : "lib/Date/Manip/Offset/off109.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::amjuju00" : {
+                "file" : "lib/Date/Manip/TZ/amjuju00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::TZ::asamma00" : {
+                "file" : "lib/Date/Manip/TZ/asamma00.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off128" : {
+                "file" : "lib/Date/Manip/Offset/off128.pm",
+                "version" : "6.81"
+             },
+             "Date::Manip::Offset::off225" : {
+                "version" : "6.81",
+                "file" : "lib/Date/Manip/Offset/off225.pm"
+             }
+          },
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/SBECK-github/Date-Manip",
+                "type" : "git",
+                "url" : "git://github.com/SBECK-github/Date-Manip.git"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1
+       },
+       "main_module" : "Date::Manip",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/SBECK-github/Date-Manip",
+             "type" : "git",
+             "url" : "git://github.com/SBECK-github/Date-Manip.git"
+          }
+       },
+       "distribution" : "Date-Manip",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Date-Manip-6.81.tar.gz",
+       "version" : "6.81",
+       "dependency" : [
+          {
+             "module" : "Test::Inter",
+             "phase" : "test",
+             "version" : "1.09",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Find",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Data::Dumper"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "utf8",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Cwd",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Carp",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::File",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Storable",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.006",
+             "phase" : "runtime",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Encode",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.67_01"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          }
+       ],
+       "name" : "Date-Manip-6.81",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 782,
+          "fail" : 9,
+          "na" : 0
+       },
+       "changes_file" : "Changes",
+       "version_numified" : 6.81,
+       "provides" : [
+          "Date::Manip",
+          "Date::Manip::Base",
+          "Date::Manip::DM5",
+          "Date::Manip::DM5abbrevs",
+          "Date::Manip::DM6",
+          "Date::Manip::Date",
+          "Date::Manip::Delta",
+          "Date::Manip::Lang::catalan",
+          "Date::Manip::Lang::danish",
+          "Date::Manip::Lang::dutch",
+          "Date::Manip::Lang::english",
+          "Date::Manip::Lang::finnish",
+          "Date::Manip::Lang::french",
+          "Date::Manip::Lang::german",
+          "Date::Manip::Lang::index",
+          "Date::Manip::Lang::italian",
+          "Date::Manip::Lang::norwegian",
+          "Date::Manip::Lang::polish",
+          "Date::Manip::Lang::portugue",
+          "Date::Manip::Lang::romanian",
+          "Date::Manip::Lang::russian",
+          "Date::Manip::Lang::spanish",
+          "Date::Manip::Lang::swedish",
+          "Date::Manip::Lang::turkish",
+          "Date::Manip::Obj",
+          "Date::Manip::Offset::off000",
+          "Date::Manip::Offset::off001",
+          "Date::Manip::Offset::off002",
+          "Date::Manip::Offset::off003",
+          "Date::Manip::Offset::off004",
+          "Date::Manip::Offset::off005",
+          "Date::Manip::Offset::off006",
+          "Date::Manip::Offset::off007",
+          "Date::Manip::Offset::off008",
+          "Date::Manip::Offset::off009",
+          "Date::Manip::Offset::off010",
+          "Date::Manip::Offset::off011",
+          "Date::Manip::Offset::off012",
+          "Date::Manip::Offset::off013",
+          "Date::Manip::Offset::off014",
+          "Date::Manip::Offset::off015",
+          "Date::Manip::Offset::off016",
+          "Date::Manip::Offset::off017",
+          "Date::Manip::Offset::off018",
+          "Date::Manip::Offset::off019",
+          "Date::Manip::Offset::off020",
+          "Date::Manip::Offset::off021",
+          "Date::Manip::Offset::off022",
+          "Date::Manip::Offset::off023",
+          "Date::Manip::Offset::off024",
+          "Date::Manip::Offset::off025",
+          "Date::Manip::Offset::off026",
+          "Date::Manip::Offset::off027",
+          "Date::Manip::Offset::off028",
+          "Date::Manip::Offset::off029",
+          "Date::Manip::Offset::off030",
+          "Date::Manip::Offset::off031",
+          "Date::Manip::Offset::off032",
+          "Date::Manip::Offset::off033",
+          "Date::Manip::Offset::off034",
+          "Date::Manip::Offset::off035",
+          "Date::Manip::Offset::off036",
+          "Date::Manip::Offset::off037",
+          "Date::Manip::Offset::off038",
+          "Date::Manip::Offset::off039",
+          "Date::Manip::Offset::off040",
+          "Date::Manip::Offset::off041",
+          "Date::Manip::Offset::off042",
+          "Date::Manip::Offset::off043",
+          "Date::Manip::Offset::off044",
+          "Date::Manip::Offset::off045",
+          "Date::Manip::Offset::off046",
+          "Date::Manip::Offset::off047",
+          "Date::Manip::Offset::off048",
+          "Date::Manip::Offset::off049",
+          "Date::Manip::Offset::off050",
+          "Date::Manip::Offset::off051",
+          "Date::Manip::Offset::off052",
+          "Date::Manip::Offset::off053",
+          "Date::Manip::Offset::off054",
+          "Date::Manip::Offset::off055",
+          "Date::Manip::Offset::off056",
+          "Date::Manip::Offset::off057",
+          "Date::Manip::Offset::off058",
+          "Date::Manip::Offset::off059",
+          "Date::Manip::Offset::off060",
+          "Date::Manip::Offset::off061",
+          "Date::Manip::Offset::off062",
+          "Date::Manip::Offset::off063",
+          "Date::Manip::Offset::off064",
+          "Date::Manip::Offset::off065",
+          "Date::Manip::Offset::off066",
+          "Date::Manip::Offset::off067",
+          "Date::Manip::Offset::off068",
+          "Date::Manip::Offset::off069",
+          "Date::Manip::Offset::off070",
+          "Date::Manip::Offset::off071",
+          "Date::Manip::Offset::off072",
+          "Date::Manip::Offset::off073",
+          "Date::Manip::Offset::off074",
+          "Date::Manip::Offset::off075",
+          "Date::Manip::Offset::off076",
+          "Date::Manip::Offset::off077",
+          "Date::Manip::Offset::off078",
+          "Date::Manip::Offset::off079",
+          "Date::Manip::Offset::off080",
+          "Date::Manip::Offset::off081",
+          "Date::Manip::Offset::off082",
+          "Date::Manip::Offset::off083",
+          "Date::Manip::Offset::off084",
+          "Date::Manip::Offset::off085",
+          "Date::Manip::Offset::off086",
+          "Date::Manip::Offset::off087",
+          "Date::Manip::Offset::off088",
+          "Date::Manip::Offset::off089",
+          "Date::Manip::Offset::off090",
+          "Date::Manip::Offset::off091",
+          "Date::Manip::Offset::off092",
+          "Date::Manip::Offset::off093",
+          "Date::Manip::Offset::off094",
+          "Date::Manip::Offset::off095",
+          "Date::Manip::Offset::off096",
+          "Date::Manip::Offset::off097",
+          "Date::Manip::Offset::off098",
+          "Date::Manip::Offset::off099",
+          "Date::Manip::Offset::off100",
+          "Date::Manip::Offset::off101",
+          "Date::Manip::Offset::off102",
+          "Date::Manip::Offset::off103",
+          "Date::Manip::Offset::off104",
+          "Date::Manip::Offset::off105",
+          "Date::Manip::Offset::off106",
+          "Date::Manip::Offset::off107",
+          "Date::Manip::Offset::off108",
+          "Date::Manip::Offset::off109",
+          "Date::Manip::Offset::off110",
+          "Date::Manip::Offset::off111",
+          "Date::Manip::Offset::off112",
+          "Date::Manip::Offset::off113",
+          "Date::Manip::Offset::off114",
+          "Date::Manip::Offset::off115",
+          "Date::Manip::Offset::off116",
+          "Date::Manip::Offset::off117",
+          "Date::Manip::Offset::off118",
+          "Date::Manip::Offset::off119",
+          "Date::Manip::Offset::off120",
+          "Date::Manip::Offset::off121",
+          "Date::Manip::Offset::off122",
+          "Date::Manip::Offset::off123",
+          "Date::Manip::Offset::off124",
+          "Date::Manip::Offset::off125",
+          "Date::Manip::Offset::off126",
+          "Date::Manip::Offset::off127",
+          "Date::Manip::Offset::off128",
+          "Date::Manip::Offset::off129",
+          "Date::Manip::Offset::off130",
+          "Date::Manip::Offset::off131",
+          "Date::Manip::Offset::off132",
+          "Date::Manip::Offset::off133",
+          "Date::Manip::Offset::off134",
+          "Date::Manip::Offset::off135",
+          "Date::Manip::Offset::off136",
+          "Date::Manip::Offset::off137",
+          "Date::Manip::Offset::off138",
+          "Date::Manip::Offset::off139",
+          "Date::Manip::Offset::off140",
+          "Date::Manip::Offset::off141",
+          "Date::Manip::Offset::off142",
+          "Date::Manip::Offset::off143",
+          "Date::Manip::Offset::off144",
+          "Date::Manip::Offset::off145",
+          "Date::Manip::Offset::off146",
+          "Date::Manip::Offset::off147",
+          "Date::Manip::Offset::off148",
+          "Date::Manip::Offset::off149",
+          "Date::Manip::Offset::off150",
+          "Date::Manip::Offset::off151",
+          "Date::Manip::Offset::off152",
+          "Date::Manip::Offset::off153",
+          "Date::Manip::Offset::off154",
+          "Date::Manip::Offset::off155",
+          "Date::Manip::Offset::off156",
+          "Date::Manip::Offset::off157",
+          "Date::Manip::Offset::off158",
+          "Date::Manip::Offset::off159",
+          "Date::Manip::Offset::off160",
+          "Date::Manip::Offset::off161",
+          "Date::Manip::Offset::off162",
+          "Date::Manip::Offset::off163",
+          "Date::Manip::Offset::off164",
+          "Date::Manip::Offset::off165",
+          "Date::Manip::Offset::off166",
+          "Date::Manip::Offset::off167",
+          "Date::Manip::Offset::off168",
+          "Date::Manip::Offset::off169",
+          "Date::Manip::Offset::off170",
+          "Date::Manip::Offset::off171",
+          "Date::Manip::Offset::off172",
+          "Date::Manip::Offset::off173",
+          "Date::Manip::Offset::off174",
+          "Date::Manip::Offset::off175",
+          "Date::Manip::Offset::off176",
+          "Date::Manip::Offset::off177",
+          "Date::Manip::Offset::off178",
+          "Date::Manip::Offset::off179",
+          "Date::Manip::Offset::off180",
+          "Date::Manip::Offset::off181",
+          "Date::Manip::Offset::off182",
+          "Date::Manip::Offset::off183",
+          "Date::Manip::Offset::off184",
+          "Date::Manip::Offset::off185",
+          "Date::Manip::Offset::off186",
+          "Date::Manip::Offset::off187",
+          "Date::Manip::Offset::off188",
+          "Date::Manip::Offset::off189",
+          "Date::Manip::Offset::off190",
+          "Date::Manip::Offset::off191",
+          "Date::Manip::Offset::off192",
+          "Date::Manip::Offset::off193",
+          "Date::Manip::Offset::off194",
+          "Date::Manip::Offset::off195",
+          "Date::Manip::Offset::off196",
+          "Date::Manip::Offset::off197",
+          "Date::Manip::Offset::off198",
+          "Date::Manip::Offset::off199",
+          "Date::Manip::Offset::off200",
+          "Date::Manip::Offset::off201",
+          "Date::Manip::Offset::off202",
+          "Date::Manip::Offset::off203",
+          "Date::Manip::Offset::off204",
+          "Date::Manip::Offset::off205",
+          "Date::Manip::Offset::off206",
+          "Date::Manip::Offset::off207",
+          "Date::Manip::Offset::off208",
+          "Date::Manip::Offset::off209",
+          "Date::Manip::Offset::off210",
+          "Date::Manip::Offset::off211",
+          "Date::Manip::Offset::off212",
+          "Date::Manip::Offset::off213",
+          "Date::Manip::Offset::off214",
+          "Date::Manip::Offset::off215",
+          "Date::Manip::Offset::off216",
+          "Date::Manip::Offset::off217",
+          "Date::Manip::Offset::off218",
+          "Date::Manip::Offset::off219",
+          "Date::Manip::Offset::off220",
+          "Date::Manip::Offset::off221",
+          "Date::Manip::Offset::off222",
+          "Date::Manip::Offset::off223",
+          "Date::Manip::Offset::off224",
+          "Date::Manip::Offset::off225",
+          "Date::Manip::Offset::off226",
+          "Date::Manip::Offset::off227",
+          "Date::Manip::Offset::off228",
+          "Date::Manip::Offset::off229",
+          "Date::Manip::Offset::off230",
+          "Date::Manip::Offset::off231",
+          "Date::Manip::Offset::off232",
+          "Date::Manip::Offset::off233",
+          "Date::Manip::Offset::off234",
+          "Date::Manip::Offset::off235",
+          "Date::Manip::Offset::off236",
+          "Date::Manip::Offset::off237",
+          "Date::Manip::Offset::off238",
+          "Date::Manip::Offset::off239",
+          "Date::Manip::Offset::off240",
+          "Date::Manip::Offset::off241",
+          "Date::Manip::Offset::off242",
+          "Date::Manip::Offset::off243",
+          "Date::Manip::Offset::off244",
+          "Date::Manip::Offset::off245",
+          "Date::Manip::Offset::off246",
+          "Date::Manip::Offset::off247",
+          "Date::Manip::Offset::off248",
+          "Date::Manip::Offset::off249",
+          "Date::Manip::Offset::off250",
+          "Date::Manip::Offset::off251",
+          "Date::Manip::Offset::off252",
+          "Date::Manip::Offset::off253",
+          "Date::Manip::Offset::off254",
+          "Date::Manip::Offset::off255",
+          "Date::Manip::Offset::off256",
+          "Date::Manip::Offset::off257",
+          "Date::Manip::Offset::off258",
+          "Date::Manip::Offset::off259",
+          "Date::Manip::Offset::off260",
+          "Date::Manip::Offset::off261",
+          "Date::Manip::Offset::off262",
+          "Date::Manip::Offset::off263",
+          "Date::Manip::Offset::off264",
+          "Date::Manip::Offset::off265",
+          "Date::Manip::Offset::off266",
+          "Date::Manip::Offset::off267",
+          "Date::Manip::Offset::off268",
+          "Date::Manip::Offset::off269",
+          "Date::Manip::Offset::off270",
+          "Date::Manip::Offset::off271",
+          "Date::Manip::Offset::off272",
+          "Date::Manip::Offset::off273",
+          "Date::Manip::Offset::off274",
+          "Date::Manip::Offset::off275",
+          "Date::Manip::Offset::off276",
+          "Date::Manip::Offset::off277",
+          "Date::Manip::Offset::off278",
+          "Date::Manip::Offset::off279",
+          "Date::Manip::Offset::off280",
+          "Date::Manip::Offset::off281",
+          "Date::Manip::Offset::off282",
+          "Date::Manip::Offset::off283",
+          "Date::Manip::Offset::off284",
+          "Date::Manip::Offset::off285",
+          "Date::Manip::Offset::off286",
+          "Date::Manip::Offset::off287",
+          "Date::Manip::Offset::off288",
+          "Date::Manip::Offset::off289",
+          "Date::Manip::Offset::off290",
+          "Date::Manip::Offset::off291",
+          "Date::Manip::Offset::off292",
+          "Date::Manip::Offset::off293",
+          "Date::Manip::Offset::off294",
+          "Date::Manip::Offset::off295",
+          "Date::Manip::Offset::off296",
+          "Date::Manip::Offset::off297",
+          "Date::Manip::Offset::off298",
+          "Date::Manip::Offset::off299",
+          "Date::Manip::Offset::off300",
+          "Date::Manip::Offset::off301",
+          "Date::Manip::Offset::off302",
+          "Date::Manip::Offset::off303",
+          "Date::Manip::Offset::off304",
+          "Date::Manip::Offset::off305",
+          "Date::Manip::Offset::off306",
+          "Date::Manip::Offset::off307",
+          "Date::Manip::Offset::off308",
+          "Date::Manip::Offset::off309",
+          "Date::Manip::Offset::off310",
+          "Date::Manip::Offset::off311",
+          "Date::Manip::Offset::off312",
+          "Date::Manip::Offset::off313",
+          "Date::Manip::Offset::off314",
+          "Date::Manip::Offset::off315",
+          "Date::Manip::Offset::off316",
+          "Date::Manip::Offset::off317",
+          "Date::Manip::Offset::off318",
+          "Date::Manip::Offset::off319",
+          "Date::Manip::Offset::off320",
+          "Date::Manip::Offset::off321",
+          "Date::Manip::Offset::off322",
+          "Date::Manip::Offset::off323",
+          "Date::Manip::Offset::off324",
+          "Date::Manip::Offset::off325",
+          "Date::Manip::Offset::off326",
+          "Date::Manip::Offset::off327",
+          "Date::Manip::Offset::off328",
+          "Date::Manip::Offset::off329",
+          "Date::Manip::Offset::off330",
+          "Date::Manip::Offset::off331",
+          "Date::Manip::Offset::off332",
+          "Date::Manip::Offset::off333",
+          "Date::Manip::Offset::off334",
+          "Date::Manip::Offset::off335",
+          "Date::Manip::Offset::off336",
+          "Date::Manip::Offset::off337",
+          "Date::Manip::Offset::off338",
+          "Date::Manip::Offset::off339",
+          "Date::Manip::Offset::off340",
+          "Date::Manip::Offset::off341",
+          "Date::Manip::Offset::off342",
+          "Date::Manip::Offset::off343",
+          "Date::Manip::Offset::off344",
+          "Date::Manip::Offset::off345",
+          "Date::Manip::Offset::off346",
+          "Date::Manip::Offset::off347",
+          "Date::Manip::Offset::off348",
+          "Date::Manip::Offset::off349",
+          "Date::Manip::Offset::off350",
+          "Date::Manip::Offset::off351",
+          "Date::Manip::Offset::off352",
+          "Date::Manip::Offset::off353",
+          "Date::Manip::Offset::off354",
+          "Date::Manip::Offset::off355",
+          "Date::Manip::Offset::off356",
+          "Date::Manip::Offset::off357",
+          "Date::Manip::Offset::off358",
+          "Date::Manip::Offset::off359",
+          "Date::Manip::Offset::off360",
+          "Date::Manip::Offset::off361",
+          "Date::Manip::Offset::off362",
+          "Date::Manip::Offset::off363",
+          "Date::Manip::Offset::off364",
+          "Date::Manip::Offset::off365",
+          "Date::Manip::Offset::off366",
+          "Date::Manip::Offset::off367",
+          "Date::Manip::Offset::off368",
+          "Date::Manip::Offset::off369",
+          "Date::Manip::Offset::off370",
+          "Date::Manip::Offset::off371",
+          "Date::Manip::Offset::off372",
+          "Date::Manip::Offset::off373",
+          "Date::Manip::Offset::off374",
+          "Date::Manip::Offset::off375",
+          "Date::Manip::Offset::off376",
+          "Date::Manip::Offset::off377",
+          "Date::Manip::Offset::off378",
+          "Date::Manip::Offset::off379",
+          "Date::Manip::Offset::off380",
+          "Date::Manip::Offset::off381",
+          "Date::Manip::Offset::off382",
+          "Date::Manip::Offset::off383",
+          "Date::Manip::Offset::off384",
+          "Date::Manip::Offset::off385",
+          "Date::Manip::Offset::off386",
+          "Date::Manip::Offset::off387",
+          "Date::Manip::Offset::off388",
+          "Date::Manip::Offset::off389",
+          "Date::Manip::Offset::off390",
+          "Date::Manip::Offset::off391",
+          "Date::Manip::Offset::off392",
+          "Date::Manip::Offset::off393",
+          "Date::Manip::Offset::off394",
+          "Date::Manip::Offset::off395",
+          "Date::Manip::Offset::off396",
+          "Date::Manip::Offset::off397",
+          "Date::Manip::Offset::off398",
+          "Date::Manip::Offset::off399",
+          "Date::Manip::Offset::off400",
+          "Date::Manip::Offset::off401",
+          "Date::Manip::Offset::off402",
+          "Date::Manip::Offset::off403",
+          "Date::Manip::Offset::off404",
+          "Date::Manip::Offset::off405",
+          "Date::Manip::Offset::off406",
+          "Date::Manip::Offset::off407",
+          "Date::Manip::Offset::off408",
+          "Date::Manip::Offset::off409",
+          "Date::Manip::Offset::off410",
+          "Date::Manip::Offset::off411",
+          "Date::Manip::Offset::off412",
+          "Date::Manip::Offset::off413",
+          "Date::Manip::Offset::off414",
+          "Date::Manip::Offset::off415",
+          "Date::Manip::Offset::off416",
+          "Date::Manip::Offset::off417",
+          "Date::Manip::Offset::off418",
+          "Date::Manip::Offset::off419",
+          "Date::Manip::Offset::off420",
+          "Date::Manip::Offset::off421",
+          "Date::Manip::Offset::off422",
+          "Date::Manip::Offset::off423",
+          "Date::Manip::Offset::off424",
+          "Date::Manip::Offset::off425",
+          "Date::Manip::Offset::off426",
+          "Date::Manip::Offset::off427",
+          "Date::Manip::Offset::off428",
+          "Date::Manip::Offset::off429",
+          "Date::Manip::Offset::off430",
+          "Date::Manip::Offset::off431",
+          "Date::Manip::Offset::off432",
+          "Date::Manip::Offset::off433",
+          "Date::Manip::Offset::off434",
+          "Date::Manip::Offset::off435",
+          "Date::Manip::Offset::off436",
+          "Date::Manip::Offset::off437",
+          "Date::Manip::Offset::off438",
+          "Date::Manip::Offset::off439",
+          "Date::Manip::Offset::off440",
+          "Date::Manip::Offset::off441",
+          "Date::Manip::Offset::off442",
+          "Date::Manip::Offset::off443",
+          "Date::Manip::Offset::off444",
+          "Date::Manip::Recur",
+          "Date::Manip::TZ",
+          "Date::Manip::TZ::a00",
+          "Date::Manip::TZ::afabid00",
+          "Date::Manip::TZ::afaccr00",
+          "Date::Manip::TZ::afalgi00",
+          "Date::Manip::TZ::afbiss00",
+          "Date::Manip::TZ::afcair00",
+          "Date::Manip::TZ::afcasa00",
+          "Date::Manip::TZ::afceut00",
+          "Date::Manip::TZ::afel_a00",
+          "Date::Manip::TZ::afjoha00",
+          "Date::Manip::TZ::afjuba00",
+          "Date::Manip::TZ::afkhar00",
+          "Date::Manip::TZ::aflago00",
+          "Date::Manip::TZ::afmapu00",
+          "Date::Manip::TZ::afmonr00",
+          "Date::Manip::TZ::afnair00",
+          "Date::Manip::TZ::afndja00",
+          "Date::Manip::TZ::afsao_00",
+          "Date::Manip::TZ::aftrip00",
+          "Date::Manip::TZ::aftuni00",
+          "Date::Manip::TZ::afwind00",
+          "Date::Manip::TZ::amadak00",
+          "Date::Manip::TZ::amanch00",
+          "Date::Manip::TZ::amarag00",
+          "Date::Manip::TZ::amasun00",
+          "Date::Manip::TZ::amatik00",
+          "Date::Manip::TZ::ambahi00",
+          "Date::Manip::TZ::ambahi01",
+          "Date::Manip::TZ::ambarb00",
+          "Date::Manip::TZ::ambele00",
+          "Date::Manip::TZ::ambeli00",
+          "Date::Manip::TZ::ambeul00",
+          "Date::Manip::TZ::amblan00",
+          "Date::Manip::TZ::amboa_00",
+          "Date::Manip::TZ::ambogo00",
+          "Date::Manip::TZ::ambois00",
+          "Date::Manip::TZ::ambuen00",
+          "Date::Manip::TZ::amcamb00",
+          "Date::Manip::TZ::amcamp00",
+          "Date::Manip::TZ::amcanc00",
+          "Date::Manip::TZ::amcara00",
+          "Date::Manip::TZ::amcata00",
+          "Date::Manip::TZ::amcaye00",
+          "Date::Manip::TZ::amcent00",
+          "Date::Manip::TZ::amchic00",
+          "Date::Manip::TZ::amchih00",
+          "Date::Manip::TZ::amcord00",
+          "Date::Manip::TZ::amcost00",
+          "Date::Manip::TZ::amcres00",
+          "Date::Manip::TZ::amcuia00",
+          "Date::Manip::TZ::amcura00",
+          "Date::Manip::TZ::amdanm00",
+          "Date::Manip::TZ::amdaws00",
+          "Date::Manip::TZ::amdaws01",
+          "Date::Manip::TZ::amdenv00",
+          "Date::Manip::TZ::amdetr00",
+          "Date::Manip::TZ::amedmo00",
+          "Date::Manip::TZ::ameiru00",
+          "Date::Manip::TZ::amel_s00",
+          "Date::Manip::TZ::amfort00",
+          "Date::Manip::TZ::amfort01",
+          "Date::Manip::TZ::amglac00",
+          "Date::Manip::TZ::amgodt00",
+          "Date::Manip::TZ::amgoos00",
+          "Date::Manip::TZ::amgran00",
+          "Date::Manip::TZ::amguat00",
+          "Date::Manip::TZ::amguay00",
+          "Date::Manip::TZ::amguya00",
+          "Date::Manip::TZ::amhali00",
+          "Date::Manip::TZ::amhava00",
+          "Date::Manip::TZ::amherm00",
+          "Date::Manip::TZ::amindi00",
+          "Date::Manip::TZ::aminuv00",
+          "Date::Manip::TZ::amiqal00",
+          "Date::Manip::TZ::amjama00",
+          "Date::Manip::TZ::amjuju00",
+          "Date::Manip::TZ::amjune00",
+          "Date::Manip::TZ::amknox00",
+          "Date::Manip::TZ::amla_p00",
+          "Date::Manip::TZ::amla_r00",
+          "Date::Manip::TZ::amlima00",
+          "Date::Manip::TZ::amlos_00",
+          "Date::Manip::TZ::amloui00",
+          "Date::Manip::TZ::ammace00",
+          "Date::Manip::TZ::ammana00",
+          "Date::Manip::TZ::ammana01",
+          "Date::Manip::TZ::ammare00",
+          "Date::Manip::TZ::ammart00",
+          "Date::Manip::TZ::ammata00",
+          "Date::Manip::TZ::ammaza00",
+          "Date::Manip::TZ::ammend00",
+          "Date::Manip::TZ::ammeno00",
+          "Date::Manip::TZ::ammeri00",
+          "Date::Manip::TZ::ammetl00",
+          "Date::Manip::TZ::ammexi00",
+          "Date::Manip::TZ::ammiqu00",
+          "Date::Manip::TZ::ammonc00",
+          "Date::Manip::TZ::ammont00",
+          "Date::Manip::TZ::ammont01",
+          "Date::Manip::TZ::ammont02",
+          "Date::Manip::TZ::amnass00",
+          "Date::Manip::TZ::amnew_00",
+          "Date::Manip::TZ::amnew_01",
+          "Date::Manip::TZ::amnipi00",
+          "Date::Manip::TZ::amnome00",
+          "Date::Manip::TZ::amnoro00",
+          "Date::Manip::TZ::amojin00",
+          "Date::Manip::TZ::ampana00",
+          "Date::Manip::TZ::ampang00",
+          "Date::Manip::TZ::ampara00",
+          "Date::Manip::TZ::ampete00",
+          "Date::Manip::TZ::amphoe00",
+          "Date::Manip::TZ::amport00",
+          "Date::Manip::TZ::amport01",
+          "Date::Manip::TZ::amport02",
+          "Date::Manip::TZ::ampuer00",
+          "Date::Manip::TZ::ampunt00",
+          "Date::Manip::TZ::amrain00",
+          "Date::Manip::TZ::amrank00",
+          "Date::Manip::TZ::amreci00",
+          "Date::Manip::TZ::amregi00",
+          "Date::Manip::TZ::amreso00",
+          "Date::Manip::TZ::amrio_00",
+          "Date::Manip::TZ::amrio_01",
+          "Date::Manip::TZ::amsalt00",
+          "Date::Manip::TZ::amsan_00",
+          "Date::Manip::TZ::amsan_01",
+          "Date::Manip::TZ::amsant00",
+          "Date::Manip::TZ::amsant01",
+          "Date::Manip::TZ::amsant02",
+          "Date::Manip::TZ::amsao_00",
+          "Date::Manip::TZ::amscor00",
+          "Date::Manip::TZ::amsitk00",
+          "Date::Manip::TZ::amst_j00",
+          "Date::Manip::TZ::amswif00",
+          "Date::Manip::TZ::amtegu00",
+          "Date::Manip::TZ::amtell00",
+          "Date::Manip::TZ::amthul00",
+          "Date::Manip::TZ::amthun00",
+          "Date::Manip::TZ::amtiju00",
+          "Date::Manip::TZ::amtoro00",
+          "Date::Manip::TZ::amtucu00",
+          "Date::Manip::TZ::amushu00",
+          "Date::Manip::TZ::amvanc00",
+          "Date::Manip::TZ::amveva00",
+          "Date::Manip::TZ::amvinc00",
+          "Date::Manip::TZ::amwhit00",
+          "Date::Manip::TZ::amwina00",
+          "Date::Manip::TZ::amwinn00",
+          "Date::Manip::TZ::amyaku00",
+          "Date::Manip::TZ::amyell00",
+          "Date::Manip::TZ::ancase00",
+          "Date::Manip::TZ::andavi00",
+          "Date::Manip::TZ::andumo00",
+          "Date::Manip::TZ::anmacq00",
+          "Date::Manip::TZ::anmaws00",
+          "Date::Manip::TZ::anpalm00",
+          "Date::Manip::TZ::anroth00",
+          "Date::Manip::TZ::ansyow00",
+          "Date::Manip::TZ::antrol00",
+          "Date::Manip::TZ::anvost00",
+          "Date::Manip::TZ::asalma00",
+          "Date::Manip::TZ::asamma00",
+          "Date::Manip::TZ::asanad00",
+          "Date::Manip::TZ::asaqta00",
+          "Date::Manip::TZ::asaqto00",
+          "Date::Manip::TZ::asashg00",
+          "Date::Manip::TZ::asatyr00",
+          "Date::Manip::TZ::asbagh00",
+          "Date::Manip::TZ::asbaku00",
+          "Date::Manip::TZ::asbang00",
+          "Date::Manip::TZ::asbarn00",
+          "Date::Manip::TZ::asbeir00",
+          "Date::Manip::TZ::asbish00",
+          "Date::Manip::TZ::asbrun00",
+          "Date::Manip::TZ::aschit00",
+          "Date::Manip::TZ::aschoi00",
+          "Date::Manip::TZ::ascolo00",
+          "Date::Manip::TZ::asdama00",
+          "Date::Manip::TZ::asdhak00",
+          "Date::Manip::TZ::asdili00",
+          "Date::Manip::TZ::asduba00",
+          "Date::Manip::TZ::asdush00",
+          "Date::Manip::TZ::asfama00",
+          "Date::Manip::TZ::asgaza00",
+          "Date::Manip::TZ::ashebr00",
+          "Date::Manip::TZ::asho_c00",
+          "Date::Manip::TZ::ashong00",
+          "Date::Manip::TZ::ashovd00",
+          "Date::Manip::TZ::asirku00",
+          "Date::Manip::TZ::asjaka00",
+          "Date::Manip::TZ::asjaya00",
+          "Date::Manip::TZ::asjeru00",
+          "Date::Manip::TZ::askabu00",
+          "Date::Manip::TZ::askamc00",
+          "Date::Manip::TZ::askara00",
+          "Date::Manip::TZ::askath00",
+          "Date::Manip::TZ::askhan00",
+          "Date::Manip::TZ::askolk00",
+          "Date::Manip::TZ::askras00",
+          "Date::Manip::TZ::askual00",
+          "Date::Manip::TZ::askuch00",
+          "Date::Manip::TZ::asmaca00",
+          "Date::Manip::TZ::asmaga00",
+          "Date::Manip::TZ::asmaka00",
+          "Date::Manip::TZ::asmani00",
+          "Date::Manip::TZ::asnico00",
+          "Date::Manip::TZ::asnovo00",
+          "Date::Manip::TZ::asnovo01",
+          "Date::Manip::TZ::asomsk00",
+          "Date::Manip::TZ::asoral00",
+          "Date::Manip::TZ::aspont00",
+          "Date::Manip::TZ::aspyon00",
+          "Date::Manip::TZ::asqata00",
+          "Date::Manip::TZ::asqost00",
+          "Date::Manip::TZ::asqyzy00",
+          "Date::Manip::TZ::asriya00",
+          "Date::Manip::TZ::assakh00",
+          "Date::Manip::TZ::assama00",
+          "Date::Manip::TZ::asseou00",
+          "Date::Manip::TZ::asshan00",
+          "Date::Manip::TZ::assing00",
+          "Date::Manip::TZ::assred00",
+          "Date::Manip::TZ::astaip00",
+          "Date::Manip::TZ::astash00",
+          "Date::Manip::TZ::astbil00",
+          "Date::Manip::TZ::astehr00",
+          "Date::Manip::TZ::asthim00",
+          "Date::Manip::TZ::astoky00",
+          "Date::Manip::TZ::astoms00",
+          "Date::Manip::TZ::asulaa00",
+          "Date::Manip::TZ::asurum00",
+          "Date::Manip::TZ::asustm00",
+          "Date::Manip::TZ::asvlad00",
+          "Date::Manip::TZ::asyaku00",
+          "Date::Manip::TZ::asyang00",
+          "Date::Manip::TZ::asyeka00",
+          "Date::Manip::TZ::asyere00",
+          "Date::Manip::TZ::atazor00",
+          "Date::Manip::TZ::atberm00",
+          "Date::Manip::TZ::atcana00",
+          "Date::Manip::TZ::atcape00",
+          "Date::Manip::TZ::atfaro00",
+          "Date::Manip::TZ::atmade00",
+          "Date::Manip::TZ::atreyk00",
+          "Date::Manip::TZ::atsout00",
+          "Date::Manip::TZ::atstan00",
+          "Date::Manip::TZ::auadel00",
+          "Date::Manip::TZ::aubris00",
+          "Date::Manip::TZ::aubrok00",
+          "Date::Manip::TZ::aucurr00",
+          "Date::Manip::TZ::audarw00",
+          "Date::Manip::TZ::aueucl00",
+          "Date::Manip::TZ::auhoba00",
+          "Date::Manip::TZ::aulind00",
+          "Date::Manip::TZ::aulord00",
+          "Date::Manip::TZ::aumelb00",
+          "Date::Manip::TZ::aupert00",
+          "Date::Manip::TZ::ausydn00",
+          "Date::Manip::TZ::b00",
+          "Date::Manip::TZ::c00",
+          "Date::Manip::TZ::cet00",
+          "Date::Manip::TZ::d00",
+          "Date::Manip::TZ::e00",
+          "Date::Manip::TZ::eet00",
+          "Date::Manip::TZ::etgmt00",
+          "Date::Manip::TZ::etgmtm00",
+          "Date::Manip::TZ::etgmtm01",
+          "Date::Manip::TZ::etgmtm02",
+          "Date::Manip::TZ::etgmtm03",
+          "Date::Manip::TZ::etgmtm04",
+          "Date::Manip::TZ::etgmtm05",
+          "Date::Manip::TZ::etgmtm06",
+          "Date::Manip::TZ::etgmtm07",
+          "Date::Manip::TZ::etgmtm08",
+          "Date::Manip::TZ::etgmtm09",
+          "Date::Manip::TZ::etgmtm10",
+          "Date::Manip::TZ::etgmtm11",
+          "Date::Manip::TZ::etgmtm12",
+          "Date::Manip::TZ::etgmtm13",
+          "Date::Manip::TZ::etgmtp00",
+          "Date::Manip::TZ::etgmtp01",
+          "Date::Manip::TZ::etgmtp02",
+          "Date::Manip::TZ::etgmtp03",
+          "Date::Manip::TZ::etgmtp04",
+          "Date::Manip::TZ::etgmtp05",
+          "Date::Manip::TZ::etgmtp06",
+          "Date::Manip::TZ::etgmtp07",
+          "Date::Manip::TZ::etgmtp08",
+          "Date::Manip::TZ::etgmtp09",
+          "Date::Manip::TZ::etgmtp10",
+          "Date::Manip::TZ::etgmtp11",
+          "Date::Manip::TZ::euamst00",
+          "Date::Manip::TZ::euando00",
+          "Date::Manip::TZ::euastr00",
+          "Date::Manip::TZ::euathe00",
+          "Date::Manip::TZ::eubelg00",
+          "Date::Manip::TZ::euberl00",
+          "Date::Manip::TZ::eubrus00",
+          "Date::Manip::TZ::eubuch00",
+          "Date::Manip::TZ::eubuda00",
+          "Date::Manip::TZ::euchis00",
+          "Date::Manip::TZ::eucope00",
+          "Date::Manip::TZ::eudubl00",
+          "Date::Manip::TZ::eugibr00",
+          "Date::Manip::TZ::euhels00",
+          "Date::Manip::TZ::euista00",
+          "Date::Manip::TZ::eukali00",
+          "Date::Manip::TZ::eukiev00",
+          "Date::Manip::TZ::eukiro00",
+          "Date::Manip::TZ::eulisb00",
+          "Date::Manip::TZ::eulond00",
+          "Date::Manip::TZ::euluxe00",
+          "Date::Manip::TZ::eumadr00",
+          "Date::Manip::TZ::eumalt00",
+          "Date::Manip::TZ::eumins00",
+          "Date::Manip::TZ::eumona00",
+          "Date::Manip::TZ::eumosc00",
+          "Date::Manip::TZ::euoslo00",
+          "Date::Manip::TZ::eupari00",
+          "Date::Manip::TZ::euprag00",
+          "Date::Manip::TZ::euriga00",
+          "Date::Manip::TZ::eurome00",
+          "Date::Manip::TZ::eusama00",
+          "Date::Manip::TZ::eusara00",
+          "Date::Manip::TZ::eusimf00",
+          "Date::Manip::TZ::eusofi00",
+          "Date::Manip::TZ::eustoc00",
+          "Date::Manip::TZ::eutall00",
+          "Date::Manip::TZ::eutira00",
+          "Date::Manip::TZ::euulya00",
+          "Date::Manip::TZ::euuzhg00",
+          "Date::Manip::TZ::euvien00",
+          "Date::Manip::TZ::euviln00",
+          "Date::Manip::TZ::euvolg00",
+          "Date::Manip::TZ::euwars00",
+          "Date::Manip::TZ::euzapo00",
+          "Date::Manip::TZ::euzuri00",
+          "Date::Manip::TZ::f00",
+          "Date::Manip::TZ::g00",
+          "Date::Manip::TZ::h00",
+          "Date::Manip::TZ::i00",
+          "Date::Manip::TZ::inchag00",
+          "Date::Manip::TZ::inchri00",
+          "Date::Manip::TZ::incoco00",
+          "Date::Manip::TZ::inkerg00",
+          "Date::Manip::TZ::inmahe00",
+          "Date::Manip::TZ::inmald00",
+          "Date::Manip::TZ::inmaur00",
+          "Date::Manip::TZ::inreun00",
+          "Date::Manip::TZ::k00",
+          "Date::Manip::TZ::l00",
+          "Date::Manip::TZ::m00",
+          "Date::Manip::TZ::met00",
+          "Date::Manip::TZ::n00",
+          "Date::Manip::TZ::o00",
+          "Date::Manip::TZ::p00",
+          "Date::Manip::TZ::paapia00",
+          "Date::Manip::TZ::paauck00",
+          "Date::Manip::TZ::paboug00",
+          "Date::Manip::TZ::pachat00",
+          "Date::Manip::TZ::pachuu00",
+          "Date::Manip::TZ::paeast00",
+          "Date::Manip::TZ::paefat00",
+          "Date::Manip::TZ::paende00",
+          "Date::Manip::TZ::pafaka00",
+          "Date::Manip::TZ::pafiji00",
+          "Date::Manip::TZ::pafuna00",
+          "Date::Manip::TZ::pagala00",
+          "Date::Manip::TZ::pagamb00",
+          "Date::Manip::TZ::paguad00",
+          "Date::Manip::TZ::paguam00",
+          "Date::Manip::TZ::pahono00",
+          "Date::Manip::TZ::pakiri00",
+          "Date::Manip::TZ::pakosr00",
+          "Date::Manip::TZ::pakwaj00",
+          "Date::Manip::TZ::pamaju00",
+          "Date::Manip::TZ::pamarq00",
+          "Date::Manip::TZ::panaur00",
+          "Date::Manip::TZ::paniue00",
+          "Date::Manip::TZ::panorf00",
+          "Date::Manip::TZ::panoum00",
+          "Date::Manip::TZ::papago00",
+          "Date::Manip::TZ::papala00",
+          "Date::Manip::TZ::papitc00",
+          "Date::Manip::TZ::papohn00",
+          "Date::Manip::TZ::paport00",
+          "Date::Manip::TZ::pararo00",
+          "Date::Manip::TZ::patahi00",
+          "Date::Manip::TZ::patara00",
+          "Date::Manip::TZ::patong00",
+          "Date::Manip::TZ::pawake00",
+          "Date::Manip::TZ::pawall00",
+          "Date::Manip::TZ::q00",
+          "Date::Manip::TZ::r00",
+          "Date::Manip::TZ::s00",
+          "Date::Manip::TZ::t00",
+          "Date::Manip::TZ::u00",
+          "Date::Manip::TZ::ut00",
+          "Date::Manip::TZ::utc00",
+          "Date::Manip::TZ::v00",
+          "Date::Manip::TZ::w00",
+          "Date::Manip::TZ::wet00",
+          "Date::Manip::TZ::x00",
+          "Date::Manip::TZ::y00",
+          "Date::Manip::TZ::z00",
+          "Date::Manip::TZ_Base",
+          "Date::Manip::TZdata",
+          "Date::Manip::Zones"
+       ],
+       "id" : "uQMGUmBl9roAEKX22eAPXanJRuI",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SB/SBECK/Date-Manip-6.81.tar.gz",
+       "author" : "SBECK",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Date manipulation routines",
+       "checksum_md5" : "a9ff96f05675ac4cb7f19c4b03a7363b"
+    }

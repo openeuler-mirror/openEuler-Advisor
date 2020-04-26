@@ -1,0 +1,93 @@
+---
+version_control: github
+src_repo: google/googletest
+tag_prefix: release-
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 11:04:33.460248160 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/google/googletest/releases/20451459",
+        "assets_url": "https://api.github.com/repos/google/googletest/releases/20451459/assets",
+        "upload_url": "https://uploads.github.com/repos/google/googletest/releases/20451459/assets{?name,label}",
+        "html_url": "https://github.com/google/googletest/releases/tag/release-1.10.0",
+        "id": 20451459,
+        "node_id": "MDc6UmVsZWFzZTIwNDUxNDU5",
+        "tag_name": "release-1.10.0",
+        "target_commitish": "v1.10.x",
+        "name": "v1.10.0",
+        "draft": false,
+        "author": {
+          "login": "gennadiycivil",
+          "id": 12735026,
+          "node_id": "MDQ6VXNlcjEyNzM1MDI2",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/12735026?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/gennadiycivil",
+          "html_url": "https://github.com/gennadiycivil",
+          "followers_url": "https://api.github.com/users/gennadiycivil/followers",
+          "following_url": "https://api.github.com/users/gennadiycivil/following{/other_user}",
+          "gists_url": "https://api.github.com/users/gennadiycivil/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/gennadiycivil/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/gennadiycivil/subscriptions",
+          "organizations_url": "https://api.github.com/users/gennadiycivil/orgs",
+          "repos_url": "https://api.github.com/users/gennadiycivil/repos",
+          "events_url": "https://api.github.com/users/gennadiycivil/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/gennadiycivil/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-10-03T14:52:15Z",
+        "published_at": "2019-10-03T16:34:44Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/google/googletest/tarball/release-1.10.0",
+        "zipball_url": "https://api.github.com/repos/google/googletest/zipball/release-1.10.0",
+        "body": "Release 1.10.0 \r\n1.10.0 Release reflects a current version of the project.\r\nThe 1.10.x will not consider any requests for any new features, The bug fix requests will only be considered if proven \"critical\"\r\n\r\nHigh Level Changes:\r\nThis release deprecated \"....TEST_CASE\" API in favor of \"....TEST_SUITE\". In a nutshell if you have code that uses something like \"INSTANTIATE_TYPED_TEST_CASE_P \" - this and all other \"*_TEST_CASE \" are now deprecated in favor of more standard _TEST_SUITE. See https://github.com/google/googletest/blob/master/googletest/docs/primer.md#beware-of-the-nomenclature.\r\n\r\nThere is also new powerful MOCK_METHOD macro. See https://github.com/google/googletest/blob/72adf7a4155b6642da1e6761678fe546590c0269/googlemock/docs/cook_book.md#creating-mock-classes. This replaces older way of mocking.\r\nFor example\r\n(Old) MOCK_METHOD1(Bar, double(std::string s));\r\n(New) MOCK_METHOD(double, Bar, (std::string s), (override));\r\nSo there is no need to count the parameters anymore.\r\n\r\n"
+      },
+      {
+        "url": "https://api.github.com/repos/google/googletest/releases/9083259",
+        "assets_url": "https://api.github.com/repos/google/googletest/releases/9083259/assets",
+        "upload_url": "https://uploads.github.com/repos/google/googletest/releases/9083259/assets{?name,label}",
+        "html_url": "https://github.com/google/googletest/releases/tag/release-1.8.1",
+        "id": 9083259,
+        "node_id": "MDc6UmVsZWFzZTkwODMyNTk=",
+        "tag_name": "release-1.8.1",
+        "target_commitish": "v1.8.x",
+        "name": "v1.8.1",
+        "draft": false,
+        "author": {
+          "login": "gennadiycivil",
+          "id": 12735026,
+          "node_id": "MDQ6VXNlcjEyNzM1MDI2",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/12735026?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/gennadiycivil",
+          "html_url": "https://github.com/gennadiycivil",
+          "followers_url": "https://api.github.com/users/gennadiycivil/followers",
+          "following_url": "https://api.github.com/users/gennadiycivil/following{/other_user}",
+          "gists_url": "https://api.github.com/users/gennadiycivil/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/gennadiycivil/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/gennadiycivil/subscriptions",
+          "organizations_url": "https://api.github.com/users/gennadiycivil/orgs",
+          "repos_url": "https://api.github.com/users/gennadiycivil/repos",
+          "events_url": "https://api.github.com/users/gennadiycivil/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/gennadiycivil/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2018-08-31T15:21:57Z",
+        "published_at": "2018-08-31T15:53:24Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/google/googletest/tarball/release-1.8.1",
+        "zipball_url": "https://api.github.com/repos/google/googletest/zipball/release-1.8.1",
+        "body": "1.8.1 Release reflects a current version of the project.\r\nThe 1.8.x is the last release supporting pre-C++11 compilers. \r\nThe 1.8.x will not accept any requests for any new features and any bugfix requests will only be accepted if proven \"critical\""
+      }
+    ]
+query_type: api.github.releases

@@ -1,0 +1,32 @@
+---
+version_control: gitlab.gnome
+src_repo: gcab
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 14:01:12.876982760 +00:00
+  raw_data: |
+    v0.1
+    v0.1^{}
+    v0.2
+    v0.2^{}
+    v0.3
+    v0.3^{}
+    v0.4
+    v0.4^{}
+    v0.5
+    v0.5^{}
+    v0.6
+    v0.6^{}
+    v0.7
+    v0.7^{}
+    v1.0
+    v1.0^{}
+    v1.1
+    v1.1^{}
+    v1.2
+    v1.2^{}
+    v1.3
+    v1.3^{}
+    v1.4
+    v1.4^{}

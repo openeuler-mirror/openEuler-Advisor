@@ -1,0 +1,52 @@
+---
+version_control: github
+src_repo: ArtifexSoftware/ijs
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:28:40.937444990 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/ArtifexSoftware/ijs/releases/9868834",
+        "assets_url": "https://api.github.com/repos/ArtifexSoftware/ijs/releases/9868834/assets",
+        "upload_url": "https://uploads.github.com/repos/ArtifexSoftware/ijs/releases/9868834/assets{?name,label}",
+        "html_url": "https://github.com/ArtifexSoftware/ijs/releases/tag/0.35",
+        "id": 9868834,
+        "node_id": "MDc6UmVsZWFzZTk4Njg4MzQ=",
+        "tag_name": "0.35",
+        "target_commitish": "master",
+        "name": "IJS 0.35",
+        "draft": false,
+        "author": {
+          "login": "chris-liddell",
+          "id": 11627080,
+          "node_id": "MDQ6VXNlcjExNjI3MDgw",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/11627080?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/chris-liddell",
+          "html_url": "https://github.com/chris-liddell",
+          "followers_url": "https://api.github.com/users/chris-liddell/followers",
+          "following_url": "https://api.github.com/users/chris-liddell/following{/other_user}",
+          "gists_url": "https://api.github.com/users/chris-liddell/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/chris-liddell/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/chris-liddell/subscriptions",
+          "organizations_url": "https://api.github.com/users/chris-liddell/orgs",
+          "repos_url": "https://api.github.com/users/chris-liddell/repos",
+          "events_url": "https://api.github.com/users/chris-liddell/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/chris-liddell/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2018-02-27T17:31:37Z",
+        "published_at": "2018-02-28T07:47:09Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/ArtifexSoftware/ijs/tarball/0.35",
+        "zipball_url": "https://api.github.com/repos/ArtifexSoftware/ijs/zipball/0.35",
+        "body": ""
+      }
+    ]
+query_type: api.github.releases

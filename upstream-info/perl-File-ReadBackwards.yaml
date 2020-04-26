@@ -1,0 +1,83 @@
+---
+version_control: metacpan
+src_repo: File-ReadBackwards
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:06.876158500 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "stat" : {
+          "size" : 8943,
+          "uid" : 1009,
+          "mode" : 33188,
+          "mtime" : 1307434098,
+          "gid" : 1009
+       },
+       "date" : "2011-06-07T08:08:18",
+       "checksum_sha256" : "82b261af87507cc3e7e66899c457104ebc8d1c09fb85c53f67c1f90f70f18d6e",
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 6.42, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "prereqs" : {},
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "version" : "1.05",
+          "abstract" : "unknown",
+          "name" : "File-ReadBackwards",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "resources" : {},
+       "main_module" : "File::ReadBackwards",
+       "license" : [
+          "unknown"
+       ],
+       "distribution" : "File-ReadBackwards",
+       "archive" : "File-ReadBackwards-1.05.tar.gz",
+       "version" : "1.05",
+       "dependency" : [],
+       "name" : "File-ReadBackwards-1.05",
+       "tests" : {
+          "unknown" : 1,
+          "na" : 0,
+          "fail" : 269,
+          "pass" : 10488
+       },
+       "changes_file" : "Changes",
+       "version_numified" : 1.05,
+       "provides" : [
+          "File::ReadBackwards"
+       ],
+       "id" : "sEuRDE0lzz_6w1_P9XbL4xARsy4",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/U/UR/URI/File-ReadBackwards-1.05.tar.gz",
+       "author" : "URI",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Read a file backwards by lines.",
+       "checksum_md5" : "613d9d02de6c1d86d5fa5b8816a6b214"
+    }

@@ -1,0 +1,5 @@
+version_control: github
+src_repo: WuBingzheng/memleax
+tag_prefix: ^v
+seperator: .
+download_url: http://prdownloads.sourceforge.net/amanda/amanda

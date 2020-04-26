@@ -1,0 +1,16 @@
+---
+version_control: gitlab.gnome
+src_repo: gsound
+tag_prefix: GSOUND_
+seperator: _
+last_query:
+  time_stamp: 2020-04-24 13:51:09.994767330 +00:00
+  raw_data: |
+    1.0.0
+    1.0.0^{}
+    1.0.1
+    1.0.1^{}
+    1.0.2
+    1.0.2^{}
+    GSOUND_1_15_2
+    GSOUND_1_15_2^{}

@@ -1,0 +1,150 @@
+---
+version_control: metacpan
+src_repo: Data-Dump
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:44.400983750 +00:00
+  raw_data: |
+    {
+       "distribution" : "Data-Dump",
+       "id" : "3oOFMXBPF0uYX2q_o9lnsDZ_MBM",
+       "version_numified" : 1.23,
+       "tests" : {
+          "unknown" : 24,
+          "pass" : 11884,
+          "fail" : 20,
+          "na" : 0
+       },
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/data-dump"
+          }
+       },
+       "archive" : "Data-Dump-1.23.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "762c111e525c82ff23d62c90821b26e9",
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz",
+       "author" : "GAAS",
+       "stat" : {
+          "mtime" : 1433876028,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 20771,
+          "gid" : 1009
+       },
+       "deprecated" : "false",
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/gisle/data-dump"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Data-Dump",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Pretty printing of data structures",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "MIME::Base64" : "0"
+                },
+                "requires" : {
+                   "Symbol" : "0",
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.23"
+       },
+       "checksum_sha256" : "af53b05ef1387b4cab4427e6789179283e4f0da8cf036e8db516ddb344512b65",
+       "authorized" : true,
+       "name" : "Data-Dump-1.23",
+       "first" : false,
+       "date" : "2015-06-09T18:53:48",
+       "provides" : [
+          "Data::Dump",
+          "Data::Dump::FilterContext",
+          "Data::Dump::Filtered",
+          "Data::Dump::Trace",
+          "Data::Dump::Trace::Call",
+          "Data::Dump::Trace::Wrapper"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "Test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "phase" : "runtime",
+             "module" : "MIME::Base64",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Symbol",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "changes_file" : "Changes",
+       "abstract" : "Pretty printing of data structures",
+       "main_module" : "Data::Dump",
+       "status" : "latest",
+       "version" : "1.23"
+    }

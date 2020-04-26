@@ -1,0 +1,368 @@
+---
+version_control: metacpan
+src_repo: inc-latest
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:39.910816410 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "pass" : 1705,
+          "na" : 0,
+          "fail" : 0,
+          "unknown" : 1
+       },
+       "name" : "inc-latest-0.500",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "File::Spec"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "phase" : "test",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "CPAN::Meta",
+             "phase" : "test",
+             "version" : "2.120900"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1",
+             "phase" : "develop",
+             "module" : "Test::Version"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.12",
+             "phase" : "develop",
+             "module" : "Test::Spelling"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "File::Temp",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::CPAN::Meta",
+             "phase" : "develop"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.072",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::PluginBundle::DAGOLDEN"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "IO::Handle"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "IPC::Open3",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0.0021",
+             "module" : "Dist::Zilla::Plugin::SurgicalPodWeaver",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.08",
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Pod::Coverage::TrustPod",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5",
+             "module" : "Dist::Zilla",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.41",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Path"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "strict",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Copy",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Carp",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "warnings",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "IO::File",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Basename",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::Installed",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "6.17",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.500",
+       "main_module" : "inc::latest",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/dagolden/inc-latest.git",
+             "web" : "https://github.com/dagolden/inc-latest"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/dagolden/inc-latest/issues"
+          },
+          "homepage" : "https://github.com/dagolden/inc-latest"
+       },
+       "distribution" : "inc-latest",
+       "archive" : "inc-latest-0.500.tar.gz",
+       "license" : [
+          "apache_2_0"
+       ],
+       "date" : "2014-12-06T04:44:25",
+       "checksum_sha256" : "daa905f363c6a748deb7c408473870563fcac79b9e3e95b26e130a4a8dc3c611",
+       "metadata" : {
+          "version" : "0.500",
+          "author" : [
+             "David Golden <dagolden@cpan.org>",
+             "Eric Wilhelm <ewilhelm@cpan.org>"
+          ],
+          "name" : "inc-latest",
+          "x_authority" : "cpan:DAGOLDEN",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "examples",
+                "corpus",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DB"
+             ]
+          },
+          "abstract" : "use modules bundled in inc/ if they are newer than installed ones",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Dist::Zilla::PluginBundle::DAGOLDEN" : "0.072",
+                   "Test::Pod" : "1.41",
+                   "Test::CPAN::Meta" : "0",
+                   "Dist::Zilla::Plugin::SurgicalPodWeaver" : "0.0021",
+                   "File::Spec" : "0",
+                   "File::Temp" : "0",
+                   "IPC::Open3" : "0",
+                   "IO::Handle" : "0",
+                   "Dist::Zilla" : "5",
+                   "Test::Pod::Coverage" : "1.08",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Test::Spelling" : "0.12",
+                   "Test::Version" : "1"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Path" : "0",
+                   "File::Basename" : "0",
+                   "Carp" : "0",
+                   "File::Spec" : "0",
+                   "perl" : "5.006",
+                   "warnings" : "0",
+                   "File::Copy" : "0",
+                   "IO::File" : "0",
+                   "ExtUtils::Installed" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "strict" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "File::Spec" : "0",
+                   "perl" : "5.006",
+                   "ExtUtils::MakeMaker" : "0"
+                },
+                "recommends" : {
+                   "CPAN::Meta" : "2.120900"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.17",
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 5.025, CPAN::Meta::Converter version 2.142690, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "dynamic_config" : 0,
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/dagolden/inc-latest.git",
+                "web" : "https://github.com/dagolden/inc-latest"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/dagolden/inc-latest/issues"
+             },
+             "homepage" : "https://github.com/dagolden/inc-latest"
+          },
+          "provides" : {
+             "inc::latest" : {
+                "file" : "lib/inc/latest.pm",
+                "version" : "0.500"
+             },
+             "inc::latest::private" : {
+                "file" : "lib/inc/latest/private.pm",
+                "version" : "0.500"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "apache_2_0"
+          ]
+       },
+       "stat" : {
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 18199,
+          "gid" : 1009,
+          "mtime" : 1417841065
+       },
+       "maturity" : "released",
+       "authorized" : true,
+       "checksum_md5" : "d1e0deb52bcc9f9b0f990ceb077a8ffd",
+       "abstract" : "use modules bundled in inc/ if they are newer than installed ones",
+       "status" : "latest",
+       "author" : "DAGOLDEN",
+       "first" : true,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/inc-latest-0.500.tar.gz",
+       "provides" : [
+          "inc::latest",
+          "inc::latest::private"
+       ],
+       "id" : "LPIFawTIhbfM_C_Ejg6rghR_Hbc",
+       "version_numified" : 0.5,
+       "changes_file" : "Changes"
+    }

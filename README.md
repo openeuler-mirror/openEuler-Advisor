@@ -1,37 +1,21 @@
 # openEuler-Advisor
 
 #### 介绍
-Collection of automation tools for easily maintaining openEuler
+advisor当前只有一些脚本，可以根据主线代码仓的tag判断当前软件是否需要升级，以及推荐升级版本。
 
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  check_upstream.rb是ruby脚本，依赖svn, curl, git, metacpan和hg。
+2.  当前openEuler软件的版本信息来自spec文件的Version，如果没有spec文件的话，可以手动输入
+3.  每个软件一个yaml。当前yaml的格式：
+  - version_control: 可选为svn, git, hg, github
+  - src_repo: 
+    > 如果version_control为github，那src_repo只需要 $proj/$repo 即可
+    > 如果version_control为metacpan，那src_repo只需要 $repo 即可
+    > 否则需要完整的 URL
+  - tag_prefix: 不同项目的tag规则不同，这里比如tag是v1.1的，那么tag_prefix设置为^v即可。有些软件的tag_prefix会比较复杂。
+  - seperator: 不同项目的tag中域分割不同，有些是-，有些是_，一般默认是.
 
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### TODO
+1. 每次查询的结果数据保存在last_query里面

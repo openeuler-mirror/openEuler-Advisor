@@ -1,0 +1,221 @@
+---
+version_control: github
+src_repo: BYVoid/OpenCC
+tag_prefix: "^ver."
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:25:44.759063890 +00:00
+  raw_data: |
+    [
+      {
+        "name": "ver.1.0.6",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.6",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.6",
+        "commit": {
+          "sha": "086834c983396f75ee0a83e10b67014e4f1e6ef7",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/086834c983396f75ee0a83e10b67014e4f1e6ef7"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuNg=="
+      },
+      {
+        "name": "ver.1.0.5",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.5",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.5",
+        "commit": {
+          "sha": "7fdaa43f1c548cc53ab9c7b59a697851060f4f46",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/7fdaa43f1c548cc53ab9c7b59a697851060f4f46"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuNQ=="
+      },
+      {
+        "name": "ver.1.0.4",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.4",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.4",
+        "commit": {
+          "sha": "b7940263f796b3e31d8c79ed240c7e5806197b8f",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/b7940263f796b3e31d8c79ed240c7e5806197b8f"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuNA=="
+      },
+      {
+        "name": "ver.1.0.3",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.3",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.3",
+        "commit": {
+          "sha": "7a0a20d86aad431fd0d2ea93eaa9d33e17df4410",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/7a0a20d86aad431fd0d2ea93eaa9d33e17df4410"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuMw=="
+      },
+      {
+        "name": "ver.1.0.3-1",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.3-1",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.3-1",
+        "commit": {
+          "sha": "a99aa53b2c63ee52e5ffe6169a045b3636fa4aaa",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/a99aa53b2c63ee52e5ffe6169a045b3636fa4aaa"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuMy0x"
+      },
+      {
+        "name": "ver.1.0.2",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.2",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.2",
+        "commit": {
+          "sha": "e684f547174d4e1c24fc0d0340e505682aaf01e8",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/e684f547174d4e1c24fc0d0340e505682aaf01e8"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuMg=="
+      },
+      {
+        "name": "ver.1.0.1",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.1.0.1",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.1.0.1",
+        "commit": {
+          "sha": "223c1df519e585f6b0ab84f5c23640eb23c6f427",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/223c1df519e585f6b0ab84f5c23640eb23c6f427"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4xLjAuMQ=="
+      },
+      {
+        "name": "ver.0.4.3",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.4.3",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.4.3",
+        "commit": {
+          "sha": "04629482c07724b3d90d443b13b6051d41653e99",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/04629482c07724b3d90d443b13b6051d41653e99"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjQuMw=="
+      },
+      {
+        "name": "ver.0.4.2",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.4.2",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.4.2",
+        "commit": {
+          "sha": "4a43363e4a8bed101f42559644c36c9f256d9b67",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/4a43363e4a8bed101f42559644c36c9f256d9b67"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjQuMg=="
+      },
+      {
+        "name": "ver.0.4.1",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.4.1",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.4.1",
+        "commit": {
+          "sha": "0efd7144390d6c617a7e3250016df1fe35f7f3d8",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/0efd7144390d6c617a7e3250016df1fe35f7f3d8"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjQuMQ=="
+      },
+      {
+        "name": "ver.0.4.0",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.4.0",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.4.0",
+        "commit": {
+          "sha": "0aa13273f0c9a0c18cf3ba0bb0c0380ad9e3cba3",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/0aa13273f0c9a0c18cf3ba0bb0c0380ad9e3cba3"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjQuMA=="
+      },
+      {
+        "name": "ver.0.2.0",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.2.0",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.2.0",
+        "commit": {
+          "sha": "21eb454e278c2da463e381adf18f12628cdbbfd5",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/21eb454e278c2da463e381adf18f12628cdbbfd5"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjIuMA=="
+      },
+      {
+        "name": "ver.0.1.2",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.1.2",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.1.2",
+        "commit": {
+          "sha": "74e73d6a137a0680b3985035749099ca7dbeb1e9",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/74e73d6a137a0680b3985035749099ca7dbeb1e9"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjEuMg=="
+      },
+      {
+        "name": "ver.0.1.1",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.1.1",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.1.1",
+        "commit": {
+          "sha": "46655c60690a291fcb626e8a0a4b96c49c822b88",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/46655c60690a291fcb626e8a0a4b96c49c822b88"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjEuMQ=="
+      },
+      {
+        "name": "ver.0.1.0",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.1.0",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.1.0",
+        "commit": {
+          "sha": "ea3e11441038f1f2c0d729676c1b8d99c10966dd",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/ea3e11441038f1f2c0d729676c1b8d99c10966dd"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjEuMA=="
+      },
+      {
+        "name": "ver.0.0.5",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.0.5",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.0.5",
+        "commit": {
+          "sha": "bc7ce000e1d72a0331f8aa038401194b65858091",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/bc7ce000e1d72a0331f8aa038401194b65858091"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjAuNQ=="
+      },
+      {
+        "name": "ver.0.0.4",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.0.4",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.0.4",
+        "commit": {
+          "sha": "edb0e037c27b096552ef661d8b6192cfd591ad77",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/edb0e037c27b096552ef661d8b6192cfd591ad77"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjAuNA=="
+      },
+      {
+        "name": "ver.0.0.4.pre.1",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.0.4.pre.1",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.0.4.pre.1",
+        "commit": {
+          "sha": "e9eac18046691c87d4322afba4d2fa1842dac83d",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/e9eac18046691c87d4322afba4d2fa1842dac83d"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjAuNC5wcmUuMQ=="
+      },
+      {
+        "name": "ver.0.0.3",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.0.3",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.0.3",
+        "commit": {
+          "sha": "3765bc56d7e7d484cfb75ac7272b2a0a5d9033a8",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/3765bc56d7e7d484cfb75ac7272b2a0a5d9033a8"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjAuMw=="
+      },
+      {
+        "name": "ver.0.0.3.pre.1",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.0.3.pre.1",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.0.3.pre.1",
+        "commit": {
+          "sha": "91deb9dd69256ae05326efa83ac484a1b3f693e3",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/91deb9dd69256ae05326efa83ac484a1b3f693e3"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjAuMy5wcmUuMQ=="
+      },
+      {
+        "name": "ver.0.0.2",
+        "zipball_url": "https://api.github.com/repos/BYVoid/OpenCC/zipball/ver.0.0.2",
+        "tarball_url": "https://api.github.com/repos/BYVoid/OpenCC/tarball/ver.0.0.2",
+        "commit": {
+          "sha": "9215246b11c09faf6e0d9a1d167c3e533d323a5e",
+          "url": "https://api.github.com/repos/BYVoid/OpenCC/commits/9215246b11c09faf6e0d9a1d167c3e533d323a5e"
+        },
+        "node_id": "MDM6UmVmNzc2NjIxOnZlci4wLjAuMg=="
+      }
+    ]
+query_type: api.github.tags

@@ -1,0 +1,203 @@
+---
+version_control: metacpan
+src_repo: Module-ScanDeps
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:44.462691570 +00:00
+  raw_data: |
+    {
+       "distribution" : "Module-ScanDeps",
+       "status" : "latest",
+       "first" : false,
+       "abstract" : "Recursively scan Perl code for dependencies",
+       "dependency" : [
+          {
+             "module" : "Test::Requires",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "version",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Module::Metadata",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Text::ParseWords"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008001",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Getopt::Long",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          }
+       ],
+       "name" : "Module-ScanDeps-1.27",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RS/RSCHUPP/Module-ScanDeps-1.27.tar.gz",
+       "maturity" : "released",
+       "date" : "2019-01-15T20:08:40",
+       "id" : "0_hxSQ7qVCIG_jbOpfIVmB7MXO0",
+       "stat" : {
+          "mode" : 33204,
+          "mtime" : 1547582920,
+          "size" : 54387
+       },
+       "version" : "1.27",
+       "authorized" : true,
+       "provides" : [
+          "Module::ScanDeps"
+       ],
+       "tests" : {
+          "fail" : 0,
+          "unknown" : 0,
+          "na" : 1,
+          "pass" : 3070
+       },
+       "metadata" : {
+          "author" : [
+             "Audrey Tang <cpan@audreyt.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Module-ScanDeps",
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/rschupp/Module-ScanDeps.git",
+                "type" : "git",
+                "web" : "https://github.com/rschupp/Module-ScanDeps"
+             },
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Dist/Display.html?Queue=Module-ScanDeps"
+             },
+             "x_MailingList" : "mailto:par@perl.org"
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "package" : [
+                "Module::ScanDeps::Cache",
+                "Module::ScanDeps::DataFeed"
+             ],
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.27",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::Requires" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "Getopt::Long" : "0",
+                   "File::Temp" : "0",
+                   "Text::ParseWords" : "0",
+                   "Module::Metadata" : "0",
+                   "version" : "0",
+                   "perl" : "5.008001"
+                }
+             }
+          },
+          "abstract" : "Recursively scan Perl code for dependencies"
+       },
+       "deprecated" : false,
+       "author" : "RSCHUPP",
+       "archive" : "Module-ScanDeps-1.27.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 1.27,
+       "checksum_sha256" : "ee4ce19c04485e5caf71384e599518b2cbad2f27241ab09d89e0969e524ed948",
+       "changes_file" : "Changes",
+       "checksum_md5" : "54a6339fee713017195a0a3d315fe3ce",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Dist/Display.html?Queue=Module-ScanDeps"
+          },
+          "repository" : {
+             "url" : "git://github.com/rschupp/Module-ScanDeps.git",
+             "type" : "git",
+             "web" : "https://github.com/rschupp/Module-ScanDeps"
+          }
+       },
+       "main_module" : "Module::ScanDeps"
+    }

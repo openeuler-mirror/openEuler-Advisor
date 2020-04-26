@@ -1,0 +1,131 @@
+---
+version_control: metacpan
+src_repo: Socket-MsgHdr
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:39.354975970 +00:00
+  raw_data: |
+    {
+       "id" : "Q4d4BGY1RwAge4ewE7YfBTHaUxU",
+       "distribution" : "Socket-MsgHdr",
+       "tests" : {
+          "pass" : 656,
+          "unknown" : 30,
+          "fail" : 1,
+          "na" : 11
+       },
+       "version_numified" : 0.05,
+       "archive" : "Socket-MsgHdr-0.05.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/FGasper/p5-Socket-MsgHdr/issues"
+          },
+          "repository" : {
+             "web" : "https://github.com/FGasper/p5-Socket-MsgHdr",
+             "type" : "git",
+             "url" : "git://github.com/FGasper/p5-Socket-MsgHdr.git"
+          }
+       },
+       "checksum_md5" : "5c48f6320d31a50eecf821fbae6a2904",
+       "license" : [
+          "unknown"
+       ],
+       "author" : "FELIPE",
+       "download_url" : "https://cpan.metacpan.org/authors/id/F/FE/FELIPE/Socket-MsgHdr-0.05.tar.gz",
+       "stat" : {
+          "size" : 53326,
+          "mode" : 33188,
+          "mtime" : 1543637793
+       },
+       "deprecated" : false,
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Socket-MsgHdr",
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/FGasper/p5-Socket-MsgHdr",
+                "type" : "git",
+                "url" : "git://github.com/FGasper/p5-Socket-MsgHdr.git"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/FGasper/p5-Socket-MsgHdr/issues"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "sendmsg, recvmsg and ancillary data operations",
+          "author" : [
+             "Mike Pomraning <mjp@cpan.org>",
+             "Felipe Gasper <felipe@cpan.org>"
+          ],
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.05",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable"
+       },
+       "authorized" : true,
+       "checksum_sha256" : "96501c15e3dee4d8288c1c68beed3a0a7b3d4704cc6e274f20162b60fb51783c",
+       "first" : false,
+       "provides" : [
+          "Socket::MsgHdr"
+       ],
+       "date" : "2018-12-01T04:16:33",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "name" : "Socket-MsgHdr-0.05",
+       "changes_file" : "Changes",
+       "abstract" : "sendmsg, recvmsg and ancillary data operations",
+       "status" : "latest",
+       "version" : "0.05",
+       "main_module" : "Socket::MsgHdr"
+    }

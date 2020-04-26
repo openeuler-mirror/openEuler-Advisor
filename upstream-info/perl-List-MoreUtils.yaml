@@ -1,0 +1,267 @@
+---
+version_control: metacpan
+src_repo: List-MoreUtils
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:04.635297950 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "metadata" : {
+          "abstract" : "Provide the stuff missing in List::Util",
+          "generated_by" : "ExtUtils::MakeMaker version 7.3, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 1,
+          "author" : [
+             "Tassilo von Parseval <tassilo.von.parseval@rwth-aachen.de>",
+             "Adam Kennedy <adamk@cpan.org>",
+             "Jens Rehsack <rehsack@cpan.org>"
+          ],
+          "version" : "0.428",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Kwalitee" : "0",
+                   "inc::latest" : "0.500",
+                   "Test::Pod::Spelling::CommonMistakes" : "0",
+                   "Config::AutoConf" : "0.315",
+                   "Test::Pod" : "0",
+                   "Test::Spelling" : "0",
+                   "Test::CheckManifest" : "0",
+                   "Test::CPAN::Changes" : "0",
+                   "Module::CPANTS::Analyse" : "0.96",
+                   "Test::Pod::Coverage" : "0",
+                   "Test::WriteVariants" : "0.014"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::LeakTrace" : "0",
+                   "Storable" : "0",
+                   "Test::More" : "0.96"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "List::MoreUtils::XS" : "0.426",
+                   "Exporter::Tiny" : "0.038"
+                }
+             },
+             "configure" : {
+                "recommends" : {
+                   "Config::AutoConf" : "0.315"
+                },
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "license" : [
+             "apache_2_0"
+          ],
+          "name" : "List-MoreUtils",
+          "x_serialization_backend" : "JSON::PP version 2.94",
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/perl5-utils/List-MoreUtils",
+                "url" : "https://github.com/perl5-utils/List-MoreUtils.git",
+                "type" : "git"
+             },
+             "homepage" : "https://metacpan.org/release/List-MoreUtils",
+             "bugtracker" : {
+                "mailto" : "bug-List-MoreUtils@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Dist/Display.html?Name=List-MoreUtils"
+             }
+          }
+       },
+       "authorized" : true,
+       "checksum_sha256" : "713e0945d5f16e62d81d5f3da2b6a7b14a4ce439f6d3a7de74df1fd166476cc2",
+       "name" : "List-MoreUtils-0.428",
+       "date" : "2017-12-11T16:21:59",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::WriteVariants",
+             "version" : "0.014"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.96",
+             "phase" : "develop",
+             "module" : "Module::CPANTS::Analyse"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "inc::latest",
+             "version" : "0.500"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::CPAN::Changes"
+          },
+          {
+             "module" : "Test::Pod::Spelling::CommonMistakes",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::CheckManifest",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Kwalitee",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Config::AutoConf",
+             "version" : "0.315",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Spelling",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "phase" : "configure",
+             "module" : "Config::AutoConf",
+             "version" : "0.315"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "List::MoreUtils::XS",
+             "phase" : "runtime",
+             "version" : "0.426",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Exporter::Tiny",
+             "version" : "0.038"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::LeakTrace",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Storable",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.96",
+             "phase" : "test",
+             "module" : "Test::More"
+          }
+       ],
+       "first" : false,
+       "provides" : [
+          "List::MoreUtils",
+          "List::MoreUtils::PP"
+       ],
+       "changes_file" : "Changes",
+       "abstract" : "Provide the stuff missing in List::Util",
+       "main_module" : "List::MoreUtils",
+       "status" : "latest",
+       "version" : "0.428",
+       "distribution" : "List-MoreUtils",
+       "id" : "ZCVfzP8Uyh10WcVeRi3J4RBAahM",
+       "version_numified" : 0.428,
+       "tests" : {
+          "pass" : 6808,
+          "unknown" : 25,
+          "fail" : 22,
+          "na" : 2
+       },
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Dist/Display.html?Name=List-MoreUtils",
+             "mailto" : "bug-List-MoreUtils@rt.cpan.org"
+          },
+          "repository" : {
+             "web" : "https://github.com/perl5-utils/List-MoreUtils",
+             "type" : "git",
+             "url" : "https://github.com/perl5-utils/List-MoreUtils.git"
+          },
+          "homepage" : "https://metacpan.org/release/List-MoreUtils"
+       },
+       "archive" : "List-MoreUtils-0.428.tar.gz",
+       "license" : [
+          "apache_2_0"
+       ],
+       "checksum_md5" : "493032a211cdff1fcf45f59ebd680407",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.428.tar.gz",
+       "author" : "REHSACK",
+       "stat" : {
+          "mtime" : 1513009319,
+          "mode" : 33188,
+          "size" : 146030
+       },
+       "deprecated" : "false"
+    }

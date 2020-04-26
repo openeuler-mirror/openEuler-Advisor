@@ -1,0 +1,356 @@
+---
+version_control: metacpan
+src_repo: Moo
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:01.259599500 +00:00
+  raw_data: |
+    {
+       "version" : "2.004000",
+       "stat" : {
+          "mtime" : 1586455087,
+          "size" : 107574,
+          "mode" : 33204
+       },
+       "provides" : [
+          "Method::Generate::Accessor",
+          "Method::Generate::BuildAll",
+          "Method::Generate::Constructor",
+          "Method::Generate::DemolishAll",
+          "Moo",
+          "Moo::HandleMoose",
+          "Moo::HandleMoose::FakeConstructor",
+          "Moo::HandleMoose::FakeMetaClass",
+          "Moo::HandleMoose::_TypeMap",
+          "Moo::Object",
+          "Moo::Role",
+          "Moo::_Utils",
+          "Moo::_mro",
+          "Moo::_strictures",
+          "Moo::sification",
+          "oo"
+       ],
+       "authorized" : true,
+       "id" : "f2lTGTFxZ3v7vqe8fu0qtWGx3f0",
+       "tests" : {
+          "pass" : 494,
+          "unknown" : 0,
+          "na" : 0,
+          "fail" : 0
+       },
+       "metadata" : {
+          "x_breaks" : {
+             "MooX::Emulate::Class::Accessor::Fast" : "<= 0.02",
+             "WebService::Shutterstock" : "<= 0.006",
+             "File::DataClass" : "<= 0.54.1",
+             "HTML::Restrict" : "== 2.1.5",
+             "MySQL::Workbench::Parser" : "<= 0.05",
+             "App::Commando" : "<= 0.012"
+          },
+          "name" : "Moo",
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "x_cpants" : {
+             "ignore" : {
+                "use_warnings" : "internal module used to apply warnings",
+                "use_strict" : "internal module used to apply strict"
+             }
+          },
+          "dynamic_config" : 1,
+          "abstract" : "Minimalist Object Orientation (with Moose compatibility)",
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "Sub::Name" : "0.08",
+                   "strictures" : "2",
+                   "Class::XSAccessor" : "1.18"
+                },
+                "requires" : {
+                   "Module::Runtime" : "0.014",
+                   "Exporter" : "5.57",
+                   "Role::Tiny" : "2.001004",
+                   "perl" : "5.006",
+                   "Sub::Defer" : "2.006006",
+                   "Sub::Quote" : "2.006006",
+                   "Class::Method::Modifiers" : "1.10",
+                   "Scalar::Util" : "1.00"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "develop" : {
+                "requires" : {
+                   "Class::Tiny" : "1.001",
+                   "Type::Tiny" : "0.004",
+                   "MooseX::Types::Common::Numeric" : "0",
+                   "strictures" : "2",
+                   "Moose" : "1.15",
+                   "namespace::autoclean" : "0",
+                   "Mouse" : "0",
+                   "multidimensional" : "0",
+                   "namespace::clean" : "0",
+                   "bareword::filehandles" : "0",
+                   "indirect" : "0"
+                }
+             },
+             "test" : {
+                "recommends" : {
+                   "CPAN::Meta::Requirements" : "0",
+                   "Parse::CPAN::Meta" : "1.4200"
+                },
+                "requires" : {
+                   "Test::More" : "0.94",
+                   "Test::Fatal" : "0.003"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Moo",
+                "mailto" : "bug-Moo@rt.cpan.org"
+             },
+             "license" : [
+                "https://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/moose/Moo.git",
+                "type" : "git",
+                "web" : "https://github.com/moose/Moo"
+             },
+             "x_IRC" : "irc://irc.perl.org/#moose"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.004000",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_authority" : "cpan:MSTROUT",
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010"
+       },
+       "deprecated" : false,
+       "checksum_sha256" : "323240d000394cf38ec42e865b05cb8928f625c82c9391cd2cdc72b33c51b834",
+       "changes_file" : "Changes",
+       "archive" : "Moo-2.004000.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "HAARG",
+       "version_numified" : 2.004,
+       "checksum_md5" : "e542104553d616b15631b5c66ccee904",
+       "resources" : {
+          "license" : [
+             "https://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "type" : "git",
+             "web" : "https://github.com/moose/Moo",
+             "url" : "https://github.com/moose/Moo.git"
+          },
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Moo",
+             "mailto" : "bug-Moo@rt.cpan.org"
+          }
+       },
+       "main_module" : "Moo",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "multidimensional",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "MooseX::Types::Common::Numeric",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "namespace::autoclean",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "strictures",
+             "relationship" : "requires",
+             "version" : "2",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "1.001",
+             "module" : "Class::Tiny"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "bareword::filehandles"
+          },
+          {
+             "module" : "Mouse",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Type::Tiny",
+             "version" : "0.004",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "1.15",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Moose"
+          },
+          {
+             "module" : "indirect",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "namespace::clean"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "CPAN::Meta::Requirements",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "version" : "1.4200",
+             "relationship" : "recommends",
+             "phase" : "test",
+             "module" : "Parse::CPAN::Meta"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.94",
+             "relationship" : "requires",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.003",
+             "relationship" : "requires",
+             "module" : "Test::Fatal"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "1.18",
+             "phase" : "runtime",
+             "module" : "Class::XSAccessor"
+          },
+          {
+             "module" : "Sub::Name",
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0.08"
+          },
+          {
+             "version" : "2",
+             "relationship" : "recommends",
+             "phase" : "runtime",
+             "module" : "strictures"
+          },
+          {
+             "module" : "Scalar::Util",
+             "phase" : "runtime",
+             "version" : "1.00",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Sub::Quote",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "2.006006"
+          },
+          {
+             "module" : "Class::Method::Modifiers",
+             "version" : "1.10",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Sub::Defer",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "2.006006"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.014",
+             "phase" : "runtime",
+             "module" : "Module::Runtime"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.006"
+          },
+          {
+             "module" : "Exporter",
+             "relationship" : "requires",
+             "version" : "5.57",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "2.001004",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Role::Tiny"
+          }
+       ],
+       "abstract" : "Minimalist Object Orientation (with Moose compatibility)",
+       "status" : "latest",
+       "distribution" : "Moo",
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.004000.tar.gz",
+       "name" : "Moo-2.004000",
+       "date" : "2020-04-09T17:58:07",
+       "maturity" : "released"
+    }

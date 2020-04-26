@@ -1,0 +1,91 @@
+---
+version_control: github
+src_repo: achernya/hesiod
+tag_prefix: hesiod-
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:27:10.662870680 +00:00
+  raw_data: |
+    [
+      {
+        "name": "hesiod-3.2.1",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.2.1",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.2.1",
+        "commit": {
+          "sha": "30fa0206c7b1cdae5cd7200cdf1feb03838cf3af",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/30fa0206c7b1cdae5cd7200cdf1feb03838cf3af"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4yLjE="
+      },
+      {
+        "name": "hesiod-3.2.0",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.2.0",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.2.0",
+        "commit": {
+          "sha": "e309f352f7669861b7efbd8f2d2106e7368910cd",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/e309f352f7669861b7efbd8f2d2106e7368910cd"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4yLjA="
+      },
+      {
+        "name": "hesiod-3.1.1",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.1.1",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.1.1",
+        "commit": {
+          "sha": "248138ef495393022cec18b7046959dbadf0c5e1",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/248138ef495393022cec18b7046959dbadf0c5e1"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4xLjE="
+      },
+      {
+        "name": "hesiod-3.1.0",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.1.0",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.1.0",
+        "commit": {
+          "sha": "6b570da90e3cbd631636c12a63bc113d7f393e24",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/6b570da90e3cbd631636c12a63bc113d7f393e24"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4xLjA="
+      },
+      {
+        "name": "hesiod-3.0.2",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.0.2",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.0.2",
+        "commit": {
+          "sha": "26034ff102d08ab1359bea22e12d83117bc29593",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/26034ff102d08ab1359bea22e12d83117bc29593"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4wLjI="
+      },
+      {
+        "name": "hesiod-3.0.1",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.0.1",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.0.1",
+        "commit": {
+          "sha": "79d7cfb6f9c6d5e96441757661f3d3a2302cb18f",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/79d7cfb6f9c6d5e96441757661f3d3a2302cb18f"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4wLjE="
+      },
+      {
+        "name": "hesiod-3.0.0",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-3.0.0",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-3.0.0",
+        "commit": {
+          "sha": "c58a610b8e1337ea8ca02a2629fab44df8482281",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/c58a610b8e1337ea8ca02a2629fab44df8482281"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMy4wLjA="
+      },
+      {
+        "name": "hesiod-2.0.0",
+        "zipball_url": "https://api.github.com/repos/achernya/hesiod/zipball/hesiod-2.0.0",
+        "tarball_url": "https://api.github.com/repos/achernya/hesiod/tarball/hesiod-2.0.0",
+        "commit": {
+          "sha": "b76d3d580255e2a675d2caeed2ff1b55e5018074",
+          "url": "https://api.github.com/repos/achernya/hesiod/commits/b76d3d580255e2a675d2caeed2ff1b55e5018074"
+        },
+        "node_id": "MDM6UmVmOTA3MDI5NDpoZXNpb2QtMi4wLjA="
+      }
+    ]
+query_type: api.github.tags

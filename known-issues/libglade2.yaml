@@ -1,0 +1,8 @@
+---
+version_control: gitlab.gnome
+src_repo: libglade2
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:56:53.962581990 +00:00
+  raw_data: ''

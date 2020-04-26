@@ -1,0 +1,211 @@
+---
+version_control: metacpan
+src_repo: File-Copy-Recursive
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:50.012245270 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "fail" : 169,
+          "na" : 0,
+          "pass" : 2628,
+          "unknown" : 1
+       },
+       "name" : "File-Copy-Recursive-0.45",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Cwd",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Glob",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Copy"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "Test::Deep"
+          },
+          {
+             "phase" : "test",
+             "module" : "Path::Tiny",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::Warnings",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::File",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0.88",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::Fatal",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.45",
+       "distribution" : "File-Copy-Recursive",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "File-Copy-Recursive-0.45.tar.gz",
+       "main_module" : "File::Copy::Recursive",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/drmuey/p5-File-Copy-Recursive",
+             "url" : "https://github.com/drmuey/p5-File-Copy-Recursive.git",
+             "type" : "git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/drmuey/p5-File-Copy-Recursive/issues"
+          }
+       },
+       "metadata" : {
+          "abstract" : "Perl extension for recursively copying files and directories",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "File-Copy-Recursive",
+          "author" : [
+             "Daniel Muey <http://drmuey.com/cpan_contact.pl>"
+          ],
+          "version" : "0.45",
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/drmuey/p5-File-Copy-Recursive/issues"
+             },
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/drmuey/p5-File-Copy-Recursive.git",
+                "web" : "https://github.com/drmuey/p5-File-Copy-Recursive"
+             }
+          },
+          "dynamic_config" : 0,
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "File::Copy" : "0",
+                   "File::Glob" : "0",
+                   "Cwd" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "File::Temp" : "0",
+                   "Test::More" : "0.88",
+                   "Test::Warnings" : "0",
+                   "Test::Fatal" : "0",
+                   "Test::Deep" : "0",
+                   "Path::Tiny" : "0",
+                   "Test::File" : "0"
+                }
+             }
+          }
+       },
+       "checksum_sha256" : "d3971cf78a8345e38042b208bb7b39cb695080386af629f4a04ffd6549df1157",
+       "date" : "2019-07-23T14:38:13",
+       "stat" : {
+          "mtime" : 1563892693,
+          "mode" : 33188,
+          "size" : 19256
+       },
+       "maturity" : "released",
+       "checksum_md5" : "e5eee1a3f8ae3aebbac063ea54870e54",
+       "abstract" : "Perl extension for recursively copying files and directories",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "DMUEY",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.45.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "id" : "R95T7lPHUZNhoC1ruLKwF5iabZA",
+       "provides" : [
+          "File::Copy::Recursive"
+       ],
+       "version_numified" : 0.45,
+       "changes_file" : "Changes"
+    }

@@ -1,0 +1,117 @@
+---
+version_control: metacpan
+src_repo: Module-Load
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:37.173924830 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-Load-0.34.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "author" : "BINGOS",
+       "status" : "latest",
+       "abstract" : "Load modules in a DWIM style",
+       "checksum_md5" : "796904e320ec85b426e6448b3151e206",
+       "authorized" : true,
+       "changes_file" : "CHANGES",
+       "version_numified" : 0.34,
+       "id" : "dGKZpH2QVP0sBwOFlqtEQCVRfvc",
+       "provides" : [
+          "Module::Load"
+       ],
+       "version" : "0.34",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0.94"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Module-Load-0.34",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 709,
+          "na" : 0,
+          "fail" : 0
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 8657,
+          "mtime" : 1549807190
+       },
+       "metadata" : {
+          "author" : [
+             "Jos Boumans <kane[at]cpan.org>"
+          ],
+          "version" : "0.34",
+          "abstract" : "Load modules in a DWIM style",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Module-Load",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.94"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.00",
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/jib/module-load"
+             }
+          },
+          "dynamic_config" : 1
+       },
+       "date" : "2019-02-10T13:59:50",
+       "checksum_sha256" : "7f5b0c4d3cc8ba867639bff61ad857a940970ea246dd3b0a6729dd7fc84059f3",
+       "archive" : "Module-Load-0.34.tar.gz",
+       "distribution" : "Module-Load",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/jib/module-load"
+          }
+       },
+       "main_module" : "Module::Load"
+    }

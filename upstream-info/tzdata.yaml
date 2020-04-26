@@ -1,0 +1,311 @@
+---
+version_control: github
+src_repo: eggert/tz
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:27:01.005804240 +00:00
+  raw_data: |
+    [
+      {
+        "name": "2020a",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2020a",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2020a",
+        "commit": {
+          "sha": "7aec41a1d9b57c581af086db5de5bf99b165c405",
+          "url": "https://api.github.com/repos/eggert/tz/commits/7aec41a1d9b57c581af086db5de5bf99b165c405"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDIwYQ=="
+      },
+      {
+        "name": "2019c",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2019c",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2019c",
+        "commit": {
+          "sha": "765984a9356b01bf1c629fb474c5cee8b6ba2c70",
+          "url": "https://api.github.com/repos/eggert/tz/commits/765984a9356b01bf1c629fb474c5cee8b6ba2c70"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE5Yw=="
+      },
+      {
+        "name": "2019b",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2019b",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2019b",
+        "commit": {
+          "sha": "23a01523a5d6a6ae2217df77b2a3f60e10a373d2",
+          "url": "https://api.github.com/repos/eggert/tz/commits/23a01523a5d6a6ae2217df77b2a3f60e10a373d2"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE5Yg=="
+      },
+      {
+        "name": "2019a",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2019a",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2019a",
+        "commit": {
+          "sha": "14c73382cf95efd5f189379427b7b37ca22b9eff",
+          "url": "https://api.github.com/repos/eggert/tz/commits/14c73382cf95efd5f189379427b7b37ca22b9eff"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE5YQ=="
+      },
+      {
+        "name": "2018i",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018i",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018i",
+        "commit": {
+          "sha": "388b0a55116099360a99cc9973d75ae6ec63d939",
+          "url": "https://api.github.com/repos/eggert/tz/commits/388b0a55116099360a99cc9973d75ae6ec63d939"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4aQ=="
+      },
+      {
+        "name": "2018h",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018h",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018h",
+        "commit": {
+          "sha": "7db91b70ae4ce85c7520960840fc957541a3bdb0",
+          "url": "https://api.github.com/repos/eggert/tz/commits/7db91b70ae4ce85c7520960840fc957541a3bdb0"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4aA=="
+      },
+      {
+        "name": "2018g",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018g",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018g",
+        "commit": {
+          "sha": "19e2701f468d5f9548a650144edeaf659766b1ea",
+          "url": "https://api.github.com/repos/eggert/tz/commits/19e2701f468d5f9548a650144edeaf659766b1ea"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4Zw=="
+      },
+      {
+        "name": "2018f",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018f",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018f",
+        "commit": {
+          "sha": "7c97eb855432c3557a8d84727a685fcd2fdb2bff",
+          "url": "https://api.github.com/repos/eggert/tz/commits/7c97eb855432c3557a8d84727a685fcd2fdb2bff"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4Zg=="
+      },
+      {
+        "name": "2018e",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018e",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018e",
+        "commit": {
+          "sha": "4758e88f99c71af65d73ce730e87438466032a5f",
+          "url": "https://api.github.com/repos/eggert/tz/commits/4758e88f99c71af65d73ce730e87438466032a5f"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4ZQ=="
+      },
+      {
+        "name": "2018d",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018d",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018d",
+        "commit": {
+          "sha": "bd850bce5d292caaa5eba2c2088f6d4ad8024647",
+          "url": "https://api.github.com/repos/eggert/tz/commits/bd850bce5d292caaa5eba2c2088f6d4ad8024647"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4ZA=="
+      },
+      {
+        "name": "2018c",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018c",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018c",
+        "commit": {
+          "sha": "ef4db72f1cbe1f7141f8aa012a624abb0a8d8059",
+          "url": "https://api.github.com/repos/eggert/tz/commits/ef4db72f1cbe1f7141f8aa012a624abb0a8d8059"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4Yw=="
+      },
+      {
+        "name": "2018b",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018b",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018b",
+        "commit": {
+          "sha": "c9f9f69ab5561eaa0d1c497c61452f1da2e48d22",
+          "url": "https://api.github.com/repos/eggert/tz/commits/c9f9f69ab5561eaa0d1c497c61452f1da2e48d22"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4Yg=="
+      },
+      {
+        "name": "2018a",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2018a",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2018a",
+        "commit": {
+          "sha": "2d0b16523aeebcea7beaea769a2a781915efe3f0",
+          "url": "https://api.github.com/repos/eggert/tz/commits/2d0b16523aeebcea7beaea769a2a781915efe3f0"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE4YQ=="
+      },
+      {
+        "name": "2017c",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2017c",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2017c",
+        "commit": {
+          "sha": "812e509d5a30657f8e99ec51cedac7d4229ed784",
+          "url": "https://api.github.com/repos/eggert/tz/commits/812e509d5a30657f8e99ec51cedac7d4229ed784"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE3Yw=="
+      },
+      {
+        "name": "2017b",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2017b",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2017b",
+        "commit": {
+          "sha": "f8ebe3a644e12b294dfc3c06c5243c1b9c13a7e8",
+          "url": "https://api.github.com/repos/eggert/tz/commits/f8ebe3a644e12b294dfc3c06c5243c1b9c13a7e8"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE3Yg=="
+      },
+      {
+        "name": "2017a",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2017a",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2017a",
+        "commit": {
+          "sha": "8beaf3b064b8edcb09babb62e530993808003802",
+          "url": "https://api.github.com/repos/eggert/tz/commits/8beaf3b064b8edcb09babb62e530993808003802"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE3YQ=="
+      },
+      {
+        "name": "2016j",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016j",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016j",
+        "commit": {
+          "sha": "eeff212d0f2b94a8c08d7ce2e1ff2278c027936b",
+          "url": "https://api.github.com/repos/eggert/tz/commits/eeff212d0f2b94a8c08d7ce2e1ff2278c027936b"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2ag=="
+      },
+      {
+        "name": "2016i",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016i",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016i",
+        "commit": {
+          "sha": "9774c293b7ea6ec7be851cb0b2a0807840e6793e",
+          "url": "https://api.github.com/repos/eggert/tz/commits/9774c293b7ea6ec7be851cb0b2a0807840e6793e"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2aQ=="
+      },
+      {
+        "name": "2016h",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016h",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016h",
+        "commit": {
+          "sha": "6349f541e2183a00b9909af00b480c58955474cf",
+          "url": "https://api.github.com/repos/eggert/tz/commits/6349f541e2183a00b9909af00b480c58955474cf"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2aA=="
+      },
+      {
+        "name": "2016g",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016g",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016g",
+        "commit": {
+          "sha": "04394af38a9d08fc6655466dfd8d4cf47025893d",
+          "url": "https://api.github.com/repos/eggert/tz/commits/04394af38a9d08fc6655466dfd8d4cf47025893d"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2Zw=="
+      },
+      {
+        "name": "2016f",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016f",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016f",
+        "commit": {
+          "sha": "baba36e3b5ec93c462c27a28a697119df9e94783",
+          "url": "https://api.github.com/repos/eggert/tz/commits/baba36e3b5ec93c462c27a28a697119df9e94783"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2Zg=="
+      },
+      {
+        "name": "2016e",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016e",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016e",
+        "commit": {
+          "sha": "ddb14859b156e72bb2daff70ff2fe59d6d82d545",
+          "url": "https://api.github.com/repos/eggert/tz/commits/ddb14859b156e72bb2daff70ff2fe59d6d82d545"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2ZQ=="
+      },
+      {
+        "name": "2016d",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016d",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016d",
+        "commit": {
+          "sha": "8af4367f30c176794a0d283d3efaeaa80db676fa",
+          "url": "https://api.github.com/repos/eggert/tz/commits/8af4367f30c176794a0d283d3efaeaa80db676fa"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2ZA=="
+      },
+      {
+        "name": "2016c",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016c",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016c",
+        "commit": {
+          "sha": "1284afb4bdc70f97f265ac2f49188217778413ef",
+          "url": "https://api.github.com/repos/eggert/tz/commits/1284afb4bdc70f97f265ac2f49188217778413ef"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2Yw=="
+      },
+      {
+        "name": "2016b",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016b",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016b",
+        "commit": {
+          "sha": "70161f48bc212678c58490f7faabc286c90b2a05",
+          "url": "https://api.github.com/repos/eggert/tz/commits/70161f48bc212678c58490f7faabc286c90b2a05"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2Yg=="
+      },
+      {
+        "name": "2016a",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2016a",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2016a",
+        "commit": {
+          "sha": "0f03a534155f590681e45ad8a3202a4412a8ba80",
+          "url": "https://api.github.com/repos/eggert/tz/commits/0f03a534155f590681e45ad8a3202a4412a8ba80"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE2YQ=="
+      },
+      {
+        "name": "2015g",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2015g",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2015g",
+        "commit": {
+          "sha": "6d00980f1ff2ac665f3de027c79faacf4f26d1b0",
+          "url": "https://api.github.com/repos/eggert/tz/commits/6d00980f1ff2ac665f3de027c79faacf4f26d1b0"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE1Zw=="
+      },
+      {
+        "name": "2015f",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2015f",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2015f",
+        "commit": {
+          "sha": "6230594d225d7b2f40957ad602890a6bbb1e79ed",
+          "url": "https://api.github.com/repos/eggert/tz/commits/6230594d225d7b2f40957ad602890a6bbb1e79ed"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE1Zg=="
+      },
+      {
+        "name": "2015e",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2015e",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2015e",
+        "commit": {
+          "sha": "503ee68905da57fc52df74c889aedf4e67e59a79",
+          "url": "https://api.github.com/repos/eggert/tz/commits/503ee68905da57fc52df74c889aedf4e67e59a79"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE1ZQ=="
+      },
+      {
+        "name": "2015d",
+        "zipball_url": "https://api.github.com/repos/eggert/tz/zipball/2015d",
+        "tarball_url": "https://api.github.com/repos/eggert/tz/tarball/2015d",
+        "commit": {
+          "sha": "6b36adfdd6baf6e4724bf19fcb090a43722a2522",
+          "url": "https://api.github.com/repos/eggert/tz/commits/6b36adfdd6baf6e4724bf19fcb090a43722a2522"
+        },
+        "node_id": "MDM6UmVmNTA5MjU4ODoyMDE1ZA=="
+      }
+    ]
+query_type: api.github.tags

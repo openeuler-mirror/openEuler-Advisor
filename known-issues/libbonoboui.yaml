@@ -1,0 +1,8 @@
+---
+version_control: gitlab.gnome
+src_repo: libbonoboui
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 14:01:34.921916460 +00:00
+  raw_data: ''

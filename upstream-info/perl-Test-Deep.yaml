@@ -1,0 +1,224 @@
+---
+version_control: metacpan
+src_repo: Test-Deep
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:06.893034560 +00:00
+  raw_data: |
+    {
+       "deprecated" : false,
+       "stat" : {
+          "mode" : 33188,
+          "size" : 41921,
+          "mtime" : 1583055013
+       },
+       "author" : "RJBS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.130.tar.gz",
+       "checksum_md5" : "d466e471108f7f7a5df3802cb13761ac",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Test-Deep-1.130.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://github.com/rjbs/Test-Deep/issues"
+          },
+          "repository" : {
+             "web" : "https://github.com/rjbs/Test-Deep",
+             "type" : "git",
+             "url" : "https://github.com/rjbs/Test-Deep.git"
+          },
+          "homepage" : "http://github.com/rjbs/Test-Deep/"
+       },
+       "tests" : {
+          "unknown" : 1,
+          "pass" : 1192,
+          "na" : 0,
+          "fail" : 2
+       },
+       "version_numified" : 1.13,
+       "id" : "bRCMDoUexGS46Xg1o2OWZVY_JFI",
+       "distribution" : "Test-Deep",
+       "status" : "latest",
+       "version" : "1.130",
+       "main_module" : "Test::Deep",
+       "abstract" : "Extremely flexible deep comparison",
+       "changes_file" : "Changes",
+       "provides" : [
+          "Test::Deep",
+          "Test::Deep::All",
+          "Test::Deep::Any",
+          "Test::Deep::Array",
+          "Test::Deep::ArrayEach",
+          "Test::Deep::ArrayElementsOnly",
+          "Test::Deep::ArrayLength",
+          "Test::Deep::ArrayLengthOnly",
+          "Test::Deep::Blessed",
+          "Test::Deep::Boolean",
+          "Test::Deep::Cache",
+          "Test::Deep::Cache::Simple",
+          "Test::Deep::Class",
+          "Test::Deep::Cmp",
+          "Test::Deep::Code",
+          "Test::Deep::Hash",
+          "Test::Deep::HashEach",
+          "Test::Deep::HashElements",
+          "Test::Deep::HashKeys",
+          "Test::Deep::HashKeysOnly",
+          "Test::Deep::Ignore",
+          "Test::Deep::Isa",
+          "Test::Deep::ListMethods",
+          "Test::Deep::MM",
+          "Test::Deep::Methods",
+          "Test::Deep::NoTest",
+          "Test::Deep::None",
+          "Test::Deep::Number",
+          "Test::Deep::Obj",
+          "Test::Deep::Ref",
+          "Test::Deep::RefType",
+          "Test::Deep::Regexp",
+          "Test::Deep::RegexpMatches",
+          "Test::Deep::RegexpOnly",
+          "Test::Deep::RegexpRef",
+          "Test::Deep::RegexpRefOnly",
+          "Test::Deep::RegexpVersion",
+          "Test::Deep::ScalarRef",
+          "Test::Deep::ScalarRefOnly",
+          "Test::Deep::Set",
+          "Test::Deep::Shallow",
+          "Test::Deep::Stack",
+          "Test::Deep::String",
+          "Test::Deep::SubHash",
+          "Test::Deep::SubHashElements",
+          "Test::Deep::SubHashKeys",
+          "Test::Deep::SubHashKeysOnly",
+          "Test::Deep::SuperHash",
+          "Test::Deep::SuperHashElements",
+          "Test::Deep::SuperHashKeys",
+          "Test::Deep::SuperHashKeysOnly"
+       ],
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "Test::Tester",
+             "phase" : "test",
+             "version" : "0.04",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.88",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::Builder",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Scalar::Util",
+             "phase" : "runtime",
+             "version" : "1.09"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "List::Util",
+             "version" : "1.09",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2020-03-01T09:30:13",
+       "name" : "Test-Deep-1.130",
+       "authorized" : true,
+       "checksum_sha256" : "4064f494f5f62587d0ae501ca439105821ee5846c687dc6503233f55300a7c56",
+       "metadata" : {
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Scalar::Util" : "1.09",
+                   "List::Util" : "1.09",
+                   "Test::Builder" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::Tester" : "0.04",
+                   "Test::More" : "0.88"
+                }
+             }
+          },
+          "version" : "1.130",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "Fergal Daly <fergal@esatclear.ie>"
+          ],
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "resources" : {
+             "homepage" : "http://github.com/rjbs/Test-Deep/",
+             "repository" : {
+                "web" : "https://github.com/rjbs/Test-Deep",
+                "type" : "git",
+                "url" : "https://github.com/rjbs/Test-Deep.git"
+             },
+             "x_IRC" : "irc://irc.perl.org/#perl-qa",
+             "x_MailingList" : "http://lists.perl.org/list/perl-qa.html",
+             "bugtracker" : {
+                "web" : "http://github.com/rjbs/Test-Deep/issues"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Test-Deep",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          }
+       },
+       "maturity" : "released"
+    }

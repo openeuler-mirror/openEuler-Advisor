@@ -1,0 +1,208 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-ParseXS
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:38.799836880 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "size" : 68623,
+          "mode" : 33188,
+          "mtime" : 1501516337
+       },
+       "maturity" : "released",
+       "archive" : "ExtUtils-ParseXS-3.35.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "distribution" : "ExtUtils-ParseXS",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://rt.perl.org/rt3/"
+          },
+          "repository" : {
+             "url" : "git://perl5.git.perl.org/gitroot/perl.git",
+             "type" : "git"
+          }
+       },
+       "main_module" : "ExtUtils::ParseXS",
+       "metadata" : {
+          "author" : [
+             "Ken Williams <ken@mathforum.org>"
+          ],
+          "version" : "3.35",
+          "abstract" : "converts Perl XS code into C code",
+          "name" : "ExtUtils-ParseXS",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.46"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Basename" : "0",
+                   "Carp" : "0",
+                   "File::Spec" : "0",
+                   "DynaLoader" : "0",
+                   "ExtUtils::MakeMaker" : "6.46",
+                   "Symbol" : "0",
+                   "Exporter" : "5.57",
+                   "Test::More" : "0.47",
+                   "ExtUtils::CBuilder" : "0",
+                   "Cwd" : "0"
+                }
+             }
+          },
+          "resources" : {
+             "bugtracker" : {
+                "web" : "http://rt.perl.org/rt3/"
+             },
+             "repository" : {
+                "type" : "git",
+                "url" : "git://perl5.git.perl.org/gitroot/perl.git"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1
+       },
+       "checksum_sha256" : "41def0511278a2a8ba9afa25ccab45b0453f75e7fd774e8644b5f9a57cc4ee1c",
+       "date" : "2017-07-31T15:52:17",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "5.57",
+             "phase" : "runtime",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "ExtUtils::CBuilder",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "runtime",
+             "version" : "6.46",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Carp",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Basename",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Cwd",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "DynaLoader",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.47",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Symbol"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.46"
+          }
+       ],
+       "version" : "3.35",
+       "tests" : {
+          "unknown" : 46,
+          "fail" : 14,
+          "na" : 0,
+          "pass" : 2355
+       },
+       "name" : "ExtUtils-ParseXS-3.35",
+       "changes_file" : "Changes",
+       "id" : "ZS4RryKm1Eb_vxvluNeH_8LSFjw",
+       "provides" : [
+          "ExtUtils::ParseXS",
+          "ExtUtils::ParseXS::Constants",
+          "ExtUtils::ParseXS::CountLines",
+          "ExtUtils::ParseXS::Eval",
+          "ExtUtils::ParseXS::Utilities",
+          "ExtUtils::Typemaps",
+          "ExtUtils::Typemaps::Cmd",
+          "ExtUtils::Typemaps::InputMap",
+          "ExtUtils::Typemaps::OutputMap",
+          "ExtUtils::Typemaps::Type"
+       ],
+       "version_numified" : 3.35,
+       "author" : "SMUELLER",
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/ExtUtils-ParseXS-3.35.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "checksum_md5" : "2ae41036d85e98e1369645724962dd16",
+       "abstract" : "converts Perl XS code into C code",
+       "authorized" : true,
+       "status" : "latest"
+    }

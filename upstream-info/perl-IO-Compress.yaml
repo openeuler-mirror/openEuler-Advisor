@@ -1,0 +1,185 @@
+---
+version_control: metacpan
+src_repo: IO-Compress
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:09.674064540 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-2.093.tar.gz",
+       "name" : "IO-Compress-2.093",
+       "date" : "2019-12-07T16:05:46",
+       "maturity" : "released",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "Compress::Raw::Zlib",
+             "relationship" : "requires",
+             "version" : "2.093",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "2.093",
+             "phase" : "runtime",
+             "module" : "Compress::Raw::Bzip2"
+          },
+          {
+             "module" : "Scalar::Util",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "abstract" : "IO Interface to compressed data files/buffers",
+       "distribution" : "IO-Compress",
+       "status" : "latest",
+       "checksum_sha256" : "5f8f5d06913f16c16759cc4e06749692208b8947910ffedd2c00a74ed0d60ba2",
+       "changes_file" : "Changes",
+       "author" : "PMQS",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "IO-Compress-2.093.tar.gz",
+       "version_numified" : 2.093,
+       "checksum_md5" : "7c897cf8b5ead4d92a7ff4ca7e806f8f",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/pmqs/IO-Compress.git",
+             "type" : "git",
+             "web" : "https://github.com/pmqs/IO-Compress"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/pmqs/IO-Compress/issues"
+          },
+          "homepage" : "https://github.com/pmqs/IO-Compress"
+       },
+       "main_module" : "Compress::Zlib",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 277204,
+          "mtime" : 1575734746
+       },
+       "version" : "2.093",
+       "provides" : [
+          "Compress::Zlib",
+          "File::GlobMapper",
+          "IO::Compress::Adapter::Bzip2",
+          "IO::Compress::Adapter::Deflate",
+          "IO::Compress::Adapter::Identity",
+          "IO::Compress::Base",
+          "IO::Compress::Base::Common",
+          "IO::Compress::Bzip2",
+          "IO::Compress::Deflate",
+          "IO::Compress::Gzip",
+          "IO::Compress::Gzip::Constants",
+          "IO::Compress::RawDeflate",
+          "IO::Compress::Zip",
+          "IO::Compress::Zip::Constants",
+          "IO::Compress::Zlib::Constants",
+          "IO::Compress::Zlib::Extra",
+          "IO::Uncompress::Adapter::Bunzip2",
+          "IO::Uncompress::Adapter::Identity",
+          "IO::Uncompress::Adapter::Inflate",
+          "IO::Uncompress::AnyInflate",
+          "IO::Uncompress::AnyUncompress",
+          "IO::Uncompress::Base",
+          "IO::Uncompress::Bunzip2",
+          "IO::Uncompress::Gunzip",
+          "IO::Uncompress::Inflate",
+          "IO::Uncompress::RawInflate",
+          "IO::Uncompress::Unzip",
+          "U64",
+          "Zlib::OldDeflate",
+          "Zlib::OldInflate"
+       ],
+       "authorized" : true,
+       "id" : "Ef__HFOWnL_0ISOwYI0Cf5DeKyM",
+       "tests" : {
+          "fail" : 1,
+          "unknown" : 1,
+          "na" : 0,
+          "pass" : 659
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "IO-Compress",
+          "author" : [
+             "Paul Marquess <pmqs@cpan.org>"
+          ],
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/pmqs/IO-Compress/issues"
+             },
+             "homepage" : "https://github.com/pmqs/IO-Compress",
+             "repository" : {
+                "url" : "git://github.com/pmqs/IO-Compress.git",
+                "web" : "https://github.com/pmqs/IO-Compress",
+                "type" : "git"
+             }
+          },
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "private",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.093",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "abstract" : "IO Interface to compressed data files/buffers",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Compress::Raw::Bzip2" : "2.093",
+                   "Scalar::Util" : "0",
+                   "Compress::Raw::Zlib" : "2.093"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       }
+    }

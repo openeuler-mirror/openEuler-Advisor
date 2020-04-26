@@ -1,0 +1,166 @@
+---
+version_control: metacpan
+src_repo: HTML-Parser
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:40.468348520 +00:00
+  raw_data: |
+    {
+       "main_module" : "HTML::Parser",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/html-parser"
+          }
+       },
+       "checksum_md5" : "eb7505e5f626913350df9dd4a03d54a8",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "ec28c7e1d9e67c45eca197077f7cdc41ead1bb4c538c7f02a3296a4bb92f608b",
+       "version_numified" : 3.72,
+       "archive" : "HTML-Parser-3.72.tar.gz",
+       "author" : "GAAS",
+       "license" : [
+          "perl_5"
+       ],
+       "metadata" : {
+          "release_status" : "stable",
+          "resources" : {
+             "x_MailingList" : "mailto:libwww@perl.org",
+             "repository" : {
+                "url" : "http://github.com/gisle/html-parser"
+             }
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "HTML-Parser",
+          "abstract" : "HTML parser class",
+          "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.133380, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "HTML::Tagset" : "3",
+                   "perl" : "5.008",
+                   "XSLoader" : "0"
+                },
+                "recommends" : {
+                   "HTTP::Headers" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "version" : "3.72",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "fail" : 65,
+          "unknown" : 24,
+          "pass" : 7885,
+          "na" : 15
+       },
+       "authorized" : true,
+       "provides" : [
+          "HTML::Entities",
+          "HTML::Filter",
+          "HTML::HeadParser",
+          "HTML::LinkExtor",
+          "HTML::Parser",
+          "HTML::PullParser",
+          "HTML::TokeParser"
+       ],
+       "version" : "3.72",
+       "stat" : {
+          "mode" : 33204,
+          "mtime" : 1453225442,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 90680
+       },
+       "id" : "t_QrFiKbor0YeVynlHG5P4JAJQg",
+       "date" : "2016-01-19T17:44:02",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz",
+       "name" : "HTML-Parser-3.72",
+       "abstract" : "HTML parser class",
+       "dependency" : [
+          {
+             "module" : "perl",
+             "version" : "5.008",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "HTML::Tagset",
+             "version" : "3",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "XSLoader"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0",
+             "module" : "HTTP::Headers"
+          },
+          {
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "HTML-Parser"
+    }

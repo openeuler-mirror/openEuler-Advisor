@@ -1,0 +1,158 @@
+---
+version_control: metacpan
+src_repo: Exporter
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:26.457979600 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "abstract" : "Implements default import method for modules",
+       "checksum_md5" : "9a7918151c99c55328b30a65770b953a",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Exporter-5.74.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "author" : "TODDR",
+       "version_numified" : 5.74,
+       "id" : "JuFHwbPQWu7Sd0SAhAg4LeeHTvQ",
+       "provides" : [
+          "Exporter",
+          "Exporter::Heavy"
+       ],
+       "changes_file" : "Changes",
+       "name" : "Exporter-5.74",
+       "tests" : {
+          "pass" : 1267,
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 0
+       },
+       "version" : "5.74",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "1.18",
+             "module" : "Test::Pod",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "1.04",
+             "phase" : "runtime",
+             "module" : "Test::Pod::Coverage"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.05",
+             "phase" : "runtime",
+             "module" : "Carp"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "metadata" : {
+          "dynamic_config" : 1,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "x_MailingList" : "http://lists.perl.org/list/perl5-porters.html",
+             "bugtracker" : {
+                "web" : "https://github.com/Perl/perl5/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/Perl/perl5/tree/blead/dist/Exporter"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "Test::Pod::Coverage" : "1.04",
+                   "Test::Pod" : "1.18"
+                },
+                "requires" : {
+                   "Carp" : "1.05"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Exporter",
+          "abstract" : "Implements default import method for modules",
+          "version" : "5.74",
+          "author" : [
+             "unknown"
+          ]
+       },
+       "date" : "2020-01-20T07:31:23",
+       "checksum_sha256" : "eadb889ef673ad940da6aa4f6f7d75fc1e625ae786ae3533fd313eaf629945b8",
+       "distribution" : "Exporter",
+       "archive" : "Exporter-5.74.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/Perl/perl5/issues"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/Perl/perl5/tree/blead/dist/Exporter"
+          }
+       },
+       "main_module" : "Exporter",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 21030,
+          "mode" : 33188,
+          "mtime" : 1579505483
+       }
+    }

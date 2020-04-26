@@ -1,0 +1,187 @@
+---
+version_control: metacpan
+src_repo: Test-File
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:34.350525530 +00:00
+  raw_data: |
+    {
+       "version_numified" : 1.443,
+       "id" : "cmDiJyy7PewZQJKL8FQlwPZkMjA",
+       "provides" : [
+          "Test::File"
+       ],
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "abstract" : "test file attributes",
+       "checksum_md5" : "ec8c6f6e940b454e110aaaa663fc761c",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-File-1.443.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "author" : "BDFOY",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/briandfoy/test-file/issues"
+             },
+             "homepage" : "https://github.com/briandfoy/test-file",
+             "repository" : {
+                "web" : "https://github.com/briandfoy/test-file",
+                "type" : "git",
+                "url" : "https://github.com/briandfoy/test-file.git"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "keywords" : [
+             "testing",
+             "file"
+          ],
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "prereqs" : {
+             "build" : {
+                "requires" : {}
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.95",
+                   "Test::Builder" : "1.001006",
+                   "Test::Builder::Tester" : "1.04",
+                   "Test::utf8" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "File::Spec::Functions" : "0",
+                   "ExtUtils::MakeMaker" : "6.64"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.1001, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "Test-File",
+          "no_index" : {
+             "namespace" : [
+                "Local"
+             ],
+             "package" : [
+                "version",
+                "Local"
+             ],
+             "directory" : [
+                "t",
+                "inc",
+                "t/inc",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "file" : [
+                "t/lib/test.pm"
+             ]
+          },
+          "abstract" : "test file attributes",
+          "version" : "1.443",
+          "author" : [
+             "brian d foy <bdfoy@cpan.org>"
+          ]
+       },
+       "checksum_sha256" : "61b4a6ab8f617c8c7b5975164cf619468dc304b6baaaea3527829286fa58bcd5",
+       "date" : "2017-04-17T08:43:37",
+       "archive" : "Test-File-1.443.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "Test-File",
+       "main_module" : "Test::File",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/briandfoy/test-file/issues"
+          },
+          "homepage" : "https://github.com/briandfoy/test-file",
+          "repository" : {
+             "url" : "https://github.com/briandfoy/test-file.git",
+             "type" : "git",
+             "web" : "https://github.com/briandfoy/test-file"
+          }
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 27065,
+          "mode" : 33188,
+          "mtime" : 1492418617
+       },
+       "name" : "Test-File-1.443",
+       "tests" : {
+          "unknown" : 0,
+          "na" : 6,
+          "fail" : 29,
+          "pass" : 5148
+       },
+       "version" : "1.443",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.64"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Spec::Functions",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::utf8",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Builder",
+             "phase" : "test",
+             "version" : "1.001006"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.95"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.04",
+             "phase" : "test",
+             "module" : "Test::Builder::Tester"
+          }
+       ]
+    }

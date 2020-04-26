@@ -1,0 +1,152 @@
+---
+version_control: metacpan
+src_repo: Switch
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:22.540356930 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "Switch",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/chorny/Switch"
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.78, CPAN::Meta::Converter version 2.131490, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "A switch statement for Perl, do not use if you can use given/when",
+          "author" : [
+             "Damian Conway",
+             "Rafael Garcia-Suarez",
+             "Alexandr Ciornii"
+          ],
+          "dynamic_config" : 1,
+          "version" : "2.17",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "if" : "0",
+                   "Filter::Util::Call" : "0",
+                   "Text::Balanced" : "2",
+                   "perl" : "5.005"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable"
+       },
+       "maturity" : "released",
+       "first" : true,
+       "provides" : [
+          "Switch"
+       ],
+       "date" : "2014-03-18T12:30:25",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "if"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Filter::Util::Call",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.005"
+          },
+          {
+             "version" : "2",
+             "phase" : "runtime",
+             "module" : "Text::Balanced",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          }
+       ],
+       "name" : "Switch-2.17",
+       "authorized" : true,
+       "checksum_sha256" : "31354975140fe6235ac130a109496491ad33dd42f9c62189e23f49f75f936d75",
+       "abstract" : "A switch statement for Perl, do not use if you can use given/when",
+       "changes_file" : "Changes",
+       "version" : "2.17",
+       "status" : "latest",
+       "main_module" : "Switch",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 4407,
+          "na" : 0,
+          "fail" : 29
+       },
+       "version_numified" : 2.17,
+       "id" : "BYBuITb06O_A9O4clG9W_sj5RBw",
+       "distribution" : "Switch",
+       "checksum_md5" : "34e2b6dac0a43384505b4e036633cff0",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Switch-2.17.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/chorny/Switch"
+          }
+       },
+       "author" : "CHORNY",
+       "download_url" : "https://cpan.metacpan.org/authors/id/C/CH/CHORNY/Switch-2.17.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1395145825,
+          "size" : 14490,
+          "gid" : 1009,
+          "uid" : 1009,
+          "mode" : 33204
+       }
+    }

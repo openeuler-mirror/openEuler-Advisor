@@ -1,0 +1,208 @@
+---
+version_control: metacpan
+src_repo: IO-Socket-INET6
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:45.578060560 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "IO-Socket-INET6",
+          "provides" : {
+             "IO::Socket::INET6" : {
+                "version" : "2.72",
+                "file" : "lib/IO/Socket/INET6.pm"
+             }
+          },
+          "resources" : {
+             "repository" : {
+                "url" : "https://bitbucket.org/shlomif/perl-io-socket-inet6"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.72",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0.36"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Carp" : "0",
+                   "Exporter" : "0",
+                   "strict" : "0",
+                   "Socket6" : "0.12",
+                   "Socket" : "0",
+                   "warnings" : "0",
+                   "Errno" : "0",
+                   "perl" : "5.008",
+                   "IO::Socket" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "keywords" : [
+             "inet6",
+             "input",
+             "internet",
+             "ipv6",
+             "network",
+             "networking",
+             "output",
+             "socket",
+             "sockets"
+          ],
+          "abstract" : "Object interface for AF_INET/AF_INET6 domain sockets",
+          "generated_by" : "Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830, CPAN::Meta::Converter version 2.150005",
+          "author" : [
+             "<gbarr@pobox.com> and currently maintained by the Perl Porters.",
+             "Modified by Rafael Martinez Torres <rafael.martinez@novagnet.com> and",
+             "Modified further by Shlomi Fish <shlomif@iglu.org.il>, while disclaiming"
+          ],
+          "dynamic_config" : 1
+       },
+       "maturity" : "released",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "IO::Socket",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "strict",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Socket6",
+             "version" : "0.12",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Errno",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Socket",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.008",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Module::Build",
+             "phase" : "configure",
+             "version" : "0.36",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2014-01-31T10:18:45",
+       "provides" : [
+          "IO::Socket::INET6"
+       ],
+       "name" : "IO-Socket-INET6-2.72",
+       "authorized" : true,
+       "checksum_sha256" : "85e020fa179284125fc1d08e60a9022af3ec1271077fe14b133c1785cdbf1ebb",
+       "abstract" : "Object interface for AF_INET/AF_INET6 domain sockets",
+       "changes_file" : "ChangeLog",
+       "version" : "2.72",
+       "status" : "latest",
+       "main_module" : "IO::Socket::INET6",
+       "tests" : {
+          "fail" : 144,
+          "na" : 7,
+          "unknown" : 0,
+          "pass" : 4421
+       },
+       "version_numified" : 2.72,
+       "id" : "4_4PCO3_IEVxhGJcZc_wKRFcobE",
+       "distribution" : "IO-Socket-INET6",
+       "checksum_md5" : "510ddc1bd75a8340ca7226123fb545c1",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "IO-Socket-INET6-2.72.tar.gz",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://bitbucket.org/shlomif/perl-io-socket-inet6"
+          }
+       },
+       "author" : "SHLOMIF",
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1391163525,
+          "gid" : 1009,
+          "size" : 27615,
+          "mode" : 33204,
+          "uid" : 1009
+       }
+    }

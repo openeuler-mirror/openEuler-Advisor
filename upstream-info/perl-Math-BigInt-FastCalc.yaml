@@ -1,0 +1,149 @@
+---
+version_control: metacpan
+src_repo: Math-BigInt-FastCalc
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:43.334893030 +00:00
+  raw_data: |
+    {
+       "version" : "0.5009",
+       "status" : "latest",
+       "main_module" : "Math::BigInt::FastCalc",
+       "abstract" : "Math::BigInt::Calc with some XS for more speed",
+       "changes_file" : "CHANGES",
+       "first" : false,
+       "date" : "2019-10-11T18:38:01",
+       "provides" : [
+          "Math::BigInt::FastCalc"
+       ],
+       "dependency" : [
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.82",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.999817",
+             "phase" : "runtime",
+             "module" : "Math::BigInt"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "XSLoader",
+             "version" : "0"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006001",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "6.58",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Math-BigInt-FastCalc-0.5009",
+       "checksum_sha256" : "b4eeecba81a75250c04f0e92c709b3f628ac12ec99edee97978e0db966a64330",
+       "authorized" : true,
+       "metadata" : {
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.5009",
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {}
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.82"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Math::BigInt" : "1.999817",
+                   "perl" : "5.006001",
+                   "XSLoader" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.58"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "unknown",
+          "dynamic_config" : 1,
+          "author" : [
+             "Peter John Acklam <pjacklam@gmail.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Math-BigInt-FastCalc",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/pjacklam/p5-Math-BigInt-FastCalc.git",
+                "web" : "https://github.com/pjacklam/p5-Math-BigInt-FastCalc"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          }
+       },
+       "maturity" : "released",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1570819081,
+          "size" : 2449837,
+          "mode" : 33204
+       },
+       "author" : "PJACKLAM",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PJ/PJACKLAM/Math-BigInt-FastCalc-0.5009.tar.gz",
+       "checksum_md5" : "45a8a091698604408c1fd86567aa766c",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Math-BigInt-FastCalc-0.5009.tar.gz",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/pjacklam/p5-Math-BigInt-FastCalc.git",
+             "web" : "https://github.com/pjacklam/p5-Math-BigInt-FastCalc"
+          }
+       },
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 7,
+          "pass" : 621
+       },
+       "version_numified" : 0.5009,
+       "id" : "7ufX5CBF8UewffPlOMsxGl_lSpU",
+       "distribution" : "Math-BigInt-FastCalc"
+    }

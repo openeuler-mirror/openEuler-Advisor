@@ -1,0 +1,142 @@
+---
+version_control: metacpan
+src_repo: XML-SAX-Base
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:25.373269150 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "abstract" : "Base class for SAX Drivers and Filters",
+       "checksum_md5" : "ec347a14065dd7aec7d9fb181b2d7946",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "author" : "GRANTM",
+       "version_numified" : 1.09,
+       "id" : "XaB5f0v7lvMq2Xdu0lOLRZ36F4k",
+       "provides" : [
+          "XML::SAX::Base",
+          "XML::SAX::Base::NoHandler",
+          "XML::SAX::Exception"
+       ],
+       "changes_file" : "Changes",
+       "name" : "XML-SAX-Base-1.09",
+       "tests" : {
+          "unknown" : 10,
+          "pass" : 6163,
+          "na" : 1,
+          "fail" : 1
+       },
+       "version" : "1.09",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "1.41",
+             "module" : "Test::Pod",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "5.008",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "metadata" : {
+          "abstract" : "Base class for SAX Drivers and Filters",
+          "name" : "XML-SAX-Base",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Grant McLean <grantm@cpan.org>"
+          ],
+          "version" : "1.09",
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/grantm/XML-SAX-Base.git",
+                "type" : "git",
+                "web" : "https://github.com/grantm/XML-SAX-Base"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 0,
+          "generated_by" : "Dist::Zilla version 5.022, CPAN::Meta::Converter version 2.142690, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       },
+       "date" : "2017-04-03T09:00:25",
+       "checksum_sha256" : "66cb355ba4ef47c10ca738bd35999723644386ac853abbeb5132841f5e8a2ad0",
+       "distribution" : "XML-SAX-Base",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "XML-SAX-Base-1.09.tar.gz",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "git://github.com/grantm/XML-SAX-Base.git",
+             "web" : "https://github.com/grantm/XML-SAX-Base"
+          }
+       },
+       "main_module" : "XML::SAX::Base",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 28215,
+          "mode" : 33188,
+          "mtime" : 1491210025
+       }
+    }

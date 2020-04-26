@@ -1,0 +1,169 @@
+---
+version_control: metacpan
+src_repo: Carp
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:45.518832460 +00:00
+  raw_data: |
+    {
+       "name" : "Carp-1.50",
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 3199,
+          "na" : 0,
+          "fail" : 0
+       },
+       "version" : "1.50",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "strict",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "1.0103",
+             "module" : "IPC::Open3",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Config",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "overload",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0.47",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "warnings",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Exporter" : "0",
+                   "Test::More" : "0.47",
+                   "Config" : "0",
+                   "strict" : "0",
+                   "IPC::Open3" : "1.0103",
+                   "overload" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "version" : "1.50",
+          "abstract" : "alternative warn and die for modules",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Carp"
+       },
+       "date" : "2018-09-08T08:12:02",
+       "checksum_sha256" : "f5273b4e1a6d51b22996c48cb3a3cbc72fd456c4038f5c20b127e2d4bcbcebd9",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Carp-1.50.tar.gz",
+       "distribution" : "Carp",
+       "resources" : {},
+       "main_module" : "Carp",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 24894,
+          "mode" : 33188,
+          "mtime" : 1536394322
+       },
+       "status" : "latest",
+       "abstract" : "alternative warn and die for modules",
+       "checksum_md5" : "95ad382253475fa9f7a4c04c8946136e",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/Carp-1.50.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "author" : "XSAWYERX",
+       "version_numified" : 1.5,
+       "id" : "ipTpJGJGtSM9Rb_x73oRHgOkVTk",
+       "provides" : [
+          "Carp",
+          "Carp::Heavy"
+       ],
+       "changes_file" : "Changes"
+    }

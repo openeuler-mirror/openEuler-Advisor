@@ -1,0 +1,165 @@
+---
+version_control: metacpan
+src_repo: XML-Parser
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:50.571551520 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "distribution" : "XML-Parser",
+       "first" : false,
+       "abstract" : "A perl module for parsing XML documents",
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "warnings"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "requires",
+             "version" : "5.00405",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "LWP::UserAgent",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          }
+       ],
+       "maturity" : "released",
+       "date" : "2019-09-24T05:29:52",
+       "name" : "XML-Parser-2.46",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz",
+       "tests" : {
+          "pass" : 2582,
+          "unknown" : 1,
+          "na" : 1,
+          "fail" : 8
+       },
+       "metadata" : {
+          "name" : "XML-Parser",
+          "author" : [
+             "Clark Cooper (coopercc@netheaven.com)"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "dynamic_config" : 1,
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/toddr/XML-Parser/issues"
+             },
+             "repository" : {
+                "url" : "http://github.com/toddr/XML-Parser"
+             }
+          },
+          "version" : "2.46",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "abstract" : "A perl module for parsing XML documents",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "LWP::UserAgent" : "0",
+                   "perl" : "5.00405"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010"
+       },
+       "deprecated" : false,
+       "id" : "r0qn3zWomCMgI_6KrViCKdGzIDE",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 254763,
+          "mtime" : 1569302992
+       },
+       "version" : "2.46",
+       "authorized" : true,
+       "provides" : [
+          "XML::Parser",
+          "XML::Parser::Expat",
+          "XML::Parser::Style::Debug",
+          "XML::Parser::Style::Objects",
+          "XML::Parser::Style::Stream",
+          "XML::Parser::Style::Subs",
+          "XML::Parser::Style::Tree"
+       ],
+       "checksum_md5" : "80bb18a8e6240fcf7ec2f7b57601c170",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/toddr/XML-Parser/issues"
+          },
+          "repository" : {
+             "url" : "http://github.com/toddr/XML-Parser"
+          }
+       },
+       "main_module" : "XML::Parser",
+       "author" : "TODDR",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "XML-Parser-2.46.tar.gz",
+       "version_numified" : 2.46,
+       "checksum_sha256" : "d331332491c51cccfb4cb94ffc44f9cd73378e618498d4a37df9e043661c515d",
+       "changes_file" : "Changes"
+    }

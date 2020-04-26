@@ -1,0 +1,196 @@
+---
+version_control: metacpan
+src_repo: MailTools
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:39.910911530 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "69ee516d40011e7e92b77c6f06c0dc01",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "MailTools-2.21.tar.gz",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/markov2/perl5-MailTools.git",
+             "web" : "https://github.com/markov2/perl5-MailTools"
+          },
+          "homepage" : "http://perl.overmeer.net/CPAN/"
+       },
+       "tests" : {
+          "fail" : 3,
+          "na" : 0,
+          "unknown" : 1,
+          "pass" : 3495
+       },
+       "version_numified" : 2.21,
+       "id" : "ZJbe_pQji_ukEelpnMnHoLNT1CA",
+       "distribution" : "MailTools",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1558448898,
+          "size" : 58013,
+          "mode" : 33188
+       },
+       "author" : "MARKOV",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MailTools-2.21.tar.gz",
+       "date" : "2019-05-21T14:28:18",
+       "provides" : [
+          "Mail::Address",
+          "Mail::Cap",
+          "Mail::Field",
+          "Mail::Field::AddrList",
+          "Mail::Field::Date",
+          "Mail::Field::Generic",
+          "Mail::Filter",
+          "Mail::Header",
+          "Mail::Internet",
+          "Mail::Mailer",
+          "Mail::Mailer::qmail",
+          "Mail::Mailer::rfc822",
+          "Mail::Mailer::sendmail",
+          "Mail::Mailer::smtp",
+          "Mail::Mailer::smtp::pipe",
+          "Mail::Mailer::smtps",
+          "Mail::Mailer::smtps::pipe",
+          "Mail::Mailer::testfile",
+          "Mail::Mailer::testfile::pipe",
+          "Mail::Send",
+          "Mail::Util",
+          "MailTools"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::Handle",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Date::Parse",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Net::Domain",
+             "version" : "1.05",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.03",
+             "phase" : "runtime",
+             "module" : "Net::SMTP"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Date::Format",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "name" : "MailTools-2.21",
+       "checksum_sha256" : "4ad9bd6826b6f03a2727332466b1b7d29890c8d99a32b4b3b0a8d926ee1a44cb",
+       "authorized" : true,
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 7.3, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Various ancient e-mail related modules",
+          "dynamic_config" : 1,
+          "author" : [
+             "Mark Overmeer <markov@cpan.org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.21",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Date::Parse" : "0",
+                   "Date::Format" : "0",
+                   "IO::Handle" : "0",
+                   "Net::Domain" : "1.05",
+                   "Net::SMTP" : "1.03"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "name" : "MailTools",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "homepage" : "http://perl.overmeer.net/CPAN/",
+             "repository" : {
+                "url" : "https://github.com/markov2/perl5-MailTools.git",
+                "type" : "git",
+                "web" : "https://github.com/markov2/perl5-MailTools"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.94"
+       },
+       "maturity" : "released",
+       "status" : "latest",
+       "version" : "2.21",
+       "main_module" : "MailTools",
+       "abstract" : "Various ancient e-mail related modules",
+       "changes_file" : "ChangeLog"
+    }

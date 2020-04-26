@@ -1,0 +1,541 @@
+---
+version_control: metacpan
+src_repo: Module-Build-Tiny
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:58.454693210 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "pass" : 39522,
+          "fail" : 71,
+          "na" : 10,
+          "unknown" : 34
+       },
+       "name" : "Module-Build-Tiny-0.039",
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::Handle",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "IPC::Open3",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "IO::File",
+             "phase" : "test"
+          },
+          {
+             "version" : "0.88",
+             "module" : "Test::More",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IPC::Open2",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "File::Temp",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "module" : "Data::Dumper",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "Cwd"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "XSLoader"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "lib",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "blib",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "module" : "File::ShareDir",
+             "phase" : "test",
+             "version" : "1.000",
+             "relationship" : "suggests"
+          },
+          {
+             "phase" : "configure",
+             "version" : "2",
+             "module" : "JSON::PP",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Spec::Functions",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Basename",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "warnings"
+          },
+          {
+             "version" : "0.003",
+             "module" : "ExtUtils::Config",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.006",
+             "phase" : "configure",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "DynaLoader",
+             "version" : "0"
+          },
+          {
+             "phase" : "configure",
+             "module" : "strict",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::Helpers",
+             "version" : "0.020",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Path"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "CPAN::Meta",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::CBuilder",
+             "phase" : "configure"
+          },
+          {
+             "module" : "ExtUtils::Install",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::ParseXS",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.002",
+             "phase" : "configure",
+             "module" : "ExtUtils::InstallPaths",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "Pod::Man"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Find",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "TAP::Harness::Env",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "2.36",
+             "module" : "Getopt::Long",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "5.57",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.41",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec::Functions",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "2",
+             "phase" : "runtime",
+             "module" : "JSON::PP"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Basename",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "strict",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "ExtUtils::Config",
+             "version" : "0.003"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.006",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "DynaLoader",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "File::Path",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::Helpers",
+             "version" : "0.020",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "CPAN::Meta",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "ExtUtils::Install"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "ExtUtils::ParseXS",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "ExtUtils::CBuilder"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0.002",
+             "module" : "ExtUtils::InstallPaths",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "TAP::Harness::Env",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "2.36",
+             "module" : "Getopt::Long",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Pod::Man",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Find",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.57",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "suggests",
+             "version" : "1.27",
+             "module" : "constant",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "< 1.006008",
+             "phase" : "runtime",
+             "module" : "local::lib",
+             "relationship" : "conflicts"
+          }
+       ],
+       "version" : "0.039",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Module-Build-Tiny",
+             "mailto" : "bug-module-build-tiny at rt.cpan.org"
+          },
+          "repository" : {
+             "web" : "https://github.com/Leont/module-build-tiny",
+             "type" : "git",
+             "url" : "git://github.com/Leont/module-build-tiny.git"
+          }
+       },
+       "main_module" : "Module::Build::Tiny",
+       "distribution" : "Module-Build-Tiny",
+       "archive" : "Module-Build-Tiny-0.039.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_sha256" : "7d580ff6ace0cbe555bf36b86dc8ea232581530cbeaaea09bccb57b55797f11c",
+       "date" : "2014-10-12T08:40:17",
+       "metadata" : {
+          "version" : "0.039",
+          "author" : [
+             "Leon Timmermans <leont@cpan.org>",
+             "David Golden <dagolden@cpan.org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Module-Build-Tiny",
+          "abstract" : "A tiny replacement for Module::Build",
+          "prereqs" : {
+             "test" : {
+                "suggests" : {
+                   "File::ShareDir" : "1.000"
+                },
+                "requires" : {
+                   "Test::More" : "0.88",
+                   "IPC::Open2" : "0",
+                   "Data::Dumper" : "0",
+                   "Cwd" : "0",
+                   "lib" : "0",
+                   "IO::Handle" : "0",
+                   "IPC::Open3" : "0",
+                   "Carp" : "0",
+                   "File::Spec" : "0",
+                   "File::Temp" : "0",
+                   "blib" : "0",
+                   "IO::File" : "0",
+                   "XSLoader" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "strict" : "0",
+                   "Exporter" : "5.57",
+                   "File::Basename" : "0",
+                   "ExtUtils::InstallPaths" : "0.002",
+                   "JSON::PP" : "2",
+                   "Pod::Man" : "0",
+                   "TAP::Harness::Env" : "0",
+                   "File::Spec::Functions" : "0",
+                   "ExtUtils::CBuilder" : "0",
+                   "ExtUtils::Config" : "0.003",
+                   "ExtUtils::Helpers" : "0.020",
+                   "Getopt::Long" : "2.36",
+                   "File::Path" : "0",
+                   "ExtUtils::Install" : "0",
+                   "DynaLoader" : "0",
+                   "warnings" : "0",
+                   "perl" : "5.006",
+                   "File::Find" : "0",
+                   "CPAN::Meta" : "0",
+                   "ExtUtils::ParseXS" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "runtime" : {
+                "conflicts" : {
+                   "local::lib" : "< 1.006008"
+                },
+                "requires" : {
+                   "Getopt::Long" : "2.36",
+                   "ExtUtils::CBuilder" : "0",
+                   "ExtUtils::Helpers" : "0.020",
+                   "ExtUtils::Config" : "0.003",
+                   "TAP::Harness::Env" : "0",
+                   "Pod::Man" : "0",
+                   "File::Spec::Functions" : "0",
+                   "ExtUtils::InstallPaths" : "0.002",
+                   "JSON::PP" : "2",
+                   "ExtUtils::ParseXS" : "0",
+                   "perl" : "5.006",
+                   "File::Find" : "0",
+                   "warnings" : "0",
+                   "CPAN::Meta" : "0",
+                   "ExtUtils::Install" : "0",
+                   "DynaLoader" : "0",
+                   "File::Path" : "0",
+                   "Exporter" : "5.57",
+                   "strict" : "0",
+                   "File::Basename" : "0"
+                },
+                "suggests" : {
+                   "constant" : "1.27"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 0,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/Leont/module-build-tiny",
+                "url" : "git://github.com/Leont/module-build-tiny.git",
+                "type" : "git"
+             },
+             "bugtracker" : {
+                "mailto" : "bug-module-build-tiny at rt.cpan.org",
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Module-Build-Tiny"
+             }
+          },
+          "provides" : {
+             "Module::Build::Tiny" : {
+                "version" : "0.039",
+                "file" : "lib/Module/Build/Tiny.pm"
+             }
+          }
+       },
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1413103217,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 20663
+       },
+       "maturity" : "released",
+       "authorized" : true,
+       "checksum_md5" : "2332c90c17454107fea3f2614e11a3a9",
+       "abstract" : "A tiny replacement for Module::Build",
+       "status" : "latest",
+       "author" : "LEONT",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz",
+       "provides" : [
+          "Module::Build::Tiny"
+       ],
+       "id" : "lsGkLHHMO3xlTu_zrDvMS46rfa8",
+       "version_numified" : 0.039,
+       "changes_file" : "Changes"
+    }

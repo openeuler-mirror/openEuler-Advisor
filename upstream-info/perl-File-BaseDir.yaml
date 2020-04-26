@@ -1,0 +1,184 @@
+---
+version_control: metacpan
+src_repo: File-BaseDir
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:37.119686940 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "date" : "2018-03-13T01:09:02",
+       "name" : "File-BaseDir-0.08",
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KI/KIMRYAN/File-BaseDir-0.08.tar.gz",
+       "distribution" : "File-BaseDir",
+       "status" : "latest",
+       "first" : false,
+       "abstract" : "Use the Freedesktop.org base directory specification",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "version" : "0.42",
+             "relationship" : "requires",
+             "module" : "Module::Build"
+          },
+          {
+             "module" : "Module::Build",
+             "phase" : "build",
+             "version" : "0.24",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "File::Which",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "IPC::System::Simple"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Carp"
+          }
+       ],
+       "checksum_md5" : "667a7faa144c0c9a22b4421ed395fe89",
+       "main_module" : "File::BaseDir",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "KIMRYAN",
+       "archive" : "File-BaseDir-0.08.tar.gz",
+       "version_numified" : 0.08,
+       "checksum_sha256" : "c065fcd3e2f22ae769937bcc971b91f80294d5009fac140bfba83bf7d35305e3",
+       "changes_file" : "Changes",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 3208,
+          "na" : 0,
+          "fail" : 107
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "release_status" : "stable",
+          "name" : "File-BaseDir",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Jaap Karssenberg <pardus@cpan.org>"
+          ],
+          "generated_by" : "Module::Build version 0.4208, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Module::Build" : "0.24",
+                   "File::Temp" : "0",
+                   "File::Which" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "Carp" : "0",
+                   "IPC::System::Simple" : "0",
+                   "Exporter" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0.42"
+                }
+             }
+          },
+          "abstract" : "Use the Freedesktop.org base directory specification",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "provides" : {
+             "File::BaseDir" : {
+                "version" : "0.08",
+                "file" : "lib/File/BaseDir.pm"
+             },
+             "File::IconTheme" : {
+                "version" : "0.08",
+                "file" : "lib/File/IconTheme.pm"
+             },
+             "File::UserDirs" : {
+                "version" : "0.08",
+                "file" : "lib/File/UserDirs.pm"
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.08"
+       },
+       "id" : "MpDL6GSCp9O8wiVe_PTsNMPgu1o",
+       "version" : "0.08",
+       "stat" : {
+          "mtime" : 1520903342,
+          "size" : 10052,
+          "mode" : 33188
+       },
+       "provides" : [
+          "File::BaseDir",
+          "File::IconTheme",
+          "File::UserDirs"
+       ],
+       "authorized" : true
+    }

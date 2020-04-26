@@ -1,0 +1,188 @@
+---
+version_control: metacpan
+src_repo: Test-Warn
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:14.141794820 +00:00
+  raw_data: |
+    {
+       "main_module" : "Test::Warn",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/hanfried/test-warn.git",
+             "web" : "https://github.com/hanfried/test-warn",
+             "type" : "git"
+          }
+       },
+       "checksum_md5" : "3d958f43d36db263994affde5da09b51",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "ecbca346d379cef8d3c0e4ac0c8eb3b2613d737ffaaeae52271c38d7bf3c6cda",
+       "version_numified" : 0.36,
+       "author" : "BIGJ",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Test-Warn-0.36.tar.gz",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "0.36",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "provides" : {
+             "Test::Warn" : {
+                "file" : "Warn.pm",
+                "version" : "0.36"
+             }
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::Builder" : "0.13",
+                   "Test::Builder::Tester" : "1.02",
+                   "perl" : "5.006",
+                   "Sub::Uplevel" : "0.12",
+                   "Carp" : "1.22"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "keywords" : [
+             "testing",
+             "warnings"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Perl extension to test methods for warnings",
+          "author" : [
+             "Janek Schleicher <bigj@kamelfreund.de>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Test-Warn",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/hanfried/test-warn.git",
+                "type" : "git",
+                "web" : "https://github.com/hanfried/test-warn"
+             }
+          },
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27400_02"
+       },
+       "deprecated" : false,
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 4874,
+          "na" : 1,
+          "fail" : 7
+       },
+       "authorized" : true,
+       "provides" : [
+          "Test::Warn"
+       ],
+       "stat" : {
+          "mode" : 33188,
+          "size" : 12333,
+          "mtime" : 1529748762
+       },
+       "version" : "0.36",
+       "id" : "zOXHmYZL8j35GZtw7Z8YjF7nBa8",
+       "date" : "2018-06-23T10:12:42",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BIGJ/Test-Warn-0.36.tar.gz",
+       "name" : "Test-Warn-0.36",
+       "dependency" : [
+          {
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "File::Spec"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "1.22",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Sub::Uplevel",
+             "relationship" : "requires",
+             "version" : "0.12",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.02",
+             "phase" : "runtime",
+             "module" : "Test::Builder::Tester"
+          },
+          {
+             "version" : "0.13",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::Builder"
+          }
+       ],
+       "abstract" : "Perl extension to test methods for warnings",
+       "first" : false,
+       "distribution" : "Test-Warn",
+       "status" : "latest"
+    }

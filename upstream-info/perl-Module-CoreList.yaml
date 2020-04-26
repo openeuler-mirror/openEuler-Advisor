@@ -1,0 +1,153 @@
+---
+version_control: metacpan
+src_repo: Module-CoreList
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:27.620104910 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1584735977,
+          "mode" : 33204,
+          "size" : 113708
+       },
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-CoreList-5.20200320.tar.gz",
+       "author" : "BINGOS",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.perl.org/rt3/"
+          },
+          "repository" : {
+             "url" : "git://perl5.git.perl.org/perl.git",
+             "type" : "git"
+          },
+          "homepage" : "http://dev.perl.org/"
+       },
+       "archive" : "Module-CoreList-5.20200320.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "35421453f62180d660d5630f17bc1ff2",
+       "distribution" : "Module-CoreList",
+       "id" : "zJ0bAGJaqm2P1ioCIjY7VASIX70",
+       "version_numified" : 5.2020032,
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 683,
+          "fail" : 0,
+          "na" : 0
+       },
+       "main_module" : "Module::CoreList",
+       "version" : "5.20200320",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "what modules shipped with versions of perl",
+       "authorized" : true,
+       "checksum_sha256" : "fe7186d971f8e89b91d04e5b3a3d8540d98a22789db80511dcb56d60c33d7f1a",
+       "name" : "Module-CoreList-5.20200320",
+       "first" : false,
+       "provides" : [
+          "Module::CoreList",
+          "Module::CoreList::Utils"
+       ],
+       "dependency" : [
+          {
+             "module" : "List::Util",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "version",
+             "phase" : "runtime",
+             "version" : "0.88",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2020-03-20T20:26:17",
+       "maturity" : "released",
+       "metadata" : {
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://rt.perl.org/rt3/"
+             },
+             "homepage" : "http://dev.perl.org/",
+             "repository" : {
+                "type" : "git",
+                "url" : "git://perl5.git.perl.org/perl.git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Module-CoreList",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "version" : "0.88",
+                   "Test::More" : "0",
+                   "List::Util" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "5.20200320",
+          "author" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "abstract" : "what modules shipped with versions of perl",
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005"
+       }
+    }

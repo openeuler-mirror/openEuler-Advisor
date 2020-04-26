@@ -1,0 +1,196 @@
+---
+version_control: metacpan
+src_repo: YAML
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:51.130195530 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "abstract" : "YAML Ain't Markup Language™",
+       "checksum_md5" : "2c861f02e091787c7fe115ec20d3b9b3",
+       "status" : "latest",
+       "author" : "TINITA",
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-1.30.tar.gz",
+       "provides" : [
+          "YAML",
+          "YAML::Any",
+          "YAML::Dumper",
+          "YAML::Dumper::Base",
+          "YAML::Error",
+          "YAML::Loader",
+          "YAML::Loader::Base",
+          "YAML::Marshall",
+          "YAML::Mo",
+          "YAML::Node",
+          "YAML::Tag",
+          "YAML::Type::blessed",
+          "YAML::Type::code",
+          "YAML::Type::glob",
+          "YAML::Type::ref",
+          "YAML::Type::regexp",
+          "YAML::Type::undef",
+          "YAML::Types",
+          "YAML::Warning",
+          "yaml_mapping",
+          "yaml_scalar",
+          "yaml_sequence"
+       ],
+       "id" : "I5eeY397XYWi3lgYfgPycjdCGhw",
+       "version_numified" : 1.3,
+       "changes_file" : "Changes",
+       "tests" : {
+          "unknown" : 3,
+          "pass" : 2114,
+          "fail" : 31,
+          "na" : 0
+       },
+       "name" : "YAML-1.30",
+       "dependency" : [
+          {
+             "module" : "perl",
+             "version" : "v5.8.1",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.41",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.05",
+             "module" : "Test::YAML",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::Deep",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Encode",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0.88",
+             "module" : "Test::More"
+          }
+       ],
+       "version" : "1.30",
+       "main_module" : "YAML",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/ingydotnet/yaml-pm.git",
+             "web" : "https://github.com/ingydotnet/yaml-pm"
+          },
+          "homepage" : "https://github.com/ingydotnet/yaml-pm",
+          "bugtracker" : {
+             "web" : "https://github.com/ingydotnet/yaml-pm/issues"
+          }
+       },
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "YAML",
+       "archive" : "YAML-1.30.tar.gz",
+       "date" : "2020-01-27T22:10:33",
+       "checksum_sha256" : "5030a6d6cbffaf12583050bf552aa800d4646ca9678c187add649227f57479cd",
+       "metadata" : {
+          "x_generated_by_perl" : "v5.24.1",
+          "name" : "YAML",
+          "no_index" : {
+             "directory" : [
+                "example",
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "YAML Ain't Markup Language™",
+          "version" : "1.30",
+          "author" : [
+             "Ingy döt Net <ingy@cpan.org>"
+          ],
+          "dynamic_config" : 0,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/ingydotnet/yaml-pm.git",
+                "type" : "git",
+                "web" : "https://github.com/ingydotnet/yaml-pm"
+             },
+             "homepage" : "https://github.com/ingydotnet/yaml-pm",
+             "bugtracker" : {
+                "web" : "https://github.com/ingydotnet/yaml-pm/issues"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.02",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "v5.8.1"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Encode" : "0",
+                   "Test::More" : "0.88",
+                   "Test::YAML" : "1.05",
+                   "Test::Deep" : "0"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "stat" : {
+          "mode" : 33188,
+          "size" : 87471,
+          "mtime" : 1580163033
+       },
+       "maturity" : "released"
+    }

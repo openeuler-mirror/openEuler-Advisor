@@ -1,0 +1,164 @@
+---
+version_control: metacpan
+src_repo: Locale-Maketext
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:23.656214440 +00:00
+  raw_data: |
+    {
+       "changes_file" : "ChangeLog",
+       "version_numified" : 1.29,
+       "provides" : [
+          "Locale::Maketext",
+          "Locale::Maketext::Guts",
+          "Locale::Maketext::GutsLoader"
+       ],
+       "id" : "ReSQwnIxvEeG4mpnEgGDgCdIloQ",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Locale-Maketext-1.29.tar.gz",
+       "author" : "TODDR",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "framework for localization",
+       "checksum_md5" : "e513b3878ae3fdd997a24de5d06575f0",
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 54407,
+          "mtime" : 1579496663
+       },
+       "checksum_sha256" : "30dcaff439680184d021d2cff5ad41a470e90798512594f4f5452640807905eb",
+       "date" : "2020-01-20T05:04:23",
+       "metadata" : {
+          "author" : [
+             "unknown"
+          ],
+          "version" : "1.29",
+          "abstract" : "framework for localization",
+          "name" : "Locale-Maketext",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "parent" : "0",
+                   "I18N::LangTags" : "0.31",
+                   "I18N::LangTags::Detect" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/Perl/perl5/tree/blead/dist/Locale-Maketext"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "bugtracker" : {
+                "web" : "https://github.com/perl/perl5/issues"
+             },
+             "x_MailingList" : "http://lists.perl.org/list/perl5-porters.html"
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1
+       },
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/perl/perl5/issues"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/Perl/perl5/tree/blead/dist/Locale-Maketext"
+          }
+       },
+       "main_module" : "Locale::Maketext",
+       "archive" : "Locale-Maketext-1.29.tar.gz",
+       "distribution" : "Locale-Maketext",
+       "license" : [
+          "perl_5"
+       ],
+       "version" : "1.29",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "I18N::LangTags",
+             "phase" : "runtime",
+             "version" : "0.31",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "parent",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "I18N::LangTags::Detect"
+          }
+       ],
+       "name" : "Locale-Maketext-1.29",
+       "tests" : {
+          "unknown" : 1,
+          "pass" : 362,
+          "na" : 0,
+          "fail" : 0
+       }
+    }

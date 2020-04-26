@@ -1,0 +1,184 @@
+---
+version_control: metacpan
+src_repo: IO-All
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:46.643565300 +00:00
+  raw_data: |
+    {
+       "author" : "FREW",
+       "download_url" : "https://cpan.metacpan.org/authors/id/F/FR/FREW/IO-All-0.87.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1500411961,
+          "size" : 77819,
+          "mode" : 33204
+       },
+       "tests" : {
+          "na" : 1,
+          "fail" : 22,
+          "unknown" : 1,
+          "pass" : 4712
+       },
+       "version_numified" : 0.87,
+       "id" : "SOHut10gCFwj_2HdNwEsdYgxEbI",
+       "distribution" : "IO-All",
+       "checksum_md5" : "f1c88376eaedc72fc43a8df5c6de972c",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "IO-All-0.87.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/ingydotnet/io-all-pm/issues"
+          },
+          "homepage" : "https://github.com/ingydotnet/io-all-pm",
+          "repository" : {
+             "web" : "https://github.com/ingydotnet/io-all-pm",
+             "type" : "git",
+             "url" : "https://github.com/ingydotnet/io-all-pm.git"
+          }
+       },
+       "abstract" : "IO::All to Larry Wall!",
+       "changes_file" : "Changes",
+       "version" : "0.87",
+       "status" : "latest",
+       "main_module" : "IO::All",
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/ingydotnet/io-all-pm.git",
+                "type" : "git",
+                "web" : "https://github.com/ingydotnet/io-all-pm"
+             },
+             "homepage" : "https://github.com/ingydotnet/io-all-pm",
+             "bugtracker" : {
+                "web" : "https://github.com/ingydotnet/io-all-pm/issues"
+             }
+          },
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0233",
+          "name" : "IO-All",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Cwd" : "0",
+                   "Scalar::Util" : "0",
+                   "perl" : "v5.8.1"
+                },
+                "recommends" : {
+                   "File::MimeInfo" : "0",
+                   "File::ReadBackwards" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "example",
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.87",
+          "author" : [
+             "Ingy döt Net <ingy@cpan.org>"
+          ],
+          "dynamic_config" : 0,
+          "abstract" : "IO::All to Larry Wall!",
+          "generated_by" : "Dist::Zilla version 6.009, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005"
+       },
+       "maturity" : "released",
+       "provides" : [
+          "IO::All",
+          "IO::All::Base",
+          "IO::All::DBM",
+          "IO::All::Dir",
+          "IO::All::File",
+          "IO::All::Filesys",
+          "IO::All::Link",
+          "IO::All::MLDBM",
+          "IO::All::Pipe",
+          "IO::All::STDIO",
+          "IO::All::Socket",
+          "IO::All::String",
+          "IO::All::Temp"
+       ],
+       "dependency" : [
+          {
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "version" : "1.41",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "File::MimeInfo",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "0",
+             "module" : "File::ReadBackwards",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "v5.8.1",
+             "phase" : "runtime",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2017-07-18T21:06:01",
+       "first" : false,
+       "name" : "IO-All-0.87",
+       "checksum_sha256" : "54e21d250c0229127e30b77a3461e10077854ec244f26fb670f1b445ed4c4d5b",
+       "authorized" : true
+    }

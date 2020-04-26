@@ -1,0 +1,131 @@
+---
+version_control: metacpan
+src_repo: String-CRC32
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:59.018011390 +00:00
+  raw_data: |
+    {
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/String-CRC32-1.8.tar.gz",
+       "author" : "LEEJO",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Perl interface for cyclic redundancy check generation",
+       "checksum_md5" : "d35184d4501e42c20a4c2300541432da",
+       "changes_file" : "Changes",
+       "version_numified" : 1.8,
+       "provides" : [
+          "String::CRC32"
+       ],
+       "id" : "MIP_v7ERAU9OmGx_rr7RANinXc4",
+       "version" : 1.8,
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "name" : "String-CRC32-1.8",
+       "tests" : {
+          "pass" : 1574,
+          "fail" : 3,
+          "na" : 0,
+          "unknown" : 4
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1572595285,
+          "size" : 7891,
+          "mode" : 33188
+       },
+       "checksum_sha256" : "b65a79639c670c41d2b08d7aecc51454db04c69ff0ca6c4f0d9dfa0d8aa37c6f",
+       "date" : "2019-11-01T08:01:25",
+       "metadata" : {
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "String-CRC32",
+          "abstract" : "unknown",
+          "version" : 1.8,
+          "author" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "unrestricted"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/leejo/string-crc32"
+             },
+             "license" : [
+                "https://wiki.creativecommons.org/wiki/Public_domain"
+             ],
+             "homepage" : "https://metacpan.org/module/String::CRC32",
+             "bugtracker" : {
+                "web" : "https://github.com/leejo/string-crc32/issues"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.36, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005"
+       },
+       "main_module" : "String::CRC32",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/leejo/string-crc32"
+          },
+          "license" : [
+             "https://wiki.creativecommons.org/wiki/Public_domain"
+          ],
+          "homepage" : "https://metacpan.org/module/String::CRC32",
+          "bugtracker" : {
+             "web" : "https://github.com/leejo/string-crc32/issues"
+          }
+       },
+       "license" : [
+          "unrestricted"
+       ],
+       "distribution" : "String-CRC32",
+       "archive" : "String-CRC32-1.8.tar.gz"
+    }

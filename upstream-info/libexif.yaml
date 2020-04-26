@@ -1,0 +1,171 @@
+---
+version_control: github
+src_repo: libexif/libexif
+tag_pattern: libexif-(.*)-release
+seperator: _
+last_query:
+  time_stamp: 2020-04-26 09:42:25.734118190 +00:00
+  raw_data: |
+    [
+      {
+        "name": "libexif-before-0_6_0-api-change",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-before-0_6_0-api-change",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-before-0_6_0-api-change",
+        "commit": {
+          "sha": "a52aa588c36e4b978c6332205335a3a12f397d3d",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/a52aa588c36e4b978c6332205335a3a12f397d3d"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtYmVmb3JlLTBfNl8wLWFwaS1jaGFuZ2U="
+      },
+      {
+        "name": "libexif-0_6_21-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_21-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_21-release",
+        "commit": {
+          "sha": "9ab318d93b274df204c195c9a729f778401a8d8f",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/9ab318d93b274df204c195c9a729f778401a8d8f"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzIxLXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_20-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_20-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_20-release",
+        "commit": {
+          "sha": "18e204e4e2947c54fec1b624897d124b39a04c73",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/18e204e4e2947c54fec1b624897d124b39a04c73"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzIwLXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_19-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_19-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_19-release",
+        "commit": {
+          "sha": "d08c26e26965ed6656d94301303e935657d49862",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/d08c26e26965ed6656d94301303e935657d49862"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzE5LXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_18-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_18-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_18-release",
+        "commit": {
+          "sha": "8671efef74120fd3ca13297626f86cb9f11c500d",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/8671efef74120fd3ca13297626f86cb9f11c500d"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzE4LXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_17-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_17-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_17-release",
+        "commit": {
+          "sha": "51839879f73d81b6c6e6dfbd7de0a1a2113daa18",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/51839879f73d81b6c6e6dfbd7de0a1a2113daa18"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzE3LXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_16-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_16-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_16-release",
+        "commit": {
+          "sha": "a4bc43d9c735ee5fc894c50ee5544dcc06d8435c",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/a4bc43d9c735ee5fc894c50ee5544dcc06d8435c"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzE2LXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_15-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_15-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_15-release",
+        "commit": {
+          "sha": "247fe3bbebdd5a7217dfd751b65a3e4d6db696fd",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/247fe3bbebdd5a7217dfd751b65a3e4d6db696fd"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzE1LXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_14-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_14-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_14-release",
+        "commit": {
+          "sha": "87dbf68546b5b21602fa2962158e574316b7bdd6",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/87dbf68546b5b21602fa2962158e574316b7bdd6"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzE0LXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_6_12-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_6_12-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_6_12-release",
+        "commit": {
+          "sha": "44bbb56446fc305ec196a58a5cc11e0ffc87d47f",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/44bbb56446fc305ec196a58a5cc11e0ffc87d47f"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF82XzEyLXJlbGVhc2U="
+      },
+      {
+        "name": "libexif-0_5_9-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_5_9-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_5_9-release",
+        "commit": {
+          "sha": "b404e3cedb13394ca332c33874e93349a1f6d454",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/b404e3cedb13394ca332c33874e93349a1f6d454"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF81XzktcmVsZWFzZQ=="
+      },
+      {
+        "name": "libexif-0_5_7-release",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_5_7-release",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_5_7-release",
+        "commit": {
+          "sha": "4668189171efc0a4711ea1e578e31918cc355716",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/4668189171efc0a4711ea1e578e31918cc355716"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF81XzctcmVsZWFzZQ=="
+      },
+      {
+        "name": "libexif-0_5_7-rc4",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_5_7-rc4",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_5_7-rc4",
+        "commit": {
+          "sha": "7f335eb3ce84f4744c5b52c6ef6942b390f21a12",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/7f335eb3ce84f4744c5b52c6ef6942b390f21a12"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF81XzctcmM0"
+      },
+      {
+        "name": "libexif-0_5_7-rc3",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_5_7-rc3",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_5_7-rc3",
+        "commit": {
+          "sha": "4992be3b53aa3b2b511d622d929494b878ef62f0",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/4992be3b53aa3b2b511d622d929494b878ef62f0"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF81XzctcmMz"
+      },
+      {
+        "name": "libexif-0_5_7-rc2",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/libexif-0_5_7-rc2",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/libexif-0_5_7-rc2",
+        "commit": {
+          "sha": "38c341dfaaea03a0f863c32d60c57526f235e933",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/38c341dfaaea03a0f863c32d60c57526f235e933"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmxpYmV4aWYtMF81XzctcmMy"
+      },
+      {
+        "name": "cvs-migration",
+        "zipball_url": "https://api.github.com/repos/libexif/libexif/zipball/cvs-migration",
+        "tarball_url": "https://api.github.com/repos/libexif/libexif/tarball/cvs-migration",
+        "commit": {
+          "sha": "a881aa638711e87f340ea50783276b2ac62a837b",
+          "url": "https://api.github.com/repos/libexif/libexif/commits/a881aa638711e87f340ea50783276b2ac62a837b"
+        },
+        "node_id": "MDM6UmVmMTEyNjc3NjQzOmN2cy1taWdyYXRpb24="
+      }
+    ]
+query_type: api.github.tags

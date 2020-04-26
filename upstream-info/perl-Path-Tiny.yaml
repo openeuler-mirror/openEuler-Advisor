@@ -1,0 +1,601 @@
+---
+version_control: metacpan
+src_repo: Path-Tiny
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:47.774700980 +00:00
+  raw_data: |
+    {
+       "id" : "x8RFFQjZ64AXEAEIKaeCWEFIhpg",
+       "provides" : [
+          "Path::Tiny",
+          "Path::Tiny::Error"
+       ],
+       "authorized" : true,
+       "version" : "0.112",
+       "stat" : {
+          "mtime" : 1580267623,
+          "size" : 92771,
+          "mode" : 33188
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "resources" : {
+             "homepage" : "https://github.com/dagolden/Path-Tiny",
+             "bugtracker" : {
+                "web" : "https://github.com/dagolden/Path-Tiny/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/dagolden/Path-Tiny.git",
+                "web" : "https://github.com/dagolden/Path-Tiny",
+                "type" : "git"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "apache_2_0"
+          ],
+          "author" : [
+             "David Golden <dagolden@cpan.org>"
+          ],
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "x_authority" : "cpan:DAGOLDEN",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "version" : "0.112",
+          "no_index" : {
+             "directory" : [
+                "corpus",
+                "examples",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DB",
+                "flock"
+             ]
+          },
+          "provides" : {
+             "Path::Tiny" : {
+                "file" : "lib/Path/Tiny.pm",
+                "version" : "0.112"
+             },
+             "Path::Tiny::Error" : {
+                "file" : "lib/Path/Tiny.pm",
+                "version" : "0.112"
+             }
+          },
+          "dynamic_config" : 0,
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.15",
+          "name" : "Path-Tiny",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "open" : "0",
+                   "File::Spec::Functions" : "0",
+                   "File::Spec::Unix" : "0",
+                   "Test::More" : "0.96",
+                   "File::Temp" : "0.19",
+                   "File::Basename" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "File::Spec" : "0.86",
+                   "perl" : "5.008001",
+                   "Digest::MD5" : "0",
+                   "lib" : "0"
+                },
+                "recommends" : {
+                   "CPAN::Meta" : "2.120900",
+                   "Test::MockRandom" : "0",
+                   "Test::FailWarnings" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::Version" : "1",
+                   "Dist::Zilla" : "5",
+                   "IO::Handle" : "0",
+                   "Test::Portability::Files" : "0",
+                   "Pod::Wordlist" : "0",
+                   "Test::MinimumVersion" : "0",
+                   "Test::CPAN::Meta" : "0",
+                   "Test::Perl::Critic" : "0",
+                   "Dist::Zilla::PluginBundle::DAGOLDEN" : "0.072",
+                   "File::Temp" : "0",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Dist::Zilla::Plugin::OnlyCorePrereqs" : "0",
+                   "IPC::Open3" : "0",
+                   "Dist::Zilla::Plugin::RemovePrereqs" : "0",
+                   "Dist::Zilla::Plugin::MinimumPerl" : "0",
+                   "Test::Pod" : "1.41",
+                   "Dist::Zilla::Plugin::Prereqs" : "0",
+                   "Dist::Zilla::Plugin::ReleaseStatus::FromVersion" : "0",
+                   "File::Spec" : "0",
+                   "Test::Spelling" : "0.12",
+                   "Software::License::Apache_2_0" : "0",
+                   "Test::Pod::Coverage" : "1.08"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "perl" : "5.008001",
+                   "ExtUtils::MakeMaker" : "6.17"
+                },
+                "suggests" : {
+                   "JSON::PP" : "2.27300"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "Unicode::UTF8" : "0.58"
+                },
+                "requires" : {
+                   "overload" : "0",
+                   "strict" : "0",
+                   "Fcntl" : "0",
+                   "Encode" : "0",
+                   "File::Temp" : "0.19",
+                   "constant" : "0",
+                   "Carp" : "0",
+                   "File::Spec" : "0.86",
+                   "perl" : "5.008001",
+                   "warnings" : "0",
+                   "File::Copy" : "0",
+                   "warnings::register" : "0",
+                   "Exporter" : "5.57",
+                   "Cwd" : "0",
+                   "Digest::SHA" : "5.45",
+                   "File::Path" : "2.07",
+                   "File::Glob" : "0",
+                   "Digest" : "1.03",
+                   "File::stat" : "0"
+                }
+             }
+          },
+          "abstract" : "File path utility",
+          "x_contributors" : [
+             "Alex Efros <powerman@powerman.name>",
+             "Aristotle Pagaltzis <pagaltzis@gmx.de>",
+             "Chris Williams <bingos@cpan.org>",
+             "Dave Rolsky <autarch@urth.org>",
+             "David Steinbrunner <dsteinbrunner@pobox.com>",
+             "Doug Bell <madcityzen@gmail.com>",
+             "Gabor Szabo <szabgab@cpan.org>",
+             "Gabriel Andrade <gabiruh@gmail.com>",
+             "George Hartzell <hartzell@cpan.org>",
+             "Geraud Continsouzas <geraud@scsi.nc>",
+             "Goro Fuji <gfuji@cpan.org>",
+             "Graham Knop <haarg@haarg.org>",
+             "Graham Ollis <plicease@cpan.org>",
+             "Ian Sillitoe <ian@sillit.com>",
+             "James Hunt <james@niftylogic.com>",
+             "John Karr <brainbuz@brainbuz.org>",
+             "Karen Etheridge <ether@cpan.org>",
+             "Mark Ellis <mark.ellis@cartridgesave.co.uk>",
+             "Martin H. Sluka <fany@cpan.org>",
+             "Martin Kjeldsen <mk@bluepipe.dk>",
+             "Michael G. Schwern <mschwern@cpan.org>",
+             "Nigel Gregoire <nigelgregoire@gmail.com>",
+             "Philippe Bruhat (BooK) <book@cpan.org>",
+             "Regina Verbae <regina-verbae@users.noreply.github.com>",
+             "Roy Ivy III <rivy@cpan.org>",
+             "Shlomi Fish <shlomif@shlomifish.org>",
+             "Smylers <Smylers@stripey.com>",
+             "Tatsuhiko Miyagawa <miyagawa@bulknews.net>",
+             "Toby Inkster <tobyink@cpan.org>",
+             "Yanick Champoux <yanick@babyl.dyndns.org>",
+             "김도형 - Keedi Kim <keedi@cpan.org>"
+          ],
+          "x_generated_by_perl" : "v5.30.0"
+       },
+       "tests" : {
+          "pass" : 1440,
+          "unknown" : 1,
+          "na" : 0,
+          "fail" : 1
+       },
+       "version_numified" : 0.112,
+       "author" : "DAGOLDEN",
+       "license" : [
+          "apache_2_0"
+       ],
+       "archive" : "Path-Tiny-0.112.tar.gz",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "813df2d140c65f795daefd8eca18e61194ecac7050c5406a069db86dea31cc3a",
+       "main_module" : "Path::Tiny",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/dagolden/Path-Tiny/issues"
+          },
+          "homepage" : "https://github.com/dagolden/Path-Tiny",
+          "repository" : {
+             "web" : "https://github.com/dagolden/Path-Tiny",
+             "type" : "git",
+             "url" : "https://github.com/dagolden/Path-Tiny.git"
+          }
+       },
+       "checksum_md5" : "bf2a021d653d7252a39c0d31b41a7c6e",
+       "status" : "latest",
+       "distribution" : "Path-Tiny",
+       "abstract" : "File path utility",
+       "dependency" : [
+          {
+             "module" : "JSON::PP",
+             "relationship" : "suggests",
+             "version" : "2.27300",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.17",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "phase" : "configure",
+             "version" : "5.008001",
+             "relationship" : "requires",
+             "module" : "perl"
+          },
+          {
+             "module" : "File::Temp",
+             "version" : "0.19",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Copy"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Fcntl",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Carp"
+          },
+          {
+             "module" : "Encode",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "constant",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "overload",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Cwd"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.57",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "File::Spec",
+             "relationship" : "requires",
+             "version" : "0.86",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Path",
+             "version" : "2.07",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "warnings::register",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Digest",
+             "relationship" : "requires",
+             "version" : "1.03",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "File::stat"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.008001",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "module" : "File::Glob",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Digest::SHA",
+             "relationship" : "requires",
+             "version" : "5.45",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings"
+          },
+          {
+             "module" : "Unicode::UTF8",
+             "relationship" : "recommends",
+             "version" : "0.58",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5",
+             "phase" : "develop",
+             "module" : "Dist::Zilla"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::OnlyCorePrereqs",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Pod::Wordlist"
+          },
+          {
+             "module" : "Dist::Zilla::PluginBundle::DAGOLDEN",
+             "phase" : "develop",
+             "version" : "0.072",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "1.08"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Portability::Files"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Test::Perl::Critic"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Dist::Zilla::Plugin::ReleaseStatus::FromVersion"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "File::Spec"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::Prereqs"
+          },
+          {
+             "module" : "IPC::Open3",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1",
+             "phase" : "develop",
+             "module" : "Test::Version"
+          },
+          {
+             "module" : "Software::License::Apache_2_0",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::RemovePrereqs"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::MinimumPerl"
+          },
+          {
+             "module" : "Pod::Coverage::TrustPod",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0.12",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Spelling"
+          },
+          {
+             "module" : "Test::Pod",
+             "version" : "1.41",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::CPAN::Meta"
+          },
+          {
+             "module" : "IO::Handle",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "File::Temp"
+          },
+          {
+             "module" : "Test::MinimumVersion",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "open",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "File::Spec::Functions"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.008001",
+             "phase" : "test",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "File::Basename"
+          },
+          {
+             "module" : "lib",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "File::Spec::Unix"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.19",
+             "relationship" : "requires",
+             "module" : "File::Temp"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.96",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Digest::MD5"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0.86",
+             "module" : "File::Spec"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "recommends",
+             "version" : "0",
+             "module" : "Test::FailWarnings"
+          },
+          {
+             "module" : "Test::MockRandom",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "phase" : "test",
+             "version" : "2.120900",
+             "relationship" : "recommends",
+             "module" : "CPAN::Meta"
+          }
+       ],
+       "first" : false,
+       "name" : "Path-Tiny-0.112",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz",
+       "maturity" : "released",
+       "date" : "2020-01-29T03:13:43"
+    }

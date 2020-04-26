@@ -1,0 +1,185 @@
+---
+version_control: metacpan
+src_repo: DBD-SQLite
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:46.135955050 +00:00
+  raw_data: |
+    {
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/DBD-SQLite-1.64.tar.gz",
+       "author" : "ISHIGAKI",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Self Contained SQLite RDBMS in a DBI Driver",
+       "checksum_md5" : "10796495b52927eb2e1df34c86924027",
+       "changes_file" : "Changes",
+       "version_numified" : 1.64,
+       "provides" : [
+          "DBD::SQLite",
+          "DBD::SQLite::Constants",
+          "DBD::SQLite::GetInfo",
+          "DBD::SQLite::VirtualTable",
+          "DBD::SQLite::VirtualTable::Cursor",
+          "DBD::SQLite::VirtualTable::FileContent",
+          "DBD::SQLite::VirtualTable::FileContent::Cursor",
+          "DBD::SQLite::VirtualTable::PerlData",
+          "DBD::SQLite::VirtualTable::PerlData::Cursor"
+       ],
+       "id" : "gLKeufq3pW4GycBDh_rnN9eWWHU",
+       "version" : "1.64",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.48",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.82",
+             "phase" : "configure",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "DBI",
+             "phase" : "configure",
+             "version" : "1.57"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Tie::Hash",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.57",
+             "module" : "DBI",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.88",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0.82",
+             "phase" : "build",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "DBD-SQLite-1.64",
+       "tests" : {
+          "pass" : 2694,
+          "fail" : 9,
+          "na" : 0,
+          "unknown" : 29
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 2416842,
+          "mode" : 33204,
+          "mtime" : 1565600579
+       },
+       "checksum_sha256" : "f4ae8f7b50842305566aadd90f7bfd12a9e32b6c603a9b1c1529e73eb82aff01",
+       "date" : "2019-08-12T09:02:59",
+       "metadata" : {
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/DBD-SQLite/DBD-SQLite/issues"
+             },
+             "x_MailingList" : "http://lists.scsys.co.uk/cgi-bin/mailman/listinfo/dbd-sqlite",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/DBD-SQLite/DBD-SQLite"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "x_serialization_backend" : "JSON::PP version 4.00",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "DBI" : "1.57",
+                   "File::Spec" : "0.82",
+                   "ExtUtils::MakeMaker" : "6.48"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.88",
+                   "File::Spec" : "0.82"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Tie::Hash" : "0",
+                   "DBI" : "1.57",
+                   "Scalar::Util" : "0"
+                }
+             }
+          },
+          "abstract" : "Self Contained SQLite RDBMS in a DBI Driver",
+          "name" : "DBD-SQLite",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "util",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "version" : "1.64"
+       },
+       "main_module" : "DBD::SQLite",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/DBD-SQLite/DBD-SQLite"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/DBD-SQLite/DBD-SQLite/issues"
+          }
+       },
+       "distribution" : "DBD-SQLite",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "DBD-SQLite-1.64.tar.gz"
+    }

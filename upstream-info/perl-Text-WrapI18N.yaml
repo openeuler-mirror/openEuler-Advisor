@@ -1,0 +1,83 @@
+---
+version_control: metacpan
+src_repo: Text-WrapI18N
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:34.310789270 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "abstract" : "Line wrapping module with support for multibyte, fullwidth, and combining characters and languages without whitespaces between words",
+       "checksum_md5" : "0799c16a00926e6c18d400c2e2861d5f",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KU/KUBOTA/Text-WrapI18N-0.06.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "author" : "KUBOTA",
+       "version_numified" : 0.06,
+       "id" : "gIXN_BgkuTDmz4s9gdUOcb2cBRg",
+       "provides" : [
+          "Text::WrapI18N"
+       ],
+       "changes_file" : "Changes",
+       "name" : "Text-WrapI18N-0.06",
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 5327,
+          "fail" : 1,
+          "na" : 1
+       },
+       "version" : "0.06",
+       "dependency" : [],
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {},
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "version" : "0.06",
+          "abstract" : "unknown",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Text-WrapI18N"
+       },
+       "date" : "2003-06-25T14:20:35",
+       "checksum_sha256" : "4bd29a17f0c2c792d12c1005b3c276f2ab0fae39c00859ae1741d7941846a488",
+       "distribution" : "Text-WrapI18N",
+       "archive" : "Text-WrapI18N-0.06.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "resources" : {},
+       "main_module" : "Text::WrapI18N",
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 3812,
+          "gid" : 1009,
+          "mtime" : 1056550835
+       }
+    }

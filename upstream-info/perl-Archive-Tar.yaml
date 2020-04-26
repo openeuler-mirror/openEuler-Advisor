@@ -1,0 +1,206 @@
+---
+version_control: metacpan
+src_repo: Archive-Tar
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:11.922595980 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mode" : 33188,
+          "size" : 65248,
+          "mtime" : 1580650474
+       },
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Archive-Tar-2.36.tar.gz",
+       "author" : "BINGOS",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/jib/archive-tar-new.git",
+             "web" : "https://github.com/jib/archive-tar-new"
+          }
+       },
+       "archive" : "Archive-Tar-2.36.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "6f33c1b0f6fafbf823b5e00396e18e85",
+       "distribution" : "Archive-Tar",
+       "id" : "JNzqKmUMD0Y5uth9rbG717SIDck",
+       "version_numified" : 2.36,
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 24,
+          "fail" : 0,
+          "na" : 0
+       },
+       "main_module" : "Archive::Tar",
+       "status" : "latest",
+       "version" : "2.36",
+       "changes_file" : "CHANGES",
+       "abstract" : "Manipulates TAR archives",
+       "checksum_sha256" : "16ba52e0babe54f8c4deb11b103a46186763173607d59649130d0fffdd36968e",
+       "authorized" : true,
+       "name" : "Archive-Tar-2.36",
+       "first" : false,
+       "provides" : [
+          "Archive::Tar",
+          "Archive::Tar::Constant",
+          "Archive::Tar::File"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Compress::Zlib",
+             "phase" : "runtime",
+             "version" : "2.015"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "2.015",
+             "module" : "IO::Compress::Gzip",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "IO::Zlib",
+             "version" : "1.01"
+          },
+          {
+             "version" : "5.00503",
+             "phase" : "runtime",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Harness",
+             "phase" : "runtime",
+             "version" : "2.26",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.82",
+             "module" : "File::Spec",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "2.015",
+             "module" : "IO::Compress::Bzip2",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "IO::Compress::Base",
+             "phase" : "runtime",
+             "version" : "2.015",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "IO::Uncompress::UnXz",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "module" : "IO::Compress::Xz",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2020-02-02T13:34:34",
+       "maturity" : "released",
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/jib/archive-tar-new",
+                "type" : "git",
+                "url" : "https://github.com/jib/archive-tar-new.git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Archive-Tar",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "IO::Uncompress::UnXz" : "0",
+                   "IO::Compress::Xz" : "0"
+                },
+                "requires" : {
+                   "Test::Harness" : "2.26",
+                   "IO::Zlib" : "1.01",
+                   "IO::Compress::Base" : "2.015",
+                   "Compress::Zlib" : "2.015",
+                   "File::Spec" : "0.82",
+                   "IO::Compress::Bzip2" : "2.015",
+                   "perl" : "5.00503",
+                   "Test::More" : "0",
+                   "IO::Compress::Gzip" : "2.015"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.36",
+          "dynamic_config" : 1,
+          "author" : [
+             "Jos Boumans <kane[at]cpan.org>"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Manipulates TAR archives"
+       }
+    }

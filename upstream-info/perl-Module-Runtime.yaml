@@ -1,0 +1,197 @@
+---
+version_control: metacpan
+src_repo: Module-Runtime
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:25.900602140 +00:00
+  raw_data: |
+    {
+       "abstract" : "runtime module handling",
+       "checksum_md5" : "d3d47222fa2e3dfcb4526f6cc8437b20",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "ZEFRAM",
+       "download_url" : "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "id" : "MZC2sq0sN9vn2afqbogv_yUC_g8",
+       "provides" : [
+          "Module::Runtime"
+       ],
+       "version_numified" : 0.016,
+       "changes_file" : "Changes",
+       "tests" : {
+          "pass" : 6472,
+          "na" : 0,
+          "fail" : 7,
+          "unknown" : 3
+       },
+       "name" : "Module-Runtime-0.016",
+       "dependency" : [
+          {
+             "module" : "warnings",
+             "version" : "0",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0.41",
+             "phase" : "build"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "version" : "0",
+             "phase" : "build"
+          },
+          {
+             "phase" : "build",
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "Module::Build"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "warnings",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "version" : "0",
+             "module" : "Module::Build",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.016",
+       "archive" : "Module-Runtime-0.016.tar.gz",
+       "distribution" : "Module-Runtime",
+       "license" : [
+          "perl_5"
+       ],
+       "main_module" : "Module::Runtime",
+       "resources" : {
+          "bugtracker" : {
+             "mailto" : "bug-Module-Runtime@rt.cpan.org",
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Module-Runtime"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "type" : "git",
+             "url" : "git://git.fysh.org/zefram/Module-Runtime.git"
+          }
+       },
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://git.fysh.org/zefram/Module-Runtime.git"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Module-Runtime",
+                "mailto" : "bug-Module-Runtime@rt.cpan.org"
+             }
+          },
+          "provides" : {
+             "Module::Runtime" : {
+                "version" : "0.016",
+                "file" : "lib/Module/Runtime.pm"
+             }
+          },
+          "dynamic_config" : 0,
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "Module::Build version 0.4224, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0",
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "warnings" : "0",
+                   "perl" : "5.006",
+                   "strict" : "0",
+                   "Test::More" : "0.41",
+                   "Module::Build" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.93",
+          "abstract" : "runtime module handling",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Module-Runtime",
+          "author" : [
+             "Andrew Main (Zefram) <zefram@fysh.org>"
+          ],
+          "version" : "0.016"
+       },
+       "checksum_sha256" : "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024",
+       "date" : "2017-10-17T20:29:23",
+       "stat" : {
+          "mtime" : 1508272163,
+          "mode" : 33204,
+          "size" : 18275
+       },
+       "maturity" : "released"
+    }

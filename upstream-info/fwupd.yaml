@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  fwupd/fwupd
+tag_prefix: ^v
+seperator: .

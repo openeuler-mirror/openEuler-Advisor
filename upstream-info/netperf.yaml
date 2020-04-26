@@ -1,0 +1,5 @@
+version_control: github
+src_repo: HewlettPackard/netperf
+tag_prefix: netperf-
+seperator: .
+download_url: http://prdownloads.sourceforge.net/amanda/amanda

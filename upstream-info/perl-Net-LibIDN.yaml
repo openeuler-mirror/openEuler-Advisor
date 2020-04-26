@@ -1,0 +1,85 @@
+---
+version_control: metacpan
+src_repo: Net-LibIDN
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:02.380913690 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 14262,
+          "mtime" : 1235652709
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TH/THOR/Net-LibIDN-0.12.tar.gz",
+       "author" : "THOR",
+       "resources" : {},
+       "archive" : "Net-LibIDN-0.12.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "checksum_md5" : "c3e4de2065009d67bcb1df0afb473e12",
+       "distribution" : "Net-LibIDN",
+       "id" : "hkBeN0bkPEZ4nQOzBRKLsQYQulM",
+       "version_numified" : 0.12,
+       "tests" : {
+          "na" : 20,
+          "fail" : 25,
+          "pass" : 2062,
+          "unknown" : 7
+       },
+       "main_module" : "Net::LibIDN",
+       "version" : "0.12",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Perl bindings for GNU Libidn",
+       "authorized" : true,
+       "checksum_sha256" : "2f8acc9442b3866ec7dc63cd449fc693ae3e930d5d3e5e9430fbb6f393bdbb17",
+       "name" : "Net-LibIDN-0.12",
+       "first" : false,
+       "provides" : [
+          "Net::LibIDN"
+       ],
+       "date" : "2009-02-26T12:51:49",
+       "dependency" : [],
+       "maturity" : "released",
+       "metadata" : {
+          "name" : "Net-LibIDN",
+          "license" : [
+             "unknown"
+          ],
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "x_installdirs" : "site",
+          "prereqs" : {},
+          "release_status" : "stable",
+          "x_version_from" : "LibIDN.pm",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.12",
+          "author" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 6.30_01, CPAN::Meta::Converter version 2.150005"
+       }
+    }

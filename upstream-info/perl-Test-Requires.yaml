@@ -1,0 +1,213 @@
+---
+version_control: metacpan
+src_repo: Test-Requires
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:14.701362680 +00:00
+  raw_data: |
+    {
+       "author" : "TOKUHIROM",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TOKUHIROM/Test-Requires-0.10.tar.gz",
+       "authorized" : true,
+       "abstract" : "Checks to see if the module can be loaded",
+       "checksum_md5" : "0d5da779609d0c8fa6f796b45ff8c6f3",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "provides" : [
+          "Test::Requires"
+       ],
+       "id" : "lOAMnFlLupUWzyA_9cYrSwV80_c",
+       "version_numified" : 0.1,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.64",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.59",
+             "phase" : "build"
+          },
+          {
+             "version" : "0.04",
+             "phase" : "develop",
+             "module" : "Test::PAUSE::Permissions",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.04",
+             "module" : "Test::MinimumVersion::Fast",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Test::CPAN::Meta",
+             "version" : "0",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.41",
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "v0.2.7",
+             "module" : "Test::Spellunker",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::Builder::Module",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0.47"
+          }
+       ],
+       "version" : "0.10",
+       "tests" : {
+          "unknown" : 10,
+          "fail" : 1,
+          "na" : 1,
+          "pass" : 24275
+       },
+       "name" : "Test-Requires-0.10",
+       "stat" : {
+          "size" : 10788,
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1437482244,
+          "gid" : 1009
+       },
+       "maturity" : "released",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/tokuhirom/Test-Requires/issues"
+          },
+          "homepage" : "https://github.com/tokuhirom/Test-Requires",
+          "repository" : {
+             "url" : "git://github.com/tokuhirom/Test-Requires.git",
+             "type" : "git",
+             "web" : "https://github.com/tokuhirom/Test-Requires"
+          }
+       },
+       "main_module" : "Test::Requires",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Test-Requires-0.10.tar.gz",
+       "distribution" : "Test-Requires",
+       "checksum_sha256" : "2768a391d50ab94b95cefe540b9232d7046c13ee86d01859e04c044903222eb5",
+       "date" : "2015-07-21T12:37:24",
+       "metadata" : {
+          "version" : "0.10",
+          "author" : [
+             "Tokuhiro Matsuno <tokuhirom @*(#RJKLFHFSDLJF gmail.com>"
+          ],
+          "name" : "Test-Requires",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "share",
+                "eg",
+                "examples",
+                "author",
+                "builder",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Checks to see if the module can be loaded",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Test::Builder::Module" : "0",
+                   "Test::More" : "0.47"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::MinimumVersion::Fast" : "0.04",
+                   "Test::CPAN::Meta" : "0",
+                   "Test::Pod" : "1.41",
+                   "Test::Spellunker" : "v0.2.7",
+                   "Test::PAUSE::Permissions" : "0.04"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.64"
+                }
+             }
+          },
+          "generated_by" : "Minilla/v2.4.2, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "dynamic_config" : 0,
+          "x_contributors" : [
+             "gfx <gfuji@cpan.org>",
+             "Toby Inkster <mail@tobyinkster.co.uk>",
+             "Neil Bowers <neil@bowers.com>",
+             "Tatsuhiko Miyagawa <miyagawa@bulknews.net>",
+             "Tokuhiro Matsuno <tokuhirom@gmail.com>"
+          ],
+          "provides" : {
+             "Test::Requires" : {
+                "file" : "lib/Test/Requires.pm",
+                "version" : "0.10"
+             }
+          },
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/tokuhirom/Test-Requires",
+                "type" : "git",
+                "url" : "git://github.com/tokuhirom/Test-Requires.git"
+             },
+             "homepage" : "https://github.com/tokuhirom/Test-Requires",
+             "bugtracker" : {
+                "web" : "https://github.com/tokuhirom/Test-Requires/issues"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable"
+       }
+    }

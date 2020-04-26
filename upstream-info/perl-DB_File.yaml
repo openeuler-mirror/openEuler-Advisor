@@ -1,0 +1,132 @@
+---
+version_control: metacpan
+src_repo: DB_File
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:28.152159990 +00:00
+  raw_data: |
+    {
+       "deprecated" : false,
+       "metadata" : {
+          "abstract" : "Perl5 access to Berkeley DB version 1.x",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150005, CPAN::Meta::Converter version 2.150010",
+          "version" : "1.853",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/pmqs/DB_File.git",
+                "web" : "https://github.com/pmqs/DB_File",
+                "type" : "git"
+             },
+             "homepage" : "https://github.com/pmqs/DB_File",
+             "bugtracker" : {
+                "web" : "https://github.com/pmqs/DB_File/issues"
+             }
+          },
+          "name" : "DB_File",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Paul Marquess <pmqs@cpan.org>"
+          ]
+       },
+       "tests" : {
+          "fail" : 28,
+          "na" : 0,
+          "unknown" : 116,
+          "pass" : 464
+       },
+       "id" : "wMv9A3ww0PWnPSb7MUn4jhrUG24",
+       "authorized" : true,
+       "provides" : [
+          "DB_File",
+          "DB_File::BTREEINFO",
+          "DB_File::HASHINFO",
+          "DB_File::RECNOINFO"
+       ],
+       "version" : "1.853",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 146345,
+          "mtime" : 1578258300
+       },
+       "main_module" : "DB_File::HASHINFO",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/pmqs/DB_File",
+             "type" : "git",
+             "url" : "git://github.com/pmqs/DB_File.git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/pmqs/DB_File/issues"
+          },
+          "homepage" : "https://github.com/pmqs/DB_File"
+       },
+       "checksum_md5" : "6a659b3a34f7dabbfa4a6068a990f3e1",
+       "version_numified" : 1.853,
+       "author" : "PMQS",
+       "archive" : "DB_File-1.853.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "changes_file" : "Changes",
+       "checksum_sha256" : "d0c859cdb006c86d97b6dc316cb64b42b5b4178bd0c270e3d440ee42a23e26f9",
+       "status" : "latest",
+       "distribution" : "DB_File",
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "Perl5 access to Berkeley DB version 1.x",
+       "first" : false,
+       "maturity" : "released",
+       "date" : "2020-01-05T21:05:00",
+       "name" : "DB_File-1.853",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PM/PMQS/DB_File-1.853.tar.gz"
+    }

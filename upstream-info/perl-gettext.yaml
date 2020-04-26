@@ -1,0 +1,127 @@
+---
+version_control: metacpan
+src_repo: gettext
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:24.213836470 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/vandry/Perl-Locale-gettext"
+             }
+          },
+          "name" : "Locale-gettext",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "1.07",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Kim Vandry <vandry.ORG>"
+          ],
+          "dynamic_config" : 1,
+          "abstract" : "Perl bindings for POSIX i18n gettext functions",
+          "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921, CPAN::Meta::Converter version 2.150005"
+       },
+       "maturity" : "released",
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2015-09-28T16:50:52",
+       "provides" : [
+          "Locale::gettext"
+       ],
+       "first" : false,
+       "name" : "gettext-1.07",
+       "authorized" : true,
+       "checksum_sha256" : "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15",
+       "abstract" : "Perl bindings for POSIX i18n gettext functions",
+       "changes_file" : "",
+       "version" : "1.07",
+       "status" : "latest",
+       "main_module" : "Locale::gettext",
+       "tests" : {
+          "na" : 0,
+          "fail" : 27,
+          "unknown" : 362,
+          "pass" : 2437
+       },
+       "version_numified" : 1.07,
+       "id" : "bXHzI3K6cpE1egt4Wd3YH6hctEc",
+       "distribution" : "gettext",
+       "checksum_md5" : "bc652758af65c24500f1d06a77415019",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "gettext-1.07.tar.gz",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/vandry/Perl-Locale-gettext"
+          }
+       },
+       "author" : "PVANDRY",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1443459052,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 8651,
+          "gid" : 1009
+       }
+    }

@@ -1,0 +1,170 @@
+---
+version_control: metacpan
+src_repo: IPC-Cmd
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:42.211218950 +00:00
+  raw_data: |
+    {
+       "changes_file" : "CHANGES",
+       "abstract" : "A cross platform way of running (interactive) commandline programs.",
+       "version" : "1.04",
+       "status" : "latest",
+       "main_module" : "IPC::Cmd",
+       "maturity" : "released",
+       "metadata" : {
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Locale::Maketext::Simple" : "0",
+                   "Test::More" : "0",
+                   "File::Temp" : "0",
+                   "File::Spec" : "0",
+                   "Module::Load::Conditional" : "0.66",
+                   "ExtUtils::MakeMaker" : "0",
+                   "Params::Check" : "0.20"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.04",
+          "dynamic_config" : 1,
+          "author" : [
+             "Jos Boumans <kane[at]cpan.org>"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.36, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "A cross platform way of running (interactive) commandline programs.",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/jib/ipc-cmd"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "IPC-Cmd",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "checksum_sha256" : "d110a0f60e35c65721454200f0d2f0f8965529a2add9649d1fa6f4f9eccb6430",
+       "authorized" : true,
+       "provides" : [
+          "IPC::Cmd"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "module" : "Module::Load::Conditional",
+             "phase" : "runtime",
+             "version" : "0.66",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Locale::Maketext::Simple"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.20",
+             "module" : "Params::Check",
+             "phase" : "runtime"
+          }
+       ],
+       "first" : false,
+       "date" : "2019-07-13T09:17:39",
+       "name" : "IPC-Cmd-1.04",
+       "author" : "BINGOS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/IPC-Cmd-1.04.tar.gz",
+       "stat" : {
+          "size" : 31419,
+          "mode" : 33188,
+          "mtime" : 1563009459
+       },
+       "deprecated" : false,
+       "id" : "cdnjrkC2k5zsr5uIJL307L8BtcE",
+       "distribution" : "IPC-Cmd",
+       "tests" : {
+          "pass" : 779,
+          "unknown" : 0,
+          "na" : 0,
+          "fail" : 3
+       },
+       "version_numified" : 1.04,
+       "archive" : "IPC-Cmd-1.04.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/jib/ipc-cmd"
+          }
+       },
+       "checksum_md5" : "7c5cbfd3dd7b6c224e9cde677f96f78a",
+       "license" : [
+          "perl_5"
+       ]
+    }

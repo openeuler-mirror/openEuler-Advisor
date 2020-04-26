@@ -1,0 +1,195 @@
+---
+version_control: metacpan
+src_repo: Unicode-Normalize
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:43.275716940 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KH/KHW/Unicode-Normalize-1.26.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "author" : "KHW",
+       "status" : "latest",
+       "abstract" : "Unicode Normalization Forms",
+       "checksum_md5" : "fbcdca77136a083370cfb0d57d1bad60",
+       "authorized" : true,
+       "changes_file" : "Changes",
+       "version_numified" : 1.26,
+       "id" : "R4jVtdDKCHF0ZrhuyMo2nQ_Y4cE",
+       "provides" : [
+          "Unicode::Normalize"
+       ],
+       "version" : "1.26",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "DynaLoader",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "SelectSaver",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Exporter"
+          },
+          {
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "constant",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006000"
+          }
+       ],
+       "name" : "Unicode-Normalize-1.26",
+       "tests" : {
+          "unknown" : 4,
+          "pass" : 802,
+          "na" : 0,
+          "fail" : 1
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 35586,
+          "mode" : 33188,
+          "mtime" : 1545110733
+       },
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "SelectSaver" : "0",
+                   "constant" : "0",
+                   "strict" : "0",
+                   "Exporter" : "0",
+                   "perl" : "5.006000",
+                   "warnings" : "0",
+                   "DynaLoader" : "0",
+                   "File::Spec" : "0",
+                   "Carp" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Unicode-Normalize"
+             },
+             "repository" : {
+                "web" : "https://github.com/khwilliamson/Unicode-Normalize",
+                "url" : "https://github.com/khwilliamson/Unicode-Normalize.git",
+                "type" : "git"
+             }
+          },
+          "version" : "1.26",
+          "author" : [
+             "SADAHIRO Tomoyuki <SADAHIRO@cpan.org>",
+             "Karl Williamson <khw@cpan.org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Unicode-Normalize",
+          "abstract" : "Unicode Normalization Forms"
+       },
+       "date" : "2018-12-18T05:25:33",
+       "checksum_sha256" : "bade6f74e89b95a4b2226a0965ac1218e0e4eeaa0edb4b30ee7aac9d5dae773f",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Unicode-Normalize-1.26.tar.gz",
+       "distribution" : "Unicode-Normalize",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Unicode-Normalize"
+          },
+          "repository" : {
+             "web" : "https://github.com/khwilliamson/Unicode-Normalize",
+             "url" : "https://github.com/khwilliamson/Unicode-Normalize.git",
+             "type" : "git"
+          }
+       },
+       "main_module" : "Unicode::Normalize"
+    }

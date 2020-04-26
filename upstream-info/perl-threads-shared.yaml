@@ -1,0 +1,175 @@
+---
+version_control: metacpan
+src_repo: threads-shared
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:52.251085660 +00:00
+  raw_data: |
+    {
+       "name" : "threads-shared-1.59",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/threads-shared-1.59.tar.gz",
+       "maturity" : "released",
+       "date" : "2018-11-30T02:44:44",
+       "status" : "latest",
+       "distribution" : "threads-shared",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings"
+          },
+          {
+             "module" : "ExtUtils::testlib",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "strict"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.73",
+             "module" : "threads"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Config"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "XSLoader"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Scalar::Util"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "abstract" : "Perl extension for sharing data structures between threads",
+       "archive" : "threads-shared-1.59.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "JDHEDDEN",
+       "version_numified" : 1.59,
+       "checksum_sha256" : "d1fc985e70e1e1dd53c2b9b07cf0d3bd526b4f404ef1c4a0033feaa167323fcf",
+       "changes_file" : "Changes",
+       "checksum_md5" : "a260d7a2d123ec002d68cd1c55f8b5dc",
+       "main_module" : "threads::shared",
+       "resources" : {},
+       "id" : "QBJjMy3wcVDKCxEzTijE0zmpuIs",
+       "version" : "1.59",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 102322,
+          "mtime" : 1543545884
+       },
+       "authorized" : true,
+       "provides" : [
+          "threads::shared"
+       ],
+       "tests" : {
+          "fail" : 6,
+          "unknown" : 3,
+          "na" : 1,
+          "pass" : 959
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Artur Bergman, Jerry D. Hedden <jdhedden AT cpan DOT org>"
+          ],
+          "name" : "threads-shared",
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "version" : "1.59",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "abstract" : "Perl extension for sharing data structures between threads",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "XSLoader" : "0",
+                   "threads" : "1.73",
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "Test::More" : "0",
+                   "Config" : "0",
+                   "Scalar::Util" : "0",
+                   "Carp" : "0",
+                   "ExtUtils::testlib" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010"
+       }
+    }

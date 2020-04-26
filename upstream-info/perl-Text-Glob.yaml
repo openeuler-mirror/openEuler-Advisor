@@ -1,0 +1,152 @@
+---
+version_control: metacpan
+src_repo: Text-Glob
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:43.837310960 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "provides" : [
+          "Text::Glob"
+       ],
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1488992237,
+          "size" : 4862
+       },
+       "version" : "0.11",
+       "id" : "WMZPYwkcDfid4Ev_MSYr0f4QuUE",
+       "metadata" : {
+          "name" : "Text-Glob",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Richard Clamp <richardc@unixbeard.net>"
+          ],
+          "resources" : {
+             "bugtracker" : {
+                "mailto" : "richardc@unixbeard.net"
+             }
+          },
+          "dynamic_config" : 0,
+          "release_status" : "stable",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "0.11",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.143240, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "constant" : "0",
+                   "Exporter" : "0",
+                   "perl" : "5.00503"
+                }
+             }
+          },
+          "abstract" : "match globbing patterns against text"
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "pass" : 6671,
+          "na" : 1,
+          "unknown" : 37,
+          "fail" : 2
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "069ccd49d3f0a2dedb115f4bdc9fbac07a83592840953d1fcdfc39eb9d305287",
+       "version_numified" : 0.11,
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "RCLAMP",
+       "archive" : "Text-Glob-0.11.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "mailto" : "richardc@unixbeard.net"
+          }
+       },
+       "main_module" : "Text::Glob",
+       "checksum_md5" : "d001559c504a2625dd117bd1558f07f7",
+       "abstract" : "match globbing patterns against text",
+       "dependency" : [
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "constant"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.00503",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "Text-Glob",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Text-Glob-0.11.tar.gz",
+       "name" : "Text-Glob-0.11",
+       "date" : "2017-03-08T16:57:17",
+       "maturity" : "released"
+    }

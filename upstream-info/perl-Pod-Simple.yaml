@@ -1,0 +1,284 @@
+---
+version_control: metacpan
+src_repo: Pod-Simple
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:13.594620870 +00:00
+  raw_data: |
+    {
+       "version" : "3.40",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "1.25",
+             "module" : "Test",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Basename",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "module" : "if",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "strict",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "overload",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Find",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Config",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "98.112902",
+             "module" : "Text::Wrap",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "integer",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Cwd",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.04",
+             "phase" : "runtime",
+             "module" : "Pod::Escapes",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Symbol",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "Encode",
+             "phase" : "runtime",
+             "version" : "2.78"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          }
+       ],
+       "name" : "Pod-Simple-3.40",
+       "tests" : {
+          "fail" : 2,
+          "na" : 0,
+          "pass" : 1261,
+          "unknown" : 2
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1572112078,
+          "mode" : 33188,
+          "size" : 304730
+       },
+       "checksum_sha256" : "063a8cb9d8abd84fd64c3e9581addf96a6b0f77a2048a1846c3a6b14269a040d",
+       "date" : "2019-10-26T17:47:58",
+       "metadata" : {
+          "abstract" : "framework for parsing Pod",
+          "name" : "Pod-Simple",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Allison Randal <allison@perl.org>"
+          ],
+          "version" : "3.40",
+          "resources" : {
+             "homepage" : "http://search.cpan.org/dist/Pod-Simple/",
+             "bugtracker" : {
+                "mailto" : "bug-pod-simple@rt.cpan.org",
+                "web" : "https://github.com/perl-pod/pod-simple/issues"
+             },
+             "x_MailingList" : "https://lists.perl.org/list/pod-people.html",
+             "repository" : {
+                "web" : "https://github.com/perl-pod/pod-simple",
+                "type" : "git",
+                "url" : "git://github.com/perl-pod/pod-simple.git"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "Encode" : "2.78"
+                },
+                "requires" : {
+                   "if" : "0",
+                   "strict" : "0",
+                   "Config" : "0",
+                   "Test::More" : "0",
+                   "Symbol" : "0",
+                   "Pod::Escapes" : "1.04",
+                   "Cwd" : "0",
+                   "Text::Wrap" : "98.112902",
+                   "File::Basename" : "0",
+                   "Carp" : "0",
+                   "File::Spec" : "0",
+                   "integer" : "0",
+                   "File::Find" : "0",
+                   "overload" : "0",
+                   "Test" : "1.25"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04"
+       },
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/perl-pod/pod-simple/issues",
+             "mailto" : "bug-pod-simple@rt.cpan.org"
+          },
+          "homepage" : "http://search.cpan.org/dist/Pod-Simple/",
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "web" : "https://github.com/perl-pod/pod-simple",
+             "url" : "git://github.com/perl-pod/pod-simple.git",
+             "type" : "git"
+          }
+       },
+       "main_module" : "Pod::Simple",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Pod-Simple-3.40.tar.gz",
+       "distribution" : "Pod-Simple",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KH/KHW/Pod-Simple-3.40.tar.gz",
+       "author" : "KHW",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "framework for parsing Pod",
+       "checksum_md5" : "c57ca93d9d36c6370336c9620eefa114",
+       "changes_file" : "ChangeLog",
+       "version_numified" : 3.4,
+       "provides" : [
+          "Pod::Simple",
+          "Pod::Simple::BlackBox",
+          "Pod::Simple::Checker",
+          "Pod::Simple::Debug",
+          "Pod::Simple::DumpAsText",
+          "Pod::Simple::DumpAsXML",
+          "Pod::Simple::HTML",
+          "Pod::Simple::HTMLBatch",
+          "Pod::Simple::HTMLLegacy",
+          "Pod::Simple::JustPod",
+          "Pod::Simple::LinkSection",
+          "Pod::Simple::Methody",
+          "Pod::Simple::Progress",
+          "Pod::Simple::PullParser",
+          "Pod::Simple::PullParserEndToken",
+          "Pod::Simple::PullParserStartToken",
+          "Pod::Simple::PullParserTextToken",
+          "Pod::Simple::PullParserToken",
+          "Pod::Simple::RTF",
+          "Pod::Simple::Search",
+          "Pod::Simple::SimpleTree",
+          "Pod::Simple::Text",
+          "Pod::Simple::TextContent",
+          "Pod::Simple::TiedOutFH",
+          "Pod::Simple::Transcode",
+          "Pod::Simple::TranscodeDumb",
+          "Pod::Simple::TranscodeSmart",
+          "Pod::Simple::XHTML",
+          "Pod::Simple::XMLOutStream"
+       ],
+       "id" : "qQ2DsNduX0o9QzTESV9Xzvz4ye4"
+    }

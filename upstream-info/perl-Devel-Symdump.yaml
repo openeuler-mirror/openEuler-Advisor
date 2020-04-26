@@ -1,0 +1,148 @@
+---
+version_control: metacpan
+src_repo: Devel-Symdump
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:08.009136380 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "author" : [
+             "Andreas Koenig <andreas.koenig.gmwojprw@franz.ak.mind.de>"
+          ],
+          "dynamic_config" : 1,
+          "keywords" : [
+             "symbol table inspection"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "dump symbol names or the symbol table",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "perl" : "5.004",
+                   "Compress::Zlib" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.18",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/andk/devel-symdump.git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Devel-Symdump"
+       },
+       "maturity" : "released",
+       "name" : "Devel-Symdump-2.18",
+       "provides" : [
+          "Devel::Symdump",
+          "Devel::Symdump::Export"
+       ],
+       "date" : "2017-02-06T23:22:01",
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Compress::Zlib",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "5.004",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "checksum_sha256" : "826f81a107f5592a2516766ed43beb47e10cc83edc9ea48090b02a36040776c0",
+       "authorized" : true,
+       "abstract" : "dump symbol names or the symbol table",
+       "changes_file" : "Changes",
+       "main_module" : "Devel::Symdump",
+       "status" : "latest",
+       "version" : "2.18",
+       "version_numified" : 2.18,
+       "tests" : {
+          "na" : 0,
+          "fail" : 4,
+          "unknown" : 40,
+          "pass" : 7597
+       },
+       "distribution" : "Devel-Symdump",
+       "id" : "kJWOw_CorDdYK_2h6LIyfTYVJPw",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "3dd7e1c7779a37c31a3eb60c0a97ea9f",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/andk/devel-symdump.git",
+             "type" : "git"
+          }
+       },
+       "archive" : "Devel-Symdump-2.18.tar.gz",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz",
+       "author" : "ANDK",
+       "deprecated" : "false",
+       "stat" : {
+          "size" : 18439,
+          "mode" : 33188,
+          "mtime" : 1486423321
+       }
+    }

@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  tpm2-software/tpm2-tools
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,153 @@
+---
+version_control: metacpan
+src_repo: WWW-RobotRules
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:25.928440960 +00:00
+  raw_data: |
+    {
+       "version" : "6.02",
+       "status" : "latest",
+       "main_module" : "WWW::RobotRules",
+       "abstract" : "database of robots.txt-derived permissions",
+       "changes_file" : "Changes",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "5.008001",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.10",
+             "module" : "URI",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Fcntl",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "AnyDBM_File"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2012-02-18T13:09:13",
+       "first" : false,
+       "provides" : [
+          "WWW::RobotRules",
+          "WWW::RobotRules::AnyDBM_File",
+          "WWW::RobotRules::InCore"
+       ],
+       "name" : "WWW-RobotRules-6.02",
+       "checksum_sha256" : "46b502e7a288d559429891eeb5d979461dd3ecc6a5c491ead85d165b6e03a51e",
+       "authorized" : true,
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 6.57_05, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "database of robots.txt-derived permissions",
+          "dynamic_config" : 1,
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "6.02",
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Fcntl" : "0",
+                   "AnyDBM_File" : "0",
+                   "perl" : "5.008001",
+                   "URI" : "1.10"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "WWW-RobotRules",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/gisle/www-robotrules"
+             },
+             "x_MailingList" : "mailto:libwww@perl.org"
+          }
+       },
+       "maturity" : "released",
+       "deprecated" : "false",
+       "stat" : {
+          "mode" : 33188,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 9059,
+          "mtime" : 1329570553
+       },
+       "author" : "GAAS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/WWW-RobotRules-6.02.tar.gz",
+       "checksum_md5" : "b7186e8b8b3701e70c22abf430742403",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "WWW-RobotRules-6.02.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/www-robotrules"
+          }
+       },
+       "tests" : {
+          "unknown" : 17,
+          "pass" : 14434,
+          "na" : 9,
+          "fail" : 6
+       },
+       "version_numified" : 6.02,
+       "id" : "vlb7tISH__qFMKzbBujtyMK4VEw",
+       "distribution" : "WWW-RobotRules"
+    }

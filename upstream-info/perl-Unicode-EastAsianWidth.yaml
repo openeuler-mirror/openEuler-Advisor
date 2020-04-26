@@ -1,0 +1,131 @@
+---
+version_control: metacpan
+src_repo: Unicode-EastAsianWidth
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:40.533211520 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1567409324,
+          "size" : 52302,
+          "mode" : 33188
+       },
+       "deprecated" : false,
+       "author" : "AUDREYT",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AU/AUDREYT/Unicode-EastAsianWidth-12.0.tar.gz",
+       "archive" : "Unicode-EastAsianWidth-12.0.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/audreyt/Unicode-EastAsianWidth.git"
+          },
+          "homepage" : "https://github.com/audreyt/Unicode-EastAsianWidth/"
+       },
+       "checksum_md5" : "545507653ce0dfa34055e2628455abcc",
+       "license" : [
+          "unknown"
+       ],
+       "id" : "oHFbuRSeOi4GchP3DNzg6lUqHDI",
+       "distribution" : "Unicode-EastAsianWidth",
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "unknown" : 0,
+          "pass" : 1814
+       },
+       "version_numified" : 12,
+       "version" : "12.0",
+       "status" : "latest",
+       "main_module" : "Unicode::EastAsianWidth",
+       "changes_file" : "Changes",
+       "abstract" : "East Asian Width properties",
+       "checksum_sha256" : "2a5bfd926c4fe5f77e6137da2c31ac2545282ae5fec6e9af0fdd403555a90ff4",
+       "authorized" : true,
+       "first" : false,
+       "provides" : [
+          "Unicode::EastAsianWidth"
+       ],
+       "date" : "2019-09-02T07:28:44",
+       "dependency" : [
+          {
+             "version" : "6.59",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "v5.6.0",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.59",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Unicode-EastAsianWidth-12.0",
+       "maturity" : "released",
+       "metadata" : {
+          "dynamic_config" : "1",
+          "author" : [
+             "Audrey Tang <cpan@audreyt.org>"
+          ],
+          "generated_by" : "Module::Install version 1.19, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "East Asian Width properties",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "v5.6.0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "12.0",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_module_name" : "Unicode::EastAsianWidth",
+          "resources" : {
+             "homepage" : "https://github.com/audreyt/Unicode-EastAsianWidth/",
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/audreyt/Unicode-EastAsianWidth.git"
+             }
+          },
+          "name" : "Unicode-EastAsianWidth",
+          "license" : [
+             "unknown"
+          ]
+       }
+    }

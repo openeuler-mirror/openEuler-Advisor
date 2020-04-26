@@ -1,0 +1,122 @@
+---
+version_control: metacpan
+src_repo: XML-Writer
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:28.147962840 +00:00
+  raw_data: |
+    {
+       "provides" : [
+          "XML::Writer",
+          "XML::Writer::_PrintChecker",
+          "XML::Writer::_String"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1401978246,
+          "gid" : 1009,
+          "size" : 28930
+       },
+       "version" : "0.625",
+       "id" : "gSce5W_y50uKRBsdw0NqY_v4J9s",
+       "deprecated" : "false",
+       "metadata" : {
+          "abstract" : "Easily generate well-formed, namespace-aware XML.",
+          "generated_by" : "Hand, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "perl" : "5.008_001"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.047",
+                   "perl" : "5.006_000"
+                }
+             }
+          },
+          "no_index" : {
+             "package" : [
+                "XML::Writer::Namespaces"
+             ],
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.625",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "release_status" : "stable",
+          "dynamic_config" : "0",
+          "x_installdirs" : "site",
+          "name" : "XML-Writer",
+          "license" : [
+             "unrestricted"
+          ],
+          "author" : [
+             "David Megginson <david@megginson.com>",
+             "Ed Avis <ed@membled.com>",
+             "Joseph Walton <joe@kafsemo.org>"
+          ]
+       },
+       "tests" : {
+          "pass" : 14369,
+          "unknown" : 1,
+          "na" : 0,
+          "fail" : 42
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "e080522c6ce050397af482665f3965a93c5d16f5e81d93f6e2fe98084ed15fbe",
+       "version_numified" : 0.625,
+       "archive" : "XML-Writer-0.625.tar.gz",
+       "author" : "JOSEPHW",
+       "license" : [
+          "unrestricted"
+       ],
+       "resources" : {},
+       "main_module" : "XML::Writer",
+       "checksum_md5" : "b9c2420c243c6a36ce45a008740fcede",
+       "dependency" : [
+          {
+             "relationship" : "recommends",
+             "version" : "5.008_001",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.047",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006_000",
+             "relationship" : "requires",
+             "phase" : "build"
+          }
+       ],
+       "abstract" : "Easily generate well-formed, namespace-aware XML.",
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "XML-Writer",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz",
+       "name" : "XML-Writer-0.625",
+       "date" : "2014-06-05T14:24:06",
+       "maturity" : "released"
+    }

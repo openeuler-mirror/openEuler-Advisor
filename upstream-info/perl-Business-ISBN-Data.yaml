@@ -1,0 +1,171 @@
+---
+version_control: metacpan
+src_repo: Business-ISBN-Data
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:52.820699220 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20191107.tar.gz",
+       "name" : "Business-ISBN-Data-20191107",
+       "date" : "2019-12-11T20:05:48",
+       "maturity" : "released",
+       "first" : false,
+       "abstract" : "data pack for Business::ISBN",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "6.64",
+             "phase" : "configure"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "File::Spec::Functions"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Carp"
+          },
+          {
+             "module" : "File::Spec::Functions",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.008",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Basename",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.95",
+             "relationship" : "requires",
+             "phase" : "test"
+          }
+       ],
+       "distribution" : "Business-ISBN-Data",
+       "status" : "latest",
+       "checksum_sha256" : "844c4f64f193d389340b4465a1d5bc34c60f0c8e42e5c69ac8afe3d3bbc5ca0d",
+       "changes_file" : "Changes",
+       "archive" : "Business-ISBN-Data-20191107.tar.gz",
+       "license" : [
+          "artistic_2"
+       ],
+       "author" : "BDFOY",
+       "version_numified" : 20191107,
+       "checksum_md5" : "393d2c45792854ad43eeaf172cb3dbb6",
+       "main_module" : "Business::ISBN::Data",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/briandfoy/business-isbn-data",
+             "type" : "git",
+             "url" : "https://github.com/briandfoy/business-isbn-data.git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/briandfoy/business-isbn-data/issues"
+          },
+          "homepage" : "https://github.com/briandfoy/business-isbn-data"
+       },
+       "version" : "20191107",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 24838,
+          "mtime" : 1576094748
+       },
+       "authorized" : true,
+       "provides" : [
+          "Business::ISBN::Data"
+       ],
+       "id" : "1TCAvSrh9_EBWLX1TDxPHTOo6d8",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 755
+       },
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.95"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.64",
+                   "File::Spec::Functions" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008",
+                   "File::Spec::Functions" : "0",
+                   "Carp" : "0",
+                   "File::Basename" : "0"
+                }
+             }
+          },
+          "abstract" : "data pack for Business::ISBN",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "20191107",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "resources" : {
+             "homepage" : "https://github.com/briandfoy/business-isbn-data",
+             "bugtracker" : {
+                "web" : "https://github.com/briandfoy/business-isbn-data/issues"
+             },
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/briandfoy/business-isbn-data",
+                "url" : "https://github.com/briandfoy/business-isbn-data.git"
+             }
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "release_status" : "stable",
+          "license" : [
+             "artistic_2"
+          ],
+          "name" : "Business-ISBN-Data",
+          "author" : [
+             "brian d foy <bdfoy@cpan.org>"
+          ]
+       },
+       "deprecated" : false
+    }

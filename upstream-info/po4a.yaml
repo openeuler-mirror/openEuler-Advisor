@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  mquinson/po4a
+tag_prefix: ^v
+seperator: .

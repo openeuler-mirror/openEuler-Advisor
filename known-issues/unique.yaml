@@ -1,0 +1,8 @@
+---
+version_control: gitlab.gnome
+src_repo: unique
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:52:20.586043990 +00:00
+  raw_data: ''

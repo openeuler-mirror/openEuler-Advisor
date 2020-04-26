@@ -1,0 +1,8 @@
+---
+version_control: gitlab.gnome
+src_repo: glib2
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 14:00:24.699598450 +00:00
+  raw_data: ''

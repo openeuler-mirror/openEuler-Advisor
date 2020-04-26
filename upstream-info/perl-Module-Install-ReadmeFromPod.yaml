@@ -1,0 +1,215 @@
+---
+version_control: metacpan
+src_repo: Module-Install-ReadmeFromPod
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:57.897104980 +00:00
+  raw_data: |
+    {
+       "distribution" : "Module-Install-ReadmeFromPod",
+       "id" : "T_TmEuZMXVrFVaZDXyk_B9LZQHg",
+       "version_numified" : 0.3,
+       "tests" : {
+          "na" : 0,
+          "fail" : 16,
+          "pass" : 1656,
+          "unknown" : 2
+       },
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/bingos/module-install-readmefrompod.git"
+          },
+          "homepage" : "https://github.com/bingos/module-install-readmefrompod/",
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "Module-Install-ReadmeFromPod-0.30.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "b954ca448698a671a176245e60da74df",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-Install-ReadmeFromPod-0.30.tar.gz",
+       "author" : "BINGOS",
+       "stat" : {
+          "size" : 36611,
+          "mode" : 33204,
+          "mtime" : 1487366536
+       },
+       "deprecated" : "false",
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "homepage" : "https://github.com/bingos/module-install-readmefrompod/",
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/bingos/module-install-readmefrompod.git"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Module-Install-ReadmeFromPod",
+          "author" : [
+             "Chris Williams <chris@bingosnet.co.uk>"
+          ],
+          "dynamic_config" : "1",
+          "abstract" : "A Module::Install extension to automatically convert POD to a README",
+          "generated_by" : "Module::Install version 1.17, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "recommends" : {
+                   "App::pod2pdf" : "0"
+                },
+                "requires" : {
+                   "Pod::Markdown" : "2",
+                   "IO::All" : "0",
+                   "perl" : "v5.6.0",
+                   "Pod::Html" : "0",
+                   "Pod::Man" : "0",
+                   "Pod::Text" : "3.13",
+                   "Module::Install" : "1"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::InDistDir" : "0",
+                   "File::Temp" : "0",
+                   "Test::More" : "0.47",
+                   "ExtUtils::MakeMaker" : "6.59",
+                   "Capture::Tiny" : "0.05"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "0.30",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "authorized" : true,
+       "checksum_sha256" : "79f6df5536619faffbda696bdd25ccad17c469bf32e51cd3e613366d49400169",
+       "name" : "Module-Install-ReadmeFromPod-0.30",
+       "first" : false,
+       "date" : "2017-02-17T21:22:16",
+       "provides" : [
+          "Module::Install::ReadmeFromPod"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.59"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.05",
+             "module" : "Capture::Tiny",
+             "phase" : "build"
+          },
+          {
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0.47",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "Test::InDistDir"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Install",
+             "phase" : "runtime",
+             "version" : "1"
+          },
+          {
+             "version" : "3.13",
+             "phase" : "runtime",
+             "module" : "Pod::Text",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::All",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Pod::Html",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Pod::Markdown",
+             "phase" : "runtime",
+             "version" : "2",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Pod::Man"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "v5.6.0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "App::pod2pdf",
+             "relationship" : "recommends"
+          },
+          {
+             "version" : "6.59",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "changes_file" : "Changes",
+       "abstract" : "A Module::Install extension to automatically convert POD to a README",
+       "main_module" : "Module::Install::ReadmeFromPod",
+       "status" : "latest",
+       "version" : "0.30"
+    }

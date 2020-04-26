@@ -1,0 +1,133 @@
+---
+version_control: metacpan
+src_repo: JSON-XS
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:57.896423230 +00:00
+  raw_data: |
+    {
+       "date" : "2019-03-06T07:32:09",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/JSON-XS-4.02.tar.gz",
+       "name" : "JSON-XS-4.02",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "6.52",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Canary::Stability",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build"
+          },
+          {
+             "module" : "common::sense",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Types::Serialiser",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          }
+       ],
+       "abstract" : "JSON serialising/deserialising, done correctly and fast",
+       "status" : "latest",
+       "distribution" : "JSON-XS",
+       "checksum_md5" : "1a9868d08ca395366cf1d1ea99753e6c",
+       "resources" : {},
+       "main_module" : "JSON::XS",
+       "checksum_sha256" : "a5ad172138071a14729da8a01921ca233da4fe2bed290ffdfb8e560dd8adcf16",
+       "changes_file" : "Changes",
+       "archive" : "JSON-XS-4.02.tar.gz",
+       "author" : "MLEHMANN",
+       "license" : [
+          "unknown"
+       ],
+       "version_numified" : 4.02,
+       "tests" : {
+          "na" : 10,
+          "unknown" : 12,
+          "pass" : 3647,
+          "fail" : 50
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "license" : [
+             "unknown"
+          ],
+          "name" : "JSON-XS",
+          "author" : [
+             "unknown"
+          ],
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Types::Serialiser" : "0",
+                   "common::sense" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.52",
+                   "Canary::Stability" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "unknown",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "version" : "4.02",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "stat" : {
+          "mtime" : 1551857529,
+          "size" : 85904,
+          "mode" : 33188
+       },
+       "version" : "4.02",
+       "provides" : [
+          "JSON::XS"
+       ],
+       "authorized" : true,
+       "id" : "vLgq54jpaxgndIlHUcbY80bZNKA"
+    }

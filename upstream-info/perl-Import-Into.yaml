@@ -1,0 +1,177 @@
+---
+version_control: metacpan
+src_repo: Import-Into
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:05.203316430 +00:00
+  raw_data: |
+    {
+       "id" : "28i2bsktmKj7diYQCFIEymPPu1E",
+       "distribution" : "Import-Into",
+       "tests" : {
+          "pass" : 12088,
+          "unknown" : 1,
+          "na" : 0,
+          "fail" : 0
+       },
+       "version_numified" : 1.002005,
+       "archive" : "Import-Into-1.002005.tar.gz",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Import-Into",
+             "mailto" : "bug-Import-Into@rt.cpan.org"
+          },
+          "repository" : {
+             "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Import-Into.git",
+             "type" : "git",
+             "url" : "git://git.shadowcat.co.uk/p5sagit/Import-Into.git"
+          }
+       },
+       "checksum_md5" : "48bdc7988f5a7d4d06039ccc5c2459e9",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "HAARG",
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Import-Into-1.002005.tar.gz",
+       "stat" : {
+          "mtime" : 1440721822,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 7748,
+          "gid" : 1009
+       },
+       "deprecated" : "false",
+       "maturity" : "released",
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=p5sagit/Import-Into.git",
+                "url" : "git://git.shadowcat.co.uk/p5sagit/Import-Into.git",
+                "type" : "git"
+             },
+             "bugtracker" : {
+                "mailto" : "bug-Import-Into@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Import-Into"
+             }
+          },
+          "name" : "Import-Into",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "Module::Runtime" : "0",
+                   "perl" : "5.006",
+                   "warnings" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Exporter" : "0",
+                   "base" : "0"
+                }
+             },
+             "build" : {}
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.002005",
+          "author" : [
+             "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+          ],
+          "dynamic_config" : 0,
+          "abstract" : "Import packages into other packages",
+          "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005"
+       },
+       "authorized" : true,
+       "checksum_sha256" : "bd9e77a3fb662b40b43b18d3280cd352edf9fad8d94283e518181cc1ce9f0567",
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006"
+          },
+          {
+             "version" : "0",
+             "module" : "strict",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Runtime",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "base",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "test",
+             "relationship" : "requires"
+          }
+       ],
+       "provides" : [
+          "Import::Into"
+       ],
+       "date" : "2015-08-28T00:30:22",
+       "first" : false,
+       "name" : "Import-Into-1.002005",
+       "changes_file" : "Changes",
+       "abstract" : "Import packages into other packages",
+       "version" : "1.002005",
+       "status" : "latest",
+       "main_module" : "Import::Into"
+    }

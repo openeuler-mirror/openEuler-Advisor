@@ -1,0 +1,128 @@
+---
+version_control: metacpan
+src_repo: Digest-SHA1
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:36.536633510 +00:00
+  raw_data: |
+    {
+       "deprecated" : "false",
+       "stat" : {
+          "gid" : 1009,
+          "size" : 39078,
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1278163547
+       },
+       "author" : "GAAS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-SHA1-2.13.tar.gz",
+       "checksum_md5" : "bd22388f268434f2b24f64e28bf1aa35",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Digest-SHA1-2.13.tar.gz",
+       "resources" : {},
+       "tests" : {
+          "na" : 2,
+          "fail" : 27,
+          "pass" : 19747,
+          "unknown" : 49
+       },
+       "version_numified" : 2.13,
+       "id" : "mqqIze9jlp7RhQPz6nUVTEJzP9A",
+       "distribution" : "Digest-SHA1",
+       "version" : "2.13",
+       "status" : "latest",
+       "main_module" : "Digest::SHA1",
+       "abstract" : "Perl interface to the SHA-1 algorithm",
+       "changes_file" : "Changes",
+       "date" : "2010-07-03T13:25:47",
+       "first" : false,
+       "provides" : [
+          "Digest::SHA1"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Digest::base",
+             "phase" : "runtime",
+             "version" : "1.00"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.004"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Digest-SHA1-2.13",
+       "checksum_sha256" : "68c1dac2187421f0eb7abf71452a06f190181b8fc4b28ededf5b90296fb943cc",
+       "authorized" : true,
+       "metadata" : {
+          "x_repository" : "http://github.com/gisle/digest-sha1",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Digest-SHA1",
+          "generated_by" : "ExtUtils::MakeMaker version 6.56, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Perl interface to the SHA-1 algorithm",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.13",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.004",
+                   "Digest::base" : "1.00"
+                }
+             }
+          }
+       },
+       "maturity" : "released"
+    }

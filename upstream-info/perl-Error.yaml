@@ -1,0 +1,800 @@
+---
+version_control: metacpan
+src_repo: Error
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:31.546538790 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "checksum_md5" : "6732b1c6207e4a9a3e2987c88368039a",
+       "abstract" : "Error/exception handling in an OO-ish way",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Error-0.17029.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "author" : "SHLOMIF",
+       "version_numified" : 0.17029,
+       "id" : "KgWoycSMCaZ9PrLh72lJ_Io993Y",
+       "provides" : [
+          "Error",
+          "Error::Simple",
+          "Error::WarnDie",
+          "Error::subs"
+       ],
+       "changes_file" : "ChangeLog",
+       "name" : "Error-0.17029",
+       "tests" : {
+          "unknown" : 0,
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 1053
+       },
+       "version" : "0.17029",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0.28",
+             "module" : "Module::Build",
+             "phase" : "build"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "Test::EOL"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Pod::Coverage::TrustPod"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod",
+             "version" : "1.41",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::CPAN::Changes",
+             "phase" : "develop",
+             "version" : "0.19"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0.96",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "0.0203",
+             "module" : "Test::TrailingSpace"
+          },
+          {
+             "version" : "1.08",
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::NoTabs",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Build",
+             "version" : "0.28",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "lib",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.88"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "IO::Handle"
+          },
+          {
+             "module" : "base",
+             "version" : "0",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "IPC::Open3",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Spec",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Scalar::Util",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "vars",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Carp",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "overload",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "metadata" : {
+          "version" : "0.17029",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "x_generated_by_perl" : "v5.30.1",
+          "name" : "Error",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Module::Build" : "0.28"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Carp" : "0",
+                   "Scalar::Util" : "0",
+                   "overload" : "0",
+                   "warnings" : "0",
+                   "perl" : "5.006",
+                   "vars" : "0",
+                   "Exporter" : "0",
+                   "strict" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod::Coverage" : "1.08",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Test::EOL" : "0",
+                   "Test::CPAN::Changes" : "0.19",
+                   "Test::TrailingSpace" : "0.0203",
+                   "Test::More" : "0.96",
+                   "Test::Pod" : "1.41",
+                   "Test::NoTabs" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "base" : "0",
+                   "perl" : "5.006",
+                   "IPC::Open3" : "0",
+                   "File::Spec" : "0",
+                   "Test::More" : "0.88",
+                   "IO::Handle" : "0",
+                   "lib" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0.28",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 0,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "homepage" : "http://metacpan.org/release/Error",
+             "bugtracker" : {
+                "web" : "https://github.com/shlomif/perl-error.pm/issues"
+             },
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/shlomif/perl-error.pm.git",
+                "web" : "https://github.com/shlomif/perl-error.pm"
+             }
+          },
+          "author" : [
+             "Shlomi Fish ( http://www.shlomifish.org/ )"
+          ],
+          "abstract" : "Error/exception handling in an OO-ish way",
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.18",
+          "x_Dist_Zilla" : {
+             "plugins" : [
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::Prereqs",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Prereqs" : {
+                         "type" : "requires",
+                         "phase" : "test"
+                      }
+                   },
+                   "name" : "@Filter/TestMoreDoneTesting"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::AutoPrereqs",
+                   "version" : "6.012",
+                   "name" : "@Filter/AutoPrereqs"
+                },
+                {
+                   "name" : "@Filter/ExecDir",
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::ExecDir"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::GatherDir",
+                   "version" : "6.012",
+                   "name" : "@Filter/GatherDir",
+                   "config" : {
+                      "Dist::Zilla::Plugin::GatherDir" : {
+                         "prefix" : "",
+                         "prune_directory" : [],
+                         "root" : ".",
+                         "exclude_match" : [],
+                         "exclude_filename" : [],
+                         "follow_symlinks" : 0,
+                         "include_dotfiles" : 0
+                      }
+                   }
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::ManifestSkip",
+                   "version" : "6.012",
+                   "name" : "@Filter/ManifestSkip"
+                },
+                {
+                   "name" : "@Filter/MetaYAML",
+                   "class" : "Dist::Zilla::Plugin::MetaYAML",
+                   "version" : "6.012"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::PruneCruft",
+                   "version" : "6.012",
+                   "name" : "@Filter/PruneCruft"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::Readme",
+                   "name" : "@Filter/Readme"
+                },
+                {
+                   "version" : "0.029",
+                   "class" : "Dist::Zilla::Plugin::RunExtraTests",
+                   "name" : "@Filter/RunExtraTests",
+                   "config" : {
+                      "Dist::Zilla::Role::TestRunner" : {
+                         "default_jobs" : 1
+                      }
+                   }
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::ShareDir",
+                   "name" : "@Filter/ShareDir"
+                },
+                {
+                   "config" : {
+                      "Dist::Zilla::Role::TestRunner" : {
+                         "default_jobs" : 1
+                      }
+                   },
+                   "name" : "@Filter/MakeMaker",
+                   "class" : "Dist::Zilla::Plugin::MakeMaker",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "0.011",
+                   "class" : "Dist::Zilla::Plugin::CheckChangesHasContent",
+                   "name" : "@Filter/CheckChangesHasContent"
+                },
+                {
+                   "name" : "@Filter/ConfirmRelease",
+                   "class" : "Dist::Zilla::Plugin::ConfirmRelease",
+                   "version" : "6.012"
+                },
+                {
+                   "name" : "@Filter/Manifest",
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::Manifest"
+                },
+                {
+                   "name" : "@Filter/MetaConfig",
+                   "class" : "Dist::Zilla::Plugin::MetaConfig",
+                   "version" : "6.012"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaJSON",
+                   "version" : "6.012",
+                   "name" : "@Filter/MetaJSON"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
+                   "version" : "2.004003",
+                   "name" : "@Filter/MetaProvides::Package",
+                   "config" : {
+                      "Dist::Zilla::Plugin::MetaProvides::Package" : {
+                         "finder_objects" : [
+                            {
+                               "name" : "@Filter/MetaProvides::Package/AUTOVIV/:InstallModulesPM",
+                               "class" : "Dist::Zilla::Plugin::FinderCode",
+                               "version" : "6.012"
+                            }
+                         ],
+                         "include_underscores" : 0
+                      },
+                      "Dist::Zilla::Role::ModuleMetadata" : {
+                         "version" : "0.006",
+                         "Module::Metadata" : "1.000036"
+                      },
+                      "Dist::Zilla::Role::MetaProvider::Provider" : {
+                         "inherit_version" : 1,
+                         "$Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.002004",
+                         "inherit_missing" : 1,
+                         "meta_noindex" : 1
+                      }
+                   }
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaResources",
+                   "version" : "6.012",
+                   "name" : "@Filter/MetaResources"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::ModuleBuild",
+                   "version" : "6.012",
+                   "name" : "@Filter/ModuleBuild",
+                   "config" : {
+                      "Dist::Zilla::Role::TestRunner" : {
+                         "default_jobs" : 1
+                      }
+                   }
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::PkgVersion",
+                   "name" : "@Filter/PkgVersion"
+                },
+                {
+                   "name" : "@Filter/PodCoverageTests",
+                   "class" : "Dist::Zilla::Plugin::PodCoverageTests",
+                   "version" : "6.012"
+                },
+                {
+                   "name" : "@Filter/PodSyntaxTests",
+                   "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
+                   "version" : "6.012"
+                },
+                {
+                   "name" : "@Filter/Test::Compile",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Test::Compile" : {
+                         "script_finder" : [
+                            ":PerlExecFiles"
+                         ],
+                         "switch" : [],
+                         "needs_display" : 0,
+                         "fail_on_warning" : "author",
+                         "skips" : [],
+                         "bail_out_on_fail" : 0,
+                         "fake_home" : 0,
+                         "phase" : "test",
+                         "module_finder" : [
+                            ":InstallModules"
+                         ],
+                         "filename" : "t/00-compile.t"
+                      }
+                   },
+                   "version" : "2.058",
+                   "class" : "Dist::Zilla::Plugin::Test::Compile"
+                },
+                {
+                   "name" : "@Filter/Test::CPAN::Changes",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Test::CPAN::Changes" : {
+                         "changelog" : "Changes"
+                      }
+                   },
+                   "version" : "0.012",
+                   "class" : "Dist::Zilla::Plugin::Test::CPAN::Changes"
+                },
+                {
+                   "config" : {
+                      "Dist::Zilla::Plugin::Test::EOL" : {
+                         "filename" : "xt/author/eol.t",
+                         "trailing_whitespace" : 1,
+                         "finder" : [
+                            ":ExecFiles",
+                            ":InstallModules",
+                            ":TestFiles"
+                         ]
+                      }
+                   },
+                   "name" : "@Filter/Test::EOL",
+                   "version" : "0.19",
+                   "class" : "Dist::Zilla::Plugin::Test::EOL"
+                },
+                {
+                   "version" : "0.15",
+                   "class" : "Dist::Zilla::Plugin::Test::NoTabs",
+                   "name" : "@Filter/Test::NoTabs",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Test::NoTabs" : {
+                         "filename" : "xt/author/no-tabs.t",
+                         "finder" : [
+                            ":InstallModules",
+                            ":ExecFiles",
+                            ":TestFiles"
+                         ]
+                      }
+                   }
+                },
+                {
+                   "version" : "0.2.0",
+                   "class" : "Dist::Zilla::Plugin::Test::TrailingSpace",
+                   "name" : "@Filter/Test::TrailingSpace"
+                },
+                {
+                   "name" : "@Filter/TestRelease",
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::TestRelease"
+                },
+                {
+                   "name" : "@Filter/PodWeaver",
+                   "config" : {
+                      "Dist::Zilla::Plugin::PodWeaver" : {
+                         "plugins" : [
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Plugin::SingleEncoding",
+                               "name" : "@SHLOMIF/SingleEncoding"
+                            },
+                            {
+                               "class" : "Pod::Weaver::Plugin::WikiDoc",
+                               "version" : "0.093004",
+                               "name" : "@SHLOMIF/WikiDoc"
+                            },
+                            {
+                               "name" : "@CorePrep/EnsurePod5",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Plugin::EnsurePod5"
+                            },
+                            {
+                               "name" : "@CorePrep/H1Nester",
+                               "class" : "Pod::Weaver::Plugin::H1Nester",
+                               "version" : "4.015"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Name",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Generic"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Version",
+                               "name" : "@SHLOMIF/Version"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Prelude",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Region"
+                            },
+                            {
+                               "class" : "Pod::Weaver::Section::Generic",
+                               "version" : "4.015",
+                               "name" : "@SHLOMIF/Synopsis"
+                            },
+                            {
+                               "class" : "Pod::Weaver::Section::Generic",
+                               "version" : "4.015",
+                               "name" : "@SHLOMIF/Description"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Usage",
+                               "class" : "Pod::Weaver::Section::Generic",
+                               "version" : "4.015"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Generic",
+                               "name" : "@SHLOMIF/Overview"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Stability",
+                               "class" : "Pod::Weaver::Section::Generic",
+                               "version" : "4.015"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Collect",
+                               "name" : "Requirements"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Collect",
+                               "name" : "Attributes"
+                            },
+                            {
+                               "name" : "Constructors",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Collect"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Collect",
+                               "name" : "Methods"
+                            },
+                            {
+                               "name" : "Functions",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Collect"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Leftovers",
+                               "name" : "@SHLOMIF/Leftovers"
+                            },
+                            {
+                               "name" : "@SHLOMIF/postlude",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Region"
+                            },
+                            {
+                               "version" : "1.012",
+                               "class" : "Pod::Weaver::Section::Support",
+                               "name" : "@SHLOMIF/Support"
+                            },
+                            {
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Section::Authors",
+                               "name" : "@SHLOMIF/Authors"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Bugs",
+                               "class" : "Pod::Weaver::Section::Bugs",
+                               "version" : "4.015"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Contributors",
+                               "version" : "0.009",
+                               "class" : "Pod::Weaver::Section::Contributors"
+                            },
+                            {
+                               "name" : "@SHLOMIF/Legal",
+                               "class" : "Pod::Weaver::Section::Legal",
+                               "version" : "4.015"
+                            },
+                            {
+                               "name" : "@SHLOMIF/List",
+                               "version" : "4.015",
+                               "class" : "Pod::Weaver::Plugin::Transformer"
+                            }
+                         ],
+                         "finder" : [
+                            ":InstallModules",
+                            ":ExecFiles"
+                         ]
+                      }
+                   },
+                   "class" : "Dist::Zilla::Plugin::PodWeaver",
+                   "version" : "4.008"
+                },
+                {
+                   "name" : "@Filter/UploadToCPAN",
+                   "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "0.007",
+                   "class" : "Dist::Zilla::Plugin::Keywords",
+                   "name" : "Keywords",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Keywords" : {
+                         "keywords" : [
+                            "deprecated",
+                            "exceptions",
+                            "oop"
+                         ]
+                      }
+                   }
+                },
+                {
+                   "name" : ":InstallModules",
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012",
+                   "name" : ":IncModules"
+                },
+                {
+                   "name" : ":TestFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012"
+                },
+                {
+                   "name" : ":ExtraTestFiles",
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012",
+                   "name" : ":ExecFiles"
+                },
+                {
+                   "name" : ":PerlExecFiles",
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012",
+                   "name" : ":ShareFiles"
+                },
+                {
+                   "name" : ":MainModule",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012",
+                   "name" : ":AllFiles"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":NoFiles"
+                },
+                {
+                   "name" : "@Filter/MetaProvides::Package/AUTOVIV/:InstallModulesPM",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012"
+                }
+             ],
+             "perl" : {
+                "version" : "5.030001"
+             },
+             "zilla" : {
+                "config" : {
+                   "is_trial" : 0
+                },
+                "version" : "6.012",
+                "class" : "Dist::Zilla::Dist::Builder"
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "keywords" : [
+             "deprecated",
+             "exceptions",
+             "oop"
+          ],
+          "provides" : {
+             "Error::subs" : {
+                "version" : "0.17029",
+                "file" : "lib/Error.pm"
+             },
+             "Error::Simple" : {
+                "version" : "0.17029",
+                "file" : "lib/Error.pm"
+             },
+             "Error" : {
+                "file" : "lib/Error.pm",
+                "version" : "0.17029"
+             },
+             "Error::WarnDie" : {
+                "file" : "lib/Error.pm",
+                "version" : "0.17029"
+             }
+          }
+       },
+       "checksum_sha256" : "1a23f7913032aed6d4b68321373a3899ca66590f4727391a091ec19c95bf7adc",
+       "date" : "2020-01-28T16:51:25",
+       "distribution" : "Error",
+       "archive" : "Error-0.17029.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "main_module" : "Error",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/shlomif/perl-error.pm/issues"
+          },
+          "homepage" : "http://metacpan.org/release/Error",
+          "repository" : {
+             "type" : "git",
+             "url" : "git://github.com/shlomif/perl-error.pm.git",
+             "web" : "https://github.com/shlomif/perl-error.pm"
+          }
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1580230285,
+          "mode" : 33188,
+          "size" : 33304
+       }
+    }

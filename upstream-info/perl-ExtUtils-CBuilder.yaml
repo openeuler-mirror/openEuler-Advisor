@@ -1,0 +1,463 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-CBuilder
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:24.240534160 +00:00
+  raw_data: |
+    {
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "IPC::Cmd"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "3.13",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Basename",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Text::ParseWords",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "IO::File",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1",
+             "phase" : "runtime",
+             "module" : "Perl::OSType"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "6.30",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Cwd",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.47",
+             "relationship" : "requires",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "1.41",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Pod"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "abstract" : "Compile and link C code for Perl modules",
+       "first" : false,
+       "distribution" : "ExtUtils-CBuilder",
+       "status" : "latest",
+       "date" : "2020-01-21T10:59:41",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-CBuilder-0.280234.tar.gz",
+       "name" : "ExtUtils-CBuilder-0.280234",
+       "metadata" : {
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_generated_by_perl" : "v5.30.1",
+          "version" : "0.280234",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "IPC::Cmd" : "0",
+                   "Text::ParseWords" : "0",
+                   "File::Temp" : "0",
+                   "Perl::OSType" : "1",
+                   "Cwd" : "0",
+                   "File::Basename" : "0",
+                   "File::Spec" : "3.13",
+                   "IO::File" : "0",
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.47"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             }
+          },
+          "abstract" : "Compile and link C code for Perl modules",
+          "name" : "ExtUtils-CBuilder",
+          "author" : [
+             "Ken Williams <kwilliams@cpan.org>",
+             "The Perl 5 Porters"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "x_Dist_Zilla" : {
+             "zilla" : {
+                "class" : "Dist::Zilla::Dist::Builder",
+                "version" : "6.012",
+                "config" : {
+                   "is_trial" : 0
+                }
+             },
+             "perl" : {
+                "version" : "5.030001"
+             },
+             "plugins" : [
+                {
+                   "version" : "0.029",
+                   "class" : "Dist::Zilla::Plugin::CheckExtraTests",
+                   "name" : "CheckExtraTests"
+                },
+                {
+                   "version" : "0.011",
+                   "class" : "Dist::Zilla::Plugin::CheckChangesHasContent",
+                   "name" : "CheckChangesHasContent"
+                },
+                {
+                   "config" : {
+                      "Dist::Zilla::Plugin::OnlyCorePrereqs" : {
+                         "also_disallow" : [],
+                         "skips" : [],
+                         "check_dual_life_versions" : 1,
+                         "phases" : [
+                            "configure",
+                            "build",
+                            "runtime",
+                            "test"
+                         ],
+                         "deprecated_ok" : 0,
+                         "starting_version" : "5.014"
+                      }
+                   },
+                   "name" : "OnlyCorePrereqs",
+                   "class" : "Dist::Zilla::Plugin::OnlyCorePrereqs",
+                   "version" : "0.024"
+                },
+                {
+                   "config" : {
+                      "Dist::Zilla::Plugin::GatherDir" : {
+                         "exclude_match" : [],
+                         "root" : ".",
+                         "include_dotfiles" : 0,
+                         "exclude_filename" : [],
+                         "follow_symlinks" : 0,
+                         "prefix" : "",
+                         "prune_directory" : []
+                      }
+                   },
+                   "version" : "6.012",
+                   "name" : "@Filter/GatherDir",
+                   "class" : "Dist::Zilla::Plugin::GatherDir"
+                },
+                {
+                   "name" : "@Filter/PruneCruft",
+                   "class" : "Dist::Zilla::Plugin::PruneCruft",
+                   "version" : "6.012"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::ManifestSkip",
+                   "name" : "@Filter/ManifestSkip",
+                   "version" : "6.012"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaYAML",
+                   "name" : "@Filter/MetaYAML",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "name" : "@Filter/License",
+                   "class" : "Dist::Zilla::Plugin::License"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::Readme",
+                   "name" : "@Filter/Readme",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::ExecDir",
+                   "name" : "@Filter/ExecDir"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::ShareDir",
+                   "name" : "@Filter/ShareDir"
+                },
+                {
+                   "version" : "6.012",
+                   "name" : "@Filter/MakeMaker",
+                   "class" : "Dist::Zilla::Plugin::MakeMaker",
+                   "config" : {
+                      "Dist::Zilla::Role::TestRunner" : {
+                         "default_jobs" : 1
+                      }
+                   }
+                },
+                {
+                   "version" : "6.012",
+                   "name" : "@Filter/Manifest",
+                   "class" : "Dist::Zilla::Plugin::Manifest"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::TestRelease",
+                   "name" : "@Filter/TestRelease"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::ConfirmRelease",
+                   "name" : "@Filter/ConfirmRelease"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+                   "name" : "@Filter/UploadToCPAN",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::PruneFiles",
+                   "name" : "PruneFiles"
+                },
+                {
+                   "config" : {
+                      "Dist::Zilla::Role::ModuleMetadata" : {
+                         "Module::Metadata" : "1.000037",
+                         "version" : "0.006"
+                      },
+                      "Dist::Zilla::Plugin::DualLife" : {
+                         "eumm_bundled" : 0
+                      }
+                   },
+                   "class" : "Dist::Zilla::Plugin::DualLife",
+                   "name" : "DualLife",
+                   "version" : "0.07"
+                },
+                {
+                   "name" : "MetaConfig",
+                   "class" : "Dist::Zilla::Plugin::MetaConfig",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "name" : "MetaJSON",
+                   "class" : "Dist::Zilla::Plugin::MetaJSON"
+                },
+                {
+                   "version" : "6.012",
+                   "name" : "PodSyntaxTests",
+                   "class" : "Dist::Zilla::Plugin::PodSyntaxTests"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::OurPkgVersion",
+                   "name" : "OurPkgVersion",
+                   "version" : "0.21"
+                },
+                {
+                   "config" : {
+                      "Dist::Zilla::Plugin::Prereqs" : {
+                         "phase" : "runtime",
+                         "type" : "requires"
+                      }
+                   },
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::Prereqs",
+                   "name" : "Prereqs"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::Prereqs",
+                   "name" : "TestRequires",
+                   "version" : "6.012",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Prereqs" : {
+                         "phase" : "test",
+                         "type" : "requires"
+                      }
+                   }
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaResources",
+                   "name" : "MetaResources",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":InstallModules"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":IncModules"
+                },
+                {
+                   "name" : ":TestFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":ExtraTestFiles"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":ExecFiles"
+                },
+                {
+                   "version" : "6.012",
+                   "name" : ":PerlExecFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "name" : ":ShareFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "6.012"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":MainModule",
+                   "version" : "6.012"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":AllFiles"
+                },
+                {
+                   "version" : "6.012",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "name" : ":NoFiles"
+                }
+             ]
+          },
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/Perl-Toolchain-Gang/ExtUtils-CBuilder.git",
+                "web" : "http://github.com/Perl-Toolchain-Gang/ExtUtils-CBuilder",
+                "type" : "git"
+             },
+             "bugtracker" : {
+                "web" : "http://rt.perl.org/rt3/",
+                "mailto" : "perlbug@perl.org"
+             },
+             "homepage" : "http://search.cpan.org/dist/ExtUtils-CBuilder"
+          },
+          "dynamic_config" : 0,
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.18",
+          "release_status" : "stable"
+       },
+       "deprecated" : false,
+       "tests" : {
+          "unknown" : 1,
+          "pass" : 684,
+          "na" : 0,
+          "fail" : 0
+       },
+       "authorized" : true,
+       "provides" : [
+          "ExtUtils::CBuilder",
+          "ExtUtils::CBuilder::Base",
+          "ExtUtils::CBuilder::Platform::Unix",
+          "ExtUtils::CBuilder::Platform::VMS",
+          "ExtUtils::CBuilder::Platform::Windows",
+          "ExtUtils::CBuilder::Platform::Windows::BCC",
+          "ExtUtils::CBuilder::Platform::Windows::GCC",
+          "ExtUtils::CBuilder::Platform::Windows::MSVC",
+          "ExtUtils::CBuilder::Platform::aix",
+          "ExtUtils::CBuilder::Platform::android",
+          "ExtUtils::CBuilder::Platform::cygwin",
+          "ExtUtils::CBuilder::Platform::darwin",
+          "ExtUtils::CBuilder::Platform::dec_osf",
+          "ExtUtils::CBuilder::Platform::os2"
+       ],
+       "stat" : {
+          "mode" : 33188,
+          "size" : 40448,
+          "mtime" : 1579604381
+       },
+       "version" : "0.280234",
+       "id" : "irfCiiv6_iloS72Zw4nRcVZrYbU",
+       "main_module" : "ExtUtils::CBuilder",
+       "resources" : {
+          "homepage" : "http://search.cpan.org/dist/ExtUtils-CBuilder",
+          "bugtracker" : {
+             "web" : "http://rt.perl.org/rt3/",
+             "mailto" : "perlbug@perl.org"
+          },
+          "repository" : {
+             "url" : "git://github.com/Perl-Toolchain-Gang/ExtUtils-CBuilder.git",
+             "web" : "http://github.com/Perl-Toolchain-Gang/ExtUtils-CBuilder",
+             "type" : "git"
+          }
+       },
+       "checksum_md5" : "3f2f188c6e15d3a531df0b5c3be86309",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "d80095ea1f28b4908cbedacead63f61f762472bba898281449dad782deecf1c3",
+       "version_numified" : 0.280234,
+       "author" : "AMBS",
+       "archive" : "ExtUtils-CBuilder-0.280234.tar.gz",
+       "license" : [
+          "perl_5"
+       ]
+    }

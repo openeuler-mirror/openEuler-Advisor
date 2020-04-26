@@ -1,0 +1,178 @@
+---
+version_control: metacpan
+src_repo: File-DesktopEntry
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:53.373890140 +00:00
+  raw_data: |
+    {
+       "name" : "File-DesktopEntry-0.22",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/File-DesktopEntry-0.22.tar.gz",
+       "maturity" : "released",
+       "date" : "2015-12-10T22:57:34",
+       "status" : "latest",
+       "distribution" : "File-DesktopEntry",
+       "abstract" : "Module to handle .desktop files",
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "URI::Escape"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.008006",
+             "relationship" : "requires",
+             "module" : "perl"
+          },
+          {
+             "module" : "Carp",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::BaseDir",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.03"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Path"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Encode"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Spec"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.30",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "first" : false,
+       "version_numified" : 0.22,
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "MICHIELB",
+       "archive" : "File-DesktopEntry-0.22.tar.gz",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "169c01e3dae2f629767bec1a9f1cdbd6ec6d713d1501e0b2786e4dd1235635b8",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/mbeijen/File-DesktopEntry/issues"
+          },
+          "repository" : {
+             "url" : "https://github.com/mbeijen/File-DesktopEntry"
+          }
+       },
+       "main_module" : "File::DesktopEntry",
+       "checksum_md5" : "57083f2e009967f875ad05c6c5db1467",
+       "id" : "douGoZfgkJsf9z19OcaOd8R8w44",
+       "authorized" : true,
+       "provides" : [
+          "File::DesktopEntry"
+       ],
+       "stat" : {
+          "gid" : 1009,
+          "size" : 18366,
+          "uid" : 1009,
+          "mtime" : 1449788254,
+          "mode" : 33204
+       },
+       "version" : "0.22",
+       "deprecated" : "false",
+       "metadata" : {
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.22",
+          "generated_by" : "ExtUtils::MakeMaker version 7.1, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Encode" : "0",
+                   "File::Path" : "0",
+                   "File::Spec" : "0",
+                   "Carp" : "0",
+                   "URI::Escape" : "0",
+                   "perl" : "5.008006",
+                   "File::BaseDir" : "0.03"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "abstract" : "Module to handle .desktop files",
+          "name" : "File-DesktopEntry",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Jaap Karssenberg <pardus@cpan.org>"
+          ],
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/mbeijen/File-DesktopEntry/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/mbeijen/File-DesktopEntry"
+             }
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "release_status" : "stable"
+       },
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 4355,
+          "na" : 69,
+          "fail" : 0
+       }
+    }

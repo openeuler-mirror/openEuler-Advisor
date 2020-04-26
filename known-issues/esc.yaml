@@ -1,0 +1,93 @@
+---
+version_control: github
+src_repo: mjibson/esc
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:13:50.672576160 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/mjibson/esc/releases/16482056",
+        "assets_url": "https://api.github.com/repos/mjibson/esc/releases/16482056/assets",
+        "upload_url": "https://uploads.github.com/repos/mjibson/esc/releases/16482056/assets{?name,label}",
+        "html_url": "https://github.com/mjibson/esc/releases/tag/v0.2.0",
+        "id": 16482056,
+        "node_id": "MDc6UmVsZWFzZTE2NDgyMDU2",
+        "tag_name": "v0.2.0",
+        "target_commitish": "master",
+        "name": "v0.2.0",
+        "draft": false,
+        "author": {
+          "login": "mjibson",
+          "id": 41181,
+          "node_id": "MDQ6VXNlcjQxMTgx",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/41181?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/mjibson",
+          "html_url": "https://github.com/mjibson",
+          "followers_url": "https://api.github.com/users/mjibson/followers",
+          "following_url": "https://api.github.com/users/mjibson/following{/other_user}",
+          "gists_url": "https://api.github.com/users/mjibson/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/mjibson/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/mjibson/subscriptions",
+          "organizations_url": "https://api.github.com/users/mjibson/orgs",
+          "repos_url": "https://api.github.com/users/mjibson/repos",
+          "events_url": "https://api.github.com/users/mjibson/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/mjibson/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-02-11T18:05:10Z",
+        "published_at": "2019-04-01T17:13:14Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/mjibson/esc/tarball/v0.2.0",
+        "zipball_url": "https://api.github.com/repos/mjibson/esc/zipball/v0.2.0",
+        "body": "- Support [http/File.Readdir](https://golang.org/pkg/net/http/#File)\r\n- Make `Invocation` configurable for users of the [embed package](https://godoc.org/github.com/mjibson/esc/embed)"
+      },
+      {
+        "url": "https://api.github.com/repos/mjibson/esc/releases/7664327",
+        "assets_url": "https://api.github.com/repos/mjibson/esc/releases/7664327/assets",
+        "upload_url": "https://uploads.github.com/repos/mjibson/esc/releases/7664327/assets{?name,label}",
+        "html_url": "https://github.com/mjibson/esc/releases/tag/v0.1.0",
+        "id": 7664327,
+        "node_id": "MDc6UmVsZWFzZTc2NjQzMjc=",
+        "tag_name": "v0.1.0",
+        "target_commitish": "master",
+        "name": "",
+        "draft": false,
+        "author": {
+          "login": "mjibson",
+          "id": 41181,
+          "node_id": "MDQ6VXNlcjQxMTgx",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/41181?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/mjibson",
+          "html_url": "https://github.com/mjibson",
+          "followers_url": "https://api.github.com/users/mjibson/followers",
+          "following_url": "https://api.github.com/users/mjibson/following{/other_user}",
+          "gists_url": "https://api.github.com/users/mjibson/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/mjibson/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/mjibson/subscriptions",
+          "organizations_url": "https://api.github.com/users/mjibson/orgs",
+          "repos_url": "https://api.github.com/users/mjibson/repos",
+          "events_url": "https://api.github.com/users/mjibson/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/mjibson/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2017-09-07T07:13:03Z",
+        "published_at": "2017-09-07T07:18:28Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/mjibson/esc/tarball/v0.1.0",
+        "zipball_url": "https://api.github.com/repos/mjibson/esc/zipball/v0.1.0",
+        "body": "Initial tagged release. New recent features:\r\n\r\n- standard Go generated file syntax\r\n- `-no-compress` flag to disable compression\r\n- the default compression mode is `gzip.BestCompression`\r\n- `-prefix` now detects when it would have generated duplicate file names\r\n- safer file handling during output writing\r\n- embed package now returns errors instead of running `log.Fatal`"
+      }
+    ]
+query_type: api.github.releases

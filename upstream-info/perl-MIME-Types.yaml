@@ -1,0 +1,163 @@
+---
+version_control: metacpan
+src_repo: MIME-Types
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:41.027156740 +00:00
+  raw_data: |
+    {
+       "changes_file" : "ChangeLog",
+       "version_numified" : 2.17,
+       "provides" : [
+          "MIME::Type",
+          "MIME::Types",
+          "MojoX::MIME::Types"
+       ],
+       "id" : "OjMpxE41hFH9pIk3nuZcdLd3kv8",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MIME-Types-2.17.tar.gz",
+       "author" : "MARKOV",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Definition of MIME types",
+       "checksum_md5" : "6f1441addab947137bac92c379a47ba3",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 64589,
+          "mode" : 33188,
+          "mtime" : 1517006885
+       },
+       "checksum_sha256" : "e04ed7d42f1ff3150a303805f2689c28f80b92c511784d4641cb7f040d3e8ff6",
+       "date" : "2018-01-26T22:48:05",
+       "metadata" : {
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Basename" : "0",
+                   "Test::More" : "0.47",
+                   "File::Spec" : "0",
+                   "List::Util" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.94",
+          "generated_by" : "ExtUtils::MakeMaker version 7.3, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/markov2/perl5-MIME-Types",
+                "type" : "git",
+                "url" : "https://github.com/markov2/perl5-MIME-Types.git"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "homepage" : "http://perl.overmeer.net/CPAN/"
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "version" : "2.17",
+          "author" : [
+             "Mark Overmeer <markov@cpan.org>"
+          ],
+          "name" : "MIME-Types",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Definition of MIME types"
+       },
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/markov2/perl5-MIME-Types.git",
+             "web" : "https://github.com/markov2/perl5-MIME-Types"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "homepage" : "http://perl.overmeer.net/CPAN/"
+       },
+       "main_module" : "MIME::Types",
+       "archive" : "MIME-Types-2.17.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "MIME-Types",
+       "version" : "2.17",
+       "dependency" : [
+          {
+             "module" : "File::Basename",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "List::Util",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "version" : "0.47"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "build",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "MIME-Types-2.17",
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 5464,
+          "na" : 0,
+          "fail" : 1
+       }
+    }

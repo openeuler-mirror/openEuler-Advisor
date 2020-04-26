@@ -1,0 +1,261 @@
+---
+version_control: metacpan
+src_repo: Path-Class
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:26.486460190 +00:00
+  raw_data: |
+    {
+       "name" : "Path-Class-0.37",
+       "tests" : {
+          "fail" : 6,
+          "na" : 0,
+          "pass" : 7022,
+          "unknown" : 5
+       },
+       "version" : "0.37",
+       "dependency" : [
+          {
+             "phase" : "build",
+             "version" : "0",
+             "module" : "Test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "build"
+          },
+          {
+             "version" : "0.3601",
+             "phase" : "build",
+             "module" : "Module::Build",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "warnings",
+             "version" : "0",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::File",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Copy",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Path",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "3.26",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "parent",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "IO::Dir",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "overload",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Perl::OSType",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::stat",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Temp"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Build",
+             "phase" : "configure",
+             "version" : "0.3601"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "version" : "6.30",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0.3601",
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "Exporter" : "0",
+                   "Cwd" : "0",
+                   "parent" : "0",
+                   "File::Path" : "0",
+                   "IO::Dir" : "0",
+                   "Scalar::Util" : "0",
+                   "File::Spec" : "3.26",
+                   "Carp" : "0",
+                   "File::Temp" : "0",
+                   "Perl::OSType" : "0",
+                   "File::stat" : "0",
+                   "IO::File" : "0",
+                   "File::Copy" : "0",
+                   "overload" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Module::Build" : "0.3601",
+                   "warnings" : "0",
+                   "Test" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/kenahoo/Path-Class.git"
+             },
+             "bugtracker" : {
+                "web" : "http://github.com/kenahoo/Path-Class/issues"
+             }
+          },
+          "dynamic_config" : "0",
+          "author" : [
+             "Ken Williams <kwilliams@cpan.org>"
+          ],
+          "version" : "0.37",
+          "abstract" : "Cross-platform path specification manipulation",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Path-Class"
+       },
+       "checksum_sha256" : "654781948602386f2cb2e4473a739f17dc6953d92aabc2498a4ca2561bc248ce",
+       "date" : "2016-08-14T02:37:55",
+       "archive" : "Path-Class-0.37.tar.gz",
+       "distribution" : "Path-Class",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://github.com/kenahoo/Path-Class/issues"
+          },
+          "repository" : {
+             "url" : "git://github.com/kenahoo/Path-Class.git"
+          }
+       },
+       "main_module" : "Path::Class",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 37473,
+          "mode" : 33188,
+          "mtime" : 1471142275
+       },
+       "status" : "latest",
+       "abstract" : "Cross-platform path specification manipulation",
+       "checksum_md5" : "13e6db714f6d5a0e62ca1c4a7fc4d0f3",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KW/KWILLIAMS/Path-Class-0.37.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "author" : "KWILLIAMS",
+       "version_numified" : 0.37,
+       "id" : "Kqm4y9ErdubOMxUpblDuYD8gE8M",
+       "provides" : [
+          "Path::Class",
+          "Path::Class::Dir",
+          "Path::Class::Entity",
+          "Path::Class::File"
+       ],
+       "changes_file" : "Changes"
+    }

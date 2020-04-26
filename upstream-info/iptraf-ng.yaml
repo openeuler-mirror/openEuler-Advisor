@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  iptraf-ng/iptraf-ng
+tag_prefix: ^v
+seperator: .

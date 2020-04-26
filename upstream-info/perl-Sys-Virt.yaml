@@ -1,0 +1,251 @@
+---
+version_control: metacpan
+src_repo: Sys-Virt
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:06.318139980 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "date" : "2020-03-10T10:01:51",
+       "name" : "Sys-Virt-v6.1.0",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DANBERR/Sys-Virt-v6.1.0.tar.gz",
+       "distribution" : "Sys-Virt",
+       "status" : "latest",
+       "first" : false,
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "Module::Build"
+          },
+          {
+             "module" : "perl",
+             "version" : "v5.8.0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "ExtUtils::CBuilder",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "XML::XPath"
+          },
+          {
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Time::HiRes"
+          },
+          {
+             "module" : "Test::Pod",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "Test::Pod::Coverage"
+          },
+          {
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "XML::XPath::XMLParser"
+          },
+          {
+             "module" : "Test::CPAN::Changes",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "Sys::Hostname"
+          }
+       ],
+       "abstract" : "libvirt Perl API",
+       "checksum_md5" : "8080fcf59f2575d4cc208c1783b013e2",
+       "resources" : {
+          "license" : [
+             "http://www.gnu.org/licenses/gpl.html"
+          ],
+          "repository" : {
+             "url" : "https://libvirt.org/git/?p=libvirt-perl.git;a=summary"
+          },
+          "homepage" : "http://libvirt.org/"
+       },
+       "main_module" : "Sys::Virt",
+       "license" : [
+          "gpl_1"
+       ],
+       "author" : "DANBERR",
+       "archive" : "Sys-Virt-v6.1.0.tar.gz",
+       "version_numified" : 6.001,
+       "checksum_sha256" : "039f80fe4216202e5ff0508ce553423801a95913f78ea0c96592b7efa95b48ef",
+       "changes_file" : "Changes",
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "url" : "https://libvirt.org/git/?p=libvirt-perl.git;a=summary"
+             },
+             "license" : [
+                "http://www.gnu.org/licenses/gpl.html"
+             ],
+             "homepage" : "http://libvirt.org/",
+             "x_MailingList" : "http://www.redhat.com/mailman/listinfo/libvir-list"
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "release_status" : "stable",
+          "author" : [
+             "Daniel Berrange <dan@berrange.com>"
+          ],
+          "name" : "Sys-Virt",
+          "license" : [
+             "gpl_1"
+          ],
+          "generated_by" : "Module::Build version 0.4229, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Sys::Hostname" : "0",
+                   "Test::Pod" : "0",
+                   "XML::XPath::XMLParser" : "0",
+                   "Test::Pod::Coverage" : "0",
+                   "ExtUtils::CBuilder" : "0",
+                   "Test::CPAN::Changes" : "0",
+                   "XML::XPath" : "0",
+                   "Time::HiRes" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "v5.8.0"
+                }
+             }
+          },
+          "abstract" : "libvirt Perl API",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "provides" : {
+             "Sys::Virt::NodeDevice" : {
+                "file" : "lib/Sys/Virt/NodeDevice.pm"
+             },
+             "Sys::Virt::Stream" : {
+                "file" : "lib/Sys/Virt/Stream.pm"
+             },
+             "Sys::Virt::Event" : {
+                "file" : "lib/Sys/Virt/Event.pm"
+             },
+             "Sys::Virt::NetworkPort" : {
+                "file" : "lib/Sys/Virt/NetworkPort.pm"
+             },
+             "Sys::Virt::Network" : {
+                "file" : "lib/Sys/Virt/Network.pm"
+             },
+             "Sys::Virt" : {
+                "version" : "v6.1.0",
+                "file" : "lib/Sys/Virt.pm"
+             },
+             "Sys::Virt::NWFilterBinding" : {
+                "file" : "lib/Sys/Virt/NWFilterBinding.pm"
+             },
+             "Sys::Virt::Domain" : {
+                "file" : "lib/Sys/Virt/Domain.pm"
+             },
+             "Sys::Virt::DomainSnapshot" : {
+                "file" : "lib/Sys/Virt/DomainSnapshot.pm"
+             },
+             "Sys::Virt::NWFilter" : {
+                "file" : "lib/Sys/Virt/NWFilter.pm"
+             },
+             "Sys::Virt::StorageVol" : {
+                "file" : "lib/Sys/Virt/StorageVol.pm"
+             },
+             "Sys::Virt::StoragePool" : {
+                "file" : "lib/Sys/Virt/StoragePool.pm"
+             },
+             "Sys::Virt::Error" : {
+                "file" : "lib/Sys/Virt/Error.pm"
+             },
+             "Sys::Virt::Interface" : {
+                "file" : "lib/Sys/Virt/Interface.pm"
+             },
+             "Sys::Virt::DomainCheckpoint" : {
+                "file" : "lib/Sys/Virt/DomainCheckpoint.pm"
+             },
+             "Sys::Virt::Secret" : {
+                "file" : "lib/Sys/Virt/Secret.pm"
+             }
+          },
+          "version" : "v6.1.0",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "deprecated" : false,
+       "id" : "QzpehHmiJY_mT9FxHD6fa9ajl5E",
+       "version" : "v6.1.0",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 163425,
+          "mtime" : 1583834511
+       },
+       "authorized" : true,
+       "provides" : [
+          "Sys::Virt",
+          "Sys::Virt::Domain",
+          "Sys::Virt::DomainCheckpoint",
+          "Sys::Virt::DomainSnapshot",
+          "Sys::Virt::Error",
+          "Sys::Virt::Event",
+          "Sys::Virt::Interface",
+          "Sys::Virt::NWFilter",
+          "Sys::Virt::NWFilterBinding",
+          "Sys::Virt::Network",
+          "Sys::Virt::NetworkPort",
+          "Sys::Virt::NodeDevice",
+          "Sys::Virt::Secret",
+          "Sys::Virt::StoragePool",
+          "Sys::Virt::StorageVol",
+          "Sys::Virt::Stream"
+       ]
+    }

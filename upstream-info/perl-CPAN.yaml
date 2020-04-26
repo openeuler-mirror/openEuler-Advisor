@@ -1,0 +1,497 @@
+---
+version_control: metacpan
+src_repo: CPAN
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:00.699785600 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "pass" : 1251,
+          "unknown" : 48,
+          "na" : 0,
+          "fail" : 194
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "name" : "CPAN",
+          "author" : [
+             "Andreas Koenig <andreas.koenig.gmwojprw@franz.ak.mind.de>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/andk/cpanpm"
+             }
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "2.27",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Archive::Tar" : "0",
+                   "Text::ParseWords" : "0",
+                   "HTTP::Tiny" : "0",
+                   "File::Spec" : "0",
+                   "perl" : "5.006002",
+                   "Text::Wrap" : "0",
+                   "YAML::Syck" : "0",
+                   "Compress::Bzip2" : "0",
+                   "IO::Compress::Base" : "0",
+                   "Module::Signature" : "0",
+                   "IO::Zlib" : "0",
+                   "CPAN::Checksums" : "0",
+                   "Scalar::Util" : "0",
+                   "Pod::Perldoc::ToMan" : "0",
+                   "Data::Dumper" : "0",
+                   "Expect" : "0",
+                   "Socket" : "0",
+                   "Module::Build" : "0",
+                   "Digest::SHA" : "0",
+                   "Exporter" : "0",
+                   "Net::FTP" : "0",
+                   "YAML::XS" : "0",
+                   "CPAN::Perl::Releases" : "0",
+                   "Term::ReadKey" : "0",
+                   "Text::Glob" : "0",
+                   "CPAN::Meta" : "0",
+                   "File::Which" : "0",
+                   "LWP::UserAgent" : "0",
+                   "Compress::Zlib" : "0",
+                   "File::Temp" : "0",
+                   "Log::Log4perl" : "0",
+                   "Digest::MD5" : "0",
+                   "CPAN::Meta::Requirements" : "2.121",
+                   "Exporter::Heavy" : "0",
+                   "Test::Harness" : "2.62",
+                   "Archive::Zip" : "0",
+                   "CPAN::Meta::YAML" : "0",
+                   "File::Copy" : "0",
+                   "MIME::Base64" : "0",
+                   "Test::More" : "0",
+                   "JSON::PP" : "0",
+                   "YAML" : "0",
+                   "Net::Ping" : "0",
+                   "ExtUtils::CBuilder" : "0",
+                   "Parse::CPAN::Meta" : "0",
+                   "File::HomeDir" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "keywords" : [
+             "CPAN",
+             "module",
+             "module installation"
+          ],
+          "abstract" : "query, download and build perl modules from CPAN sites"
+       },
+       "id" : "a4n0_ZMI_AOBf8_X5JQiP2QFQqo",
+       "stat" : {
+          "size" : 860406,
+          "mtime" : 1562184940,
+          "mode" : 33204
+       },
+       "version" : "2.27",
+       "authorized" : true,
+       "provides" : [
+          "App::Cpan",
+          "CPAN",
+          "CPAN::Admin",
+          "CPAN::Author",
+          "CPAN::Bundle",
+          "CPAN::CacheMgr",
+          "CPAN::Complete",
+          "CPAN::Debug",
+          "CPAN::DeferredCode",
+          "CPAN::Distribution",
+          "CPAN::Distroprefs",
+          "CPAN::Distroprefs::Iterator",
+          "CPAN::Distroprefs::Pref",
+          "CPAN::Distroprefs::Result",
+          "CPAN::Distroprefs::Result::Error",
+          "CPAN::Distroprefs::Result::Fatal",
+          "CPAN::Distroprefs::Result::Success",
+          "CPAN::Distroprefs::Result::Warning",
+          "CPAN::Distrostatus",
+          "CPAN::Eval",
+          "CPAN::Exception::RecursiveDependency",
+          "CPAN::Exception::RecursiveDependency::na",
+          "CPAN::Exception::blocked_urllist",
+          "CPAN::Exception::yaml_not_installed",
+          "CPAN::Exception::yaml_process_error",
+          "CPAN::FTP",
+          "CPAN::FTP::netrc",
+          "CPAN::FirstTime",
+          "CPAN::HTTP::Client",
+          "CPAN::HTTP::Credentials",
+          "CPAN::HandleConfig",
+          "CPAN::Index",
+          "CPAN::InfoObj",
+          "CPAN::Kwalify",
+          "CPAN::LWP::UserAgent",
+          "CPAN::Mirrored::By",
+          "CPAN::Mirrors",
+          "CPAN::Module",
+          "CPAN::Nox",
+          "CPAN::Plugin",
+          "CPAN::Plugin::Specfile",
+          "CPAN::Prompt",
+          "CPAN::Queue",
+          "CPAN::Queue::Item",
+          "CPAN::Shell",
+          "CPAN::Tarzip",
+          "CPAN::URL",
+          "CPAN::Version"
+       ],
+       "checksum_md5" : "47f5c923e1106c1f77337c491ed98a2f",
+       "main_module" : "CPAN",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/andk/cpanpm",
+             "type" : "git"
+          }
+       },
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "CPAN-2.27.tar.gz",
+       "author" : "ANDK",
+       "version_numified" : 2.27,
+       "checksum_sha256" : "b4b1471a2881e2d616f59e723879b4110ae485b79d5962f115119c28cf69e07f",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "distribution" : "CPAN",
+       "first" : false,
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Term::ReadKey"
+          },
+          {
+             "module" : "JSON::PP",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Text::Wrap"
+          },
+          {
+             "module" : "Exporter::Heavy",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Net::FTP"
+          },
+          {
+             "module" : "CPAN::Meta",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Spec"
+          },
+          {
+             "module" : "Parse::CPAN::Meta",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Copy"
+          },
+          {
+             "module" : "Module::Build",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Text::Glob"
+          },
+          {
+             "version" : "2.62",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::Harness"
+          },
+          {
+             "module" : "CPAN::Meta::Requirements",
+             "relationship" : "requires",
+             "version" : "2.121",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Module::Signature",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "IO::Compress::Base",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Text::ParseWords"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006002",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Temp",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Expect",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "CPAN::Perl::Releases",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Log::Log4perl"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "MIME::Base64"
+          },
+          {
+             "module" : "LWP::UserAgent",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Net::Ping"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "IO::Zlib"
+          },
+          {
+             "module" : "CPAN::Checksums",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Archive::Zip"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Socket"
+          },
+          {
+             "module" : "Archive::Tar",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Pod::Perldoc::ToMan",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Data::Dumper"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "YAML"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Which"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "YAML::Syck"
+          },
+          {
+             "module" : "File::HomeDir",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "HTTP::Tiny"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "YAML::XS"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "CPAN::Meta::YAML"
+          },
+          {
+             "module" : "Compress::Bzip2",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Digest::SHA"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Scalar::Util"
+          },
+          {
+             "module" : "Digest::MD5",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Exporter",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Compress::Zlib",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "ExtUtils::CBuilder",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "query, download and build perl modules from CPAN sites",
+       "maturity" : "released",
+       "date" : "2019-07-03T20:15:40",
+       "name" : "CPAN-2.27",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AN/ANDK/CPAN-2.27.tar.gz"
+    }

@@ -1,0 +1,154 @@
+---
+version_control: metacpan
+src_repo: Scalar-List-Utils
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:14.709077810 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "checksum_md5" : "7988f5111e33ba47e175cf3e86b0d93f",
+       "abstract" : "Common Scalar and List utility subroutines",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.55.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "author" : "PEVANS",
+       "version_numified" : 1.55,
+       "id" : "Cp4XwA_T3Nzlds3Qbi1VvoB_e88",
+       "provides" : [
+          "List::Util",
+          "List::Util::XS",
+          "Scalar::Util",
+          "Sub::Util"
+       ],
+       "changes_file" : "Changes",
+       "name" : "Scalar-List-Utils-1.55",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 294,
+          "na" : 0,
+          "fail" : 0
+       },
+       "version" : "1.55",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006"
+          },
+          {
+             "phase" : "test",
+             "version" : "0",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          }
+       ],
+       "metadata" : {
+          "author" : [
+             "Graham Barr <gbarr@cpan.org>"
+          ],
+          "version" : "1.55",
+          "abstract" : "Common Scalar and List utility subroutines",
+          "name" : "Scalar-List-Utils",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/Scalar-List-Utils/Scalar-List-Utils.git",
+                "type" : "git",
+                "web" : "https://github.com/Scalar-List-Utils/Scalar-List-Utils"
+             },
+             "bugtracker" : {
+                "mailto" : "bug-Scalar-List-Utils@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Scalar-List-Utils"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 0
+       },
+       "checksum_sha256" : "4d2bdc1c72a7bc4d69d6a5cc85bc7566497c3b183c6175b832784329d58feb4b",
+       "date" : "2020-04-12T13:25:42",
+       "archive" : "Scalar-List-Utils-1.55.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "Scalar-List-Utils",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/Scalar-List-Utils/Scalar-List-Utils",
+             "url" : "https://github.com/Scalar-List-Utils/Scalar-List-Utils.git",
+             "type" : "git"
+          },
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Scalar-List-Utils",
+             "mailto" : "bug-Scalar-List-Utils@rt.cpan.org"
+          }
+       },
+       "main_module" : "Sub::Util",
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1586697942,
+          "size" : 105142,
+          "mode" : 33204
+       }
+    }

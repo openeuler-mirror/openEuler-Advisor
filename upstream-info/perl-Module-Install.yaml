@@ -1,0 +1,363 @@
+---
+version_control: metacpan
+src_repo: Module-Install
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:02.946057450 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1513726345,
+          "mode" : 33188,
+          "size" : 114548
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Module-Install-1.19.tar.gz",
+       "author" : "ETHER",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/Perl-Toolchain-Gang/Module-Install.git"
+          }
+       },
+       "archive" : "Module-Install-1.19.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "0d1b78cc13ebf9b9ad008c8928a5b2dd",
+       "distribution" : "Module-Install",
+       "id" : "Kmqm1xGY9VTlJuN3ySiT3mX_qyQ",
+       "version_numified" : 1.19,
+       "tests" : {
+          "fail" : 2,
+          "na" : 0,
+          "unknown" : 3,
+          "pass" : 3909
+       },
+       "main_module" : "Module::Install",
+       "version" : "1.19",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Standalone, extensible Perl module installer",
+       "authorized" : true,
+       "checksum_sha256" : "1a53a78ddf3ab9e3c03fc5e354b436319a944cba4281baf0b904fa932a13011b",
+       "name" : "Module-Install-1.19",
+       "dependency" : [
+          {
+             "module" : "PAR::Dist",
+             "phase" : "runtime",
+             "version" : "0.29",
+             "relationship" : "recommends"
+          },
+          {
+             "version" : "1",
+             "module" : "File::HomeDir",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "1.37",
+             "phase" : "runtime",
+             "module" : "Archive::Zip"
+          },
+          {
+             "version" : "6.05",
+             "module" : "LWP::UserAgent",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "recommends",
+             "phase" : "runtime",
+             "module" : "JSON",
+             "version" : "2.9"
+          },
+          {
+             "version" : "6.00",
+             "module" : "LWP::Simple",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Module::CoreList",
+             "version" : "2.17",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "runtime",
+             "version" : "6.59",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Path",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Module::ScanDeps",
+             "phase" : "runtime",
+             "version" : "1.09",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "3.16",
+             "module" : "Devel::PPPort",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Remove",
+             "phase" : "runtime",
+             "version" : "1.42",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.52",
+             "module" : "ExtUtils::Install",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Parse::CPAN::Meta",
+             "version" : "1.4413",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.38",
+             "module" : "YAML::Tiny",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "2.19",
+             "module" : "ExtUtils::ParseXS",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "v5.6.0",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.29",
+             "phase" : "runtime",
+             "module" : "Module::Build"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "3.28",
+             "module" : "File::Spec",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "6.59",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.33",
+             "module" : "YAML::Tiny",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.59",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "autodie",
+             "version" : "0"
+          },
+          {
+             "version" : "0.86",
+             "module" : "Test::More",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "3.13",
+             "phase" : "build",
+             "module" : "Test::Harness",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2017-12-19T23:32:25",
+       "provides" : [
+          "Module::AutoInstall",
+          "Module::Install",
+          "Module::Install::Admin",
+          "Module::Install::Admin::Bundle",
+          "Module::Install::Admin::Compiler",
+          "Module::Install::Admin::Find",
+          "Module::Install::Admin::Include",
+          "Module::Install::Admin::Makefile",
+          "Module::Install::Admin::Manifest",
+          "Module::Install::Admin::Metadata",
+          "Module::Install::Admin::ScanDeps",
+          "Module::Install::Admin::WriteAll",
+          "Module::Install::AutoInstall",
+          "Module::Install::Base",
+          "Module::Install::Base::FakeAdmin",
+          "Module::Install::Bundle",
+          "Module::Install::Can",
+          "Module::Install::Compiler",
+          "Module::Install::DSL",
+          "Module::Install::Deprecated",
+          "Module::Install::External",
+          "Module::Install::Fetch",
+          "Module::Install::Include",
+          "Module::Install::Inline",
+          "Module::Install::MakeMaker",
+          "Module::Install::Makefile",
+          "Module::Install::Metadata",
+          "Module::Install::PAR",
+          "Module::Install::Run",
+          "Module::Install::Scripts",
+          "Module::Install::Share",
+          "Module::Install::Win32",
+          "Module::Install::With",
+          "Module::Install::WriteAll",
+          "inc::Module::Install",
+          "inc::Module::Install::DSL"
+       ],
+       "first" : false,
+       "maturity" : "released",
+       "metadata" : {
+          "version" : "1.19",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Test::Harness" : "3.13",
+                   "Test::More" : "0.86",
+                   "autodie" : "0",
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "JSON" : "2.9",
+                   "File::HomeDir" : "1",
+                   "LWP::Simple" : "6.00",
+                   "Archive::Zip" : "1.37",
+                   "LWP::UserAgent" : "6.05",
+                   "PAR::Dist" : "0.29"
+                },
+                "requires" : {
+                   "ExtUtils::Install" : "1.52",
+                   "Module::CoreList" : "2.17",
+                   "File::Spec" : "3.28",
+                   "File::Remove" : "1.42",
+                   "Devel::PPPort" : "3.16",
+                   "ExtUtils::MakeMaker" : "6.59",
+                   "Parse::CPAN::Meta" : "1.4413",
+                   "File::Path" : "0",
+                   "ExtUtils::ParseXS" : "2.19",
+                   "perl" : "v5.6.0",
+                   "Module::ScanDeps" : "1.09",
+                   "Module::Build" : "0.29",
+                   "YAML::Tiny" : "1.38"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "YAML::Tiny" : "1.33",
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "abstract" : "Standalone, extensible Perl module installer",
+          "generated_by" : "Module::Install version 1.19, CPAN::Meta::Converter version 2.150005",
+          "x_contributors" : [
+             "Adam Kennedy <adam@ali.as>",
+             "Kenichi Ishigaki <ishigaki@cpan.org>",
+             "Alexandr Ciornii <alexchorny@gmail.com>",
+             "Chris 'BinGOs' Williams <chris@bingosnet.co.uk>",
+             "Karen Etheridge <ether@cpan.org>",
+             "Paul Fenwick <pjf@perltraining.com.au>",
+             "bowtie <bowtie@cpan.org>",
+             "Matt S Trout <dbix-class@trout.me.uk>",
+             "Dan Book <grinnz@grinnz.com>",
+             "Alberto Simoes <ambs@cpan.org>",
+             "Christian Walde <walde.christian@googlemail.com>",
+             "Ricardo Signes <rjbs@cpan.org>",
+             "Ingy <ingy@ingy.net>",
+             "Hans Dieter Pearcey <hdp@cpan.org>",
+             "Avar Arnfjord Bjarmason <avarab@gmail.com>",
+             "Curtis Jewell <csjewell@cpan.org>",
+             "Graham Knop <haarg@haarg.org>",
+             "Olivier Mengue <dolmen@cpan.org>",
+             "Rafael Kitover <rkitover@gmail.com>",
+             "gregor herrmann <gregoa@debian.org>",
+             "Alex Vandiver <github@chmrr.net>",
+             "Ash Berlin <ash_github@firemirror.com>",
+             "Craig A. Berry <craigberry@mac.com>",
+             "Dan Brook <dbrook@venda.com>",
+             "David Golden <dagolden@cpan.org>",
+             "Gabor Szabo <szabgab@gmail.com>",
+             "Graham Ollis <plicease@cpan.org>",
+             "Joshua ben Jore <twists@gmail.com>",
+             "Kang-min Liu <gugod@gugod.org>",
+             "Kent Fredric <kentfredric@gmail.com>",
+             "Leo Lapworth <leo@cuckoo.org>",
+             "Marcel Grunauer <hanekomu@gmail.com>",
+             "Peter Rabbitson <ribasushi@cpan.org>",
+             "Thomas Sibley <tsibley@cpan.org>",
+             "Tokuhiro Matsuno <tokuhirom@cpan.org>",
+             "Tom Wyant <wyant@cpan.org>"
+          ],
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "dynamic_config" : "0",
+          "name" : "Module-Install",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/Perl-Toolchain-Gang/Module-Install.git"
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       }
+    }

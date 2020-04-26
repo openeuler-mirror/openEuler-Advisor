@@ -1,0 +1,123 @@
+---
+version_control: metacpan
+src_repo: Encode-Detect
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:41.586900290 +00:00
+  raw_data: |
+    {
+       "abstract" : "An Encode::Encoding subclass that detects the encoding of data",
+       "checksum_md5" : "ee9faf55d7105c97b02b8ebe590819c7",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "JGMYERS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JG/JGMYERS/Encode-Detect-1.01.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "id" : "4hcoxn7LPde_oT8sgFIQ0WjKHWQ",
+       "provides" : [
+          "Encode::Detect",
+          "Encode::Detect::Detector"
+       ],
+       "version_numified" : 1.01,
+       "changes_file" : "Changes",
+       "tests" : {
+          "unknown" : 505,
+          "fail" : 202,
+          "na" : 3,
+          "pass" : 4119
+       },
+       "name" : "Encode-Detect-1.01",
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "ExtUtils::CBuilder",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Build",
+             "version" : "0",
+             "phase" : "runtime"
+          }
+       ],
+       "version" : "1.01",
+       "distribution" : "Encode-Detect",
+       "archive" : "Encode-Detect-1.01.tar.gz",
+       "license" : [
+          "open_source"
+       ],
+       "resources" : {
+          "license" : [
+             "http://opensource.org/licenses/mozilla1.1.php"
+          ]
+       },
+       "main_module" : "Encode::Detect",
+       "metadata" : {
+          "author" : [
+             "John Gardiner Myers <jgmyers@proofpoint.com>"
+          ],
+          "version" : "1.01",
+          "abstract" : "An Encode::Encoding subclass that detects the encoding of data",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Encode-Detect",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "Module::Build version 0.2801, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "ExtUtils::CBuilder" : "0",
+                   "Module::Build" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "open_source"
+          ],
+          "resources" : {
+             "license" : [
+                "http://opensource.org/licenses/mozilla1.1.php"
+             ]
+          },
+          "provides" : {
+             "Encode::Detect::Detector" : {
+                "version" : "1.01",
+                "file" : "Detector.pm"
+             },
+             "Encode::Detect" : {
+                "file" : "Detect.pm",
+                "version" : "1.01"
+             }
+          },
+          "dynamic_config" : 1
+       },
+       "date" : "2008-05-27T20:50:44",
+       "checksum_sha256" : "834d893aa7db6ce3f158afbd0e432d6ed15a276e0940db0a74be13fd9c4bbbf1",
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1211921444,
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 179698
+       },
+       "maturity" : "released"
+    }

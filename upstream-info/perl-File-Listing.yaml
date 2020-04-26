@@ -1,0 +1,142 @@
+---
+version_control: metacpan
+src_repo: File-Listing
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:55.081930860 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/File-Listing-6.04.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "author" : "GAAS",
+       "status" : "latest",
+       "checksum_md5" : "83f636b477741f3a014585bb9cc079a6",
+       "abstract" : "parse directory listing",
+       "authorized" : true,
+       "changes_file" : "Changes",
+       "version_numified" : 6.04,
+       "id" : "025ysau47mZ3OMvRSOZzLsy6gq0",
+       "provides" : [
+          "File::Listing",
+          "File::Listing::apache",
+          "File::Listing::dosftp",
+          "File::Listing::netware",
+          "File::Listing::unix",
+          "File::Listing::vms"
+       ],
+       "version" : "6.04",
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "6",
+             "module" : "HTTP::Date"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006002",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "File-Listing-6.04",
+       "tests" : {
+          "pass" : 14630,
+          "na" : 1,
+          "fail" : 1,
+          "unknown" : 12
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 51536,
+          "uid" : 1009,
+          "mode" : 33188,
+          "mtime" : 1329343529,
+          "gid" : 1009
+       },
+       "metadata" : {
+          "abstract" : "parse directory listing",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "File-Listing",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "version" : "6.04",
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "x_MailingList" : "mailto:libwww@perl.org",
+             "repository" : {
+                "url" : "http://github.com/gisle/libwww-perl/tree/File-Listing/master"
+             }
+          },
+          "dynamic_config" : 1,
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.57_05, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "HTTP::Date" : "6",
+                   "perl" : "5.006002"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       },
+       "date" : "2012-02-15T22:05:29",
+       "checksum_sha256" : "1e0050fcd6789a2179ec0db282bf1e90fb92be35d1171588bd9c47d52d959cf5",
+       "distribution" : "File-Listing",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "File-Listing-6.04.tar.gz",
+       "main_module" : "File::Listing",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/libwww-perl/tree/File-Listing/master"
+          }
+       }
+    }

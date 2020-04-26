@@ -1,0 +1,102 @@
+---
+version_control: metacpan
+src_repo: libxml-perl
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:43.284737420 +00:00
+  raw_data: |
+    {
+       "version" : "0.08",
+       "dependency" : [],
+       "name" : "libxml-perl-0.08",
+       "tests" : {
+          "unknown" : 7,
+          "pass" : 9678,
+          "fail" : 170,
+          "na" : 1
+       },
+       "maturity" : "released",
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1093055643,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 64335
+       },
+       "date" : "2004-08-21T02:34:03",
+       "checksum_sha256" : "4571059b7b5d48b7ce52b01389e95d798bf5cf2020523c153ff27b498153c9cb",
+       "metadata" : {
+          "generated_by" : "CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {},
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "version" : "0.08",
+          "abstract" : "unknown",
+          "name" : "libxml-perl",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "resources" : {},
+       "main_module" : "Data::Grove",
+       "distribution" : "libxml-perl",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "libxml-perl-0.08.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/libxml-perl-0.08.tar.gz",
+       "author" : "KMACLEOD",
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "0ed5fbdda53d1301ddaed88db10503bb",
+       "abstract" : "support for deeply nested structures",
+       "changes_file" : "ChangeLog",
+       "version_numified" : 0.08,
+       "provides" : [
+          "Data::Grove",
+          "Data::Grove",
+          "Data::Grove",
+          "Data::Grove::Characters",
+          "Data::Grove::Parent",
+          "Data::Grove::ParentList",
+          "Data::Grove::Visitor",
+          "XML::ESISParser",
+          "XML::Handler::CanonXMLWriter",
+          "XML::Handler::Sample",
+          "XML::Handler::Subs",
+          "XML::Handler::XMLWriter",
+          "XML::Parser::PerlSAX",
+          "XML::PatAct::ACTION",
+          "XML::PatAct::Amsterdam",
+          "XML::PatAct::MatchName",
+          "XML::PatAct::PATTERN",
+          "XML::PatAct::ToObjects",
+          "XML::Perl2SAX",
+          "XML::SAX2Perl"
+       ],
+       "id" : "l8Bm8Wen3EkAYrS03zzuVCgc800"
+    }

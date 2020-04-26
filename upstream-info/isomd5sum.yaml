@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  rhinstaller/isomd5sum
+tag_prefix: ^v
+seperator: .

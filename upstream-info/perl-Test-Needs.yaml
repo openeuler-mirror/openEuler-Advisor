@@ -1,0 +1,156 @@
+---
+version_control: metacpan
+src_repo: Test-Needs
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:42.719114680 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz",
+       "author" : "HAARG",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 15337,
+          "mode" : 33204,
+          "mtime" : 1554410599
+       },
+       "version_numified" : 0.002006,
+       "tests" : {
+          "fail" : 4,
+          "na" : 0,
+          "pass" : 3626,
+          "unknown" : 1
+       },
+       "distribution" : "Test-Needs",
+       "id" : "dCBSw_XH0_c1cPI0IgP4p5AEcOw",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "d5c96d51d8d5510f7c0b7f354c49af1c",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Test-Needs",
+             "mailto" : "bug-Test-Needs@rt.cpan.org"
+          },
+          "repository" : {
+             "web" : "https://github.com/haarg/Test-Needs",
+             "url" : "https://github.com/haarg/Test-Needs.git",
+             "type" : "git"
+          }
+       },
+       "archive" : "Test-Needs-0.002006.tar.gz",
+       "abstract" : "Skip tests when modules not available",
+       "changes_file" : "Changes",
+       "main_module" : "Test::Needs",
+       "status" : "latest",
+       "version" : "0.002006",
+       "metadata" : {
+          "name" : "Test-Needs",
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/haarg/Test-Needs",
+                "type" : "git",
+                "url" : "https://github.com/haarg/Test-Needs.git"
+             },
+             "x_IRC" : "irc://irc.perl.org/#perl-qa",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "bugtracker" : {
+                "mailto" : "bug-Test-Needs@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Test-Needs"
+             }
+          },
+          "x_cpants" : {
+             "ignore" : {
+                "prereq_matches_use" : "required modules detected incorrectly"
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "version" : "0.002006",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {}
+             },
+             "build" : {},
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.45"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Skip tests when modules not available",
+          "author" : [
+             "haarg - Graham Knop (cpan:HAARG) <haarg@haarg.org>"
+          ],
+          "dynamic_config" : 0
+       },
+       "maturity" : "released",
+       "name" : "Test-Needs-0.002006",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.45"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime"
+          }
+       ],
+       "date" : "2019-04-04T20:43:19",
+       "provides" : [
+          "Test::Needs"
+       ],
+       "authorized" : true,
+       "checksum_sha256" : "77f9fff0c96c5e09f34d0416b3533c3319f7cd0bb1f7fe8f8072ad59f433f0e5"
+    }

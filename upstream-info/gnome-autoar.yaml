@@ -1,0 +1,24 @@
+---
+version_control: gitlab.gnome
+src_repo: gnome-autoar
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:58:09.704275040 +00:00
+  raw_data: |
+    0.1.0
+    0.1.0^{}
+    0.1.1
+    0.1.1^{}
+    0.1.2
+    0.1.2^{}
+    0.2.0
+    0.2.0^{}
+    0.2.1
+    0.2.1^{}
+    0.2.2
+    0.2.2^{}
+    0.2.3
+    0.2.3^{}
+    0.2.4
+    0.2.4^{}

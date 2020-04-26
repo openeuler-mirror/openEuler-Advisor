@@ -1,0 +1,111 @@
+---
+version_control: metacpan
+src_repo: BSD-Resource
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:15.829429800 +00:00
+  raw_data: |
+    {
+       "first" : false,
+       "abstract" : "BSD process resource limit and priority functions",
+       "dependency" : [
+          {
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0"
+          }
+       ],
+       "status" : "latest",
+       "distribution" : "BSD-Resource",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JH/JHI/BSD-Resource-1.2911.tar.gz",
+       "name" : "BSD-Resource-1.2911",
+       "date" : "2017-04-09T23:51:05",
+       "maturity" : "released",
+       "version" : "1.2911",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 68183,
+          "mtime" : 1491781865
+       },
+       "provides" : [
+          "BSD::Resource"
+       ],
+       "authorized" : true,
+       "id" : "1YF3QusqYnHQ50uQo4XD5LM9bhE",
+       "tests" : {
+          "fail" : 19,
+          "pass" : 4374,
+          "na" : 0,
+          "unknown" : 100
+       },
+       "metadata" : {
+          "version" : "1.2911",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "abstract" : "unknown",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.1002, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "name" : "BSD-Resource",
+          "author" : [
+             "unknown"
+          ],
+          "license" : [
+             "unknown"
+          ],
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27300_01",
+          "dynamic_config" : 1
+       },
+       "deprecated" : "false",
+       "checksum_sha256" : "9d1cfba063cc18f72427a22451f7908836b7331ac8785dbe07553c5b043a0c3d",
+       "changes_file" : "ChangeLog",
+       "author" : "JHI",
+       "archive" : "BSD-Resource-1.2911.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "version_numified" : 1.2911,
+       "checksum_md5" : "3a67959a30fd6e537b9d8a64d60d8692",
+       "resources" : {},
+       "main_module" : "BSD::Resource"
+    }

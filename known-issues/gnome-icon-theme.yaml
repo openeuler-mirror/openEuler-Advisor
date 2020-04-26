@@ -1,0 +1,8 @@
+---
+version_control: gitlab.gnome
+src_repo: gnome-icon-theme
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:44:36.251050080 +00:00
+  raw_data: ''

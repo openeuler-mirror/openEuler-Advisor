@@ -1,0 +1,169 @@
+---
+version_control: metacpan
+src_repo: PathTools
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:03.513154710 +00:00
+  raw_data: |
+    {
+       "dependency" : [
+          {
+             "version" : "0.88",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Carp",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Scalar::Util"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Basename"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "3.75",
+       "tests" : {
+          "unknown" : 11,
+          "fail" : 46,
+          "na" : 0,
+          "pass" : 2441
+       },
+       "name" : "PathTools-3.75",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 119064,
+          "mtime" : 1535572399
+       },
+       "maturity" : "released",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "PathTools",
+       "archive" : "PathTools-3.75.tar.gz",
+       "main_module" : "Cwd",
+       "resources" : {
+          "homepage" : "http://dev.perl.org/",
+          "bugtracker" : {
+             "web" : "https://rt.perl.org/rt3/"
+          },
+          "repository" : {
+             "type" : "git",
+             "url" : "git://perl5.git.perl.org/perl.git"
+          }
+       },
+       "metadata" : {
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "homepage" : "http://dev.perl.org/",
+             "bugtracker" : {
+                "web" : "https://rt.perl.org/rt3/"
+             },
+             "repository" : {
+                "type" : "git",
+                "url" : "git://perl5.git.perl.org/perl.git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Basename" : "0",
+                   "Scalar::Util" : "0",
+                   "Carp" : "0",
+                   "Test::More" : "0.88"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "PathTools",
+          "abstract" : "Tools for working with directory and file names",
+          "version" : "3.75",
+          "author" : [
+             "Perl 5 Porters"
+          ]
+       },
+       "checksum_sha256" : "a558503aa6b1f8c727c0073339081a77888606aa701ada1ad62dd9d8c3f945a2",
+       "date" : "2018-08-29T19:53:19",
+       "author" : "XSAWYERX",
+       "download_url" : "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/PathTools-3.75.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "abstract" : "Tools for working with directory and file names",
+       "checksum_md5" : "8f329058f74468a576442d841c62aa62",
+       "authorized" : true,
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "id" : "5GVGg9c2BdGmJ45Cn20A_VPFRQs",
+       "provides" : [
+          "Cwd",
+          "File::Spec",
+          "File::Spec::AmigaOS",
+          "File::Spec::Cygwin",
+          "File::Spec::Epoc",
+          "File::Spec::Functions",
+          "File::Spec::Mac",
+          "File::Spec::OS2",
+          "File::Spec::Unix",
+          "File::Spec::VMS",
+          "File::Spec::Win32"
+       ],
+       "version_numified" : 3.75
+    }

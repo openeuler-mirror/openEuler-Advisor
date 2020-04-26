@@ -1,0 +1,113 @@
+---
+version_control: metacpan
+src_repo: Algorithm-Diff
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:12.479802860 +00:00
+  raw_data: |
+    {
+       "version" : "1.1903",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          }
+       ],
+       "name" : "Algorithm-Diff-1.1903",
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 28222,
+          "unknown" : 37
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 34174,
+          "uid" : 1009,
+          "mode" : 33204,
+          "mtime" : 1416981236,
+          "gid" : 1009
+       },
+       "date" : "2014-11-26T05:53:56",
+       "checksum_sha256" : "30e84ac4b31d40b66293f7b1221331c5a50561a39d580d85004d9c1fff991751",
+       "metadata" : {
+          "abstract" : "unknown",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Algorithm-Diff",
+          "author" : [
+             "unknown"
+          ],
+          "version" : "1.1903",
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141170, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       },
+       "resources" : {},
+       "main_module" : "Algorithm::Diff",
+       "archive" : "Algorithm-Diff-1.1903.tar.gz",
+       "distribution" : "Algorithm-Diff",
+       "license" : [
+          "unknown"
+       ],
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TY/TYEMQ/Algorithm-Diff-1.1903.tar.gz",
+       "author" : "TYEMQ",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Compute `intelligent' differences between two files / lists but use the old (<=0.59) interface.",
+       "checksum_md5" : "0e8add21a641b8d66436df0c2024bf3b",
+       "changes_file" : "Changes",
+       "version_numified" : 1.1903,
+       "provides" : [
+          "Algorithm::Diff",
+          "Algorithm::Diff::_impl"
+       ],
+       "id" : "ZJF089w4zQQl4fmJ_P3X2pMHJhA"
+    }

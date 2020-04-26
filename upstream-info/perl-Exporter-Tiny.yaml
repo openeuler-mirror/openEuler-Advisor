@@ -1,0 +1,179 @@
+---
+version_control: metacpan
+src_repo: Exporter-Tiny
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:27.059546050 +00:00
+  raw_data: |
+    {
+       "deprecated" : false,
+       "stat" : {
+          "size" : 88456,
+          "mode" : 33188,
+          "mtime" : 1587742955
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz",
+       "author" : "TOBYINK",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "485897322a2514b4d6ca90b2daacb7cd",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Dist/Display.html?Queue=Exporter-Tiny"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "git://github.com/tobyink/p5-exporter-tiny.git",
+             "type" : "git",
+             "web" : "https://github.com/tobyink/p5-exporter-tiny"
+          },
+          "homepage" : "https://metacpan.org/release/Exporter-Tiny"
+       },
+       "archive" : "Exporter-Tiny-1.002002.tar.gz",
+       "version_numified" : 1.002002,
+       "tests" : {
+          "pass" : 238,
+          "unknown" : 0,
+          "na" : 0,
+          "fail" : 0
+       },
+       "distribution" : "Exporter-Tiny",
+       "id" : "iEMyIwnDU3kYhGqSXrc8l6Hmdv8",
+       "main_module" : "Exporter::Tiny",
+       "version" : "1.002002",
+       "status" : "latest",
+       "abstract" : "an exporter with the features of Sub::Exporter but only core dependencies",
+       "changes_file" : "Changes",
+       "name" : "Exporter-Tiny-1.002002",
+       "date" : "2020-04-24T15:42:35",
+       "provides" : [
+          "Exporter::Shiny",
+          "Exporter::Tiny"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "recommends",
+             "phase" : "test",
+             "module" : "Test::Warnings",
+             "version" : "0"
+          },
+          {
+             "module" : "Test::Fatal",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.47",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006001",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.17",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          }
+       ],
+       "first" : false,
+       "authorized" : true,
+       "checksum_sha256" : "00f0b95716b18157132c6c118ded8ba31392563d19e490433e9a65382e707101",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "resources" : {
+             "x_identifier" : "http://purl.org/NET/cpan-uri/dist/Exporter-Tiny/project",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Dist/Display.html?Queue=Exporter-Tiny"
+             },
+             "homepage" : "https://metacpan.org/release/Exporter-Tiny",
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/tobyink/p5-exporter-tiny.git",
+                "web" : "https://github.com/tobyink/p5-exporter-tiny"
+             },
+             "x_IRC" : "irc://irc.perl.org/#moops"
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "name" : "Exporter-Tiny",
+          "license" : [
+             "perl_5"
+          ],
+          "provides" : {
+             "Exporter::Shiny" : {
+                "file" : "lib/Exporter/Shiny.pm",
+                "version" : "1.002002"
+             },
+             "Exporter::Tiny" : {
+                "version" : "1.002002",
+                "file" : "lib/Exporter/Tiny.pm"
+             }
+          },
+          "author" : [
+             "Toby Inkster (TOBYINK) <tobyink@cpan.org>"
+          ],
+          "dynamic_config" : 1,
+          "keywords" : [],
+          "abstract" : "an exporter with the features of Sub::Exporter but only core dependencies",
+          "generated_by" : "Dist::Inkt::Profile::TOBYINK version 0.024, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "test" : {
+                "recommends" : {
+                   "Test::Warnings" : "0",
+                   "Test::Fatal" : "0"
+                },
+                "requires" : {
+                   "Test::More" : "0.47"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006001"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.17"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "eg",
+                "examples",
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.002002"
+       },
+       "maturity" : "released"
+    }

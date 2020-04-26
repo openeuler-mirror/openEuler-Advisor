@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  annulen/webkit
+tag_prefix: ^v
+seperator: .

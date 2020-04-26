@@ -1,0 +1,180 @@
+---
+version_control: metacpan
+src_repo: Role-Tiny
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:22.551345350 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "abstract" : "Roles: a nouvelle cuisine portion size slice of Moose",
+       "checksum_md5" : "98446826608b1e943e65c1f6e35942fe",
+       "status" : "latest",
+       "author" : "HAARG",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz",
+       "provides" : [
+          "Role::Tiny",
+          "Role::Tiny::With"
+       ],
+       "id" : "3OvtxtCn0D71Q3ab0xxlqiQS5iw",
+       "version_numified" : 2.001004,
+       "changes_file" : "Changes",
+       "tests" : {
+          "fail" : 2,
+          "na" : 0,
+          "pass" : 2562,
+          "unknown" : 2
+       },
+       "name" : "Role-Tiny-2.001004",
+       "dependency" : [
+          {
+             "version" : "1.05",
+             "phase" : "develop",
+             "module" : "Class::Method::Modifiers",
+             "relationship" : "recommends"
+          },
+          {
+             "module" : "Moo",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "recommends",
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "namespace::autoclean"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.88",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "Class::Method::Modifiers",
+             "version" : "1.05",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "5.57",
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006"
+          }
+       ],
+       "version" : "2.001004",
+       "main_module" : "Role::Tiny",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Role-Tiny",
+             "mailto" : "bug-Role-Tiny@rt.cpan.org"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "type" : "git",
+             "url" : "git://github.com/moose/Role-Tiny.git",
+             "web" : "https://github.com/moose/Role-Tiny"
+          }
+       },
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Role-Tiny-2.001004.tar.gz",
+       "distribution" : "Role-Tiny",
+       "date" : "2019-10-25T08:10:09",
+       "checksum_sha256" : "92ba5712850a74102c93c942eb6e7f62f7a4f8f483734ed289d08b324c281687",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "x_IRC" : "irc://irc.perl.org/#moose",
+             "repository" : {
+                "web" : "https://github.com/moose/Role-Tiny",
+                "type" : "git",
+                "url" : "git://github.com/moose/Role-Tiny.git"
+             },
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Role-Tiny",
+                "mailto" : "bug-Role-Tiny@rt.cpan.org"
+             }
+          },
+          "prereqs" : {
+             "develop" : {
+                "recommends" : {
+                   "Moo" : "0",
+                   "namespace::autoclean" : "0",
+                   "Class::Method::Modifiers" : "1.05"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Exporter" : "5.57",
+                   "perl" : "5.006"
+                },
+                "recommends" : {
+                   "Class::Method::Modifiers" : "1.05"
+                }
+             },
+             "build" : {},
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             },
+             "configure" : {}
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Role-Tiny",
+          "abstract" : "Roles: a nouvelle cuisine portion size slice of Moose",
+          "version" : "2.001004",
+          "author" : [
+             "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+          ]
+       },
+       "stat" : {
+          "mtime" : 1571991009,
+          "mode" : 33188,
+          "size" : 31569
+       },
+       "maturity" : "released"
+    }

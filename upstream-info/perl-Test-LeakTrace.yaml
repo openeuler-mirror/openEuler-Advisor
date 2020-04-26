@@ -1,0 +1,151 @@
+---
+version_control: metacpan
+src_repo: Test-LeakTrace
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:29.273701070 +00:00
+  raw_data: |
+    {
+       "version_numified" : 0.16,
+       "provides" : [
+          "Test::LeakTrace",
+          "Test::LeakTrace::Script"
+       ],
+       "id" : "_wKlFW2VHktKE9u0pCT2RH3K6vw",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Traces memory leaks",
+       "checksum_md5" : "d58f3e0fed32df8255787a77d7d87641",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar.gz",
+       "author" : "LEEJO",
+       "date" : "2017-06-18T00:26:13",
+       "checksum_sha256" : "5f089eed915f1ec8c743f6d2777c3ecd0ca01df2f7b9e10038d316952583e403",
+       "metadata" : {
+          "version" : "0.16",
+          "author" : [
+             "Goro Fuji(gfx) <gfuji(at)cpan.org>."
+          ],
+          "name" : "Test-LeakTrace",
+          "no_index" : {
+             "directory" : [
+                "example",
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Traces memory leaks",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0.62",
+                   "Exporter" : "5.57",
+                   "perl" : "v5.8.1"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             }
+          },
+          "generated_by" : "Module::Install version 1.18, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "dynamic_config" : "1",
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/gfx/p5-Test-LeakTrace.git"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable"
+       },
+       "main_module" : "Test::LeakTrace",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "git://github.com/gfx/p5-Test-LeakTrace.git"
+          }
+       },
+       "distribution" : "Test-LeakTrace",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Test-LeakTrace-0.16.tar.gz",
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 49435,
+          "mtime" : 1497745573
+       },
+       "name" : "Test-LeakTrace-0.16",
+       "tests" : {
+          "unknown" : 63,
+          "na" : 6,
+          "fail" : 43,
+          "pass" : 7069
+       },
+       "version" : "0.16",
+       "dependency" : [
+          {
+             "version" : "6.59",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.59"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.62",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "version" : "5.57"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "v5.8.1",
+             "phase" : "runtime",
+             "module" : "perl"
+          }
+       ]
+    }

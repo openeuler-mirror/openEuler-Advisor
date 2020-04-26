@@ -1,0 +1,137 @@
+---
+version_control: metacpan
+src_repo: MIME-Base64
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:47.761464840 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "abstract" : "The RFC 2045 encodings; base64 and quoted-printable",
+       "checksum_md5" : "ef958dc2bf96be5f759391c6ac1debd4",
+       "status" : "latest",
+       "author" : "GAAS",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/MIME-Base64-3.15.tar.gz",
+       "provides" : [
+          "MIME::Base64",
+          "MIME::QuotedPrint"
+       ],
+       "id" : "kyHBwgIgE7ogyM6vixIpxDiMiVc",
+       "version_numified" : 3.15,
+       "changes_file" : "Changes",
+       "tests" : {
+          "na" : 0,
+          "fail" : 2,
+          "pass" : 6048,
+          "unknown" : 12
+       },
+       "name" : "MIME-Base64-3.15",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "XSLoader",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "5.004",
+             "phase" : "runtime",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "version" : "3.15",
+       "main_module" : "MIME::Base64",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/gisle/mime-base64"
+          }
+       },
+       "distribution" : "MIME-Base64",
+       "archive" : "MIME-Base64-3.15.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "date" : "2015-01-12T20:30:03",
+       "checksum_sha256" : "7f863566a6a9cb93eda93beadb77d9aa04b9304d769cea3bb921b9a91b3a1eb9",
+       "metadata" : {
+          "name" : "MIME-Base64",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "The RFC 2045 encodings; base64 and quoted-printable",
+          "version" : "3.15",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/gisle/mime-base64"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "XSLoader" : "0",
+                   "perl" : "5.004"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.133380, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "stat" : {
+          "mtime" : 1421094603,
+          "gid" : 1009,
+          "size" : 18438,
+          "mode" : 33204,
+          "uid" : 1009
+       },
+       "maturity" : "released"
+    }

@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  spacewalkproject/spacewalk
+tag_prefix: ^v
+seperator: .

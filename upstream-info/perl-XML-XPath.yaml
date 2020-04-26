@@ -1,0 +1,269 @@
+---
+version_control: metacpan
+src_repo: XML-XPath
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:33.741774840 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "provides" : [
+          "XML::XPath",
+          "XML::XPath::Boolean",
+          "XML::XPath::Builder",
+          "XML::XPath::Expr",
+          "XML::XPath::Function",
+          "XML::XPath::Literal",
+          "XML::XPath::LocationPath",
+          "XML::XPath::Node",
+          "XML::XPath::Node::Attribute",
+          "XML::XPath::Node::AttributeImpl",
+          "XML::XPath::Node::Comment",
+          "XML::XPath::Node::Element",
+          "XML::XPath::Node::Namespace",
+          "XML::XPath::Node::PI",
+          "XML::XPath::Node::Text",
+          "XML::XPath::NodeSet",
+          "XML::XPath::Number",
+          "XML::XPath::Parser",
+          "XML::XPath::PerlSAX",
+          "XML::XPath::Root",
+          "XML::XPath::Step",
+          "XML::XPath::Variable",
+          "XML::XPath::XMLParser"
+       ],
+       "id" : "SO8he_Qv7DMPlyIHf_Xex3tTRrg",
+       "version_numified" : 1.44,
+       "author" : "MANWAR",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MANWAR/XML-XPath-1.44.tar.gz",
+       "authorized" : true,
+       "checksum_md5" : "bb2cbe9a693ec634640878fba223de2d",
+       "abstract" : "Parse and evaluate XPath statements.",
+       "status" : "latest",
+       "stat" : {
+          "mtime" : 1539268301,
+          "mode" : 33188,
+          "size" : 55903
+       },
+       "maturity" : "released",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/manwar/XML-XPath",
+             "type" : "git",
+             "url" : "https://github.com/manwar/XML-XPath.git"
+          }
+       },
+       "main_module" : "XML::XPath",
+       "archive" : "XML-XPath-1.44.tar.gz",
+       "distribution" : "XML-XPath",
+       "license" : [
+          "artistic_2"
+       ],
+       "date" : "2018-10-11T14:31:41",
+       "checksum_sha256" : "1cc9110705165dc09dd09974dd7c0b6709c9351d6b6b1cef5a711055f891dd0f",
+       "metadata" : {
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "XML::Parser" : "2.23",
+                   "Scalar::Util" : "1.45"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Path::Tiny" : "0.076"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "artistic_2"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/manwar/XML-XPath.git",
+                "type" : "git",
+                "web" : "https://github.com/manwar/XML-XPath"
+             }
+          },
+          "provides" : {
+             "XML::XPath::Function" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Function.pm"
+             },
+             "XML::XPath::Root" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Root.pm"
+             },
+             "XML::XPath::Boolean" : {
+                "file" : "lib/XML/XPath/Boolean.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Step" : {
+                "file" : "lib/XML/XPath/Step.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::NodeSet" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/NodeSet.pm"
+             },
+             "XML::XPath::Node" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Node.pm"
+             },
+             "XML::XPath::XMLParser" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/XMLParser.pm"
+             },
+             "XML::XPath::Node::Namespace" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Node/Namespace.pm"
+             },
+             "XML::XPath::LocationPath" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/LocationPath.pm"
+             },
+             "XML::XPath::PerlSAX" : {
+                "file" : "lib/XML/XPath/PerlSAX.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Node::AttributeImpl" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Node/Attribute.pm"
+             },
+             "XML::XPath" : {
+                "file" : "lib/XML/XPath.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Expr" : {
+                "file" : "lib/XML/XPath/Expr.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Node::Comment" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Node/Comment.pm"
+             },
+             "XML::XPath::Parser" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Parser.pm"
+             },
+             "XML::XPath::Node::Text" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Node/Text.pm"
+             },
+             "XML::XPath::Builder" : {
+                "file" : "lib/XML/XPath/Builder.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Number" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Number.pm"
+             },
+             "XML::XPath::Node::PI" : {
+                "file" : "lib/XML/XPath/Node/PI.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Node::Attribute" : {
+                "file" : "lib/XML/XPath/Node/Attribute.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Node::Element" : {
+                "file" : "lib/XML/XPath/Node/Element.pm",
+                "version" : "1.44"
+             },
+             "XML::XPath::Literal" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Literal.pm"
+             },
+             "XML::XPath::Variable" : {
+                "version" : "1.44",
+                "file" : "lib/XML/XPath/Variable.pm"
+             }
+          },
+          "version" : "1.44",
+          "author" : [
+             "Matt Sergeant, AxKit.com Ltd"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "XML-XPath",
+          "abstract" : "Parse and evaluate XPath statements."
+       },
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "version" : "0.076",
+             "module" : "Path::Tiny",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.45",
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "2.23",
+             "module" : "XML::Parser",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "runtime",
+             "module" : "perl"
+          }
+       ],
+       "version" : "1.44",
+       "tests" : {
+          "unknown" : 0,
+          "fail" : 2,
+          "na" : 0,
+          "pass" : 3373
+       },
+       "name" : "XML-XPath-1.44"
+    }

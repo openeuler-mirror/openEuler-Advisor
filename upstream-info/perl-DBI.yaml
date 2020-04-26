@@ -1,0 +1,298 @@
+---
+version_control: metacpan
+src_repo: DBI
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:42.711686420 +00:00
+  raw_data: |
+    {
+       "first" : false,
+       "abstract" : "Database independent interface for Perl",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.008001",
+             "relationship" : "requires",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "conflicts",
+             "version" : "0.072",
+             "phase" : "runtime",
+             "module" : "DBD::RAM"
+          },
+          {
+             "module" : "DBD::Google",
+             "version" : "0.51",
+             "relationship" : "conflicts",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0.36",
+             "relationship" : "conflicts",
+             "phase" : "runtime",
+             "module" : "DBD::CSV"
+          },
+          {
+             "module" : "SQL::Statement",
+             "version" : "1.33",
+             "relationship" : "conflicts",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "DBD::AnyData",
+             "phase" : "runtime",
+             "relationship" : "conflicts",
+             "version" : "0.110"
+          },
+          {
+             "relationship" : "conflicts",
+             "version" : "0.10",
+             "phase" : "runtime",
+             "module" : "DBD::Amazon"
+          },
+          {
+             "version" : "2.10",
+             "relationship" : "conflicts",
+             "phase" : "runtime",
+             "module" : "DBD::PO"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.90",
+             "phase" : "build",
+             "module" : "Test::Simple"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "6.48"
+          }
+       ],
+       "distribution" : "DBI",
+       "status" : "latest",
+       "date" : "2020-01-31T19:02:41",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz",
+       "name" : "DBI-1.643",
+       "tests" : {
+          "fail" : 75,
+          "pass" : 1495,
+          "unknown" : 47,
+          "na" : 0
+       },
+       "metadata" : {
+          "resources" : {
+             "x_IRC" : "irc://irc.perl.org/#dbi",
+             "repository" : {
+                "url" : "https://github.com/perl5-dbi/dbi"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "homepage" : "http://dbi.perl.org/",
+             "x_MailingList" : "mailto:dbi-dev@perl.org"
+          },
+          "x_suggests" : {
+             "SQL::Statement" : 1.402,
+             "Net::Daemon" : 0,
+             "DB_File" : 0,
+             "RPC::PlServer" : 0.2001,
+             "Clone" : 0.34,
+             "MLDBM" : 0
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "release_status" : "stable",
+          "author" : [
+             "Tim Bunce (dbi-users@perl.org)"
+          ],
+          "name" : "DBI",
+          "license" : [
+             "perl_5"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008001"
+                },
+                "conflicts" : {
+                   "DBD::PO" : "2.10",
+                   "DBD::CSV" : "0.36",
+                   "DBD::Amazon" : "0.10",
+                   "DBD::AnyData" : "0.110",
+                   "SQL::Statement" : "1.33",
+                   "DBD::RAM" : "0.072",
+                   "DBD::Google" : "0.51"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::Simple" : "0.90",
+                   "ExtUtils::MakeMaker" : "6.48"
+                }
+             }
+          },
+          "abstract" : "Database independent interface for Perl",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.643"
+       },
+       "deprecated" : false,
+       "version" : "1.643",
+       "stat" : {
+          "mode" : 33204,
+          "mtime" : 1580497361,
+          "size" : 612372
+       },
+       "authorized" : true,
+       "provides" : [
+          "Bundle::DBI",
+          "DBD::DBM",
+          "DBD::DBM::Statement",
+          "DBD::DBM::Table",
+          "DBD::DBM::db",
+          "DBD::DBM::dr",
+          "DBD::DBM::st",
+          "DBD::ExampleP",
+          "DBD::ExampleP::db",
+          "DBD::ExampleP::dr",
+          "DBD::ExampleP::st",
+          "DBD::File",
+          "DBD::File::DataSource::File",
+          "DBD::File::DataSource::Stream",
+          "DBD::File::Statement",
+          "DBD::File::Table",
+          "DBD::File::TableSource::FileSystem",
+          "DBD::File::db",
+          "DBD::File::dr",
+          "DBD::File::st",
+          "DBD::Gofer",
+          "DBD::Gofer::Policy::Base",
+          "DBD::Gofer::Policy::classic",
+          "DBD::Gofer::Policy::pedantic",
+          "DBD::Gofer::Policy::rush",
+          "DBD::Gofer::Transport::Base",
+          "DBD::Gofer::Transport::corostream",
+          "DBD::Gofer::Transport::null",
+          "DBD::Gofer::Transport::pipeone",
+          "DBD::Gofer::Transport::stream",
+          "DBD::Gofer::db",
+          "DBD::Gofer::dr",
+          "DBD::Gofer::st",
+          "DBD::Mem",
+          "DBD::Mem::DataSource",
+          "DBD::Mem::Statement",
+          "DBD::Mem::Table",
+          "DBD::Mem::db",
+          "DBD::Mem::dr",
+          "DBD::Mem::st",
+          "DBD::NullP",
+          "DBD::NullP::db",
+          "DBD::NullP::dr",
+          "DBD::NullP::st",
+          "DBD::Proxy",
+          "DBD::Proxy::RPC::PlClient",
+          "DBD::Proxy::db",
+          "DBD::Proxy::dr",
+          "DBD::Proxy::st",
+          "DBD::Sponge",
+          "DBD::Sponge::db",
+          "DBD::Sponge::dr",
+          "DBD::Sponge::st",
+          "DBDI",
+          "DBI",
+          "DBI::Const::GetInfo::ANSI",
+          "DBI::Const::GetInfo::ODBC",
+          "DBI::Const::GetInfoReturn",
+          "DBI::Const::GetInfoType",
+          "DBI::DBD",
+          "DBI::DBD::Metadata",
+          "DBI::DBD::SqlEngine",
+          "DBI::DBD::SqlEngine::DataSource",
+          "DBI::DBD::SqlEngine::Statement",
+          "DBI::DBD::SqlEngine::Table",
+          "DBI::DBD::SqlEngine::TableSource",
+          "DBI::DBD::SqlEngine::TieMeta",
+          "DBI::DBD::SqlEngine::TieTables",
+          "DBI::DBD::SqlEngine::db",
+          "DBI::DBD::SqlEngine::dr",
+          "DBI::DBD::SqlEngine::st",
+          "DBI::Gofer::Execute",
+          "DBI::Gofer::Request",
+          "DBI::Gofer::Response",
+          "DBI::Gofer::Serializer::Base",
+          "DBI::Gofer::Serializer::DataDumper",
+          "DBI::Gofer::Serializer::Storable",
+          "DBI::Gofer::Transport::Base",
+          "DBI::Gofer::Transport::pipeone",
+          "DBI::Gofer::Transport::stream",
+          "DBI::Profile",
+          "DBI::ProfileData",
+          "DBI::ProfileDumper",
+          "DBI::ProfileDumper::Apache",
+          "DBI::ProfileSubs",
+          "DBI::ProxyServer",
+          "DBI::ProxyServer::db",
+          "DBI::ProxyServer::dr",
+          "DBI::ProxyServer::st",
+          "DBI::SQL::Nano",
+          "DBI::SQL::Nano::Statement_",
+          "DBI::SQL::Nano::Table_",
+          "DBI::Util::CacheMemory",
+          "DBI::Util::_accessor",
+          "DBI::common"
+       ],
+       "id" : "wUU9iUXrS9CuMzYmqtw3WWNgrBc",
+       "checksum_md5" : "352f80b1e23769c116082a90905d7398",
+       "main_module" : "DBI",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/perl5-dbi/dbi"
+          },
+          "homepage" : "http://dbi.perl.org/"
+       },
+       "checksum_sha256" : "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa",
+       "changes_file" : "Changes",
+       "author" : "TIMB",
+       "archive" : "DBI-1.643.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 1.643
+    }

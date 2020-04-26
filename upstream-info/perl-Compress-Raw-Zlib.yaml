@@ -1,0 +1,131 @@
+---
+version_control: metacpan
+src_repo: Compress-Raw-Zlib
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:44.959854260 +00:00
+  raw_data: |
+    {
+       "provides" : [
+          "Compress::Raw::Zlib"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "mtime" : 1575734734,
+          "size" : 254545,
+          "mode" : 33188
+       },
+       "version" : "2.093",
+       "id" : "GkYiBZRRbtpHVSQ2UpvSh6Ja_Lg",
+       "deprecated" : false,
+       "metadata" : {
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/pmqs/Compress-Raw-Zlib",
+                "url" : "git://github.com/pmqs/Compress-Raw-Zlib.git"
+             },
+             "homepage" : "https://github.com/pmqs/Compress-Raw-Zlib",
+             "bugtracker" : {
+                "web" : "https://github.com/pmqs/Compress-Raw-Zlib/issues"
+             }
+          },
+          "name" : "Compress-Raw-Zlib",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "unknown"
+          ],
+          "abstract" : "unknown",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150005, CPAN::Meta::Converter version 2.150010",
+          "version" : "2.093",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "private",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "tests" : {
+          "fail" : 0,
+          "pass" : 746,
+          "unknown" : 2,
+          "na" : 0
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "b5ec7194fa4a15738d3b8040ce42926342bb770e48d34a8d6008a1817e23e9f4",
+       "version_numified" : 2.093,
+       "author" : "PMQS",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Compress-Raw-Zlib-2.093.tar.gz",
+       "main_module" : "Compress::Raw::Zlib",
+       "resources" : {
+          "homepage" : "https://github.com/pmqs/Compress-Raw-Zlib",
+          "bugtracker" : {
+             "web" : "https://github.com/pmqs/Compress-Raw-Zlib/issues"
+          },
+          "repository" : {
+             "url" : "git://github.com/pmqs/Compress-Raw-Zlib.git",
+             "type" : "git",
+             "web" : "https://github.com/pmqs/Compress-Raw-Zlib"
+          }
+       },
+       "checksum_md5" : "1b141900de64327094baac8be4f43d6a",
+       "abstract" : "Basic utilities for writing tests.",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "first" : false,
+       "distribution" : "Compress-Raw-Zlib",
+       "status" : "latest",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.093.tar.gz",
+       "name" : "Compress-Raw-Zlib-2.093",
+       "date" : "2019-12-07T16:05:34",
+       "maturity" : "released"
+    }

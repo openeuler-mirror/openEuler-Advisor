@@ -1,0 +1,122 @@
+---
+version_control: metacpan
+src_repo: Text-Balanced
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:38.840687730 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1425458788,
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 48773
+       },
+       "metadata" : {
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "version" : "2.03",
+          "abstract" : "Extract delimited text sequences from strings",
+          "name" : "Text-Balanced",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.50, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0.47"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1
+       },
+       "checksum_sha256" : "057753f8f0568b53921f66a60a89c30092b73329bcc61a2c43339ab70c9792c8",
+       "date" : "2015-03-04T08:46:28",
+       "archive" : "Text-Balanced-2.03.tar.gz",
+       "distribution" : "Text-Balanced",
+       "license" : [
+          "perl_5"
+       ],
+       "main_module" : "Text::Balanced",
+       "resources" : {},
+       "version" : "2.03",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.47",
+             "module" : "Test::More",
+             "phase" : "runtime"
+          }
+       ],
+       "name" : "Text-Balanced-2.03",
+       "tests" : {
+          "pass" : 2446,
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 0
+       },
+       "changes_file" : "Changes",
+       "version_numified" : 2.03,
+       "id" : "AzneqwHPn48lUVQCtggs2B2IWoc",
+       "provides" : [
+          "Text::Balanced",
+          "Text::Balanced::ErrorMsg",
+          "Text::Balanced::Extractor"
+       ],
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SH/SHAY/Text-Balanced-2.03.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "author" : "SHAY",
+       "status" : "latest",
+       "checksum_md5" : "891fa8a0f20307a5f22ac1fdd0ce565b",
+       "abstract" : "Extract delimited text sequences from strings",
+       "authorized" : true
+    }

@@ -1,0 +1,147 @@
+---
+version_control: metacpan
+src_repo: MIME-Lite
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:20.305009520 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mode" : 33188,
+          "size" : 82577,
+          "mtime" : 1572095190
+       },
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/MIME-Lite-3.031.tar.gz",
+       "author" : "RJBS",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/rjbs/MIME-Lite"
+          }
+       },
+       "archive" : "MIME-Lite-3.031.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "4ff72d8dd5811b8538825fca4b0f133e",
+       "distribution" : "MIME-Lite",
+       "id" : "dE7RxdpFkeF85818rHVr8T0DP78",
+       "version_numified" : 3.031,
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 1232,
+          "fail" : 6,
+          "na" : 0
+       },
+       "main_module" : "MIME::Lite",
+       "status" : "latest",
+       "version" : "3.031",
+       "changes_file" : "",
+       "abstract" : "low-calorie MIME generator",
+       "checksum_sha256" : "f1235866482b67f00858b3edaa4ff4cf909ef900f1d15d889948bf9c03a591e0",
+       "authorized" : true,
+       "name" : "MIME-Lite-3.031",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "File::Basename",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.000",
+             "phase" : "runtime",
+             "module" : "Email::Date::Format"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          }
+       ],
+       "date" : "2019-10-26T13:06:30",
+       "first" : false,
+       "provides" : [
+          "MIME::Lite",
+          "MIME::Lite::IO_Handle",
+          "MIME::Lite::IO_Scalar",
+          "MIME::Lite::IO_ScalarArray",
+          "MIME::Lite::SMTP",
+          "MailTool"
+       ],
+       "maturity" : "released",
+       "metadata" : {
+          "name" : "MIME-Lite",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/rjbs/MIME-Lite"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "3.031",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Basename" : "0",
+                   "File::Spec" : "0",
+                   "Email::Date::Format" : "1.000"
+                }
+             }
+          },
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 7.36, CPAN::Meta::Converter version 2.150010",
+          "author" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1
+       }
+    }

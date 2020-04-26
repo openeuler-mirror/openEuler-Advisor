@@ -1,0 +1,369 @@
+---
+version_control: metacpan
+src_repo: Perl-OSType
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:18.061390180 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "abstract" : "Map Perl operating system names to generic types",
+       "main_module" : "Perl::OSType",
+       "status" : "latest",
+       "version" : "1.010",
+       "maturity" : "released",
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType.git",
+                "web" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType"
+             },
+             "homepage" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType",
+             "bugtracker" : {
+                "web" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType/issues"
+             }
+          },
+          "name" : "Perl-OSType",
+          "license" : [
+             "perl_5"
+          ],
+          "provides" : {
+             "Perl::OSType" : {
+                "file" : "lib/Perl/OSType.pm",
+                "version" : "1.010"
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "ExtUtils::MakeMaker" : "6.17"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "IO::Handle" : "0",
+                   "Pod::Wordlist" : "0",
+                   "File::Temp" : "0",
+                   "File::Spec" : "0",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Test::More" : "0",
+                   "perl" : "5.006",
+                   "Test::CPAN::Meta" : "0",
+                   "Dist::Zilla::Plugin::OnlyCorePrereqs" : "0.003",
+                   "Test::Pod" : "1.41",
+                   "English" : "0",
+                   "Test::Spelling" : "0.12",
+                   "IPC::Open3" : "0",
+                   "Dist::Zilla::PluginBundle::DAGOLDEN" : "0.072",
+                   "Dist::Zilla" : "5",
+                   "Test::Pod::Coverage" : "1.08",
+                   "blib" : "1.01",
+                   "Test::Version" : "1",
+                   "Test::Portability::Files" : "0",
+                   "Software::License::Perl_5" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "warnings" : "0",
+                   "Exporter" : "0",
+                   "strict" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "perl" : "5.006",
+                   "Test::More" : "0.88",
+                   "File::Spec" : "0",
+                   "constant" : "0"
+                },
+                "recommends" : {
+                   "CPAN::Meta" : "2.120900"
+                }
+             }
+          },
+          "no_index" : {
+             "package" : [
+                "DB"
+             ],
+             "directory" : [
+                "corpus",
+                "examples",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.010",
+          "x_authority" : "cpan:DAGOLDEN",
+          "author" : [
+             "David Golden <dagolden@cpan.org>"
+          ],
+          "dynamic_config" : 0,
+          "x_contributors" : [
+             "Chris 'BinGOs' Williams <chris@bingosnet.co.uk>",
+             "David Golden <xdg@xdg.me>",
+             "Graham Ollis <plicease@cpan.org>",
+             "Jonas B. Nielsen <jonasbn@hoarfrost.local>",
+             "Owain G. Ainsworth <oga@nicotinebsd.org>",
+             "Paul Green <Paul.Green@stratus.com>",
+             "Piotr Roszatycki <piotr.roszatycki@gmail.com>"
+          ],
+          "generated_by" : "Dist::Zilla version 6.005, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Map Perl operating system names to generic types"
+       },
+       "authorized" : true,
+       "checksum_sha256" : "e7ed4994b5d547cb23aadb84dc6044c5eb085d5a67a6c5624f42542edd3403b2",
+       "name" : "Perl-OSType-1.010",
+       "provides" : [
+          "Perl::OSType"
+       ],
+       "date" : "2016-06-21T21:57:12",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "test",
+             "module" : "perl"
+          },
+          {
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "File::Spec",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "module" : "constant",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "CPAN::Meta",
+             "phase" : "test",
+             "version" : "2.120900",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.003",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::OnlyCorePrereqs"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Pod::Wordlist",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.072",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::PluginBundle::DAGOLDEN",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Pod::Coverage::TrustPod",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "English",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Spelling",
+             "version" : "0.12",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::CPAN::Meta",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "File::Temp",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::Handle",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "version" : "1.41",
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Portability::Files",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "blib",
+             "phase" : "develop",
+             "version" : "1.01"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1",
+             "phase" : "develop",
+             "module" : "Test::Version"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Spec",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "module" : "IPC::Open3",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Software::License::Perl_5"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.08",
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.006",
+             "phase" : "develop",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Dist::Zilla",
+             "phase" : "develop",
+             "version" : "5"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.17"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "configure",
+             "version" : "5.006"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "strict",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Perl-OSType-1.010.tar.gz",
+       "author" : "DAGOLDEN",
+       "stat" : {
+          "size" : 18190,
+          "mode" : 33188,
+          "mtime" : 1466546232
+       },
+       "deprecated" : "false",
+       "distribution" : "Perl-OSType",
+       "id" : "Ftv37rfy_VNlmbKlyPnJqGVi5HE",
+       "version_numified" : 1.01,
+       "tests" : {
+          "pass" : 1552,
+          "unknown" : 2,
+          "fail" : 0,
+          "na" : 0
+       },
+       "resources" : {
+          "homepage" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType",
+          "repository" : {
+             "web" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType",
+             "type" : "git",
+             "url" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType.git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/Perl-Toolchain-Gang/Perl-OSType/issues"
+          }
+       },
+       "archive" : "Perl-OSType-1.010.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "aa723870bc664bc5476a92073dce194f"
+    }

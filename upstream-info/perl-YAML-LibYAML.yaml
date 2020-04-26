@@ -1,0 +1,156 @@
+---
+version_control: metacpan
+src_repo: YAML-LibYAML
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:40.467717000 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "fail" : 4,
+          "unknown" : 69,
+          "pass" : 2204,
+          "na" : 1
+       },
+       "metadata" : {
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "v5.8.1"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "abstract" : "Perl YAML Serialization using XS and libyaml",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_generated_by_perl" : "v5.24.1",
+          "no_index" : {
+             "directory" : [
+                "example",
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.81",
+          "resources" : {
+             "homepage" : "https://github.com/ingydotnet/yaml-libyaml-pm",
+             "bugtracker" : {
+                "web" : "https://github.com/ingydotnet/yaml-libyaml-pm/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/ingydotnet/yaml-libyaml-pm.git",
+                "web" : "https://github.com/ingydotnet/yaml-libyaml-pm",
+                "type" : "git"
+             }
+          },
+          "dynamic_config" : 0,
+          "release_status" : "stable",
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.02",
+          "name" : "YAML-LibYAML",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Ingy döt Net <ingy@cpan.org>"
+          ]
+       },
+       "deprecated" : false,
+       "id" : "YsmDqf0tuNyza7cMONtcXqjpMJE",
+       "stat" : {
+          "mode" : 33204,
+          "mtime" : 1580162782,
+          "size" : 150457
+       },
+       "version" : "0.81",
+       "provides" : [
+          "YAML::LibYAML",
+          "YAML::XS",
+          "YAML::XS::LibYAML"
+       ],
+       "authorized" : true,
+       "checksum_md5" : "6d8a5947b8bd51393171c2c32be3b88d",
+       "main_module" : "YAML::LibYAML",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/ingydotnet/yaml-libyaml-pm/issues"
+          },
+          "homepage" : "https://github.com/ingydotnet/yaml-libyaml-pm",
+          "repository" : {
+             "url" : "https://github.com/ingydotnet/yaml-libyaml-pm.git",
+             "type" : "git",
+             "web" : "https://github.com/ingydotnet/yaml-libyaml-pm"
+          }
+       },
+       "archive" : "YAML-LibYAML-0.81.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "TINITA",
+       "version_numified" : 0.81,
+       "checksum_sha256" : "70df660bfdd398b7a45d2b9d40f60a6036bc385a2f89e1af874029ee27f195e7",
+       "changes_file" : "Changes",
+       "distribution" : "YAML-LibYAML",
+       "status" : "latest",
+       "first" : false,
+       "abstract" : "Perl YAML Serialization using XS and libyaml",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "1.41"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "v5.8.1",
+             "module" : "perl"
+          }
+       ],
+       "maturity" : "released",
+       "date" : "2020-01-27T22:06:22",
+       "name" : "YAML-LibYAML-0.81",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-LibYAML-0.81.tar.gz"
+    }

@@ -1,0 +1,133 @@
+---
+version_control: metacpan
+src_repo: Term-Cap
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:43.841448000 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/jonathanstowe/Term-Cap.git",
+                "type" : "git",
+                "web" : "https://github.com/jonathanstowe/Term-Cap"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Jonathan Stowe <jns@gellyfish.co.uk>"
+          ],
+          "name" : "Term-Cap",
+          "abstract" : "Perl termcap interface",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0.33"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.142060, CPAN::Meta::Converter version 2.150005",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.17",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "pass" : 1479,
+          "unknown" : 0,
+          "na" : 0,
+          "fail" : 1
+       },
+       "provides" : [
+          "Term::Cap"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "uid" : 1009,
+          "size" : 12724,
+          "mtime" : 1439797198,
+          "gid" : 1009,
+          "mode" : 33204
+       },
+       "version" : "1.17",
+       "id" : "Ax6GHe54r9Gc0kUy5U7R_AhzVyk",
+       "main_module" : "Term::Cap",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/jonathanstowe/Term-Cap.git",
+             "type" : "git",
+             "web" : "https://github.com/jonathanstowe/Term-Cap"
+          }
+       },
+       "checksum_md5" : "4461ac0a1492e59e7430bc879dc2d962",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "e79a9b7c7f6baa5831316e193a3303c7b9d3a0f184a1ea06377c4645a667d163",
+       "version_numified" : 1.17,
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Term-Cap-1.17.tar.gz",
+       "author" : "JSTOWE",
+       "abstract" : "Perl termcap interface",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.33",
+             "module" : "Test::More"
+          }
+       ],
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "Term-Cap",
+       "date" : "2015-08-17T07:39:58",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/Term-Cap-1.17.tar.gz",
+       "name" : "Term-Cap-1.17"
+    }

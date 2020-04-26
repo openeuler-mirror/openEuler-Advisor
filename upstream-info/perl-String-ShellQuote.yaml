@@ -1,0 +1,112 @@
+---
+version_control: metacpan
+src_repo: String-ShellQuote
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:20.861257790 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1276287491,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 6867
+       },
+       "maturity" : "released",
+       "resources" : {},
+       "main_module" : "String::ShellQuote",
+       "license" : [
+          "unknown"
+       ],
+       "distribution" : "String-ShellQuote",
+       "archive" : "String-ShellQuote-1.04.tar.gz",
+       "checksum_sha256" : "e606365038ce20d646d255c805effdd32f86475f18d43ca75455b00e4d86dd35",
+       "date" : "2010-06-11T20:18:11",
+       "metadata" : {
+          "abstract" : "unknown",
+          "name" : "String-ShellQuote",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "unknown"
+          ],
+          "version" : "1.04",
+          "license" : [
+             "unknown"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 6.55_02, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {}
+             }
+          }
+       },
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "1.04",
+       "tests" : {
+          "unknown" : 12,
+          "na" : 0,
+          "fail" : 9,
+          "pass" : 15359
+       },
+       "name" : "String-ShellQuote-1.04",
+       "changes_file" : "Changes",
+       "provides" : [
+          "String::ShellQuote"
+       ],
+       "id" : "MhYfpcH7UXQoJrkXd1_O_9MGBV4",
+       "version_numified" : 1.04,
+       "author" : "ROSCH",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RO/ROSCH/String-ShellQuote-1.04.tar.gz",
+       "authorized" : true,
+       "checksum_md5" : "da6329dc482b21adf5697cfbd2ac5412",
+       "abstract" : "quote strings for passing through the shell",
+       "status" : "latest"
+    }

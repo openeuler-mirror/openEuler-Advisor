@@ -1,0 +1,97 @@
+---
+version_control: metacpan
+src_repo: GD-Barcode
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:08.557623900 +00:00
+  raw_data: |
+    {
+       "distribution" : "GD-Barcode",
+       "id" : "qsp8CIYiyZwTmZ4Us9vst9KDA6M",
+       "version_numified" : 1.15,
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 2,
+          "pass" : 5367
+       },
+       "resources" : {},
+       "archive" : "GD-Barcode-1.15.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "checksum_md5" : "53788170efb00b671ffb6ced5b5b897b",
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KW/KWITKNR/GD-Barcode-1.15.tar.gz",
+       "author" : "KWITKNR",
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 892881,
+          "mtime" : 1082790569
+       },
+       "deprecated" : "false",
+       "maturity" : "released",
+       "metadata" : {
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 6.17, CPAN::Meta::Converter version 2.150005",
+          "author" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "version" : "1.15",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "x_version_from" : "Barcode.pm",
+          "release_status" : "stable",
+          "prereqs" : {},
+          "x_installdirs" : "site",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "GD-Barcode",
+          "license" : [
+             "unknown"
+          ]
+       },
+       "authorized" : true,
+       "checksum_sha256" : "8c22b449079dce65946ec72acf6d3db78753045e7738c5101bc26932c9704967",
+       "name" : "GD-Barcode-1.15",
+       "date" : "2004-04-24T07:09:29",
+       "first" : false,
+       "provides" : [
+          "GD::Barcode",
+          "GD::Barcode::COOP2of5",
+          "GD::Barcode::Code39",
+          "GD::Barcode::EAN13",
+          "GD::Barcode::EAN8",
+          "GD::Barcode::IATA2of5",
+          "GD::Barcode::ITF",
+          "GD::Barcode::Industrial2of5",
+          "GD::Barcode::Matrix2of5",
+          "GD::Barcode::NW7",
+          "GD::Barcode::QRcode",
+          "GD::Barcode::UPCA",
+          "GD::Barcode::UPCE"
+       ],
+       "dependency" : [],
+       "changes_file" : "Changes",
+       "abstract" : "Create barcode image with GD",
+       "main_module" : "GD::Barcode",
+       "version" : "1.15",
+       "status" : "latest"
+    }

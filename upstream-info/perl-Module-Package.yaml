@@ -1,0 +1,196 @@
+---
+version_control: metacpan
+src_repo: Module-Package
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:27.597911260 +00:00
+  raw_data: |
+    {
+       "version" : "0.30",
+       "dependency" : [
+          {
+             "module" : "Cwd",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "v5.8.3",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Install::ManifestSkip",
+             "phase" : "runtime",
+             "version" : "0.19"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Find",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Module::Install",
+             "version" : "1.01",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::All",
+             "version" : "0.41",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Moo",
+             "phase" : "runtime",
+             "version" : "0.009008",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Module::Install::AuthorRequires",
+             "version" : "0.02",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.42",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.42",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Module-Package-0.30",
+       "tests" : {
+          "unknown" : 12,
+          "na" : 4,
+          "fail" : 1,
+          "pass" : 1181
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 41751,
+          "mode" : 33188,
+          "uid" : 1009,
+          "mtime" : 1317911949,
+          "gid" : 1009
+       },
+       "checksum_sha256" : "7c3c89e779baa83afaf0dc9599c20f90b3e613ea3ece0328931257ab7cc24a99",
+       "date" : "2011-10-06T14:39:09",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/ingydotnet/module-package-pm.git"
+             },
+             "homepage" : "http://github.com/ingydotnet/module-package-pm/tree"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.42"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Moo" : "0.009008",
+                   "Module::Install::AuthorRequires" : "0.02",
+                   "File::Find" : "0",
+                   "IO::All" : "0.41",
+                   "perl" : "v5.8.3",
+                   "Module::Install" : "1.01",
+                   "Cwd" : "0",
+                   "Module::Install::ManifestSkip" : "0.19"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.42"
+                }
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "Module::Install version 1.01, CPAN::Meta::Converter version 2.150005",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Module-Package",
+          "abstract" : "Postmodern Perl Module Packaging",
+          "x_module_name" : "Module::Package",
+          "version" : "0.30",
+          "author" : [
+             "Ingy döt Net <ingy@cpan.org>"
+          ]
+       },
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "git://github.com/ingydotnet/module-package-pm.git"
+          },
+          "homepage" : "http://github.com/ingydotnet/module-package-pm/tree"
+       },
+       "main_module" : "Module::Package",
+       "archive" : "Module-Package-0.30.tar.gz",
+       "distribution" : "Module-Package",
+       "license" : [
+          "perl_5"
+       ],
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/I/IN/INGY/Module-Package-0.30.tar.gz",
+       "author" : "INGY",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Postmodern Perl Module Packaging",
+       "checksum_md5" : "189b1f4a93999088e54d87bc735abddb",
+       "changes_file" : "Changes",
+       "version_numified" : 0.3,
+       "provides" : [
+          "Module::Install::Package",
+          "Module::Package",
+          "Module::Package::Dist",
+          "Module::Package::PM",
+          "Module::Package::POD",
+          "Module::Package::Plugin",
+          "Module::Package::Plugin::basic",
+          "inc::Module::Package"
+       ],
+       "id" : "te5I_E2tQzxaBOyuVyD0K41BMRE"
+    }

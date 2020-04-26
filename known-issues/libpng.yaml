@@ -1,0 +1,52 @@
+---
+version_control: github
+src_repo: glennrp/libpng
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 10:58:34.918601600 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/glennrp/libpng/releases/11944101",
+        "assets_url": "https://api.github.com/repos/glennrp/libpng/releases/11944101/assets",
+        "upload_url": "https://uploads.github.com/repos/glennrp/libpng/releases/11944101/assets{?name,label}",
+        "html_url": "https://github.com/glennrp/libpng/releases/tag/v1.6.35",
+        "id": 11944101,
+        "node_id": "MDc6UmVsZWFzZTExOTQ0MTAx",
+        "tag_name": "v1.6.35",
+        "target_commitish": "libpng16",
+        "name": "libpng-1.6.35",
+        "draft": false,
+        "author": {
+          "login": "ctruta",
+          "id": 2609110,
+          "node_id": "MDQ6VXNlcjI2MDkxMTA=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/2609110?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ctruta",
+          "html_url": "https://github.com/ctruta",
+          "followers_url": "https://api.github.com/users/ctruta/followers",
+          "following_url": "https://api.github.com/users/ctruta/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ctruta/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ctruta/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ctruta/subscriptions",
+          "organizations_url": "https://api.github.com/users/ctruta/orgs",
+          "repos_url": "https://api.github.com/users/ctruta/repos",
+          "events_url": "https://api.github.com/users/ctruta/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ctruta/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2018-07-16T03:58:00Z",
+        "published_at": "2018-07-16T11:22:18Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/glennrp/libpng/tarball/v1.6.35",
+        "zipball_url": "https://api.github.com/repos/glennrp/libpng/zipball/v1.6.35",
+        "body": "Changes since the last public release (1.6.34):\r\n\r\n* Restored 21 of the `contrib/pngsuite/i*.png`, which do not cause test failures. Placed the remainder in `contrib/pngsuite/interlaced/i*.png`.\r\n* Added calls to `png_set_*()` transforms commonly used by browsers to the fuzzer.\r\n* Removed some unnecessary brackets in `pngrtran.c`\r\n* Fixed miscellaneous typos (Patch by github user \"luzpaz\").\r\n* Change \"ASM C\" to \"C ASM\" in `CMakeLists.txt`\r\n* Fixed incorrect handling of bKGD chunk in sub-8-bit files\r\n* Added hardware optimization directories to zip and 7z distributions.\r\n* Fixed incorrect bitmask for options.\r\n* Fixed many spelling typos.\r\n* Make `png_get_iCCP` consistent with man page (allow compression-type argument to be NULL, bug report by Lenard Szolnoki).\r\n* Replaced the remaining uses of `png_size_t` with `size_t`\r\n* Fixed the calculation of row_factor in `png_check_chunk_length` (reported by Thuan Pham in SourceForge issue #278)\r\n* Added missing parentheses to a macro definition (suggested by \"irwir\" in GitHub issue #216)"
+      }
+    ]
+query_type: api.github.releases

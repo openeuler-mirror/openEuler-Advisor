@@ -1,0 +1,99 @@
+---
+version_control: metacpan
+src_repo: XML-TokeParser
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:51.135062570 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "unknown" : 1,
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 3230
+       },
+       "name" : "XML-TokeParser-0.05",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "XML::Parser",
+             "version" : "2"
+          }
+       ],
+       "version" : "0.05",
+       "main_module" : "XML::TokeParser",
+       "resources" : {},
+       "distribution" : "XML-TokeParser",
+       "archive" : "XML-TokeParser-0.05.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "date" : "2003-06-09T10:19:47",
+       "checksum_sha256" : "8539b4f98436b1a6d088341a8b4530b7922acd651f3f29377f8b1948c7e2d7c2",
+       "metadata" : {
+          "version" : "0.05",
+          "x_installdirs" : "site",
+          "author" : [
+             "unknown"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "XML-TokeParser",
+          "abstract" : "unknown",
+          "x_version_from" : "TokeParser.pm",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "XML::Parser" : "2"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.10_06, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ]
+       },
+       "stat" : {
+          "size" : 10989,
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1055153987,
+          "gid" : 1009
+       },
+       "maturity" : "released",
+       "authorized" : true,
+       "abstract" : "Simplified interface to XML::Parser",
+       "checksum_md5" : "a886ac451d99dca522df20d7cf7b28b4",
+       "status" : "latest",
+       "author" : "PODMASTER",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PO/PODMASTER/XML-TokeParser-0.05.tar.gz",
+       "provides" : [
+          "XML::TokeParser",
+          "XML::TokeParser::Token"
+       ],
+       "id" : "0pY9vHsmgpuxEEJweU4OHCG2dJw",
+       "version_numified" : 0.05,
+       "changes_file" : "Changes"
+    }

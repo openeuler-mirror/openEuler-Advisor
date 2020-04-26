@@ -1,0 +1,158 @@
+---
+version_control: metacpan
+src_repo: Module-Install-Repository
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:36.608996370 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "na" : 0,
+          "fail" : 5,
+          "unknown" : 21,
+          "pass" : 3351
+       },
+       "version_numified" : 0.06,
+       "id" : "5aiCK3rRMr7fMgZyjQBJucFnYBQ",
+       "distribution" : "Module-Install-Repository",
+       "checksum_md5" : "cea8fc958cebe19e1be64d7cadbbc470",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Module-Install-Repository-0.06.tar.gz",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "git://github.com/miyagawa/module-install-repository.git"
+          }
+       },
+       "author" : "MIYAGAWA",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Module-Install-Repository-0.06.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 48339,
+          "mtime" : 1250123844
+       },
+       "metadata" : {
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/miyagawa/module-install-repository.git"
+             }
+          },
+          "name" : "Module-Install-Repository",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "Tatsuhiko Miyagawa <miyagawa@bulknews.net>"
+          ],
+          "generated_by" : "Module::Install version 0.91, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Automatically sets repository URL from svn/svk/Git checkout",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.42"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Filter::Util::Call" : "0",
+                   "perl" : "5.005"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Path::Class" : "0",
+                   "ExtUtils::MakeMaker" : "6.42",
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "0.06",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "maturity" : "released",
+       "date" : "2009-08-13T00:37:24",
+       "first" : false,
+       "provides" : [
+          "Module::Install::Repository"
+       ],
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "6.42",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "Path::Class",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.005",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Filter::Util::Call",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.42",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          }
+       ],
+       "name" : "Module-Install-Repository-0.06",
+       "checksum_sha256" : "00e2590d09339ccccbdaa328d12ad8ec77e831a38c9ad663705e59ecbb18722b",
+       "authorized" : true,
+       "abstract" : "Automatically sets repository URL from svn/svk/Git checkout",
+       "changes_file" : "Changes",
+       "version" : "0.06",
+       "status" : "latest",
+       "main_module" : "Module::Install::Repository"
+    }

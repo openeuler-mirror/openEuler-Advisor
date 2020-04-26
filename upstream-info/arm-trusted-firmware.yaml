@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  ARM-software/arm-trusted-firmware
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,112 @@
+---
+version_control: metacpan
+src_repo: File-Sync
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:44.407580970 +00:00
+  raw_data: |
+    {
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.11",
+       "tests" : {
+          "na" : 0,
+          "fail" : 7,
+          "pass" : 3928,
+          "unknown" : 71
+       },
+       "name" : "File-Sync-0.11",
+       "stat" : {
+          "size" : 5842,
+          "mode" : 33188,
+          "uid" : 1009,
+          "mtime" : 1321732713,
+          "gid" : 1009
+       },
+       "maturity" : "released",
+       "resources" : {},
+       "main_module" : "File::Sync",
+       "distribution" : "File-Sync",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "File-Sync-0.11.tar.gz",
+       "date" : "2011-11-19T19:58:33",
+       "checksum_sha256" : "786698225e5cb43e8f061b78cfac1e0e7d48d370034ffdc518255207741c0b2a",
+       "metadata" : {
+          "author" : [
+             "unknown"
+          ],
+          "version" : "0.11",
+          "abstract" : "unknown",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "File-Sync",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.56, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "license" : [
+             "unknown"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1
+       },
+       "author" : "BRIANSKI",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BR/BRIANSKI/File-Sync-0.11.tar.gz",
+       "authorized" : true,
+       "checksum_md5" : "8bb0966ff3458699c02fde3d5c799824",
+       "abstract" : "Perl access to fsync() and sync() function calls",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "provides" : [
+          "File::Sync"
+       ],
+       "id" : "RJclzbtmIRO8UK9xy2zEgGYQtcQ",
+       "version_numified" : 0.11
+    }

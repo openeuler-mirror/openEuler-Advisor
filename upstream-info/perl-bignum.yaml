@@ -1,0 +1,140 @@
+---
+version_control: metacpan
+src_repo: bignum
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:30.956695740 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PJ/PJACKLAM/bignum-0.51.tar.gz",
+       "author" : "PJACKLAM",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 28851,
+          "mode" : 33188,
+          "mtime" : 1539276669
+       },
+       "version_numified" : 0.51,
+       "tests" : {
+          "fail" : 0,
+          "na" : 30,
+          "unknown" : 0,
+          "pass" : 935
+       },
+       "distribution" : "bignum",
+       "id" : "bjG2bV3kbHtXPXndC8WKOyRstN0",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "4cdb8a034ad8734e09d44d27d63875c5",
+       "resources" : {},
+       "archive" : "bignum-0.51.tar.gz",
+       "abstract" : "Transparent BigNumber support for Perl",
+       "changes_file" : "CHANGES",
+       "main_module" : "bignum",
+       "status" : "latest",
+       "version" : "0.51",
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "bignum",
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "0.51",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Math::BigInt" : "1.999812",
+                   "perl" : "5.01",
+                   "Math::BigRat" : "0.12"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.58"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "unknown",
+          "dynamic_config" : 1,
+          "author" : [
+             "Peter John Acklam <pjacklam@gmail.com>"
+          ]
+       },
+       "maturity" : "released",
+       "name" : "bignum-0.51",
+       "first" : false,
+       "provides" : [
+          "Math::BigFloat::Trace",
+          "Math::BigInt::Trace",
+          "bigint",
+          "bignum",
+          "bigrat"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.58"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.88",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.999812",
+             "module" : "Math::BigInt",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Math::BigRat",
+             "version" : "0.12"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.01",
+             "phase" : "runtime",
+             "module" : "perl"
+          }
+       ],
+       "date" : "2018-10-11T16:51:09",
+       "checksum_sha256" : "8ac0f6efe0b6f24804690e53908bdc5346613667f1c0590d8cf808ec090e9c47",
+       "authorized" : true
+    }

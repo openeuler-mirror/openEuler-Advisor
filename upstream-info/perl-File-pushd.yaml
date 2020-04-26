@@ -1,0 +1,426 @@
+---
+version_control: metacpan
+src_repo: File-pushd
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:07.451227600 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "1480e0d4813a8990c003e78338f00955",
+       "abstract" : "change directory temporarily for a limited scope",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "DAGOLDEN",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-pushd-1.016.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "id" : "jEFURLpOMp_ImpKS6Keq2VCzZgI",
+       "provides" : [
+          "File::pushd"
+       ],
+       "version_numified" : 1.016,
+       "changes_file" : "Changes",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 3910,
+          "na" : 0,
+          "fail" : 2
+       },
+       "name" : "File-pushd-1.016",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Spec::Functions",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "module" : "File::Basename",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.006",
+             "phase" : "test",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0.96",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "test",
+             "module" : "CPAN::Meta",
+             "version" : "2.120900",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Path",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.006",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Temp",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Exporter",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "strict",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Cwd",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "overload"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Carp",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "suggests",
+             "module" : "JSON::PP",
+             "version" : "2.27300",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "configure"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.17",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Spelling",
+             "version" : "0.12"
+          },
+          {
+             "module" : "Software::License::Apache_2_0",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Perl::Critic",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::MinimumVersion",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::ReleaseStatus::FromVersion",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5",
+             "phase" : "develop",
+             "module" : "Dist::Zilla",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::PluginBundle::DAGOLDEN",
+             "version" : "0.072"
+          },
+          {
+             "phase" : "develop",
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "IPC::Open3"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "IO::Handle"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Pod::Wordlist",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Portability::Files",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1",
+             "module" : "Test::Version",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Test::Pod::Coverage",
+             "version" : "1.08",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "version" : "1.41"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Pod::Coverage::TrustPod"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Spec",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::CPAN::Meta"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "develop"
+          }
+       ],
+       "version" : "1.016",
+       "archive" : "File-pushd-1.016.tar.gz",
+       "distribution" : "File-pushd",
+       "license" : [
+          "apache_2_0"
+       ],
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/dagolden/File-pushd.git",
+             "web" : "https://github.com/dagolden/File-pushd"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/dagolden/File-pushd/issues"
+          },
+          "homepage" : "https://github.com/dagolden/File-pushd"
+       },
+       "main_module" : "File::pushd",
+       "metadata" : {
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "overload" : "0",
+                   "warnings" : "0",
+                   "perl" : "5.006",
+                   "File::Temp" : "0",
+                   "File::Spec" : "0",
+                   "Carp" : "0",
+                   "File::Path" : "0",
+                   "Cwd" : "0",
+                   "Exporter" : "0",
+                   "strict" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Dist::Zilla::PluginBundle::DAGOLDEN" : "0.072",
+                   "Test::More" : "0",
+                   "Test::CPAN::Meta" : "0",
+                   "IO::Handle" : "0",
+                   "Test::Perl::Critic" : "0",
+                   "Dist::Zilla" : "5",
+                   "Test::Portability::Files" : "0",
+                   "Dist::Zilla::Plugin::ReleaseStatus::FromVersion" : "0",
+                   "Test::Pod::Coverage" : "1.08",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Test::MinimumVersion" : "0",
+                   "perl" : "5.006",
+                   "Test::Pod" : "1.41",
+                   "Software::License::Apache_2_0" : "0",
+                   "File::Temp" : "0",
+                   "IPC::Open3" : "0",
+                   "File::Spec" : "0",
+                   "Pod::Wordlist" : "0",
+                   "Test::Spelling" : "0.12",
+                   "Test::Version" : "1"
+                }
+             },
+             "configure" : {
+                "suggests" : {
+                   "JSON::PP" : "2.27300"
+                },
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.17",
+                   "perl" : "5.006"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "perl" : "5.006",
+                   "Test::More" : "0.96",
+                   "File::Spec::Functions" : "0",
+                   "File::Spec" : "0",
+                   "File::Basename" : "0"
+                },
+                "recommends" : {
+                   "CPAN::Meta" : "2.120900"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 0,
+          "release_status" : "stable",
+          "license" : [
+             "apache_2_0"
+          ],
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/dagolden/File-pushd/issues"
+             },
+             "homepage" : "https://github.com/dagolden/File-pushd",
+             "repository" : {
+                "web" : "https://github.com/dagolden/File-pushd",
+                "url" : "https://github.com/dagolden/File-pushd.git",
+                "type" : "git"
+             }
+          },
+          "version" : "1.016",
+          "no_index" : {
+             "directory" : [
+                "corpus",
+                "examples",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DB"
+             ]
+          },
+          "x_generated_by_perl" : "v5.26.1",
+          "name" : "File-pushd",
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0239",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "x_contributors" : [
+             "Diab Jerius <djerius@cfa.harvard.edu>",
+             "Graham Ollis <plicease@cpan.org>",
+             "Olivier Mengué <dolmen@cpan.org>",
+             "Shoichi Kaji <skaji@cpan.org>"
+          ],
+          "provides" : {
+             "File::pushd" : {
+                "file" : "lib/File/pushd.pm",
+                "version" : "1.016"
+             }
+          },
+          "author" : [
+             "David Golden <dagolden@cpan.org>"
+          ],
+          "x_authority" : "cpan:DAGOLDEN",
+          "abstract" : "change directory temporarily for a limited scope"
+       },
+       "checksum_sha256" : "d73a7f09442983b098260df3df7a832a5f660773a313ca273fa8b56665f97cdc",
+       "date" : "2018-05-20T17:33:51",
+       "stat" : {
+          "mtime" : 1526837631,
+          "size" : 19798,
+          "mode" : 33204
+       },
+       "maturity" : "released"
+    }

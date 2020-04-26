@@ -1,0 +1,138 @@
+---
+version_control: metacpan
+src_repo: Sub-Exporter-Progressive
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:44.970923200 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "provides" : [
+          "Sub::Exporter::Progressive"
+       ],
+       "id" : "ix6eFKQBjdU_LBJQUfID5sqvlFY",
+       "version_numified" : 0.001013,
+       "author" : "FREW",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz",
+       "authorized" : true,
+       "checksum_md5" : "72cf6acdd2a0a8b105821a4db98e4ebe",
+       "abstract" : "Only use Sub::Exporter if you need it",
+       "status" : "latest",
+       "stat" : {
+          "mtime" : 1477064943,
+          "mode" : 33188,
+          "size" : 13468
+       },
+       "maturity" : "released",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/frioux/Sub-Exporter-Progressive.git",
+             "type" : "git",
+             "web" : "https://github.com/frioux/Sub-Exporter-Progressive"
+          },
+          "homepage" : "https://github.com/frioux/Sub-Exporter-Progressive",
+          "bugtracker" : {
+             "web" : "https://github.com/frioux/Sub-Exporter-Progressive/issues"
+          }
+       },
+       "main_module" : "Sub::Exporter::Progressive",
+       "distribution" : "Sub-Exporter-Progressive",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Sub-Exporter-Progressive-0.001013.tar.gz",
+       "date" : "2016-10-21T15:49:03",
+       "checksum_sha256" : "d535b7954d64da1ac1305b1fadf98202769e3599376854b2ced90c382beac056",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "Dist::Zilla version 6.008, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0213",
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/frioux/Sub-Exporter-Progressive.git",
+                "type" : "git",
+                "web" : "https://github.com/frioux/Sub-Exporter-Progressive"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/frioux/Sub-Exporter-Progressive/issues"
+             },
+             "homepage" : "https://github.com/frioux/Sub-Exporter-Progressive"
+          },
+          "dynamic_config" : 0,
+          "author" : [
+             "Arthur Axel \"fREW\" Schmidt <Sub-Exporter-Progressive@afoolishmanifesto.com>"
+          ],
+          "version" : "0.001013",
+          "abstract" : "Only use Sub::Exporter if you need it",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Sub-Exporter-Progressive"
+       },
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "1.41",
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.001013",
+       "tests" : {
+          "na" : 0,
+          "fail" : 3,
+          "pass" : 7423,
+          "unknown" : 7
+       },
+       "name" : "Sub-Exporter-Progressive-0.001013"
+    }

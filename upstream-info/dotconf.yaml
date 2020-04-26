@@ -1,0 +1,41 @@
+---
+version_control: github
+src_repo: williamh/dotconf
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:26:51.410113640 +00:00
+  raw_data: |
+    [
+      {
+        "name": "v1.3",
+        "zipball_url": "https://api.github.com/repos/williamh/dotconf/zipball/v1.3",
+        "tarball_url": "https://api.github.com/repos/williamh/dotconf/tarball/v1.3",
+        "commit": {
+          "sha": "4cd7b3a6e89b7f1269851caea8374a8f137ea1c0",
+          "url": "https://api.github.com/repos/williamh/dotconf/commits/4cd7b3a6e89b7f1269851caea8374a8f137ea1c0"
+        },
+        "node_id": "MDM6UmVmNzk1NTEyOnYxLjM="
+      },
+      {
+        "name": "v1.2",
+        "zipball_url": "https://api.github.com/repos/williamh/dotconf/zipball/v1.2",
+        "tarball_url": "https://api.github.com/repos/williamh/dotconf/tarball/v1.2",
+        "commit": {
+          "sha": "ae3807508c2eb36666c4372b44659d7ea45f777d",
+          "url": "https://api.github.com/repos/williamh/dotconf/commits/ae3807508c2eb36666c4372b44659d7ea45f777d"
+        },
+        "node_id": "MDM6UmVmNzk1NTEyOnYxLjI="
+      },
+      {
+        "name": "v1.1.0",
+        "zipball_url": "https://api.github.com/repos/williamh/dotconf/zipball/v1.1.0",
+        "tarball_url": "https://api.github.com/repos/williamh/dotconf/tarball/v1.1.0",
+        "commit": {
+          "sha": "7e7e8f7a22ede45b6acc1953ce3f760f47e5d72d",
+          "url": "https://api.github.com/repos/williamh/dotconf/commits/7e7e8f7a22ede45b6acc1953ce3f760f47e5d72d"
+        },
+        "node_id": "MDM6UmVmNzk1NTEyOnYxLjEuMA=="
+      }
+    ]
+query_type: api.github.tags

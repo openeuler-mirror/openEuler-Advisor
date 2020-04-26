@@ -1,0 +1,41 @@
+---
+version_control: github
+src_repo: rpm-software-management/deltarpm
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:25:36.179349280 +00:00
+  raw_data: |
+    [
+      {
+        "name": "3.6.2",
+        "zipball_url": "https://api.github.com/repos/rpm-software-management/deltarpm/zipball/3.6.2",
+        "tarball_url": "https://api.github.com/repos/rpm-software-management/deltarpm/tarball/3.6.2",
+        "commit": {
+          "sha": "c5e0ca7482e2cfea5e4d902ffe488e0a71ed3e67",
+          "url": "https://api.github.com/repos/rpm-software-management/deltarpm/commits/c5e0ca7482e2cfea5e4d902ffe488e0a71ed3e67"
+        },
+        "node_id": "MDM6UmVmNDIzMDY0MTY6My42LjI="
+      },
+      {
+        "name": "3.6.1",
+        "zipball_url": "https://api.github.com/repos/rpm-software-management/deltarpm/zipball/3.6.1",
+        "tarball_url": "https://api.github.com/repos/rpm-software-management/deltarpm/tarball/3.6.1",
+        "commit": {
+          "sha": "619eaf318b3420056c14933bd513201bfb8af494",
+          "url": "https://api.github.com/repos/rpm-software-management/deltarpm/commits/619eaf318b3420056c14933bd513201bfb8af494"
+        },
+        "node_id": "MDM6UmVmNDIzMDY0MTY6My42LjE="
+      },
+      {
+        "name": "3.6",
+        "zipball_url": "https://api.github.com/repos/rpm-software-management/deltarpm/zipball/3.6",
+        "tarball_url": "https://api.github.com/repos/rpm-software-management/deltarpm/tarball/3.6",
+        "commit": {
+          "sha": "14837ad57d6ba9f29f645b5b1124e6d5a91cb4d3",
+          "url": "https://api.github.com/repos/rpm-software-management/deltarpm/commits/14837ad57d6ba9f29f645b5b1124e6d5a91cb4d3"
+        },
+        "node_id": "MDM6UmVmNDIzMDY0MTY6My42"
+      }
+    ]
+query_type: api.github.tags

@@ -1,0 +1,81 @@
+---
+version_control: metacpan
+src_repo: Sys-MemInfo
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:48.332407170 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "88f0632691d7de91cbed95ba1ff29025",
+       "main_module" : "Sys::MemInfo",
+       "resources" : {},
+       "license" : [
+          "unknown"
+       ],
+       "author" : "SCRESTO",
+       "archive" : "Sys-MemInfo-0.99.tar.gz",
+       "version_numified" : 0.99,
+       "checksum_sha256" : "0786319d3a3a8bae5d727939244bf17e140b714f52734d5e9f627203e4cf3e3b",
+       "changes_file" : "Changes",
+       "tests" : {
+          "fail" : 24,
+          "na" : 0,
+          "unknown" : 79,
+          "pass" : 1142
+       },
+       "deprecated" : "false",
+       "metadata" : {
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Sys-MemInfo",
+          "author" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "0.99",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {},
+          "abstract" : "unknown"
+       },
+       "id" : "rGqgQfmGZBgkBlkOPXPCFNp2jVQ",
+       "version" : "0.99",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 13276,
+          "mtime" : 1476404357
+       },
+       "authorized" : true,
+       "provides" : [
+          "Sys::MemInfo"
+       ],
+       "maturity" : "released",
+       "date" : "2016-10-14T00:19:17",
+       "name" : "Sys-MemInfo-0.99",
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SC/SCRESTO/Sys-MemInfo-0.99.tar.gz",
+       "status" : "latest",
+       "distribution" : "Sys-MemInfo",
+       "first" : false,
+       "dependency" : [],
+       "abstract" : "query the total free and used physical memory"
+    }

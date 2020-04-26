@@ -1,0 +1,113 @@
+---
+version_control: metacpan
+src_repo: Net-CIDR-Lite
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:28.188569370 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "checksum_sha256" : "cfa125e8a2aef9259bc3a44e07cbdfb7894b64d22e7c0cee92aee2f5c7915093",
+       "name" : "Net-CIDR-Lite-0.21",
+       "date" : "2010-03-26T00:38:30",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "provides" : [
+          "Net::CIDR::Lite",
+          "Net::CIDR::Lite::Span"
+       ],
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "Net-CIDR-Lite",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "Douglas Wilson <dougw@cpan.org>"
+          ],
+          "abstract" : "Perl extension for merging IPv4 or IPv6 CIDR addresses",
+          "generated_by" : "ExtUtils::MakeMaker version 6.56, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "0.21",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "main_module" : "Net::CIDR::Lite",
+       "version" : "0.21",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Perl extension for merging IPv4 or IPv6 CIDR addresses",
+       "resources" : {},
+       "archive" : "Net-CIDR-Lite-0.21.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "checksum_md5" : "12280b3754886b876918f03f53aee4f5",
+       "distribution" : "Net-CIDR-Lite",
+       "id" : "CsnEttZ1IhTHm2_Yf_xDLFxEc_o",
+       "version_numified" : 0.21,
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 10730,
+          "fail" : 19,
+          "na" : 0
+       },
+       "stat" : {
+          "mtime" : 1269563910,
+          "gid" : 1009,
+          "size" : 9931,
+          "mode" : 33204,
+          "uid" : 1009
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DO/DOUGW/Net-CIDR-Lite-0.21.tar.gz",
+       "author" : "DOUGW"
+    }

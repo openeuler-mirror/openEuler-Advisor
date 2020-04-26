@@ -1,0 +1,108 @@
+---
+version_control: metacpan
+src_repo: Data-Dumper
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:28.712079850 +00:00
+  raw_data: |
+    {
+       "author" : "XSAWYERX",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Data-Dumper-2.173.tar.gz",
+       "version_numified" : 2.173,
+       "checksum_sha256" : "697608b39330988e519131be667ff47168aaaaf99f06bd2095d5b46ad05d76fa",
+       "changes_file" : "Changes",
+       "checksum_md5" : "5e57ded19aff069f3f05dfb5e5ca1e1d",
+       "main_module" : "Data::Dumper",
+       "resources" : {},
+       "id" : "ijfyiCM8_UU9H69cmYrF1WwHaJs",
+       "version" : "2.173",
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1541844630,
+          "size" : 110256
+       },
+       "provides" : [
+          "Data::Dumper"
+       ],
+       "authorized" : true,
+       "tests" : {
+          "fail" : 3,
+          "pass" : 3214,
+          "unknown" : 10,
+          "na" : 0
+       },
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Data-Dumper",
+          "abstract" : "stringified perl data structures, suitable for both printing and C<eval>",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "version" : "2.173",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "deprecated" : false,
+       "name" : "Data-Dumper-2.173",
+       "download_url" : "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/Data-Dumper-2.173.tar.gz",
+       "maturity" : "released",
+       "date" : "2018-11-10T10:10:30",
+       "distribution" : "Data-Dumper",
+       "status" : "latest",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          }
+       ],
+       "abstract" : "stringified perl data structures, suitable for both printing and eval"
+    }

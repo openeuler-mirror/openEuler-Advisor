@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  takluyver/entrypoints
+tag_prefix: ^v
+seperator: .
