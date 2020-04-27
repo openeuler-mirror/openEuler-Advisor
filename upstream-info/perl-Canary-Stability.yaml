@@ -1,0 +1,108 @@
+---
+version_control: metacpan
+src_repo: Canary-Stability
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:19.744376850 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "5368520547521b254317ea0e9b3d23ab",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Canary-Stability-2013.tar.gz",
+       "resources" : {},
+       "tests" : {
+          "unknown" : 3,
+          "pass" : 3737,
+          "fail" : 0,
+          "na" : 0
+       },
+       "version_numified" : 2013,
+       "id" : "Db_G_WaWpNauZUWGBfAMthGZFjw",
+       "distribution" : "Canary-Stability",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 4861,
+          "mode" : 33188,
+          "mtime" : 1555929673
+       },
+       "author" : "MLEHMANN",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Canary-Stability-2013.tar.gz",
+       "date" : "2019-04-22T10:41:13",
+       "provides" : [
+          "Canary::Stability"
+       ],
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Canary-Stability-2013",
+       "authorized" : true,
+       "checksum_sha256" : "a5c91c62cf95fcb868f60eab5c832908f6905221013fea2bce3ff57046d7b6ea",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2013",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Canary-Stability"
+       },
+       "maturity" : "released",
+       "status" : "latest",
+       "version" : "2013",
+       "main_module" : "Canary::Stability",
+       "abstract" : "canary to check perl compatibility for schmorp's modules",
+       "changes_file" : "Changes"
+    }

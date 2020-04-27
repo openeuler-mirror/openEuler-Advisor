@@ -1,0 +1,220 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-Config
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:05.204425970 +00:00
+  raw_data: |
+    {
+       "provides" : [
+          "ExtUtils::Config"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "mtime" : 1403711078,
+          "size" : 11165,
+          "uid" : 1009,
+          "gid" : 1009,
+          "mode" : 33204
+       },
+       "version" : "0.008",
+       "id" : "KoSum3uCszVnkRYkWn7Kv8yWQQo",
+       "deprecated" : "false",
+       "metadata" : {
+          "provides" : {
+             "ExtUtils::Config" : {
+                "version" : "0.008",
+                "file" : "lib/ExtUtils/Config.pm"
+             }
+          },
+          "version" : "0.008",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "abstract" : "A wrapper for perl's configuration",
+          "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.140640, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41",
+                   "Test::Pod::Coverage" : "1.08",
+                   "Pod::Coverage::TrustPod" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "IPC::Open3" : "0",
+                   "IO::Handle" : "0",
+                   "Test::More" : "0.88",
+                   "perl" : "5.006"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Data::Dumper" : "0",
+                   "strict" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             }
+          },
+          "name" : "ExtUtils-Config",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Ken Williams <kwilliams@cpan.org>",
+             "Leon Timmermans <leont@cpan.org>"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=ExtUtils-Config",
+                "mailto" : "bug-extutils-config at rt.cpan.org"
+             },
+             "repository" : {
+                "url" : "git://github.com/Leont/extutils-config.git",
+                "type" : "git",
+                "web" : "https://github.com/Leont/extutils-config"
+             }
+          },
+          "dynamic_config" : 0
+       },
+       "tests" : {
+          "unknown" : 36,
+          "pass" : 39496,
+          "na" : 0,
+          "fail" : 2
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "ae5104f634650dce8a79b7ed13fb59d67a39c213a6776cfdaa3ee749e62f1a8c",
+       "version_numified" : 0.008,
+       "archive" : "ExtUtils-Config-0.008.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "LEONT",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/Leont/extutils-config.git",
+             "type" : "git",
+             "web" : "https://github.com/Leont/extutils-config"
+          },
+          "bugtracker" : {
+             "mailto" : "bug-extutils-config at rt.cpan.org",
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=ExtUtils-Config"
+          }
+       },
+       "main_module" : "ExtUtils::Config",
+       "checksum_md5" : "565a7b09c7cac5907a25bbe2c959a717",
+       "dependency" : [
+          {
+             "module" : "File::Spec",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "IO::Handle",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "IPC::Open3"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "test"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Data::Dumper"
+          },
+          {
+             "module" : "strict",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "warnings",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Pod::Coverage::TrustPod",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "1.08"
+          },
+          {
+             "module" : "Test::Pod",
+             "relationship" : "requires",
+             "version" : "1.41",
+             "phase" : "develop"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.30",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "abstract" : "A wrapper for perl's configuration",
+       "first" : false,
+       "distribution" : "ExtUtils-Config",
+       "status" : "latest",
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Config-0.008.tar.gz",
+       "name" : "ExtUtils-Config-0.008",
+       "date" : "2014-06-25T15:44:38",
+       "maturity" : "released"
+    }

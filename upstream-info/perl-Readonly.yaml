@@ -1,0 +1,210 @@
+---
+version_control: metacpan
+src_repo: Readonly
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:34.855680760 +00:00
+  raw_data: |
+    {
+       "license" : [
+          "artistic_2"
+       ],
+       "checksum_md5" : "acae851d7d55c509f5f00a8849597e54",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/sanko/readonly/issues"
+          },
+          "repository" : {
+             "web" : "https://github.com/sanko/readonly",
+             "url" : "git://github.com/sanko/readonly.git",
+             "type" : "git"
+          },
+          "homepage" : "https://github.com/sanko/readonly"
+       },
+       "archive" : "Readonly-2.05.tar.gz",
+       "version_numified" : 2.05,
+       "tests" : {
+          "fail" : 13,
+          "na" : 1,
+          "unknown" : 20,
+          "pass" : 7230
+       },
+       "distribution" : "Readonly",
+       "id" : "DZNHXtqoQDmjNewcsOkAddbBCm8",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1465578316,
+          "size" : 28877,
+          "mode" : 33188
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SA/SANKO/Readonly-2.05.tar.gz",
+       "author" : "SANKO",
+       "name" : "Readonly-2.05",
+       "first" : false,
+       "date" : "2016-06-10T17:05:16",
+       "provides" : [
+          "Readonly",
+          "Readonly::Array",
+          "Readonly::Hash",
+          "Readonly::Scalar"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "Module::Build::Tiny",
+             "phase" : "configure",
+             "version" : "0.035"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "version" : "1.41",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.04",
+             "module" : "Test::MinimumVersion::Fast",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.04",
+             "phase" : "develop",
+             "module" : "Test::PAUSE::Permissions"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::CPAN::Meta"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Spellunker",
+             "version" : "v0.2.7",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.005",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          }
+       ],
+       "authorized" : true,
+       "checksum_sha256" : "4b23542491af010d44a5c7c861244738acc74ababae6b8838d354dfb19462b5e",
+       "metadata" : {
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Module::Build::Tiny" : "0.035"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::PAUSE::Permissions" : "0.04",
+                   "Test::Pod" : "1.41",
+                   "Test::Spellunker" : "v0.2.7",
+                   "Test::CPAN::Meta" : "0",
+                   "Test::MinimumVersion::Fast" : "0.04"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.005"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "share",
+                "eg",
+                "examples",
+                "author",
+                "builder",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.05",
+          "author" : [
+             "Sanko Robinson <sanko@cpan.org> - http://sankorobinson.com/"
+          ],
+          "dynamic_config" : 0,
+          "x_contributors" : [
+             "David Steinbrunner <dsteinbrunner@pobox.com>",
+             "Peter Valdemar Mørch <pm@capmon.dk>",
+             "vti <viacheslav.t@gmail.com>",
+             "Ronald Schmidt <ronaldxs@software-path.com>",
+             "Michael Ivanchenko <ivanchenko.michael.work@gmail.com>"
+          ],
+          "abstract" : "Facility for creating read-only scalars, arrays, hashes",
+          "generated_by" : "Minilla/v3.0.1, CPAN::Meta::Converter version 2.150005",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/sanko/readonly/issues"
+             },
+             "homepage" : "https://github.com/sanko/readonly",
+             "repository" : {
+                "web" : "https://github.com/sanko/readonly",
+                "url" : "git://github.com/sanko/readonly.git",
+                "type" : "git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "license" : [
+             "artistic_2"
+          ],
+          "name" : "Readonly",
+          "provides" : {
+             "Readonly::Scalar" : {
+                "file" : "lib/Readonly.pm"
+             },
+             "Readonly::Hash" : {
+                "file" : "lib/Readonly.pm"
+             },
+             "Readonly::Array" : {
+                "file" : "lib/Readonly.pm"
+             },
+             "Readonly" : {
+                "version" : "2.05",
+                "file" : "lib/Readonly.pm"
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "maturity" : "released",
+       "main_module" : "Readonly",
+       "version" : "2.05",
+       "status" : "latest",
+       "abstract" : "Facility for creating read-only scalars, arrays, hashes",
+       "changes_file" : "Changes"
+    }

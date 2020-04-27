@@ -1,0 +1,147 @@
+---
+version_control: metacpan
+src_repo: Crypt-PasswdMD5
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:26.491088340 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "provides" : {
+             "Crypt::PasswdMD5" : {
+                "version" : "1.40",
+                "file" : "lib/Crypt/PasswdMD5.pm"
+             }
+          },
+          "name" : "Crypt-PasswdMD5",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "generated_by" : "Module::Build version 0.4005, CPAN::Meta::Converter version 2.131560, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Provide interoperable MD5-based crypt() functions",
+          "dynamic_config" : 1,
+          "author" : [
+             "Luis E. Muñoz <luismunoz@cpan.org>"
+          ],
+          "version" : "1.40",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "Digest::MD5" : "2.53",
+                   "warnings" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.94"
+                }
+             }
+          },
+          "release_status" : "stable"
+       },
+       "maturity" : "released",
+       "provides" : [
+          "Crypt::PasswdMD5"
+       ],
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0.94",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Module::Build",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "strict",
+             "version" : "0"
+          },
+          {
+             "version" : "2.53",
+             "module" : "Digest::MD5",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2013-09-30T22:19:24",
+       "first" : false,
+       "name" : "Crypt-PasswdMD5-1.40",
+       "checksum_sha256" : "b77d6aeea25301af7be679f7452e894ca88af9710bffd6e01d665a141c391948",
+       "authorized" : true,
+       "abstract" : "Provide interoperable MD5-based crypt() functions",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "version" : "1.40",
+       "main_module" : "Crypt::PasswdMD5",
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 10456,
+          "unknown" : 1
+       },
+       "version_numified" : 1.4,
+       "id" : "ePUJeVPY0q090t4kVk6T6BJDbsg",
+       "distribution" : "Crypt-PasswdMD5",
+       "checksum_md5" : "efc61e1f62c9768be39df2613d685343",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Crypt-PasswdMD5-1.40.tgz",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "author" : "RSAVAGE",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RS/RSAVAGE/Crypt-PasswdMD5-1.40.tgz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1380579564,
+          "gid" : 1009,
+          "size" : 6683,
+          "mode" : 33204,
+          "uid" : 1009
+       }
+    }

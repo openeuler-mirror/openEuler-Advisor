@@ -1,0 +1,18 @@
+---
+version_control: gitlab.gnome
+src_repo: libgudev
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:43:02.041877150 +00:00
+  raw_data: |
+    219
+    219^{}
+    230
+    230^{}
+    231
+    231^{}
+    232
+    232^{}
+    233
+    233^{}

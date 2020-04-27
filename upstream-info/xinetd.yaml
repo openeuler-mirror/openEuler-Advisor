@@ -1,0 +1,81 @@
+---
+version_control: github
+src_repo: xinetd-org/xinetd
+tag_prefix: xinetd-
+seperator: "-"
+last_query:
+  time_stamp: 2020-04-26 09:19:40.953184590 +00:00
+  raw_data: |
+    [
+      {
+        "name": "xinetd-20030122",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-20030122",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-20030122",
+        "commit": {
+          "sha": "40f6533052f1a5cdd240f35ed405ac410fc7d05f",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/40f6533052f1a5cdd240f35ed405ac410fc7d05f"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMjAwMzAxMjI="
+      },
+      {
+        "name": "xinetd-2-3-15",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-2-3-15",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-2-3-15",
+        "commit": {
+          "sha": "68bb9ab9e9f214ad8a2322f28ac1d6733e70bc24",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/68bb9ab9e9f214ad8a2322f28ac1d6733e70bc24"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMi0zLTE1"
+      },
+      {
+        "name": "xinetd-2-3-14",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-2-3-14",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-2-3-14",
+        "commit": {
+          "sha": "0d9173affbd9796affafaa524b989dc34660735b",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/0d9173affbd9796affafaa524b989dc34660735b"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMi0zLTE0"
+      },
+      {
+        "name": "xinetd-2-3-13",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-2-3-13",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-2-3-13",
+        "commit": {
+          "sha": "e23b4471bf4aaf24fcc218280522ffaeb9f23ba4",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/e23b4471bf4aaf24fcc218280522ffaeb9f23ba4"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMi0zLTEz"
+      },
+      {
+        "name": "xinetd-2-3-12",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-2-3-12",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-2-3-12",
+        "commit": {
+          "sha": "b63fb12d60a15ce61c5ed19f3fe80aebacd8a917",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/b63fb12d60a15ce61c5ed19f3fe80aebacd8a917"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMi0zLTEy"
+      },
+      {
+        "name": "xinetd-2-3-11",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-2-3-11",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-2-3-11",
+        "commit": {
+          "sha": "06684150464bd59a4af910dbf60c6aa3344b1462",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/06684150464bd59a4af910dbf60c6aa3344b1462"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMi0zLTEx"
+      },
+      {
+        "name": "xinetd-2-3-10",
+        "zipball_url": "https://api.github.com/repos/xinetd-org/xinetd/zipball/xinetd-2-3-10",
+        "tarball_url": "https://api.github.com/repos/xinetd-org/xinetd/tarball/xinetd-2-3-10",
+        "commit": {
+          "sha": "d8a6232c0eddc90b2fb3ca3af1183c271a234f0e",
+          "url": "https://api.github.com/repos/xinetd-org/xinetd/commits/d8a6232c0eddc90b2fb3ca3af1183c271a234f0e"
+        },
+        "node_id": "MDM6UmVmNDI4ODYyOTp4aW5ldGQtMi0zLTEw"
+      }
+    ]
+query_type: api.github.tags

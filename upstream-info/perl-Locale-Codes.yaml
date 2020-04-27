@@ -1,0 +1,307 @@
+---
+version_control: metacpan
+src_repo: Locale-Codes
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:15.827999970 +00:00
+  raw_data: |
+    {
+       "version_numified" : 3.63,
+       "provides" : [
+          "Locale::Codes",
+          "Locale::Codes::Constants",
+          "Locale::Codes::Country",
+          "Locale::Codes::Country_Codes",
+          "Locale::Codes::Country_Retired",
+          "Locale::Codes::Currency",
+          "Locale::Codes::Currency_Codes",
+          "Locale::Codes::Currency_Retired",
+          "Locale::Codes::LangExt",
+          "Locale::Codes::LangExt_Codes",
+          "Locale::Codes::LangExt_Retired",
+          "Locale::Codes::LangFam",
+          "Locale::Codes::LangFam_Codes",
+          "Locale::Codes::LangFam_Retired",
+          "Locale::Codes::LangVar",
+          "Locale::Codes::LangVar_Codes",
+          "Locale::Codes::LangVar_Retired",
+          "Locale::Codes::Language",
+          "Locale::Codes::Language_Codes",
+          "Locale::Codes::Language_Retired",
+          "Locale::Codes::Script",
+          "Locale::Codes::Script_Codes",
+          "Locale::Codes::Script_Retired",
+          "Locale::Country",
+          "Locale::Currency",
+          "Locale::Language",
+          "Locale::Script"
+       ],
+       "id" : "I_eT1XYm70g3v0IxMt2UhdslydQ",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "a distribution of modules to handle locale codes",
+       "checksum_md5" : "5c8e19b1157c28877de3bab6b99ee06b",
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SB/SBECK/Locale-Codes-3.63.tar.gz",
+       "author" : "SBECK",
+       "checksum_sha256" : "4a22e979a6b2e2ff8e6c799b6118a6a116ee77d54391c50e25c6164e7fe0efc0",
+       "date" : "2020-03-02T14:43:13",
+       "metadata" : {
+          "author" : [
+             "Sullivan Beck (sbeck@cpan.org)"
+          ],
+          "version" : "3.63",
+          "abstract" : "a distribution of modules to handle locale codes",
+          "name" : "Locale-Codes",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "if" : "0",
+                   "Carp" : "0",
+                   "utf8" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::Inter" : "1.09"
+                }
+             }
+          },
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/SBECK-github/Locale-Codes.git",
+                "type" : "git",
+                "web" : "https://github.com/SBECK-github/Locale-Codes"
+             }
+          },
+          "provides" : {
+             "Locale::Script" : {
+                "file" : "lib/Locale/Script.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes.pm"
+             },
+             "Locale::Codes::Language" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/Language.pm"
+             },
+             "Locale::Codes::Currency_Retired" : {
+                "file" : "lib/Locale/Codes/Currency_Retired.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::LangExt_Codes" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangExt_Codes.pm"
+             },
+             "Locale::Codes::Language_Retired" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/Language_Retired.pm"
+             },
+             "Locale::Codes::Script_Codes" : {
+                "file" : "lib/Locale/Codes/Script_Codes.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::Country" : {
+                "file" : "lib/Locale/Codes/Country.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::LangFam" : {
+                "file" : "lib/Locale/Codes/LangFam.pm",
+                "version" : "3.63"
+             },
+             "Locale::Language" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Language.pm"
+             },
+             "Locale::Codes::LangVar_Codes" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangVar_Codes.pm"
+             },
+             "Locale::Codes::Script_Retired" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/Script_Retired.pm"
+             },
+             "Locale::Codes::LangExt_Retired" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangExt_Retired.pm"
+             },
+             "Locale::Codes::Country_Codes" : {
+                "file" : "lib/Locale/Codes/Country_Codes.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::Country_Retired" : {
+                "file" : "lib/Locale/Codes/Country_Retired.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::LangFam_Retired" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangFam_Retired.pm"
+             },
+             "Locale::Country" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Country.pm"
+             },
+             "Locale::Codes::Language_Codes" : {
+                "file" : "lib/Locale/Codes/Language_Codes.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::Currency" : {
+                "file" : "lib/Locale/Codes/Currency.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::Script" : {
+                "file" : "lib/Locale/Codes/Script.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::LangVar_Retired" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangVar_Retired.pm"
+             },
+             "Locale::Codes::LangVar" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangVar.pm"
+             },
+             "Locale::Currency" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Currency.pm"
+             },
+             "Locale::Codes::Currency_Codes" : {
+                "file" : "lib/Locale/Codes/Currency_Codes.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::LangExt" : {
+                "version" : "3.63",
+                "file" : "lib/Locale/Codes/LangExt.pm"
+             },
+             "Locale::Codes::Constants" : {
+                "file" : "lib/Locale/Codes/Constants.pm",
+                "version" : "3.63"
+             },
+             "Locale::Codes::LangFam_Codes" : {
+                "file" : "lib/Locale/Codes/LangFam_Codes.pm",
+                "version" : "3.63"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1
+       },
+       "main_module" : "Locale::Codes",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/SBECK-github/Locale-Codes",
+             "url" : "git://github.com/SBECK-github/Locale-Codes.git",
+             "type" : "git"
+          }
+       },
+       "distribution" : "Locale-Codes",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Locale-Codes-3.63.tar.gz",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 856659,
+          "mode" : 33188,
+          "mtime" : 1583160193
+       },
+       "name" : "Locale-Codes-3.63",
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 552,
+          "unknown" : 1
+       },
+       "version" : "3.63",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "6.30",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006"
+          },
+          {
+             "module" : "utf8",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Carp",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "if",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "Test::Inter",
+             "phase" : "test",
+             "version" : "1.09",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ]
+    }

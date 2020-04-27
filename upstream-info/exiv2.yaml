@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  Exiv2/exiv2
+tag_prefix: ^v
+seperator: .

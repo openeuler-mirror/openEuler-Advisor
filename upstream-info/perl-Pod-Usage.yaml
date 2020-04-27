@@ -1,0 +1,154 @@
+---
+version_control: metacpan
+src_repo: Pod-Usage
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:56.763977260 +00:00
+  raw_data: |
+    {
+       "changes_file" : "CHANGES",
+       "abstract" : "Pod::Usage extracts POD documentation and shows usage information",
+       "main_module" : "Pod::Usage",
+       "status" : "latest",
+       "version" : "1.70",
+       "maturity" : "released",
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.143240, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Pod::Usage extracts POD documentation and shows usage information",
+          "dynamic_config" : 1,
+          "author" : [
+             "Brad Appleton  <bradapp@enteract.com>",
+             "Marek Rouchal <marekr@cpan.org>"
+          ],
+          "version" : "1.70",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0.6",
+                   "File::Basename" : "0",
+                   "File::Spec" : "0.82",
+                   "Pod::Text" : "4",
+                   "blib" : "0",
+                   "Cwd" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Pod-Usage"
+       },
+       "checksum_sha256" : "54fc12b61c7661e12e102e56d68f18dfbe8899482bb8f9925db2a18b8b64d43a",
+       "authorized" : true,
+       "name" : "Pod-Usage-1.70",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "4",
+             "phase" : "runtime",
+             "module" : "Pod::Text"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "version" : "0.82",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Basename",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0.6",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "blib",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "provides" : [
+          "Pod::Usage"
+       ],
+       "date" : "2020-03-15T18:46:37",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Usage-1.70.tar.gz",
+       "author" : "MAREKR",
+       "stat" : {
+          "size" : 61212,
+          "mode" : 33204,
+          "mtime" : 1584297997
+       },
+       "deprecated" : false,
+       "distribution" : "Pod-Usage",
+       "id" : "TlttaI4u8Q7DrlISQ21ASe3DDOw",
+       "version_numified" : 1.7,
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 696,
+          "na" : 0,
+          "fail" : 0
+       },
+       "resources" : {},
+       "archive" : "Pod-Usage-1.70.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "3d8d685360f244e739dd6d3acbd04544"
+    }

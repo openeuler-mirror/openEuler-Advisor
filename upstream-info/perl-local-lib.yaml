@@ -1,0 +1,224 @@
+---
+version_control: metacpan
+src_repo: local-lib
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:03.506627470 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "checksum_md5" : "f9ce59c65137fde81c426f525cffc4e5",
+       "abstract" : "create and use a local lib/ for perl modules with PERL5LIB",
+       "status" : "latest",
+       "author" : "HAARG",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz",
+       "provides" : [
+          "lib::core::only",
+          "local::lib"
+       ],
+       "id" : "zqIzELVcS0lk6NrZExxE_NardUg",
+       "version_numified" : 2.000024,
+       "changes_file" : "Changes",
+       "tests" : {
+          "pass" : 4390,
+          "na" : 0,
+          "fail" : 11,
+          "unknown" : 4
+       },
+       "name" : "local-lib-2.000024",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006"
+          },
+          {
+             "version" : "1.82",
+             "phase" : "runtime",
+             "module" : "CPAN",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "ExtUtils::Install",
+             "version" : "1.43"
+          },
+          {
+             "version" : "7.00",
+             "phase" : "runtime",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Build",
+             "phase" : "runtime",
+             "version" : "0.36"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "Test::CPAN::Changes",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Pod",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Capture::Tiny",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::EOL",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::NoTabs",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.8101",
+             "module" : "Test::More",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0.36",
+             "module" : "Module::Build",
+             "phase" : "develop",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "2.000024",
+       "main_module" : "local::lib",
+       "resources" : {
+          "bugtracker" : {
+             "mailto" : "bug-local-lib@rt.cpan.org",
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=local-lib"
+          },
+          "repository" : {
+             "web" : "https://github.com/Perl-Toolchain-Gang/local-lib",
+             "url" : "git://github.com/Perl-Toolchain-Gang/local-lib",
+             "type" : "git"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "local-lib-2.000024.tar.gz",
+       "distribution" : "local-lib",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_sha256" : "2e9b917bd48a0615e42633b2a327494e04610d8f710765b9493d306cead98a05",
+       "date" : "2017-10-08T15:22:38",
+       "metadata" : {
+          "name" : "local-lib",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "create and use a local lib/ for perl modules with PERL5LIB",
+          "version" : "2.000024",
+          "author" : [
+             "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+          ],
+          "dynamic_config" : 1,
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=local-lib",
+                "mailto" : "bug-local-lib@rt.cpan.org"
+             },
+             "repository" : {
+                "web" : "https://github.com/Perl-Toolchain-Gang/local-lib",
+                "url" : "git://github.com/Perl-Toolchain-Gang/local-lib",
+                "type" : "git"
+             },
+             "x_IRC" : "irc://irc.perl.org/#local-lib",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {}
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "CPAN" : "1.82",
+                   "ExtUtils::MakeMaker" : "7.00",
+                   "Module::Build" : "0.36",
+                   "ExtUtils::Install" : "1.43"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::EOL" : "0",
+                   "Test::Pod" : "0",
+                   "Test::NoTabs" : "0",
+                   "Test::More" : "0.8101",
+                   "Module::Build" : "0.36",
+                   "Capture::Tiny" : "0",
+                   "Test::CPAN::Changes" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.94",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "stat" : {
+          "size" : 62941,
+          "mode" : 33188,
+          "mtime" : 1507476158
+       },
+       "maturity" : "released"
+    }

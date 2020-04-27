@@ -1,0 +1,281 @@
+---
+version_control: metacpan
+src_repo: Test-Simple
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:19.181890100 +00:00
+  raw_data: |
+    {
+       "dependency" : [
+          {
+             "module" : "utf8",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.006002",
+             "relationship" : "requires",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Storable"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "1.13",
+             "relationship" : "requires",
+             "module" : "Scalar::Util"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.41",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Pod"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "IPC::Open3"
+          },
+          {
+             "module" : "Term::Table",
+             "version" : "0.013",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0.12",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Spelling"
+          }
+       ],
+       "abstract" : "Basic utilities for writing tests.",
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "Test-Simple",
+       "date" : "2020-04-13T18:42:35",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz",
+       "name" : "Test-Simple-1.302175",
+       "deprecated" : false,
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Chad Granum <exodist@cpan.org>"
+          ],
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "http://github.com/Test-More/test-more/"
+             },
+             "bugtracker" : {
+                "web" : "http://github.com/Test-More/test-more/issues"
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.302175",
+          "generated_by" : "Dist::Zilla version 6.014, CPAN::Meta::Converter version 2.150010",
+          "name" : "Test-Simple",
+          "x_breaks" : {
+             "Test::Dist::VersionSync" : "<= v1.1.4",
+             "Test::Aggregate" : "<= 0.373",
+             "Test::Group" : "<= 0.20",
+             "Test::Able" : "<= 0.11",
+             "Test::Clustericious::Cluster" : "<= 0.30",
+             "Net::BitTorrent" : "<= 0.052",
+             "Test::UseAllModules" : ">= 0.12, <= 0.14",
+             "Test::SharedFork" : "<= 0.34",
+             "Test::More::Prefix" : "<= 0.005",
+             "Test::Exception" : "<= 0.42",
+             "Test::Pretty" : "<= 0.32",
+             "Test::ParallelSubtest" : "<= 0.05",
+             "Test::Moose" : "<= 2.1209",
+             "Test::Wrapper" : "<= v0.3.0",
+             "Log::Dispatch::Config::TestLog" : "<= 0.02",
+             "Test::Modern" : "<= 0.012",
+             "Test::Flatten" : "<= 0.11",
+             "Test2::Tools::EventDumper" : "<= 0.000007",
+             "Test::Alien" : "<= 0.04",
+             "Test::Builder::Clutch" : "<= 0.07",
+             "Test2::Harness" : "<= 0.000013"
+          },
+          "dynamic_config" : 0,
+          "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later",
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.19",
+          "x_generated_by_perl" : "v5.30.2",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Term::Table" : "0.013",
+                   "Test::Pod" : "1.41",
+                   "IPC::Open3" : "0",
+                   "Test::Spelling" : "0.12"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "Storable" : "0",
+                   "File::Temp" : "0",
+                   "perl" : "5.006002",
+                   "utf8" : "0",
+                   "Scalar::Util" : "1.13"
+                }
+             }
+          },
+          "abstract" : "Basic utilities for writing tests."
+       },
+       "tests" : {
+          "fail" : 0,
+          "pass" : 247,
+          "unknown" : 1,
+          "na" : 0
+       },
+       "provides" : [
+          "Test2",
+          "Test2::API",
+          "Test2::API::Breakage",
+          "Test2::API::Context",
+          "Test2::API::Instance",
+          "Test2::API::Stack",
+          "Test2::Event",
+          "Test2::Event::Bail",
+          "Test2::Event::Diag",
+          "Test2::Event::Encoding",
+          "Test2::Event::Exception",
+          "Test2::Event::Fail",
+          "Test2::Event::Generic",
+          "Test2::Event::Note",
+          "Test2::Event::Ok",
+          "Test2::Event::Pass",
+          "Test2::Event::Plan",
+          "Test2::Event::Skip",
+          "Test2::Event::Subtest",
+          "Test2::Event::TAP::Version",
+          "Test2::Event::V2",
+          "Test2::Event::Waiting",
+          "Test2::EventFacet",
+          "Test2::EventFacet::About",
+          "Test2::EventFacet::Amnesty",
+          "Test2::EventFacet::Assert",
+          "Test2::EventFacet::Control",
+          "Test2::EventFacet::Error",
+          "Test2::EventFacet::Hub",
+          "Test2::EventFacet::Info",
+          "Test2::EventFacet::Info::Table",
+          "Test2::EventFacet::Meta",
+          "Test2::EventFacet::Parent",
+          "Test2::EventFacet::Plan",
+          "Test2::EventFacet::Render",
+          "Test2::EventFacet::Trace",
+          "Test2::Formatter",
+          "Test2::Formatter::TAP",
+          "Test2::Hub",
+          "Test2::Hub::Interceptor",
+          "Test2::Hub::Interceptor::Terminator",
+          "Test2::Hub::Subtest",
+          "Test2::IPC",
+          "Test2::IPC::Driver",
+          "Test2::IPC::Driver::Files",
+          "Test2::Tools::Tiny",
+          "Test2::Util",
+          "Test2::Util::ExternalMeta",
+          "Test2::Util::Facets2Legacy",
+          "Test2::Util::HashBase",
+          "Test2::Util::Trace",
+          "Test::Builder",
+          "Test::Builder::Formatter",
+          "Test::Builder::IO::Scalar",
+          "Test::Builder::Module",
+          "Test::Builder::Tester",
+          "Test::Builder::Tester::Color",
+          "Test::Builder::Tester::Tie",
+          "Test::Builder::TodoDiag",
+          "Test::More",
+          "Test::Simple",
+          "Test::Tester",
+          "Test::Tester::Capture",
+          "Test::Tester::CaptureRunner",
+          "Test::Tester::Delegate",
+          "Test::use::ok",
+          "ok"
+       ],
+       "authorized" : true,
+       "version" : "1.302175",
+       "stat" : {
+          "mtime" : 1586803355,
+          "size" : 307529,
+          "mode" : 33188
+       },
+       "id" : "lG5Zu6OmBt7__fYV0VZbFt9n6io",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://github.com/Test-More/test-more/issues"
+          },
+          "repository" : {
+             "type" : "git",
+             "url" : "http://github.com/Test-More/test-more/"
+          }
+       },
+       "main_module" : "Test::Simple",
+       "checksum_md5" : "9ef563cd61fdb265dc11fdd68aa384d4",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49",
+       "version_numified" : 1.302175,
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "EXODIST",
+       "archive" : "Test-Simple-1.302175.tar.gz"
+    }

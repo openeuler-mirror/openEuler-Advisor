@@ -1,0 +1,140 @@
+---
+version_control: metacpan
+src_repo: Thread-Queue
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:46.692696230 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1531881160,
+          "size" : 15435,
+          "mode" : 33188
+       },
+       "maturity" : "released",
+       "resources" : {},
+       "main_module" : "Thread::Queue",
+       "archive" : "Thread-Queue-3.13.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "Thread-Queue",
+       "checksum_sha256" : "6ba3dacddd2fbb66822b4aa1d11a0a5273cd04c825cb3ff31c20d7037cbfdce8",
+       "date" : "2018-07-18T02:32:40",
+       "metadata" : {
+          "version" : "3.13",
+          "author" : [
+             "Jerry D. Hedden <jdhedden AT cpan DOT org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Thread-Queue",
+          "abstract" : "Thread-safe queues",
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Thread::Semaphore" : "0",
+                   "Scalar::Util" : "1.1",
+                   "Test::More" : "0.5",
+                   "threads::shared" : "1.21"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "threads::shared",
+             "phase" : "runtime",
+             "version" : "1.21"
+          },
+          {
+             "module" : "Scalar::Util",
+             "version" : "1.1",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.5",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Thread::Semaphore",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "version" : "3.13",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 1501,
+          "na" : 2,
+          "fail" : 1
+       },
+       "name" : "Thread-Queue-3.13",
+       "changes_file" : "Changes",
+       "provides" : [
+          "Thread::Queue"
+       ],
+       "id" : "oKCjaswBFI_6xOFRzUVdArrhIw8",
+       "version_numified" : 3.13,
+       "author" : "JDHEDDEN",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/Thread-Queue-3.13.tar.gz",
+       "authorized" : true,
+       "checksum_md5" : "0fada5b474e9c97d6262059cf62cfc88",
+       "abstract" : "Thread-safe queues",
+       "status" : "latest"
+    }

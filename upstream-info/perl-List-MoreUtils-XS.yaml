@@ -1,0 +1,302 @@
+---
+version_control: metacpan
+src_repo: List-MoreUtils-XS
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:38.209500740 +00:00
+  raw_data: |
+    {
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/perl5-utils/List-MoreUtils-XS.git",
+             "type" : "git",
+             "web" : "https://github.com/perl5-utils/List-MoreUtils-XS"
+          },
+          "homepage" : "https://metacpan.org/release/List-MoreUtils-XS",
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Dist/Display.html?Name=List-MoreUtils-XS",
+             "mailto" : "bug-List-MoreUtils-XS@rt.cpan.org"
+          }
+       },
+       "archive" : "List-MoreUtils-XS-0.428.tar.gz",
+       "license" : [
+          "apache_2_0"
+       ],
+       "checksum_md5" : "79939a9c2deb83ea2fa7fcbd3ad9c5c9",
+       "distribution" : "List-MoreUtils-XS",
+       "id" : "c7jZXu44_6fvHMmH26Lmb3i9OUA",
+       "version_numified" : 0.428,
+       "tests" : {
+          "unknown" : 15,
+          "pass" : 6088,
+          "fail" : 10,
+          "na" : 2
+       },
+       "stat" : {
+          "size" : 159642,
+          "mode" : 33204,
+          "mtime" : 1513712422
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.428.tar.gz",
+       "author" : "REHSACK",
+       "checksum_sha256" : "9d9fe621429dfe7cf2eb1299c192699ddebf060953e5ebdc1b4e293c6d6dd62d",
+       "authorized" : true,
+       "name" : "List-MoreUtils-XS-0.428",
+       "dependency" : [
+          {
+             "module" : "XSLoader",
+             "phase" : "runtime",
+             "version" : "0.22",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IPC::Cmd",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Copy",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "base",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "File::Path",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "File::Basename",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.500",
+             "module" : "inc::latest",
+             "phase" : "configure",
+             "relationship" : "recommends"
+          },
+          {
+             "phase" : "configure",
+             "module" : "Config::AutoConf",
+             "version" : "0.315",
+             "relationship" : "recommends"
+          },
+          {
+             "version" : "0.96",
+             "module" : "Test::More",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Storable"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::LeakTrace",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Perl::Critic"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Spelling",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::Pod::Spelling::CommonMistakes",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.96",
+             "phase" : "develop",
+             "module" : "Module::CPANTS::Analyse"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Kwalitee"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::CheckManifest",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::PerlTidy",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::CPAN::Changes",
+             "phase" : "develop",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "date" : "2017-12-19T19:40:22",
+       "provides" : [
+          "List::MoreUtils::XS"
+       ],
+       "maturity" : "released",
+       "metadata" : {
+          "version" : "0.428",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Kwalitee" : "0",
+                   "Test::Pod" : "0",
+                   "Test::Pod::Spelling::CommonMistakes" : "0",
+                   "Test::CheckManifest" : "0",
+                   "Test::Spelling" : "0",
+                   "Module::CPANTS::Analyse" : "0.96",
+                   "Test::CPAN::Changes" : "0",
+                   "Test::Perl::Critic" : "0",
+                   "Test::Pod::Coverage" : "0",
+                   "Test::PerlTidy" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "runtime" : {
+                "requires" : {
+                   "XSLoader" : "0.22"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Storable" : "0",
+                   "Test::More" : "0.96"
+                },
+                "recommends" : {
+                   "Test::LeakTrace" : "0"
+                }
+             },
+             "configure" : {
+                "recommends" : {
+                   "Config::AutoConf" : "0.315",
+                   "inc::latest" : "0.500"
+                },
+                "requires" : {
+                   "File::Spec" : "0",
+                   "Carp" : "0",
+                   "base" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "IPC::Cmd" : "0",
+                   "File::Path" : "0",
+                   "File::Copy" : "0",
+                   "File::Basename" : "0"
+                }
+             }
+          },
+          "abstract" : "Provide the stuff missing in List::Util in XS",
+          "generated_by" : "ExtUtils::MakeMaker version 7.3, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 1,
+          "author" : [
+             "Tassilo von Parseval <tassilo.von.parseval@rwth-aachen.de>",
+             "Adam Kennedy <adamk@cpan.org>",
+             "Jens Rehsack <rehsack@cpan.org>"
+          ],
+          "name" : "List-MoreUtils-XS",
+          "license" : [
+             "apache_2_0"
+          ],
+          "x_serialization_backend" : "JSON::PP version 2.97000",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/perl5-utils/List-MoreUtils-XS.git",
+                "type" : "git",
+                "web" : "https://github.com/perl5-utils/List-MoreUtils-XS"
+             },
+             "homepage" : "https://metacpan.org/release/List-MoreUtils-XS",
+             "bugtracker" : {
+                "mailto" : "bug-List-MoreUtils-XS@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Dist/Display.html?Name=List-MoreUtils-XS"
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "main_module" : "List::MoreUtils::XS",
+       "version" : "0.428",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Provide the stuff missing in List::Util in XS"
+    }

@@ -1,0 +1,107 @@
+---
+version_control: metacpan
+src_repo: common-sense
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:47.203833940 +00:00
+  raw_data: |
+    {
+       "date" : "2020-04-02T07:54:39",
+       "checksum_sha256" : "a86a1c4ca4f3006d7479064425a09fa5b6689e57261fcb994fe67d061cba0e7e",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "license" : [
+             "unknown"
+          ],
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "name" : "common-sense",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "unknown",
+          "version" : 3.75,
+          "author" : [
+             "unknown"
+          ]
+       },
+       "main_module" : "common::sense",
+       "resources" : {},
+       "distribution" : "common-sense",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "common-sense-3.75.tar.gz",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 13516,
+          "mode" : 33188,
+          "mtime" : 1585814079
+       },
+       "name" : "common-sense-3.75",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 592,
+          "unknown" : 0
+       },
+       "version" : 3.75,
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          }
+       ],
+       "version_numified" : 3.75,
+       "provides" : [
+          "common::sense"
+       ],
+       "id" : "4MoTmKYkWA0Ib3WaPYGu6dNGTkk",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "save a tree AND a kitten, use common::sense!",
+       "checksum_md5" : "0929c6b03455ca988a9b4219aca15292",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/common-sense-3.75.tar.gz",
+       "author" : "MLEHMANN"
+    }

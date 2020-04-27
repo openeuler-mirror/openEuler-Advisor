@@ -1,0 +1,176 @@
+---
+version_control: metacpan
+src_repo: Devel-CheckLib
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:35.990913590 +00:00
+  raw_data: |
+    {
+       "version" : "1.14",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.02",
+             "phase" : "test",
+             "module" : "Mock::Config",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "version" : "0.88",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "module" : "Capture::Tiny",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "version" : "5.00405",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Temp",
+             "version" : "0.16",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Devel-CheckLib-1.14",
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 88,
+          "na" : 0,
+          "fail" : 0
+       },
+       "maturity" : "released",
+       "stat" : {
+          "size" : 15562,
+          "mode" : 33188,
+          "mtime" : 1573537542
+       },
+       "date" : "2019-11-12T05:45:42",
+       "checksum_sha256" : "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294",
+       "metadata" : {
+          "dynamic_config" : 0,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/mattn/p5-Devel-CheckLib"
+             }
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Capture::Tiny" : "0",
+                   "Mock::Config" : "0.02",
+                   "Test::More" : "0.88"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.00405",
+                   "Exporter" : "0",
+                   "File::Temp" : "0.16",
+                   "File::Spec" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Devel-CheckLib",
+          "abstract" : "check that a library is available",
+          "version" : "1.14",
+          "author" : [
+             "David Cantrell",
+             "David Golden",
+             "Yasuhiro Matsumoto"
+          ]
+       },
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/mattn/p5-Devel-CheckLib"
+          }
+       },
+       "main_module" : "Devel::CheckLib",
+       "distribution" : "Devel-CheckLib",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Devel-CheckLib-1.14.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.14.tar.gz",
+       "author" : "MATTN",
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "3519cbf9fe5ec3404449d5330ee5537f",
+       "abstract" : "check that a library is available",
+       "changes_file" : "CHANGES",
+       "version_numified" : 1.14,
+       "provides" : [
+          "Devel::CheckLib"
+       ],
+       "id" : "189291lM7bhFZIRjl0Yqr7GUhLI"
+    }

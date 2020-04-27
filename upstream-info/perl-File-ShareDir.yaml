@@ -1,0 +1,322 @@
+---
+version_control: metacpan
+src_repo: File-ShareDir
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:23.108453630 +00:00
+  raw_data: |
+    {
+       "distribution" : "File-ShareDir",
+       "status" : "latest",
+       "first" : false,
+       "abstract" : "Locate per-dist and per-module shared files",
+       "dependency" : [
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.12",
+             "module" : "Class::Inspector"
+          },
+          {
+             "version" : "0.80",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Spec"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Carp"
+          },
+          {
+             "module" : "warnings",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Params::Util",
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "1.07"
+          },
+          {
+             "module" : "List::MoreUtils",
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0.428"
+          },
+          {
+             "version" : "0.13",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "File::ShareDir::Install"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "0.08",
+             "phase" : "configure",
+             "module" : "File::ShareDir::Install"
+          },
+          {
+             "module" : "inc::latest",
+             "relationship" : "recommends",
+             "version" : "0.500",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::PerlTidy"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.08",
+             "phase" : "develop",
+             "module" : "File::ShareDir::Install"
+          },
+          {
+             "module" : "Test::Spelling",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::CPAN::Changes"
+          },
+          {
+             "module" : "Test::Pod::Spelling::CommonMistakes",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Test::Perl::Critic",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "inc::latest",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0.500"
+          },
+          {
+             "module" : "Module::CPANTS::Analyse",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0.96"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Kwalitee"
+          },
+          {
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::CheckManifest",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::Pod::Coverage"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0.90"
+          },
+          {
+             "module" : "File::Path",
+             "phase" : "test",
+             "version" : "2.08",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "version" : "2.11044",
+             "relationship" : "recommends",
+             "module" : "CPAN::Meta"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.13",
+             "phase" : "build",
+             "module" : "File::ShareDir::Install"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          }
+       ],
+       "maturity" : "released",
+       "date" : "2018-06-24T15:33:11",
+       "name" : "File-ShareDir-1.116",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.116.tar.gz",
+       "tests" : {
+          "fail" : 421,
+          "unknown" : 13,
+          "pass" : 4682,
+          "na" : 1
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "1.116",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "File::ShareDir::Install" : "0.13",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Spelling" : "0",
+                   "inc::latest" : "0.500",
+                   "Test::CPAN::Changes" : "0",
+                   "Module::CPANTS::Analyse" : "0.96",
+                   "Test::Pod::Coverage" : "0",
+                   "Test::Perl::Critic" : "0",
+                   "Test::PerlTidy" : "0",
+                   "Test::Kwalitee" : "0",
+                   "Test::CheckManifest" : "0",
+                   "File::ShareDir::Install" : "0.08",
+                   "Test::Pod" : "0",
+                   "Test::Pod::Spelling::CommonMistakes" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "File::Path" : "2.08",
+                   "Test::More" : "0.90"
+                },
+                "recommends" : {
+                   "CPAN::Meta" : "2.11044"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "Params::Util" : "1.07",
+                   "List::MoreUtils" : "0.428"
+                },
+                "requires" : {
+                   "Class::Inspector" : "1.12",
+                   "File::Spec" : "0.80",
+                   "Carp" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "configure" : {
+                "recommends" : {
+                   "inc::latest" : "0.500",
+                   "File::ShareDir::Install" : "0.08"
+                },
+                "requires" : {
+                   "File::ShareDir::Install" : "0.13",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Locate per-dist and per-module shared files",
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "name" : "File-ShareDir",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/perl5-utils/File-ShareDir",
+                "type" : "git"
+             },
+             "homepage" : "https://metacpan.org/release/File-ShareDir",
+             "bugtracker" : {
+                "mailto" : "file-sharedir@rt.cpan.org",
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=File-ShareDir"
+             }
+          },
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.97001"
+       },
+       "id" : "h3_Fl5rqp_TQiw_HZrdGRHJEfWs",
+       "version" : "1.116",
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1529854391,
+          "size" : 27487
+       },
+       "provides" : [
+          "File::ShareDir"
+       ],
+       "authorized" : true,
+       "checksum_md5" : "f2a0eee9f04c93753dd56437175e5bda",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/perl5-utils/File-ShareDir",
+             "type" : "git"
+          },
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=File-ShareDir",
+             "mailto" : "file-sharedir@rt.cpan.org"
+          },
+          "homepage" : "https://metacpan.org/release/File-ShareDir"
+       },
+       "main_module" : "File::ShareDir",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "REHSACK",
+       "archive" : "File-ShareDir-1.116.tar.gz",
+       "version_numified" : 1.116,
+       "checksum_sha256" : "59d90bfdf98c4656ff4173e62954ea8cf0de66565e35d108ecd7050596cb8328",
+       "changes_file" : "Changes"
+    }

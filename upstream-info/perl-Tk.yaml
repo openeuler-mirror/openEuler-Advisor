@@ -1,0 +1,256 @@
+---
+version_control: metacpan
+src_repo: Tk
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:13.027564340 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1585423722,
+          "size" : 7024487,
+          "mode" : 33204
+       },
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.035.tar.gz",
+       "author" : "SREZIC",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/eserte/perl-tk"
+          }
+       },
+       "archive" : "Tk-804.035.tar.gz",
+       "license" : [
+          "unrestricted"
+       ],
+       "checksum_md5" : "839c70fe35acf4ba92206e719cc5f0a6",
+       "distribution" : "Tk",
+       "id" : "86RbvfKP9VA6YT93vpjMxw0Xo80",
+       "version_numified" : 804.035,
+       "tests" : {
+          "fail" : 8,
+          "na" : 0,
+          "unknown" : 3,
+          "pass" : 223
+       },
+       "main_module" : "Tk",
+       "version" : "804.035",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Tk - a Graphical User Interface Toolkit",
+       "authorized" : true,
+       "checksum_sha256" : "4d2b80291ba6de34d8ec886a085a6dbd2b790b926035a087e99025614c5ffdd4",
+       "name" : "Tk-804.035",
+       "provides" : [
+          "Tie::Watch",
+          "Tk",
+          "Tk::Adjuster",
+          "Tk::Adjuster::Item",
+          "Tk::After",
+          "Tk::Animation",
+          "Tk::Balloon",
+          "Tk::Bitmap",
+          "Tk::BrowseEntry",
+          "Tk::Button",
+          "Tk::Canvas",
+          "Tk::Checkbutton",
+          "Tk::Clipboard",
+          "Tk::CmdLine",
+          "Tk::ColorDialog",
+          "Tk::ColorEditor",
+          "Tk::ColorSelect",
+          "Tk::Compound",
+          "Tk::Configure",
+          "Tk::Derived",
+          "Tk::Dialog",
+          "Tk::DialogBox",
+          "Tk::DirTree",
+          "Tk::DirTreeDialog",
+          "Tk::Dirlist",
+          "Tk::DragDrop",
+          "Tk::DragDrop::Common",
+          "Tk::DragDrop::Local",
+          "Tk::DragDrop::Rect",
+          "Tk::DragDrop::SunConst",
+          "Tk::DragDrop::SunDrop",
+          "Tk::DragDrop::SunSite",
+          "Tk::DragDrop::Win32Drop",
+          "Tk::DragDrop::Win32Site",
+          "Tk::DragDrop::XDNDDrop",
+          "Tk::DragDrop::XDNDSite",
+          "Tk::DropSite",
+          "Tk::DummyEncode",
+          "Tk::DummyEncode::X11ControlChars",
+          "Tk::DummyEncode::iso8859_1",
+          "Tk::English",
+          "Tk::Entry",
+          "Tk::ErrorDialog",
+          "Tk::Event",
+          "Tk::Event::IO",
+          "Tk::FBox",
+          "Tk::FileSelect",
+          "Tk::FloatEntry",
+          "Tk::Font",
+          "Tk::Frame",
+          "Tk::HList",
+          "Tk::IO",
+          "Tk::IconList",
+          "Tk::Image",
+          "Tk::InputO",
+          "Tk::ItemStyle",
+          "Tk::JPEG",
+          "Tk::LabEntry",
+          "Tk::LabFrame",
+          "Tk::LabRadiobutton",
+          "Tk::Label",
+          "Tk::LabeledEntryLabeledRadiobutton",
+          "Tk::Labelframe",
+          "Tk::Listbox",
+          "Tk::MMtry",
+          "Tk::MMutil",
+          "Tk::MainWindow",
+          "Tk::MakeDepend",
+          "Tk::Menu",
+          "Tk::Menu::Button",
+          "Tk::Menu::Cascade",
+          "Tk::Menu::Checkbutton",
+          "Tk::Menu::Item",
+          "Tk::Menu::Radiobutton",
+          "Tk::Menu::Separator",
+          "Tk::Menubar",
+          "Tk::Menubutton",
+          "Tk::Message",
+          "Tk::MsgBox",
+          "Tk::Mwm",
+          "Tk::NBFrame",
+          "Tk::NoteBook",
+          "Tk::Optionmenu",
+          "Tk::PNG",
+          "Tk::Pane",
+          "Tk::Panedwindow",
+          "Tk::Photo",
+          "Tk::Pixmap",
+          "Tk::Pretty",
+          "Tk::ProgressBar",
+          "Tk::ROText",
+          "Tk::Radiobutton",
+          "Tk::Region",
+          "Tk::Reindex",
+          "Tk::ReindexedROText",
+          "Tk::ReindexedText",
+          "Tk::Scale",
+          "Tk::Scrollbar",
+          "Tk::Spinbox",
+          "Tk::Stats",
+          "Tk::Submethods",
+          "Tk::TList",
+          "Tk::Table",
+          "Tk::Text",
+          "Tk::Text::Tag",
+          "Tk::TextEdit",
+          "Tk::TextList",
+          "Tk::TextUndo",
+          "Tk::Tiler",
+          "Tk::TixGrid",
+          "Tk::Toplevel",
+          "Tk::Trace",
+          "Tk::Tree",
+          "Tk::Widget",
+          "Tk::WinPhoto",
+          "Tk::Wm",
+          "Tk::X",
+          "Tk::X11Font",
+          "Tk::Xlib",
+          "Tk::Xrm",
+          "Tk::install",
+          "Tk::widgets",
+          "WidgetDemo"
+       ],
+       "date" : "2020-03-28T19:28:42",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Encode",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "license" : [
+             "unrestricted"
+          ],
+          "name" : "Tk",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/eserte/perl-tk"
+             }
+          },
+          "abstract" : "Tk - a Graphical User Interface Toolkit",
+          "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.142690, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 1,
+          "author" : [
+             "nick@ing-simmons.net (Nick Ing-Simmons)"
+          ],
+          "version" : "804.035",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Encode" : "0",
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "release_status" : "stable"
+       }
+    }

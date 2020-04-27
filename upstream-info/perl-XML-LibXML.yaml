@@ -1,0 +1,406 @@
+---
+version_control: metacpan
+src_repo: XML-LibXML
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:33.192335690 +00:00
+  raw_data: |
+    {
+       "name" : "XML-LibXML-2.0204",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "Scalar::Util",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "strict",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Carp"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "XML::SAX::DocumentLocator",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "module" : "XML::NamespaceSupport",
+             "phase" : "runtime",
+             "version" : "1.07",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "vars",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::Handle"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "DynaLoader",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Tie::Hash",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "XML::SAX::Exception",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.11",
+             "module" : "XML::SAX",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "overload",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "parent",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Encode",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "version" : "5.57"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.008001",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "XML::SAX::Base",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "warnings",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "base",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "constant",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Config"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "POSIX",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "IO::File",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Scalar::Util",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Errno",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "locale",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::Handle",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "utf8",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.14",
+             "phase" : "configure",
+             "module" : "Alien::Libxml2"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "Config",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Alien::Base::Wrapper",
+             "phase" : "configure"
+          }
+       ],
+       "date" : "2020-03-17T16:33:17",
+       "first" : false,
+       "provides" : [
+          "XML::LibXML",
+          "XML::LibXML::Attr",
+          "XML::LibXML::AttributeHash",
+          "XML::LibXML::Boolean",
+          "XML::LibXML::CDATASection",
+          "XML::LibXML::Comment",
+          "XML::LibXML::Common",
+          "XML::LibXML::Devel",
+          "XML::LibXML::Document",
+          "XML::LibXML::DocumentFragment",
+          "XML::LibXML::Dtd",
+          "XML::LibXML::Element",
+          "XML::LibXML::ErrNo",
+          "XML::LibXML::Error",
+          "XML::LibXML::InputCallback",
+          "XML::LibXML::Literal",
+          "XML::LibXML::NamedNodeMap",
+          "XML::LibXML::Namespace",
+          "XML::LibXML::Node",
+          "XML::LibXML::NodeList",
+          "XML::LibXML::Number",
+          "XML::LibXML::PI",
+          "XML::LibXML::Pattern",
+          "XML::LibXML::Reader",
+          "XML::LibXML::RegExp",
+          "XML::LibXML::RelaxNG",
+          "XML::LibXML::SAX",
+          "XML::LibXML::SAX::AttributeNode",
+          "XML::LibXML::SAX::Builder",
+          "XML::LibXML::SAX::Generator",
+          "XML::LibXML::SAX::Parser",
+          "XML::LibXML::Schema",
+          "XML::LibXML::Text",
+          "XML::LibXML::XPathContext",
+          "XML::LibXML::XPathExpression",
+          "XML::LibXML::_SAXParser"
+       ],
+       "checksum_sha256" : "bd48b539ad4b3d419658db7e69811f3b5fe88c6fa3dd25b30bc83f7f203d2f36",
+       "authorized" : true,
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/shlomif/perl-XML-LibXML",
+                "type" : "git",
+                "url" : "https://github.com/shlomif/perl-XML-LibXML.git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "name" : "XML-LibXML",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Config" : "0",
+                   "Alien::Libxml2" : "0.14",
+                   "Alien::Base::Wrapper" : "0",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "XML::SAX::DocumentLocator" : "0",
+                   "XML::SAX::Base" : "0",
+                   "overload" : "0",
+                   "parent" : "0",
+                   "Exporter" : "5.57",
+                   "Scalar::Util" : "0",
+                   "Tie::Hash" : "0",
+                   "XML::NamespaceSupport" : "1.07",
+                   "Carp" : "0",
+                   "warnings" : "0",
+                   "constant" : "0",
+                   "perl" : "5.008001",
+                   "DynaLoader" : "0",
+                   "XML::SAX" : "0.11",
+                   "strict" : "0",
+                   "vars" : "0",
+                   "base" : "0",
+                   "IO::Handle" : "0",
+                   "Encode" : "0",
+                   "XML::SAX::Exception" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Errno" : "0",
+                   "Test::More" : "0",
+                   "IO::File" : "0",
+                   "POSIX" : "0",
+                   "Config" : "0",
+                   "utf8" : "0",
+                   "Scalar::Util" : "0",
+                   "IO::Handle" : "0",
+                   "locale" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.0204",
+          "dynamic_config" : 0,
+          "author" : [
+             "Petr Pajas <PAJAS@cpan.org>"
+          ],
+          "keywords" : [
+             "dom",
+             "html",
+             "libxml",
+             "object oriented",
+             "oop",
+             "parse",
+             "parser",
+             "parsing",
+             "pullparser",
+             "sax",
+             "sgml",
+             "xml",
+             "xpath",
+             "XPath",
+             "xs"
+          ],
+          "abstract" : "Interface to Gnome libxml2 xml parsing and DOM library",
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005"
+       },
+       "maturity" : "released",
+       "main_module" : "XML::LibXML",
+       "status" : "latest",
+       "version" : "2.0204",
+       "abstract" : "Interface to Gnome libxml2 xml parsing and DOM library",
+       "changes_file" : "Changes",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "b0e1783ef546610485186864c0f1be55",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/shlomif/perl-XML-LibXML",
+             "type" : "git",
+             "url" : "https://github.com/shlomif/perl-XML-LibXML.git"
+          }
+       },
+       "archive" : "XML-LibXML-2.0204.tar.gz",
+       "version_numified" : 2.0204,
+       "tests" : {
+          "unknown" : 3,
+          "pass" : 976,
+          "fail" : 1,
+          "na" : 0
+       },
+       "distribution" : "XML-LibXML",
+       "id" : "YsWNvr8Wh9lom6mAxpOHHWAGswo",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1584462797,
+          "mode" : 33188,
+          "size" : 462758
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0204.tar.gz",
+       "author" : "SHLOMIF"
+    }

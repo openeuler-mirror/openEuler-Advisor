@@ -1,0 +1,391 @@
+---
+version_control: metacpan
+src_repo: autodie
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:35.472527170 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "date" : "2020-01-16T17:47:39",
+       "name" : "autodie-2.32",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TODDR/autodie-2.32.tar.gz",
+       "distribution" : "autodie",
+       "status" : "latest",
+       "first" : false,
+       "dependency" : [
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Tie::RefHash"
+          },
+          {
+             "module" : "constant",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "warnings"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "overload"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "requires",
+             "version" : "5.008004",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Fcntl",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "B",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Scalar::Util",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "POSIX",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Carp"
+          },
+          {
+             "module" : "parent",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Exporter",
+             "relationship" : "requires",
+             "version" : "5.57",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "IPC::System::Simple",
+             "relationship" : "recommends",
+             "version" : "0.12",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "recommends",
+             "version" : "5.010",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "recommends",
+             "version" : "0",
+             "module" : "Sub::Identify"
+          },
+          {
+             "module" : "BSD::Resource",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "module" : "Import::Into",
+             "version" : "1.002004",
+             "relationship" : "recommends",
+             "phase" : "test"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "recommends",
+             "version" : "5.010",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Socket"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "if"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "IO::Handle"
+          },
+          {
+             "module" : "FindBin",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "File::Copy"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "File::Spec"
+          },
+          {
+             "module" : "lib",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "File::Temp"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Sub::Identify"
+          },
+          {
+             "module" : "Test::More",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Import::Into",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Pod::Coverage::TrustPod"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.41",
+             "phase" : "develop",
+             "module" : "Test::Pod"
+          },
+          {
+             "module" : "BSD::Resource",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Test::Pod::Coverage",
+             "version" : "1.08",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "module" : "IPC::System::Simple",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "Replace functions with ones that succeed or die with lexical scope",
+       "checksum_md5" : "8e28b6c0eea1d8d79407e23de270db3c",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=autodie"
+          },
+          "repository" : {
+             "url" : "git://github.com/pjf/autodie",
+             "type" : "git",
+             "web" : "https://github.com/pjf/autodie"
+          }
+       },
+       "main_module" : "autodie",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "autodie-2.32.tar.gz",
+       "author" : "TODDR",
+       "version_numified" : 2.32,
+       "checksum_sha256" : "ad5335ca7f46f49d90cb61b1b66d4dd04f16e48095b43207edbb9eb3e86bdf15",
+       "changes_file" : "Changes",
+       "tests" : {
+          "pass" : 1039,
+          "unknown" : 4,
+          "na" : 17,
+          "fail" : 9
+       },
+       "metadata" : {
+          "name" : "autodie",
+          "author" : [
+             "Paul Fenwick <pjf@cpan.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.12",
+          "release_status" : "stable",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=autodie"
+             },
+             "repository" : {
+                "web" : "https://github.com/pjf/autodie",
+                "type" : "git",
+                "url" : "git://github.com/pjf/autodie"
+             }
+          },
+          "dynamic_config" : 0,
+          "x_generated_by_perl" : "v5.30.0",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.32",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "abstract" : "Replace functions with ones that succeed or die with lexical scope",
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Pod::Coverage" : "1.08",
+                   "BSD::Resource" : "0",
+                   "Sub::Identify" : "0",
+                   "IPC::System::Simple" : "0",
+                   "Test::Pod" : "1.41",
+                   "Import::Into" : "0",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Socket" : "0",
+                   "File::Spec" : "0",
+                   "lib" : "0",
+                   "IO::Handle" : "0",
+                   "File::Copy" : "0",
+                   "FindBin" : "0",
+                   "if" : "0",
+                   "Test::More" : "0",
+                   "File::Temp" : "0"
+                },
+                "recommends" : {
+                   "BSD::Resource" : "0",
+                   "perl" : "5.010",
+                   "Import::Into" : "1.002004"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "Fcntl" : "0",
+                   "overload" : "0",
+                   "parent" : "0",
+                   "POSIX" : "0",
+                   "Scalar::Util" : "0",
+                   "Tie::RefHash" : "0",
+                   "B" : "0",
+                   "Exporter" : "5.57",
+                   "constant" : "0",
+                   "Carp" : "0",
+                   "perl" : "5.008004"
+                },
+                "recommends" : {
+                   "Sub::Identify" : "0",
+                   "IPC::System::Simple" : "0.12",
+                   "perl" : "5.010"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       },
+       "deprecated" : false,
+       "id" : "ZQA7YgolLNxN2lgSCl_bPaVHqAk",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 93618,
+          "mtime" : 1579196859
+       },
+       "version" : "2.32",
+       "authorized" : true,
+       "provides" : [
+          "Fatal",
+          "autodie",
+          "autodie::Scope::Guard",
+          "autodie::Scope::GuardStack",
+          "autodie::Util",
+          "autodie::exception",
+          "autodie::exception::system",
+          "autodie::hints",
+          "autodie::skip"
+       ]
+    }

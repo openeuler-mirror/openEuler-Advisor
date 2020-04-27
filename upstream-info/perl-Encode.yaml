@@ -1,0 +1,266 @@
+---
+version_control: metacpan
+src_repo: Encode
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:16.386763400 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "version" : "3.05",
+       "main_module" : "Encode",
+       "abstract" : "character encodings in Perl",
+       "changes_file" : "Changes",
+       "provides" : [
+          "Encode",
+          "Encode::Alias",
+          "Encode::Byte",
+          "Encode::CJKConstants",
+          "Encode::CN",
+          "Encode::CN::HZ",
+          "Encode::Config",
+          "Encode::EBCDIC",
+          "Encode::Encoder",
+          "Encode::Encoding",
+          "Encode::GSM0338",
+          "Encode::Guess",
+          "Encode::Internal",
+          "Encode::JP",
+          "Encode::JP::H2Z",
+          "Encode::JP::JIS7",
+          "Encode::KR",
+          "Encode::KR::2022_KR",
+          "Encode::MIME::Header",
+          "Encode::MIME::Header::ISO_2022_JP",
+          "Encode::MIME::Name",
+          "Encode::Symbol",
+          "Encode::TW",
+          "Encode::UTF_EBCDIC",
+          "Encode::Unicode",
+          "Encode::Unicode::UTF7",
+          "Encode::XS",
+          "Encode::utf8",
+          "encoding"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0.81_01",
+             "module" : "Test::More",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.221",
+             "module" : "parent",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Storable",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "version" : "5.57"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2020-03-18T05:03:23",
+       "first" : false,
+       "name" : "Encode-3.05",
+       "checksum_sha256" : "e0f51e03cd787a3e26026503e806afdc03f3823ae3551c711a9b04ad901a8794",
+       "authorized" : true,
+       "metadata" : {
+          "version" : "3.05",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.81_01"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Storable" : "0",
+                   "Exporter" : "5.57",
+                   "parent" : "0.221"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "character encodings in Perl",
+          "x_contributors" : [
+             "Alex Davies <alex.davies@talktalk.net>",
+             "Alex Kapranoff <alex@kapranoff.ru>",
+             "Alex Vandiver <alex@chmrr.net>",
+             "Andreas J. Koenig <andreas.koenig@anima.de>",
+             "Andrew Pennebaker <andrew.pennebaker@networkedinsights.com>",
+             "Andy Grundman <andyg@activestate.com>",
+             "Anton Tagunov <tagunov@motor.ru>",
+             "Autrijus Tang <autrijus@autrijus.org>",
+             "Benjamin Goldberg <goldbb2@earthlink.net>",
+             "Bjoern Hoehrmann <derhoermi@gmx.net>",
+             "Bjoern Jacke <debianbugs@j3e.de>",
+             "bulk88 <bulk88@hotmail.com>",
+             "Craig A. Berry <craigberry@mac.com>",
+             "Curtis Jewell <csjewell@cpan.org>",
+             "Dan Kogai <dankogai@dan.co.jp>",
+             "Dave Evans <dave@rudolf.org.uk>",
+             "David Golden <dagolden@cpan.org>",
+             "David Steinbrunner <dsteinbrunner@pobox.com>",
+             "Deng Liu <dengliu@ntu.edu.tw>",
+             "Dominic Dunlop <domo@computer.org>",
+             "drry",
+             "Elizabeth Mattijsen <liz@dijkmat.nl>",
+             "Flavio Poletti <flavio@polettix.it>",
+             "Gerrit P. Haase <gp@familiehaase.de>",
+             "Gisle Aas <gisle@ActiveState.com>",
+             "Graham Barr <gbarr@pobox.com>",
+             "Graham Knop <haarg@haarg.org>",
+             "Graham Ollis <perl@wdlabs.com>",
+             "Gurusamy Sarathy <gsar@activestate.com>",
+             "H.Merijn Brand <h.m.brand@xs4all.nl>",
+             "Hugo van der Sanden <hv@crypt.org>",
+             "chansen <chansen@cpan.org>",
+             "Chris Nandor <pudge@pobox.com>",
+             "Inaba Hiroto <inaba@st.rim.or.jp>",
+             "Jarkko Hietaniemi <jhi@iki.fi>",
+             "Jesse Vincent <jesse@fsck.com>",
+             "Jungshik Shin <jshin@mailaps.org>",
+             "Karen Etheridge <ether@cpan.org>",
+             "Karl Williamson <khw@cpan.org>",
+             "Kenichi Ishigaki <ishigaki@cpan.org>",
+             "KONNO Hiroharu <hiroharu.konno@bowneglobal.co.jp>",
+             "Laszlo Molnar <ml1050@freemail.hu>",
+             "Makamaka <makamaka@donzoko.net>",
+             "Mark-Jason Dominus <mjd@plover.com>",
+             "Masahiro Iuchi <masahiro.iuchi@gmail.com>",
+             "MATSUNO Tokuhiro <tokuhirom+cpan@gmail.com>",
+             "Mattia Barbon <mbarbon@dsi.unive.it>",
+             "Michael G Schwern <schwern@pobox.com>",
+             "Michael LaGrasta <michael@lagrasta.com>",
+             "Miron Cuperman <miron@hyper.to>",
+             "Moritz Lenz <moritz@faui2k3.org>",
+             "MORIYAMA Masayuki <msyk@mtg.biglobe.ne.jp>",
+             "Nick Ing-Simmons <nick@ing-simmons.net>",
+             "Nicholas Clark <nick@ccl4.org>",
+             "Olivier Mengué <dolmen@cpan.org>",
+             "otsune",
+             "Pali <pali@cpan.org>",
+             "Paul Marquess <paul_marquess@yahoo.co.uk>",
+             "Peter Prymmer <pvhp@best.com>",
+             "Peter Rabbitson <ribasushi@cpan.org>",
+             "Philip Newton <pne@cpan.org>",
+             "Piotr Fusik <pfusik@op.pl>",
+             "Rafael Garcia-Suarez <rgarciasuarez@mandriva.com>",
+             "Randy Stauner <randy@magnificent-tears.com>",
+             "Reini Urban <rurban@cpan.org>",
+             "Robin Barker <rmb1@cise.npl.co.uk>",
+             "SADAHIRO Tomoyuki <SADAHIRO@cpan.org>",
+             "Simon Cozens <simon@netthink.co.uk>",
+             "Slaven Rezic <SREZIC@cpan.org>",
+             "Spider Boardman <spider@web.zk3.dec.com>",
+             "Steve Hay <steve.m.hay@googlemail.com>",
+             "Steve Peters <steve@fisharerojo.org>",
+             "SUGAWARA Hajime <sugawara@hdt.co.jp>",
+             "SUZUKI Norio <ZAP00217@nifty.com>",
+             "szr8 <blz.marcel@gmail.com>",
+             "Tatsuhiko Miyagawa <miyagawa@bulknews.net>",
+             "Tels <perl_dummy@bloodgate.com>",
+             "Tony Cook <tony@develop-help.com>",
+             "Vadim Konovalov <vkonovalov@peterstar.ru>",
+             "Victor <victor@vsespb.ru>",
+             "Ville Skyttä <ville.skytta@iki.fi>",
+             "Vincent van Dam <vvandam@sandvine.com>",
+             "Yitzchak Scott-Thoennes <sthoenna@efn.org>"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "Dan Kogai <dankogai@dan.co.jp>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Encode",
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/dankogai/p5-encode"
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          }
+       },
+       "maturity" : "released",
+       "deprecated" : false,
+       "stat" : {
+          "mode" : 33188,
+          "size" : 2054438,
+          "mtime" : 1584507803
+       },
+       "author" : "DANKOGAI",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Encode-3.05.tar.gz",
+       "checksum_md5" : "137aef00bfc3d5cb97096ad985d3153a",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Encode-3.05.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/dankogai/p5-encode"
+          }
+       },
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 1142,
+          "unknown" : 5
+       },
+       "version_numified" : 3.05,
+       "id" : "O6OvFddf4GN75jU_0tLUDJbaZXo",
+       "distribution" : "Encode"
+    }

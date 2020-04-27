@@ -1,0 +1,292 @@
+---
+version_control: metacpan
+src_repo: Parallel-ForkManager
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:53.383916090 +00:00
+  raw_data: |
+    {
+       "author" : "YANICK",
+       "archive" : "Parallel-ForkManager-2.02.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 2.02,
+       "checksum_sha256" : "c1b2970a8bb666c3de7caac4a8f4dbcc043ab819bbc337692ec7bf27adae4404",
+       "changes_file" : "Changes",
+       "checksum_md5" : "22429227cad73528178082befb8a2470",
+       "resources" : {
+          "homepage" : "https://github.com/dluxhu/perl-parallel-forkmanager",
+          "bugtracker" : {
+             "web" : "https://github.com/dluxhu/perl-parallel-forkmanager/issues"
+          },
+          "repository" : {
+             "url" : "https://github.com/dluxhu/perl-parallel-forkmanager.git",
+             "web" : "https://github.com/dluxhu/perl-parallel-forkmanager",
+             "type" : "git"
+          }
+       },
+       "main_module" : "Parallel::ForkManager",
+       "id" : "dREqVr92g2daRztGoIrXY6uflwg",
+       "version" : "2.02",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 33457,
+          "mtime" : 1539040863
+       },
+       "authorized" : true,
+       "provides" : [
+          "Parallel::ForkManager",
+          "Parallel::ForkManager::Child"
+       ],
+       "tests" : {
+          "unknown" : 1,
+          "na" : 0,
+          "pass" : 3395,
+          "fail" : 7
+       },
+       "metadata" : {
+          "author" : [
+             "dLux (Szabó, Balázs) <dlux@dlux.hu>",
+             "Yanick Champoux <yanick@cpan.org>",
+             "Gabor Szabo <gabor@szabgab.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/dluxhu/perl-parallel-forkmanager.git",
+                "type" : "git",
+                "web" : "https://github.com/dluxhu/perl-parallel-forkmanager"
+             },
+             "homepage" : "https://github.com/dluxhu/perl-parallel-forkmanager",
+             "bugtracker" : {
+                "web" : "https://github.com/dluxhu/perl-parallel-forkmanager/issues"
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "provides" : {
+             "Parallel::ForkManager::Child" : {
+                "file" : "lib/Parallel/ForkManager/Child.pm",
+                "version" : "2.02"
+             },
+             "Parallel::ForkManager" : {
+                "file" : "lib/Parallel/ForkManager.pm",
+                "version" : "2.02"
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.02",
+          "generated_by" : "Dist::Zilla version 6.011, CPAN::Meta::Converter version 2.150010",
+          "x_authority" : "cpan:DLUX",
+          "name" : "Parallel-ForkManager",
+          "dynamic_config" : 0,
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0115",
+          "x_contributor_covenant" : {
+             "version" : 0.01
+          },
+          "x_contributors" : [
+             "Ninebit <kevin@9b.io>",
+             "Ricardo Signes <rjbs@cpan.org>",
+             "Shlomi Fish <shlomif@shlomifish.org>"
+          ],
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Path" : "0",
+                   "Carp" : "0",
+                   "Moo" : "0",
+                   "File::Spec" : "0",
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "Storable" : "0",
+                   "Moo::Role" : "0",
+                   "File::Temp" : "0",
+                   "POSIX" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::Warn" : "0",
+                   "Test::More" : "0.94",
+                   "perl" : "5.006",
+                   "ExtUtils::MakeMaker" : "0",
+                   "File::Spec" : "0",
+                   "IPC::Open3" : "0",
+                   "IO::Handle" : "0"
+                },
+                "recommends" : {
+                   "CPAN::Meta" : "2.120900"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Vars" : "0",
+                   "Test::More" : "0.96"
+                }
+             }
+          },
+          "abstract" : "A simple parallel processing fork manager"
+       },
+       "deprecated" : false,
+       "name" : "Parallel-ForkManager-2.02",
+       "download_url" : "https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz",
+       "maturity" : "released",
+       "date" : "2018-10-08T23:21:03",
+       "status" : "latest",
+       "distribution" : "Parallel-ForkManager",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "perl",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "5.006"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.94",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::Warn"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "File::Spec"
+          },
+          {
+             "module" : "IPC::Open3",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "IO::Handle",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "2.120900",
+             "phase" : "test",
+             "module" : "CPAN::Meta"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.96",
+             "phase" : "develop",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Vars"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Storable",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Temp"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Moo::Role"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "POSIX"
+          },
+          {
+             "module" : "strict",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Path"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Carp"
+          },
+          {
+             "module" : "warnings",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Moo",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "A simple parallel processing fork manager"
+    }

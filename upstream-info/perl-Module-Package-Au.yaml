@@ -1,0 +1,182 @@
+---
+version_control: metacpan
+src_repo: Module-Package-Au
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:07.997131210 +00:00
+  raw_data: |
+    {
+       "authorized" : true,
+       "provides" : [
+          "Module::Package::Au",
+          "Module::Package::Au::dry"
+       ],
+       "version" : "2",
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 27132,
+          "gid" : 1009,
+          "mtime" : 1368174117
+       },
+       "id" : "ARYDReOwJFN_Gs_HRP1ajEm_6Z4",
+       "metadata" : {
+          "x_module_name" : "Module::Package::Au",
+          "license" : [
+             "unrestricted"
+          ],
+          "author" : [
+             "唐鳳 <cpan@audreyt.org>"
+          ],
+          "name" : "Module-Package-Au",
+          "dynamic_config" : "1",
+          "resources" : {
+             "homepage" : "https://github.com/audreyt/module-package-au/tree",
+             "repository" : {
+                "url" : "git://github.com/audreyt/module-package-au.git",
+                "type" : "git"
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "2",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "v5.8.3",
+                   "Pod::Markdown" : "1.110730",
+                   "Module::Package" : "0.24",
+                   "Module::Install::Repository" : "0",
+                   "Module::Install::ReadmeMarkdownFromPod" : "0.03",
+                   "Module::Install::AuthorTests" : "0",
+                   "Module::Install::ReadmeFromPod" : "0.12",
+                   "Module::Install::GithubMeta" : "0.10"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             }
+          },
+          "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Reusable Module::Install bits"
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 167,
+          "pass" : 144
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "c72c51a1da70c306562f3f1cd5e5591266a0ba3e7590812b6a7dbfb8acfd5552",
+       "version_numified" : 2,
+       "author" : "AUDREYT",
+       "license" : [
+          "unrestricted"
+       ],
+       "archive" : "Module-Package-Au-2.tar.gz",
+       "main_module" : "Module::Package::Au",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/audreyt/module-package-au.git"
+          },
+          "homepage" : "https://github.com/audreyt/module-package-au/tree"
+       },
+       "checksum_md5" : "8a1162fe09bc3fed6647441750bff9cc",
+       "dependency" : [
+          {
+             "version" : "6.59",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Module::Install::AuthorTests"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.110730",
+             "module" : "Pod::Markdown"
+          },
+          {
+             "module" : "perl",
+             "version" : "v5.8.3",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Module::Install::GithubMeta",
+             "phase" : "runtime",
+             "version" : "0.10",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.12",
+             "phase" : "runtime",
+             "module" : "Module::Install::ReadmeFromPod"
+          },
+          {
+             "version" : "0.03",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Module::Install::ReadmeMarkdownFromPod"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Module::Install::Repository"
+          },
+          {
+             "version" : "0.24",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Module::Package"
+          },
+          {
+             "phase" : "build",
+             "version" : "6.59",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "abstract" : "Reusable Module::Install bits",
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "Module-Package-Au",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AU/AUDREYT/Module-Package-Au-2.tar.gz",
+       "name" : "Module-Package-Au-2",
+       "date" : "2013-05-10T08:21:57",
+       "maturity" : "released"
+    }

@@ -1,0 +1,126 @@
+---
+version_control: metacpan
+src_repo: Socket
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:17.502256230 +00:00
+  raw_data: |
+    {
+       "name" : "Socket-2.029",
+       "provides" : [
+          "Socket"
+       ],
+       "date" : "2019-02-21T19:41:16",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::CBuilder",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.23",
+             "phase" : "configure",
+             "module" : "ExtUtils::Constant"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006001"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "checksum_sha256" : "3a8d1710a28bf5d7bc46737e43e83657ed4b1c1842efc4cde06c9dd3f6831f06",
+       "authorized" : true,
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 4.00",
+          "name" : "Socket",
+          "license" : [
+             "perl_5"
+          ],
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::Constant" : "0.23",
+                   "ExtUtils::CBuilder" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006001"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "version" : "2.029",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "abstract" : "networking constants and support functions",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010"
+       },
+       "maturity" : "released",
+       "main_module" : "Socket",
+       "version" : "2.029",
+       "status" : "latest",
+       "abstract" : "networking constants and support functions",
+       "changes_file" : "Changes",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "1a59926c0f9ce64ff0e2be1e0579e643",
+       "resources" : {},
+       "archive" : "Socket-2.029.tar.gz",
+       "version_numified" : 2.029,
+       "tests" : {
+          "fail" : 29,
+          "na" : 0,
+          "unknown" : 27,
+          "pass" : 994
+       },
+       "distribution" : "Socket",
+       "id" : "eA2tFh1V3ndVa0NrRQeSGmHud3s",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1550778076,
+          "size" : 44202,
+          "mode" : 33204
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Socket-2.029.tar.gz",
+       "author" : "PEVANS"
+    }

@@ -1,0 +1,22 @@
+---
+version_control: gitlab.gnome
+src_repo: gnome-video-effects
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:54:01.924703390 +00:00
+  raw_data: |
+    0.1.0
+    0.1.0^{}
+    0.2.0
+    0.2.0^{}
+    0.3.0
+    0.3.0^{}
+    0.4.0
+    0.4.0^{}
+    0.4.1
+    0.4.1^{}
+    0.4.3
+    0.4.3^{}
+    0.5.0
+    0.5.0^{}

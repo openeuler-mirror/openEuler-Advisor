@@ -1,0 +1,126 @@
+---
+version_control: metacpan
+src_repo: IPC-SysV
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:11.353143100 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "IPC-SysV",
+          "author" : [
+             "Marcus Holland-Moritz <mhx@cpan.org>"
+          ],
+          "abstract" : "System V IPC constants and system calls",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0.45"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "version" : "2.07",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "unknown" : 3,
+          "na" : 25,
+          "pass" : 1290,
+          "fail" : 0
+       },
+       "provides" : [
+          "IPC::Msg",
+          "IPC::Msg::stat",
+          "IPC::Semaphore",
+          "IPC::Semaphore::stat",
+          "IPC::SharedMem",
+          "IPC::SharedMem::stat",
+          "IPC::SysV"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "mtime" : 1462826678,
+          "gid" : 1009,
+          "size" : 68726,
+          "uid" : 1009,
+          "mode" : 33204
+       },
+       "version" : "2.07",
+       "id" : "Eeoq_UIDDziwPtfJ4bmkYE00fHE",
+       "main_module" : "IPC::SysV",
+       "resources" : {},
+       "checksum_md5" : "4faf5a19c529ff5dae6071d346a47468",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "d01a367af771d35e3b11a21366ad6405f8d28e8cbca4c0cf08ab78bf157d052d",
+       "version_numified" : 2.07,
+       "archive" : "IPC-SysV-2.07.tar.gz",
+       "author" : "MHX",
+       "license" : [
+          "perl_5"
+       ],
+       "dependency" : [
+          {
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.45"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          }
+       ],
+       "abstract" : "System V IPC constants and system calls",
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "IPC-SysV",
+       "date" : "2016-05-09T20:44:38",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MH/MHX/IPC-SysV-2.07.tar.gz",
+       "name" : "IPC-SysV-2.07"
+    }

@@ -1,0 +1,142 @@
+---
+version_control: metacpan
+src_repo: Term-ANSIColor
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:21.420036380 +00:00
+  raw_data: |
+    {
+       "checksum_sha256" : "6281bd87cced7a885c38aa104498e3cd4b5f4c276087442cf68c67379318f27d",
+       "date" : "2020-01-18T03:23:12",
+       "metadata" : {
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "homepage" : "https://www.eyrie.org/~eagle/software/ansicolor/",
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Dist/Display.html?Name=Term-ANSIColor",
+                "mailto" : "bug-Term-ANSIColor@rt.cpan.org"
+             },
+             "repository" : {
+                "web" : "https://github.com/rra/ansicolor",
+                "url" : "git://github.com/rra/ansicolor.git",
+                "type" : "git"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "version" : "5.01",
+          "author" : [
+             "Russ Allbery <rra@cpan.org>"
+          ],
+          "name" : "Term-ANSIColor",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Color output using ANSI escape sequences"
+       },
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Dist/Display.html?Name=Term-ANSIColor",
+             "mailto" : "bug-Term-ANSIColor@rt.cpan.org"
+          },
+          "homepage" : "https://www.eyrie.org/~eagle/software/ansicolor/",
+          "repository" : {
+             "url" : "git://github.com/rra/ansicolor.git",
+             "type" : "git",
+             "web" : "https://github.com/rra/ansicolor"
+          }
+       },
+       "main_module" : "Term::ANSIColor",
+       "distribution" : "Term-ANSIColor",
+       "archive" : "Term-ANSIColor-5.01.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 57411,
+          "mtime" : 1579317792
+       },
+       "name" : "Term-ANSIColor-5.01",
+       "tests" : {
+          "pass" : 1001,
+          "na" : 1,
+          "fail" : 0,
+          "unknown" : 0
+       },
+       "version" : "5.01",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.008"
+          }
+       ],
+       "version_numified" : 5.01,
+       "provides" : [
+          "Term::ANSIColor"
+       ],
+       "id" : "ZwpuGAw3id3eZC9dRgtxyhNpdv8",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Color output using ANSI escape sequences",
+       "checksum_md5" : "5b097ce054447c649de4a022213349c6",
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RR/RRA/Term-ANSIColor-5.01.tar.gz",
+       "author" : "RRA"
+    }

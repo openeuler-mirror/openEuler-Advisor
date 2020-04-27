@@ -1,0 +1,159 @@
+---
+version_control: metacpan
+src_repo: Business-ISBN
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:38.286119630 +00:00
+  raw_data: |
+    {
+       "author" : "BDFOY",
+       "license" : [
+          "artistic_2"
+       ],
+       "archive" : "Business-ISBN-3.005.tar.gz",
+       "version_numified" : 3.005,
+       "checksum_sha256" : "6530fbae40c56376db4e6686c34af8da3db5c4baad0d104047b1ef3e24fe2e2a",
+       "changes_file" : "Changes",
+       "checksum_md5" : "d5528402f40ad01635d6031c3b580c8e",
+       "main_module" : "Business::ISBN",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "web" : "https://github.com/briandfoy/business-isbn",
+             "url" : "https://github.com/briandfoy/business-isbn.git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/briandfoy/business-isbn/issues"
+          },
+          "homepage" : "https://github.com/briandfoy/business-isbn"
+       },
+       "id" : "lVLwUBevFMdRR9iGuyDqRHLdPwY",
+       "version" : "3.005",
+       "stat" : {
+          "mode" : 33204,
+          "mtime" : 1576096126,
+          "size" : 361815
+       },
+       "authorized" : true,
+       "provides" : [
+          "Business::ISBN",
+          "Business::ISBN10",
+          "Business::ISBN13"
+       ],
+       "tests" : {
+          "unknown" : 0,
+          "na" : 0,
+          "pass" : 24,
+          "fail" : 0
+       },
+       "metadata" : {
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/briandfoy/business-isbn",
+                "type" : "git",
+                "url" : "https://github.com/briandfoy/business-isbn.git"
+             },
+             "homepage" : "https://github.com/briandfoy/business-isbn",
+             "bugtracker" : {
+                "web" : "https://github.com/briandfoy/business-isbn/issues"
+             }
+          },
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "license" : [
+             "artistic_2"
+          ],
+          "author" : [
+             "brian d foy <bdfoy@cpan.org>"
+          ],
+          "name" : "Business-ISBN",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.95"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "File::Spec::Functions" : "0",
+                   "ExtUtils::MakeMaker" : "6.64"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Business::ISBN::Data" : "20191107",
+                   "perl" : "5.008"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "work with International Standard Book Numbers",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "3.005",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "deprecated" : false,
+       "name" : "Business-ISBN-3.005",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.005.tar.gz",
+       "maturity" : "released",
+       "date" : "2019-12-11T20:28:46",
+       "distribution" : "Business-ISBN",
+       "status" : "latest",
+       "first" : false,
+       "abstract" : "work with International Standard Book Numbers",
+       "dependency" : [
+          {
+             "module" : "Business::ISBN::Data",
+             "version" : "20191107",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.95",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec::Functions",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.64",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ]
+    }

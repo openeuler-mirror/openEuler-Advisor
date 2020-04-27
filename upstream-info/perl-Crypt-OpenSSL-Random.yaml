@@ -1,0 +1,123 @@
+---
+version_control: metacpan
+src_repo: Crypt-OpenSSL-Random
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:48.892080490 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/Crypt-OpenSSL-Random-0.15.tar.gz",
+       "name" : "Crypt-OpenSSL-Random-0.15",
+       "date" : "2018-04-22T12:18:30",
+       "maturity" : "released",
+       "first" : false,
+       "abstract" : "OpenSSL/LibreSSL pseudo-random number generator access",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0.11",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "Crypt::OpenSSL::Guess"
+          }
+       ],
+       "distribution" : "Crypt-OpenSSL-Random",
+       "status" : "latest",
+       "checksum_sha256" : "f0876faa1ba3111e39b86aa730c603211eff2905e460c72a57b61e8cf475cef4",
+       "changes_file" : "Changes",
+       "author" : "RURBAN",
+       "archive" : "Crypt-OpenSSL-Random-0.15.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 0.15,
+       "checksum_md5" : "bcde8d5a822c91376deda3c4f0c75fbe",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/rurban/Crypt-OpenSSL-Random"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "Crypt::OpenSSL::Random",
+       "version" : "0.15",
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1524399510,
+          "size" : 15506
+       },
+       "provides" : [
+          "Crypt::OpenSSL::Random"
+       ],
+       "authorized" : true,
+       "id" : "foBoEVAzU9sEh7Fs75qs1qbbDYQ",
+       "tests" : {
+          "pass" : 4284,
+          "na" : 0,
+          "unknown" : 72,
+          "fail" : 2
+       },
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Ian Robertson"
+          ],
+          "name" : "Crypt-OpenSSL-Random",
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/rurban/Crypt-OpenSSL-Random"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.15",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "abstract" : "unknown",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Crypt::OpenSSL::Guess" : "0.11"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          }
+       },
+       "deprecated" : false
+    }

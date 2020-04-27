@@ -1,0 +1,129 @@
+---
+version_control: metacpan
+src_repo: Crypt-OpenSSL-Bignum
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:20.306737210 +00:00
+  raw_data: |
+    {
+       "author" : "KMX",
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1512155660,
+          "size" : 16202,
+          "mode" : 33204
+       },
+       "tests" : {
+          "na" : 0,
+          "fail" : 4,
+          "pass" : 3336,
+          "unknown" : 32
+       },
+       "version_numified" : 0.09,
+       "id" : "zu9xpGsVYrHAx9hQWA1sxMDBHko",
+       "distribution" : "Crypt-OpenSSL-Bignum",
+       "checksum_md5" : "c8ae05771c70c69b3e5647b29a885ed2",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Crypt-OpenSSL-Bignum-0.09.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/kmx/perl-Crypt-OpenSSL-Bignum"
+          }
+       },
+       "abstract" : "OpenSSL's multiprecision integer arithmetic",
+       "changes_file" : "Changes",
+       "version" : "0.09",
+       "status" : "latest",
+       "main_module" : "Crypt::OpenSSL::Bignum",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "Crypt-OpenSSL-Bignum",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/kmx/perl-Crypt-OpenSSL-Bignum"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.94",
+          "generated_by" : "ExtUtils::MakeMaker version 7.3, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "OpenSSL's multiprecision integer arithmetic",
+          "author" : [
+             "Ian Robertson <iroberts@cpan.org>"
+          ],
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.09",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006002"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable"
+       },
+       "maturity" : "released",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.006002"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          }
+       ],
+       "provides" : [
+          "Crypt::OpenSSL::Bignum",
+          "Crypt::OpenSSL::Bignum::CTX"
+       ],
+       "date" : "2017-12-01T19:14:20",
+       "name" : "Crypt-OpenSSL-Bignum-0.09",
+       "authorized" : true,
+       "checksum_sha256" : "234e72fb8396d45527e6fd45e43759c5c3f3a208cf8f29e6a22161a996fd42dc"
+    }

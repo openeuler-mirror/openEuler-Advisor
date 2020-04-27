@@ -1,0 +1,166 @@
+---
+version_control: metacpan
+src_repo: Config-Perl-V
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:33.228357210 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "2d051106d3396d572debca5ebcf2f020",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/Tux/Config-Perl-V",
+             "web" : "https://github.com/Tux/Config-Perl-V",
+             "type" : "git"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "Config::Perl::V",
+       "checksum_sha256" : "98918504e568b5d94ba82ad5db057558a3cf3ab751382a46f9af2d03d1b31c14",
+       "changes_file" : "Changelog",
+       "author" : "HMBRAND",
+       "archive" : "Config-Perl-V-0.31.tgz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 0.31,
+       "tests" : {
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 732,
+          "fail" : 0
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "version" : "0.31",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "provides" : {
+             "Config::Perl::V" : {
+                "file" : "V.pm",
+                "version" : "0.31"
+             }
+          },
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "abstract" : "Structured data retrieval of perl -V output",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Config" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::NoWarnings" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "generated_by" : "Author, CPAN::Meta::Converter version 2.150005",
+          "author" : [
+             "H.Merijn Brand <h.m.brand@xs4all.nl>"
+          ],
+          "name" : "Config-Perl-V",
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/Tux/Config-Perl-V",
+                "web" : "https://github.com/Tux/Config-Perl-V",
+                "type" : "git"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          }
+       },
+       "stat" : {
+          "mode" : 33188,
+          "size" : 21340,
+          "mtime" : 1544875440
+       },
+       "version" : "0.31",
+       "provides" : [
+          "Config::Perl::V"
+       ],
+       "authorized" : true,
+       "id" : "v46BvDeOaxvXcAi5fHTgTTlEjAY",
+       "date" : "2018-12-15T12:04:00",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Config-Perl-V-0.31.tgz",
+       "name" : "Config-Perl-V-0.31",
+       "first" : false,
+       "abstract" : "Structured data retrieval of perl -V output",
+       "dependency" : [
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.006"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Config"
+          },
+          {
+             "phase" : "build",
+             "version" : "5.006",
+             "relationship" : "requires",
+             "module" : "perl"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::NoWarnings"
+          },
+          {
+             "module" : "Test::More",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "distribution" : "Config-Perl-V",
+       "status" : "latest"
+    }

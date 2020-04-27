@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  troydhanson/uthash
+tag_prefix: ^v
+seperator: .

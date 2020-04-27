@@ -1,0 +1,162 @@
+---
+version_control: metacpan
+src_repo: TimeDate
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:43.905012280 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "87dfc984aada1c015233518432cb5951",
+       "abstract" : "miscellaneous timezone manipulations routines",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "ATOOMIC",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.32.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "id" : "iCfnQL6EzmUbHj0Zlg_Tud5NyHE",
+       "provides" : [
+          "Date::Format",
+          "Date::Format::Generic",
+          "Date::Language",
+          "Date::Language::Afar",
+          "Date::Language::Amharic",
+          "Date::Language::Austrian",
+          "Date::Language::Brazilian",
+          "Date::Language::Bulgarian",
+          "Date::Language::Chinese",
+          "Date::Language::Chinese_GB",
+          "Date::Language::Czech",
+          "Date::Language::Danish",
+          "Date::Language::Dutch",
+          "Date::Language::English",
+          "Date::Language::Finnish",
+          "Date::Language::French",
+          "Date::Language::Gedeo",
+          "Date::Language::German",
+          "Date::Language::Greek",
+          "Date::Language::Hungarian",
+          "Date::Language::Icelandic",
+          "Date::Language::Italian",
+          "Date::Language::Norwegian",
+          "Date::Language::Occitan",
+          "Date::Language::Oromo",
+          "Date::Language::Romanian",
+          "Date::Language::Russian",
+          "Date::Language::Russian_cp1251",
+          "Date::Language::Russian_koi8r",
+          "Date::Language::Sidama",
+          "Date::Language::Somali",
+          "Date::Language::Spanish",
+          "Date::Language::Swedish",
+          "Date::Language::Tigrinya",
+          "Date::Language::TigrinyaEritrean",
+          "Date::Language::TigrinyaEthiopian",
+          "Date::Language::Turkish",
+          "Date::Parse",
+          "Time::Zone",
+          "TimeDate"
+       ],
+       "version_numified" : 2.32,
+       "changes_file" : "ChangeLog",
+       "tests" : {
+          "unknown" : 12,
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 1117
+       },
+       "name" : "TimeDate-2.32",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "version" : "2.32",
+       "distribution" : "TimeDate",
+       "archive" : "TimeDate-2.32.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/atoomic/perl-TimeDate"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/atoomic/perl-TimeDate/issues"
+          }
+       },
+       "main_module" : "TimeDate",
+       "metadata" : {
+          "author" : [
+             "Graham Barr <gbarr@pobox.com>"
+          ],
+          "version" : "2.32",
+          "abstract" : "unknown",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "TimeDate",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/atoomic/perl-TimeDate"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/atoomic/perl-TimeDate/issues"
+             }
+          },
+          "dynamic_config" : 1
+       },
+       "checksum_sha256" : "34eca099e375e2d142ea6cc935922c4980dc21c65ce7c24823ca08457c4bb3d6",
+       "date" : "2020-03-04T21:45:41",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 29973,
+          "mtime" : 1583358341
+       },
+       "maturity" : "released"
+    }

@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  thkukuk/yp-tools
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,128 @@
+---
+version_control: metacpan
+src_repo: Mozilla-CA
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:46.085299160 +00:00
+  raw_data: |
+    {
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "Test",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "20180117",
+       "tests" : {
+          "unknown" : 6,
+          "pass" : 5388,
+          "fail" : 0,
+          "na" : 0
+       },
+       "name" : "Mozilla-CA-20180117",
+       "stat" : {
+          "mtime" : 1519904086,
+          "size" : 137157,
+          "mode" : 33188
+       },
+       "maturity" : "released",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Mozilla-CA-20180117.tar.gz",
+       "distribution" : "Mozilla-CA",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/mozilla-ca"
+          }
+       },
+       "main_module" : "Mozilla::CA",
+       "metadata" : {
+          "abstract" : "Mozilla's CA cert bundle in PEM format",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Mozilla-CA",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "version" : "20180117",
+          "license" : [
+             "unknown"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/gisle/mozilla-ca"
+             }
+          },
+          "dynamic_config" : 1,
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.1002, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Test" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27300_01"
+       },
+       "checksum_sha256" : "f2cc9fbe119f756313f321e0d9f1fac0859f8f154ac9d75b1a264c1afdf4e406",
+       "date" : "2018-03-01T11:34:46",
+       "author" : "ABH",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20180117.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "abstract" : "Mozilla's CA cert bundle in PEM format",
+       "checksum_md5" : "9c93333e1d9d3fad639e9d4082898de1",
+       "authorized" : true,
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "id" : "TfBI4iitZF30wj_OG4oQs46OVFQ",
+       "provides" : [
+          "Mozilla::CA"
+       ],
+       "version_numified" : 20180117
+    }

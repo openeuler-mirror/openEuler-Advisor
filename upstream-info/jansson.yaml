@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  akheron/jansson
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,221 @@
+---
+version_control: metacpan
+src_repo: strictures
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:37.682695530 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "id" : "ZoVejDbCQxfScEALlu5_hPjP97I",
+       "provides" : [
+          "strictures",
+          "strictures::extra"
+       ],
+       "version_numified" : 2.000006,
+       "author" : "HAARG",
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/strictures-2.000006.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "abstract" : "Turn on strict and make most warnings fatal",
+       "checksum_md5" : "35c14fd25320f32ff40e977feae95d0d",
+       "authorized" : true,
+       "status" : "latest",
+       "stat" : {
+          "mtime" : 1552255720,
+          "mode" : 33188,
+          "size" : 22508
+       },
+       "maturity" : "released",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "strictures-2.000006.tar.gz",
+       "distribution" : "strictures",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=strictures",
+             "mailto" : "bug-strictures@rt.cpan.org"
+          },
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/p5sagit/strictures.git",
+             "web" : "https://github.com/p5sagit/strictures"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "strictures",
+       "metadata" : {
+          "version" : "2.000006",
+          "author" : [
+             "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "x_authority" : "cpan:MSTROUT",
+          "name" : "strictures",
+          "abstract" : "Turn on strict and make most warnings fatal",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {}
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                },
+                "suggests" : {
+                   "multidimensional" : "0",
+                   "indirect" : "0",
+                   "bareword::filehandles" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Pod::Coverage::CountParents" : "0",
+                   "Test::Pod" : "0",
+                   "multidimensional" : "0",
+                   "indirect" : "0",
+                   "Test::Pod::Coverage" : "0",
+                   "bareword::filehandles" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 1,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "x_contributors" : [
+             "Graham Knop <haarg@haarg.org>",
+             "Karen Etheridge <ether@cpan.org>",
+             "Matt S Trout <mst@shadowcat.co.uk>",
+             "Peter Rabbitson <ribasushi@cpan.org>",
+             "Christian Walde <walde.christian@googlemail.com>",
+             "Diab Jerius <djerius@cfa.harvard.edu>"
+          ],
+          "resources" : {
+             "bugtracker" : {
+                "mailto" : "bug-strictures@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=strictures"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/p5sagit/strictures.git",
+                "type" : "git",
+                "web" : "https://github.com/p5sagit/strictures"
+             }
+          }
+       },
+       "checksum_sha256" : "09d57974a6d1b2380c802870fed471108f51170da81458e2751859f2714f8d57",
+       "date" : "2019-03-10T22:08:40",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "Pod::Coverage::CountParents"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "indirect",
+             "version" : "0"
+          },
+          {
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "multidimensional",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "module" : "bareword::filehandles",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "suggests",
+             "module" : "indirect",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "suggests",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "bareword::filehandles"
+          },
+          {
+             "relationship" : "suggests",
+             "module" : "multidimensional",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0"
+          }
+       ],
+       "version" : "2.000006",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 3821,
+          "fail" : 0,
+          "na" : 0
+       },
+       "name" : "strictures-2.000006"
+    }

@@ -1,0 +1,23 @@
+---
+version_control: pypi
+src_repo: ntplib
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 03:13:06.828739650 +00:00
+  raw_data: '{"info":{"author":"Charles-Francois Natali","author_email":"cf.natali@gmail.com","bugtrack_url":null,"classifiers":["License
+    :: OSI Approved :: MIT License","Operating System :: OS Independent","Programming
+    Language :: Python","Topic :: System :: Networking :: Time Synchronization"],"description":"ntplib
+    - Python NTP library\n===========================\n\nDescription\n-----------\n\nThis
+    module offers a simple interface to query NTP servers from Python.\n\nIt also
+    provides utility functions to translate NTP fields values to text (mode,\nleap
+    indicator...). Since it''s pure Python, and only depends on core modules, it\nshould
+    work on any platform with a Python implementation.\n\nExample\n-------\n\n>>>
+    import ntplib\n>>> from time import ctime\n>>> c = ntplib.NTPClient()\n>>> response
+    = c.request(''europe.pool.ntp.org'', version=3)\n>>> response.offset\n-0.143156766891\n>>>
+    response.version\n3\n>>> ctime(response.tx_time)\n''Sun May 17 09:32:48 2009''\n>>>
+    ntplib.leap_to_text(response.leap)\n''no warning''\n>>> response.root_delay\n0.0046844482421875\n>>>
+    ntplib.ref_id_to_text(response.ref_id)\n193.190.230.66\n\n\nInstallation\n------------\n\nAs
+    root::\n\n   # python setup.py install\n\nor just copy ntplib.py inside a directory
+    in your sys.path, e.g.\n`/usr/lib/python2.5/`.","description_content_type":null,"docs_url":null,"download_url":null,"downloads":{"last_day":-1,"last_month":-1,"last_week":-1},"home_page":"http://code.google.com/p/ntplib/","keywords":null,"license":"MIT","maintainer":null,"maintainer_email":null,"name":"ntplib","package_url":"https://pypi.org/project/ntplib/","platform":"UNKNOWN","project_url":"https://pypi.org/project/ntplib/","project_urls":{"Homepage":"http://code.google.com/p/ntplib/"},"release_url":"https://pypi.org/project/ntplib/0.3.3/","requires_dist":null,"requires_python":null,"summary":"Python
+    NTP library","version":"0.3.3","yanked":false},"last_serial":1652258,"releases":{"0.3.3":[{"comment_text":"","digests":{"md5":"c7cc8e9b09f40c84819859d70b7784ca","sha256":"c4621b64d50be9461d9bd9a71ba0b4af06fbbf818bbd483752d95c1a4e273ede"},"downloads":-1,"filename":"ntplib-0.3.3.tar.gz","has_sig":false,"md5_digest":"c7cc8e9b09f40c84819859d70b7784ca","packagetype":"sdist","python_version":"source","requires_python":null,"size":6808,"upload_time":"2015-07-27T20:53:58","upload_time_iso_8601":"2015-07-27T20:53:58.250212Z","url":"https://files.pythonhosted.org/packages/29/8b/85a86e01c510665b0790d3a9fd4532ad98aba9e185a676113a0ae3879350/ntplib-0.3.3.tar.gz","yanked":false}]},"urls":[{"comment_text":"","digests":{"md5":"c7cc8e9b09f40c84819859d70b7784ca","sha256":"c4621b64d50be9461d9bd9a71ba0b4af06fbbf818bbd483752d95c1a4e273ede"},"downloads":-1,"filename":"ntplib-0.3.3.tar.gz","has_sig":false,"md5_digest":"c7cc8e9b09f40c84819859d70b7784ca","packagetype":"sdist","python_version":"source","requires_python":null,"size":6808,"upload_time":"2015-07-27T20:53:58","upload_time_iso_8601":"2015-07-27T20:53:58.250212Z","url":"https://files.pythonhosted.org/packages/29/8b/85a86e01c510665b0790d3a9fd4532ad98aba9e185a676113a0ae3879350/ntplib-0.3.3.tar.gz","yanked":false}]}'

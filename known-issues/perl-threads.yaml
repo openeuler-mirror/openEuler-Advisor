@@ -1,0 +1,182 @@
+---
+version_control: metacpan
+src_repo: threads
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 06:56:40.677497630 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "unknown" : 4,
+          "pass" : 1142,
+          "fail" : 29,
+          "na" : 0
+       },
+       "name" : "threads-2.21",
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "warnings"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "strict",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Config",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Carp",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::testlib",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "XSLoader",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Hash::Util",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "overload",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::File",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          }
+       ],
+       "version" : "2.21",
+       "resources" : {},
+       "main_module" : "threads",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "threads-2.21.tar.gz",
+       "distribution" : "threads",
+       "date" : "2018-01-23T01:14:04",
+       "checksum_sha256" : "28394c98a2bcae6f20ffb8a3d965a1c194b764c650169e2050ee38dbaa10f110",
+       "metadata" : {
+          "abstract" : "Perl interpreter-based threads",
+          "name" : "threads",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Artur Bergman, Jerry D. Hedden <jdhedden AT cpan DOT org>"
+          ],
+          "version" : "2.21",
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "ExtUtils::testlib" : "0",
+                   "Hash::Util" : "0",
+                   "Carp" : "0",
+                   "overload" : "0",
+                   "IO::File" : "0",
+                   "warnings" : "0",
+                   "XSLoader" : "0",
+                   "Test::More" : "0",
+                   "strict" : "0",
+                   "Config" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02"
+       },
+       "stat" : {
+          "mtime" : 1516670044,
+          "mode" : 33188,
+          "size" : 113446
+       },
+       "maturity" : "released",
+       "authorized" : true,
+       "abstract" : "Perl interpreter-based threads",
+       "checksum_md5" : "45fa009703074f0b0b0d036cb23706e3",
+       "status" : "latest",
+       "author" : "JDHEDDEN",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/threads-2.21.tar.gz",
+       "provides" : [
+          "threads"
+       ],
+       "id" : "U7QNFk_dCIe_XTgNnIDgZ4MzXto",
+       "version_numified" : 2.21,
+       "changes_file" : "Changes"
+    }

@@ -1,0 +1,155 @@
+---
+version_control: metacpan
+src_repo: Test-RequiresInternet
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:32.615216240 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "distribution" : "Test-RequiresInternet",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "warnings",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Socket"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "strict"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          }
+       ],
+       "abstract" : "Easily test network connectivity",
+       "maturity" : "released",
+       "date" : "2015-05-26T01:38:59",
+       "name" : "Test-RequiresInternet-0.05",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz",
+       "tests" : {
+          "pass" : 10215,
+          "unknown" : 13,
+          "na" : 0,
+          "fail" : 1
+       },
+       "deprecated" : "false",
+       "metadata" : {
+          "version" : "0.05",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "abstract" : "Easily test network connectivity",
+          "generated_by" : "Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Socket" : "0",
+                   "warnings" : "0",
+                   "strict" : "0"
+                }
+             }
+          },
+          "name" : "Test-RequiresInternet",
+          "author" : [
+             "Mark Allen <mrallen1@yahoo.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "homepage" : "https://metacpan.org/dist/Test-RequiresInternet",
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Test-RequiresInternet",
+                "mailto" : "bug-Test-RequiresInternet@rt.cpan.org"
+             },
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/mrallen1/Test-RequiresInternet",
+                "url" : "git://github.com/mrallen1/Test-RequiresInternet.git"
+             }
+          },
+          "dynamic_config" : 0
+       },
+       "id" : "Q7_wddUEZUeVRpDKHc8ceV77Uw8",
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 11029,
+          "gid" : 1009,
+          "mtime" : 1432604339
+       },
+       "version" : "0.05",
+       "authorized" : true,
+       "provides" : [
+          "Test::RequiresInternet"
+       ],
+       "checksum_md5" : "0ba9f1cff4cf90ed2618c2eddfd525d8",
+       "main_module" : "Test::RequiresInternet",
+       "resources" : {
+          "homepage" : "https://metacpan.org/dist/Test-RequiresInternet",
+          "bugtracker" : {
+             "mailto" : "bug-Test-RequiresInternet@rt.cpan.org",
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Test-RequiresInternet"
+          },
+          "repository" : {
+             "url" : "git://github.com/mrallen1/Test-RequiresInternet.git",
+             "web" : "https://github.com/mrallen1/Test-RequiresInternet",
+             "type" : "git"
+          }
+       },
+       "author" : "MALLEN",
+       "archive" : "Test-RequiresInternet-0.05.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 0.05,
+       "checksum_sha256" : "bba7b32a1cc0d58ce2ec20b200a7347c69631641e8cae8ff4567ad24ef1e833e",
+       "changes_file" : "Changes"
+    }

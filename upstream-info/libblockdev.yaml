@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  storaged-project/libblockdev
+tag_prefix: ^v
+seperator: .

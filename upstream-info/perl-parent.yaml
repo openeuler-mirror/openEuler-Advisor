@@ -1,0 +1,144 @@
+---
+version_control: metacpan
+src_repo: parent
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:01.822207110 +00:00
+  raw_data: |
+    {
+       "version_numified" : 0.238,
+       "provides" : [
+          "parent"
+       ],
+       "id" : "IuT3umtD6j0CcZRufx2BKXW3SHI",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "authorized" : true,
+       "abstract" : "Establish an ISA relationship with base classes at compile time",
+       "checksum_md5" : "941ab8fb242372c09a7d605e8d56f2ac",
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.238.tar.gz",
+       "author" : "CORION",
+       "date" : "2020-02-07T07:44:31",
+       "checksum_sha256" : "38f58fdef3e28a194c9c8d0dc5d02672faf93c069f40c5bcb1fabeadbbc4d2d1",
+       "metadata" : {
+          "name" : "parent",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Establish an ISA relationship with base classes at compile time",
+          "version" : "0.238",
+          "author" : [
+             "Max Maischein <corion@cpan.org>"
+          ],
+          "x_static_install" : 1,
+          "dynamic_config" : 0,
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/Corion/parent.git",
+                "web" : "https://github.com/Corion/parent"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.40"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27203",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/Corion/parent",
+             "url" : "git://github.com/Corion/parent.git",
+             "type" : "git"
+          }
+       },
+       "main_module" : "parent",
+       "archive" : "parent-0.238.tar.gz",
+       "distribution" : "parent",
+       "license" : [
+          "perl_5"
+       ],
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1581061471,
+          "mode" : 33188,
+          "size" : 10388
+       },
+       "name" : "parent-0.238",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 500,
+          "unknown" : 0
+       },
+       "version" : "0.238",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.40"
+          }
+       ]
+    }

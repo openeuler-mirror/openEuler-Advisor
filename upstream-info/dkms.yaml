@@ -1,0 +1,175 @@
+---
+version_control: github
+src_repo: dell/dkms
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:05:07.814030660 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/dell/dkms/releases/21109958",
+        "assets_url": "https://api.github.com/repos/dell/dkms/releases/21109958/assets",
+        "upload_url": "https://uploads.github.com/repos/dell/dkms/releases/21109958/assets{?name,label}",
+        "html_url": "https://github.com/dell/dkms/releases/tag/v2.8.1",
+        "id": 21109958,
+        "node_id": "MDc6UmVsZWFzZTIxMTA5OTU4",
+        "tag_name": "v2.8.1",
+        "target_commitish": "master",
+        "name": "release next major version v2.8.1 ",
+        "draft": false,
+        "author": {
+          "login": "GoPerry",
+          "id": 953186,
+          "node_id": "MDQ6VXNlcjk1MzE4Ng==",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/953186?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/GoPerry",
+          "html_url": "https://github.com/GoPerry",
+          "followers_url": "https://api.github.com/users/GoPerry/followers",
+          "following_url": "https://api.github.com/users/GoPerry/following{/other_user}",
+          "gists_url": "https://api.github.com/users/GoPerry/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/GoPerry/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/GoPerry/subscriptions",
+          "organizations_url": "https://api.github.com/users/GoPerry/orgs",
+          "repos_url": "https://api.github.com/users/GoPerry/repos",
+          "events_url": "https://api.github.com/users/GoPerry/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/GoPerry/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-10-30T22:51:22Z",
+        "published_at": "2019-10-31T07:11:41Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/dell/dkms/tarball/v2.8.1",
+        "zipball_url": "https://api.github.com/repos/dell/dkms/zipball/v2.8.1",
+        "body": "Bug Fixes:\r\n\r\nFix typo in man page (s/BUILD_MODULE_NAME/BUILT_MODULE_NAME)\r\nMerge pull request #77 from sil2100/dont-remove-built-tree\r\nRevert \"FIX dkms built issues for rhel kernel update ,change prerm script to fix.\"\r\nUpdate README.md\r\nMerge pull request #71 from LocutusOfBorg/patch-1\r\nUpdate Makefile to install bash_completion file in new usr/share location\r\nMerge pull request #65 from c0d3z3r0/for-upstream/fix_pacman_confusion\r\nMerge pull request #66 from DIGImend/compare_same_module_version_types\r\nPreserve module version type positions\r\nDo not touch original modules in /kernel\r\nMerge pull request #63 from calancha/master\r\nMerge pull request #61 from c0d3z3r0/for-upstream/fix_rmdir\r\nMerge pull request #60 from tonyhutter/fix-module-version-check\r\nFix syntactic error when the system shell is zsh\r\nRevert \"Fix to run under BusyBox shell\"\r\nFix version check when installing modules\r\n"
+      },
+      {
+        "url": "https://api.github.com/repos/dell/dkms/releases/17303084",
+        "assets_url": "https://api.github.com/repos/dell/dkms/releases/17303084/assets",
+        "upload_url": "https://uploads.github.com/repos/dell/dkms/releases/17303084/assets{?name,label}",
+        "html_url": "https://github.com/dell/dkms/releases/tag/v2.7.1",
+        "id": 17303084,
+        "node_id": "MDc6UmVsZWFzZTE3MzAzMDg0",
+        "tag_name": "v2.7.1",
+        "target_commitish": "master",
+        "name": "release new version v2.7.1 for issues fix",
+        "draft": false,
+        "author": {
+          "login": "GoPerry",
+          "id": 953186,
+          "node_id": "MDQ6VXNlcjk1MzE4Ng==",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/953186?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/GoPerry",
+          "html_url": "https://github.com/GoPerry",
+          "followers_url": "https://api.github.com/users/GoPerry/followers",
+          "following_url": "https://api.github.com/users/GoPerry/following{/other_user}",
+          "gists_url": "https://api.github.com/users/GoPerry/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/GoPerry/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/GoPerry/subscriptions",
+          "organizations_url": "https://api.github.com/users/GoPerry/orgs",
+          "repos_url": "https://api.github.com/users/GoPerry/repos",
+          "events_url": "https://api.github.com/users/GoPerry/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/GoPerry/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-05-06T17:16:04Z",
+        "published_at": "2019-05-13T01:44:13Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/dell/dkms/tarball/v2.7.1",
+        "zipball_url": "https://api.github.com/repos/dell/dkms/zipball/v2.7.1",
+        "body": ""
+      },
+      {
+        "url": "https://api.github.com/repos/dell/dkms/releases/10717580",
+        "assets_url": "https://api.github.com/repos/dell/dkms/releases/10717580/assets",
+        "upload_url": "https://uploads.github.com/repos/dell/dkms/releases/10717580/assets{?name,label}",
+        "html_url": "https://github.com/dell/dkms/releases/tag/v2.6.1",
+        "id": 10717580,
+        "node_id": "MDc6UmVsZWFzZTEwNzE3NTgw",
+        "tag_name": "v2.6.1",
+        "target_commitish": "master",
+        "name": "new release 2.6.1 ",
+        "draft": false,
+        "author": {
+          "login": "GoPerry",
+          "id": 953186,
+          "node_id": "MDQ6VXNlcjk1MzE4Ng==",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/953186?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/GoPerry",
+          "html_url": "https://github.com/GoPerry",
+          "followers_url": "https://api.github.com/users/GoPerry/followers",
+          "following_url": "https://api.github.com/users/GoPerry/following{/other_user}",
+          "gists_url": "https://api.github.com/users/GoPerry/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/GoPerry/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/GoPerry/subscriptions",
+          "organizations_url": "https://api.github.com/users/GoPerry/orgs",
+          "repos_url": "https://api.github.com/users/GoPerry/repos",
+          "events_url": "https://api.github.com/users/GoPerry/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/GoPerry/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2018-04-25T15:56:48Z",
+        "published_at": "2018-04-25T16:01:33Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/dell/dkms/tarball/v2.6.1",
+        "zipball_url": "https://api.github.com/repos/dell/dkms/zipball/v2.6.1",
+        "body": "The new version fix some regression issue and enable xz compress format support.\r\n"
+      },
+      {
+        "url": "https://api.github.com/repos/dell/dkms/releases/8712883",
+        "assets_url": "https://api.github.com/repos/dell/dkms/releases/8712883/assets",
+        "upload_url": "https://uploads.github.com/repos/dell/dkms/releases/8712883/assets{?name,label}",
+        "html_url": "https://github.com/dell/dkms/releases/tag/v2.5",
+        "id": 8712883,
+        "node_id": "MDc6UmVsZWFzZTg3MTI4ODM=",
+        "tag_name": "v2.5",
+        "target_commitish": "master",
+        "name": "release new dkms version to v2.5",
+        "draft": false,
+        "author": {
+          "login": "GoPerry",
+          "id": 953186,
+          "node_id": "MDQ6VXNlcjk1MzE4Ng==",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/953186?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/GoPerry",
+          "html_url": "https://github.com/GoPerry",
+          "followers_url": "https://api.github.com/users/GoPerry/followers",
+          "following_url": "https://api.github.com/users/GoPerry/following{/other_user}",
+          "gists_url": "https://api.github.com/users/GoPerry/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/GoPerry/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/GoPerry/subscriptions",
+          "organizations_url": "https://api.github.com/users/GoPerry/orgs",
+          "repos_url": "https://api.github.com/users/GoPerry/repos",
+          "events_url": "https://api.github.com/users/GoPerry/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/GoPerry/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2017-11-30T07:10:47Z",
+        "published_at": "2017-11-30T07:22:49Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/dell/dkms/tarball/v2.5",
+        "zipball_url": "https://api.github.com/repos/dell/dkms/zipball/v2.5",
+        "body": ""
+      }
+    ]
+query_type: api.github.releases

@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  stub42/pytz
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,143 @@
+---
+version_control: metacpan
+src_repo: Digest-MD5
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:23.678675880 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "abstract" : "Perl interface to the MD-5 algorithm",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Digest::base" : "1.00",
+                   "XSLoader" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.55",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/gisle/digest-md5"
+             }
+          },
+          "name" : "Digest-MD5",
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "pass" : 4355,
+          "unknown" : 15,
+          "na" : 0,
+          "fail" : 27
+       },
+       "authorized" : true,
+       "provides" : [
+          "Digest::MD5"
+       ],
+       "version" : "2.55",
+       "stat" : {
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1457558230,
+          "gid" : 1009,
+          "size" : 48823
+       },
+       "id" : "QmrWc6kJfDafHJA7ZT3U0kRRwpo",
+       "main_module" : "Digest::MD5",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/gisle/digest-md5"
+          }
+       },
+       "checksum_md5" : "601519b826ca14c233f13a4578b967ef",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "03b198a2d14425d951e5e50a885d3818c3162c8fe4c21e18d7798a9a179d0e3c",
+       "version_numified" : 2.55,
+       "author" : "GAAS",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Digest-MD5-2.55.tar.gz",
+       "dependency" : [
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl"
+          },
+          {
+             "version" : "1.00",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Digest::base"
+          },
+          {
+             "module" : "XSLoader",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "abstract" : "Perl interface to the MD-5 algorithm",
+       "first" : false,
+       "status" : "latest",
+       "distribution" : "Digest-MD5",
+       "date" : "2016-03-09T21:17:10",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz",
+       "name" : "Digest-MD5-2.55"
+    }

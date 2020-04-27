@@ -1,0 +1,100 @@
+---
+version_control: metacpan
+src_repo: Digest-SHA3
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:42.151386380 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "abstract" : "Perl extension for SHA-3",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Digest-SHA3",
+          "author" : [
+             "Mark Shelor, mshelor@cpan.org"
+          ],
+          "version" : "1.04",
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "provides" : {
+             "Digest::SHA3" : {
+                "file" : "lib/Digest/SHA3.pm",
+                "version" : "1.04"
+             }
+          },
+          "dynamic_config" : 1,
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "Mark Shelor, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.003"
+                }
+             }
+          }
+       },
+       "checksum_sha256" : "4a68b67c5034f40fbb1344b304cd66caaa5e320eb523005201cc24f76d470c14",
+       "date" : "2018-04-20T23:48:53",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Digest-SHA3-1.04.tar.gz",
+       "distribution" : "Digest-SHA3",
+       "resources" : {},
+       "main_module" : "Digest::SHA3",
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1524268133,
+          "size" : 29660,
+          "mode" : 33188
+       },
+       "name" : "Digest-SHA3-1.04",
+       "tests" : {
+          "pass" : 1735,
+          "na" : 0,
+          "fail" : 0,
+          "unknown" : 3
+       },
+       "version" : "1.04",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "5.003",
+             "module" : "perl"
+          }
+       ],
+       "version_numified" : 1.04,
+       "id" : "K_phGbC0n0xJZH4K3u7VBt9Ef98",
+       "provides" : [
+          "Digest::SHA3"
+       ],
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "abstract" : "Perl extension for SHA-3",
+       "checksum_md5" : "0fc1057f86916e6b5f96199ac5c7d4f4",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA3-1.04.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "author" : "MSHELOR"
+    }

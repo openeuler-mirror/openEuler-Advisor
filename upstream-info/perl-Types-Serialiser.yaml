@@ -1,0 +1,122 @@
+---
+version_control: metacpan
+src_repo: Types-Serialiser
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:55.641568600 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "abstract" : "simple data types for common serialisation formats",
+       "version" : "1.0",
+       "status" : "latest",
+       "main_module" : "Types::Serialiser",
+       "maturity" : "released",
+       "metadata" : {
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Types-Serialiser",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "common::sense" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "version" : "1.0",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 6.8, CPAN::Meta::Converter version 2.120921, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "unknown"
+       },
+       "checksum_sha256" : "7ad3347849d8a3da6470135018d6af5fd8e58b4057cd568c3813695f2a04730d",
+       "authorized" : false,
+       "first" : false,
+       "date" : "2013-11-30T18:33:51",
+       "provides" : [
+          "Types::Serialiser",
+          "Types::Serialiser::BooleanBase",
+          "Types::Serialiser::Error"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "version" : "0",
+             "module" : "common::sense",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Types-Serialiser-1.0",
+       "author" : "MLEHMANN",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Types-Serialiser-1.0.tar.gz",
+       "stat" : {
+          "mtime" : 1385836431,
+          "gid" : 1009,
+          "size" : 6238,
+          "mode" : 33204,
+          "uid" : 1009
+       },
+       "deprecated" : "false",
+       "id" : "Ztx_GU0RExRCWvNaMFhZrtriAOo",
+       "distribution" : "Types-Serialiser",
+       "tests" : {
+          "unknown" : 9,
+          "pass" : 15851,
+          "fail" : 3,
+          "na" : 0
+       },
+       "version_numified" : 1,
+       "archive" : "Types-Serialiser-1.0.tar.gz",
+       "resources" : {},
+       "checksum_md5" : "76460a2bfbc644672499af89192e03fe",
+       "license" : [
+          "unknown"
+       ]
+    }

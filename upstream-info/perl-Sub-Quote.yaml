@@ -1,0 +1,178 @@
+---
+version_control: metacpan
+src_repo: Sub-Quote
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:10.237775080 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz",
+       "author" : "HAARG",
+       "deprecated" : false,
+       "stat" : {
+          "mtime" : 1569951212,
+          "mode" : 33204,
+          "size" : 32485
+       },
+       "version_numified" : 2.006006,
+       "tests" : {
+          "na" : 0,
+          "fail" : 3,
+          "pass" : 2788,
+          "unknown" : 1
+       },
+       "distribution" : "Sub-Quote",
+       "id" : "hLoLDjxLeMtpVeqlEhWY_NpC_p0",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "1bb9caee697bcfa738f419d40505e506",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/moose/Sub-Quote",
+             "type" : "git",
+             "url" : "https://github.com/moose/Sub-Quote.git"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "bugtracker" : {
+             "mailto" : "bug-Sub-Quote@rt.cpan.org",
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Sub-Quote"
+          }
+       },
+       "archive" : "Sub-Quote-2.006006.tar.gz",
+       "abstract" : "Efficient generation of subroutines via string eval",
+       "changes_file" : "Changes",
+       "main_module" : "Sub::Quote",
+       "status" : "latest",
+       "version" : "2.006006",
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Efficient generation of subroutines via string eval",
+          "author" : [
+             "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+          ],
+          "dynamic_config" : 1,
+          "x_authority" : "cpan:MSTROUT",
+          "version" : "2.006006",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.94",
+                   "Test::Fatal" : "0.003"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "Sub::Name" : "0.08"
+                },
+                "requires" : {
+                   "perl" : "5.006",
+                   "Scalar::Util" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {}
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "name" : "Sub-Quote",
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Sub-Quote",
+                "mailto" : "bug-Sub-Quote@rt.cpan.org"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "web" : "https://github.com/moose/Sub-Quote",
+                "url" : "https://github.com/moose/Sub-Quote.git",
+                "type" : "git"
+             },
+             "x_IRC" : "irc://irc.perl.org/#moose"
+          }
+       },
+       "maturity" : "released",
+       "name" : "Sub-Quote-2.006006",
+       "dependency" : [
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.94",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Fatal",
+             "phase" : "test",
+             "version" : "0.003",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "0.08",
+             "module" : "Sub::Name",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2019-10-01T17:33:32",
+       "first" : false,
+       "provides" : [
+          "Sub::Defer",
+          "Sub::Quote"
+       ],
+       "checksum_sha256" : "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d",
+       "authorized" : true
+    }

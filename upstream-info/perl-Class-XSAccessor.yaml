@@ -1,0 +1,146 @@
+---
+version_control: metacpan
+src_repo: Class-XSAccessor
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:21.987854530 +00:00
+  raw_data: |
+    {
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/tsee/Class-XSAccessor.git",
+             "type" : "git"
+          }
+       },
+       "main_module" : "Class::XSAccessor",
+       "checksum_md5" : "5c5dea74f00ad37c5119dd22b28a5563",
+       "version_numified" : 1.19,
+       "author" : "SMUELLER",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Class-XSAccessor-1.19.tar.gz",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "99c56b395f1239af19901f2feeb125d9ecb4e351a0d80daa9529211a4700a6f2",
+       "deprecated" : "false",
+       "metadata" : {
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008",
+                   "XSLoader" : "0",
+                   "Time::HiRes" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Generate fast XS accessors without runtime compilation",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "1.19",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/tsee/Class-XSAccessor.git"
+             }
+          },
+          "release_status" : "stable",
+          "author" : [
+             "Steffen Mueller <smueller@cpan.org>"
+          ],
+          "name" : "Class-XSAccessor",
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "tests" : {
+          "unknown" : 34,
+          "pass" : 19621,
+          "na" : 10,
+          "fail" : 88
+       },
+       "id" : "gTPNl1QfOs_u8SLSS1kF_b31R7Y",
+       "provides" : [
+          "Class::XSAccessor",
+          "Class::XSAccessor::Array"
+       ],
+       "authorized" : true,
+       "version" : "1.19",
+       "stat" : {
+          "mtime" : 1385101034,
+          "uid" : 1009,
+          "size" : 80786,
+          "gid" : 1009,
+          "mode" : 33204
+       },
+       "maturity" : "released",
+       "date" : "2013-11-22T06:17:14",
+       "name" : "Class-XSAccessor-1.19",
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/Class-XSAccessor-1.19.tar.gz",
+       "status" : "latest",
+       "distribution" : "Class-XSAccessor",
+       "abstract" : "Generate fast XS accessors without runtime compilation",
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Time::HiRes"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.008",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "XSLoader"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          }
+       ],
+       "first" : false
+    }

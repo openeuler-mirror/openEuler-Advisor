@@ -1,0 +1,9 @@
+#!/bin/sh
+
+specfile=`find ~/openEuler/src-openeuler -name $1.spec`
+if [ $specfile != "" ]; then
+	cur_ver=`grep Version $specfile | awk -F: '{print $2}' | sed -e "s/[ \t]*//g"`
+	./check_upstream.rb $1 $cur_ver
+else
+	echo $1, "is not found in src-openeuler\n"
+fi

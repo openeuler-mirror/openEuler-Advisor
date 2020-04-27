@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  thkukuk/rpcsvc-proto
+tag_prefix: ^v
+seperator: .

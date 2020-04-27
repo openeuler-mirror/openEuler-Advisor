@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  groeck/lm-sensors
+tag_prefix: ^v
+seperator: .

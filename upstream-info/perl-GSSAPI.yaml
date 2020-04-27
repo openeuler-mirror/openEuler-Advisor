@@ -1,0 +1,101 @@
+---
+version_control: metacpan
+src_repo: GSSAPI
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:35.975627950 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "version_numified" : 0.28,
+       "id" : "OZromV2gs4QLHUN5hDdaK_EcFfQ",
+       "provides" : [
+          "GSSAPI",
+          "GSSAPI::OID",
+          "GSSAPI::OID::Set",
+          "GSSAPI::Status"
+       ],
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AG/AGROLMS/GSSAPI-0.28.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "author" : "AGROLMS",
+       "status" : "latest",
+       "checksum_md5" : "65f00a0749212af064289c8a05e59b3f",
+       "abstract" : "Perl extension providing access to the GSSAPIv2 library",
+       "authorized" : true,
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1275581758,
+          "gid" : 1009,
+          "size" : 67915,
+          "uid" : 1009,
+          "mode" : 33204
+       },
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 6.30, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "x_version_from" : "GSSAPI.pm",
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1,
+          "author" : [
+             "unknown"
+          ],
+          "x_installdirs" : "site",
+          "version" : "0.28",
+          "abstract" : "unknown",
+          "name" : "GSSAPI",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "date" : "2010-06-03T16:15:58",
+       "checksum_sha256" : "7d8f2c7b61762fb4ec72d2ec281290f2f87f9c7d298273da4525432a65e770d6",
+       "archive" : "GSSAPI-0.28.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "distribution" : "GSSAPI",
+       "resources" : {},
+       "main_module" : "GSSAPI",
+       "version" : "0.28",
+       "dependency" : [
+          {
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "GSSAPI-0.28",
+       "tests" : {
+          "fail" : 898,
+          "na" : 0,
+          "pass" : 1678,
+          "unknown" : 61
+       }
+    }

@@ -1,0 +1,177 @@
+---
+version_control: metacpan
+src_repo: Module-Install-AutoLicense
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:00.139807820 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1487337989,
+          "mode" : 33188,
+          "size" : 28532
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-Install-AutoLicense-0.10.tar.gz",
+       "author" : "BINGOS",
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/bingos/module-install-autolicense.git"
+          },
+          "homepage" : "https://github.com/bingos/module-install-autolicense/",
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "Module-Install-AutoLicense-0.10.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "8f512b023223e3221e1848a4b95ba21f",
+       "distribution" : "Module-Install-AutoLicense",
+       "id" : "m7rDwc5T2gmVD24MWPX_4IrpSYM",
+       "version_numified" : 0.1,
+       "tests" : {
+          "fail" : 1,
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 820
+       },
+       "main_module" : "Module::Install::AutoLicense",
+       "status" : "latest",
+       "version" : "0.10",
+       "changes_file" : "Changes",
+       "abstract" : "A Module::Install extension to automagically generate LICENSE files",
+       "checksum_sha256" : "5bd263365f0375ceb988cab6d3e4418695afa3ece770db12768974cee77aefe0",
+       "authorized" : true,
+       "name" : "Module-Install-AutoLicense-0.10",
+       "provides" : [
+          "Module::Install::AutoLicense"
+       ],
+       "date" : "2017-02-17T13:26:29",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "v5.6.0"
+          },
+          {
+             "module" : "Module::Install",
+             "phase" : "runtime",
+             "version" : "0.85",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.01",
+             "phase" : "runtime",
+             "module" : "Software::License",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "build",
+             "version" : "0.47",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "File::Temp",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.59",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Capture::Tiny",
+             "phase" : "build",
+             "version" : "0.05",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.59",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "first" : false,
+       "maturity" : "released",
+       "metadata" : {
+          "name" : "Module-Install-AutoLicense",
+          "license" : [
+             "perl_5"
+          ],
+          "provides" : {
+             "Module::Install::AutoLicense" : {
+                "file" : "lib/Module/Install/AutoLicense.pm",
+                "version" : "0.10"
+             }
+          },
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "git://github.com/bingos/module-install-autolicense.git",
+                "type" : "git"
+             },
+             "homepage" : "https://github.com/bingos/module-install-autolicense/"
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.10",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "File::Temp" : "0",
+                   "Test::More" : "0.47",
+                   "ExtUtils::MakeMaker" : "6.59",
+                   "Capture::Tiny" : "0.05"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Module::Install" : "0.85",
+                   "perl" : "v5.6.0",
+                   "Software::License" : "0.01"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "generated_by" : "Module::Install version 1.17, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "A Module::Install extension to automagically generate LICENSE files",
+          "author" : [
+             "Chris Williams <chris@bingosnet.co.uk>"
+          ],
+          "dynamic_config" : "1"
+       }
+    }

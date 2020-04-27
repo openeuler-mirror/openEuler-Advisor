@@ -1,0 +1,134 @@
+---
+version_control: metacpan
+src_repo: Data-UUID
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:23.096684220 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "date" : "2020-04-12T18:43:57",
+       "name" : "Data-UUID-1.226",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Data-UUID-1.226.tar.gz",
+       "status" : "latest",
+       "distribution" : "Data-UUID",
+       "first" : false,
+       "abstract" : "Globally/Universally Unique Identifiers (GUIDs/UUIDs)",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "Digest::MD5",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "checksum_md5" : "13468e0fb65a0b5ce27b8628cb2f0109",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/rjbs/Data-UUID"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/rjbs/Data-UUID/issues"
+          }
+       },
+       "main_module" : "Data::UUID",
+       "author" : "RJBS",
+       "archive" : "Data-UUID-1.226.tar.gz",
+       "license" : [
+          "bsd"
+       ],
+       "version_numified" : 1.226,
+       "checksum_sha256" : "093d57ffa0d411a94bafafae495697db26f5c9d0277198fe3f7cf2be22996453",
+       "changes_file" : "Changes",
+       "tests" : {
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 229,
+          "fail" : 0
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "name" : "Data-UUID",
+          "license" : [
+             "bsd"
+          ],
+          "author" : [
+             "Ricardo Signes <rjbs[at]cpan.org>"
+          ],
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/rjbs/Data-UUID"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/rjbs/Data-UUID/issues"
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.226",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "abstract" : "Globally/Universally Unique Identifiers (GUIDs/UUIDs)",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Digest::MD5" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.150010"
+       },
+       "id" : "ZsMvSJ0HoRimswq2s63gfVVcJpc",
+       "stat" : {
+          "mode" : 33204,
+          "mtime" : 1586717037,
+          "size" : 17647
+       },
+       "version" : "1.226",
+       "provides" : [
+          "Data::UUID"
+       ],
+       "authorized" : true
+    }

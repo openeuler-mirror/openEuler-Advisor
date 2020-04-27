@@ -1,0 +1,142 @@
+---
+version_control: metacpan
+src_repo: B-Debug
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:10.794346850 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "metadata" : {
+          "version" : "1.26",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "deprecate" : "0.03",
+                   "B" : "0"
+                },
+                "recommends" : {
+                   "B::Flags" : "0.04"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 8.3004, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "print debug info about ops",
+          "dynamic_config" : 1,
+          "author" : [
+             "Malcolm Beattie <retired>, Reini Urban <rurban@cpan.org>"
+          ],
+          "name" : "B-Debug",
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "JSON::PP version 2.94_01",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "authorized" : true,
+       "checksum_sha256" : "8d6d3f5134f0ddd8dde68e6581f5b30b73b7db40fd28d076e4f6e5386f570d3a",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "deprecate",
+             "version" : "0.03",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "B",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.04",
+             "module" : "B::Flags",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          }
+       ],
+       "first" : false,
+       "provides" : [
+          "B::Debug"
+       ],
+       "date" : "2017-12-03T20:37:05",
+       "name" : "B-Debug-1.26",
+       "changes_file" : "Changes",
+       "abstract" : "print debug info about ops",
+       "status" : "latest",
+       "version" : "1.26",
+       "main_module" : "B::Debug",
+       "id" : "0RlPBGQjHnCHAtPcz3s9Ox3z5F4",
+       "distribution" : "B-Debug",
+       "tests" : {
+          "pass" : 2085,
+          "unknown" : 1,
+          "na" : 0,
+          "fail" : 0
+       },
+       "version_numified" : 1.26,
+       "archive" : "B-Debug-1.26.tar.gz",
+       "resources" : {},
+       "checksum_md5" : "260ec0e2c2b18af1d42911bfaf6b7477",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "RURBAN",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/B-Debug-1.26.tar.gz",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 17725,
+          "mtime" : 1512333425
+       },
+       "deprecated" : "false"
+    }

@@ -1,0 +1,208 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-Install
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:52.811145870 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "ae6af2689daa6f8c2d01d04a28ab0ef0",
+       "abstract" : "install files from here to there",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-Install-2.14.tar.gz",
+       "author" : "BINGOS",
+       "version_numified" : 2.14,
+       "provides" : [
+          "ExtUtils::Install",
+          "ExtUtils::Install::Warn",
+          "ExtUtils::Installed",
+          "ExtUtils::Packlist"
+       ],
+       "id" : "JpwwG4Qax7G5GMcmuANNqH2PYYo",
+       "changes_file" : "Changes",
+       "name" : "ExtUtils-Install-2.14",
+       "tests" : {
+          "unknown" : 0,
+          "fail" : 9,
+          "na" : 0,
+          "pass" : 1345
+       },
+       "version" : "2.14",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "File::Basename",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Copy",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Find"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Path",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Carp",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Compare",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "File::Spec"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Temp",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "checksum_sha256" : "35412305cbae979aac3b6e2c70cb301ae461979a1d848a8a043f74518eb96aea",
+       "date" : "2017-05-28T10:53:49",
+       "metadata" : {
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "x_serialization_backend" : "JSON::PP version 2.27400",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "File::Copy" : "0",
+                   "File::Find" : "0",
+                   "File::Temp" : "0",
+                   "File::Spec" : "0",
+                   "Carp" : "0",
+                   "File::Basename" : "0",
+                   "File::Path" : "0",
+                   "Cwd" : "0",
+                   "File::Compare" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "homepage" : "https://metacpan.org/release/ExtUtils-Install",
+             "bugtracker" : {
+                "web" : "https://rt.cpan.org/NoAuth/Bugs.html?Dist=ExtUtils-Install"
+             },
+             "repository" : {
+                "url" : "https://github.com/Perl-Toolchain-Gang/ExtUtils-Install"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "demerphq <yves@cpan.org>"
+          ],
+          "version" : "2.14",
+          "abstract" : "install files from here to there",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "ExtUtils-Install"
+       },
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "https://github.com/Perl-Toolchain-Gang/ExtUtils-Install"
+          },
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/NoAuth/Bugs.html?Dist=ExtUtils-Install"
+          },
+          "homepage" : "https://metacpan.org/release/ExtUtils-Install"
+       },
+       "main_module" : "ExtUtils::Install",
+       "archive" : "ExtUtils-Install-2.14.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "ExtUtils-Install",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 68999,
+          "mode" : 33188,
+          "mtime" : 1495968829
+       }
+    }

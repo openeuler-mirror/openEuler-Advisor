@@ -1,0 +1,206 @@
+---
+version_control: metacpan
+src_repo: Compress-Bzip2
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:49.449828340 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1491829697,
+          "size" : 886999,
+          "mode" : 33188
+       },
+       "date" : "2017-04-10T13:08:17",
+       "checksum_sha256" : "5132f0c5f377a54d77ee36d332aa0ece585c22a40f2c31f2619e40262f5c4f0c",
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/rurban/Compress-Bzip2"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1,
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 8.0404, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Carp" : "0",
+                   "File::Spec" : "0",
+                   "Getopt::Std" : "0",
+                   "File::Copy" : "0",
+                   "constant" : "1.04",
+                   "Config" : "0",
+                   "Test::More" : "0",
+                   "Fcntl" : "0"
+                },
+                "recommends" : {
+                   "Compress::Zlib" : "1.19",
+                   "Compress::Raw::Bzip2" : "2.060",
+                   "IO::Compress::Bzip2" : "2.060"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "abstract" : "Interface to Bzip2 compression library",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Compress-Bzip2",
+          "author" : [
+             "Rob Janes <arjay@cpan.org>"
+          ],
+          "version" : "2.26"
+       },
+       "main_module" : "Compress::Bzip2",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/rurban/Compress-Bzip2"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "Compress-Bzip2-2.26.tar.gz",
+       "distribution" : "Compress-Bzip2",
+       "license" : [
+          "perl_5"
+       ],
+       "version" : "2.26",
+       "dependency" : [
+          {
+             "relationship" : "recommends",
+             "version" : "2.060",
+             "module" : "IO::Compress::Bzip2",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "recommends",
+             "module" : "Compress::Zlib",
+             "phase" : "runtime",
+             "version" : "1.19"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "2.060",
+             "module" : "Compress::Raw::Bzip2",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "version" : "0"
+          },
+          {
+             "module" : "Getopt::Std",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Fcntl",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "1.04",
+             "module" : "constant"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Copy",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "version" : "0"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Config",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Compress-Bzip2-2.26",
+       "tests" : {
+          "unknown" : 3,
+          "pass" : 2820,
+          "na" : 0,
+          "fail" : 6
+       },
+       "changes_file" : "NEWS",
+       "version_numified" : 2.26,
+       "provides" : [
+          "Compress::Bzip2"
+       ],
+       "id" : "Bw97no2NG7UkqjoG2L68HUfOxQg",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RU/RURBAN/Compress-Bzip2-2.26.tar.gz",
+       "author" : "RURBAN",
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "062aa57d7b83e7eec05cf37dcea643e6",
+       "abstract" : "Interface to Bzip2 compression library"
+    }

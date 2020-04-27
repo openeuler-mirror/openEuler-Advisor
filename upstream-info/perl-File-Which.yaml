@@ -1,0 +1,237 @@
+---
+version_control: metacpan
+src_repo: File-Which
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:32.078325910 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "version_numified" : 1.23,
+       "provides" : [
+          "File::Which"
+       ],
+       "id" : "EhNeVzxL6Xfjz3XCL_akvad9uqk",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz",
+       "author" : "PLICEASE",
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "c8f054534c3c098dd7a0dada60aaae34",
+       "abstract" : "Perl implementation of the which utility as an API",
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 23293,
+          "mtime" : 1546284578
+       },
+       "checksum_sha256" : "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078",
+       "date" : "2018-12-31T19:29:38",
+       "metadata" : {
+          "author" : [
+             "Per Einar Ellefsen <pereinar@cpan.org>",
+             "Adam Kennedy <adamk@cpan.org>",
+             "Graham Ollis <plicease@cpan.org>"
+          ],
+          "version" : "1.23",
+          "abstract" : "Perl implementation of the which utility as an API",
+          "name" : "File-Which",
+          "x_generated_by_perl" : "v5.29.6",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "x_use_unsafe_inc" : 0,
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::EOL" : "0",
+                   "Test::Pod::Coverage" : "0",
+                   "Test::Spelling" : "0",
+                   "Test::Pod::Spelling::CommonMistakes" : "0",
+                   "YAML" : "0",
+                   "Test::More" : "0.47",
+                   "Test::Strict" : "0",
+                   "Test::Pod" : "0",
+                   "Test::NoTabs" : "0",
+                   "FindBin" : "0",
+                   "Test::Fixme" : "0.07"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.47",
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.08",
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/plicease/File-Which/issues"
+             },
+             "homepage" : "https://metacpan.org/pod/File::Which",
+             "repository" : {
+                "url" : "git://github.com/plicease/File-Which.git",
+                "type" : "git",
+                "web" : "https://github.com/plicease/File-Which"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 0
+       },
+       "resources" : {
+          "repository" : {
+             "url" : "git://github.com/plicease/File-Which.git",
+             "type" : "git",
+             "web" : "https://github.com/plicease/File-Which"
+          },
+          "homepage" : "https://metacpan.org/pod/File::Which",
+          "bugtracker" : {
+             "web" : "https://github.com/plicease/File-Which/issues"
+          }
+       },
+       "main_module" : "File::Which",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "File-Which-1.23.tar.gz",
+       "distribution" : "File-Which",
+       "version" : "1.23",
+       "dependency" : [
+          {
+             "module" : "perl",
+             "phase" : "configure",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.47",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Pod::Coverage",
+             "version" : "0",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Pod::Spelling::CommonMistakes",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::NoTabs",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "FindBin",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0.47",
+             "module" : "Test::More",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.07",
+             "module" : "Test::Fixme",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "YAML",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::Spelling",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::EOL",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Strict",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "runtime"
+          }
+       ],
+       "name" : "File-Which-1.23",
+       "tests" : {
+          "na" : 1,
+          "fail" : 1,
+          "pass" : 3479,
+          "unknown" : 1
+       }
+    }

@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  P-H-C/phc-winner-argon2
+tag_prefix: ^v
+seperator: .

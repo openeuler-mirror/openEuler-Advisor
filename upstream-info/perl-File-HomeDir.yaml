@@ -1,0 +1,290 @@
+---
+version_control: metacpan
+src_repo: File-HomeDir
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:30.990871440 +00:00
+  raw_data: |
+    {
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "2db6a961960baec790a896b99b46395d",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/perl5-utils/File-HomeDir.git",
+             "type" : "git",
+             "web" : "https://github.com/perl5-utils/File-HomeDir"
+          },
+          "homepage" : "https://metacpan.org/release/File-HomeDir",
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "bugtracker" : {
+             "mailto" : "bug-File-HomeDir@rt.cpan.org",
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=File-HomeDir"
+          }
+       },
+       "archive" : "File-HomeDir-1.004.tar.gz",
+       "version_numified" : 1.004,
+       "tests" : {
+          "fail" : 19,
+          "na" : 36,
+          "unknown" : 3,
+          "pass" : 4199
+       },
+       "distribution" : "File-HomeDir",
+       "id" : "4rpa_5ms5Gsqk4V6YJ9jsHGfJUA",
+       "deprecated" : false,
+       "stat" : {
+          "mode" : 33188,
+          "size" : 35400,
+          "mtime" : 1525242568
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-HomeDir-1.004.tar.gz",
+       "author" : "REHSACK",
+       "name" : "File-HomeDir-1.004",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod::Spelling::CommonMistakes",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::Spelling",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Module::CPANTS::Analyse",
+             "version" : "0.96",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Kwalitee"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::CheckManifest",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::CPAN::Changes",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::PerlTidy",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Perl::Critic",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::Pod"
+          },
+          {
+             "version" : "3.12",
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "version" : "0.19"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Path",
+             "version" : "2.01"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "v5.8.3",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Basename",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "version" : "3.12",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.05",
+             "phase" : "runtime",
+             "module" : "File::Which",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "POSIX",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.9",
+             "relationship" : "requires"
+          }
+       ],
+       "date" : "2018-05-02T06:29:28",
+       "provides" : [
+          "File::HomeDir",
+          "File::HomeDir::Darwin",
+          "File::HomeDir::Darwin::Carbon",
+          "File::HomeDir::Darwin::Cocoa",
+          "File::HomeDir::Driver",
+          "File::HomeDir::FreeDesktop",
+          "File::HomeDir::MacOS9",
+          "File::HomeDir::Test",
+          "File::HomeDir::Unix",
+          "File::HomeDir::Windows"
+       ],
+       "authorized" : true,
+       "checksum_sha256" : "45f67e2bb5e60a7970d080e8f02079732e5a8dfc0c7c3cbdb29abfb3f9f791ad",
+       "metadata" : {
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "POSIX" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Which" : "0.05",
+                   "perl" : "v5.8.3",
+                   "File::Basename" : "0",
+                   "File::Path" : "2.01",
+                   "Cwd" : "3.12",
+                   "Carp" : "0",
+                   "File::Temp" : "0.19",
+                   "File::Spec" : "3.12"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.9"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod::Coverage" : "0",
+                   "Test::PerlTidy" : "0",
+                   "Test::Pod::Spelling::CommonMistakes" : "0",
+                   "Test::Pod" : "0",
+                   "Test::Kwalitee" : "0",
+                   "Test::Perl::Critic" : "0",
+                   "Test::Spelling" : "0",
+                   "Test::CPAN::Changes" : "0",
+                   "Module::CPANTS::Analyse" : "0.96",
+                   "Test::CheckManifest" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             }
+          },
+          "version" : "1.004",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.32, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Find your home and other directories on any platform",
+          "x_serialization_backend" : "JSON::PP version 2.27300_01",
+          "resources" : {
+             "homepage" : "https://metacpan.org/release/File-HomeDir",
+             "repository" : {
+                "url" : "https://github.com/perl5-utils/File-HomeDir.git",
+                "type" : "git",
+                "web" : "https://github.com/perl5-utils/File-HomeDir"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=File-HomeDir",
+                "mailto" : "bug-File-HomeDir@rt.cpan.org"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "File-HomeDir",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "maturity" : "released",
+       "main_module" : "File::HomeDir",
+       "version" : "1.004",
+       "status" : "latest",
+       "abstract" : "Find your home and other directories on any platform",
+       "changes_file" : "Changes"
+    }

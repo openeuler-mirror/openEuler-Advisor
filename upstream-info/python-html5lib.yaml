@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  html5lib/html5lib-python
+tag_prefix: ^v
+seperator: .

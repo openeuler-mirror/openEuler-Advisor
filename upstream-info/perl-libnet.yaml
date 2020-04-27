@@ -1,0 +1,401 @@
+---
+version_control: metacpan
+src_repo: libnet
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:18.070485510 +00:00
+  raw_data: |
+    {
+       "version_numified" : 3.11,
+       "id" : "j83_WYccwZiNZEuPo6UpA5aWyOw",
+       "provides" : [
+          "Net::Cmd",
+          "Net::Config",
+          "Net::Domain",
+          "Net::FTP",
+          "Net::FTP::A",
+          "Net::FTP::E",
+          "Net::FTP::I",
+          "Net::FTP::L",
+          "Net::FTP::_SSL_SingleSessionCache",
+          "Net::FTP::dataconn",
+          "Net::NNTP",
+          "Net::NNTP::_SSL",
+          "Net::Netrc",
+          "Net::POP3",
+          "Net::POP3::_SSL",
+          "Net::SMTP",
+          "Net::SMTP::_SSL",
+          "Net::Time"
+       ],
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "checksum_md5" : "f4fdfa0906bf2ad5ac3c74c3860eb029",
+       "abstract" : "Collection of network protocol modules",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SH/SHAY/libnet-3.11.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "author" : "SHAY",
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/steve-m-hay/perl-libnet.git"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.04, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "POSIX" : "0",
+                   "perl" : "5.008001",
+                   "Carp" : "0",
+                   "IO::Select" : "0",
+                   "utf8" : "0",
+                   "Errno" : "0",
+                   "IO::Socket" : "1.05",
+                   "constant" : "0",
+                   "vars" : "0",
+                   "Fcntl" : "0",
+                   "FileHandle" : "0",
+                   "File::Basename" : "0",
+                   "Time::Local" : "0",
+                   "Socket" : "2.016",
+                   "strict" : "0",
+                   "Symbol" : "0",
+                   "Exporter" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Config" : "0",
+                   "Cwd" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "warnings" : "0",
+                   "perl" : "5.008001",
+                   "ExtUtils::MakeMaker" : "6.64",
+                   "IO::File" : "0",
+                   "strict" : "0",
+                   "Getopt::Std" : "0",
+                   "vars" : "0"
+                }
+             }
+          },
+          "abstract" : "Collection of network protocol modules",
+          "name" : "libnet",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Graham Barr <gbarr@pobox.com>, Steve Hay <shay@cpan.org>"
+          ],
+          "optional_features" : {
+             "APOP" : {
+                "prereqs" : {
+                   "runtime" : {
+                      "requires" : {
+                         "Digest::MD5" : "0"
+                      }
+                   }
+                },
+                "description" : "APOP support"
+             },
+             "SSL" : {
+                "description" : "SSL support",
+                "prereqs" : {
+                   "runtime" : {
+                      "requires" : {
+                         "IO::Socket::SSL" : "2.007"
+                      }
+                   }
+                }
+             },
+             "AUTH" : {
+                "prereqs" : {
+                   "runtime" : {
+                      "requires" : {
+                         "Authen::SASL" : "0",
+                         "MIME::Base64" : "0"
+                      }
+                   }
+                },
+                "description" : "AUTH support"
+             },
+             "critictest" : {
+                "description" : "Perl::Critic testing",
+                "prereqs" : {
+                   "test" : {
+                      "requires" : {
+                         "Test::Perl::Critic" : "0"
+                      }
+                   }
+                }
+             },
+             "IPv6" : {
+                "description" : "IPv6 support",
+                "prereqs" : {
+                   "runtime" : {
+                      "requires" : {
+                         "IO::Socket::IP" : "0.25"
+                      }
+                   }
+                }
+             },
+             "changestest" : {
+                "description" : "Changes testing",
+                "prereqs" : {
+                   "test" : {
+                      "requires" : {
+                         "Test::CPAN::Changes" : "0"
+                      }
+                   }
+                }
+             },
+             "podcoveragetest" : {
+                "description" : "POD coverage testing",
+                "prereqs" : {
+                   "test" : {
+                      "requires" : {
+                         "Test::Pod::Coverage" : "0.08"
+                      }
+                   }
+                }
+             },
+             "podtest" : {
+                "description" : "POD testing",
+                "prereqs" : {
+                   "test" : {
+                      "requires" : {
+                         "Test::Pod" : "1.00"
+                      }
+                   }
+                }
+             }
+          },
+          "version" : "3.11"
+       },
+       "date" : "2017-11-14T14:00:09",
+       "checksum_sha256" : "2fab1e4d6e565c77f6e845368790de65cb2f966fcd9bb56a41d0e7b5851a52d3",
+       "archive" : "libnet-3.11.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "libnet",
+       "main_module" : "Net::FTP",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/steve-m-hay/perl-libnet.git"
+          }
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1510668009,
+          "size" : 95157,
+          "mode" : 33188
+       },
+       "name" : "libnet-3.11",
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 3280,
+          "fail" : 9,
+          "na" : 0
+       },
+       "version" : "3.11",
+       "dependency" : [
+          {
+             "module" : "Cwd",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Config",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "vars",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "constant",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "POSIX",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "utf8",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Fcntl",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Errno",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Time::Local",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "2.016",
+             "module" : "Socket"
+          },
+          {
+             "version" : "1.05",
+             "module" : "IO::Socket",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Basename",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "FileHandle",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008001",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Symbol"
+          },
+          {
+             "module" : "IO::Select",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "6.64",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "strict",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Getopt::Std",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "IO::File",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "phase" : "configure",
+             "version" : "5.008001",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "warnings"
+          },
+          {
+             "module" : "vars",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ]
+    }

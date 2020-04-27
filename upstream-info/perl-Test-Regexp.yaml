@@ -1,0 +1,234 @@
+---
+version_control: metacpan
+src_repo: Test-Regexp
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:51.695170970 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "date" : "2017-04-01T12:19:47",
+       "name" : "Test-Regexp-2017040101",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Test-Regexp-2017040101.tar.gz",
+       "distribution" : "Test-Regexp",
+       "status" : "latest",
+       "abstract" : "Test your regular expressions",
+       "dependency" : [
+          {
+             "module" : "strict",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0.88",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "Test::Tester"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "warnings"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "warnings"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.01"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "strict",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::Builder",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Hash::Util::FieldHash"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "strict"
+          },
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0.88",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Test::Tester"
+          },
+          {
+             "module" : "warnings",
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0"
+          }
+       ],
+       "first" : false,
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "git://github.com/Abigail/Test-Regexp.git"
+          }
+       },
+       "main_module" : "Test::Regexp",
+       "checksum_md5" : "b5ced2b3e3ba666a153da163b0173325",
+       "version_numified" : 2017040101,
+       "author" : "ABIGAIL",
+       "archive" : "Test-Regexp-2017040101.tar.gz",
+       "license" : [
+          "mit"
+       ],
+       "changes_file" : "Changes",
+       "checksum_sha256" : "35cb41df5c5017835b89b853d5a44e25e6da973b450e1edca51bba70e7041e54",
+       "metadata" : {
+          "x_test_requires" : {
+             "Test::Tester" : 0,
+             "Test::More" : 0.88,
+             "strict" : 0,
+             "warnings" : 0
+          },
+          "license" : [
+             "mit"
+          ],
+          "author" : [
+             "Abigail <test-regexp@abigail.be>"
+          ],
+          "name" : "Test-Regexp",
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://github.com/Abigail/Test-Regexp.git"
+             }
+          },
+          "dynamic_config" : 1,
+          "version" : "2017040101",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "abstract" : "Test your regular expressions",
+          "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Test::Tester" : "0",
+                   "Test::More" : "0.88",
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "Exporter" : "0",
+                   "Test::Builder" : "0",
+                   "Hash::Util::FieldHash" : "0",
+                   "perl" : "5.01"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.88",
+                   "Test::Tester" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "warnings" : "0",
+                   "strict" : "0"
+                }
+             }
+          },
+          "keywords" : [
+             "regular expression",
+             "pattern",
+             "regexp",
+             "test",
+             "tests"
+          ]
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "fail" : 0,
+          "pass" : 1720,
+          "na" : 36,
+          "unknown" : 0
+       },
+       "id" : "m_cNidFU9kXVnqexA8HycGjkEfU",
+       "authorized" : true,
+       "provides" : [
+          "Test::Regexp",
+          "Test::Regexp::Object"
+       ],
+       "version" : "2017040101",
+       "stat" : {
+          "size" : 18904,
+          "mtime" : 1491049187,
+          "mode" : 33188
+       }
+    }

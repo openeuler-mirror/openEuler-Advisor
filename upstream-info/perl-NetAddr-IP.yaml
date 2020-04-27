@@ -1,0 +1,102 @@
+---
+version_control: metacpan
+src_repo: NetAddr-IP
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:16.390655100 +00:00
+  raw_data: |
+    {
+       "date" : "2016-03-26T01:14:11",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MI/MIKER/NetAddr-IP-4.079.tar.gz",
+       "name" : "NetAddr-IP-4.079",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More"
+          }
+       ],
+       "abstract" : "Manages IPv4 and IPv6 addresses and subnets",
+       "first" : false,
+       "distribution" : "NetAddr-IP",
+       "status" : "latest",
+       "resources" : {},
+       "main_module" : "NetAddr::IP",
+       "checksum_md5" : "990dfcbffae356835c536e8ab56a2880",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "ec5a82dfb7028bcd28bb3d569f95d87dd4166cc19867f2184ed3a59f6d6ca0e7",
+       "version_numified" : 4.079,
+       "archive" : "NetAddr-IP-4.079.tar.gz",
+       "author" : "MIKER",
+       "license" : [
+          "unknown"
+       ],
+       "metadata" : {
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "name" : "NetAddr-IP",
+          "license" : [
+             "unknown"
+          ],
+          "author" : [
+             "Luis E. Muñoz <luismunoz@cpan.org>, Michael Robinton <miker@cpan.org>"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 6.42, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "abstract" : "Manages IPv4 and IPv6 addresses and subnets",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "4.079"
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "unknown" : 16,
+          "na" : 0,
+          "pass" : 6195,
+          "fail" : 130
+       },
+       "authorized" : true,
+       "provides" : [
+          "NetAddr::IP",
+          "NetAddr::IP::InetBase",
+          "NetAddr::IP::Lite",
+          "NetAddr::IP::Util",
+          "NetAddr::IP::UtilPP",
+          "NetAddr::IP::UtilPolluted",
+          "NetAddr::IP::Util_IS"
+       ],
+       "stat" : {
+          "mtime" : 1458954851,
+          "uid" : 1009,
+          "size" : 213896,
+          "gid" : 1009,
+          "mode" : 33204
+       },
+       "version" : "4.079",
+       "id" : "1Aoap8eohHQTFucdernvZ9g2rGI"
+    }

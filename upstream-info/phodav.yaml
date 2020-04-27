@@ -1,0 +1,30 @@
+---
+version_control: gitlab.gnome
+src_repo: phodav
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:44:51.782211740 +00:00
+  raw_data: |
+    v0.0
+    v0.0^{}
+    v0.1
+    v0.1^{}
+    v0.2
+    v0.2^{}
+    v0.3
+    v0.3^{}
+    v0.3.1
+    v0.3.1^{}
+    v0.4
+    v0.4^{}
+    v2.0
+    v2.0^{}
+    v2.1
+    v2.1^{}
+    v2.2
+    v2.2^{}
+    v2.3
+    v2.3^{}
+    v2.4
+    v2.4^{}

@@ -1,0 +1,83 @@
+---
+version_control: metacpan
+src_repo: HTML-Tagset
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:39.970203960 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "d2bfa18fe1904df7f683e96611e87437",
+       "main_module" : "HTML::Tagset",
+       "resources" : {},
+       "checksum_sha256" : "adb17dac9e36cd011f5243881c9739417fd102fce760f8de4e9be4c7131108e2",
+       "changes_file" : "Changes",
+       "archive" : "HTML-Tagset-3.20.tar.gz",
+       "author" : "PETDANCE",
+       "license" : [
+          "unknown"
+       ],
+       "version_numified" : 3.2,
+       "tests" : {
+          "fail" : 1,
+          "pass" : 17427,
+          "na" : 0,
+          "unknown" : 55
+       },
+       "metadata" : {
+          "abstract" : "data tables useful in parsing HTML",
+          "generated_by" : "ExtUtils::MakeMaker version 6.42, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {},
+          "version" : "3.20",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "author" : [
+             "Andy Lester <andy@petdance.com>"
+          ],
+          "license" : [
+             "unknown"
+          ],
+          "name" : "HTML-Tagset"
+       },
+       "deprecated" : "false",
+       "version" : "3.20",
+       "stat" : {
+          "mtime" : 1204352484,
+          "uid" : 1009,
+          "size" : 8150,
+          "gid" : 1009,
+          "mode" : 33204
+       },
+       "authorized" : true,
+       "provides" : [
+          "HTML::Tagset"
+       ],
+       "id" : "qv62YkfFxga0IkD8TBNnz68CC9k",
+       "date" : "2008-03-01T06:21:24",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz",
+       "name" : "HTML-Tagset-3.20",
+       "first" : false,
+       "dependency" : [],
+       "abstract" : "data tables useful in parsing HTML",
+       "distribution" : "HTML-Tagset",
+       "status" : "latest"
+    }

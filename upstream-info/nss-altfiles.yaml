@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  aperezdc/nss-altfiles
+tag_prefix: ^v
+seperator: .

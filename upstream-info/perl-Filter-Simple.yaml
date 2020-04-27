@@ -1,0 +1,137 @@
+---
+version_control: metacpan
+src_repo: Filter-Simple
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:41.652646070 +00:00
+  raw_data: |
+    {
+       "main_module" : "Filter::Simple",
+       "version" : "0.94",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Simplified source filtering",
+       "authorized" : true,
+       "checksum_sha256" : "cffc0b960d783dfbcf7b247f5fea65c84de230ee2f091f142ca9b8aeb07e79d2",
+       "name" : "Filter-Simple-0.94",
+       "date" : "2017-08-03T14:33:29",
+       "provides" : [
+          "Demo1",
+          "Demo2a",
+          "Demo2b",
+          "DemoData",
+          "DemoRevCat",
+          "DemoSwear",
+          "DemoUnPod",
+          "Demo_Data",
+          "Demo_Exporter",
+          "Demo_Importer",
+          "Demo_REM",
+          "DotsForArrows",
+          "Filter::Simple"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Filter::Util::Call",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Text::Balanced",
+             "version" : "1.97",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          }
+       ],
+       "first" : false,
+       "maturity" : "released",
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Filter-Simple",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.94",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Text::Balanced" : "1.97",
+                   "Filter::Util::Call" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "abstract" : "Simplified source filtering",
+          "generated_by" : "ExtUtils::MakeMaker version 7.04, CPAN::Meta::Converter version 2.120351, CPAN::Meta::Converter version 2.150005",
+          "author" : [
+             "Damian Conway"
+          ],
+          "dynamic_config" : 1
+       },
+       "stat" : {
+          "mtime" : 1501770809,
+          "size" : 19292,
+          "mode" : 33188
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/Filter-Simple-0.94.tar.gz",
+       "author" : "SMUELLER",
+       "resources" : {},
+       "archive" : "Filter-Simple-0.94.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "a49edb10fd113bd537d618589acb0c62",
+       "distribution" : "Filter-Simple",
+       "id" : "W_8PiC_qSSePdHn72HB4KIbMomo",
+       "version_numified" : 0.94,
+       "tests" : {
+          "pass" : 2718,
+          "unknown" : 2,
+          "na" : 0,
+          "fail" : 4
+       }
+    }

@@ -1,0 +1,175 @@
+---
+version_control: metacpan
+src_repo: Test-InDistDir
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:30.941850610 +00:00
+  raw_data: |
+    {
+       "date" : "2011-07-26T17:46:58",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MI/MITHALDU/Test-InDistDir-1.112071.tar.gz",
+       "name" : "Test-InDistDir-1.112071",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "6.30",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Temp"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "File::Find",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "abstract" : "test environment setup for development with IDE",
+       "first" : false,
+       "distribution" : "Test-InDistDir",
+       "status" : "latest",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/wchristian/Test-InDistDir",
+             "web" : "https://github.com/wchristian/Test-InDistDir",
+             "type" : "git"
+          },
+          "homepage" : "https://github.com/wchristian/Test-InDistDir",
+          "bugtracker" : {
+             "mailto" : "bug-test-indistdir at rt.cpan.org",
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Test-InDistDir"
+          }
+       },
+       "main_module" : "Test::InDistDir",
+       "checksum_md5" : "41fd6a8f84b6c352927501705bc085b6",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "922c5c63314f406f4cbb35ec423ac2154d2c2b71a65addb7732c9d240a83fefb",
+       "version_numified" : 1.112071,
+       "archive" : "Test-InDistDir-1.112071.tar.gz",
+       "license" : [
+          "unrestricted"
+       ],
+       "author" : "MITHALDU",
+       "metadata" : {
+          "author" : [
+             "Christian Walde <walde.christian@googlemail.com>"
+          ],
+          "name" : "Test-InDistDir",
+          "license" : [
+             "unrestricted"
+          ],
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/wchristian/Test-InDistDir",
+                "url" : "https://github.com/wchristian/Test-InDistDir"
+             },
+             "homepage" : "https://github.com/wchristian/Test-InDistDir",
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Test-InDistDir",
+                "mailto" : "bug-test-indistdir at rt.cpan.org"
+             }
+          },
+          "dynamic_config" : 0,
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "provides" : {
+             "Test::InDistDir" : {
+                "file" : "lib/Test/InDistDir.pm",
+                "version" : "1.112071"
+             }
+          },
+          "version" : "1.112071",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "examples",
+                "corpus",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DB"
+             ]
+          },
+          "generated_by" : "Dist::Zilla version 4.200013, CPAN::Meta::Converter version 2.110930, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "File::Find" : "0",
+                   "File::Temp" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             }
+          },
+          "abstract" : "test environment setup for development with IDE"
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "fail" : 6,
+          "pass" : 9791,
+          "na" : 0,
+          "unknown" : 45
+       },
+       "authorized" : true,
+       "provides" : [
+          "Test::InDistDir"
+       ],
+       "version" : "1.112071",
+       "stat" : {
+          "uid" : 1009,
+          "mtime" : 1311702418,
+          "size" : 5341,
+          "gid" : 1009,
+          "mode" : 33188
+       },
+       "id" : "i78mjM8QO9O23iGw9K34pnNiSDs"
+    }

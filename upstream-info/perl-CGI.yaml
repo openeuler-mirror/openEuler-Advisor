@@ -1,0 +1,314 @@
+---
+version_control: metacpan
+src_repo: CGI
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:46.089316830 +00:00
+  raw_data: |
+    {
+       "name" : "CGI-4.46",
+       "tests" : {
+          "unknown" : 1,
+          "pass" : 1244,
+          "na" : 0,
+          "fail" : 4
+       },
+       "version" : "4.46",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Carp",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Temp",
+             "version" : "0.17",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "3.69",
+             "module" : "HTML::Entities"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Config"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "overload",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "utf8",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.225",
+             "module" : "parent",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008001"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "strict",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Encode"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "version" : "0.82",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "if",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "Cwd"
+          },
+          {
+             "phase" : "test",
+             "version" : "0",
+             "module" : "Test::NoWarnings",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::More",
+             "version" : "0.98",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "IO::Handle"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::Deep",
+             "version" : "0.11",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.3",
+             "module" : "Test::Warn",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "POSIX"
+          },
+          {
+             "module" : "File::Find",
+             "version" : "0",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "IO::File",
+             "version" : "0"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "checksum_sha256" : "788998ddc33ca382e5d7ce72c6c0ea1d8366c93067371fe2f14239ddea2e4298",
+       "date" : "2020-02-03T14:49:22",
+       "metadata" : {
+          "version" : "4.46",
+          "author" : [
+             "unknown"
+          ],
+          "name" : "CGI",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Handle Common Gateway Interface requests and responses",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "warnings" : "0",
+                   "perl" : "5.008001",
+                   "overload" : "0",
+                   "utf8" : "0",
+                   "Encode" : "0",
+                   "Carp" : "0",
+                   "File::Temp" : "0.17",
+                   "File::Spec" : "0.82",
+                   "HTML::Entities" : "3.69",
+                   "parent" : "0.225",
+                   "strict" : "0",
+                   "if" : "0",
+                   "Config" : "0",
+                   "Exporter" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "IO::Handle" : "0",
+                   "Test::Warn" : "0.3",
+                   "Test::NoWarnings" : "0",
+                   "File::Find" : "0",
+                   "POSIX" : "0",
+                   "IO::File" : "0",
+                   "Test::More" : "0.98",
+                   "Test::Deep" : "0.11",
+                   "Cwd" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.02",
+          "generated_by" : "ExtUtils::MakeMaker version 7.36, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "https://github.com/leejo/CGI.pm",
+                "type" : "git",
+                "web" : "https://github.com/leejo/CGI.pm"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/leejo/CGI.pm/issues"
+             },
+             "homepage" : "https://metacpan.org/module/CGI"
+          },
+          "license" : [
+             "artistic_2"
+          ],
+          "release_status" : "stable"
+       },
+       "main_module" : "CGI",
+       "resources" : {
+          "homepage" : "https://metacpan.org/module/CGI",
+          "bugtracker" : {
+             "web" : "https://github.com/leejo/CGI.pm/issues"
+          },
+          "repository" : {
+             "web" : "https://github.com/leejo/CGI.pm",
+             "type" : "git",
+             "url" : "https://github.com/leejo/CGI.pm"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "CGI-4.46.tar.gz",
+       "license" : [
+          "artistic_2"
+       ],
+       "distribution" : "CGI",
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1580741362,
+          "mode" : 33188,
+          "size" : 204907
+       },
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "c2ae443de78a69d85e3931c8c29596d1",
+       "abstract" : "Handle Common Gateway Interface requests and responses",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/CGI-4.46.tar.gz",
+       "author" : "LEEJO",
+       "version_numified" : 4.46,
+       "provides" : [
+          "CGI",
+          "CGI::Carp",
+          "CGI::Cookie",
+          "CGI::File::Temp",
+          "CGI::HTML::Functions",
+          "CGI::MultipartBuffer",
+          "CGI::Pretty",
+          "CGI::Push",
+          "CGI::Util",
+          "Fh"
+       ],
+       "id" : "_1WvaB_a1edPxexCo1yKQxL5QME",
+       "changes_file" : "Changes"
+    }

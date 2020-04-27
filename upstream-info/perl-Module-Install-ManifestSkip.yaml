@@ -1,0 +1,157 @@
+---
+version_control: metacpan
+src_repo: Module-Install-ManifestSkip
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:19.179242520 +00:00
+  raw_data: |
+    {
+       "abstract" : "Generate a MANIFEST.SKIP file",
+       "checksum_md5" : "f29131ee765af1aa76f8286dd20ac21d",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "INGY",
+       "download_url" : "https://cpan.metacpan.org/authors/id/I/IN/INGY/Module-Install-ManifestSkip-0.24.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "id" : "uPrxJ_se9WmD2ROvT1WN53Xtiak",
+       "provides" : [
+          "Module::Install::ManifestSkip"
+       ],
+       "version_numified" : 0.24,
+       "changes_file" : "Changes",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 709,
+          "unknown" : 0
+       },
+       "name" : "Module-Install-ManifestSkip-0.24",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.30",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "1.41",
+             "module" : "Test::Pod"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "version" : "v5.8.1",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Manifest::Skip",
+             "phase" : "runtime",
+             "version" : "0.18"
+          },
+          {
+             "version" : "1.10",
+             "phase" : "runtime",
+             "module" : "Module::Install",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.24",
+       "distribution" : "Module-Install-ManifestSkip",
+       "archive" : "Module-Install-ManifestSkip-0.24.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/ingydotnet/module-install-manifestskip-pm",
+             "type" : "git",
+             "url" : "https://github.com/ingydotnet/module-install-manifestskip-pm.git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/ingydotnet/module-install-manifestskip-pm/issues"
+          },
+          "homepage" : "https://github.com/ingydotnet/module-install-manifestskip-pm"
+       },
+       "main_module" : "Module::Install::ManifestSkip",
+       "metadata" : {
+          "version" : "0.24",
+          "author" : [
+             "Ingy döt Net <ingy@cpan.org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "xt",
+                "example",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Module-Install-ManifestSkip",
+          "abstract" : "Generate a MANIFEST.SKIP file",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "v5.8.1",
+                   "Module::Install" : "1.10",
+                   "Module::Manifest::Skip" : "0.18"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.132830, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 0,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "homepage" : "https://github.com/ingydotnet/module-install-manifestskip-pm",
+             "bugtracker" : {
+                "web" : "https://github.com/ingydotnet/module-install-manifestskip-pm/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/ingydotnet/module-install-manifestskip-pm.git",
+                "type" : "git",
+                "web" : "https://github.com/ingydotnet/module-install-manifestskip-pm"
+             }
+          }
+       },
+       "checksum_sha256" : "32320ee5e2841322a20905cde82288d582703726f95b3ee0957c0862f937ee7d",
+       "date" : "2014-08-16T18:37:39",
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1408214259,
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 11409
+       },
+       "maturity" : "released"
+    }

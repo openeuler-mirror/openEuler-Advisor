@@ -1,0 +1,208 @@
+---
+version_control: metacpan
+src_repo: File-Path
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:32.057586620 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 31871,
+          "mtime" : 1535720653
+       },
+       "metadata" : {
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/jkeenan/File-Path",
+                "url" : "https://github.com/jkeenan/File-Path.git",
+                "type" : "git"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "unknown",
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "File::Basename" : "0",
+                   "Exporter" : "0",
+                   "File::Spec" : "0",
+                   "Cwd" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Fcntl" : "0",
+                   "Test::Simple" : "0.44",
+                   "File::Spec::Functions" : "0",
+                   "Carp" : "0",
+                   "Config" : "0",
+                   "SelectSaver" : "0",
+                   "Errno" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "abstract" : "Create or remove directory trees",
+          "name" : "File-Path",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "unknown"
+          ],
+          "version" : "2.16"
+       },
+       "checksum_sha256" : "21f7d69b59c381f459c5f0bf697d512109bd911f12ca33270b70ca9a9ef6fa05",
+       "date" : "2018-08-31T13:04:13",
+       "archive" : "File-Path-2.16.tar.gz",
+       "license" : [
+          "unknown",
+          "perl_5"
+       ],
+       "distribution" : "File-Path",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/jkeenan/File-Path.git",
+             "web" : "https://github.com/jkeenan/File-Path"
+          }
+       },
+       "main_module" : "File::Path",
+       "version" : "2.16",
+       "dependency" : [
+          {
+             "phase" : "build",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Exporter"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Basename"
+          },
+          {
+             "module" : "File::Spec::Functions",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Config",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Simple",
+             "phase" : "test",
+             "version" : "0.44"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "SelectSaver",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Errno"
+          },
+          {
+             "phase" : "test",
+             "module" : "Carp",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Fcntl",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "File-Path-2.16",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 1640,
+          "fail" : 2,
+          "na" : 0
+       },
+       "changes_file" : "Changes",
+       "version_numified" : 2.16,
+       "id" : "NPY25RMnOdCjoAeifYKgXNRWKeU",
+       "provides" : [
+          "File::Path"
+       ],
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JK/JKEENAN/File-Path-2.16.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "author" : "JKEENAN",
+       "status" : "latest",
+       "checksum_md5" : "1994f582d7183f310050373b2048174e",
+       "abstract" : "Create or remove directory trees",
+       "authorized" : true
+    }

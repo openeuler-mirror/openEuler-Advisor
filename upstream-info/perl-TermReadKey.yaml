@@ -1,0 +1,132 @@
+---
+version_control: metacpan
+src_repo: TermReadKey
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:04.077636480 +00:00
+  raw_data: |
+    {
+       "version" : "2.38",
+       "status" : "latest",
+       "main_module" : "Term::ReadKey",
+       "abstract" : "Change terminal modes, and perform non-blocking reads.",
+       "changes_file" : "Changes",
+       "provides" : [
+          "Term::ReadKey"
+       ],
+       "date" : "2019-01-05T11:57:09",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "6.58"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.58",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "name" : "TermReadKey-2.38",
+       "authorized" : true,
+       "checksum_sha256" : "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "author" : [
+             "Kenneth Albanowski",
+             "Jonathan Stowe"
+          ],
+          "abstract" : "Change terminal modes, and perform non-blocking reads.",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.58"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.58"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "Configure"
+             ],
+             "file" : [
+                "Configure.pm"
+             ]
+          },
+          "version" : "2.38",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/jonathanstowe/TermReadKey",
+                "url" : "https://github.com/jonathanstowe/TermReadKey.git",
+                "type" : "git"
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "name" : "TermReadKey",
+          "license" : [
+             "perl_5"
+          ],
+          "provides" : {
+             "Term::ReadKey" : {
+                "file" : "ReadKey.pm.PL",
+                "version" : "2.38"
+             }
+          }
+       },
+       "maturity" : "released",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 85164,
+          "mode" : 33188,
+          "mtime" : 1546689429
+       },
+       "author" : "JSTOWE",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz",
+       "checksum_md5" : "b2b4aab7a0e6bddb7ac3b21ba637482c",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "TermReadKey-2.38.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/jonathanstowe/TermReadKey.git",
+             "type" : "git",
+             "web" : "https://github.com/jonathanstowe/TermReadKey"
+          }
+       },
+       "tests" : {
+          "na" : 0,
+          "fail" : 1,
+          "pass" : 4099,
+          "unknown" : 9
+       },
+       "version_numified" : 2.38,
+       "id" : "C_MIpoUmLKVuzKbIFsvxkhIqGzQ",
+       "distribution" : "TermReadKey"
+    }

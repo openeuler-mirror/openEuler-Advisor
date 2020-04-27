@@ -1,0 +1,163 @@
+---
+version_control: metacpan
+src_repo: Module-Load-Conditional
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:51.695601610 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "pass" : 631,
+          "unknown" : 1
+       },
+       "name" : "Module-Load-Conditional-0.70",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "configure"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "version",
+             "version" : "0.69",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Locale::Maketext::Simple",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Params::Check",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.28",
+             "module" : "Module::Load",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Module::Metadata",
+             "phase" : "runtime",
+             "version" : "1.000005"
+          },
+          {
+             "version" : "2.22",
+             "phase" : "runtime",
+             "module" : "Module::CoreList",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "build"
+          }
+       ],
+       "version" : "0.70",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Module-Load-Conditional-0.70.tar.gz",
+       "distribution" : "Module-Load-Conditional",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/jib/module-load-conditional"
+          }
+       },
+       "main_module" : "Module::Load::Conditional",
+       "metadata" : {
+          "author" : [
+             "Jos Boumans <kane[at]cpan.org>"
+          ],
+          "version" : "0.70",
+          "abstract" : "Looking up module information / loading at runtime",
+          "name" : "Module-Load-Conditional",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Module::Metadata" : "1.000005",
+                   "Params::Check" : "0",
+                   "Module::Load" : "0.28",
+                   "Locale::Maketext::Simple" : "0",
+                   "Module::CoreList" : "2.22",
+                   "version" : "0.69"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/jib/module-load-conditional"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : 1
+       },
+       "date" : "2019-11-10T14:37:30",
+       "checksum_sha256" : "ca705e80e3da32b15d375b26fe86c5f716c8ee5964f3e1c5a1b5bbc7bb4766e8",
+       "stat" : {
+          "mtime" : 1573396650,
+          "size" : 13591,
+          "mode" : 33188
+       },
+       "maturity" : "released",
+       "checksum_md5" : "25eee5f225c93766c47fa6534fea9e43",
+       "abstract" : "Looking up module information / loading at runtime",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "BINGOS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Module-Load-Conditional-0.70.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "id" : "tzzNVMyA4Js65O2oJ0GtBX2E5Yw",
+       "provides" : [
+          "Module::Load::Conditional"
+       ],
+       "version_numified" : 0.7,
+       "changes_file" : "CHANGES"
+    }

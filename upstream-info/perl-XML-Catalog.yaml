@@ -1,0 +1,194 @@
+---
+version_control: metacpan
+src_repo: XML-Catalog
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:16.953815180 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 3046
+       },
+       "metadata" : {
+          "release_status" : "stable",
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "Jeff Fearn <jfearn@cpan.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "XML-Catalog",
+          "abstract" : "Resolve public identifiers and remap system identifiers",
+          "generated_by" : "Module::Build version 0.4004, CPAN::Meta::Converter version 2.120921, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Module::Build" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "XML::Parser" : "0",
+                   "URI::URL" : "0",
+                   "LWP::Simple" : "0",
+                   "Text::ParseWords" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "LWP::Simple" : "0",
+                   "Text::ParseWords" : "0",
+                   "URI::URL" : "0",
+                   "XML::Parser" : "0",
+                   "Cwd" : "0"
+                }
+             }
+          },
+          "provides" : {
+             "XML::Catalog::XML" : {
+                "version" : "1.02",
+                "file" : "lib/XML/Catalog.pm"
+             },
+             "XML::Catalog" : {
+                "file" : "lib/XML/Catalog.pm",
+                "version" : "1.03"
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.03",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "deprecated" : "false",
+       "id" : "tpdcDWNJgtS1jODlSDTWas3yyxg",
+       "stat" : {
+          "size" : 12266,
+          "uid" : 1009,
+          "gid" : 1009,
+          "mtime" : 1401228281,
+          "mode" : 33204
+       },
+       "version" : "1.03",
+       "provides" : [
+          "XML::Catalog",
+          "XML::Catalog::XML"
+       ],
+       "authorized" : true,
+       "checksum_md5" : "c2c14f3e87aa75ebb7130ea4ebd41984",
+       "main_module" : "XML::Catalog",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "XML-Catalog-1.03.tar.gz",
+       "author" : "JFEARN",
+       "version_numified" : 1.03,
+       "checksum_sha256" : "55cd8f68ffc0899cc5d265b4f4573c88c435a2620fd85993d25f5f81bfa169d7",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "distribution" : "XML-Catalog",
+       "first" : false,
+       "abstract" : "Resolve public identifiers and remap system identifiers",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Module::Build"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "LWP::Simple"
+          },
+          {
+             "module" : "URI::URL",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "XML::Parser",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Text::ParseWords",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Text::ParseWords",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "module" : "Cwd",
+             "phase" : "build",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "URI::URL",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "module" : "LWP::Simple",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build"
+          },
+          {
+             "module" : "XML::Parser",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build"
+          }
+       ],
+       "maturity" : "released",
+       "date" : "2014-05-27T22:04:41",
+       "name" : "XML-Catalog-1.03",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JF/JFEARN/XML-Catalog-1.03.tar.gz"
+    }

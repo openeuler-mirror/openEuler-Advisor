@@ -1,0 +1,167 @@
+---
+version_control: metacpan
+src_repo: MRO-Compat
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:36.562419230 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "distribution" : "MRO-Compat",
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "1.04",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "1.14",
+             "module" : "Test::Pod"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.47",
+             "relationship" : "requires",
+             "phase" : "test"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006",
+             "relationship" : "requires"
+          }
+       ],
+       "abstract" : "mro::* interface compatibility for Perls < 5.9.5",
+       "first" : false,
+       "name" : "MRO-Compat-0.13",
+       "download_url" : "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.13.tar.gz",
+       "maturity" : "released",
+       "date" : "2017-03-28T22:54:05",
+       "id" : "ZW0Bjmzvpyvjj27AC_xwxLe4m9E",
+       "provides" : [
+          "MRO::Compat"
+       ],
+       "authorized" : true,
+       "version" : "0.13",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 8711,
+          "mtime" : 1490741645
+       },
+       "metadata" : {
+          "author" : [
+             "Brandon L. Black <blblack@gmail.com>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "MRO-Compat",
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "type" : "git",
+                "web" : "https://github.com/moose/MRO-Compat",
+                "url" : "git://github.com/moose/MRO-Compat.git"
+             },
+             "homepage" : "https://metacpan.org/release/MRO-Compat",
+             "bugtracker" : {
+                "mailto" : "bug-MRO-Compat@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=MRO-Compat"
+             }
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 2.27300",
+          "release_status" : "stable",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.13",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {},
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.14",
+                   "Test::Pod::Coverage" : "1.04"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.47"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "abstract" : "mro::* interface compatibility for Perls < 5.9.5"
+       },
+       "deprecated" : "false",
+       "tests" : {
+          "fail" : 0,
+          "unknown" : 2,
+          "pass" : 6895,
+          "na" : 0
+       },
+       "version_numified" : 0.13,
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "HAARG",
+       "archive" : "MRO-Compat-0.13.tar.gz",
+       "changes_file" : "Changes",
+       "checksum_sha256" : "8a2c3b6ccc19328d5579d02a7d91285e2afd85d801f49d423a8eb16f323da4f8",
+       "resources" : {
+          "homepage" : "https://metacpan.org/release/MRO-Compat",
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=MRO-Compat",
+             "mailto" : "bug-MRO-Compat@rt.cpan.org"
+          },
+          "repository" : {
+             "url" : "git://github.com/moose/MRO-Compat.git",
+             "type" : "git",
+             "web" : "https://github.com/moose/MRO-Compat"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "MRO::Compat",
+       "checksum_md5" : "d2e603e8ae9dc6934162d190eb085385"
+    }

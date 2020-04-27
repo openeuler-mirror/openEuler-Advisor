@@ -1,0 +1,83 @@
+---
+version_control: metacpan
+src_repo: Text-CharWidth
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:06.335036080 +00:00
+  raw_data: |
+    {
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Text-CharWidth-0.04.tar.gz",
+       "author" : "KUBOTA",
+       "version_numified" : 0.04,
+       "checksum_sha256" : "abded5f4fdd9338e89fd2f1d8271c44989dae5bf50aece41b6179d8e230704f8",
+       "changes_file" : "Changes",
+       "checksum_md5" : "37a723df0580c0758c0ee67b37336c15",
+       "main_module" : "Text::CharWidth",
+       "resources" : {},
+       "id" : "N_ALEnZZjb8q_cjms2knxJQGgsM",
+       "version" : "0.04",
+       "stat" : {
+          "size" : 8387,
+          "mtime" : 1056550820,
+          "uid" : 1009,
+          "gid" : 1009,
+          "mode" : 33204
+       },
+       "provides" : [
+          "Text::CharWidth"
+       ],
+       "authorized" : true,
+       "tests" : {
+          "fail" : 21,
+          "unknown" : 161,
+          "pass" : 7412,
+          "na" : 21
+       },
+       "deprecated" : "false",
+       "metadata" : {
+          "release_status" : "stable",
+          "dynamic_config" : 1,
+          "name" : "Text-CharWidth",
+          "author" : [
+             "unknown"
+          ],
+          "license" : [
+             "unknown"
+          ],
+          "abstract" : "unknown",
+          "generated_by" : "CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {},
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.04",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "name" : "Text-CharWidth-0.04",
+       "download_url" : "https://cpan.metacpan.org/authors/id/K/KU/KUBOTA/Text-CharWidth-0.04.tar.gz",
+       "maturity" : "released",
+       "date" : "2003-06-25T14:20:20",
+       "status" : "latest",
+       "distribution" : "Text-CharWidth",
+       "first" : false,
+       "dependency" : [],
+       "abstract" : "Get number of occupied columns of a string on terminal"
+    }

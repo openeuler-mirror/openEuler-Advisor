@@ -1,0 +1,172 @@
+---
+version_control: metacpan
+src_repo: Module-Install-ReadmeMarkdownFromPod
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:21.984914770 +00:00
+  raw_data: |
+    {
+       "abstract" : "create README.mkdn from POD",
+       "changes_file" : "Changes",
+       "main_module" : "Module::Install::ReadmeMarkdownFromPod",
+       "version" : "0.04",
+       "status" : "latest",
+       "metadata" : {
+          "resources" : {
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Module-Install-ReadmeMarkdownFromPod"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "homepage" : "http://search.cpan.org/dist/Module-Install-ReadmeMarkdownFromPod/",
+             "repository" : {
+                "url" : "https://github.com/mattn/p5-Module-Install-ReadmeMarkdownFromPod"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Module-Install-ReadmeMarkdownFromPod",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59",
+                   "URI::Escape" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Pod::Markdown" : "0",
+                   "perl" : "v5.6.0",
+                   "Module::Install" : "0"
+                },
+                "recommends" : {
+                   "Module::Install::ReadmeFromPod" : "0"
+                }
+             }
+          },
+          "version" : "0.04",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Marcel Gr\\xFCnauer, C<< <marcel@cpan.org> >>"
+          ],
+          "dynamic_config" : "1",
+          "abstract" : "create README.mkdn from POD",
+          "generated_by" : "Module::Install version 1.18, CPAN::Meta::Converter version 2.150005"
+       },
+       "maturity" : "released",
+       "name" : "Module-Install-ReadmeMarkdownFromPod-0.04",
+       "date" : "2017-05-17T14:53:04",
+       "first" : false,
+       "provides" : [
+          "Module::Install::ReadmeMarkdownFromPod"
+       ],
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "v5.6.0",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Module::Install",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Pod::Markdown"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Module::Install::ReadmeFromPod",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "URI::Escape",
+             "phase" : "configure"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.59",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.59",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          }
+       ],
+       "authorized" : true,
+       "checksum_sha256" : "300b2e244f83b9a54a95f8404c1cd3af0635b4fae974ca65390ee428ec668591",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Module-Install-ReadmeMarkdownFromPod-0.04.tar.gz",
+       "author" : "MATTN",
+       "deprecated" : "false",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 51725,
+          "mtime" : 1495032784
+       },
+       "version_numified" : 0.04,
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 595
+       },
+       "distribution" : "Module-Install-ReadmeMarkdownFromPod",
+       "id" : "s164lPZeUe1UA0x9J3xYusNL49E",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "7fef49eaa76abb42bd3c9dd9b888c187",
+       "resources" : {
+          "homepage" : "http://search.cpan.org/dist/Module-Install-ReadmeMarkdownFromPod/",
+          "repository" : {
+             "url" : "https://github.com/mattn/p5-Module-Install-ReadmeMarkdownFromPod"
+          },
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Module-Install-ReadmeMarkdownFromPod"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "Module-Install-ReadmeMarkdownFromPod-0.04.tar.gz"
+    }

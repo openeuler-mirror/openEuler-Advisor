@@ -1,0 +1,127 @@
+---
+version_control: metacpan
+src_repo: Bit-Vector
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:56.762688990 +00:00
+  raw_data: |
+    {
+       "tests" : {
+          "unknown" : 28,
+          "pass" : 11179,
+          "na" : 0,
+          "fail" : 30
+       },
+       "name" : "Bit-Vector-7.4",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "2.21",
+             "phase" : "runtime",
+             "module" : "Storable"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.3",
+             "module" : "Carp::Clan",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          }
+       ],
+       "version" : "7.4",
+       "resources" : {},
+       "main_module" : "Bit::Vector",
+       "distribution" : "Bit-Vector",
+       "archive" : "Bit-Vector-7.4.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "date" : "2014-11-20T09:49:01",
+       "checksum_sha256" : "3c6daa671fecfbc35f92a9385b563d65f50dfc6bdc8b4805f9ef46c0d035a926",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "license" : [
+             "unknown"
+          ],
+          "release_status" : "stable",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Carp::Clan" : "5.3",
+                   "Storable" : "2.21"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.56, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "name" : "Bit-Vector",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "unknown",
+          "version" : "7.4",
+          "author" : [
+             "unknown"
+          ]
+       },
+       "stat" : {
+          "mtime" : 1416476941,
+          "mode" : 33188,
+          "size" : 135965
+       },
+       "maturity" : "released",
+       "authorized" : true,
+       "checksum_md5" : "bf67f144e5be5327ed79d4c69e6e0086",
+       "abstract" : "Efficient bit vector, set of integers and \"big int\" math library",
+       "status" : "latest",
+       "author" : "STBEY",
+       "first" : false,
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/S/ST/STBEY/Bit-Vector-7.4.tar.gz",
+       "provides" : [
+          "Bit::Vector",
+          "Bit::Vector::Overload",
+          "Bit::Vector::String"
+       ],
+       "id" : "nQySlpI8oyYbvOxsactwr2s1b_A",
+       "version_numified" : 7.4,
+       "changes_file" : ""
+    }

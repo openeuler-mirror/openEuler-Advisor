@@ -1,0 +1,168 @@
+---
+version_control: metacpan
+src_repo: Time-HiRes
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:30.430542770 +00:00
+  raw_data: |
+    {
+       "changes_file" : "Changes",
+       "version_numified" : 1.976,
+       "id" : "BrSrHpTyPdn2G4pYtGZeBAaDJgg",
+       "provides" : [
+          "Time::HiRes"
+       ],
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Time-HiRes-1.9760.tar.gz",
+       "first" : false,
+       "deprecated" : false,
+       "author" : "ATOOMIC",
+       "status" : "latest",
+       "abstract" : "High resolution alarm, sleep, gettimeofday, interval timers",
+       "checksum_md5" : "6b1c30c00acb8e891e4b31d38341bc90",
+       "authorized" : true,
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1550513078,
+          "size" : 111684,
+          "mode" : 33188
+       },
+       "metadata" : {
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Carp" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "XSLoader" : "0",
+                   "perl" : "5.006",
+                   "Test::More" : "0",
+                   "Exporter" : "0",
+                   "Config" : "0",
+                   "strict" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "version" : "1.9760",
+          "author" : [
+             "Jarkko Hietaniemi <jhi@iki.fi>"
+          ],
+          "name" : "Time-HiRes",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "High resolution alarm, sleep, gettimeofday, interval timers"
+       },
+       "checksum_sha256" : "2cb898bff42bc10024e0a3252c79e13a2eb7a8a5fb3367bb60583b576a11702b",
+       "date" : "2019-02-18T18:04:38",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "Time-HiRes",
+       "archive" : "Time-HiRes-1.9760.tar.gz",
+       "main_module" : "Time::HiRes",
+       "resources" : {},
+       "version" : "1.9760",
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "strict",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Carp"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Config",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "XSLoader"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "Time-HiRes-1.9760",
+       "tests" : {
+          "unknown" : 6,
+          "pass" : 1451,
+          "fail" : 20,
+          "na" : 0
+       }
+    }

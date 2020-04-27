@@ -1,0 +1,145 @@
+---
+version_control: metacpan
+src_repo: Math-BigInt
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:29.264236890 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PJ/PJACKLAM/Math-BigInt-1.999818.tar.gz",
+       "name" : "Math-BigInt-1.999818",
+       "date" : "2019-10-21T08:36:37",
+       "maturity" : "released",
+       "abstract" : "Pure Perl module to test Math::BigInt with scalars",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.58",
+             "relationship" : "requires",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.94",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "Math::Complex",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.39"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006001",
+             "phase" : "runtime",
+             "module" : "perl"
+          }
+       ],
+       "first" : false,
+       "distribution" : "Math-BigInt",
+       "status" : "latest",
+       "changes_file" : "CHANGES",
+       "checksum_sha256" : "b27634356ce2af9b7c0123ac8395a89a32fb15aeae82fcd39de8156cad278c15",
+       "version_numified" : 1.999818,
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Math-BigInt-1.999818.tar.gz",
+       "author" : "PJACKLAM",
+       "main_module" : "Math::BigInt",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/pjacklam/p5-Math-BigInt",
+             "type" : "git",
+             "url" : "https://github.com/pjacklam/p5-Math-BigInt.git"
+          }
+       },
+       "checksum_md5" : "a6e5a6c391b453e04c2b60506e1b5342",
+       "authorized" : true,
+       "provides" : [
+          "Math::BigFloat",
+          "Math::BigInt",
+          "Math::BigInt::Calc",
+          "Math::BigInt::Lib"
+       ],
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1571646997,
+          "size" : 3047629
+       },
+       "version" : "1.999818",
+       "id" : "JbaNEHZLrc0p8_fN4YM_dqqIr4o",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "version" : "1.999818",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.94"
+                }
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.58"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Math::Complex" : "1.39",
+                   "perl" : "5.006001"
+                }
+             }
+          },
+          "abstract" : "unknown",
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Math-BigInt",
+          "author" : [
+             "Peter John Acklam <pjacklam@gmail.com>"
+          ],
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/pjacklam/p5-Math-BigInt",
+                "type" : "git",
+                "url" : "https://github.com/pjacklam/p5-Math-BigInt.git"
+             }
+          },
+          "dynamic_config" : 1,
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 4.04"
+       },
+       "deprecated" : false,
+       "tests" : {
+          "fail" : 8,
+          "unknown" : 4,
+          "pass" : 2180,
+          "na" : 0
+       }
+    }

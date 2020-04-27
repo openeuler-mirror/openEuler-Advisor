@@ -1,0 +1,485 @@
+---
+version_control: metacpan
+src_repo: XML-NamespaceSupport
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:23.115369200 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "a8916c6d095bcf073e1108af02e78c97",
+       "resources" : {
+          "homepage" : "https://github.com/perigrin/xml-namespacesupport",
+          "bugtracker" : {
+             "web" : "https://github.com/perigrin/xml-namespacesupport/issues"
+          },
+          "repository" : {
+             "url" : "https://github.com/perigrin/xml-namespacesupport.git",
+             "type" : "git",
+             "web" : "https://github.com/perigrin/xml-namespacesupport"
+          }
+       },
+       "main_module" : "XML::NamespaceSupport",
+       "checksum_sha256" : "47e995859f8dd0413aa3f22d350c4a62da652e854267aa0586ae544ae2bae5ef",
+       "changes_file" : "Changes",
+       "archive" : "XML-NamespaceSupport-1.12.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "PERIGRIN",
+       "version_numified" : 1.12,
+       "tests" : {
+          "pass" : 6133,
+          "na" : 0,
+          "unknown" : 10,
+          "fail" : 0
+       },
+       "metadata" : {
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/perigrin/xml-namespacesupport/issues"
+             },
+             "homepage" : "https://github.com/perigrin/xml-namespacesupport",
+             "repository" : {
+                "url" : "https://github.com/perigrin/xml-namespacesupport.git",
+                "web" : "https://github.com/perigrin/xml-namespacesupport",
+                "type" : "git"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Robin Berjon <robin@knowscape.com>",
+             "Chris Prather <chris@prather.org>"
+          ],
+          "generated_by" : "Dist::Zilla version 6.009, CPAN::Meta::Converter version 2.150005",
+          "x_authority" : "cpan:PERIGRIN",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "version" : "1.12",
+          "no_index" : {
+             "package" : [
+                "DB"
+             ],
+             "directory" : [
+                "corpus",
+                "examples",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "provides" : {
+             "XML::NamespaceSupport" : {
+                "version" : "1.12",
+                "file" : "lib/XML/NamespaceSupport.pm"
+             }
+          },
+          "dynamic_config" : 0,
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0231",
+          "name" : "XML-NamespaceSupport",
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Dist::Zilla::Plugin::ManifestSkip" : "0",
+                   "Dist::Zilla::Plugin::ExecDir" : "0",
+                   "Dist::Zilla::Plugin::CPANFile" : "0",
+                   "Dist::Zilla::Plugin::License" : "0",
+                   "Dist::Zilla::Plugin::MetaProvides::Package" : "0",
+                   "Dist::Zilla::Plugin::UploadToCPAN" : "0",
+                   "Dist::Zilla::Plugin::ConfirmRelease" : "0",
+                   "Dist::Zilla::Plugin::PodWeaver" : "0",
+                   "Dist::Zilla::Plugin::MetaNoIndex" : "0",
+                   "Dist::Zilla::Plugin::Git::Tag" : "0",
+                   "Dist::Zilla::Plugin::MakeMaker" : "0",
+                   "Dist::Zilla" : "5",
+                   "Dist::Zilla::Plugin::Git::NextVersion" : "0",
+                   "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
+                   "Dist::Zilla::Plugin::Git::Push" : "0",
+                   "Dist::Zilla::Plugin::CheckMetaResources" : "0",
+                   "Dist::Zilla::Plugin::MetaYAML" : "0",
+                   "Dist::Zilla::Plugin::TestRelease" : "0",
+                   "Dist::Zilla::Plugin::Git::Contributors" : "0",
+                   "Dist::Zilla::Plugin::Manifest" : "0",
+                   "Dist::Zilla::Plugin::Authority" : "0",
+                   "Dist::Zilla::Plugin::GithubMeta" : "0",
+                   "Dist::Zilla::Plugin::MinimumPerl" : "0",
+                   "Dist::Zilla::Plugin::ShareDir" : "0",
+                   "Dist::Zilla::Plugin::Git::GatherDir" : "0",
+                   "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
+                   "Dist::Zilla::Plugin::Git::Commit" : "0",
+                   "Dist::Zilla::Plugin::MetaJSON" : "0",
+                   "Software::License::Perl_5" : "0",
+                   "Dist::Zilla::Plugin::InsertCopyright" : "0",
+                   "Dist::Zilla::Plugin::PruneCruft" : "0",
+                   "Dist::Zilla::Plugin::RunExtraTests" : "0",
+                   "Dist::Zilla::Plugin::OurPkgVersion" : "0",
+                   "Dist::Zilla::Plugin::PromptIfStale" : "0",
+                   "Dist::Zilla::Plugin::NextRelease" : "0",
+                   "Dist::Zilla::Plugin::Prereqs::AuthorDeps" : "0",
+                   "Dist::Zilla::Plugin::Git::Check" : "0",
+                   "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch" : "0",
+                   "Dist::Zilla::Plugin::AutoPrereqs" : "0",
+                   "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "constant" : "0",
+                   "warnings" : "0",
+                   "strict" : "0",
+                   "vars" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.17",
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "abstract" : "A simple generic namespace processor",
+          "x_contributors" : [
+             "Chris Prather <cprather@hdpublishing.com>",
+             "David Steinbrunner <dsteinbrunner@pobox.com>",
+             "Paul Cochrane <paul@liekut.de>",
+             "Paulo Custodio <pauloscustodio@gmail.com>"
+          ]
+       },
+       "deprecated" : "false",
+       "version" : "1.12",
+       "stat" : {
+          "size" : 18012,
+          "mtime" : 1490907091,
+          "mode" : 33204
+       },
+       "authorized" : true,
+       "provides" : [
+          "XML::NamespaceSupport"
+       ],
+       "id" : "llNd2gwTdeheUN7NiWf5O37s7j8",
+       "date" : "2017-03-30T20:51:31",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz",
+       "name" : "XML-NamespaceSupport-1.12",
+       "first" : false,
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::Authority"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Git::NextVersion",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::MakeMaker"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::ManifestSkip",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Git::Check",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::MetaYAML"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::MetaProvides::Package"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::RunExtraTests"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::PruneCruft",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::NextRelease"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Prereqs::AuthorDeps",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::MetaNoIndex",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::OurPkgVersion",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::CheckChangesHasContent",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Git::Tag",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::ExecDir",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::PromptIfStale",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::CheckMetaResources",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::ConfirmRelease",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Dist::Zilla::Plugin::ShareDir"
+          },
+          {
+             "module" : "Dist::Zilla",
+             "relationship" : "requires",
+             "version" : "5",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::MinimumPerl"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::License",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Git::Push",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::PodWeaver",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::AutoPrereqs",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::Git::Commit"
+          },
+          {
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Dist::Zilla::Plugin::Git::GatherDir"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Software::License::Perl_5"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Dist::Zilla::Plugin::MetaJSON"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::TestRelease",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::InsertCopyright"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::UploadToCPAN",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::Manifest"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Git::Contributors",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::CPANFile"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Dist::Zilla::Plugin::GithubMeta"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "constant"
+          },
+          {
+             "module" : "strict",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "vars"
+          },
+          {
+             "module" : "perl",
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "warnings",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "version" : "6.17",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "configure"
+          }
+       ],
+       "abstract" : "A simple generic namespace processor",
+       "distribution" : "XML-NamespaceSupport",
+       "status" : "latest"
+    }

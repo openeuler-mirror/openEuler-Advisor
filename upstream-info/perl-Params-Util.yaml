@@ -1,0 +1,148 @@
+---
+version_control: metacpan
+src_repo: Params-Util
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:32.666288720 +00:00
+  raw_data: |
+    {
+       "abstract" : "Simple, compact and correct param-checking functions",
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "version" : "1.07",
+       "main_module" : "Params::Util",
+       "metadata" : {
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.07",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.52",
+                   "ExtUtils::CBuilder" : "0.27"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Scalar::Util" : "1.18",
+                   "perl" : "5.00503"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "File::Spec" : "0.80",
+                   "Test::More" : "0.42",
+                   "ExtUtils::MakeMaker" : "6.52"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112621, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Simple, compact and correct param-checking functions",
+          "dynamic_config" : 1,
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Params-Util",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "maturity" : "released",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Scalar::Util",
+             "version" : "1.18"
+          },
+          {
+             "version" : "5.00503",
+             "phase" : "runtime",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.27",
+             "phase" : "configure",
+             "module" : "ExtUtils::CBuilder"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.52"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.52"
+          },
+          {
+             "phase" : "build",
+             "module" : "Test::More",
+             "version" : "0.42",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "File::Spec",
+             "version" : "0.80"
+          }
+       ],
+       "first" : false,
+       "provides" : [
+          "Params::Util"
+       ],
+       "date" : "2012-03-11T00:40:52",
+       "name" : "Params-Util-1.07",
+       "checksum_sha256" : "30f1ec3f2cf9ff66ae96f973333f23c5f558915bb6266881eac7423f52d7c76c",
+       "authorized" : true,
+       "author" : "ADAMK",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Params-Util-1.07.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1331426452,
+          "mode" : 33188,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 40726
+       },
+       "tests" : {
+          "fail" : 9,
+          "na" : 0,
+          "unknown" : 20,
+          "pass" : 14629
+       },
+       "version_numified" : 1.07,
+       "id" : "qUfecWZZAZDKUWZhdNjOrdg_BzA",
+       "distribution" : "Params-Util",
+       "checksum_md5" : "02db120c0eef87aae1830cc62bdec37b",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Params-Util-1.07.tar.gz",
+       "resources" : {}
+    }

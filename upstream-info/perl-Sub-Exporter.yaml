@@ -1,0 +1,509 @@
+---
+version_control: metacpan
+src_repo: Sub-Exporter
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:35.432413970 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz",
+       "name" : "Sub-Exporter-0.987",
+       "date" : "2013-10-18T15:10:54",
+       "maturity" : "released",
+       "first" : false,
+       "abstract" : "a sophisticated exporter for custom-built routines",
+       "dependency" : [
+          {
+             "module" : "overload",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0.96",
+             "module" : "Test::More"
+          },
+          {
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "subs",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "IO::Handle",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "IPC::Open3"
+          },
+          {
+             "module" : "lib",
+             "phase" : "test",
+             "relationship" : "requires",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "base"
+          },
+          {
+             "module" : "perl",
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Params::Util",
+             "version" : "0.14",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.100",
+             "module" : "Data::OptList"
+          },
+          {
+             "version" : "0.92",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Sub::Install"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "warnings"
+          },
+          {
+             "phase" : "develop",
+             "version" : "0.9901",
+             "relationship" : "requires",
+             "module" : "version"
+          },
+          {
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "relationship" : "requires",
+             "version" : "1.41"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "6.30",
+             "relationship" : "requires"
+          }
+       ],
+       "distribution" : "Sub-Exporter",
+       "status" : "latest",
+       "checksum_sha256" : "543cb2e803ab913d44272c7da6a70bb62c19e467f3b12aaac4c9523259b083d6",
+       "changes_file" : "Changes",
+       "archive" : "Sub-Exporter-0.987.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "author" : "RJBS",
+       "version_numified" : 0.987,
+       "checksum_md5" : "5332d269a7ba387773fcd140b72a0ed2",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "https://github.com/rjbs/Sub-Exporter/issues"
+          },
+          "homepage" : "https://github.com/rjbs/Sub-Exporter",
+          "repository" : {
+             "url" : "https://github.com/rjbs/Sub-Exporter.git",
+             "type" : "git",
+             "web" : "https://github.com/rjbs/Sub-Exporter"
+          }
+       },
+       "main_module" : "Sub::Exporter",
+       "stat" : {
+          "mode" : 33204,
+          "size" : 45980,
+          "mtime" : 1382109054,
+          "gid" : 1009,
+          "uid" : 1009
+       },
+       "version" : "0.987",
+       "provides" : [
+          "Sub::Exporter",
+          "Sub::Exporter::Util"
+       ],
+       "authorized" : true,
+       "id" : "LsV4RYkzsuh3N7K_Ui0auLoubFs",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 12019,
+          "unknown" : 6
+       },
+       "metadata" : {
+          "dynamic_config" : 0,
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/rjbs/Sub-Exporter",
+                "type" : "git",
+                "url" : "https://github.com/rjbs/Sub-Exporter.git"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/rjbs/Sub-Exporter/issues"
+             },
+             "homepage" : "https://github.com/rjbs/Sub-Exporter"
+          },
+          "release_status" : "stable",
+          "author" : [
+             "Ricardo Signes <rjbs@cpan.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Sub-Exporter",
+          "x_Dist_Zilla" : {
+             "zilla" : {
+                "version" : "4.300039",
+                "class" : "Dist::Zilla::Dist::Builder",
+                "config" : {
+                   "is_trial" : "0"
+                }
+             },
+             "perl" : {
+                "version" : "5.019004"
+             },
+             "plugins" : [
+                {
+                   "version" : "2.014",
+                   "name" : "@RJBS/Git::GatherDir",
+                   "class" : "Dist::Zilla::Plugin::Git::GatherDir"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
+                   "name" : "@RJBS/CheckPrereqsIndexed",
+                   "version" : "0.009"
+                },
+                {
+                   "version" : "0.013",
+                   "class" : "Dist::Zilla::Plugin::CheckExtraTests",
+                   "name" : "@RJBS/CheckExtraTests"
+                },
+                {
+                   "version" : "0.008",
+                   "name" : "@RJBS/RJBS-Outdated",
+                   "class" : "Dist::Zilla::Plugin::PromptIfStale"
+                },
+                {
+                   "version" : "0.008",
+                   "class" : "Dist::Zilla::Plugin::PromptIfStale",
+                   "name" : "@RJBS/CPAN-Outdated"
+                },
+                {
+                   "version" : "4.300039",
+                   "class" : "Dist::Zilla::Plugin::PruneCruft",
+                   "name" : "@RJBS/@Filter/PruneCruft"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/@Filter/ManifestSkip",
+                   "class" : "Dist::Zilla::Plugin::ManifestSkip"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaYAML",
+                   "name" : "@RJBS/@Filter/MetaYAML",
+                   "version" : "4.300039"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::License",
+                   "name" : "@RJBS/@Filter/License",
+                   "version" : "4.300039"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/@Filter/Readme",
+                   "class" : "Dist::Zilla::Plugin::Readme"
+                },
+                {
+                   "name" : "@RJBS/@Filter/ExecDir",
+                   "class" : "Dist::Zilla::Plugin::ExecDir",
+                   "version" : "4.300039"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/@Filter/ShareDir",
+                   "class" : "Dist::Zilla::Plugin::ShareDir"
+                },
+                {
+                   "version" : "4.300039",
+                   "class" : "Dist::Zilla::Plugin::MakeMaker",
+                   "name" : "@RJBS/@Filter/MakeMaker"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/@Filter/Manifest",
+                   "class" : "Dist::Zilla::Plugin::Manifest"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::TestRelease",
+                   "name" : "@RJBS/@Filter/TestRelease",
+                   "version" : "4.300039"
+                },
+                {
+                   "version" : "4.300039",
+                   "class" : "Dist::Zilla::Plugin::ConfirmRelease",
+                   "name" : "@RJBS/@Filter/ConfirmRelease"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/@Filter/UploadToCPAN",
+                   "class" : "Dist::Zilla::Plugin::UploadToCPAN"
+                },
+                {
+                   "version" : "4.300039",
+                   "class" : "Dist::Zilla::Plugin::AutoPrereqs",
+                   "name" : "@RJBS/AutoPrereqs"
+                },
+                {
+                   "version" : "2.014",
+                   "name" : "@RJBS/Git::NextVersion",
+                   "class" : "Dist::Zilla::Plugin::Git::NextVersion"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/PkgVersion",
+                   "class" : "Dist::Zilla::Plugin::PkgVersion"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::MetaConfig",
+                   "name" : "@RJBS/MetaConfig",
+                   "version" : "4.300039"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "@RJBS/MetaJSON",
+                   "class" : "Dist::Zilla::Plugin::MetaJSON"
+                },
+                {
+                   "version" : "4.300039",
+                   "class" : "Dist::Zilla::Plugin::NextRelease",
+                   "name" : "@RJBS/NextRelease"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::Test::ChangesHasContent",
+                   "name" : "@RJBS/Test::ChangesHasContent",
+                   "version" : "0.006"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
+                   "name" : "@RJBS/PodSyntaxTests",
+                   "version" : "4.300039"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
+                   "name" : "@RJBS/ReportVersions::Tiny",
+                   "version" : "1.10"
+                },
+                {
+                   "version" : "2.037",
+                   "name" : "@RJBS/Test::Compile",
+                   "class" : "Dist::Zilla::Plugin::Test::Compile",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Test::Compile" : {
+                         "filename" : "t/00-compile.t",
+                         "module_finder" : [
+                            ":InstallModules"
+                         ],
+                         "script_finder" : [
+                            ":ExecFiles"
+                         ]
+                      }
+                   }
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::Prereqs",
+                   "name" : "@RJBS/TestMoreWithSubtests",
+                   "version" : "4.300039",
+                   "config" : {
+                      "Dist::Zilla::Plugin::Prereqs" : {
+                         "type" : "requires",
+                         "phase" : "test"
+                      }
+                   }
+                },
+                {
+                   "version" : "3.102000",
+                   "class" : "Dist::Zilla::Plugin::PodWeaver",
+                   "name" : "@RJBS/PodWeaver",
+                   "config" : {
+                      "Dist::Zilla::Plugin::PodWeaver" : {
+                         "config_plugin" : "@RJBS",
+                         "finder" : [
+                            ":InstallModules",
+                            ":ExecFiles"
+                         ]
+                      }
+                   }
+                },
+                {
+                   "version" : "0.42",
+                   "class" : "Dist::Zilla::Plugin::GithubMeta",
+                   "name" : "@RJBS/GithubMeta"
+                },
+                {
+                   "name" : "@RJBS/@Git/Check",
+                   "class" : "Dist::Zilla::Plugin::Git::Check",
+                   "version" : "2.014"
+                },
+                {
+                   "name" : "@RJBS/@Git/Commit",
+                   "class" : "Dist::Zilla::Plugin::Git::Commit",
+                   "version" : "2.014"
+                },
+                {
+                   "class" : "Dist::Zilla::Plugin::Git::Tag",
+                   "name" : "@RJBS/@Git/Tag",
+                   "version" : "2.014"
+                },
+                {
+                   "version" : "2.014",
+                   "class" : "Dist::Zilla::Plugin::Git::Push",
+                   "name" : "@RJBS/@Git/Push"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : "RemovePrereqs",
+                   "class" : "Dist::Zilla::Plugin::RemovePrereqs",
+                   "config" : {
+                      "Dist::Zilla::Plugin::RemovePrereqs" : {
+                         "modules_to_remove" : [
+                            "E::Parent",
+                            "Package::Generator"
+                         ]
+                      }
+                   }
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : ":InstallModules",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : ":IncModules",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : ":TestFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "version" : "4.300039",
+                   "name" : ":ExecFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode"
+                },
+                {
+                   "name" : ":ShareFiles",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "4.300039"
+                },
+                {
+                   "name" : ":MainModule",
+                   "class" : "Dist::Zilla::Plugin::FinderCode",
+                   "version" : "4.300039"
+                }
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.30"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "warnings" : "0",
+                   "Data::OptList" : "0.100",
+                   "Carp" : "0",
+                   "perl" : "5.006",
+                   "Params::Util" : "0.14",
+                   "Sub::Install" : "0.92"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "File::Spec" : "0",
+                   "base" : "0",
+                   "Exporter" : "0",
+                   "lib" : "0",
+                   "IPC::Open3" : "0",
+                   "overload" : "0",
+                   "IO::Handle" : "0",
+                   "Test::More" : "0.96",
+                   "subs" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41",
+                   "version" : "0.9901"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "a sophisticated exporter for custom-built routines",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.987"
+       },
+       "deprecated" : "false"
+    }

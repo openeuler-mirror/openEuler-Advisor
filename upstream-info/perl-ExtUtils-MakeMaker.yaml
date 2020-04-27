@@ -1,0 +1,205 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-MakeMaker
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:10.801213600 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "date" : "2020-01-14T16:54:08",
+       "name" : "ExtUtils-MakeMaker-7.44",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.44.tar.gz",
+       "status" : "latest",
+       "distribution" : "ExtUtils-MakeMaker",
+       "first" : false,
+       "abstract" : "Create a module Makefile",
+       "dependency" : [
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Encode"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.8",
+             "module" : "File::Spec"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Pod::Man"
+          },
+          {
+             "version" : "5.006",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "module" : "Data::Dumper",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "File::Basename"
+          }
+       ],
+       "checksum_md5" : "43f7a9ffac3fa97ba3e346719d3133a8",
+       "main_module" : "ExtUtils::MakeMaker",
+       "resources" : {
+          "homepage" : "https://metacpan.org/release/ExtUtils-MakeMaker",
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=ExtUtils-MakeMaker"
+          },
+          "repository" : {
+             "url" : "http://github.com/Perl-Toolchain-Gang/ExtUtils-MakeMaker"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "author" : "BINGOS",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "ExtUtils-MakeMaker-7.44.tar.gz",
+       "version_numified" : 7.44,
+       "checksum_sha256" : "52a18f8271250faf5f3527499dd2b78d3b4fd3b064408d0cfdda9a3538887188",
+       "changes_file" : "Changes",
+       "tests" : {
+          "fail" : 36,
+          "unknown" : 1,
+          "na" : 0,
+          "pass" : 675
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "author" : [
+             "Michael G Schwern <schwern@pobox.com>"
+          ],
+          "name" : "ExtUtils-MakeMaker",
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/Perl-Toolchain-Gang/ExtUtils-MakeMaker"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "x_MailingList" : "makemaker@perl.org",
+             "homepage" : "https://metacpan.org/release/ExtUtils-MakeMaker",
+             "bugtracker" : {
+                "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=ExtUtils-MakeMaker"
+             }
+          },
+          "dynamic_config" : 1,
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "bundled",
+                "my",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DynaLoader",
+                "in",
+                "version"
+             ]
+          },
+          "version" : "7.44",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "abstract" : "Create a module Makefile",
+          "generated_by" : "ExtUtils::MakeMaker version 7.44, CPAN::Meta::Converter version 2.143240, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Data::Dumper" : "0",
+                   "File::Basename" : "0",
+                   "File::Spec" : "0.8",
+                   "Encode" : "0",
+                   "Pod::Man" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {}
+             },
+             "test" : {
+                "requires" : {}
+             }
+          }
+       },
+       "id" : "09legRAAfaWSbEK_PjszPJbOcA8",
+       "version" : "7.44",
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1579020848,
+          "size" : 477616
+       },
+       "provides" : [
+          "ExtUtils::Command",
+          "ExtUtils::Command::MM",
+          "ExtUtils::Liblist",
+          "ExtUtils::Liblist::Kid",
+          "ExtUtils::MM",
+          "ExtUtils::MM_AIX",
+          "ExtUtils::MM_Any",
+          "ExtUtils::MM_BeOS",
+          "ExtUtils::MM_Cygwin",
+          "ExtUtils::MM_DOS",
+          "ExtUtils::MM_Darwin",
+          "ExtUtils::MM_MacOS",
+          "ExtUtils::MM_NW5",
+          "ExtUtils::MM_OS2",
+          "ExtUtils::MM_QNX",
+          "ExtUtils::MM_UWIN",
+          "ExtUtils::MM_Unix",
+          "ExtUtils::MM_VMS",
+          "ExtUtils::MM_VOS",
+          "ExtUtils::MM_Win32",
+          "ExtUtils::MM_Win95",
+          "ExtUtils::MY",
+          "ExtUtils::MakeMaker",
+          "ExtUtils::MakeMaker::Config",
+          "ExtUtils::MakeMaker::Locale",
+          "ExtUtils::MakeMaker::_version",
+          "ExtUtils::MakeMaker::charstar",
+          "ExtUtils::MakeMaker::version",
+          "ExtUtils::MakeMaker::version::regex",
+          "ExtUtils::MakeMaker::version::vpp",
+          "ExtUtils::Mkbootstrap",
+          "ExtUtils::Mksymlists",
+          "ExtUtils::testlib",
+          "MM",
+          "MY"
+       ],
+       "authorized" : true
+    }

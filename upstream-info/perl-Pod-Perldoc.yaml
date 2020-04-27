@@ -1,0 +1,246 @@
+---
+version_control: metacpan
+src_repo: Pod-Perldoc
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:04.640080400 +00:00
+  raw_data: |
+    {
+       "abstract" : "Look up Perl documentation in Pod format.",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "3.16",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Pod::Simple::XMLOutStream"
+          },
+          {
+             "module" : "Pod::Man",
+             "version" : "2.18",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "IO::Select"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Config"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Symbol"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Pod::Text"
+          },
+          {
+             "module" : "warnings",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "File::Spec::Functions",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Fcntl",
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "strict"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0.22"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "parent"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires",
+             "module" : "Encode"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Text::ParseWords"
+          },
+          {
+             "module" : "Pod::Simple::RTF",
+             "version" : "3.16",
+             "relationship" : "requires",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "first" : false,
+       "distribution" : "Pod-Perldoc",
+       "status" : "latest",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MA/MALLEN/Pod-Perldoc-3.28.tar.gz",
+       "name" : "Pod-Perldoc-3.28",
+       "date" : "2017-03-16T01:14:07",
+       "maturity" : "released",
+       "provides" : [
+          "Pod::Perldoc",
+          "Pod::Perldoc::BaseTo",
+          "Pod::Perldoc::GetOptsOO",
+          "Pod::Perldoc::ToANSI",
+          "Pod::Perldoc::ToChecker",
+          "Pod::Perldoc::ToMan",
+          "Pod::Perldoc::ToNroff",
+          "Pod::Perldoc::ToPod",
+          "Pod::Perldoc::ToRtf",
+          "Pod::Perldoc::ToTerm",
+          "Pod::Perldoc::ToText",
+          "Pod::Perldoc::ToTk",
+          "Pod::Perldoc::ToXml"
+       ],
+       "authorized" : true,
+       "stat" : {
+          "mtime" : 1489626847,
+          "size" : 154801,
+          "mode" : 33188
+       },
+       "version" : "3.28",
+       "id" : "rxCloqh8_57fS2YrC02r6wic6oQ",
+       "deprecated" : "false",
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 7.1002, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Pod::Simple::RTF" : "3.16",
+                   "Config" : "0",
+                   "File::Spec::Functions" : "0",
+                   "Text::ParseWords" : "0",
+                   "File::Temp" : "0.22",
+                   "strict" : "0",
+                   "Fcntl" : "0",
+                   "parent" : "0",
+                   "Encode" : "0",
+                   "Pod::Simple::XMLOutStream" : "3.16",
+                   "Pod::Man" : "2.18",
+                   "Symbol" : "0",
+                   "Test::More" : "0",
+                   "IO::Select" : "0",
+                   "warnings" : "0",
+                   "Pod::Text" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "abstract" : "Look up Perl documentation in Pod format.",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "3.28",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "corpus",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/mrallen1/Pod-Perldoc.git"
+             }
+          },
+          "dynamic_config" : 1,
+          "x_serialization_backend" : "JSON::PP version 2.27300_01",
+          "release_status" : "stable",
+          "author" : [
+             "Mark Allen <mallen@cpan.org>"
+          ],
+          "name" : "Pod-Perldoc",
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "tests" : {
+          "pass" : 1932,
+          "na" : 0,
+          "unknown" : 0,
+          "fail" : 90
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "cc41e605b8e13c40a8ee6504ff46347b5ba7fbd92203b3bb055422051befc64d",
+       "version_numified" : 3.28,
+       "author" : "MALLEN",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Pod-Perldoc-3.28.tar.gz",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/mrallen1/Pod-Perldoc.git"
+          }
+       },
+       "main_module" : "Pod::Perldoc",
+       "checksum_md5" : "ca9774e6ff4a914728faed878132be61"
+    }

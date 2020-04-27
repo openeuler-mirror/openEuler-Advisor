@@ -1,0 +1,316 @@
+---
+version_control: metacpan
+src_repo: ExtUtils-Helpers
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:09.116690620 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "authorized" : true,
+       "checksum_md5" : "83b00c1e401321c425ae5db6b2b2fd12",
+       "abstract" : "Various portability utilities for module builders",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz",
+       "author" : "LEONT",
+       "version_numified" : 0.026,
+       "provides" : [
+          "ExtUtils::Helpers",
+          "ExtUtils::Helpers::Unix",
+          "ExtUtils::Helpers::VMS",
+          "ExtUtils::Helpers::Windows"
+       ],
+       "id" : "qZrL07KCPouVAesFkMb_2WMySTo",
+       "changes_file" : "Changes",
+       "name" : "ExtUtils-Helpers-0.026",
+       "tests" : {
+          "pass" : 7823,
+          "fail" : 4,
+          "na" : 1,
+          "unknown" : 24
+       },
+       "version" : "0.026",
+       "dependency" : [
+          {
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "IO::Handle",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Pod::Coverage::TrustPod",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "module" : "perl",
+             "phase" : "develop"
+          },
+          {
+             "phase" : "develop",
+             "module" : "IPC::Open3",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod::Coverage",
+             "version" : "1.08",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "1.01",
+             "module" : "blib"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.41",
+             "phase" : "develop",
+             "module" : "Test::Pod"
+          },
+          {
+             "phase" : "test",
+             "version" : "5.006",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "lib"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Cwd",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.57",
+             "phase" : "runtime",
+             "module" : "Exporter"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Text::ParseWords",
+             "version" : "3.24",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Basename",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "File::Spec::Functions"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "strict"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "version" : "0",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Copy",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "configure",
+             "module" : "perl"
+          }
+       ],
+       "date" : "2016-09-09T17:27:52",
+       "checksum_sha256" : "de901b6790a4557cf4ec908149e035783b125bf115eb9640feb1bc1c24c33416",
+       "metadata" : {
+          "dynamic_config" : 1,
+          "x_contributors" : [
+             "Christian Walde <walde.christian@googlemail.com>",
+             "Craig A. Berry <craigberry@mac.com>",
+             "Leon Timmermans <fawaka@gmail.com>",
+             "Olivier Mengué <dolmen@cpan.org>"
+          ],
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/Leont/extutils-helpers",
+                "url" : "git://github.com/Leont/extutils-helpers.git",
+                "type" : "git"
+             },
+             "bugtracker" : {
+                "mailto" : "bug-extutils-helpers at rt.cpan.org",
+                "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=ExtUtils-Helpers"
+             }
+          },
+          "provides" : {
+             "ExtUtils::Helpers" : {
+                "version" : "0.026",
+                "file" : "lib/ExtUtils/Helpers.pm"
+             },
+             "ExtUtils::Helpers::Unix" : {
+                "file" : "lib/ExtUtils/Helpers/Unix.pm",
+                "version" : "0.026"
+             },
+             "ExtUtils::Helpers::VMS" : {
+                "version" : "0.026",
+                "file" : "lib/ExtUtils/Helpers/VMS.pm"
+             },
+             "ExtUtils::Helpers::Windows" : {
+                "version" : "0.026",
+                "file" : "lib/ExtUtils/Helpers/Windows.pm"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "strict" : "0",
+                   "File::Spec::Functions" : "0",
+                   "Exporter" : "5.57",
+                   "File::Basename" : "0",
+                   "Text::ParseWords" : "3.24",
+                   "Carp" : "0",
+                   "warnings" : "0",
+                   "perl" : "5.006",
+                   "File::Copy" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::Pod" : "1.41",
+                   "File::Spec" : "0",
+                   "IPC::Open3" : "0",
+                   "IO::Handle" : "0",
+                   "Test::Pod::Coverage" : "1.08",
+                   "blib" : "1.01",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "perl" : "5.006"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Cwd" : "0",
+                   "Test::More" : "0",
+                   "lib" : "0"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 6.005, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "ExtUtils-Helpers",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Various portability utilities for module builders",
+          "version" : "0.026",
+          "author" : [
+             "Ken Williams <kwilliams@cpan.org>",
+             "Leon Timmermans <leont@cpan.org>"
+          ]
+       },
+       "main_module" : "ExtUtils::Helpers",
+       "resources" : {
+          "bugtracker" : {
+             "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=ExtUtils-Helpers",
+             "mailto" : "bug-extutils-helpers at rt.cpan.org"
+          },
+          "repository" : {
+             "web" : "https://github.com/Leont/extutils-helpers",
+             "url" : "git://github.com/Leont/extutils-helpers.git",
+             "type" : "git"
+          }
+       },
+       "archive" : "ExtUtils-Helpers-0.026.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "ExtUtils-Helpers",
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1473442072,
+          "size" : 15099,
+          "mode" : 33204
+       }
+    }

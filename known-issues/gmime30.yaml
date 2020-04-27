@@ -1,0 +1,8 @@
+---
+version_control: gitlab.gnome
+src_repo: gmime30
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-24 13:50:15.917026910 +00:00
+  raw_data: ''

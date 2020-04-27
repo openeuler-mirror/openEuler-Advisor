@@ -1,0 +1,179 @@
+---
+version_control: metacpan
+src_repo: Crypt-OpenSSL-RSA
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:45.531098160 +00:00
+  raw_data: |
+    {
+       "version_numified" : 0.31,
+       "id" : "7R3STkzFHN0hcuptxmehH1BSwDc",
+       "provides" : [
+          "Crypt::OpenSSL::RSA"
+       ],
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "checksum_md5" : "d33681e19d2094df7c26bc7a4509265e",
+       "abstract" : "RSA encoding and decoding, using the openSSL libraries",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Crypt-OpenSSL-RSA-0.31.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "author" : "TODDR",
+       "metadata" : {
+          "version" : "0.31",
+          "author" : [
+             "Ian Robertson <iroberts@cpan.org>"
+          ],
+          "name" : "Crypt-OpenSSL-RSA",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "RSA encoding and decoding, using the openSSL libraries",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "Crypt::OpenSSL::Guess" : "0.11",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test" : "0",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Crypt::OpenSSL::Random" : "0",
+                   "Test::More" : "0"
+                },
+                "recommends" : {
+                   "Crypt::OpenSSL::Bignum" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "dynamic_config" : 1,
+          "resources" : {
+             "bugtracker" : {
+                "web" : "https://github.com/toddr/Crypt-OpenSSL-RSA/issues"
+             },
+             "homepage" : "http://github.com/toddr/Crypt-OpenSSL-RSA",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "http://github.com/toddr/Crypt-OpenSSL-RSA"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable"
+       },
+       "checksum_sha256" : "4173403ad4cf76732192099f833fbfbf3cd8104e0246b3844187ae384d2c5436",
+       "date" : "2018-09-24T17:36:24",
+       "distribution" : "Crypt-OpenSSL-RSA",
+       "archive" : "Crypt-OpenSSL-RSA-0.31.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "main_module" : "Crypt::OpenSSL::RSA",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "http://github.com/toddr/Crypt-OpenSSL-RSA"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/toddr/Crypt-OpenSSL-RSA/issues"
+          },
+          "homepage" : "http://github.com/toddr/Crypt-OpenSSL-RSA"
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1537810584,
+          "mode" : 33204,
+          "size" : 25856
+       },
+       "name" : "Crypt-OpenSSL-RSA-0.31",
+       "tests" : {
+          "unknown" : 8,
+          "fail" : 1,
+          "na" : 0,
+          "pass" : 3829
+       },
+       "version" : "0.31",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Crypt::OpenSSL::Guess",
+             "phase" : "configure",
+             "version" : "0.11",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test",
+             "phase" : "build"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Crypt::OpenSSL::Random",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Crypt::OpenSSL::Bignum",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          }
+       ]
+    }

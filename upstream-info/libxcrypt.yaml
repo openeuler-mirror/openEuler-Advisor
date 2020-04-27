@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  besser82/libxcrypt
+tag_prefix: ^v
+seperator: .

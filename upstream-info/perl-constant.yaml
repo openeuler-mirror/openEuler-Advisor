@@ -1,0 +1,147 @@
+---
+version_control: metacpan
+src_repo: constant
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:28.748348820 +00:00
+  raw_data: |
+    {
+       "provides" : [
+          "constant"
+       ],
+       "id" : "jkcY3kzq6gM00Nfeb0u_462SnPA",
+       "version_numified" : 1.33,
+       "changes_file" : "Changes",
+       "authorized" : true,
+       "abstract" : "Perl pragma to declare constants",
+       "checksum_md5" : "4ee93d57fbd8dfbc4c902c495614d5f0",
+       "status" : "latest",
+       "author" : "RJBS",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/constant-1.33.tar.gz",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ],
+          "repository" : {
+             "url" : "git://perl5.git.perl.org/perl.git",
+             "type" : "git"
+          },
+          "bugtracker" : {
+             "web" : "https://rt.perl.org/rt3/Search/Results.html?Query=Queue='perl5' AND Content LIKE 'module=constant' AND (Status='open' OR Status='new' OR Status='stalled')"
+          },
+          "homepage" : "https://metacpan.org/module/constant"
+       },
+       "main_module" : "constant",
+       "distribution" : "constant",
+       "archive" : "constant-1.33.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_sha256" : "79965d4130eb576670e27ca0ae6899ef0060c76da48b02b97682166882f1b504",
+       "date" : "2015-06-08T21:47:40",
+       "metadata" : {
+          "author" : [
+             "Sebastien Aperghis-Tramoni <sebastien@aperghis.net>"
+          ],
+          "version" : "1.33",
+          "abstract" : "Perl pragma to declare constants",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "constant",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.04, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "type" : "git",
+                "url" : "git://perl5.git.perl.org/perl.git"
+             },
+             "x_Mailinglist" : "http://lists.perl.org/list/perl5-porters.html",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "homepage" : "https://metacpan.org/module/constant",
+             "bugtracker" : {
+                "web" : "https://rt.perl.org/rt3/Search/Results.html?Query=Queue='perl5' AND Content LIKE 'module=constant' AND (Status='open' OR Status='new' OR Status='stalled')"
+             },
+             "x_Irc" : "irc://irc.perl.org/#p5p"
+          },
+          "dynamic_config" : 1
+       },
+       "stat" : {
+          "size" : 13505,
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1433800060,
+          "gid" : 1009
+       },
+       "maturity" : "released",
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 4526,
+          "fail" : 0,
+          "na" : 16
+       },
+       "name" : "constant-1.33",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          }
+       ],
+       "version" : "1.33"
+    }

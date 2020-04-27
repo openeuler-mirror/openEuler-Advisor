@@ -1,0 +1,72 @@
+---
+version_control: svn
+src_repo: https://svn.code.sf.net/p/amanda/code/amanda
+tag_prefix: community_
+seperator: _
+download_url: http://prdownloads.sourceforge.net/amanda/amanda
+last_query:
+  time_stamp: 2020-04-26 08:21:12.324231000 +00:00
+  raw_data: |2
+       7557 martinea              Nov 30  2017 ./
+       3090 danlocks              May 28  2010 3_1_0/
+       3168 danlocks              Jun 15  2010 3_1_0_mac01/
+       3149 danlocks              Jun 11  2010 3_1_0_rpm02/
+       3211 danlocks              Jun 28  2010 3_1_1/
+       3333 danlocks              Aug 11  2010 3_1_2/
+       3373 danlocks              Sep 07  2010 3_1_2_sol01/
+       3480 danlocks              Oct 04  2010 3_1_3/
+       3725 danlocks              Dec 17  2010 3_1_3_rpm02/
+       3973 danlocks              May 04  2011 3_1_5/
+       4443 danlocks              Dec 05  2011 3_1_5_deb02/
+       4333 danlocks              Sep 13  2011 3_1_5_mac02/
+       3545 martinea              Oct 18  2010 3_2_0/
+       3647 danlocks              Nov 18  2010 3_2_0_rpm02/
+       3720 martinea              Dec 14  2010 3_2_1/
+       3849 martinea              Mar 09  2011 3_2_2/
+       3994 martinea              May 09  2011 3_2_3/
+       4561 danlocks              Feb 24  2012 3_3_0/
+        298 martinea              May 03  2007 amanda252/
+        408 martinea              Jun 06  2007 amanda252p1/
+        937 martinea              Apr 01  2008 amanda260/
+       1023 martinea              May 14  2008 amanda260p1/
+       1268 martinea              Aug 26  2008 amanda260p2/
+       1612 martinea              Jan 26  2009 amanda261/
+       1859 martinea              Apr 10  2009 amanda261p1/
+       2235 danlocks              Nov 06  2009 amanda261p2/
+       4553 martinea              Feb 21  2012 community_3_3_1/
+       4846 martinea              Jul 24  2012 community_3_3_2/
+       5099 danlocks              Jan 10  2013 community_3_3_3/
+       5368 martinea              Jul 03  2013 community_3_3_4/
+       5549 danlocks              Dec 09  2013 community_3_3_5/
+       5804 martinea              Jul 07  2014 community_3_3_6/
+       6077 martinea              Jan 21  2015 community_3_3_7/
+       6070 xhan                  Jan 14  2015 community_3_3_7_qa02/
+       6072 xhan                  Jan 15  2015 community_3_3_7_qa03/
+       6115 martinea              Feb 16  2015 community_3_3_7p1/
+       6477 xhan                  Jan 20  2016 community_3_3_8/
+       6535 xhan                  Feb 09  2016 community_3_3_9/
+       6878 martinea              Oct 02  2016 community_3_4/
+       6944 martinea              Nov 22  2016 community_3_4_1/
+       7060 martinea              Jan 31  2017 community_3_4_2/
+       7116 martinea              Mar 01  2017 community_3_4_3/
+       7205 martinea              May 03  2017 community_3_4_4/
+       7265 martinea              Jun 07  2017 community_3_4_5/
+       7406 martinea              Sep 27  2017 community_3_5/
+       7557 martinea              Nov 30  2017 community_3_5_1/
+       4560 danlocks              Feb 24  2012 zmanda_3_3_0/
+       4627 danlocks              Apr 04  2012 zmanda_3_3_1/
+       4847 danlocks              Jul 24  2012 zmanda_3_3_2/
+       5098 danlocks              Jan 09  2013 zmanda_3_3_3/
+       5365 danlocks              Jul 01  2013 zmanda_3_3_4/
+       5545 danlocks              Dec 04  2013 zmanda_3_3_5/
+       5812 xhan                  Jul 09  2014 zmanda_3_3_6/
+       5805 xhan                  Jul 07  2014 zmanda_3_3_6_qa01/
+       5806 xhan                  Jul 07  2014 zmanda_3_3_6_qa02/
+       6078 xhan                  Jan 21  2015 zmanda_3_3_7/
+       6069 xhan                  Jan 14  2015 zmanda_3_3_7_qa01/
+       6071 xhan                  Jan 14  2015 zmanda_3_3_7_qa02/
+       6073 xhan                  Jan 15  2015 zmanda_3_3_7_qa03/
+       6478 xhan                  Jan 20  2016 zmanda_3_3_8/
+       6536 xhan                  Feb 10  2016 zmanda_3_3_9/
+       6874 xhan                  Sep 29  2016 zmanda_3_4/
+       7410 chen-gu               Sep 28  2017 zmanda_3_5/

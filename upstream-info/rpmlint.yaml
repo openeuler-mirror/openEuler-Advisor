@@ -1,0 +1,52 @@
+---
+version_control: github
+src_repo: rpm-software-management/rpmlint
+tag_prefix: rpmlint-
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 10:55:17.972814810 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/rpm-software-management/rpmlint/releases/14943248",
+        "assets_url": "https://api.github.com/repos/rpm-software-management/rpmlint/releases/14943248/assets",
+        "upload_url": "https://uploads.github.com/repos/rpm-software-management/rpmlint/releases/14943248/assets{?name,label}",
+        "html_url": "https://github.com/rpm-software-management/rpmlint/releases/tag/rpmlint-1.11",
+        "id": 14943248,
+        "node_id": "MDc6UmVsZWFzZTE0OTQzMjQ4",
+        "tag_name": "rpmlint-1.11",
+        "target_commitish": "rpmlint-1.x",
+        "name": "Release of rpmlint 1.11",
+        "draft": false,
+        "author": {
+          "login": "dirkmueller",
+          "id": 1029152,
+          "node_id": "MDQ6VXNlcjEwMjkxNTI=",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/1029152?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dirkmueller",
+          "html_url": "https://github.com/dirkmueller",
+          "followers_url": "https://api.github.com/users/dirkmueller/followers",
+          "following_url": "https://api.github.com/users/dirkmueller/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dirkmueller/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dirkmueller/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dirkmueller/subscriptions",
+          "organizations_url": "https://api.github.com/users/dirkmueller/orgs",
+          "repos_url": "https://api.github.com/users/dirkmueller/repos",
+          "events_url": "https://api.github.com/users/dirkmueller/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dirkmueller/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-01-09T18:09:10Z",
+        "published_at": "2019-01-12T19:37:59Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/rpm-software-management/rpmlint/tarball/rpmlint-1.11",
+        "zipball_url": "https://api.github.com/repos/rpm-software-management/rpmlint/zipball/rpmlint-1.11",
+        "body": "This is a collection of over one year of bugfixes and check improvements.  The changes in detail are:\r\n\r\n```\r\nAvoid exception on inaccessible scripts\r\nPrint out the error content on UnicodeError to make flake8 happy\r\nFix flake8 warning about missing space around operators\r\nUse compressions when checking for backup files\r\nAccount for arch specific code in /usr/share\r\nCheck for installed libtool wrapper files\r\nCheck for missing optional dependencies\r\nConsider gnome help for doc files\r\nCheck for noarch package with files in lib64\r\nVerify if description is longer than summary\r\nExplicitly tell users how to set URL\r\nIgnore pytest_cache directory\r\nconfusing-invalid-spec-name\r\nIgnore orig/rej leftovers after patching\r\nReenable Travis testing against Fedora Rawhide\r\nCheck all sections that should not use %buildroot in them\r\nPut in default buildroot value used by Fedora/openSUSE\r\nStricter interpreter check\r\nUse compileall to avoid %buildroot to be in pyc\r\nDrop deprecated config file usage, 0.88 is pretty old anyway\r\nAdjust Version to not print outdated Copyright\r\nRework Travis checks against latest Centos and Fedora releases\r\nFix exception handling\r\nFix various flake8-import-order test regressions\r\nBlacklist newer pycodestyle warnings\r\nFix compatibility with file 5.33+\r\nPython 3.7.0b5 magic number is 3394\r\nUpdate TagsCheck.py\r\npyc related tests: DRY\r\nFix getting pyc mtime on Python 3.7\r\nAlways import XDG desktop files as utf8\r\nFix Flake8 warnings\r\nUpdate Magic values for Python 3.7 (Fixes #123)\r\nImprove XDG Menu checks stability\r\nTest added.\r\nIgnore useless-provides on debuginfo provides (#112)\r\nProperly handle the exception on missing files\r\nAvoid calling close on undefined fd variable\r\nCode formatting fixed to meet the style.\r\nModify FakePkg to let the test.sh pass.\r\n_sourcedir macro defined.\r\nAvoid summary-not-capitalized warning on digits\r\nAvoid catch-all except statements\r\nUse ImportError to avoid catch-all except: statements\r\nHandle E741: ambiguous identifier\r\nAccept python(abi) as a valid versioned python dependency\r\nBinariescheck: Check for chroot/chdir on ARM, PPC\r\nAvoid false positives on is_elf check\r\nHandle %post scripts that contain non-ascii characters\r\nFurther tweak lib_regex\r\nsplit wrong-script-interpreter into env-script-interpreter\r\nValidate Appdata also when appstream-util is unavailable\r\nRemove dependency on unicodedata\r\nLower false-positives on summary-not-capitalized\r\nTighten wrong-script-interpreter check to lower false positives\r\nCheck for unexpanded macros in more Tags\r\nRename local file variable to fname\r\nSkip binaryinfo-readelf-failed on non-ELF archives\r\nAdd check for validating file extensions\r\nDo not report error if call positions are unknown\r\nExecute chroot tests also on x86 rpms\r\nTighten lib_regex to avoid false positive in python bindings\r\nBetter details for wrong-script-interpreter\r\nExtend scm_regex to capture more SCM system files\r\nAppDataCheck: Pass --nonet to appstream-util if NetworkEnabled is False\r\ntest: Fix cpio location in centos6\r\ntest: Combine run commands in fedoradev container\r\ntest: Remove dnf upgrade from fedora containers\r\ntest: Dockerfile whitespace tweaks\r\n```"
+      }
+    ]
+query_type: api.github.releases

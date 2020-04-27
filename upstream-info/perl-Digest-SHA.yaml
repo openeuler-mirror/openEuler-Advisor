@@ -1,0 +1,100 @@
+---
+version_control: metacpan
+src_repo: Digest-SHA
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:20.866450340 +00:00
+  raw_data: |
+    {
+       "author" : "MSHELOR",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MS/MSHELOR/Digest-SHA-6.02.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "abstract" : "Perl extension for SHA-1/224/256/384/512",
+       "checksum_md5" : "e22f92fa4e2d7ec9b1168538b307d31c",
+       "authorized" : true,
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "id" : "Ru20uIq4fsz9jj0YCmyxtNfznQ4",
+       "provides" : [
+          "Digest::SHA"
+       ],
+       "version_numified" : 6.02,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.003"
+          }
+       ],
+       "version" : "6.02",
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "pass" : 1549,
+          "unknown" : 4
+       },
+       "name" : "Digest-SHA-6.02",
+       "stat" : {
+          "size" : 46484,
+          "mode" : 33188,
+          "mtime" : 1524268039
+       },
+       "maturity" : "released",
+       "distribution" : "Digest-SHA",
+       "archive" : "Digest-SHA-6.02.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {},
+       "main_module" : "Digest::SHA",
+       "metadata" : {
+          "name" : "Digest-SHA",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Perl extension for SHA-1/224/256/384/512",
+          "version" : "6.02",
+          "author" : [
+             "Mark Shelor, mshelor@cpan.org"
+          ],
+          "dynamic_config" : 1,
+          "provides" : {
+             "Digest::SHA" : {
+                "file" : "lib/Digest/SHA.pm",
+                "version" : "6.02"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.003"
+                }
+             }
+          },
+          "generated_by" : "Mark Shelor, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "checksum_sha256" : "2c66a6bea3eac9c210315ac7bf0af3e2e35679c4b65d8bae1ad4be3a58039b06",
+       "date" : "2018-04-20T23:47:19"
+    }

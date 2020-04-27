@@ -1,0 +1,144 @@
+---
+version_control: metacpan
+src_repo: JSON
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:34.295790600 +00:00
+  raw_data: |
+    {
+       "stat" : {
+          "mtime" : 1550888787,
+          "mode" : 33188,
+          "size" : 90374
+       },
+       "deprecated" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz",
+       "author" : "ISHIGAKI",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/makamaka/JSON"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/makamaka/JSON/issues"
+          }
+       },
+       "archive" : "JSON-4.02.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "63a331b4630d48f8dbbe3758cc03bd21",
+       "distribution" : "JSON",
+       "id" : "yEC13V6QeiyI7UD0QPZQ7I4v9lM",
+       "version_numified" : 4.02,
+       "tests" : {
+          "fail" : 8,
+          "na" : 0,
+          "unknown" : 12,
+          "pass" : 4378
+       },
+       "main_module" : "JSON",
+       "version" : "4.02",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "JSON (JavaScript Object Notation) encoder/decoder",
+       "checksum_sha256" : "444a88755a89ffa2a5424ab4ed1d11dca61808ebef57e81243424619a9e8627c",
+       "authorized" : true,
+       "name" : "JSON-4.02",
+       "provides" : [
+          "JSON",
+          "JSON::Backend::PP"
+       ],
+       "dependency" : [
+          {
+             "version" : "2.34",
+             "module" : "JSON::XS",
+             "phase" : "runtime",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0"
+          }
+       ],
+       "first" : false,
+       "date" : "2019-02-23T02:26:27",
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          },
+          "name" : "JSON",
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "JSON version 4.02",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/makamaka/JSON"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/makamaka/JSON/issues"
+             }
+          },
+          "abstract" : "JSON (JavaScript Object Notation) encoder/decoder",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "dynamic_config" : 1,
+          "author" : [
+             "Makamaka Hannyaharamitu, E<lt>makamaka[at]cpan.orgE<gt>"
+          ],
+          "version" : "4.02",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "JSON::XS" : "2.34"
+                },
+                "requires" : {
+                   "Test::More" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable"
+       }
+    }

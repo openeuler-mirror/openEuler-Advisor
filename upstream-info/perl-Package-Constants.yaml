@@ -1,0 +1,138 @@
+---
+version_control: metacpan
+src_repo: Package-Constants
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:42.154055280 +00:00
+  raw_data: |
+    {
+       "author" : "BINGOS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Package-Constants-0.06.tar.gz",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1419414102,
+          "mode" : 33204,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 3767
+       },
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "unknown" : 2,
+          "pass" : 2889
+       },
+       "version_numified" : 0.06,
+       "id" : "5zREAMolP2R7sGy4TZmjpnIXq9U",
+       "distribution" : "Package-Constants",
+       "checksum_md5" : "e608e8eb260ee6226943c67eba1015ed",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Package-Constants-0.06.tar.gz",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "git://github.com/jib/package-constants.git"
+          }
+       },
+       "abstract" : "List constants defined in a package",
+       "changes_file" : "CHANGES",
+       "version" : "0.06",
+       "status" : "latest",
+       "main_module" : "Package::Constants",
+       "metadata" : {
+          "abstract" : "List constants defined in a package",
+          "generated_by" : "ExtUtils::MakeMaker version 7.04, CPAN::Meta::Converter version 2.143240, CPAN::Meta::Converter version 2.150005",
+          "dynamic_config" : 1,
+          "author" : [
+             "Jos Boumans <kane[at]cpan.org>"
+          ],
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.06",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "perl" : "5.006"
+                }
+             }
+          },
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "name" : "Package-Constants",
+          "license" : [
+             "perl_5"
+          ],
+          "resources" : {
+             "repository" : {
+                "url" : "git://github.com/jib/package-constants.git",
+                "type" : "git"
+             }
+          }
+       },
+       "maturity" : "released",
+       "provides" : [
+          "Package::Constants"
+       ],
+       "date" : "2014-12-24T09:41:42",
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.006",
+             "phase" : "runtime",
+             "module" : "perl"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0"
+          }
+       ],
+       "first" : false,
+       "name" : "Package-Constants-0.06",
+       "checksum_sha256" : "0b58be78706ccc4e4bd9bbad41767470427fd7b2cfad749489de101f85bc5df5",
+       "authorized" : true
+    }

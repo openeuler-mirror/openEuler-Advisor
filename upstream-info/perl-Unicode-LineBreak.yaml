@@ -1,0 +1,157 @@
+---
+version_control: metacpan
+src_repo: Unicode-LineBreak
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:13.587135250 +00:00
+  raw_data: |
+    {
+       "version_numified" : 2019.001,
+       "author" : "NEZUMI",
+       "archive" : "Unicode-LineBreak-2019.001.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "changes_file" : "Changes",
+       "checksum_sha256" : "486762e4cacddcc77b13989f979a029f84630b8175e7fef17989e157d4b6318a",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/hatukanezumi/Unicode-LineBreak/"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "Unicode::LineBreak",
+       "checksum_md5" : "003d6da7a13700e069afed9238c864b9",
+       "id" : "5pcrHUMF3di_tbGjwx8drJ9Lgmc",
+       "provides" : [
+          "Text::LineFold",
+          "Unicode::GCString",
+          "Unicode::LineBreak"
+       ],
+       "authorized" : true,
+       "version" : "2019.001",
+       "stat" : {
+          "mtime" : 1546060860,
+          "size" : 312225,
+          "mode" : 33188
+       },
+       "metadata" : {
+          "abstract" : "UAX #14 Unicode Line Breaking Algorithm",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.26"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.008",
+                   "Encode" : "1.98",
+                   "MIME::Charset" : "v1.6.2"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.45",
+                   "ExtUtils::MakeMaker" : "6.26"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2019.001",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/hatukanezumi/Unicode-LineBreak/"
+             },
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : "1",
+          "name" : "Unicode-LineBreak",
+          "author" : [
+             "Hatuka*nezumi - IKEDA Soji <hatuka@nezumi.nu>"
+          ],
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "deprecated" : false,
+       "tests" : {
+          "unknown" : 55,
+          "pass" : 3798,
+          "na" : 0,
+          "fail" : 1
+       },
+       "name" : "Unicode-LineBreak-2019.001",
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.tar.gz",
+       "maturity" : "released",
+       "date" : "2018-12-29T05:21:00",
+       "distribution" : "Unicode-LineBreak",
+       "status" : "latest",
+       "abstract" : "UAX #14 Unicode Line Breaking Algorithm",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.26",
+             "relationship" : "requires",
+             "phase" : "build"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "build",
+             "version" : "0.45",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "6.26",
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "1.98",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Encode"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "5.008",
+             "relationship" : "requires",
+             "module" : "perl"
+          },
+          {
+             "module" : "MIME::Charset",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "v1.6.2"
+          }
+       ],
+       "first" : false
+    }

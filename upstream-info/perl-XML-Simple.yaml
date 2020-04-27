@@ -1,0 +1,168 @@
+---
+version_control: metacpan
+src_repo: XML-Simple
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:29.824388400 +00:00
+  raw_data: |
+    {
+       "first" : false,
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "File::Temp"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.88",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "module" : "Test::Pod",
+             "version" : "1.41",
+             "relationship" : "requires",
+             "phase" : "develop"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.04",
+             "module" : "XML::NamespaceSupport"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "5.008"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.15",
+             "phase" : "runtime",
+             "module" : "XML::SAX"
+          },
+          {
+             "module" : "XML::SAX::Expat",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "abstract" : "An API for simple XML files",
+       "distribution" : "XML-Simple",
+       "status" : "latest",
+       "date" : "2018-03-18T03:19:24",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz",
+       "name" : "XML-Simple-2.25",
+       "tests" : {
+          "pass" : 4825,
+          "na" : 1,
+          "unknown" : 4,
+          "fail" : 12
+       },
+       "deprecated" : false,
+       "metadata" : {
+          "generated_by" : "Dist::Zilla version 5.043, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0.88",
+                   "File::Temp" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "XML::SAX" : "0.15",
+                   "perl" : "5.008",
+                   "XML::SAX::Expat" : "0",
+                   "XML::NamespaceSupport" : "1.04"
+                }
+             }
+          },
+          "abstract" : "An API for simple XML files",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.25",
+          "resources" : {
+             "repository" : {
+                "web" : "https://github.com/grantm/xml-simple",
+                "type" : "git",
+                "url" : "git://github.com/grantm/xml-simple.git"
+             }
+          },
+          "dynamic_config" : 0,
+          "release_status" : "stable",
+          "name" : "XML-Simple",
+          "author" : [
+             "Grant McLean <grantm@cpan.org>"
+          ],
+          "license" : [
+             "perl_5"
+          ]
+       },
+       "stat" : {
+          "size" : 78443,
+          "mtime" : 1521343164,
+          "mode" : 33188
+       },
+       "version" : "2.25",
+       "provides" : [
+          "XML::Simple"
+       ],
+       "authorized" : true,
+       "id" : "ydcdpApLigJLQ1Q1amEWZ0maJDM",
+       "checksum_md5" : "bb841dce889a26c89a1c2739970e9fbc",
+       "main_module" : "XML::Simple",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "web" : "https://github.com/grantm/xml-simple",
+             "url" : "git://github.com/grantm/xml-simple.git"
+          }
+       },
+       "checksum_sha256" : "531fddaebea2416743eb5c4fdfab028f502123d9a220405a4100e68fc480dbf8",
+       "changes_file" : "Changes",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "XML-Simple-2.25.tar.gz",
+       "author" : "GRANTM",
+       "version_numified" : 2.25
+    }

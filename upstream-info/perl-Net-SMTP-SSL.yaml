@@ -1,0 +1,134 @@
+---
+version_control: metacpan
+src_repo: Net-SMTP-SSL
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:32.108906940 +00:00
+  raw_data: |
+    {
+       "deprecated" : "true",
+       "stat" : {
+          "mtime" : 1476068907,
+          "size" : 2457,
+          "mode" : 33188
+       },
+       "author" : "RJBS",
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz",
+       "checksum_md5" : "62b49c961043898b43b041dafbc1b389",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Net-SMTP-SSL-1.04.tar.gz",
+       "resources" : {},
+       "tests" : {
+          "na" : 0,
+          "fail" : 0,
+          "unknown" : 0,
+          "pass" : 2087
+       },
+       "version_numified" : 1.04,
+       "id" : "rZvB13K_SzQTTvckTM06yMYT7Jo",
+       "distribution" : "Net-SMTP-SSL",
+       "status" : "latest",
+       "version" : "1.04",
+       "main_module" : "Net::SMTP::SSL",
+       "abstract" : "SSL support for Net::SMTP",
+       "changes_file" : "Changes",
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Net::SMTP",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "version" : "0.47",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "IO::Socket::SSL",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "provides" : [
+          "Net::SMTP::SSL"
+       ],
+       "date" : "2016-10-10T03:08:27",
+       "name" : "Net-SMTP-SSL-1.04",
+       "authorized" : true,
+       "checksum_sha256" : "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00",
+       "metadata" : {
+          "author" : [
+             "Casey West <casey@geeknest.com>"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 7.16, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "SSL support for Net::SMTP",
+          "release_status" : "stable",
+          "x_deprecated" : 1,
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Net::SMTP" : "0",
+                   "IO::Socket::SSL" : "0",
+                   "Test::More" : "0.47"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.04",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400",
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Net-SMTP-SSL"
+       },
+       "maturity" : "released"
+    }

@@ -1,0 +1,294 @@
+---
+version_control: metacpan
+src_repo: Text-Template
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:08.563929030 +00:00
+  raw_data: |
+    {
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/mschout/perl-text-template",
+             "type" : "git",
+             "url" : "https://github.com/mschout/perl-text-template.git"
+          },
+          "homepage" : "https://github.com/mschout/perl-text-template",
+          "bugtracker" : {
+             "web" : "https://github.com/mschout/perl-text-template/issues"
+          }
+       },
+       "main_module" : "Text::Template",
+       "archive" : "Text-Template-1.58.tar.gz",
+       "distribution" : "Text-Template",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_sha256" : "0c465757782c4bfb9b17335307a8286771fd36ea04d259bc454ac63355f2a287",
+       "date" : "2019-09-27T14:45:47",
+       "metadata" : {
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "perl" : "5.008",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "Test::More" : "0",
+                   "Test::More::UTF8" : "0",
+                   "vars" : "0",
+                   "lib" : "0",
+                   "utf8" : "0",
+                   "File::Temp" : "0",
+                   "Safe" : "0",
+                   "perl" : "5.008",
+                   "Test::Warnings" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Software::License::Perl_5" : "0",
+                   "Dist::Zilla::PluginBundle::MSCHOUT" : "0",
+                   "Test::Pod" : "1.41",
+                   "Test::Signature" : "0",
+                   "Dist::Zilla" : "5"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Carp" : "0",
+                   "Exporter" : "0",
+                   "Encode" : "0",
+                   "strict" : "0",
+                   "perl" : "5.008",
+                   "base" : "0",
+                   "warnings" : "0"
+                }
+             }
+          },
+          "x_serialization_backend" : "Cpanel::JSON::XS version 4.04",
+          "provides" : {
+             "Text::Template::Preprocess" : {
+                "file" : "lib/Text/Template/Preprocess.pm",
+                "version" : "1.58"
+             },
+             "Text::Template" : {
+                "file" : "lib/Text/Template.pm",
+                "version" : "1.58"
+             }
+          },
+          "resources" : {
+             "homepage" : "https://github.com/mschout/perl-text-template",
+             "bugtracker" : {
+                "web" : "https://github.com/mschout/perl-text-template/issues"
+             },
+             "repository" : {
+                "url" : "https://github.com/mschout/perl-text-template.git",
+                "type" : "git",
+                "web" : "https://github.com/mschout/perl-text-template"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 0,
+          "author" : [
+             "Michael Schout <mschout@cpan.org>"
+          ],
+          "version" : "1.58",
+          "abstract" : "Expand template text with embedded Perl",
+          "name" : "Text-Template",
+          "x_generated_by_perl" : "v5.26.2",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "stat" : {
+          "size" : 49656,
+          "mode" : 33188,
+          "mtime" : 1569595547
+       },
+       "maturity" : "released",
+       "tests" : {
+          "pass" : 2376,
+          "na" : 1,
+          "fail" : 0,
+          "unknown" : 2
+       },
+       "name" : "Text-Template-1.58",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "version" : "5.008",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "lib"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "version" : "5.008",
+             "module" : "perl",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "utf8",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Safe",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::More::UTF8",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "Test::Warnings",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "vars",
+             "version" : "0",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "perl",
+             "version" : "5.008"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "base",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Encode",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "warnings"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "Carp"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Signature",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "0",
+             "module" : "Software::License::Perl_5"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "version" : "1.41",
+             "module" : "Test::Pod"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::PluginBundle::MSCHOUT"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Dist::Zilla",
+             "version" : "5",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "1.58",
+       "provides" : [
+          "Text::Template",
+          "Text::Template::Preprocess"
+       ],
+       "id" : "BVg8Ez3OgkUiLRCdrSKzc1hr4g4",
+       "version_numified" : 1.58,
+       "changes_file" : "Changes",
+       "authorized" : true,
+       "checksum_md5" : "505a0ebba8fc461884b2f5494639565a",
+       "abstract" : "Expand template text with embedded Perl",
+       "status" : "latest",
+       "author" : "MSCHOUT",
+       "deprecated" : false,
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MS/MSCHOUT/Text-Template-1.58.tar.gz"
+    }

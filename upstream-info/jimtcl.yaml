@@ -1,0 +1,131 @@
+---
+version_control: github
+src_repo: msteveb/jimtcl
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 08:51:07.160431820 +00:00
+  raw_data: |
+    [
+      {
+        "name": "0.79",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.79",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.79",
+        "commit": {
+          "sha": "0aa0fb4e3a38d38a49de9eb585d93d63a370dcf6",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/0aa0fb4e3a38d38a49de9eb585d93d63a370dcf6"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjc5"
+      },
+      {
+        "name": "0.78",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.78",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.78",
+        "commit": {
+          "sha": "3951ccfaa69a310cd5c8cd290090594366fd104c",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/3951ccfaa69a310cd5c8cd290090594366fd104c"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjc4"
+      },
+      {
+        "name": "0.77",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.77",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.77",
+        "commit": {
+          "sha": "a9bf5975fd0f89974d689a2d9ebd0873c8d64787",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/a9bf5975fd0f89974d689a2d9ebd0873c8d64787"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjc3"
+      },
+      {
+        "name": "0.76",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.76",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.76",
+        "commit": {
+          "sha": "51f65c6d38fbf86e1f0b036ad336761fd2ab7fa0",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/51f65c6d38fbf86e1f0b036ad336761fd2ab7fa0"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjc2"
+      },
+      {
+        "name": "0.75",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.75",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.75",
+        "commit": {
+          "sha": "769d198e1e1ea936d21523bb1b301255dc79233e",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/769d198e1e1ea936d21523bb1b301255dc79233e"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjc1"
+      },
+      {
+        "name": "0.74",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.74",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.74",
+        "commit": {
+          "sha": "7c126ab08220024b7dfe293045e6ee4d0bb3ca95",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/7c126ab08220024b7dfe293045e6ee4d0bb3ca95"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjc0"
+      },
+      {
+        "name": "0.73",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.73",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.73",
+        "commit": {
+          "sha": "ac3f1cd082ba21a55edaabd826580996f5b77595",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/ac3f1cd082ba21a55edaabd826580996f5b77595"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjcz"
+      },
+      {
+        "name": "0.72",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.72",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.72",
+        "commit": {
+          "sha": "dfbde800afdabc83efc9ebe087b1aed6a90136d8",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/dfbde800afdabc83efc9ebe087b1aed6a90136d8"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjcy"
+      },
+      {
+        "name": "0.71",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.71",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.71",
+        "commit": {
+          "sha": "d57e133363498be9b0d21cf33fc5505a64ed7ed3",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/d57e133363498be9b0d21cf33fc5505a64ed7ed3"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjcx"
+      },
+      {
+        "name": "0.70",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.70",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.70",
+        "commit": {
+          "sha": "99792bb65fca43df81844dde3acc191c56ce47e3",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/99792bb65fca43df81844dde3acc191c56ce47e3"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjcw"
+      },
+      {
+        "name": "0.63",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.63",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.63",
+        "commit": {
+          "sha": "fbbc8e0b402adb4b0c8d3976015fe4a82c94560f",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/fbbc8e0b402adb4b0c8d3976015fe4a82c94560f"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjYz"
+      },
+      {
+        "name": "0.51",
+        "zipball_url": "https://api.github.com/repos/msteveb/jimtcl/zipball/0.51",
+        "tarball_url": "https://api.github.com/repos/msteveb/jimtcl/tarball/0.51",
+        "commit": {
+          "sha": "1ec055dfbe6db8839064d891e64e46e136c39b09",
+          "url": "https://api.github.com/repos/msteveb/jimtcl/commits/1ec055dfbe6db8839064d891e64e46e136c39b09"
+        },
+        "node_id": "MDM6UmVmMTYwNjkwNDowLjUx"
+      }
+    ]
+query_type: api.github.tags

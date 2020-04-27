@@ -1,0 +1,136 @@
+---
+version_control: metacpan
+src_repo: Params-Check
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:10.238519610 +00:00
+  raw_data: |
+    {
+       "checksum_sha256" : "f0c9d33876c36b1bca1475276d26d2efaf449b256d7cc8118fae012e89a26290",
+       "authorized" : true,
+       "name" : "Params-Check-0.38",
+       "provides" : [
+          "Params::Check"
+       ],
+       "date" : "2013-06-20T09:46:19",
+       "first" : false,
+       "dependency" : [
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Locale::Maketext::Simple",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          }
+       ],
+       "maturity" : "released",
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "Params-Check",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/jib/params-check"
+             }
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.38",
+          "release_status" : "stable",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Locale::Maketext::Simple" : "0",
+                   "Test::More" : "0"
+                }
+             }
+          },
+          "abstract" : "Templated based param validation",
+          "generated_by" : "ExtUtils::MakeMaker version 6.68, CPAN::Meta::Converter version 2.131560, CPAN::Meta::Converter version 2.150005",
+          "author" : [
+             "Jos Boumans <kane[at]cpan.org>"
+          ],
+          "dynamic_config" : 1
+       },
+       "main_module" : "Params::Check",
+       "status" : "latest",
+       "version" : "0.38",
+       "changes_file" : "CHANGES",
+       "abstract" : "Templated based param validation",
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/jib/params-check"
+          }
+       },
+       "archive" : "Params-Check-0.38.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "45ef018d2564fce84935a0e1adfb2ed7",
+       "distribution" : "Params-Check",
+       "id" : "sqlmLT3MC_YPniPe3s1utghONHI",
+       "version_numified" : 0.38,
+       "tests" : {
+          "fail" : 2,
+          "na" : 0,
+          "pass" : 2256,
+          "unknown" : 1
+       },
+       "stat" : {
+          "mtime" : 1371721579,
+          "mode" : 33204,
+          "uid" : 1009,
+          "gid" : 1009,
+          "size" : 11994
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Params-Check-0.38.tar.gz",
+       "author" : "BINGOS"
+    }

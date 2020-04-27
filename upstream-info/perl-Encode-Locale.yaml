@@ -1,0 +1,159 @@
+---
+version_control: metacpan
+src_repo: Encode-Locale
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:53.937817120 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "author" : [
+             "Gisle Aas <gisle@activestate.com>"
+          ],
+          "version" : "1.05",
+          "abstract" : "Determine the locale encoding",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Encode-Locale",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.0401, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "Test::More" : "0"
+                }
+             },
+             "runtime" : {
+                "recommends" : {
+                   "I18N::Langinfo" : "0"
+                },
+                "requires" : {
+                   "perl" : "5.008",
+                   "Encode::Alias" : "0",
+                   "Encode" : "2"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/gisle/encode-locale"
+             }
+          },
+          "dynamic_config" : 1
+       },
+       "date" : "2015-06-09T20:10:45",
+       "checksum_sha256" : "176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1",
+       "archive" : "Encode-Locale-1.05.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "distribution" : "Encode-Locale",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/gisle/encode-locale"
+          }
+       },
+       "main_module" : "Encode::Locale",
+       "maturity" : "released",
+       "stat" : {
+          "size" : 8355,
+          "mode" : 33204,
+          "uid" : 1009,
+          "mtime" : 1433880645,
+          "gid" : 1009
+       },
+       "name" : "Encode-Locale-1.05",
+       "tests" : {
+          "fail" : 143,
+          "na" : 7,
+          "pass" : 9708,
+          "unknown" : 27
+       },
+       "version" : "1.05",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "version" : "5.008",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Encode",
+             "version" : "2",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Encode::Alias",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "version" : "0",
+             "module" : "I18N::Langinfo",
+             "relationship" : "recommends"
+          },
+          {
+             "phase" : "build",
+             "version" : "0",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "version_numified" : 1.05,
+       "id" : "3bocjgpWb5KXSTxTAUG5V2YFCyQ",
+       "provides" : [
+          "Encode::Locale"
+       ],
+       "changes_file" : "Changes",
+       "status" : "latest",
+       "checksum_md5" : "fcfdb8e4ee34bcf62aed429b4a23db27",
+       "abstract" : "Determine the locale encoding",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz",
+       "deprecated" : "false",
+       "first" : false,
+       "author" : "GAAS"
+    }

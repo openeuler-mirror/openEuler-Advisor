@@ -1,0 +1,171 @@
+---
+version_control: metacpan
+src_repo: version
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:59.017446750 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JP/JPEACOCK/version-0.9924.tar.gz",
+       "deprecated" : false,
+       "first" : false,
+       "author" : "JPEACOCK",
+       "status" : "latest",
+       "abstract" : "Structured version objects",
+       "checksum_md5" : "8d252fa8530b53d4baefbb89c5c60929",
+       "authorized" : true,
+       "changes_file" : "CHANGES",
+       "version_numified" : 0.9924,
+       "id" : "fdeTb5yItGmwjony0MixveH8NYY",
+       "provides" : [
+          "version",
+          "version::regex",
+          "version::vpp",
+          "version::vxs"
+       ],
+       "version" : "0.9924",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "version" : "5.006002",
+             "module" : "perl"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0.221",
+             "phase" : "test",
+             "module" : "parent",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.45",
+             "module" : "Test::More",
+             "phase" : "test"
+          },
+          {
+             "module" : "File::Temp",
+             "phase" : "test",
+             "version" : "0.13",
+             "relationship" : "requires"
+          }
+       ],
+       "name" : "version-0.9924",
+       "tests" : {
+          "fail" : 3,
+          "na" : 1,
+          "pass" : 1943,
+          "unknown" : 4
+       },
+       "maturity" : "released",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 95064,
+          "mtime" : 1524181684
+       },
+       "metadata" : {
+          "name" : "version",
+          "no_index" : {
+             "package" : [
+                "charstar"
+             ],
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "Structured version objects",
+          "version" : "0.9924",
+          "author" : [
+             "John Peacock <jpeacock@cpan.org>"
+          ],
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "web" : "http://github.com/JohnPeacock/version.pm",
+                "url" : "git://github.com/JohnPeacock/version.pm.git",
+                "type" : "git"
+             },
+             "bugtracker" : {
+                "mailto" : "bug-version@rt.cpan.org",
+                "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=version"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "perl_5"
+          ],
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006002"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "parent" : "0.221",
+                   "Test::More" : "0.45",
+                   "File::Temp" : "0.13"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          }
+       },
+       "checksum_sha256" : "81e4485ff3faf9b7813584d57b557f4b34e73b6c2eb696394f6deefacf5ca65b",
+       "date" : "2018-04-19T23:48:04",
+       "distribution" : "version",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "version-0.9924.tar.gz",
+       "resources" : {
+          "repository" : {
+             "web" : "http://github.com/JohnPeacock/version.pm",
+             "type" : "git",
+             "url" : "git://github.com/JohnPeacock/version.pm.git"
+          },
+          "bugtracker" : {
+             "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=version",
+             "mailto" : "bug-version@rt.cpan.org"
+          }
+       },
+       "main_module" : "version"
+    }

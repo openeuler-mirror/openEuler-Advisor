@@ -1,0 +1,105 @@
+---
+version_control: metacpan
+src_repo: Module-Install-AuthorTests
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:46.649534750 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "checksum_md5" : "f1b95c8385c1284e281a9bc6a5f10532",
+       "abstract" : "designate tests only run by module authors",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Module-Install-AuthorTests-0.002.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "author" : "RJBS",
+       "version_numified" : 0.002,
+       "id" : "ZFhEXgnvuCJyrGqRQoe__rCrDVE",
+       "provides" : [
+          "Module::Install::AuthorTests"
+       ],
+       "changes_file" : "Changes",
+       "name" : "Module-Install-AuthorTests-0.002",
+       "tests" : {
+          "na" : 0,
+          "fail" : 6,
+          "pass" : 10508,
+          "unknown" : 4
+       },
+       "version" : "0.002",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "version" : "5.005",
+             "phase" : "runtime"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Module::Install",
+             "phase" : "runtime"
+          }
+       ],
+       "metadata" : {
+          "name" : "Module-Install-AuthorTests",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "abstract" : "designate tests only run by module authors",
+          "version" : "0.002",
+          "author" : [
+             "Ricardo Signes <rjbs@cpan.org>"
+          ],
+          "dynamic_config" : 1,
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Module::Install" : "0",
+                   "perl" : "5.005"
+                }
+             }
+          },
+          "generated_by" : "Module::Install version 0.68, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "checksum_sha256" : "4025722de6357edf53c28501b00e7da92cd2f9fc611ba0753761a0e1dff32d88",
+       "date" : "2008-03-07T04:18:08",
+       "archive" : "Module-Install-AuthorTests-0.002.tar.gz",
+       "distribution" : "Module-Install-AuthorTests",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {},
+       "main_module" : "Module::Install::AuthorTests",
+       "maturity" : "released",
+       "stat" : {
+          "mtime" : 1204863488,
+          "gid" : 1009,
+          "size" : 12654,
+          "uid" : 1009,
+          "mode" : 33204
+       }
+    }

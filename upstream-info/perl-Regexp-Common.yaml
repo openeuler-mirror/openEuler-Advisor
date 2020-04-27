@@ -1,0 +1,290 @@
+---
+version_control: metacpan
+src_repo: Regexp-Common
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:18.616950960 +00:00
+  raw_data: |
+    {
+       "resources" : {},
+       "archive" : "Regexp-Common-2017060201.tar.gz",
+       "license" : [
+          "mit",
+          "mit",
+          "bsd",
+          "artistic_1",
+          "artistic_2"
+       ],
+       "checksum_md5" : "b1bb40759b84154990f36a160160fb94",
+       "distribution" : "Regexp-Common",
+       "id" : "nmlA67F2KQy6UyVsTIcWaQ7lnU4",
+       "version_numified" : 2017060201,
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 5470,
+          "fail" : 3,
+          "na" : 231
+       },
+       "stat" : {
+          "size" : 237881,
+          "mode" : 33188,
+          "mtime" : 1496441277
+       },
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz",
+       "author" : "ABIGAIL",
+       "checksum_sha256" : "ee07853aee06f310e040b6bf1a0199a18d81896d3219b9b35c9630d0eb69089b",
+       "authorized" : true,
+       "name" : "Regexp-Common-2017060201",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "vars"
+          },
+          {
+             "version" : "0",
+             "module" : "Config",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "5.01",
+             "module" : "perl",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "strict",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "vars",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "phase" : "configure",
+             "module" : "Config",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "warnings",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "configure",
+             "module" : "strict",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "phase" : "build",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "vars",
+             "phase" : "build",
+             "version" : "0"
+          },
+          {
+             "module" : "Config",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "0",
+             "module" : "Test::Regexp",
+             "phase" : "test"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::More"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "vars",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Config"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "module" : "strict",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "warnings",
+             "phase" : "test",
+             "version" : "0"
+          }
+       ],
+       "first" : false,
+       "date" : "2017-06-02T22:07:57",
+       "provides" : [
+          "Regexp::Common",
+          "Regexp::Common::CC",
+          "Regexp::Common::Entry",
+          "Regexp::Common::SEN",
+          "Regexp::Common::URI",
+          "Regexp::Common::URI::RFC1035",
+          "Regexp::Common::URI::RFC1738",
+          "Regexp::Common::URI::RFC1808",
+          "Regexp::Common::URI::RFC2384",
+          "Regexp::Common::URI::RFC2396",
+          "Regexp::Common::URI::RFC2806",
+          "Regexp::Common::URI::fax",
+          "Regexp::Common::URI::file",
+          "Regexp::Common::URI::ftp",
+          "Regexp::Common::URI::gopher",
+          "Regexp::Common::URI::http",
+          "Regexp::Common::URI::news",
+          "Regexp::Common::URI::pop",
+          "Regexp::Common::URI::prospero",
+          "Regexp::Common::URI::tel",
+          "Regexp::Common::URI::telnet",
+          "Regexp::Common::URI::tv",
+          "Regexp::Common::URI::wais",
+          "Regexp::Common::_support",
+          "Regexp::Common::balanced",
+          "Regexp::Common::comment",
+          "Regexp::Common::delimited",
+          "Regexp::Common::lingua",
+          "Regexp::Common::list",
+          "Regexp::Common::net",
+          "Regexp::Common::number",
+          "Regexp::Common::profanity",
+          "Regexp::Common::whitespace",
+          "Regexp::Common::zip"
+       ],
+       "maturity" : "released",
+       "metadata" : {
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "x_serialization_backend" : "JSON::PP version 2.27400_02",
+          "resources" : {},
+          "license" : [
+             "mit",
+             "mit",
+             "bsd",
+             "artistic_1",
+             "artistic_2"
+          ],
+          "name" : "Regexp-Common",
+          "dynamic_config" : 1,
+          "author" : [
+             "Abigail <regexp-common@abigail.be>"
+          ],
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Provide commonly requested regular expressions",
+          "keywords" : [
+             "regular expression",
+             "pattern"
+          ],
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "strict" : "0",
+                   "vars" : "0",
+                   "Config" : "0",
+                   "warnings" : "0",
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.01",
+                   "strict" : "0",
+                   "vars" : "0",
+                   "Config" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "test" : {
+                "recommends" : {
+                   "Test::Regexp" : "0"
+                },
+                "requires" : {
+                   "strict" : "0",
+                   "vars" : "0",
+                   "Config" : "0",
+                   "Test::More" : "0",
+                   "warnings" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "strict" : "0",
+                   "vars" : "0",
+                   "Config" : "0",
+                   "warnings" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "2017060201",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "main_module" : "Regexp::Common",
+       "version" : "2017060201",
+       "status" : "latest",
+       "changes_file" : "Changes",
+       "abstract" : "Provide commonly requested regular expressions"
+    }

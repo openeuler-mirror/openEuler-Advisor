@@ -1,0 +1,326 @@
+---
+version_control: metacpan
+src_repo: File-Slurp
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:00.140630750 +00:00
+  raw_data: |
+    {
+       "metadata" : {
+          "x_serialization_backend" : "JSON::PP version 4.04",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/perhunter/slurp.git",
+                "type" : "git",
+                "web" : "https://github.com/perhunter/slurp"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "File-Slurp",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "strict" : "0",
+                   "Exporter" : "5.57",
+                   "Scalar::Util" : "1.00",
+                   "Fcntl" : "0",
+                   "File::Spec" : "3.01",
+                   "Carp" : "0",
+                   "File::Temp" : "0",
+                   "IO::Handle" : "0",
+                   "warnings" : "0",
+                   "Socket" : "0",
+                   "POSIX" : "0",
+                   "File::Basename" : "0",
+                   "overload" : "0",
+                   "Test::More" : "0",
+                   "Symbol" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Errno" : "0",
+                   "File::Basename" : "0",
+                   "POSIX" : "0",
+                   "Carp" : "0",
+                   "File::Temp" : "0",
+                   "Fcntl" : "0",
+                   "Exporter" : "5.57",
+                   "strict" : "0",
+                   "File::Spec" : "3.01",
+                   "B" : "0",
+                   "warnings" : "0",
+                   "IO::Handle" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "version" : "9999.30",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "author" : [
+             "Uri Guttman <uri@stemsystems.com>"
+          ],
+          "dynamic_config" : 0,
+          "abstract" : "Simple and Efficient Reading/Writing/Modifying of Complete Files",
+          "generated_by" : "ExtUtils::MakeMaker version 7.38, CPAN::Meta::Converter version 2.150010",
+          "x_contributors" : [
+             "Aristotle Pagaltzis <ARISTOTLE@cpan.org>",
+             "Chase Whitener <capoeirab@cpan.org>",
+             "Dan Book <grinnz@gmail.com>",
+             "Graham Knop <haarg@haarg.org>",
+             "James E Keenan <jkeenan@cpan.org>"
+          ]
+       },
+       "maturity" : "released",
+       "name" : "File-Slurp-9999.30",
+       "provides" : [
+          "File::Slurp"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "warnings",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Fcntl",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "IO::Handle"
+          },
+          {
+             "phase" : "test",
+             "module" : "File::Basename",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Carp",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "File::Spec",
+             "version" : "3.01",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "test",
+             "module" : "Exporter",
+             "version" : "5.57",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "POSIX",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "module" : "Symbol",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Temp",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Socket",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "1.00",
+             "module" : "Scalar::Util",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "overload",
+             "phase" : "test"
+          },
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "POSIX",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "version" : "5.57",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "B",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "3.01",
+             "phase" : "runtime",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "File::Temp",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "IO::Handle",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Basename",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Fcntl",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Errno",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          }
+       ],
+       "first" : false,
+       "date" : "2020-03-09T14:31:40",
+       "checksum_sha256" : "2a37163db0b9454e48eb308dac1fc27571be086e0864c9083bed88d9c4e93747",
+       "authorized" : true,
+       "abstract" : "Simple and Efficient Reading/Writing/Modifying of Complete Files",
+       "changes_file" : "Changes",
+       "main_module" : "File::Slurp",
+       "version" : "9999.30",
+       "status" : "latest",
+       "version_numified" : 9999.3,
+       "tests" : {
+          "unknown" : 0,
+          "pass" : 815,
+          "na" : 0,
+          "fail" : 0
+       },
+       "distribution" : "File-Slurp",
+       "id" : "DrpZTKBaaPCSN91zPBUZ2i30kt0",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "a806ca5c769d811b0f32c6a773295408",
+       "resources" : {
+          "repository" : {
+             "web" : "https://github.com/perhunter/slurp",
+             "type" : "git",
+             "url" : "https://github.com/perhunter/slurp.git"
+          }
+       },
+       "archive" : "File-Slurp-9999.30.tar.gz",
+       "download_url" : "https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/File-Slurp-9999.30.tar.gz",
+       "author" : "CAPOEIRAB",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 37889,
+          "mode" : 33188,
+          "mtime" : 1583764300
+       }
+    }

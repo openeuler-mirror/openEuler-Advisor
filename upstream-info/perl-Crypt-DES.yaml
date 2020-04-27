@@ -1,0 +1,112 @@
+---
+version_control: metacpan
+src_repo: Crypt-DES
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:56.202201570 +00:00
+  raw_data: |
+    {
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "phase" : "build"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker"
+          }
+       ],
+       "version" : "2.07",
+       "tests" : {
+          "na" : 0,
+          "fail" : 2,
+          "pass" : 9853,
+          "unknown" : 11
+       },
+       "name" : "Crypt-DES-2.07",
+       "stat" : {
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 16720,
+          "gid" : 1009,
+          "mtime" : 1374612050
+       },
+       "maturity" : "released",
+       "main_module" : "Crypt::DES",
+       "resources" : {},
+       "license" : [
+          "unknown"
+       ],
+       "distribution" : "Crypt-DES",
+       "archive" : "Crypt-DES-2.07.tar.gz",
+       "checksum_sha256" : "2db1ebb5837b4cb20051c0ee5b733b4453e3137df0a92306034c867621edd7e7",
+       "date" : "2013-07-23T20:40:50",
+       "metadata" : {
+          "author" : [
+             "unknown"
+          ],
+          "version" : "2.07",
+          "abstract" : "unknown",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Crypt-DES",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.55_02, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {}
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "unknown"
+          ],
+          "dynamic_config" : 1
+       },
+       "author" : "DPARIS",
+       "deprecated" : "false",
+       "first" : false,
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DP/DPARIS/Crypt-DES-2.07.tar.gz",
+       "authorized" : true,
+       "abstract" : "Perl DES encryption module",
+       "checksum_md5" : "e845d24cf383ca4a30a3380a2735feac",
+       "status" : "latest",
+       "changes_file" : "",
+       "provides" : [
+          "Crypt::DES"
+       ],
+       "id" : "aN60fGJnacbsqBetb0VistBQSro",
+       "version_numified" : 2.07
+    }

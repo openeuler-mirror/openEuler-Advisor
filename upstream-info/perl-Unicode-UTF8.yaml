@@ -1,0 +1,175 @@
+---
+version_control: metacpan
+src_repo: Unicode-UTF8
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:34.868087050 +00:00
+  raw_data: |
+    {
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/chansen/p5-unicode-utf8"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "Unicode::UTF8",
+       "distribution" : "Unicode-UTF8",
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Unicode-UTF8-0.62.tar.gz",
+       "checksum_sha256" : "fa8722d0b74696e332fddd442994436ea93d3bfc7982d4babdcedfddd657d0f6",
+       "date" : "2017-04-11T21:42:22",
+       "metadata" : {
+          "generated_by" : "Module::Install version 1.18, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "Encode" : "1.9801",
+                   "Test::More" : "0.47",
+                   "ExtUtils::MakeMaker" : "6.59",
+                   "Test::Fatal" : "0.006"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "XSLoader" : "0",
+                   "perl" : "v5.8.1",
+                   "Carp" : "0",
+                   "Exporter" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.59"
+                }
+             }
+          },
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ],
+             "repository" : {
+                "url" : "http://github.com/chansen/p5-unicode-utf8"
+             }
+          },
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "dynamic_config" : "1",
+          "author" : [
+             "Christian Hansen C<chansen@cpan.org>"
+          ],
+          "version" : "0.62",
+          "abstract" : "Encoding and decoding of UTF-8 encoding form",
+          "name" : "Unicode-UTF8",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          }
+       },
+       "stat" : {
+          "mode" : 33188,
+          "size" : 87838,
+          "mtime" : 1491946942
+       },
+       "maturity" : "released",
+       "tests" : {
+          "unknown" : 3,
+          "pass" : 2626,
+          "na" : 2,
+          "fail" : 41
+       },
+       "name" : "Unicode-UTF8-0.62",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "1.9801",
+             "module" : "Encode",
+             "phase" : "build"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.47",
+             "phase" : "build",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Fatal",
+             "phase" : "build",
+             "version" : "0.006",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "6.59",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "6.59",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "XSLoader",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Exporter",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "version" : "v5.8.1",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.62",
+       "provides" : [
+          "Unicode::UTF8"
+       ],
+       "id" : "k9nNVjIvHLZ7Vkw0wEMCyPkSTzI",
+       "version_numified" : 0.62,
+       "changes_file" : "Changes",
+       "authorized" : true,
+       "abstract" : "Encoding and decoding of UTF-8 encoding form",
+       "checksum_md5" : "42bf4a4b881818be3455f11b46952819",
+       "status" : "latest",
+       "author" : "CHANSEN",
+       "first" : false,
+       "deprecated" : "false",
+       "download_url" : "https://cpan.metacpan.org/authors/id/C/CH/CHANSEN/Unicode-UTF8-0.62.tar.gz"
+    }

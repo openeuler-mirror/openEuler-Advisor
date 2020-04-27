@@ -1,0 +1,299 @@
+---
+version_control: metacpan
+src_repo: DBD-mysql
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:24.235779030 +00:00
+  raw_data: |
+    {
+       "maturity" : "released",
+       "metadata" : {
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "4.050",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "DBI" : "1.609",
+                   "perl" : "5.008001"
+                }
+             },
+             "test" : {
+                "suggests" : {
+                   "Test::Pod" : "1.00",
+                   "Test::DistManifest" : "0"
+                },
+                "requires" : {
+                   "Time::HiRes" : "0",
+                   "Test::Deep" : "0",
+                   "bigint" : "0",
+                   "Test::Simple" : "0.90"
+                },
+                "recommends" : {
+                   "Proc::ProcessTable" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "Devel::CheckLib" : "1.09",
+                   "Data::Dumper" : "0",
+                   "ExtUtils::MakeMaker" : "0",
+                   "DBI" : "1.609"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "x_contributors" : [
+             "Alceu Rodrigues de Freitas Junior <arfreitas@cpan.org>",
+             "Alexandr Ciornii <alexchorny@gmail.com>",
+             "Alexey Molchanov <alexey.molchanov@portaone.com>",
+             "Amiri Barksdale at Home <amiri@roosterpirates.com>",
+             "Andrew Miller <ikari7789@yahoo.com>",
+             "Aran Deltac <bluefeet@gmail.com>",
+             "Bernt M. Johnsen <bernt.johnsen@oracle.com>",
+             "Chase Whitener <chase.whitener@infotechfl.com>",
+             "Chip Salzenberg <chip@topsy.com>",
+             "Chris Hammond <chrishammond@ymail.com>",
+             "Chris Weyl <cweyl@alumni.drew.edu>",
+             "Christian Walde <walde.christian@googlemail.com>",
+             "Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>",
+             "Daisuke Murase <typester@cpan.org>",
+             "Damyan Ivanov <dmn@debian.org>",
+             "Dan Book <grinnz@gmail.com>",
+             "Daniël van Eeden <daniel.vaneeden@booking.com>",
+             "Dave Lambley <davel@isosceles.(none)>",
+             "David Farrell <davidnmfarrell@gmail.com>",
+             "David Steinbrunner <dsteinbrunner@pobox.com>",
+             "Giovanni Bechis <giovanni@bigio.snb.it>",
+             "Graham Ollis <plicease@cpan.org>",
+             "H.Merijn Brand - Tux <h.m.brand@xs4all.nl>",
+             "Hanno <hanno@gentoo.org>",
+             "James McCoy <jamessan@jamessan.com>",
+             "Jim Winstead <jimw@trainedmonkey.com>",
+             "Juergen Weigert <jw@suse.com>",
+             "Kenny Gryp <kenny.gryp@percona.com>",
+             "Lu Shengliang <lushl9301@gmail.com>",
+             "Masahiro Chiba <chiba@everqueue.com>",
+             "Matthew Horsfall (alh) <WolfSage@gmail.com>",
+             "Michiel Beijen <michiel.beijen@gmail.com>",
+             "Mike Pomraning <mjp@pilcrow.madison.wi.us>",
+             "Mohammad S Anwar <mohammad.anwar@yahoo.com>",
+             "Pali <pali@cpan.org>",
+             "Patrick Galbraith <patg@patg.net>",
+             "Perlover <perlover@perlover.com>",
+             "Peter Botha <peterb@striata.com>",
+             "Petr Písař <ppisar@redhat.com>",
+             "Reini Urban <rurban@cpanel.net>",
+             "Rob Hoelz <rhoelz@inoc.com>",
+             "Rob Van Dam <rvandam00@gmail.com>",
+             "Rudy Lippan <rlippan@remotelinux.com>",
+             "Scimon <simon.proctor@gmail.com>",
+             "Sergey Zhuravlev <zhurs@ya.ru>",
+             "Sergiy Borodych <Sergiy.Borodych@gmail.com>",
+             "Sharif Nassar <mrwacky42+github@gmail.com>",
+             "Steffen Mueller <smueller@cpan.org>",
+             "Steven Hartland <steven.hartland@multiplay.co.uk>",
+             "Taro Kobayashi <9re.3000@gmail.com>",
+             "Tatsuhiko Miyagawa <miyagawa@bulknews.net>",
+             "Tim Mullin <tim@cpanel.net>",
+             "Ville Skyttä <ville.skytta@iki.fi>",
+             "Vladimir Marek <vlmarek@volny.cz>",
+             "katyavoid <katyavoid@gmail.com>",
+             "kmx <kmx@cpan.org>",
+             "tokuhirom <tokuhirom@gmail.com>",
+             "zefram <zefram@fysh.org>",
+             "zentooo <ankerasoy@gmail.com>"
+          ],
+          "abstract" : "A MySQL driver for the Perl5 Database Interface (DBI)",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "author" : [
+             "Patrick Galbraith <patg@patg.net>"
+          ],
+          "dynamic_config" : 0,
+          "license" : [
+             "perl_5"
+          ],
+          "name" : "DBD-mysql",
+          "resources" : {
+             "x_IRC" : "irc://irc.perl.org/#dbi",
+             "homepage" : "http://dbi.perl.org/",
+             "repository" : {
+                "web" : "https://github.com/perl5-dbi/DBD-mysql",
+                "url" : "https://github.com/perl5-dbi/DBD-mysql.git",
+                "type" : "git"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/perl5-dbi/DBD-mysql/issues"
+             },
+             "x_MailingList" : "mailto:dbi-dev@perl.org",
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : 2
+          }
+       },
+       "checksum_sha256" : "4f48541ff15a0a7405f76adc10f81627c33996fbf56c95c26c094444c0928d78",
+       "authorized" : true,
+       "name" : "DBD-mysql-4.050",
+       "date" : "2019-01-09T09:07:15",
+       "first" : false,
+       "provides" : [
+          "Bundle::DBD::mysql",
+          "DBD::mysql",
+          "DBD::mysql::GetInfo",
+          "DBD::mysql::db",
+          "DBD::mysql::dr",
+          "DBD::mysql::st"
+       ],
+       "dependency" : [
+          {
+             "phase" : "test",
+             "module" : "Proc::ProcessTable",
+             "version" : "0",
+             "relationship" : "recommends"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "Test::Deep"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "bigint"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Time::HiRes",
+             "phase" : "test",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0.90",
+             "phase" : "test",
+             "module" : "Test::Simple"
+          },
+          {
+             "relationship" : "suggests",
+             "phase" : "test",
+             "module" : "Test::DistManifest",
+             "version" : "0"
+          },
+          {
+             "phase" : "test",
+             "module" : "Test::Pod",
+             "version" : "1.00",
+             "relationship" : "suggests"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.09",
+             "phase" : "configure",
+             "module" : "Devel::CheckLib"
+          },
+          {
+             "phase" : "configure",
+             "module" : "DBI",
+             "version" : "1.609",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          },
+          {
+             "module" : "Data::Dumper",
+             "phase" : "configure",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "5.008001",
+             "module" : "perl",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "DBI",
+             "phase" : "runtime",
+             "version" : "1.609",
+             "relationship" : "requires"
+          }
+       ],
+       "changes_file" : "Changes",
+       "abstract" : "A MySQL driver for the Perl5 Database Interface (DBI)",
+       "main_module" : "DBD::mysql",
+       "status" : "latest",
+       "version" : "4.050",
+       "distribution" : "DBD-mysql",
+       "id" : "Q8pVs3HVgd07dVgGGTamUJhTnv8",
+       "version_numified" : 4.05,
+       "tests" : {
+          "fail" : 7,
+          "na" : 0,
+          "pass" : 2121,
+          "unknown" : 499
+       },
+       "resources" : {
+          "homepage" : "http://dbi.perl.org/",
+          "repository" : {
+             "url" : "https://github.com/perl5-dbi/DBD-mysql.git",
+             "type" : "git",
+             "web" : "https://github.com/perl5-dbi/DBD-mysql"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/perl5-dbi/DBD-mysql/issues"
+          },
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "archive" : "DBD-mysql-4.050.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "checksum_md5" : "29b1f61321d0892885ccfd0e7bc07f7f",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-4.050.tar.gz",
+       "author" : "DVEEDEN",
+       "stat" : {
+          "mode" : 33188,
+          "size" : 161579,
+          "mtime" : 1547024835
+       },
+       "deprecated" : false
+    }

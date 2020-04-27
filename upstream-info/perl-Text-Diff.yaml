@@ -1,0 +1,145 @@
+---
+version_control: metacpan
+src_repo: Text-Diff
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:59.575799150 +00:00
+  raw_data: |
+    {
+       "provides" : [
+          "Text::Diff",
+          "Text::Diff::Base",
+          "Text::Diff::Config",
+          "Text::Diff::Table"
+       ],
+       "authorized" : true,
+       "version" : "1.45",
+       "stat" : {
+          "mode" : 33188,
+          "mtime" : 1502908879,
+          "size" : 29599
+       },
+       "id" : "m4H0O9japK0P6WjIPbxShaSpiVs",
+       "deprecated" : "false",
+       "metadata" : {
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27203",
+          "resources" : {
+             "repository" : {
+                "url" : "https://github.com/neilbowers/Text-Diff"
+             }
+          },
+          "dynamic_config" : 1,
+          "author" : [
+             "Adam Kennedy <adamk@cpan.org>"
+          ],
+          "name" : "Text-Diff",
+          "license" : [
+             "perl_5"
+          ],
+          "abstract" : "Perform diffs on files and record sets",
+          "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Exporter" : "0",
+                   "Algorithm::Diff" : "1.19"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "1.45",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          }
+       },
+       "tests" : {
+          "fail" : 0,
+          "na" : 1,
+          "pass" : 7257,
+          "unknown" : 0
+       },
+       "changes_file" : "Changes",
+       "checksum_sha256" : "e8baa07b1b3f53e00af3636898bbf73aec9a0ff38f94536ede1dbe96ef086f04",
+       "version_numified" : 1.45,
+       "author" : "NEILB",
+       "archive" : "Text-Diff-1.45.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "repository" : {
+             "url" : "https://github.com/neilbowers/Text-Diff"
+          }
+       },
+       "main_module" : "Text::Diff",
+       "checksum_md5" : "edf57b6189f7651a6be454062a4e6d9c",
+       "abstract" : "Perform diffs on files and record sets",
+       "dependency" : [
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Algorithm::Diff",
+             "phase" : "runtime",
+             "relationship" : "requires",
+             "version" : "1.19"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "Exporter"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires",
+             "version" : "0"
+          }
+       ],
+       "first" : false,
+       "distribution" : "Text-Diff",
+       "status" : "latest",
+       "download_url" : "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Diff-1.45.tar.gz",
+       "name" : "Text-Diff-1.45",
+       "date" : "2017-08-16T18:41:19",
+       "maturity" : "released"
+    }

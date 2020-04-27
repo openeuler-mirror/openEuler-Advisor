@@ -1,0 +1,116 @@
+---
+version_control: metacpan
+src_repo: Net-Daemon
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:25.362268050 +00:00
+  raw_data: |
+    {
+       "distribution" : "Net-Daemon",
+       "id" : "xmJBBwAyBP38W3_AdbY_Sf4kK_w",
+       "version_numified" : 0.48,
+       "tests" : {
+          "fail" : 153,
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 2050
+       },
+       "resources" : {},
+       "archive" : "Net-Daemon-0.48.tar.gz",
+       "license" : [
+          "unknown"
+       ],
+       "checksum_md5" : "771f9ba01c3b033ed8cc3d6bad36e5fb",
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MN/MNOONING/Net-Daemon-0.48.tar.gz",
+       "author" : "MNOONING",
+       "stat" : {
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 29513,
+          "gid" : 1009,
+          "mtime" : 1299693289
+       },
+       "deprecated" : "false",
+       "maturity" : "released",
+       "metadata" : {
+          "name" : "Net-Daemon",
+          "license" : [
+             "unknown"
+          ],
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "prereqs" : {
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "0.48",
+          "author" : [
+             "Jochen Wiedmann (joe@ispsoft.de)"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "ExtUtils::MakeMaker version 6.56, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Perl extension for portable daemons"
+       },
+       "checksum_sha256" : "3c12f1e44f9bbce427204a83dd73aa6dd2909e91190d32d6ec3563beca7bbc74",
+       "authorized" : true,
+       "name" : "Net-Daemon-0.48",
+       "provides" : [
+          "Net::Daemon",
+          "Net::Daemon::Log",
+          "Net::Daemon::Test",
+          "Net::Daemon::Test::Fork",
+          "Net::Daemon::Test::Win32"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          }
+       ],
+       "date" : "2011-03-09T17:54:49",
+       "first" : false,
+       "changes_file" : "ChangeLog",
+       "abstract" : "Perl extension for portable daemons",
+       "main_module" : "Net::Daemon",
+       "version" : "0.48",
+       "status" : "latest"
+    }

@@ -1,0 +1,297 @@
+---
+version_control: metacpan
+src_repo: Test-FailWarnings
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:25.342193530 +00:00
+  raw_data: |
+    {
+       "distribution" : "Test-FailWarnings",
+       "archive" : "Test-FailWarnings-0.008.tar.gz",
+       "license" : [
+          "apache_2_0"
+       ],
+       "main_module" : "Test::FailWarnings",
+       "resources" : {
+          "repository" : {
+             "type" : "git",
+             "url" : "https://github.com/dagolden/Test-FailWarnings.git",
+             "web" : "https://github.com/dagolden/Test-FailWarnings"
+          },
+          "homepage" : "https://github.com/dagolden/Test-FailWarnings",
+          "bugtracker" : {
+             "web" : "https://github.com/dagolden/Test-FailWarnings/issues"
+          }
+       },
+       "metadata" : {
+          "dynamic_config" : 0,
+          "resources" : {
+             "homepage" : "https://github.com/dagolden/Test-FailWarnings",
+             "bugtracker" : {
+                "web" : "https://github.com/dagolden/Test-FailWarnings/issues"
+             },
+             "repository" : {
+                "type" : "git",
+                "url" : "https://github.com/dagolden/Test-FailWarnings.git",
+                "web" : "https://github.com/dagolden/Test-FailWarnings"
+             }
+          },
+          "provides" : {
+             "Test::FailWarnings" : {
+                "version" : "0.008",
+                "file" : "lib/Test/FailWarnings.pm"
+             }
+          },
+          "release_status" : "stable",
+          "license" : [
+             "apache_2_0"
+          ],
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "Cwd" : "0",
+                   "warnings" : "0",
+                   "perl" : "5.008001",
+                   "strict" : "0",
+                   "Test::More" : "0.86",
+                   "Carp" : "0",
+                   "File::Spec" : "0"
+                }
+             },
+             "develop" : {
+                "requires" : {
+                   "Test::Pod" : "1.41",
+                   "Test::CPAN::Meta" : "0",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Test::Pod::Coverage" : "1.08"
+                }
+             },
+             "test" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "IPC::Open3" : "0",
+                   "File::Temp" : "0",
+                   "File::Spec" : "0",
+                   "IO::Handle" : "0",
+                   "lib" : "0",
+                   "Capture::Tiny" : "0.12",
+                   "constant" : "0",
+                   "List::Util" : "0",
+                   "File::Spec::Functions" : "0",
+                   "Test::More" : "0.96"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.17"
+                }
+             }
+          },
+          "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620, CPAN::Meta::Converter version 2.150005",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "name" : "Test-FailWarnings",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "examples",
+                "corpus",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DB"
+             ]
+          },
+          "x_authority" : "cpan:DAGOLDEN",
+          "abstract" : "Add test failures if warnings are caught",
+          "version" : "0.008",
+          "author" : [
+             "David Golden <dagolden@cpan.org>"
+          ]
+       },
+       "checksum_sha256" : "da34ef9029f6849d6026201d49127d054ee6ac4b979c82210315f5721964a96f",
+       "date" : "2013-09-25T18:10:19",
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1380132619,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 13734
+       },
+       "maturity" : "released",
+       "tests" : {
+          "na" : 54,
+          "fail" : 6,
+          "pass" : 14714,
+          "unknown" : 43
+       },
+       "name" : "Test-FailWarnings-0.008",
+       "dependency" : [
+          {
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.008001",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Carp",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::More",
+             "phase" : "runtime",
+             "version" : "0.86"
+          },
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Cwd",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Spec",
+             "version" : "0",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Spec",
+             "phase" : "test"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "File::Spec::Functions"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "List::Util"
+          },
+          {
+             "phase" : "test",
+             "version" : "0.12",
+             "module" : "Capture::Tiny",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "lib",
+             "phase" : "test",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::More",
+             "phase" : "test",
+             "version" : "0.96",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "constant",
+             "phase" : "test"
+          },
+          {
+             "phase" : "test",
+             "module" : "File::Temp",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "test",
+             "version" : "0",
+             "module" : "IO::Handle"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "IPC::Open3"
+          },
+          {
+             "version" : "1.08",
+             "phase" : "develop",
+             "module" : "Test::Pod::Coverage",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::CPAN::Meta",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Test::Pod",
+             "phase" : "develop",
+             "version" : "1.41"
+          },
+          {
+             "module" : "Pod::Coverage::TrustPod",
+             "version" : "0",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "configure",
+             "version" : "6.17",
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires"
+          }
+       ],
+       "version" : "0.008",
+       "id" : "DcPtiPOjVK03t_7RIxlzOScuqtE",
+       "provides" : [
+          "Test::FailWarnings"
+       ],
+       "version_numified" : 0.008,
+       "changes_file" : "Changes",
+       "checksum_md5" : "c03d51f550dbfd9945722ff7f4c32717",
+       "abstract" : "Add test failures if warnings are caught",
+       "authorized" : true,
+       "status" : "latest",
+       "author" : "DAGOLDEN",
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-FailWarnings-0.008.tar.gz",
+       "deprecated" : "false",
+       "first" : false
+    }

@@ -1,0 +1,122 @@
+---
+version_control: metacpan
+src_repo: Getopt-Long
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:09.118350390 +00:00
+  raw_data: |
+    {
+       "author" : "JV",
+       "download_url" : "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.51.tar.gz",
+       "deprecated" : false,
+       "stat" : {
+          "size" : 43623,
+          "mode" : 33204,
+          "mtime" : 1565638403
+       },
+       "tests" : {
+          "fail" : 0,
+          "na" : 0,
+          "unknown" : 0,
+          "pass" : 3020
+       },
+       "version_numified" : 2.51,
+       "id" : "u9nRdD60ie5yj6_PUY2mhU_BJA0",
+       "distribution" : "Getopt-Long",
+       "checksum_md5" : "1631ebbac6bc72e54aa06712d6237d29",
+       "license" : [
+          "unknown"
+       ],
+       "archive" : "Getopt-Long-2.51.tar.gz",
+       "resources" : {},
+       "abstract" : "Module to handle parsing command line options",
+       "changes_file" : "CHANGES",
+       "status" : "latest",
+       "version" : "2.51",
+       "main_module" : "Getopt::Long",
+       "metadata" : {
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Getopt-Long",
+          "resources" : {},
+          "x_serialization_backend" : "JSON::PP version 2.97001",
+          "meta-spec" : {
+             "version" : 2,
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "version" : "2.51",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Pod::Usage" : "1.14"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "generated_by" : "ExtUtils::MakeMaker version 7.34, CPAN::Meta::Converter version 2.150010",
+          "abstract" : "Module to handle parsing command line options",
+          "dynamic_config" : 1,
+          "author" : [
+             "Johan Vromans (jvromans@squirrel.nl)"
+          ]
+       },
+       "maturity" : "released",
+       "first" : false,
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "version" : "1.14",
+             "module" : "Pod::Usage",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure"
+          }
+       ],
+       "date" : "2019-08-12T19:33:23",
+       "provides" : [
+          "Getopt::Long",
+          "Getopt::Long::CallBack",
+          "Getopt::Long::Parser"
+       ],
+       "name" : "Getopt-Long-2.51",
+       "checksum_sha256" : "20b43b94c2f4096e9e05c213d6184d7391567f127631d69e9b1ffd994d4cc564",
+       "authorized" : true
+    }

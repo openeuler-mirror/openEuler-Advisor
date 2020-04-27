@@ -1,0 +1,128 @@
+---
+version_control: metacpan
+src_repo: IO-Socket-IP
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:40:55.635698840 +00:00
+  raw_data: |
+    {
+       "checksum_md5" : "fe49e4f6638c55124b4f1fb9ee8fe134",
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "IO::Socket::IP",
+       "checksum_sha256" : "11950da7636cb786efd3bfb5891da4c820975276bce43175214391e5c32b7b96",
+       "changes_file" : "Changes",
+       "archive" : "IO-Socket-IP-0.39.tar.gz",
+       "author" : "PEVANS",
+       "license" : [
+          "perl_5"
+       ],
+       "version_numified" : 0.39,
+       "tests" : {
+          "fail" : 101,
+          "pass" : 5174,
+          "unknown" : 7,
+          "na" : 0
+       },
+       "deprecated" : "false",
+       "metadata" : {
+          "provides" : {
+             "IO::Socket::IP" : {
+                "file" : "lib/IO/Socket/IP.pm",
+                "version" : "0.39"
+             }
+          },
+          "version" : "0.39",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "abstract" : "Family-neutral IP socket supporting both IPv4 and IPv6",
+          "generated_by" : "Module::Build version 0.422, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "IO::Socket" : "0",
+                   "Socket" : "1.97"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "Test::More" : "0.88"
+                }
+             }
+          },
+          "name" : "IO-Socket-IP",
+          "license" : [
+             "perl_5"
+          ],
+          "author" : [
+             "Paul Evans <leonerd@leonerd.org.uk>"
+          ],
+          "release_status" : "stable",
+          "x_serialization_backend" : "JSON::PP version 2.27400",
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1
+       },
+       "stat" : {
+          "mode" : 33188,
+          "size" : 44626,
+          "mtime" : 1488818814
+       },
+       "version" : "0.39",
+       "authorized" : true,
+       "provides" : [
+          "IO::Socket::IP"
+       ],
+       "id" : "hydtsowu1cPZdMONC5FRtSe1JMw",
+       "date" : "2017-03-06T16:46:54",
+       "maturity" : "released",
+       "download_url" : "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz",
+       "name" : "IO-Socket-IP-0.39",
+       "first" : false,
+       "dependency" : [
+          {
+             "module" : "Socket",
+             "relationship" : "requires",
+             "version" : "1.97",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "IO::Socket",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "Test::More",
+             "version" : "0.88",
+             "relationship" : "requires",
+             "phase" : "build"
+          }
+       ],
+       "abstract" : "Family-neutral IP socket supporting both IPv4 and IPv6",
+       "distribution" : "IO-Socket-IP",
+       "status" : "latest"
+    }

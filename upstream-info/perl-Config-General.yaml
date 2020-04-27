@@ -1,0 +1,150 @@
+---
+version_control: metacpan
+src_repo: Config-General
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:22.550122490 +00:00
+  raw_data: |
+    {
+       "license" : [
+          "perl_5"
+       ],
+       "archive" : "Config-General-2.63.tar.gz",
+       "author" : "TLINDEN",
+       "version_numified" : 2.63,
+       "checksum_sha256" : "0a9bf977b8aabe76343e88095d2296c8a422410fd2a05a1901f2b20e2e1f6fad",
+       "changes_file" : "Changelog",
+       "checksum_md5" : "e3ea2a6dc76931cf638b5227aceabf60",
+       "resources" : {
+          "repository" : {
+             "url" : "http://dev.catalyst.perl.org/repos/Config-General/trunk/"
+          }
+       },
+       "main_module" : "Config::General",
+       "id" : "8Qupp9WtHk2F7GBwMLJd7F15Qlo",
+       "version" : "2.63",
+       "stat" : {
+          "size" : 64700,
+          "mtime" : 1469772731,
+          "mode" : 33188
+       },
+       "provides" : [
+          "Config::General",
+          "Config::General::Extended",
+          "Config::General::Interpolated"
+       ],
+       "authorized" : true,
+       "tests" : {
+          "pass" : 6234,
+          "na" : 0,
+          "unknown" : 2,
+          "fail" : 5
+       },
+       "deprecated" : "false",
+       "metadata" : {
+          "author" : [
+             "unknown"
+          ],
+          "name" : "Config-General",
+          "license" : [
+             "perl_5"
+          ],
+          "dynamic_config" : 1,
+          "resources" : {
+             "repository" : {
+                "url" : "http://dev.catalyst.perl.org/repos/Config-General/trunk/"
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "version" : "2.63",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {
+                   "File::Glob" : "0",
+                   "IO::File" : "0",
+                   "File::Spec::Functions" : "0",
+                   "FileHandle" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.130880, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "unknown"
+       },
+       "name" : "Config-General-2.63",
+       "download_url" : "https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz",
+       "maturity" : "released",
+       "date" : "2016-07-29T06:12:11",
+       "status" : "latest",
+       "distribution" : "Config-General",
+       "first" : false,
+       "abstract" : "Generic Config Module",
+       "dependency" : [
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "module" : "FileHandle",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "0",
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Spec::Functions"
+          },
+          {
+             "module" : "IO::File",
+             "phase" : "runtime",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "File::Glob",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "runtime"
+          },
+          {
+             "module" : "ExtUtils::MakeMaker",
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "configure"
+          }
+       ]
+    }

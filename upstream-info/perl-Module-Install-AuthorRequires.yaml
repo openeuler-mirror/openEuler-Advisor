@@ -1,0 +1,130 @@
+---
+version_control: metacpan
+src_repo: Module-Install-AuthorRequires
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:41.596183100 +00:00
+  raw_data: |
+    {
+       "status" : "latest",
+       "abstract" : "declare author-only dependencies",
+       "checksum_md5" : "efb5bffec707ee721cc8c34a6d8bcf31",
+       "authorized" : true,
+       "download_url" : "https://cpan.metacpan.org/authors/id/F/FL/FLORA/Module-Install-AuthorRequires-0.02.tar.gz",
+       "first" : false,
+       "deprecated" : "false",
+       "author" : "FLORA",
+       "version_numified" : 0.02,
+       "id" : "YcSHtIaU5kVzXT_SJdsIDfcsLC0",
+       "provides" : [
+          "Module::Install::Admin::AuthorRequires",
+          "Module::Install::AuthorRequires"
+       ],
+       "changes_file" : "Changes",
+       "name" : "Module-Install-AuthorRequires-0.02",
+       "tests" : {
+          "pass" : 2454,
+          "fail" : 2,
+          "na" : 0,
+          "unknown" : 2
+       },
+       "version" : "0.02",
+       "dependency" : [
+          {
+             "relationship" : "requires",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.42",
+             "phase" : "configure"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Module::Install",
+             "phase" : "runtime"
+          },
+          {
+             "phase" : "build",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "6.42",
+             "relationship" : "requires"
+          }
+       ],
+       "metadata" : {
+          "license" : [
+             "perl_5"
+          ],
+          "release_status" : "stable",
+          "resources" : {
+             "license" : [
+                "http://dev.perl.org/licenses/"
+             ]
+          },
+          "dynamic_config" : 1,
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "generated_by" : "Module::Install version 0.91, CPAN::Meta::Converter version 2.150005",
+          "prereqs" : {
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.42"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "Module::Install" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.42"
+                }
+             }
+          },
+          "abstract" : "declare author-only dependencies",
+          "no_index" : {
+             "directory" : [
+                "inc",
+                "t",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "name" : "Module-Install-AuthorRequires",
+          "author" : [
+             "Florian Ragwitz <rafl@debian.org>"
+          ],
+          "version" : "0.02"
+       },
+       "checksum_sha256" : "cc6321537d745d2a83a8286f85ef3346745939cc3b34102045bec8560e8f4cec",
+       "date" : "2009-07-14T12:47:48",
+       "distribution" : "Module-Install-AuthorRequires",
+       "archive" : "Module-Install-AuthorRequires-0.02.tar.gz",
+       "license" : [
+          "perl_5"
+       ],
+       "resources" : {
+          "license" : [
+             "http://dev.perl.org/licenses/"
+          ]
+       },
+       "main_module" : "Module::Install::AuthorRequires",
+       "maturity" : "released",
+       "stat" : {
+          "gid" : 1009,
+          "mtime" : 1247575668,
+          "mode" : 33204,
+          "uid" : 1009,
+          "size" : 15596
+       }
+    }

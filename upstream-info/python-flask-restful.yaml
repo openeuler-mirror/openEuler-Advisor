@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  flask-restful/flask-restful
+tag_prefix: ^v
+seperator: .

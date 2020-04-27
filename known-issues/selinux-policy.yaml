@@ -1,0 +1,52 @@
+---
+version_control: github
+src_repo: fedora-selinux/selinux-policy
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 09:28:58.535455880 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/fedora-selinux/selinux-policy/releases/9240430",
+        "assets_url": "https://api.github.com/repos/fedora-selinux/selinux-policy/releases/9240430/assets",
+        "upload_url": "https://uploads.github.com/repos/fedora-selinux/selinux-policy/releases/9240430/assets{?name,label}",
+        "html_url": "https://github.com/fedora-selinux/selinux-policy/releases/tag/v3.14.1-2",
+        "id": 9240430,
+        "node_id": "MDc6UmVsZWFzZTkyNDA0MzA=",
+        "tag_name": "v3.14.1-2",
+        "target_commitish": "rawhide",
+        "name": "selinux-policy-3.14.1-2",
+        "draft": false,
+        "author": {
+          "login": "wrabcak",
+          "id": 3767076,
+          "node_id": "MDQ6VXNlcjM3NjcwNzY=",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/3767076?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/wrabcak",
+          "html_url": "https://github.com/wrabcak",
+          "followers_url": "https://api.github.com/users/wrabcak/followers",
+          "following_url": "https://api.github.com/users/wrabcak/following{/other_user}",
+          "gists_url": "https://api.github.com/users/wrabcak/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/wrabcak/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/wrabcak/subscriptions",
+          "organizations_url": "https://api.github.com/users/wrabcak/orgs",
+          "repos_url": "https://api.github.com/users/wrabcak/repos",
+          "events_url": "https://api.github.com/users/wrabcak/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/wrabcak/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": true,
+        "created_at": "2018-01-10T09:26:55Z",
+        "published_at": "2018-01-15T16:38:57Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/fedora-selinux/selinux-policy/tarball/v3.14.1-2",
+        "zipball_url": "https://api.github.com/repos/fedora-selinux/selinux-policy/zipball/v3.14.1-2",
+        "body": "- Allow aide to mmap usr_t files BZ(1534182)\r\n- Allow ypserv_t domain to connect to tcp ports BZ(1534245)\r\n- Allow vmtools_t domain creating vmware_log_t files\r\n- Allow openvswitch_t domain to acces infiniband devices\r\n- Allow dirsrv_t domain to create tmp link files\r\n- Allow pcp_pmie_t domain to exec itself. BZ(153326)\r\n- Update openvswitch SELinux module\r\n- Allow virtd_t to create also sock_files with label virt_var_run_t\r\n- Allow chronyc_t domain to manage chronyd_keys_t files.\r\n- Allow logwatch to exec journal binaries BZ(1403463)\r\n- Allow sysadm_t and staff_t roles to manage user systemd services BZ(1531864)\r\n- Update logging_read_all_logs to allow mmap all logfiles BZ(1403463)\r\n- Add Label systemd_unit_file_t for /var/run/systemd/units/\r\n\r\nCommits also from fedora-selinux/selinux-policy-contrib\r\n\r\nLink with rpm build:\r\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=24216558\r\n"
+      }
+    ]
+query_type: api.github.releases

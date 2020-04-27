@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  jaraco/zipp
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,411 @@
+---
+version_control: metacpan
+src_repo: Capture-Tiny
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-26 07:41:13.038478530 +00:00
+  raw_data: |
+    {
+       "download_url" : "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz",
+       "author" : "DAGOLDEN",
+       "stat" : {
+          "size" : 37480,
+          "mode" : 33188,
+          "mtime" : 1524380948
+       },
+       "deprecated" : false,
+       "distribution" : "Capture-Tiny",
+       "id" : "tSiZ3RcC7ijqlcG5ntUVoJoV748",
+       "version_numified" : 0.48,
+       "tests" : {
+          "fail" : 5,
+          "na" : 0,
+          "unknown" : 2,
+          "pass" : 4249
+       },
+       "resources" : {
+          "homepage" : "https://github.com/dagolden/Capture-Tiny",
+          "repository" : {
+             "web" : "https://github.com/dagolden/Capture-Tiny",
+             "type" : "git",
+             "url" : "https://github.com/dagolden/Capture-Tiny.git"
+          },
+          "bugtracker" : {
+             "web" : "https://github.com/dagolden/Capture-Tiny/issues"
+          }
+       },
+       "archive" : "Capture-Tiny-0.48.tar.gz",
+       "license" : [
+          "apache_2_0"
+       ],
+       "checksum_md5" : "f5d24083ad270f8326dd659dd83eeb54",
+       "changes_file" : "Changes",
+       "abstract" : "Capture STDOUT and STDERR from Perl, XS or external programs",
+       "main_module" : "Capture::Tiny",
+       "version" : "0.48",
+       "status" : "latest",
+       "maturity" : "released",
+       "metadata" : {
+          "provides" : {
+             "Capture::Tiny" : {
+                "version" : "0.48",
+                "file" : "lib/Capture/Tiny.pm"
+             }
+          },
+          "name" : "Capture-Tiny",
+          "meta-spec" : {
+             "version" : "2",
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+          },
+          "release_status" : "stable",
+          "version" : "0.48",
+          "x_generated_by_perl" : "v5.26.1",
+          "x_authority" : "cpan:DAGOLDEN",
+          "abstract" : "Capture STDOUT and STDERR from Perl, XS or external programs",
+          "x_serialization_backend" : "Cpanel::JSON::XS version 3.0239",
+          "resources" : {
+             "homepage" : "https://github.com/dagolden/Capture-Tiny",
+             "repository" : {
+                "web" : "https://github.com/dagolden/Capture-Tiny",
+                "type" : "git",
+                "url" : "https://github.com/dagolden/Capture-Tiny.git"
+             },
+             "bugtracker" : {
+                "web" : "https://github.com/dagolden/Capture-Tiny/issues"
+             }
+          },
+          "license" : [
+             "apache_2_0"
+          ],
+          "prereqs" : {
+             "develop" : {
+                "requires" : {
+                   "Test::MinimumVersion" : "0",
+                   "File::Spec" : "0",
+                   "File::Temp" : "0",
+                   "Pod::Wordlist" : "0",
+                   "IO::Handle" : "0",
+                   "Dist::Zilla::Plugin::Prereqs" : "0",
+                   "Dist::Zilla::Plugin::RemovePrereqs" : "0",
+                   "Test::CPAN::Meta" : "0",
+                   "Test::More" : "0",
+                   "Dist::Zilla::Plugin::ReleaseStatus::FromVersion" : "0",
+                   "Pod::Coverage::TrustPod" : "0",
+                   "Dist::Zilla::Plugin::OSPrereqs" : "0",
+                   "Test::Perl::Critic" : "0",
+                   "Dist::Zilla" : "5",
+                   "Dist::Zilla::PluginBundle::DAGOLDEN" : "0.072",
+                   "IPC::Open3" : "0",
+                   "Test::Spelling" : "0.12",
+                   "Software::License::Apache_2_0" : "0",
+                   "Test::Pod" : "1.41",
+                   "Test::Portability::Files" : "0",
+                   "Test::Version" : "1",
+                   "Test::Pod::Coverage" : "1.08"
+                }
+             },
+             "test" : {
+                "recommends" : {
+                   "CPAN::Meta" : "2.120900"
+                },
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0",
+                   "lib" : "0",
+                   "File::Spec" : "0",
+                   "IO::File" : "0",
+                   "Test::More" : "0.62"
+                }
+             },
+             "runtime" : {
+                "requires" : {
+                   "perl" : "5.006",
+                   "Exporter" : "0",
+                   "strict" : "0",
+                   "Scalar::Util" : "0",
+                   "File::Spec" : "0",
+                   "File::Temp" : "0",
+                   "Carp" : "0",
+                   "warnings" : "0",
+                   "IO::Handle" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "6.17"
+                }
+             }
+          },
+          "no_index" : {
+             "directory" : [
+                "corpus",
+                "examples",
+                "t",
+                "xt",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ],
+             "package" : [
+                "DB"
+             ]
+          },
+          "author" : [
+             "David Golden <dagolden@cpan.org>"
+          ],
+          "dynamic_config" : 1,
+          "generated_by" : "Dist::Zilla version 6.012, CPAN::Meta::Converter version 2.150010, CPAN::Meta::Converter version 2.150005",
+          "x_contributors" : [
+             "Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>",
+             "David E. Wheeler <david@justatheory.com>",
+             "fecundf <not.com+github@gmail.com>",
+             "Graham Knop <haarg@haarg.org>",
+             "Peter Rabbitson <ribasushi@cpan.org>"
+          ]
+       },
+       "checksum_sha256" : "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19",
+       "authorized" : true,
+       "name" : "Capture-Tiny-0.48",
+       "first" : false,
+       "provides" : [
+          "Capture::Tiny"
+       ],
+       "dependency" : [
+          {
+             "version" : "0",
+             "phase" : "runtime",
+             "module" : "Exporter",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "runtime",
+             "module" : "File::Temp",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "warnings",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "strict",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "IO::Handle",
+             "phase" : "runtime",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "File::Spec",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Carp",
+             "phase" : "runtime",
+             "version" : "0"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "perl",
+             "phase" : "runtime",
+             "version" : "5.006"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Scalar::Util",
+             "phase" : "runtime"
+          },
+          {
+             "version" : "6.17",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "configure",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "recommends",
+             "version" : "2.120900",
+             "phase" : "test",
+             "module" : "CPAN::Meta"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "ExtUtils::MakeMaker"
+          },
+          {
+             "version" : "0",
+             "module" : "IO::File",
+             "phase" : "test",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "test",
+             "module" : "lib"
+          },
+          {
+             "version" : "0.62",
+             "phase" : "test",
+             "module" : "Test::More",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "test",
+             "module" : "File::Spec",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "IPC::Open3",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Test::CPAN::Meta"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.08",
+             "module" : "Test::Pod::Coverage",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "File::Spec",
+             "phase" : "develop"
+          },
+          {
+             "module" : "Dist::Zilla::Plugin::Prereqs",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::Portability::Files",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Test::Version",
+             "phase" : "develop",
+             "version" : "1",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "IO::Handle",
+             "phase" : "develop",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "module" : "Dist::Zilla",
+             "phase" : "develop",
+             "version" : "5",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "File::Temp",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "module" : "Pod::Coverage::TrustPod",
+             "phase" : "develop",
+             "version" : "0"
+          },
+          {
+             "version" : "0",
+             "module" : "Test::Perl::Critic",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::OSPrereqs",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::ReleaseStatus::FromVersion",
+             "version" : "0"
+          },
+          {
+             "module" : "Dist::Zilla::PluginBundle::DAGOLDEN",
+             "phase" : "develop",
+             "version" : "0.072",
+             "relationship" : "requires"
+          },
+          {
+             "phase" : "develop",
+             "module" : "Test::MinimumVersion",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "phase" : "develop",
+             "module" : "Test::Spelling",
+             "version" : "0.12"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "phase" : "develop",
+             "module" : "Dist::Zilla::Plugin::RemovePrereqs"
+          },
+          {
+             "version" : "0",
+             "module" : "Software::License::Apache_2_0",
+             "phase" : "develop",
+             "relationship" : "requires"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Test::More",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "1.41",
+             "module" : "Test::Pod",
+             "phase" : "develop"
+          },
+          {
+             "relationship" : "requires",
+             "version" : "0",
+             "module" : "Pod::Wordlist",
+             "phase" : "develop"
+          }
+       ],
+       "date" : "2018-04-22T07:09:08"
+    }
