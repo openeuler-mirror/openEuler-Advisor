@@ -44,7 +44,7 @@ end
 def clean_tags(tags)
 	new_tags = []
 	tags.each{|line|
-		new_tags = new_tags.append clean_tag(line, Prj_info)
+		new_tags = new_tags.push(clean_tag(line, Prj_info))
 	}
 	return new_tags
 end
