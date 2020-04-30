@@ -3,6 +3,12 @@
 specfile=`find ~/openEuler/src-openeuler -name $1.spec`
 if [ $specfile != "" ]; then
 	cur_ver=`grep Version $specfile | awk -F: '{print $2}' | sed -e "s/[ \t]*//g"`
+        #deal with the special Version defination, like "Version: %{xxx}"
+        if [[ "$cur_ver" == %{* ]]; then
+            new_ver=`echo $cur_ver | sed 's/.*{\(.*\)}.*/\1/g'`
+            new_lable='%global '$new_ver' '
+            cur_ver=`grep "${new_lable}" $specfile | awk -F "${new_lable}" '{print $2}'`
+        fi
 	./check_upstream.rb $1 $cur_ver
 else
 	echo $1, "is not found in src-openeuler\n"
