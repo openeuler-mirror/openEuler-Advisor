@@ -98,7 +98,7 @@ def load_last_query_result(prj_info, force_reload=false)
 				return last_query["raw_data"].dup
 			else
 				prj_info.delete("last_query")
-				STDERR.puts "DEBUG: #{prj_info["src_repo"].gusb("\n", "")} > Last Query Too Old.\n"
+				STDERR.puts "DEBUG: #{prj_info["src_repo"].gsub("\n", "")} > Last Query Too Old.\n"
 				return ""
 			end
 		else
