@@ -60,11 +60,24 @@ def get_pkg_json(pkg):
 def download_source(resp):
     return
 
+def prepare_rpm_build_env(rootdir):
+    return True
+
 def build_rpm(resp):
+    if(prepare_rpm_build_env() == False):
+        return
+
     return
 
 
-def build_spec(resp):
+def build_spec(resp, output):
+    tmp = sys.stdout
+    if (output == ""):
+        print()
+    else:
+        sys.stdout = open(output,'w')
+
+    
     print(name_tag_template.format(pkg_name=resp["info"]["name"]))
     print(version_tag_template.format(pkg_ver=resp["info"]["version"]))
     print(release_tag_template)
@@ -117,6 +130,7 @@ def build_spec(resp):
     print("* {today} Python_Bot <Python_Bot@openeuler.org>".format(today=date_str))
     print("- Package Spec generated")
 
+    sys.stdout = tmp
 
 
 if __name__ == "__main__":
@@ -127,6 +141,7 @@ if __name__ == "__main__":
     parser.add_argument("-b", "--build", help="Build rpm package", action="store_true")
     parser.add_argument("-d", "--download", help="Download source file", action="store_true")
     parser.add_argument("-j", "--json", help="Get Package JSON info", action="store_true")
+    parser.add_argument("-o", "--output", help="Output to file", type=str, default="")
     parser.add_argument("pkg", type=str, help="The Python Module Name")
     args=parser.parse_args()
 
@@ -135,7 +150,7 @@ if __name__ == "__main__":
     resp=get_pkg_json(args.pkg)
 
     if (args.spec):
-        build_spec(resp)
+        build_spec(resp, args.output)
 
     if (args.build):
         build_rpm(resp)
