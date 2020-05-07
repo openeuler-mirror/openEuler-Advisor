@@ -1,4 +1,241 @@
+---
 version_control: github
-src_repo:  gdraheim/zziplib
-tag_prefix: ^v
-seperator: .
+src_repo: gdraheim/zziplib
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-27 08:46:45.347460680 +00:00
+  raw_data: |
+    [
+      {
+        "name": "v0.13.71",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.71",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.71",
+        "commit": {
+          "sha": "24a6c6de1956189bffcd8dffd2ef3197c6f3df29",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/24a6c6de1956189bffcd8dffd2ef3197c6f3df29"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNzE="
+      },
+      {
+        "name": "v0.13.70",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.70",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.70",
+        "commit": {
+          "sha": "86f97fef88505064faa288cad7b63dbae9bc8085",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/86f97fef88505064faa288cad7b63dbae9bc8085"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNzA="
+      },
+      {
+        "name": "v0.13.69",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.69",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.69",
+        "commit": {
+          "sha": "9d82e19c7f654722f9e37deaa9eb91c25ad544ec",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/9d82e19c7f654722f9e37deaa9eb91c25ad544ec"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjk="
+      },
+      {
+        "name": "v0.13.68",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.68",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.68",
+        "commit": {
+          "sha": "bf4584fb06d5f9c5813616dbadc0129024c9c0f9",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/bf4584fb06d5f9c5813616dbadc0129024c9c0f9"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjg="
+      },
+      {
+        "name": "v0.13.67",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.67",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.67",
+        "commit": {
+          "sha": "9020a6ff18d2a9c0445b3c00d2ca19320dea3baf",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/9020a6ff18d2a9c0445b3c00d2ca19320dea3baf"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjc="
+      },
+      {
+        "name": "v0.13.66",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.66",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.66",
+        "commit": {
+          "sha": "793e36c7370fb24d7aabaca32cf861b06e490e38",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/793e36c7370fb24d7aabaca32cf861b06e490e38"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjY="
+      },
+      {
+        "name": "v0.13.65",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.65",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.65",
+        "commit": {
+          "sha": "7df0c88cd129c0f9d9b831c84263351b99f0fa57",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/7df0c88cd129c0f9d9b831c84263351b99f0fa57"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjU="
+      },
+      {
+        "name": "v0.13.64",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.64",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.64",
+        "commit": {
+          "sha": "8b22791584b432f90e48b8a02cb6be445d799b89",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/8b22791584b432f90e48b8a02cb6be445d799b89"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjQ="
+      },
+      {
+        "name": "v0.13.63",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.63",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.63",
+        "commit": {
+          "sha": "d90a2dc59aad46b8ae2343678c05966ebeba07f8",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/d90a2dc59aad46b8ae2343678c05966ebeba07f8"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjM="
+      },
+      {
+        "name": "v0.13.62",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.62",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.62",
+        "commit": {
+          "sha": "0283ed8eeb494d7fc30d019b53e49490b3e8a6d7",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/0283ed8eeb494d7fc30d019b53e49490b3e8a6d7"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjI="
+      },
+      {
+        "name": "v0.13.61",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.61",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.61",
+        "commit": {
+          "sha": "40d4a135f0ac0b47db49cc6fb1bddaa2fe296b80",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/40d4a135f0ac0b47db49cc6fb1bddaa2fe296b80"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjE="
+      },
+      {
+        "name": "v0.13.60",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.60",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.60",
+        "commit": {
+          "sha": "e6ba3e714c1adfd44ee64001864cc0abd6fff009",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/e6ba3e714c1adfd44ee64001864cc0abd6fff009"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNjA="
+      },
+      {
+        "name": "v0.13.59",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.59",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.59",
+        "commit": {
+          "sha": "f6194a727cff97d0e6f3e510e6d6000616a32d4e",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/f6194a727cff97d0e6f3e510e6d6000616a32d4e"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTk="
+      },
+      {
+        "name": "v0.13.58",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.58",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.58",
+        "commit": {
+          "sha": "3e1be5272421db4affe835c179ab5c7ef8bb5744",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/3e1be5272421db4affe835c179ab5c7ef8bb5744"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTg="
+      },
+      {
+        "name": "v0.13.57",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.57",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.57",
+        "commit": {
+          "sha": "35274aded90aef21a670accdb3af1ec57f2c6cfa",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/35274aded90aef21a670accdb3af1ec57f2c6cfa"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTc="
+      },
+      {
+        "name": "v0.13.56",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.56",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.56",
+        "commit": {
+          "sha": "01e5131569d3a3c592a32e7aee22913566015e28",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/01e5131569d3a3c592a32e7aee22913566015e28"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTY="
+      },
+      {
+        "name": "v0.13.55",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.55",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.55",
+        "commit": {
+          "sha": "eff8a131d6ef874f60ac4bd4bb4b34f89856e450",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/eff8a131d6ef874f60ac4bd4bb4b34f89856e450"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTU="
+      },
+      {
+        "name": "v0.13.54",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.54",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.54",
+        "commit": {
+          "sha": "875a54b5af6e23fffd3b8510436b160b9c30ccd8",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/875a54b5af6e23fffd3b8510436b160b9c30ccd8"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTQ="
+      },
+      {
+        "name": "v0.13.52",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.52",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.52",
+        "commit": {
+          "sha": "ae4c0a54b94adf9f2690752e70829b1bd9b05ba9",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/ae4c0a54b94adf9f2690752e70829b1bd9b05ba9"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTI="
+      },
+      {
+        "name": "v0.13.51",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.51",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.51",
+        "commit": {
+          "sha": "5680a014643c53120f740820027ed6d21379cf9f",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/5680a014643c53120f740820027ed6d21379cf9f"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTE="
+      },
+      {
+        "name": "v0.13.50",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.50",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.50",
+        "commit": {
+          "sha": "18b9b81276fe1da1b6b726678c985c5f0ebc1269",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/18b9b81276fe1da1b6b726678c985c5f0ebc1269"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNTA="
+      },
+      {
+        "name": "v0.13.48",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.48",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.48",
+        "commit": {
+          "sha": "1b51b586f9b270e9eb5b1f32dd643d7211fd0628",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/1b51b586f9b270e9eb5b1f32dd643d7211fd0628"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuNDg="
+      },
+      {
+        "name": "v0.13.36",
+        "zipball_url": "https://api.github.com/repos/gdraheim/zziplib/zipball/v0.13.36",
+        "tarball_url": "https://api.github.com/repos/gdraheim/zziplib/tarball/v0.13.36",
+        "commit": {
+          "sha": "8e5a55ba8f8f42bcb68536944aa5ffda5e286eaa",
+          "url": "https://api.github.com/repos/gdraheim/zziplib/commits/8e5a55ba8f8f42bcb68536944aa5ffda5e286eaa"
+        },
+        "node_id": "MDM6UmVmODg3ODk1NzA6djAuMTMuMzY="
+      }
+    ]
+query_type: api.github.tags
