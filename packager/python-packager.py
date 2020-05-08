@@ -43,6 +43,15 @@ build_noarch = True # Usually python modules are arch independent
 # 2. requires_dist has some dependency restirction, need to present
 # 3. dependency outside python (i.e. pycurl depends on libcurl) doesn't exist in pipy
 
+def get_license(j):
+    if j["info"]["license"] != "":
+        return j["info"]["license"]
+    for k in j["info"]["classifiers"]:
+        if k.startswith("License"):
+            ks = k.split("::")
+            return ks[2].strip()
+    return ""
+
 def get_source_url(j):
     v = j["info"]["version"]
     rs = j["releases"][v]
@@ -104,10 +113,12 @@ def get_description(j):
         if paragraph >= 2:
             del res[-1]
             return "\n".join(res)
-    if res == []:
-        return j["info"]["summary"]
-    else:
+    if res != []:
         return "\n".join(res)
+    elif paragraph == 0:
+        return j["info"]["description"]
+    else:
+        return j["info"]["summary"]
 
 def store_json(resp, pkg):
     json_file = json_file_template.format(pkg_name=pkg)
@@ -157,7 +168,7 @@ def build_spec(resp, output):
     print(version_tag_template.format(pkg_ver=resp["info"]["version"]))
     print(release_tag_template)
     print(summary_tag_template.format(pkg_sum=resp["info"]["summary"]))
-    print(license_tag_template.format(pkg_lic=resp["info"]["license"]))
+    print(license_tag_template.format(pkg_lic=get_license(resp)))
     print(home_tag_template.format(pkg_home=resp["info"]["project_urls"]["Homepage"]))
     print(source_tag_template.format(pkg_source=get_source_url(resp)))
     get_buildarch(resp)
@@ -201,6 +212,12 @@ def build_spec(resp, output):
     print("if [ -d example ]; then cp -arf example %{buildroot}/%{_pkgdocdir}; fi")
     print("if [ -d examples ]; then cp -arf examples %{buildroot}/%{_pkgdocdir}; fi")
     print("pushd %{buildroot}")
+    print("if [ -d usr/lib ]; then")
+    print("\tfind usr/lib -type f -printf \"/%h/%f\\n\" >> filelist.lst")
+    print("fi")
+    print("if [ -d usr/lib64 ]; then")
+    print("\tfind usr/lib64 -type f -printf \"/%h/%f\\n\" >> filelist.lst")
+    print("fi")
     print("if [ -d usr/bin ]; then")
     print("\tfind usr/bin -type f -printf \"/%h/%f\\n\" >> filelist.lst")
     print("fi")
@@ -215,9 +232,9 @@ def build_spec(resp, output):
 #    print("%{python3_sitelib}/"+resp["info"]["name"])
 
     if build_noarch:
-        print("%{python3_sitelib}/*")
+        print("%dir %{python3_sitelib}/*")
     else:
-        print("%{python3_sitearch}/*")
+        print("%dir %{python3_sitearch}/*")
 
     print("")
     print("%files help")
