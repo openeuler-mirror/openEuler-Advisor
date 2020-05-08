@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2018-2019. All rights reserved.
 # licensed under the Mulan PSL v2.
@@ -12,9 +13,6 @@
 # Create: 2020-05-07
 # Description: provide a tool to package python module automatically
 # ******************************************************************************/
-
-
-#!/usr/bin/python3
 
 from urllib import request
 from pprint import pprint
@@ -37,6 +35,10 @@ source_tag_template = 'Source0:\t{pkg_source}'
 buildreq_tag_template = 'BuildRequires:\t{req}'
 
 
+# TODO List
+# 1. Need a reliable way to get description of module
+# 2. requires_dist has some dependency restirction, need to present
+# 3. dependency outside python (i.e. pycurl depends on libcurl) doesn't exist in pipy
 
 def get_source_url(j):
     v = j["info"]["version"]
@@ -47,9 +49,25 @@ def get_source_url(j):
     return ""
 
 def get_description(j):
-    n = j["info"]["name"]
-    return "blahblah\nblahblah\n"
-
+    desc = j["info"]["description"].splitlines()
+    res = []
+    paragraph = 0
+    for d in desc:
+        if len(d.strip()) == 0:
+            continue
+        first_char = d.strip()[0]
+        ignore_line = False
+        if d.strip().startswith("===") or d.strip().startswith("---"):
+            paragraph = paragraph + 1
+            ignore_line = True
+        elif d.strip().startswith(":") or d.strip().startswith(".."):
+            ignore_line = True
+        if ignore_line != True and paragraph == 1:
+            res.append(d)
+        if paragraph >= 2:
+            del res[-1]
+            return "\n".join(res)
+    return "\n".join(res)
 
 def store_json(resp, pkg):
     json_file = json_file_template.format(pkg_name=pkg)
