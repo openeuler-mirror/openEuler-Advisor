@@ -23,6 +23,9 @@ import re
 import datetime
 import argparse
 import subprocess
+import os
+from pathlib import Path
+import wget
 
 url_template = 'https://pypi.org/pypi/{pkg_name}/json'
 json_file_template = '{pkg_name}.json'
@@ -120,8 +123,9 @@ def get_description(j):
     else:
         return j["info"]["summary"]
 
-def store_json(resp, pkg):
-    json_file = json_file_template.format(pkg_name=pkg)
+def store_json(resp, pkg, spath):
+    fname = json_file_template.format(pkg_name=pkg)
+    json_file = os.path.join(spath, fname)
     
     # if file exist, do nothing 
     if path.exists(json_file) and path.isfile(json_file):
@@ -141,19 +145,78 @@ def get_pkg_json(pkg):
     return resp
 
 
-
-def download_source(resp):
-    subprocess.run(["wget", get_source_url(resp)])
+def download_source(resp, tgtpath):
+    if (os.path.exists(tgtpath) == False):
+        print("download path %s does not exist\n", tgtpath)
+        return Fals
+    s_url = get_source_url(resp)
+    wget.download(s_url, out=tgtpath)
     return
 
-def prepare_rpm_build_env(rootdir):
+def prepare_rpm_build_env(buildroot):
+    if (os.path.exists(buildroot) == False):
+        print("Build Root path %s does not exist\n", buildroot)
+        return False
+
+    bpath=os.path.join(buildroot, "SPECS")
+    if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
+    bpath=os.path.join(buildroot, "BUILD")
+    if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
+    bpath=os.path.join(buildroot, "SOURCES")
+    if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
+    bpath=os.path.join(buildroot, "SRPMS")
+    if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
+    bpath=os.path.join(buildroot, "RPMS")
+    if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
+    bpath=os.path.join(buildroot, "BUILDROOT")
+    if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
+
     return True
 
-def build_rpm(resp):
-    if(prepare_rpm_build_env() == False):
-        return
+def installed_package(pkg):
+    print(pkg)
+    ret = subprocess.call(["rpm", "-qi", pkg])
+    if ret == 0:
+        return True
+    return False
 
-    return
+def build_package(specfile):
+    ret = subprocess.call(["rpmbuild", "-ba", specfile])
+    return ret
+
+def build_rpm(resp, buildroot):
+    if(prepare_rpm_build_env(buildroot) == False):
+        return False
+
+    specfile = os.path.join(buildroot, "SPECS", "python-"+resp["info"]["name"]+".spec")
+    req_list = build_spec(resp, specfile)
+    for req in req_list:
+        if (installed_package(req) == False):
+            return req
+
+    download_source(resp, os.path.join(buildroot, "SOURCES"))
+
+    build_package(specfile)
+
+    return ""
+
+def refine_requires(req):
+    ra = req.split(";", 1)
+    #
+    # Do not add requires which has ;, which is often has very complicated precondition
+    #
+    if (len(ra) >= 2):
+        return ""
+    freq = ra[0].replace('(', '')
+    freq = freq.replace(')', ' ')
+
+    return "python3-"+ freq
 
 
 def build_spec(resp, output):
@@ -161,7 +224,7 @@ def build_spec(resp, output):
     if (output == ""):
         print()
     else:
-        sys.stdout = open(output,'w')
+        sys.stdout = open(output,'w+')
 
     
     print(name_tag_template.format(pkg_name=resp["info"]["name"]))
@@ -188,6 +251,18 @@ def build_spec(resp, output):
         print(buildreq_tag_template.format(req='python3-cffi'))
         print(buildreq_tag_template.format(req='gcc'))
         print(buildreq_tag_template.format(req='gdb'))
+
+
+    req_list=[]
+    rds = resp["info"]["requires_dist"]
+    if rds != None:
+        for rp in rds:
+            br = refine_requires(rp)
+            if (br == ""):
+                continue
+            print(buildreq_tag_template.format(req=br))
+            name=str.lstrip(br).split(" ")
+            req_list.append(name[0])
 
     print("%description -n python3-"+resp["info"]["name"])
     print(get_description(resp))
@@ -247,20 +322,24 @@ def build_spec(resp, output):
 
     sys.stdout = tmp
 
+    return req_list
+
 
 if __name__ == "__main__":
+
+    dft_root_path=os.path.join(str(Path.home()), "rpmbuild")
 
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-s", "--spec", help="Create spec file", action="store_true")
     parser.add_argument("-b", "--build", help="Build rpm package", action="store_true")
-    parser.add_argument("-d", "--download", help="Download source file", action="store_true")
+    parser.add_argument("-r", "--rootpath", help="Build rpm package in root path", type=str, default=dft_root_path)
+    parser.add_argument("-d", "--download", help="Download source file indicated path", action="store_true")
+    parser.add_argument("-p", "--path", help="indicated path to store files", type=str, default=os.getcwd())
     parser.add_argument("-j", "--json", help="Get Package JSON info", action="store_true")
     parser.add_argument("-o", "--output", help="Output to file", type=str, default="")
     parser.add_argument("pkg", type=str, help="The Python Module Name")
     args=parser.parse_args()
-
-    print(args)
 
     resp=get_pkg_json(args.pkg)
 
@@ -268,11 +347,13 @@ if __name__ == "__main__":
         build_spec(resp, args.output)
 
     if (args.build):
-        build_rpm(resp)
+        ret = build_rpm(resp, args.rootpath)
+        if ret != "":
+            print("BuildRequire : %s" % ret)
 
     if (args.download):
-        download_source(resp)
+        download_source(resp, args.path)
 
     if (args.json):
-        store_json(resp, args.pkg)
+        store_json(resp, args.pkg, args.path)
 
