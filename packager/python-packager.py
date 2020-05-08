@@ -19,8 +19,10 @@ from pprint import pprint
 from os import path
 import json
 import sys
+import re
 import datetime
 import argparse
+import subprocess
 
 url_template = 'https://pypi.org/pypi/{pkg_name}/json'
 json_file_template = '{pkg_name}.json'
@@ -50,16 +52,17 @@ def get_source_url(j):
     return ""
 
 def transform_module_name(n):
-    if n.find("/") != -1 or n.find(".") != -1:
-        # this seems to be file instead of module
-        return ""
     # remove ()
-    ns = n.split("()")
+    ns = re.split("[()]", n)
     if ns[0].startswith("python-"):
+        ns[0] = ns[0].replace("python-", "python3-")
         return " ".join(ns) 
     else:
-        ns[0] = "python-"+ns[0] 
-        return " ".join(ns)
+        ns[0] = "python3-"+ns[0] 
+        if ns[0].find("/") != -1 or ns[0].find(".") != -1:
+            return ""
+        else:
+            return " ".join(ns)
 
 def get_requires(j):
     rs = j["info"]["requires_dist"]
@@ -102,7 +105,7 @@ def get_description(j):
             del res[-1]
             return "\n".join(res)
     if res == []:
-        return "No default description found for this module"
+        return j["info"]["summary"]
     else:
         return "\n".join(res)
 
@@ -129,6 +132,7 @@ def get_pkg_json(pkg):
 
 
 def download_source(resp):
+    subprocess.run(["wget", get_source_url(resp)])
     return
 
 def prepare_rpm_build_env(rootdir):
@@ -165,6 +169,7 @@ def build_spec(resp, output):
     print("")
     print("%package -n python3-{name}".format(name=resp["info"]["name"]))
     print(summary_tag_template.format(pkg_sum=resp["info"]["summary"]))
+    print("Provides:\tpython-"+resp["info"]["name"])
     print(buildreq_tag_template.format(req='python3-devel'))
     print(buildreq_tag_template.format(req='python3-setuptools'))
 
@@ -240,7 +245,7 @@ if __name__ == "__main__":
         build_rpm(resp)
 
     if (args.download):
-        donwload_source(resp)
+        download_source(resp)
 
     if (args.json):
         store_json(resp, args.pkg)
