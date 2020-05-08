@@ -27,8 +27,8 @@ def clean_tag(tag, prj_info)
 	elsif prj_info.has_key?("tag_prefix") then
 		tag = tag.gsub(Regexp.new(prj_info["tag_prefix"]), "")
 	end
-	if prj_info.has_key?("seperator") then
-		tag = tag.gsub(prj_info["seperator"], ".")
+	if prj_info.has_key?("seperator") and prj_info["seperator"] != "." then
+		tag = tag.gsub(Regexp.new(prj_info["seperator"]), ".")
 	end
 	return tag.gsub("\n", "")
 end

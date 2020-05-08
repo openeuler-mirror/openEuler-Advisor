@@ -1,4 +1,51 @@
+---
 version_control: github
-src_repo:  jmacd/xdelta
-tag_prefix: ^v
-seperator: .
+src_repo: jmacd/xdelta
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-27 09:36:58.873377190 +00:00
+  raw_data: |
+    [
+      {
+        "name": "v3.1.0",
+        "zipball_url": "https://api.github.com/repos/jmacd/xdelta/zipball/v3.1.0",
+        "tarball_url": "https://api.github.com/repos/jmacd/xdelta/tarball/v3.1.0",
+        "commit": {
+          "sha": "4b4aed71a959fe11852e45242bb6524be85d3709",
+          "url": "https://api.github.com/repos/jmacd/xdelta/commits/4b4aed71a959fe11852e45242bb6524be85d3709"
+        },
+        "node_id": "MDM6UmVmMzI3NzU2MDY6djMuMS4w"
+      },
+      {
+        "name": "v3.0.11",
+        "zipball_url": "https://api.github.com/repos/jmacd/xdelta/zipball/v3.0.11",
+        "tarball_url": "https://api.github.com/repos/jmacd/xdelta/tarball/v3.0.11",
+        "commit": {
+          "sha": "81aebf78ae67c29f528088d65743643e5355e3d3",
+          "url": "https://api.github.com/repos/jmacd/xdelta/commits/81aebf78ae67c29f528088d65743643e5355e3d3"
+        },
+        "node_id": "MDM6UmVmMzI3NzU2MDY6djMuMC4xMQ=="
+      },
+      {
+        "name": "v3.0.10",
+        "zipball_url": "https://api.github.com/repos/jmacd/xdelta/zipball/v3.0.10",
+        "tarball_url": "https://api.github.com/repos/jmacd/xdelta/tarball/v3.0.10",
+        "commit": {
+          "sha": "c6493c5a57e1edc95fa27123e86fe14c3695f284",
+          "url": "https://api.github.com/repos/jmacd/xdelta/commits/c6493c5a57e1edc95fa27123e86fe14c3695f284"
+        },
+        "node_id": "MDM6UmVmMzI3NzU2MDY6djMuMC4xMA=="
+      },
+      {
+        "name": "v3.0.9",
+        "zipball_url": "https://api.github.com/repos/jmacd/xdelta/zipball/v3.0.9",
+        "tarball_url": "https://api.github.com/repos/jmacd/xdelta/tarball/v3.0.9",
+        "commit": {
+          "sha": "63c9404c28dbcde26a730f1c62b70e0994b240cc",
+          "url": "https://api.github.com/repos/jmacd/xdelta/commits/63c9404c28dbcde26a730f1c62b70e0994b240cc"
+        },
+        "node_id": "MDM6UmVmMzI3NzU2MDY6djMuMC45"
+      }
+    ]
+query_type: api.github.tags

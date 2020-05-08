@@ -1,4 +1,134 @@
+---
 version_control: github
-src_repo:  google/woff2
-tag_prefix: ^v
-seperator: .
+src_repo: google/woff2
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-04-27 08:46:36.946370500 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/google/woff2/releases/8496555",
+        "assets_url": "https://api.github.com/repos/google/woff2/releases/8496555/assets",
+        "upload_url": "https://uploads.github.com/repos/google/woff2/releases/8496555/assets{?name,label}",
+        "html_url": "https://github.com/google/woff2/releases/tag/v1.0.2",
+        "id": 8496555,
+        "node_id": "MDc6UmVsZWFzZTg0OTY1NTU=",
+        "tag_name": "v1.0.2",
+        "target_commitish": "master",
+        "name": "v1.0.2",
+        "draft": false,
+        "author": {
+          "login": "rsheeter",
+          "id": 6466432,
+          "node_id": "MDQ6VXNlcjY0NjY0MzI=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/6466432?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/rsheeter",
+          "html_url": "https://github.com/rsheeter",
+          "followers_url": "https://api.github.com/users/rsheeter/followers",
+          "following_url": "https://api.github.com/users/rsheeter/following{/other_user}",
+          "gists_url": "https://api.github.com/users/rsheeter/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/rsheeter/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/rsheeter/subscriptions",
+          "organizations_url": "https://api.github.com/users/rsheeter/orgs",
+          "repos_url": "https://api.github.com/users/rsheeter/repos",
+          "events_url": "https://api.github.com/users/rsheeter/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/rsheeter/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2017-11-13T18:31:28Z",
+        "published_at": "2017-11-13T18:34:12Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/google/woff2/tarball/v1.0.2",
+        "zipball_url": "https://api.github.com/repos/google/woff2/zipball/v1.0.2",
+        "body": "New release per request in #95"
+      },
+      {
+        "url": "https://api.github.com/repos/google/woff2/releases/8026443",
+        "assets_url": "https://api.github.com/repos/google/woff2/releases/8026443/assets",
+        "upload_url": "https://uploads.github.com/repos/google/woff2/releases/8026443/assets{?name,label}",
+        "html_url": "https://github.com/google/woff2/releases/tag/v1.0.1",
+        "id": 8026443,
+        "node_id": "MDc6UmVsZWFzZTgwMjY0NDM=",
+        "tag_name": "v1.0.1",
+        "target_commitish": "master",
+        "name": "WOFF2 1.0.1",
+        "draft": false,
+        "author": {
+          "login": "rsheeter",
+          "id": 6466432,
+          "node_id": "MDQ6VXNlcjY0NjY0MzI=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/6466432?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/rsheeter",
+          "html_url": "https://github.com/rsheeter",
+          "followers_url": "https://api.github.com/users/rsheeter/followers",
+          "following_url": "https://api.github.com/users/rsheeter/following{/other_user}",
+          "gists_url": "https://api.github.com/users/rsheeter/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/rsheeter/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/rsheeter/subscriptions",
+          "organizations_url": "https://api.github.com/users/rsheeter/orgs",
+          "repos_url": "https://api.github.com/users/rsheeter/repos",
+          "events_url": "https://api.github.com/users/rsheeter/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/rsheeter/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2017-10-06T15:17:35Z",
+        "published_at": "2017-10-06T15:19:03Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/google/woff2/tarball/v1.0.1",
+        "zipball_url": "https://api.github.com/repos/google/woff2/zipball/v1.0.1",
+        "body": "Updated CMakeLists.txt to set version to 1.0.1 so it would match the release."
+      },
+      {
+        "url": "https://api.github.com/repos/google/woff2/releases/8025936",
+        "assets_url": "https://api.github.com/repos/google/woff2/releases/8025936/assets",
+        "upload_url": "https://uploads.github.com/repos/google/woff2/releases/8025936/assets{?name,label}",
+        "html_url": "https://github.com/google/woff2/releases/tag/v1.0.0",
+        "id": 8025936,
+        "node_id": "MDc6UmVsZWFzZTgwMjU5MzY=",
+        "tag_name": "v1.0.0",
+        "target_commitish": "master",
+        "name": "WOFF2 1.0.0",
+        "draft": false,
+        "author": {
+          "login": "rsheeter",
+          "id": 6466432,
+          "node_id": "MDQ6VXNlcjY0NjY0MzI=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/6466432?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/rsheeter",
+          "html_url": "https://github.com/rsheeter",
+          "followers_url": "https://api.github.com/users/rsheeter/followers",
+          "following_url": "https://api.github.com/users/rsheeter/following{/other_user}",
+          "gists_url": "https://api.github.com/users/rsheeter/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/rsheeter/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/rsheeter/subscriptions",
+          "organizations_url": "https://api.github.com/users/rsheeter/orgs",
+          "repos_url": "https://api.github.com/users/rsheeter/repos",
+          "events_url": "https://api.github.com/users/rsheeter/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/rsheeter/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2017-10-05T23:24:29Z",
+        "published_at": "2017-10-06T14:47:26Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/google/woff2/tarball/v1.0.0",
+        "zipball_url": "https://api.github.com/repos/google/woff2/zipball/v1.0.0",
+        "body": "We are live in all the major browsers and Google Fonts so let's go ahead and mark ourselves as 1.0.0."
+      }
+    ]
+query_type: api.github.releases
