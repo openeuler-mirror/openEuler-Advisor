@@ -34,9 +34,10 @@ source_tag_template = 'Source0:\t{pkg_source}'
 
 buildreq_tag_template = 'BuildRequires:\t{req}'
 
+build_noarch = True # Usually python modules are arch independent
 
 # TODO List
-# 1. Need a reliable way to get description of module
+# 1. Need a reliable way to get description of module .. Partially done
 # 2. requires_dist has some dependency restirction, need to present
 # 3. dependency outside python (i.e. pycurl depends on libcurl) doesn't exist in pipy
 
@@ -47,6 +48,39 @@ def get_source_url(j):
         if r["packagetype"] == "sdist":
             return r["url"]
     return ""
+
+def transform_module_name(n):
+    if n.find("/") != -1 or n.find(".") != -1:
+        # this seems to be file instead of module
+        return ""
+    # remove ()
+    ns = n.split("()")
+    if ns[0].startswith("python-"):
+        return " ".join(ns) 
+    else:
+        ns[0] = "python-"+ns[0] 
+        return " ".join(ns)
+
+def get_requires(j):
+    rs = j["info"]["requires_dist"]
+    if rs == None:
+        return
+    for r in rs:
+        idx = r.find(";")
+        mod = transform_module_name(r[:idx])
+        if mod != "":
+            print ("Requires:\t"+mod)
+
+def get_buildarch(j):
+    v = j["info"]["version"]
+    rs = j["releases"][v]
+    for r in rs:
+        if r["packagetype"] == "bdist_wheel":
+            if r["url"].find("amd64") != -1:
+                global build_noarch
+                build_noarch = False
+                return
+    print("BuildArch:\tnoarch")
 
 def get_description(j):
     desc = j["info"]["description"].splitlines()
@@ -67,7 +101,10 @@ def get_description(j):
         if paragraph >= 2:
             del res[-1]
             return "\n".join(res)
-    return "\n".join(res)
+    if res == []:
+        return "No default description found for this module"
+    else:
+        return "\n".join(res)
 
 def store_json(resp, pkg):
     json_file = json_file_template.format(pkg_name=pkg)
@@ -119,7 +156,9 @@ def build_spec(resp, output):
     print(license_tag_template.format(pkg_lic=resp["info"]["license"]))
     print(home_tag_template.format(pkg_home=resp["info"]["project_urls"]["Homepage"]))
     print(source_tag_template.format(pkg_source=get_source_url(resp)))
-    print("BuildArch:   noarch")
+    get_buildarch(resp)
+    print("")
+    get_requires(resp)
     print("")
     print("%description")
     print(get_description(resp))
@@ -128,6 +167,12 @@ def build_spec(resp, output):
     print(summary_tag_template.format(pkg_sum=resp["info"]["summary"]))
     print(buildreq_tag_template.format(req='python3-devel'))
     print(buildreq_tag_template.format(req='python3-setuptools'))
+
+    if build_noarch == False:
+        print(buildreq_tag_template.format(req='python3-cffi'))
+        print(buildreq_tag_template.format(req='gcc'))
+        print(buildreq_tag_template.format(req='gdb'))
+
     print("%description -n python3-"+resp["info"]["name"])
     print(get_description(resp))
     print("")
@@ -154,7 +199,12 @@ def build_spec(resp, output):
     print("%files -n python3-{name}".format(name=resp["info"]["name"]))
 #    print("%{python3_sitelib}/*.egg-info/")
 #    print("%{python3_sitelib}/"+resp["info"]["name"])
-    print("%{python3_sitelib}/*")
+
+    if build_noarch:
+        print("%{python3_sitelib}/*")
+    else:
+        print("%{python3_sitearch}/*")
+
     print("")
     print("%files help")
     print("%{_pkgdocdir}")
