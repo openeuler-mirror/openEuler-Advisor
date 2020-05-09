@@ -1,0 +1,311 @@
+---
+version_control: github
+src_repo: acassen/keepalived
+tag_prefix: ^v
+seperator: .
+last_query:
+  time_stamp: 2020-05-07 02:29:54.617483357 -04:00
+  raw_data: |
+    [
+      {
+        "name": "v2.0.20",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.20",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.20",
+        "commit": {
+          "sha": "a0226b7050918f20f35c4690aab7f311a77a3210",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/a0226b7050918f20f35c4690aab7f311a77a3210"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjIw"
+      },
+      {
+        "name": "v2.0.19",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.19",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.19",
+        "commit": {
+          "sha": "6e3cf646763b7f2db1a7c7d6d9e140dc2de4bd60",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/6e3cf646763b7f2db1a7c7d6d9e140dc2de4bd60"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE5"
+      },
+      {
+        "name": "v2.0.18",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.18",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.18",
+        "commit": {
+          "sha": "c212f0ad0aadd7cb98eceea2bad42cf503091126",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/c212f0ad0aadd7cb98eceea2bad42cf503091126"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE4"
+      },
+      {
+        "name": "v2.0.17",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.17",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.17",
+        "commit": {
+          "sha": "2745a43cda8515aba03ff1966e7ce67aa74dfa19",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/2745a43cda8515aba03ff1966e7ce67aa74dfa19"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE3"
+      },
+      {
+        "name": "v2.0.16",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.16",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.16",
+        "commit": {
+          "sha": "c9d0b1e459a6d340aff800b72f248000921385c6",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/c9d0b1e459a6d340aff800b72f248000921385c6"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE2"
+      },
+      {
+        "name": "v2.0.15",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.15",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.15",
+        "commit": {
+          "sha": "304297e4f078968e71e8276da5babb49d2077487",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/304297e4f078968e71e8276da5babb49d2077487"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE1"
+      },
+      {
+        "name": "v2.0.14",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.14",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.14",
+        "commit": {
+          "sha": "0a04677ec835c31bcb23ee3627a34329d4d622d8",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/0a04677ec835c31bcb23ee3627a34329d4d622d8"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE0"
+      },
+      {
+        "name": "v2.0.13",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.13",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.13",
+        "commit": {
+          "sha": "807679a032e0a62956dbd5f92e2d6ff3156aba7c",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/807679a032e0a62956dbd5f92e2d6ff3156aba7c"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjEz"
+      },
+      {
+        "name": "v2.0.12",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.12",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.12",
+        "commit": {
+          "sha": "7078e6986c5a82d157317e8725d513c380ee0503",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/7078e6986c5a82d157317e8725d513c380ee0503"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjEy"
+      },
+      {
+        "name": "v2.0.11",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.11",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.11",
+        "commit": {
+          "sha": "9b02951abb37d292cdbd7a942cc77296e1f5abaf",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/9b02951abb37d292cdbd7a942cc77296e1f5abaf"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjEx"
+      },
+      {
+        "name": "v2.0.10",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.10",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.10",
+        "commit": {
+          "sha": "2a643028051b051fe67006c0f3f4be6a6eb48c7d",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/2a643028051b051fe67006c0f3f4be6a6eb48c7d"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjEw"
+      },
+      {
+        "name": "v2.0.9",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.9",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.9",
+        "commit": {
+          "sha": "6341b449291fdae2de25fe64e6906d1dd1bc7a05",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/6341b449291fdae2de25fe64e6906d1dd1bc7a05"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjk="
+      },
+      {
+        "name": "v2.0.8",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.8",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.8",
+        "commit": {
+          "sha": "dc3ed1e1e19f02f91edebe4dd1a5f6ec9daf0545",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/dc3ed1e1e19f02f91edebe4dd1a5f6ec9daf0545"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjg="
+      },
+      {
+        "name": "v2.0.7",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.7",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.7",
+        "commit": {
+          "sha": "c9e2da7a14513ae7979854afe57cd4cb0d1a3092",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/c9e2da7a14513ae7979854afe57cd4cb0d1a3092"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjc="
+      },
+      {
+        "name": "v2.0.6",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.6",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.6",
+        "commit": {
+          "sha": "d8a6ce173f7ff6b036ac1c79c873ea1f9d5154fb",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/d8a6ce173f7ff6b036ac1c79c873ea1f9d5154fb"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjY="
+      },
+      {
+        "name": "v2.0.5",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.5",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.5",
+        "commit": {
+          "sha": "ce13665045383608cc5c08746ac151b3ac1447f7",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/ce13665045383608cc5c08746ac151b3ac1447f7"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjU="
+      },
+      {
+        "name": "v2.0.4",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.4",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.4",
+        "commit": {
+          "sha": "b40c5e7461220d84fc2f5481325f2efdf6dc82ad",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/b40c5e7461220d84fc2f5481325f2efdf6dc82ad"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjQ="
+      },
+      {
+        "name": "v2.0.3",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.3",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.3",
+        "commit": {
+          "sha": "93a76d973e30b6347e6c4eae4ab3af268c72489b",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/93a76d973e30b6347e6c4eae4ab3af268c72489b"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjM="
+      },
+      {
+        "name": "v2.0.2",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.2",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.2",
+        "commit": {
+          "sha": "9093fe532ed8fcea92272c5bca6fd2571fa8345f",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/9093fe532ed8fcea92272c5bca6fd2571fa8345f"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjI="
+      },
+      {
+        "name": "v2.0.1",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.1",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.1",
+        "commit": {
+          "sha": "7b42efd1671be5f33281efb3c98ee4feee53c1ed",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/7b42efd1671be5f33281efb3c98ee4feee53c1ed"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjE="
+      },
+      {
+        "name": "v2.0.0",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v2.0.0",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v2.0.0",
+        "commit": {
+          "sha": "349089e6c6ade4563624a6d976e5877923762b7f",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/349089e6c6ade4563624a6d976e5877923762b7f"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2Mi4wLjA="
+      },
+      {
+        "name": "v1.4.5",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.4.5",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.4.5",
+        "commit": {
+          "sha": "907e41ad3c53e38a8c47334fd54afc759e9c9b2c",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/907e41ad3c53e38a8c47334fd54afc759e9c9b2c"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS40LjU="
+      },
+      {
+        "name": "v1.4.4",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.4.4",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.4.4",
+        "commit": {
+          "sha": "badd7f961c1fa1491cec00c7342bcc84790427a2",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/badd7f961c1fa1491cec00c7342bcc84790427a2"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS40LjQ="
+      },
+      {
+        "name": "v1.4.3",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.4.3",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.4.3",
+        "commit": {
+          "sha": "7c498aa7ebad6402adaee05108fa027d1296a99c",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/7c498aa7ebad6402adaee05108fa027d1296a99c"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS40LjM="
+      },
+      {
+        "name": "v1.4.2",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.4.2",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.4.2",
+        "commit": {
+          "sha": "335f2e120fdec8735c1f9cf4fbea07dc994042af",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/335f2e120fdec8735c1f9cf4fbea07dc994042af"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS40LjI="
+      },
+      {
+        "name": "v1.4.1",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.4.1",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.4.1",
+        "commit": {
+          "sha": "39ac904b6e07863c6dfa10b348364299c1f60e7a",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/39ac904b6e07863c6dfa10b348364299c1f60e7a"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS40LjE="
+      },
+      {
+        "name": "v1.4.0",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.4.0",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.4.0",
+        "commit": {
+          "sha": "5df908938bbb66bc46f66bc9d86f3fe9b3304b2a",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/5df908938bbb66bc46f66bc9d86f3fe9b3304b2a"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS40LjA="
+      },
+      {
+        "name": "v1.3.9",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.3.9",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.3.9",
+        "commit": {
+          "sha": "5efb85abebd56cb2fcc4abce1267af3da00f401e",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/5efb85abebd56cb2fcc4abce1267af3da00f401e"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS4zLjk="
+      },
+      {
+        "name": "v1.3.8",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.3.8",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.3.8",
+        "commit": {
+          "sha": "a060a36827528b5b81944b5a5e24144b120179fe",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/a060a36827528b5b81944b5a5e24144b120179fe"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS4zLjg="
+      },
+      {
+        "name": "v1.3.7",
+        "zipball_url": "https://api.github.com/repos/acassen/keepalived/zipball/v1.3.7",
+        "tarball_url": "https://api.github.com/repos/acassen/keepalived/tarball/v1.3.7",
+        "commit": {
+          "sha": "fdeffa2de5d3e83a8dd76766b50186ee863b6c3d",
+          "url": "https://api.github.com/repos/acassen/keepalived/commits/fdeffa2de5d3e83a8dd76766b50186ee863b6c3d"
+        },
+        "node_id": "MDM6UmVmNDk4ODc5NTp2MS4zLjc="
+      }
+    ]
+query_type: api.github.tags

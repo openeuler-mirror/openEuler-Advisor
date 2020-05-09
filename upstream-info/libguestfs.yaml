@@ -1,0 +1,311 @@
+---
+version_control: github
+src_repo: libguestfs/libguestfs
+tag_prefix: ^v
+seperator: .
+last_query:
+  time_stamp: 2020-05-07 02:35:39.741491821 -04:00
+  raw_data: |
+    [
+      {
+        "name": "v1.42.0",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.42.0",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.42.0",
+        "commit": {
+          "sha": "da6324ea3145be494c76ac424db19d4eda914bbd",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/da6324ea3145be494c76ac424db19d4eda914bbd"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40Mi4w"
+      },
+      {
+        "name": "v1.41.8",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.8",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.8",
+        "commit": {
+          "sha": "a7ed7752cf701a6db05421f48f062af1b44c8915",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/a7ed7752cf701a6db05421f48f062af1b44c8915"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS44"
+      },
+      {
+        "name": "v1.41.6",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.6",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.6",
+        "commit": {
+          "sha": "8097dc16e7454221c2ffde2c4ca6f26889ec9cc6",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/8097dc16e7454221c2ffde2c4ca6f26889ec9cc6"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS42"
+      },
+      {
+        "name": "v1.41.5",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.5",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.5",
+        "commit": {
+          "sha": "2299154dc8484a7889d95e0234318ec69c56157a",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/2299154dc8484a7889d95e0234318ec69c56157a"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS41"
+      },
+      {
+        "name": "v1.41.4",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.4",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.4",
+        "commit": {
+          "sha": "bf5ee2fb21ad46e49e66aa4ea0b9ee7887b2f196",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/bf5ee2fb21ad46e49e66aa4ea0b9ee7887b2f196"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS40"
+      },
+      {
+        "name": "v1.41.3",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.3",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.3",
+        "commit": {
+          "sha": "ad58324c705b584763a9f36d7422168fc8af6fef",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/ad58324c705b584763a9f36d7422168fc8af6fef"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS4z"
+      },
+      {
+        "name": "v1.41.2",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.2",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.2",
+        "commit": {
+          "sha": "e8ab5b451a3577e7045696d4d06bc5a0bf7df65a",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/e8ab5b451a3577e7045696d4d06bc5a0bf7df65a"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS4y"
+      },
+      {
+        "name": "v1.41.1",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.41.1",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.41.1",
+        "commit": {
+          "sha": "2a5ea2892eb2c4c49a9e8eae3cddfc0c07f8d03c",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/2a5ea2892eb2c4c49a9e8eae3cddfc0c07f8d03c"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MS4x"
+      },
+      {
+        "name": "v1.40.2",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.40.2",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.40.2",
+        "commit": {
+          "sha": "91698a8500d19e06811133bfab27d1e1e65a583e",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/91698a8500d19e06811133bfab27d1e1e65a583e"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MC4y"
+      },
+      {
+        "name": "v1.40.1",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.40.1",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.40.1",
+        "commit": {
+          "sha": "1f026244ba5891a00617f4ab8c41b8680ff8c497",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/1f026244ba5891a00617f4ab8c41b8680ff8c497"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MC4x"
+      },
+      {
+        "name": "v1.40.0",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.40.0",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.40.0",
+        "commit": {
+          "sha": "1de72f8f00600bcaa76742dcfd366fb702eef3c2",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/1de72f8f00600bcaa76742dcfd366fb702eef3c2"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS40MC4w"
+      },
+      {
+        "name": "v1.39.14",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.14",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.14",
+        "commit": {
+          "sha": "6aa46f4303ad1b1e7e7ee83f3745161d76b26ed2",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/6aa46f4303ad1b1e7e7ee83f3745161d76b26ed2"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4xNA=="
+      },
+      {
+        "name": "v1.39.13",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.13",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.13",
+        "commit": {
+          "sha": "08a14d9fa7caf579c8505afcd87d27e5318f46e0",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/08a14d9fa7caf579c8505afcd87d27e5318f46e0"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4xMw=="
+      },
+      {
+        "name": "v1.39.12",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.12",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.12",
+        "commit": {
+          "sha": "b7cf2dfff885c1b43694d6fc021f1d1169867d77",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/b7cf2dfff885c1b43694d6fc021f1d1169867d77"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4xMg=="
+      },
+      {
+        "name": "v1.39.11",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.11",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.11",
+        "commit": {
+          "sha": "e2bafffce24cd8c0436bf887ee166a3ae2257bbb",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/e2bafffce24cd8c0436bf887ee166a3ae2257bbb"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4xMQ=="
+      },
+      {
+        "name": "v1.39.10",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.10",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.10",
+        "commit": {
+          "sha": "165add060ebe75e00354e4c4a242831a4aea88fe",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/165add060ebe75e00354e4c4a242831a4aea88fe"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4xMA=="
+      },
+      {
+        "name": "v1.39.9",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.9",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.9",
+        "commit": {
+          "sha": "598e879ad1497786f2f427bd121a937ca97c4d20",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/598e879ad1497786f2f427bd121a937ca97c4d20"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS45"
+      },
+      {
+        "name": "v1.39.8",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.8",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.8",
+        "commit": {
+          "sha": "040cb937170139a91222840d52fda9725ff86f6a",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/040cb937170139a91222840d52fda9725ff86f6a"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS44"
+      },
+      {
+        "name": "v1.39.7",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.7",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.7",
+        "commit": {
+          "sha": "0521a2f9b72cd78a6648e0cab3529c2eb04ced4b",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/0521a2f9b72cd78a6648e0cab3529c2eb04ced4b"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS43"
+      },
+      {
+        "name": "v1.39.6",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.6",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.6",
+        "commit": {
+          "sha": "1d7b63447a4b04c87bdd675f4f0246eed39da7e9",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/1d7b63447a4b04c87bdd675f4f0246eed39da7e9"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS42"
+      },
+      {
+        "name": "v1.39.5",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.5",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.5",
+        "commit": {
+          "sha": "f366da30e65545260e40d514b4340ac349e02455",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/f366da30e65545260e40d514b4340ac349e02455"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS41"
+      },
+      {
+        "name": "v1.39.4",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.4",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.4",
+        "commit": {
+          "sha": "81d951239fc7277a77117165aec2a6b8d5de86a6",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/81d951239fc7277a77117165aec2a6b8d5de86a6"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS40"
+      },
+      {
+        "name": "v1.39.3",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.3",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.3",
+        "commit": {
+          "sha": "2fdaf27b08e22547ca1536c45ddc14b0330131a6",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/2fdaf27b08e22547ca1536c45ddc14b0330131a6"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4z"
+      },
+      {
+        "name": "v1.39.2",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.2",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.2",
+        "commit": {
+          "sha": "3a572b5fea4dbfe4f0a886db5d15088607e6d7a4",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/3a572b5fea4dbfe4f0a886db5d15088607e6d7a4"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4y"
+      },
+      {
+        "name": "v1.39.1",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.39.1",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.39.1",
+        "commit": {
+          "sha": "55b347d71c134da3f8fb4a13c822db1d1ca257f1",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/55b347d71c134da3f8fb4a13c822db1d1ca257f1"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOS4x"
+      },
+      {
+        "name": "v1.38.6",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.38.6",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.38.6",
+        "commit": {
+          "sha": "fe1ee20a59ba62a89ef7e233b5b909c1942684bf",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/fe1ee20a59ba62a89ef7e233b5b909c1942684bf"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOC42"
+      },
+      {
+        "name": "v1.38.5",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.38.5",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.38.5",
+        "commit": {
+          "sha": "51991281d6a3bd634e4c8733fd241770a16a985e",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/51991281d6a3bd634e4c8733fd241770a16a985e"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOC41"
+      },
+      {
+        "name": "v1.38.4",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.38.4",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.38.4",
+        "commit": {
+          "sha": "daabd0138b6467d4d02e100a046c07cff6d42cd0",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/daabd0138b6467d4d02e100a046c07cff6d42cd0"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOC40"
+      },
+      {
+        "name": "v1.38.3",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.38.3",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.38.3",
+        "commit": {
+          "sha": "474853a12ef3f315ff1c5d0b153b469dfce226b0",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/474853a12ef3f315ff1c5d0b153b469dfce226b0"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOC4z"
+      },
+      {
+        "name": "v1.38.2",
+        "zipball_url": "https://api.github.com/repos/libguestfs/libguestfs/zipball/v1.38.2",
+        "tarball_url": "https://api.github.com/repos/libguestfs/libguestfs/tarball/v1.38.2",
+        "commit": {
+          "sha": "8287f4f1198671600aab6a373fcbc0035ae1f70f",
+          "url": "https://api.github.com/repos/libguestfs/libguestfs/commits/8287f4f1198671600aab6a373fcbc0035ae1f70f"
+        },
+        "node_id": "MDM6UmVmMzE0NTY2MDp2MS4zOC4y"
+      }
+    ]
+query_type: api.github.tags
