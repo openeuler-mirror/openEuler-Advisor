@@ -114,7 +114,12 @@ def get_requires(j):
         idx = r.find(";")
         mod = transform_module_name(r[:idx])
         if mod != "":
-            print ("Requires:\t" + mod)
+            #print ("Requires:\t" + mod)
+            #
+            # have to remover version info because sometime the version info like
+            # <0.3 can not be recogonized by rpmbuild
+            #
+            print("Requires:\t" + mod.lstrip().split(" ")[0])
 
 
 def refine_requires(req):
@@ -124,11 +129,29 @@ def refine_requires(req):
     ra = req.split(";", 1)
     #
     # Do not add requires which has ;, which is often has very complicated precondition
-    #
-    if (len(ra) >= 2):
-        return ""
+    # TODO: need more parsing of the denpency after ;
+    #if (len(ra) >= 2):
+    #    return ""
     return transform_module_name(ra[0])
 
+def get_build_requires(resp):
+    req_list=[]
+    rds = resp["info"]["requires_dist"]
+    if rds is not None:
+        for rp in rds:
+            br = refine_requires(rp)
+            if (br == ""):
+                continue
+            #
+            # Do not output BuildRequires: 
+            # just collect all build requires and using pip to install
+            # than can help to build all rpm withoud trap into 
+            # build dependency nightmare
+            #
+            #print(buildreq_tag_template.format(req=br))
+            name=str.lstrip(br).split(" ")
+            req_list.append(name[0])
+    return req_list
 
 def get_buildarch(j):
     """
@@ -226,29 +249,15 @@ def prepare_rpm_build_env(buildroot):
         print("Build Root path %s does not exist\n", buildroot)
         return False
 
-    bpath=os.path.join(buildroot, "SPECS")
-    if (os.path.exists(bpath) == False):
-        os.mkdir(bpath)
-    bpath=os.path.join(buildroot, "BUILD")
-    if (os.path.exists(bpath) == False):
-        os.mkdir(bpath)
-    bpath=os.path.join(buildroot, "SOURCES")
-    if (os.path.exists(bpath) == False):
-        os.mkdir(bpath)
-    bpath=os.path.join(buildroot, "SRPMS")
-    if (os.path.exists(bpath) == False):
-        os.mkdir(bpath)
-    bpath=os.path.join(buildroot, "RPMS")
-    if (os.path.exists(bpath) == False):
-        os.mkdir(bpath)
-    bpath=os.path.join(buildroot, "BUILDROOT")
-    if (os.path.exists(bpath) == False):
-        os.mkdir(bpath)
+    for sdir in ['SPECS', 'BUILD', 'SOURCES', 'SRPMS', 'RPMS', 'BUILDROOT']:
+        bpath = os.path.join(buildroot, sdir)
+        if (os.path.exists(bpath) == False):
+            os.mkdir(bpath)
 
     return True
 
 
-def installed_package(pkg):
+def try_install_package(pkg):
     """
     install packages listed in build requires
     """
@@ -256,8 +265,27 @@ def installed_package(pkg):
     ret = subprocess.call(["rpm", "-qi", pkg])
     if ret == 0:
         return True
-    return False
 
+    # try pip installation
+    pip_name = pkg.split("-")
+    if len(pip_name) == 2:
+        ret = subprocess.call(["pip3", "install", "--user", pip_name[1]])
+    else:
+        ret = subprocess.call(["pip3", "install", "--user", pip_name[0]])
+
+    if ret != 0:
+        print("%s can not be installed correctly, Fix it later, go ahead to do building..." % pip_name)
+
+    #
+    # TODO: try to build anyway, fix it later
+    #
+    return True
+
+def prepare_dependencies(req_list):
+    for req in req_list:
+        if (try_install_package(req) == False):
+            return req
+    return ""
 
 def build_package(specfile):
     """
@@ -265,6 +293,7 @@ def build_package(specfile):
     """
     ret = subprocess.call(["rpmbuild", "-ba", specfile])
     return ret
+
 
 
 def build_rpm(resp, buildroot):
@@ -275,10 +304,12 @@ def build_rpm(resp, buildroot):
         return False
 
     specfile = os.path.join(buildroot, "SPECS", "python-" + resp["info"]["name"] + ".spec")
+
     req_list = build_spec(resp, specfile)
-    for req in req_list:
-        if (installed_package(req) == False):
-            return req
+    ret = prepare_dependencies(req_list)
+    if ret != "":
+        print("%s can not be installed automatically, Please handle it" % ret)
+        return ret
 
     download_source(resp, os.path.join(buildroot, "SOURCES"))
 
@@ -291,6 +322,8 @@ def build_spec(resp, output):
     """
     print out the spec file
     """
+    if os.path.isdir(output):
+        output = os.path.join(output, "python3-" + resp["info"]["name"]) 
     tmp = sys.stdout
     if (output == ""):
         print()
@@ -323,16 +356,7 @@ def build_spec(resp, output):
         print(buildreq_tag_template.format(req='gdb'))
 
 
-    req_list=[]
-    rds = resp["info"]["requires_dist"]
-    if rds is not None:
-        for rp in rds:
-            br = refine_requires(rp)
-            if (br == ""):
-                continue
-            print(buildreq_tag_template.format(req=br))
-            name=str.lstrip(br).split(" ")
-            req_list.append(name[0])
+    build_req_list=get_build_requires(resp)
 
     print("%description -n python3-" + resp["info"]["name"])
     print(get_description(resp))
@@ -392,7 +416,7 @@ def build_spec(resp, output):
 
     sys.stdout = tmp
 
-    return req_list
+    return build_req_list
 
 
 if __name__ == "__main__":
