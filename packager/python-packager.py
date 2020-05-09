@@ -49,6 +49,11 @@ build_noarch = True # Usually python modules are arch independent
 
 
 def get_license(j):
+    """
+    By default, the license info can be achieved from json["info"]["license"]
+    In rare cases it doesn't work.
+    We fall back to json["info"]["classifiers"], it looks like License :: OSI Approved :: BSD Clause
+    """
     if j["info"]["license"] != "":
         return j["info"]["license"]
     for k in j["info"]["classifiers"]:
@@ -59,6 +64,10 @@ def get_license(j):
 
 
 def get_source_url(j):
+    """
+    return URL for source file for the latest version
+    return "" in errors
+    """
     v = j["info"]["version"]
     rs = j["releases"][v]
     for r in rs:
@@ -68,6 +77,11 @@ def get_source_url(j):
 
 
 def transform_module_name(n):
+    """
+    return module name with version restriction.
+    Any string with '.' or '/' is considered file, and will be ignored
+    Modules start with python- will be changed to python3- for consistency.
+    """
     # remove ()
     ns = re.split("[()]", n)
     if ns[0].startswith("python-"):
@@ -82,6 +96,9 @@ def transform_module_name(n):
 
 
 def get_requires(j):
+    """
+    return all requires no matter if extra is required.
+    """
     rs = j["info"]["requires_dist"]
     if rs is None:
         return
@@ -93,6 +110,9 @@ def get_requires(j):
 
 
 def refine_requires(req):
+    """
+    return only requires without ';' (thus no extra)
+    """
     ra = req.split(";", 1)
     #
     # Do not add requires which has ;, which is often has very complicated precondition
@@ -103,6 +123,10 @@ def refine_requires(req):
 
 
 def get_buildarch(j):
+    """
+    If this module has a prebuild package for amd64, then it is arch dependent.
+    print BuildArch tag if needed.
+    """
     v = j["info"]["version"]
     rs = j["releases"][v]
     for r in rs:
@@ -115,6 +139,12 @@ def get_buildarch(j):
 
 
 def get_description(j):
+    """
+    return description.
+    Usually it's json["info"]["description"]
+    If it's rst style, then only use the content for the first paragraph, and remove all tag line.
+    For empty description, use summary instead.
+    """
     desc = j["info"]["description"].splitlines()
     res = []
     paragraph = 0
@@ -142,6 +172,9 @@ def get_description(j):
 
 
 def store_json(resp, pkg, spath):
+    """
+    save json file
+    """
     fname = json_file_template.format(pkg_name=pkg)
     json_file = os.path.join(spath, fname)
     
@@ -155,6 +188,9 @@ def store_json(resp, pkg, spath):
 
 
 def get_pkg_json(pkg):
+    """
+    recieve json from pypi.org
+    """
     url = url_template.format(pkg_name=pkg)
 
     u = request.urlopen(url)
@@ -164,13 +200,20 @@ def get_pkg_json(pkg):
 
 
 def download_source(resp, tgtpath):
+    """
+    download source file from url, and save it to target path
+    """
     if (os.path.exists(tgtpath) == False):
         print("download path %s does not exist\n", tgtpath)
         return False
     s_url = get_source_url(resp)
     return subprocess.call(["wget", s_url, "-P", tgtpath])
 
+
 def prepare_rpm_build_env(buildroot):
+    """
+    prepare environment for rpmbuild
+    """
     if (os.path.exists(buildroot) == False):
         print("Build Root path %s does not exist\n", buildroot)
         return False
@@ -198,6 +241,9 @@ def prepare_rpm_build_env(buildroot):
 
 
 def installed_package(pkg):
+    """
+    install packages listed in build requires
+    """
     print(pkg)
     ret = subprocess.call(["rpm", "-qi", pkg])
     if ret == 0:
@@ -206,11 +252,17 @@ def installed_package(pkg):
 
 
 def build_package(specfile):
+    """
+    build rpm package with rpmbuild
+    """
     ret = subprocess.call(["rpmbuild", "-ba", specfile])
     return ret
 
 
 def build_rpm(resp, buildroot):
+    """
+    full process to build rpm
+    """
     if(prepare_rpm_build_env(buildroot) == False):
         return False
 
@@ -228,12 +280,14 @@ def build_rpm(resp, buildroot):
 
 
 def build_spec(resp, output):
+    """
+    print out the spec file
+    """
     tmp = sys.stdout
     if (output == ""):
         print()
     else:
-        sys.stdout = open(output,'w+')
-
+        sys.stdout = open(output, 'w+')
     
     print(name_tag_template.format(pkg_name=resp["info"]["name"]))
     print(version_tag_template.format(pkg_ver=resp["info"]["version"]))
