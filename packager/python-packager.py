@@ -46,6 +46,7 @@ build_noarch = True # Usually python modules are arch independent
 # 2. requires_dist has some dependency restirction, need to present
 # 3. dependency outside python (i.e. pycurl depends on libcurl) doesn't exist in pipy
 
+
 def get_license(j):
     if j["info"]["license"] != "":
         return j["info"]["license"]
@@ -55,6 +56,7 @@ def get_license(j):
             return ks[2].strip()
     return ""
 
+
 def get_source_url(j):
     v = j["info"]["version"]
     rs = j["releases"][v]
@@ -63,6 +65,7 @@ def get_source_url(j):
             return r["url"]
     return ""
 
+
 def transform_module_name(n):
     # remove ()
     ns = re.split("[()]", n)
@@ -70,21 +73,23 @@ def transform_module_name(n):
         ns[0] = ns[0].replace("python-", "python3-")
         return " ".join(ns) 
     else:
-        ns[0] = "python3-"+ns[0] 
+        ns[0] = "python3-" + ns[0] 
         if ns[0].find("/") != -1 or ns[0].find(".") != -1:
             return ""
         else:
             return " ".join(ns)
 
+
 def get_requires(j):
     rs = j["info"]["requires_dist"]
-    if rs == None:
+    if rs is None:
         return
     for r in rs:
         idx = r.find(";")
         mod = transform_module_name(r[:idx])
         if mod != "":
-            print ("Requires:\t"+mod)
+            print ("Requires:\t" + mod)
+
 
 def refine_requires(req):
     ra = req.split(";", 1)
@@ -94,6 +99,7 @@ def refine_requires(req):
     if (len(ra) >= 2):
         return ""
     return transform_module_name(ra[0]
+
 
 def get_buildarch(j):
     v = j["info"]["version"]
@@ -105,6 +111,7 @@ def get_buildarch(j):
                 build_noarch = False
                 return
     print("BuildArch:\tnoarch")
+
 
 def get_description(j):
     desc = j["info"]["description"].splitlines()
@@ -131,6 +138,7 @@ def get_description(j):
         return j["info"]["description"]
     else:
         return j["info"]["summary"]
+
 
 def store_json(resp, pkg, spath):
     fname = json_file_template.format(pkg_name=pkg)
@@ -188,6 +196,7 @@ def prepare_rpm_build_env(buildroot):
 
     return True
 
+
 def installed_package(pkg):
     print(pkg)
     ret = subprocess.call(["rpm", "-qi", pkg])
@@ -195,15 +204,17 @@ def installed_package(pkg):
         return True
     return False
 
+
 def build_package(specfile):
     ret = subprocess.call(["rpmbuild", "-ba", specfile])
     return ret
+
 
 def build_rpm(resp, buildroot):
     if(prepare_rpm_build_env(buildroot) == False):
         return False
 
-    specfile = os.path.join(buildroot, "SPECS", "python-"+resp["info"]["name"]+".spec")
+    specfile = os.path.join(buildroot, "SPECS", "python-" + resp["info"]["name"] + ".spec")
     req_list = build_spec(resp, specfile)
     for req in req_list:
         if (installed_package(req) == False):
@@ -240,7 +251,7 @@ def build_spec(resp, output):
     print("")
     print("%package -n python3-{name}".format(name=resp["info"]["name"]))
     print(summary_tag_template.format(pkg_sum=resp["info"]["summary"]))
-    print("Provides:\tpython-"+resp["info"]["name"])
+    print("Provides:\tpython-" + resp["info"]["name"])
     print(buildreq_tag_template.format(req='python3-devel'))
     print(buildreq_tag_template.format(req='python3-setuptools'))
 
@@ -252,7 +263,7 @@ def build_spec(resp, output):
 
     req_list=[]
     rds = resp["info"]["requires_dist"]
-    if rds != None:
+    if rds is not None:
         for rp in rds:
             br = refine_requires(rp)
             if (br == ""):
@@ -261,7 +272,7 @@ def build_spec(resp, output):
             name=str.lstrip(br).split(" ")
             req_list.append(name[0])
 
-    print("%description -n python3-"+resp["info"]["name"])
+    print("%description -n python3-" + resp["info"]["name"])
     print(get_description(resp))
     print("")
     print("%package help")
@@ -300,8 +311,8 @@ def build_spec(resp, output):
     print("mv %{buildroot}/filelist.lst .")
     print("")
     print("%files -n python3-{name} -f filelist.lst".format(name=resp["info"]["name"]))
-#    print("%{python3_sitelib}/*.egg-info/")
-#    print("%{python3_sitelib}/"+resp["info"]["name"])
+#   print("%{python3_sitelib}/*.egg-info/")
+#   print("%{python3_sitelib}/" + resp["info"]["name"])
 
     if build_noarch:
         print("%dir %{python3_sitelib}/*")
