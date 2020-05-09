@@ -25,7 +25,8 @@ import argparse
 import subprocess
 import os
 from pathlib import Path
-import wget
+# python3-wget is not default available on openEuler yet.
+# import wget  
 
 url_template = 'https://pypi.org/pypi/{pkg_name}/json'
 json_file_template = '{pkg_name}.json'
@@ -98,7 +99,7 @@ def refine_requires(req):
     #
     if (len(ra) >= 2):
         return ""
-    return transform_module_name(ra[0]
+    return transform_module_name(ra[0])
 
 
 def get_buildarch(j):
@@ -167,8 +168,7 @@ def download_source(resp, tgtpath):
         print("download path %s does not exist\n", tgtpath)
         return False
     s_url = get_source_url(resp)
-    wget.download(s_url, out=tgtpath)
-    return
+    return subprocess.call(["wget", s_url, "-P", tgtpath])
 
 def prepare_rpm_build_env(buildroot):
     if (os.path.exists(buildroot) == False):
