@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This is a packager bot for python modules from pypi.org
+"""
 #******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2018-2019. All rights reserved.
 # licensed under the Mulan PSL v2.
