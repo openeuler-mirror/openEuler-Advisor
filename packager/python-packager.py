@@ -113,13 +113,7 @@ def get_requires(j):
     for r in rs:
         idx = r.find(";")
         mod = transform_module_name(r[:idx])
-        if mod != "":
-            #print ("Requires:\t" + mod)
-            #
-            # have to remover version info because sometime the version info like
-            # <0.3 can not be recogonized by rpmbuild
-            #
-            print("Requires:\t" + mod.lstrip().split(" ")[0])
+        print("Requires:\t" + mod)
 
 
 def refine_requires(req):
@@ -130,8 +124,6 @@ def refine_requires(req):
     #
     # Do not add requires which has ;, which is often has very complicated precondition
     # TODO: need more parsing of the denpency after ;
-    #if (len(ra) >= 2):
-    #    return ""
     return transform_module_name(ra[0])
 
 def get_build_requires(resp):
@@ -202,7 +194,7 @@ def get_description(j):
         return j["info"]["summary"]
 
 
-def store_json(resp, pkg, spath):
+def store_json(j, pkg, spath):
     """
     save json file
     """
@@ -215,7 +207,7 @@ def store_json(resp, pkg, spath):
             resp = json.load(f)
     else:
         with open(json_file, 'w') as f:
-            json.dump(resp, f)
+            json.dump(j, f)
 
 
 def get_pkg_json(pkg):
@@ -230,14 +222,14 @@ def get_pkg_json(pkg):
     return resp
 
 
-def download_source(resp, tgtpath):
+def download_source(j, tgtpath):
     """
     download source file from url, and save it to target path
     """
     if (os.path.exists(tgtpath) == False):
         print("download path %s does not exist\n", tgtpath)
         return False
-    s_url = get_source_url(resp)
+    s_url = get_source_url(j)
     return subprocess.call(["wget", s_url, "-P", tgtpath])
 
 
@@ -295,23 +287,22 @@ def build_package(specfile):
     return ret
 
 
-
-def build_rpm(resp, buildroot):
+def build_rpm(j, buildroot):
     """
     full process to build rpm
     """
     if(prepare_rpm_build_env(buildroot) == False):
         return False
 
-    specfile = os.path.join(buildroot, "SPECS", "python-" + resp["info"]["name"] + ".spec")
+    specfile = os.path.join(buildroot, "SPECS", "python-" + j["info"]["name"] + ".spec")
 
-    req_list = build_spec(resp, specfile)
+    req_list = build_spec(j, specfile)
     ret = prepare_dependencies(req_list)
     if ret != "":
         print("%s can not be installed automatically, Please handle it" % ret)
         return ret
 
-    download_source(resp, os.path.join(buildroot, "SOURCES"))
+    download_source(j, os.path.join(buildroot, "SOURCES"))
 
     build_package(specfile)
 
@@ -433,21 +424,21 @@ if __name__ == "__main__":
     parser.add_argument("-j", "--json", help="Get Package JSON info", action="store_true")
     parser.add_argument("-o", "--output", help="Output to file", type=str, default="")
     parser.add_argument("pkg", type=str, help="The Python Module Name")
-    args=parser.parse_args()
+    args = parser.parse_args()
 
-    resp=get_pkg_json(args.pkg)
+    response = get_pkg_json(args.pkg)
 
     if (args.spec):
-        build_spec(resp, args.output)
+        build_spec(response, args.output)
 
     if (args.build):
-        ret = build_rpm(resp, args.rootpath)
+        ret = build_rpm(response, args.rootpath)
         if ret != "":
             print("BuildRequire : %s" % ret)
 
     if (args.download):
-        download_source(resp, args.path)
+        download_source(response, args.path)
 
     if (args.json):
-        store_json(resp, args.pkg, args.path)
+        store_json(response, args.pkg, args.path)
 
