@@ -157,7 +157,7 @@ def get_pkg_json(pkg):
 def download_source(resp, tgtpath):
     if (os.path.exists(tgtpath) == False):
         print("download path %s does not exist\n", tgtpath)
-        return Fals
+        return False
     s_url = get_source_url(resp)
     wget.download(s_url, out=tgtpath)
     return
@@ -169,22 +169,22 @@ def prepare_rpm_build_env(buildroot):
 
     bpath=os.path.join(buildroot, "SPECS")
     if (os.path.exists(bpath) == False):
-            os.mkdir(bpath)
+        os.mkdir(bpath)
     bpath=os.path.join(buildroot, "BUILD")
     if (os.path.exists(bpath) == False):
-            os.mkdir(bpath)
+        os.mkdir(bpath)
     bpath=os.path.join(buildroot, "SOURCES")
     if (os.path.exists(bpath) == False):
-            os.mkdir(bpath)
+        os.mkdir(bpath)
     bpath=os.path.join(buildroot, "SRPMS")
     if (os.path.exists(bpath) == False):
-            os.mkdir(bpath)
+        os.mkdir(bpath)
     bpath=os.path.join(buildroot, "RPMS")
     if (os.path.exists(bpath) == False):
-            os.mkdir(bpath)
+        os.mkdir(bpath)
     bpath=os.path.join(buildroot, "BUILDROOT")
     if (os.path.exists(bpath) == False):
-            os.mkdir(bpath)
+        os.mkdir(bpath)
 
     return True
 
