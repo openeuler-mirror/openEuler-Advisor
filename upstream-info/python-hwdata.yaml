@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: xsuchy/python-hwdata
+tag_prefix: python-hwdata-
+seperator: .
