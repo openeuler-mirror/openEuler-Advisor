@@ -86,6 +86,15 @@ def get_requires(j):
         if mod != "":
             print ("Requires:\t"+mod)
 
+def refine_requires(req):
+    ra = req.split(";", 1)
+    #
+    # Do not add requires which has ;, which is often has very complicated precondition
+    #
+    if (len(ra) >= 2):
+        return ""
+    return transform_module_name(ra[0]
+
 def get_buildarch(j):
     v = j["info"]["version"]
     rs = j["releases"][v]
@@ -205,18 +214,6 @@ def build_rpm(resp, buildroot):
     build_package(specfile)
 
     return ""
-
-def refine_requires(req):
-    ra = req.split(";", 1)
-    #
-    # Do not add requires which has ;, which is often has very complicated precondition
-    #
-    if (len(ra) >= 2):
-        return ""
-    freq = ra[0].replace('(', '')
-    freq = freq.replace(')', ' ')
-
-    return "python3-"+ freq
 
 
 def build_spec(resp, output):
