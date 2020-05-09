@@ -18,6 +18,7 @@ This is a packager bot for python modules from pypi.org
 # ******************************************************************************/
 
 import urllib
+import urllib.request
 from pprint import pprint
 from os import path
 import json
