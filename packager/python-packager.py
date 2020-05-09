@@ -17,7 +17,7 @@ This is a packager bot for python modules from pypi.org
 # Description: provide a tool to package python module automatically
 # ******************************************************************************/
 
-from urllib import request
+import urllib
 from pprint import pprint
 from os import path
 import json
@@ -196,7 +196,7 @@ def get_pkg_json(pkg):
     """
     url = url_template.format(pkg_name=pkg)
 
-    u = request.urlopen(url)
+    u = urllib.request.urlopen(url)
     resp = json.loads(u.read().decode('utf-8'))
 
     return resp
