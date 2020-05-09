@@ -88,6 +88,9 @@ def transform_module_name(n):
     """
     # remove ()
     ns = re.split("[()]", n)
+    if len(ns) > 1:
+        m = re.match("([<>=]+)( *)(\d.*)", ns[1])
+        ns[1] = m[1] + " " + m[3]
     if ns[0].startswith("python-"):
         ns[0] = ns[0].replace("python-", "python3-")
         return " ".join(ns) 
