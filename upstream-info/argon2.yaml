@@ -1,4 +1,257 @@
+---
 version_control: github
-src_repo:  P-H-C/phc-winner-argon2
-tag_prefix: ^v
-seperator: .
+src_repo: P-H-C/phc-winner-argon2
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 06:50:56.058648760 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/18349314",
+        "assets_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/18349314/assets",
+        "upload_url": "https://uploads.github.com/repos/P-H-C/phc-winner-argon2/releases/18349314/assets{?name,label}",
+        "html_url": "https://github.com/P-H-C/phc-winner-argon2/releases/tag/20190702",
+        "id": 18349314,
+        "node_id": "MDc6UmVsZWFzZTE4MzQ5MzE0",
+        "tag_name": "20190702",
+        "target_commitish": "master",
+        "name": "20190702",
+        "draft": false,
+        "author": {
+          "login": "veorq",
+          "id": 3204810,
+          "node_id": "MDQ6VXNlcjMyMDQ4MTA=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/3204810?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/veorq",
+          "html_url": "https://github.com/veorq",
+          "followers_url": "https://api.github.com/users/veorq/followers",
+          "following_url": "https://api.github.com/users/veorq/following{/other_user}",
+          "gists_url": "https://api.github.com/users/veorq/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/veorq/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/veorq/subscriptions",
+          "organizations_url": "https://api.github.com/users/veorq/orgs",
+          "repos_url": "https://api.github.com/users/veorq/repos",
+          "events_url": "https://api.github.com/users/veorq/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/veorq/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-05-20T09:18:00Z",
+        "published_at": "2019-07-02T06:21:09Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/tarball/20190702",
+        "zipball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/zipball/20190702",
+        "body": ""
+      },
+      {
+        "url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/9042808",
+        "assets_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/9042808/assets",
+        "upload_url": "https://uploads.github.com/repos/P-H-C/phc-winner-argon2/releases/9042808/assets{?name,label}",
+        "html_url": "https://github.com/P-H-C/phc-winner-argon2/releases/tag/20171227",
+        "id": 9042808,
+        "node_id": "MDc6UmVsZWFzZTkwNDI4MDg=",
+        "tag_name": "20171227",
+        "target_commitish": "master",
+        "name": "20171227",
+        "draft": false,
+        "author": {
+          "login": "daniel-dinu",
+          "id": 10579656,
+          "node_id": "MDQ6VXNlcjEwNTc5NjU2",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/10579656?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/daniel-dinu",
+          "html_url": "https://github.com/daniel-dinu",
+          "followers_url": "https://api.github.com/users/daniel-dinu/followers",
+          "following_url": "https://api.github.com/users/daniel-dinu/following{/other_user}",
+          "gists_url": "https://api.github.com/users/daniel-dinu/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/daniel-dinu/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/daniel-dinu/subscriptions",
+          "organizations_url": "https://api.github.com/users/daniel-dinu/orgs",
+          "repos_url": "https://api.github.com/users/daniel-dinu/repos",
+          "events_url": "https://api.github.com/users/daniel-dinu/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/daniel-dinu/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2017-12-27T19:56:31Z",
+        "published_at": "2017-12-27T20:00:44Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/tarball/20171227",
+        "zipball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/zipball/20171227",
+        "body": "See CHANGELOG.md"
+      },
+      {
+        "url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/4516638",
+        "assets_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/4516638/assets",
+        "upload_url": "https://uploads.github.com/repos/P-H-C/phc-winner-argon2/releases/4516638/assets{?name,label}",
+        "html_url": "https://github.com/P-H-C/phc-winner-argon2/releases/tag/20161029",
+        "id": 4516638,
+        "node_id": "MDc6UmVsZWFzZTQ1MTY2Mzg=",
+        "tag_name": "20161029",
+        "target_commitish": "master",
+        "name": "20161029",
+        "draft": false,
+        "author": {
+          "login": "veorq",
+          "id": 3204810,
+          "node_id": "MDQ6VXNlcjMyMDQ4MTA=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/3204810?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/veorq",
+          "html_url": "https://github.com/veorq",
+          "followers_url": "https://api.github.com/users/veorq/followers",
+          "following_url": "https://api.github.com/users/veorq/following{/other_user}",
+          "gists_url": "https://api.github.com/users/veorq/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/veorq/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/veorq/subscriptions",
+          "organizations_url": "https://api.github.com/users/veorq/orgs",
+          "repos_url": "https://api.github.com/users/veorq/repos",
+          "events_url": "https://api.github.com/users/veorq/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/veorq/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2016-10-29T09:24:03Z",
+        "published_at": "2016-10-29T09:25:11Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/tarball/20161029",
+        "zipball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/zipball/20161029",
+        "body": "See changelog\n"
+      },
+      {
+        "url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/3936090",
+        "assets_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/3936090/assets",
+        "upload_url": "https://uploads.github.com/repos/P-H-C/phc-winner-argon2/releases/3936090/assets{?name,label}",
+        "html_url": "https://github.com/P-H-C/phc-winner-argon2/releases/tag/20160821",
+        "id": 3936090,
+        "node_id": "MDc6UmVsZWFzZTM5MzYwOTA=",
+        "tag_name": "20160821",
+        "target_commitish": "master",
+        "name": "20160821",
+        "draft": false,
+        "author": {
+          "login": "veorq",
+          "id": 3204810,
+          "node_id": "MDQ6VXNlcjMyMDQ4MTA=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/3204810?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/veorq",
+          "html_url": "https://github.com/veorq",
+          "followers_url": "https://api.github.com/users/veorq/followers",
+          "following_url": "https://api.github.com/users/veorq/following{/other_user}",
+          "gists_url": "https://api.github.com/users/veorq/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/veorq/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/veorq/subscriptions",
+          "organizations_url": "https://api.github.com/users/veorq/orgs",
+          "repos_url": "https://api.github.com/users/veorq/repos",
+          "events_url": "https://api.github.com/users/veorq/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/veorq/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2016-08-21T18:33:33Z",
+        "published_at": "2016-08-21T20:32:25Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/tarball/20160821",
+        "zipball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/zipball/20160821",
+        "body": ""
+      },
+      {
+        "url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/2966259",
+        "assets_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/2966259/assets",
+        "upload_url": "https://uploads.github.com/repos/P-H-C/phc-winner-argon2/releases/2966259/assets{?name,label}",
+        "html_url": "https://github.com/P-H-C/phc-winner-argon2/releases/tag/20160406",
+        "id": 2966259,
+        "node_id": "MDc6UmVsZWFzZTI5NjYyNTk=",
+        "tag_name": "20160406",
+        "target_commitish": "master",
+        "name": "20160406",
+        "draft": false,
+        "author": {
+          "login": "daniel-dinu",
+          "id": 10579656,
+          "node_id": "MDQ6VXNlcjEwNTc5NjU2",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/10579656?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/daniel-dinu",
+          "html_url": "https://github.com/daniel-dinu",
+          "followers_url": "https://api.github.com/users/daniel-dinu/followers",
+          "following_url": "https://api.github.com/users/daniel-dinu/following{/other_user}",
+          "gists_url": "https://api.github.com/users/daniel-dinu/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/daniel-dinu/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/daniel-dinu/subscriptions",
+          "organizations_url": "https://api.github.com/users/daniel-dinu/orgs",
+          "repos_url": "https://api.github.com/users/daniel-dinu/repos",
+          "events_url": "https://api.github.com/users/daniel-dinu/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/daniel-dinu/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2016-04-06T12:20:19Z",
+        "published_at": "2016-04-06T18:39:35Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/tarball/20160406",
+        "zipball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/zipball/20160406",
+        "body": ""
+      },
+      {
+        "url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/2240107",
+        "assets_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/releases/2240107/assets",
+        "upload_url": "https://uploads.github.com/repos/P-H-C/phc-winner-argon2/releases/2240107/assets{?name,label}",
+        "html_url": "https://github.com/P-H-C/phc-winner-argon2/releases/tag/20151206",
+        "id": 2240107,
+        "node_id": "MDc6UmVsZWFzZTIyNDAxMDc=",
+        "tag_name": "20151206",
+        "target_commitish": "master",
+        "name": "",
+        "draft": false,
+        "author": {
+          "login": "veorq",
+          "id": 3204810,
+          "node_id": "MDQ6VXNlcjMyMDQ4MTA=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/3204810?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/veorq",
+          "html_url": "https://github.com/veorq",
+          "followers_url": "https://api.github.com/users/veorq/followers",
+          "following_url": "https://api.github.com/users/veorq/following{/other_user}",
+          "gists_url": "https://api.github.com/users/veorq/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/veorq/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/veorq/subscriptions",
+          "organizations_url": "https://api.github.com/users/veorq/orgs",
+          "repos_url": "https://api.github.com/users/veorq/repos",
+          "events_url": "https://api.github.com/users/veorq/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/veorq/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2015-12-06T08:11:54Z",
+        "published_at": "2015-12-06T08:15:59Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/tarball/20151206",
+        "zipball_url": "https://api.github.com/repos/P-H-C/phc-winner-argon2/zipball/20151206",
+        "body": ""
+      }
+    ]
+query_type: api.github.releases

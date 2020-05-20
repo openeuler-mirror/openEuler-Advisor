@@ -1,4 +1,311 @@
+---
 version_control: github
-src_repo:  abrt/abrt
-tag_prefix: ^v
-seperator: .
+src_repo: abrt/abrt
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 06:49:30.359441720 +00:00
+  raw_data: |
+    [
+      {
+        "name": "abrt-2.0.8-30.el6",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/abrt-2.0.8-30.el6",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/abrt-2.0.8-30.el6",
+        "commit": {
+          "sha": "42be3a26baab8b1b84ec3cd8f5ef515d52b5ac9f",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/42be3a26baab8b1b84ec3cd8f5ef515d52b5ac9f"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvYWJydC0yLjAuOC0zMC5lbDY="
+      },
+      {
+        "name": "2.14.2",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.14.2",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.14.2",
+        "commit": {
+          "sha": "434cfd609f8e9f76175d7c3160c764d837f9b73d",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/434cfd609f8e9f76175d7c3160c764d837f9b73d"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xNC4y"
+      },
+      {
+        "name": "2.14.1",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.14.1",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.14.1",
+        "commit": {
+          "sha": "eb140b60a57ad7b6d829d73d59db2f905eed8e3c",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/eb140b60a57ad7b6d829d73d59db2f905eed8e3c"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xNC4x"
+      },
+      {
+        "name": "2.14.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.14.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.14.0",
+        "commit": {
+          "sha": "56478e26e39e05572c24709a1a98b472ae42defb",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/56478e26e39e05572c24709a1a98b472ae42defb"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xNC4w"
+      },
+      {
+        "name": "2.13.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.13.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.13.0",
+        "commit": {
+          "sha": "50a05d7a358e4fca19b5fc2a9adeceaa63a4a55e",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/50a05d7a358e4fca19b5fc2a9adeceaa63a4a55e"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMy4w"
+      },
+      {
+        "name": "2.12.2",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.12.2",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.12.2",
+        "commit": {
+          "sha": "68b94115a121d3004e01762a9eef74fd07a38af0",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/68b94115a121d3004e01762a9eef74fd07a38af0"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMi4y"
+      },
+      {
+        "name": "2.12.1",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.12.1",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.12.1",
+        "commit": {
+          "sha": "b12aef3da080b284cdb33f8aa1288e468346b21c",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/b12aef3da080b284cdb33f8aa1288e468346b21c"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMi4x"
+      },
+      {
+        "name": "2.12.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.12.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.12.0",
+        "commit": {
+          "sha": "e28b5529e749c8e6d77ad3f9b3d7c299eb644845",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/e28b5529e749c8e6d77ad3f9b3d7c299eb644845"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMi4w"
+      },
+      {
+        "name": "2.11.1",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.11.1",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.11.1",
+        "commit": {
+          "sha": "b8a4ae68a304d428eb199446ba42fb56d048e178",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/b8a4ae68a304d428eb199446ba42fb56d048e178"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMS4x"
+      },
+      {
+        "name": "2.11.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.11.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.11.0",
+        "commit": {
+          "sha": "9becfd2429e73fb7a0e3ef27b7be781a586da3fb",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/9becfd2429e73fb7a0e3ef27b7be781a586da3fb"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMS4w"
+      },
+      {
+        "name": "2.10.10",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.10",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.10",
+        "commit": {
+          "sha": "2d4f178b83d4b7e92efd38ecaa5fcd41937e85c6",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/2d4f178b83d4b7e92efd38ecaa5fcd41937e85c6"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC4xMA=="
+      },
+      {
+        "name": "2.10.9",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.9",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.9",
+        "commit": {
+          "sha": "eaf506b0382d42ee605d65ac8152646db69a9898",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/eaf506b0382d42ee605d65ac8152646db69a9898"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC45"
+      },
+      {
+        "name": "2.10.8",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.8",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.8",
+        "commit": {
+          "sha": "54fe011c5b15aef087041834a26f393ef28f30d7",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/54fe011c5b15aef087041834a26f393ef28f30d7"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC44"
+      },
+      {
+        "name": "2.10.7",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.7",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.7",
+        "commit": {
+          "sha": "e93cd586decbdd2018f031ea3d47b568e5e9fcde",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/e93cd586decbdd2018f031ea3d47b568e5e9fcde"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC43"
+      },
+      {
+        "name": "2.10.6",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.6",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.6",
+        "commit": {
+          "sha": "980016846ded41ad9cff4adab46f8e67197a5a11",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/980016846ded41ad9cff4adab46f8e67197a5a11"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC42"
+      },
+      {
+        "name": "2.10.5",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.5",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.5",
+        "commit": {
+          "sha": "d8e9acc033ebfb0620c8f80ba713ea92f5ebf10b",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/d8e9acc033ebfb0620c8f80ba713ea92f5ebf10b"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC41"
+      },
+      {
+        "name": "2.10.4",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.4",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.4",
+        "commit": {
+          "sha": "7a72a8bcf16d1b90d6dea7007904801bd8020d11",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/7a72a8bcf16d1b90d6dea7007904801bd8020d11"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC40"
+      },
+      {
+        "name": "2.10.3",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.3",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.3",
+        "commit": {
+          "sha": "b4833013698a5aa40a0db7326c461bbf90c4d5f9",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/b4833013698a5aa40a0db7326c461bbf90c4d5f9"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC4z"
+      },
+      {
+        "name": "2.10.2",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.2",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.2",
+        "commit": {
+          "sha": "5e3b0a594c4f964349724bd17e1b1b875e5d579d",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/5e3b0a594c4f964349724bd17e1b1b875e5d579d"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC4y"
+      },
+      {
+        "name": "2.10.1",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.1",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.1",
+        "commit": {
+          "sha": "6324abdc4668fe45b95aa56343be13f1a3c66f3a",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/6324abdc4668fe45b95aa56343be13f1a3c66f3a"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC4x"
+      },
+      {
+        "name": "2.10.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.10.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.10.0",
+        "commit": {
+          "sha": "3893d82a97f564ccbd9d7312f5aab3158c7d9b1a",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/3893d82a97f564ccbd9d7312f5aab3158c7d9b1a"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi4xMC4w"
+      },
+      {
+        "name": "2.9.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.9.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.9.0",
+        "commit": {
+          "sha": "faba7723ce110f3cb421a5970db79da758e51168",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/faba7723ce110f3cb421a5970db79da758e51168"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi45LjA="
+      },
+      {
+        "name": "2.8.2",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.8.2",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.8.2",
+        "commit": {
+          "sha": "7ee8ec85c36ba16df932a03e9fd605403a5ef7a0",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/7ee8ec85c36ba16df932a03e9fd605403a5ef7a0"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi44LjI="
+      },
+      {
+        "name": "2.8.1",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.8.1",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.8.1",
+        "commit": {
+          "sha": "14e789946a98c2b3992e6bffeb80762e48e07be2",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/14e789946a98c2b3992e6bffeb80762e48e07be2"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi44LjE="
+      },
+      {
+        "name": "2.8.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.8.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.8.0",
+        "commit": {
+          "sha": "f28f5b098878c95a9ca58a7c9cf1b581b614a4be",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/f28f5b098878c95a9ca58a7c9cf1b581b614a4be"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi44LjA="
+      },
+      {
+        "name": "2.7.2",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.7.2",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.7.2",
+        "commit": {
+          "sha": "b2a01b858e31460cd151604d85c87d1f16194caf",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/b2a01b858e31460cd151604d85c87d1f16194caf"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi43LjI="
+      },
+      {
+        "name": "2.7.1",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.7.1",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.7.1",
+        "commit": {
+          "sha": "657ef941c7ce7b9725241b8514ffca8d27211128",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/657ef941c7ce7b9725241b8514ffca8d27211128"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi43LjE="
+      },
+      {
+        "name": "2.7.0",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.7.0",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.7.0",
+        "commit": {
+          "sha": "8c0728d723447f5c773ba41a3c104af158578570",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/8c0728d723447f5c773ba41a3c104af158578570"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi43LjA="
+      },
+      {
+        "name": "2.6.3",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.6.3",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.6.3",
+        "commit": {
+          "sha": "915729d44dfaa1bb7892c8709f92ba94d8438a08",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/915729d44dfaa1bb7892c8709f92ba94d8438a08"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi42LjM="
+      },
+      {
+        "name": "2.6.2",
+        "zipball_url": "https://api.github.com/repos/abrt/abrt/zipball/2.6.2",
+        "tarball_url": "https://api.github.com/repos/abrt/abrt/tarball/2.6.2",
+        "commit": {
+          "sha": "c737ccb332ec855a42df51be25971edb1b91484d",
+          "url": "https://api.github.com/repos/abrt/abrt/commits/c737ccb332ec855a42df51be25971edb1b91484d"
+        },
+        "node_id": "MDM6UmVmNzk1OTY1MjpyZWZzL3RhZ3MvMi42LjI="
+      }
+    ]
+query_type: api.github.tags

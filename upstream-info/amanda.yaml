@@ -5,7 +5,7 @@ tag_prefix: community_
 seperator: _
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
 last_query:
-  time_stamp: 2020-04-26 08:21:12.324231000 +00:00
+  time_stamp: 2020-05-20 06:50:49.139714320 +00:00
   raw_data: |2
        7557 martinea              Nov 30  2017 ./
        3090 danlocks              May 28  2010 3_1_0/

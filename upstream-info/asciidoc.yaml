@@ -1,4 +1,93 @@
+---
 version_control: github
-src_repo:  asciidoc/asciidoc-py3
-tag_prefix: ^v
-seperator: .
+src_repo: asciidoc/asciidoc-py3
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 06:51:08.359038410 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/asciidoc/asciidoc-py3/releases/24447346",
+        "assets_url": "https://api.github.com/repos/asciidoc/asciidoc-py3/releases/24447346/assets",
+        "upload_url": "https://uploads.github.com/repos/asciidoc/asciidoc-py3/releases/24447346/assets{?name,label}",
+        "html_url": "https://github.com/asciidoc/asciidoc-py3/releases/tag/9.0.0rc2",
+        "id": 24447346,
+        "node_id": "MDc6UmVsZWFzZTI0NDQ3MzQ2",
+        "tag_name": "9.0.0rc2",
+        "target_commitish": "master",
+        "name": "9.0.0rc2",
+        "draft": false,
+        "author": {
+          "login": "MasterOdin",
+          "id": 1845314,
+          "node_id": "MDQ6VXNlcjE4NDUzMTQ=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/1845314?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/MasterOdin",
+          "html_url": "https://github.com/MasterOdin",
+          "followers_url": "https://api.github.com/users/MasterOdin/followers",
+          "following_url": "https://api.github.com/users/MasterOdin/following{/other_user}",
+          "gists_url": "https://api.github.com/users/MasterOdin/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/MasterOdin/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/MasterOdin/subscriptions",
+          "organizations_url": "https://api.github.com/users/MasterOdin/orgs",
+          "repos_url": "https://api.github.com/users/MasterOdin/repos",
+          "events_url": "https://api.github.com/users/MasterOdin/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/MasterOdin/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": true,
+        "created_at": "2020-03-12T00:31:53Z",
+        "published_at": "2020-03-12T00:32:45Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/asciidoc/asciidoc-py3/tarball/9.0.0rc2",
+        "zipball_url": "https://api.github.com/repos/asciidoc/asciidoc-py3/zipball/9.0.0rc2",
+        "body": "View previous release notes for:\r\n* [9.0.0rc1](https://github.com/asciidoc/asciidoc-py3/releases/tag/9.0.0rc1)\r\n\r\nAdditions and changes\r\n\r\n* Running `make help` will now print out a helpful usage message\r\n* Add simplified Chinese translation (thanks @muirmok)\r\n* vim-asciidoc: speed up the refresh process for big files (thanks @aerostitch)\r\n\r\nBugfixes\r\n\r\n* Include `unwraplatex.py` filter when running `make install`"
+      },
+      {
+        "url": "https://api.github.com/repos/asciidoc/asciidoc-py3/releases/21843925",
+        "assets_url": "https://api.github.com/repos/asciidoc/asciidoc-py3/releases/21843925/assets",
+        "upload_url": "https://uploads.github.com/repos/asciidoc/asciidoc-py3/releases/21843925/assets{?name,label}",
+        "html_url": "https://github.com/asciidoc/asciidoc-py3/releases/tag/9.0.0rc1",
+        "id": 21843925,
+        "node_id": "MDc6UmVsZWFzZTIxODQzOTI1",
+        "tag_name": "9.0.0rc1",
+        "target_commitish": "master",
+        "name": "9.0.0rc1",
+        "draft": false,
+        "author": {
+          "login": "MasterOdin",
+          "id": 1845314,
+          "node_id": "MDQ6VXNlcjE4NDUzMTQ=",
+          "avatar_url": "https://avatars3.githubusercontent.com/u/1845314?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/MasterOdin",
+          "html_url": "https://github.com/MasterOdin",
+          "followers_url": "https://api.github.com/users/MasterOdin/followers",
+          "following_url": "https://api.github.com/users/MasterOdin/following{/other_user}",
+          "gists_url": "https://api.github.com/users/MasterOdin/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/MasterOdin/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/MasterOdin/subscriptions",
+          "organizations_url": "https://api.github.com/users/MasterOdin/orgs",
+          "repos_url": "https://api.github.com/users/MasterOdin/repos",
+          "events_url": "https://api.github.com/users/MasterOdin/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/MasterOdin/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-11-29T00:38:33Z",
+        "published_at": "2019-11-29T00:48:34Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/asciidoc/asciidoc-py3/tarball/9.0.0rc1",
+        "zipball_url": "https://api.github.com/repos/asciidoc/asciidoc-py3/zipball/9.0.0rc1",
+        "body": "Additions and changes\r\n- Port asciidoc to run on Python 3.5+ (see https://github.com/asciidoc/asciidoc for the EOL Python 2 implementation)\r\n- Drop internal implementation of OrderedDict and use the standard library collections.OrderedDict instead\r\n- Implement Dockerfile for running asciidoc\r\n- Add Catalan translation\r\n- Add docbook5 backend\r\n- Fix misspellings in various files and documents\r\n- Use UTC for testing instead of Pacific/Auckland (which observes daylight saving time).\r\n- Use \"with\" context statement for opening and closing files instead of older try/finally pattern.\r\n- Search sibling paths before system wide paths in asciidocapi\r\n- Add manpage for testasciidoc.py\r\n- Use argparse instead of optparse for argument parsing\r\n- Migrate from A-A-P based build system to Make\r\n\r\nBug fixes\r\n- Fix index terms requiring two characters instead of just one (see https://github.com/asciidoc/asciidoc-py3/pull/2#issuecomment-392605876)\r\n- Properly capture and use colophon, dedication, and preface for docbooks in Japanese (see https://github.com/asciidoc/asciidoc-py3/pull/2#issuecomment-392623181)\r\n\r\nTesting\r\n- Commit generated test files to the repository for continuous integration\r\n- Test against Python 3.5+ on Travis-CI"
+      }
+    ]
+query_type: api.github.releases

@@ -11,9 +11,18 @@ require './check_upstream/svn'
 require './check_upstream/metacpan'
 require './check_upstream/gnome'
 require './check_upstream/pypi'
+require './helper/download_spec'
+require './helper/rpmparser'
 
 Prj_name = ARGV[0]
-Cur_ver = ARGV[1]
+
+specfile=download_spec(Prj_name)
+if specfile == "" then
+	puts "no specfile found for project\n"
+	exit 1
+end
+spec_struct = Specfile.new(specfile)
+Cur_ver = spec_struct.get_version
 
 Prj_info = YAML.load(File.read "upstream-info/"+Prj_name+".yaml")
 
@@ -123,7 +132,7 @@ end
 
 tags = sort_tags(tags)
 print "Latest upstream is ", tags[-1], "\n"
-print "Recommended is     ", upgrade_recommend(tags, Cur_ver, "latest-stable"), "\n"
+#print "Recommended is     ", upgrade_recommend(tags, Cur_ver, "latest-stable"), "\n"
 print "Current version is ", Cur_ver, "\n"
 
 if tags.length == 0 or compare_tags(tags[-1], Cur_ver) < 0 then
@@ -133,3 +142,4 @@ if tags.length == 0 or compare_tags(tags[-1], Cur_ver) < 0 then
 else
 	File.open("upstream-info/"+Prj_name+".yaml", "w") { |file| file.write(Prj_info.to_yaml) }
 end
+File.delete(specfile) if specfile != ""
