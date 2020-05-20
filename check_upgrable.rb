@@ -170,7 +170,7 @@ File.delete(specfile) if specfile != ""
 if options[:push] then
 	puts "Push to gitee\n"
 	ad = Advisor.new
-	ad.new_issue("src-openeuler", Prj_name, "Upgrade to Latest Release", "Deer #{Prj_name} maintainer:\n\n  We found the latst version of #{Prj_name} is #{tags[-1]}, while the current version in openEuler is #{Cur_ver}.\n\n  Please consider upgrading.\n\n\nYours openEuler Advisor.")
+	ad.new_issue("src-openeuler", Prj_name, "Upgrade to Latest Release", "Dear #{Prj_name} maintainer:\n\n  We found the latst version of #{Prj_name} is #{tags[-1]}, while the current version in openEuler is #{Cur_ver}.\n\n  Please consider upgrading.\n\n\nYours openEuler Advisor.")
 else
 	puts "keep it to us\n"
 end
