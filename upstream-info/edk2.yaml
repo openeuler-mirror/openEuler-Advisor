@@ -1,10 +1,11 @@
 ---
 version_control: github
 src_repo: tianocore/edk2
-tag_prefix: "^v"
+tag_prefix: edk2-stable
 seperator: "."
+query_type: api.github.releases
 last_query:
-  time_stamp: 2020-04-26 11:21:56.162863900 +00:00
+  time_stamp: 2020-05-20 07:12:36.247706470 +00:00
   raw_data: |
     [
       {
@@ -71,7 +72,7 @@ last_query:
             "content_type": "application/x-zip-compressed",
             "state": "uploaded",
             "size": 1642082,
-            "download_count": 1722,
+            "download_count": 2761,
             "created_at": "2020-03-06T14:46:04Z",
             "updated_at": "2020-03-06T14:46:14Z",
             "browser_download_url": "https://github.com/tianocore/edk2/releases/download/edk2-stable202002/ShellBinPkg.zip"
@@ -145,7 +146,7 @@ last_query:
             "content_type": "application/x-zip-compressed",
             "state": "uploaded",
             "size": 1677699,
-            "download_count": 3279,
+            "download_count": 3320,
             "created_at": "2019-12-05T00:56:59Z",
             "updated_at": "2019-12-05T00:57:04Z",
             "browser_download_url": "https://github.com/tianocore/edk2/releases/download/edk2-stable201911/ShellBinPkg.zip"
@@ -219,7 +220,7 @@ last_query:
             "content_type": "application/x-zip-compressed",
             "state": "uploaded",
             "size": 1638200,
-            "download_count": 2352,
+            "download_count": 2353,
             "created_at": "2019-09-05T00:15:53Z",
             "updated_at": "2019-09-05T00:15:58Z",
             "browser_download_url": "https://github.com/tianocore/edk2/releases/download/edk2-stable201908/ShellBinPkg.zip"
@@ -293,7 +294,7 @@ last_query:
             "content_type": "application/x-zip-compressed",
             "state": "uploaded",
             "size": 1637992,
-            "download_count": 1657,
+            "download_count": 1662,
             "created_at": "2019-06-10T16:39:07Z",
             "updated_at": "2019-06-10T16:39:12Z",
             "browser_download_url": "https://github.com/tianocore/edk2/releases/download/edk2-stable201905/ShellBinPkg.zip"
@@ -449,7 +450,7 @@ last_query:
             "content_type": "application/x-zip-compressed",
             "state": "uploaded",
             "size": 79352781,
-            "download_count": 6731,
+            "download_count": 6799,
             "created_at": "2018-03-30T22:20:09Z",
             "updated_at": "2018-03-30T22:20:46Z",
             "browser_download_url": "https://github.com/tianocore/edk2/releases/download/vUDK2018/UDK2018.Documents.zip"
@@ -523,7 +524,7 @@ last_query:
             "content_type": "application/x-zip-compressed",
             "state": "uploaded",
             "size": 85900807,
-            "download_count": 2929,
+            "download_count": 2939,
             "created_at": "2017-06-26T17:36:18Z",
             "updated_at": "2017-06-26T17:36:44Z",
             "browser_download_url": "https://github.com/tianocore/edk2/releases/download/vUDK2017/UDK2017.Documents.zip"
@@ -534,4 +535,3 @@ last_query:
         "body": "# UDK2017 Release Page\r\n## How to build \r\nSee wiki page [UDK2017 How to Build]( https://github.com/tianocore/tianocore.github.io/wiki/UDK2017#how-to-build-udk2017) on the UDK2017 Release wiki page\r\n\r\n\r\n## UDK2017 Features / Updates / Changes\r\nSee the wiki page [UDK2017 Features Updates Changes](https://github.com/tianocore/tianocore.github.io/wiki/UDK2017#udk2017-features--updates--changes)  for list of Features, Updates and Changes to the UDK2017 Release from the previous UDK release\r\n### UDK2017 Package Notes\r\nSee wiki page [UDK2017 Package notes]( https://github.com/tianocore/tianocore.github.io/wiki/UDK2017#udk2017-package-notes ) for list of Package's Notes details on changes & updates\r\n\r\n## Downloads - File Descriptions (Below files)\r\n### Source Code \r\nThese source code downloads are the from the tag  [vUDK2017](https://github.com/tianocore/edk2/releases/tag/vUDK2017) for the official UDK2017 release. <br>\r\nUDK2017 edk-vUDK2017 Workspace [Source code (zip file)](https://github.com/tianocore/edk2/archive/vUDK2017.zip ) \r\nUDK2017 edk-vUDK2017 Workspace [Source code (tar.gz file)](https://github.com/tianocore/edk2/archive/vUDK2017.tar.gz ) \r\n\r\n### Documentation\r\nThis download contains all .chm and .html documents for UDK2017. Each package includes details on the definitions (including PPIs/PROTOCOLs/GUIDs and library classes) and libraries instances associated with each package.<br>\r\n[UDK2017 Documents (ZIP File)]( https://github.com/tianocore/edk2/releases/download/vUDK2017/UDK2017.Documents.zip) \r\n\r\n**********\r\n## More Information about this release\r\n**Note:**  For a detailed list of Changes and updates \r\n See the [UDK2017 Release wiki]( https://github.com/tianocore/tianocore.github.io/wiki/UDK2017)  page\r\n\r\n**********\r\n"
       }
     ]
-query_type: api.github.releases

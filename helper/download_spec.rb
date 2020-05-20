@@ -16,8 +16,7 @@ def download_spec(name)
 	%x[#{cmd}] if ! File.exists?(output_file)
 	s = File.size(output_file)
 	if s == 52 then
-		sig = search_sig(sigs, name)
-		STDERR.puts "> No SPEC file found for #{name}, which managed by #{sig}"
+		STDERR.puts "> No SPEC file found for #{name}"
 		File.delete output_file
 		return ""
 	end
