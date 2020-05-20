@@ -88,19 +88,22 @@ def transform_module_name(n):
     """
     # remove ()
     ns = re.split("[()]", n)
-    if len(ns) > 1:
-        m = re.match("([<>=]+)( *)(\d.*)", ns[1])
-        ns[1] = m[1] + " " + m[3]
+    ver_constrain = []
     ns[0] = ns[0].strip()
     if ns[0].startswith("python-"):
         ns[0] = ns[0].replace("python-", "python3-")
-        return " ".join(ns) 
     else:
         ns[0] = "python3-" + ns[0] 
         if ns[0].find("/") != -1 or ns[0].find(".") != -1:
             return ""
-        else:
-            return " ".join(ns)
+    if len(ns) > 1:
+        vers = ns[1].split(",")
+        for ver in vers:
+            m = re.match("([!<>=]+)( *)(\d.*)", ver.strip()) 
+            ver_constrain.append(ns[0] + " " + m[1] + " " + m[3])
+        return ", ".join(ver_constrain)
+    else:
+        return ns[0]
 
 
 def get_requires(j):
