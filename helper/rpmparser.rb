@@ -32,7 +32,12 @@ def rpmspec_clean_tag (oset, mac)
         elsif br.match(/%{/) then
             m = br.scan(/%{(.*?)}/)
             if m != [] then
-                nbr = br.gsub(/%{#{m[0][0]}}/, mac[m[0][0]])
+		    if mac[m[0][0]] then
+			    nbr = br.gsub(/%{#{m[0][0]}}/, mac[m[0][0]])
+		    else
+			    # some strange RPM macro needs shell expand, I dont know ohw to handle this
+			    nbr = br
+		    end
                 oset.delete(br)
                 new_set << nbr
             end
@@ -42,12 +47,24 @@ def rpmspec_clean_tag (oset, mac)
     return oset
 end
 
+def rpmspec_macro_expand(tag, macro)
+	if tag.match(/%{/) then
+		m = tag.scan(/%{(.*)}/)
+		if m != [] then
+			if macro[m[0][0]] then
+				tag = tag.gsub(/%{#{m[0][0]}}/, macro[m[0][0]])
+			end
+		end
+	end
+	return tag
+end
 
 class Specfile
 	def initialize(filepath)
 		spec = File.open("#{filepath}")
 		@macros = {}
 		@macros["epoch"] = "1"
+		@macros["?_isa"] = "aarch64"
 		@name = ""
 		@version = ""
 		@release = ""
@@ -90,28 +107,13 @@ class Specfile
 				@provides += po
 			end
 		}
-		if @name.match(/%{/) then
-			m = @name.scan(/%{(.*)}/)
-			if m != [] then
-				@name = @name.gsub(/%{#{m[0][0]}}/, @macros[m[0][0]])
-			end
-		end
+		@name = rpmspec_macro_expand(@name, @macros)
 		@macros["name"] = @name
 
-		if @version.match(/%{/) then
-			m = @version.scan(/%{(.*)}/)
-			if m != [] then
-				@version = @version.gsub(/%{#{m[0][0]}}/, @macros[m[0][0]])
-			end
-		end
+		@version = rpmspec_macro_expand(@version, @macros)
 		@macros["version"] = @version
 
-		if @release.match(/%{/) then
-			m = @release.scan(/%{(.*)}/)
-			if m != [] then
-				@release = @release.gsub(/%{#{m[0][0]}}/, @macros[m[0][0]])
-			end
-		end
+		@release = rpmspec_macro_expand(@release, @macros)
 		@macros["release"] = @release
 
 		@build_requires = rpmspec_clean_tag(@build_requires, @macros)

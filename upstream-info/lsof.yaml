@@ -1,4 +1,134 @@
+---
 version_control: github
-src_repo:  lsof-org/lsof
-tag_prefix: ^v
-seperator: .
+src_repo: lsof-org/lsof
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 09:34:52.675270170 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/lsof-org/lsof/releases/17214633",
+        "assets_url": "https://api.github.com/repos/lsof-org/lsof/releases/17214633/assets",
+        "upload_url": "https://uploads.github.com/repos/lsof-org/lsof/releases/17214633/assets{?name,label}",
+        "html_url": "https://github.com/lsof-org/lsof/releases/tag/4.93.2",
+        "id": 17214633,
+        "node_id": "MDc6UmVsZWFzZTE3MjE0NjMz",
+        "tag_name": "4.93.2",
+        "target_commitish": "master",
+        "name": "Fixed the version number embedded in lsof executable",
+        "draft": false,
+        "author": {
+          "login": "masatake",
+          "id": 77077,
+          "node_id": "MDQ6VXNlcjc3MDc3",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/77077?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/masatake",
+          "html_url": "https://github.com/masatake",
+          "followers_url": "https://api.github.com/users/masatake/followers",
+          "following_url": "https://api.github.com/users/masatake/following{/other_user}",
+          "gists_url": "https://api.github.com/users/masatake/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/masatake/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/masatake/subscriptions",
+          "organizations_url": "https://api.github.com/users/masatake/orgs",
+          "repos_url": "https://api.github.com/users/masatake/repos",
+          "events_url": "https://api.github.com/users/masatake/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/masatake/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-05-08T07:32:25Z",
+        "published_at": "2019-05-08T07:38:44Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/lsof-org/lsof/tarball/4.93.2",
+        "zipball_url": "https://api.github.com/repos/lsof-org/lsof/zipball/4.93.2",
+        "body": "4.93.2          May 8, 2019\r\n\r\n                Update the version number embedded in lsof executable.\r\n"
+      },
+      {
+        "url": "https://api.github.com/repos/lsof-org/lsof/releases/17191650",
+        "assets_url": "https://api.github.com/repos/lsof-org/lsof/releases/17191650/assets",
+        "upload_url": "https://uploads.github.com/repos/lsof-org/lsof/releases/17191650/assets{?name,label}",
+        "html_url": "https://github.com/lsof-org/lsof/releases/tag/4.93.1",
+        "id": 17191650,
+        "node_id": "MDc6UmVsZWFzZTE3MTkxNjUw",
+        "tag_name": "4.93.1",
+        "target_commitish": "master",
+        "name": "lsof-4.93.1",
+        "draft": false,
+        "author": {
+          "login": "masatake",
+          "id": 77077,
+          "node_id": "MDQ6VXNlcjc3MDc3",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/77077?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/masatake",
+          "html_url": "https://github.com/masatake",
+          "followers_url": "https://api.github.com/users/masatake/followers",
+          "following_url": "https://api.github.com/users/masatake/following{/other_user}",
+          "gists_url": "https://api.github.com/users/masatake/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/masatake/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/masatake/subscriptions",
+          "organizations_url": "https://api.github.com/users/masatake/orgs",
+          "repos_url": "https://api.github.com/users/masatake/repos",
+          "events_url": "https://api.github.com/users/masatake/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/masatake/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-05-07T10:29:42Z",
+        "published_at": "2019-05-07T10:31:38Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/lsof-org/lsof/tarball/4.93.1",
+        "zipball_url": "https://api.github.com/repos/lsof-org/lsof/zipball/4.93.1",
+        "body": "4.93.0\t\tMay 7, 2019\r\n\r\n\t\t[freebsd] Made FreeBSD 13 adjustment.\r\n\t\t[darwin] Fix a typo causing a build error.\r\n\t\tFix a potential memory leak.\r\n\t\t[linux] use tirpc for rpc if libc doesn't provide rpc.h.\r\n\t\tFix a typo in man page.\r\n\t\t[linux] fix memory leaks detected by valgrind about unix\r\n\t\tendpoint information.\r\n\t\tUpdate the description about -fg and -fG options on linux.\r\n\r\n4.93.1\t\tMay 7, 2019\r\n\r\n\t\tFix a broken symbolic link.\r\n"
+      },
+      {
+        "url": "https://api.github.com/repos/lsof-org/lsof/releases/17158917",
+        "assets_url": "https://api.github.com/repos/lsof-org/lsof/releases/17158917/assets",
+        "upload_url": "https://uploads.github.com/repos/lsof-org/lsof/releases/17158917/assets{?name,label}",
+        "html_url": "https://github.com/lsof-org/lsof/releases/tag/4.92.1",
+        "id": 17158917,
+        "node_id": "MDc6UmVsZWFzZTE3MTU4OTE3",
+        "tag_name": "4.92.1",
+        "target_commitish": "cleanup",
+        "name": "Testing \"Release\" feature of GitHub",
+        "draft": false,
+        "author": {
+          "login": "masatake",
+          "id": 77077,
+          "node_id": "MDQ6VXNlcjc3MDc3",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/77077?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/masatake",
+          "html_url": "https://github.com/masatake",
+          "followers_url": "https://api.github.com/users/masatake/followers",
+          "following_url": "https://api.github.com/users/masatake/following{/other_user}",
+          "gists_url": "https://api.github.com/users/masatake/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/masatake/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/masatake/subscriptions",
+          "organizations_url": "https://api.github.com/users/masatake/orgs",
+          "repos_url": "https://api.github.com/users/masatake/repos",
+          "events_url": "https://api.github.com/users/masatake/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/masatake/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2019-05-05T19:59:13Z",
+        "published_at": "2019-05-05T20:00:34Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/lsof-org/lsof/tarball/4.92.1",
+        "zipball_url": "https://api.github.com/repos/lsof-org/lsof/zipball/4.92.1",
+        "body": "This is just for testing \"Release\" feature of GitHub.\r\nMany documentations are not updated yet.\r\nURLs in -v output and -h output are updated."
+      }
+    ]
+query_type: api.github.releases

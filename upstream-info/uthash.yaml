@@ -1,4 +1,81 @@
+---
 version_control: github
-src_repo:  troydhanson/uthash
-tag_prefix: ^v
-seperator: .
+src_repo: troydhanson/uthash
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 09:49:23.365070810 +00:00
+  raw_data: |
+    [
+      {
+        "name": "v2.1.0",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v2.1.0",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v2.1.0",
+        "commit": {
+          "sha": "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjIuMS4w"
+      },
+      {
+        "name": "v2.0.2",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v2.0.2",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v2.0.2",
+        "commit": {
+          "sha": "7f1b50be94ceffcc7acd7a7f3f0f8f9aae52cc2f",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/7f1b50be94ceffcc7acd7a7f3f0f8f9aae52cc2f"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjIuMC4y"
+      },
+      {
+        "name": "v2.0.1",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v2.0.1",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v2.0.1",
+        "commit": {
+          "sha": "539b4504b052cfca54ed66b82ca99e3aed403d46",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/539b4504b052cfca54ed66b82ca99e3aed403d46"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjIuMC4x"
+      },
+      {
+        "name": "v2.0.0",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v2.0.0",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v2.0.0",
+        "commit": {
+          "sha": "5b9de71e678f7458bf98d0d945817a5c2e46f6a3",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/5b9de71e678f7458bf98d0d945817a5c2e46f6a3"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjIuMC4w"
+      },
+      {
+        "name": "v1.9.9.1",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v1.9.9.1",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v1.9.9.1",
+        "commit": {
+          "sha": "22646fcb7ce80be08d8917e153dabb272476c710",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/22646fcb7ce80be08d8917e153dabb272476c710"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjEuOS45LjE="
+      },
+      {
+        "name": "v1.9.9",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v1.9.9",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v1.9.9",
+        "commit": {
+          "sha": "bac80b264f7b15de93f8d8922021bfdaa606bf37",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/bac80b264f7b15de93f8d8922021bfdaa606bf37"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjEuOS45"
+      },
+      {
+        "name": "v1.9.8",
+        "zipball_url": "https://api.github.com/repos/troydhanson/uthash/zipball/v1.9.8",
+        "tarball_url": "https://api.github.com/repos/troydhanson/uthash/tarball/v1.9.8",
+        "commit": {
+          "sha": "612210597851809c456375e12930d0d71cc38811",
+          "url": "https://api.github.com/repos/troydhanson/uthash/commits/612210597851809c456375e12930d0d71cc38811"
+        },
+        "node_id": "MDM6UmVmNzQ3Njk0ODpyZWZzL3RhZ3MvdjEuOS44"
+      }
+    ]
+query_type: api.github.tags

@@ -1,4 +1,52 @@
+---
 version_control: github
-src_repo:  open-iscsi/open-isns
-tag_prefix: ^v
-seperator: .
+src_repo: open-iscsi/open-isns
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 09:42:29.787102980 +00:00
+  raw_data: |
+    [
+      {
+        "url": "https://api.github.com/repos/open-iscsi/open-isns/releases/23087516",
+        "assets_url": "https://api.github.com/repos/open-iscsi/open-isns/releases/23087516/assets",
+        "upload_url": "https://uploads.github.com/repos/open-iscsi/open-isns/releases/23087516/assets{?name,label}",
+        "html_url": "https://github.com/open-iscsi/open-isns/releases/tag/v0.100",
+        "id": 23087516,
+        "node_id": "MDc6UmVsZWFzZTIzMDg3NTE2",
+        "tag_name": "v0.100",
+        "target_commitish": "master",
+        "name": "Working with IPv6, with new Python-based test suite",
+        "draft": false,
+        "author": {
+          "login": "gonzoleeman",
+          "id": 1872668,
+          "node_id": "MDQ6VXNlcjE4NzI2Njg=",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/1872668?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/gonzoleeman",
+          "html_url": "https://github.com/gonzoleeman",
+          "followers_url": "https://api.github.com/users/gonzoleeman/followers",
+          "following_url": "https://api.github.com/users/gonzoleeman/following{/other_user}",
+          "gists_url": "https://api.github.com/users/gonzoleeman/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/gonzoleeman/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/gonzoleeman/subscriptions",
+          "organizations_url": "https://api.github.com/users/gonzoleeman/orgs",
+          "repos_url": "https://api.github.com/users/gonzoleeman/repos",
+          "events_url": "https://api.github.com/users/gonzoleeman/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/gonzoleeman/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "prerelease": false,
+        "created_at": "2020-01-23T21:33:27Z",
+        "published_at": "2020-01-23T21:44:40Z",
+        "assets": [
+
+        ],
+        "tarball_url": "https://api.github.com/repos/open-iscsi/open-isns/tarball/v0.100",
+        "zipball_url": "https://api.github.com/repos/open-iscsi/open-isns/zipball/v0.100",
+        "body": "This release incorporates some bug fixes. One was a nasty memory corruption bug introduced recently. Also, IPv6 connections had one bug which was fixed. Lastly, the perl test suite is being replaced by Python3-based tests using the unittest package framework.\r\n\r\nAll test (perl and python) pass, both with and without security enabled. Note that the perl tests are now deprecated and will be removed in a future release."
+      }
+    ]
+query_type: api.github.releases

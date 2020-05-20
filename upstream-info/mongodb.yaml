@@ -1,4 +1,311 @@
+---
 version_control: github
-src_repo:  mongodb/mongo
-tag_prefix: ^v
-seperator: .
+src_repo: mongodb/mongo
+tag_prefix: "^r"
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 09:39:02.566713170 +00:00
+  raw_data: |
+    [
+      {
+        "name": "show",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/show",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/show",
+        "commit": {
+          "sha": "a05603efcb16934a39a4dabaacdc4dd15fb3364c",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/a05603efcb16934a39a4dabaacdc4dd15fb3364c"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9zaG93"
+      },
+      {
+        "name": "release-1.0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/release-1.0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/release-1.0",
+        "commit": {
+          "sha": "39935279cf4a63490604d834ecba8b076fabf030",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/39935279cf4a63490604d834ecba8b076fabf030"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yZWxlYXNlLTEuMA=="
+      },
+      {
+        "name": "r4.5.0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.5.0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.5.0",
+        "commit": {
+          "sha": "08b67682e9da6cc625f837962805f613e4799685",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/08b67682e9da6cc625f837962805f613e4799685"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC41LjA="
+      },
+      {
+        "name": "r4.4.0-rc6",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc6",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc6",
+        "commit": {
+          "sha": "328c35e4b883540675fb4b626c53a08f74e43cf0",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/328c35e4b883540675fb4b626c53a08f74e43cf0"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmM2"
+      },
+      {
+        "name": "r4.4.0-rc5",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc5",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc5",
+        "commit": {
+          "sha": "bbdf0a11d1c61be0760a829e82799129beac7be0",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/bbdf0a11d1c61be0760a829e82799129beac7be0"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmM1"
+      },
+      {
+        "name": "r4.4.0-rc4",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc4",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc4",
+        "commit": {
+          "sha": "d2274bb6e1f8b21d73121a2fcb20b6628f652bbe",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/d2274bb6e1f8b21d73121a2fcb20b6628f652bbe"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmM0"
+      },
+      {
+        "name": "r4.4.0-rc3",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc3",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc3",
+        "commit": {
+          "sha": "201b8eb58920634b4519a8d3ea9b4c8c022b0875",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/201b8eb58920634b4519a8d3ea9b4c8c022b0875"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmMz"
+      },
+      {
+        "name": "r4.4.0-rc2",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc2",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc2",
+        "commit": {
+          "sha": "c8279c67d309858027cdb4d079ef9fd7122b1690",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/c8279c67d309858027cdb4d079ef9fd7122b1690"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmMy"
+      },
+      {
+        "name": "r4.4.0-rc1",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc1",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc1",
+        "commit": {
+          "sha": "02869c7db07512f9492d00fcb7544e623fd21c84",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/02869c7db07512f9492d00fcb7544e623fd21c84"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmMx"
+      },
+      {
+        "name": "r4.4.0-rc0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.4.0-rc0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.4.0-rc0",
+        "commit": {
+          "sha": "86339cd9b6d38ac3687b1fd6123b9e531c700f50",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/86339cd9b6d38ac3687b1fd6123b9e531c700f50"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC40LjAtcmMw"
+      },
+      {
+        "name": "r4.3.6",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.6",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.6",
+        "commit": {
+          "sha": "f28ff6e7b41bdf20f1038b20fbd037db0e36fa63",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/f28ff6e7b41bdf20f1038b20fbd037db0e36fa63"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjY="
+      },
+      {
+        "name": "r4.3.5",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.5",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.5",
+        "commit": {
+          "sha": "4a8ace6c37683b8bc422ecb16d2c67d468c5eb9f",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/4a8ace6c37683b8bc422ecb16d2c67d468c5eb9f"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjU="
+      },
+      {
+        "name": "r4.3.4",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.4",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.4",
+        "commit": {
+          "sha": "56655b06ac46825c5937ccca5947dc84ccbca69c",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/56655b06ac46825c5937ccca5947dc84ccbca69c"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjQ="
+      },
+      {
+        "name": "r4.3.3",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.3",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.3",
+        "commit": {
+          "sha": "eca08e963444d77209f093a6137f5d70f7519e21",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/eca08e963444d77209f093a6137f5d70f7519e21"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjM="
+      },
+      {
+        "name": "r4.3.2",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.2",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.2",
+        "commit": {
+          "sha": "d86e8a5bf40f1c6edbab37bef38cd0f1d5dc062d",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/d86e8a5bf40f1c6edbab37bef38cd0f1d5dc062d"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjI="
+      },
+      {
+        "name": "r4.3.1",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.1",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.1",
+        "commit": {
+          "sha": "2d25d99fd8d1d372b50ee121a2052f8113c99b50",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/2d25d99fd8d1d372b50ee121a2052f8113c99b50"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjE="
+      },
+      {
+        "name": "r4.3.0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.3.0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.3.0",
+        "commit": {
+          "sha": "89e7419a897b2270931c9c029abf6de555d83e0f",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/89e7419a897b2270931c9c029abf6de555d83e0f"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4zLjA="
+      },
+      {
+        "name": "r4.2.7-rc1",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.7-rc1",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.7-rc1",
+        "commit": {
+          "sha": "51d9fe12b5d19720e72dcd7db0f2f17dd9a19212",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/51d9fe12b5d19720e72dcd7db0f2f17dd9a19212"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjctcmMx"
+      },
+      {
+        "name": "r4.2.7-rc0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.7-rc0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.7-rc0",
+        "commit": {
+          "sha": "8b7d17c7d97146a3996505130ae5288269903726",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/8b7d17c7d97146a3996505130ae5288269903726"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjctcmMw"
+      },
+      {
+        "name": "r4.2.6",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.6",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.6",
+        "commit": {
+          "sha": "20364840b8f1af16917e4c23c1b5f5efd8b352f8",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/20364840b8f1af16917e4c23c1b5f5efd8b352f8"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjY="
+      },
+      {
+        "name": "r4.2.6-rc0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.6-rc0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.6-rc0",
+        "commit": {
+          "sha": "20364840b8f1af16917e4c23c1b5f5efd8b352f8",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/20364840b8f1af16917e4c23c1b5f5efd8b352f8"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjYtcmMw"
+      },
+      {
+        "name": "r4.2.5",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.5",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.5",
+        "commit": {
+          "sha": "2261279b51ea13df08ae708ff278f0679c59dc32",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/2261279b51ea13df08ae708ff278f0679c59dc32"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjU="
+      },
+      {
+        "name": "r4.2.5-rc1",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.5-rc1",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.5-rc1",
+        "commit": {
+          "sha": "2261279b51ea13df08ae708ff278f0679c59dc32",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/2261279b51ea13df08ae708ff278f0679c59dc32"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjUtcmMx"
+      },
+      {
+        "name": "r4.2.5-rc0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.5-rc0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.5-rc0",
+        "commit": {
+          "sha": "06ec8a65d702e013c8dd70795d29342b1198cd15",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/06ec8a65d702e013c8dd70795d29342b1198cd15"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjUtcmMw"
+      },
+      {
+        "name": "r4.2.4",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.4",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.4",
+        "commit": {
+          "sha": "b444815b69ab088a808162bdb4676af2ce00ff2c",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/b444815b69ab088a808162bdb4676af2ce00ff2c"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjQ="
+      },
+      {
+        "name": "r4.2.4-rc0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.4-rc0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.4-rc0",
+        "commit": {
+          "sha": "b444815b69ab088a808162bdb4676af2ce00ff2c",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/b444815b69ab088a808162bdb4676af2ce00ff2c"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjQtcmMw"
+      },
+      {
+        "name": "r4.2.3",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.3",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.3",
+        "commit": {
+          "sha": "6874650b362138df74be53d366bbefc321ea32d4",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/6874650b362138df74be53d366bbefc321ea32d4"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjM="
+      },
+      {
+        "name": "r4.2.3-rc1",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.3-rc1",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.3-rc1",
+        "commit": {
+          "sha": "6874650b362138df74be53d366bbefc321ea32d4",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/6874650b362138df74be53d366bbefc321ea32d4"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjMtcmMx"
+      },
+      {
+        "name": "r4.2.3-rc0",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.3-rc0",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.3-rc0",
+        "commit": {
+          "sha": "f304776caf5e2113347c3ea52a05eee396b9ce66",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/f304776caf5e2113347c3ea52a05eee396b9ce66"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjMtcmMw"
+      },
+      {
+        "name": "r4.2.2",
+        "zipball_url": "https://api.github.com/repos/mongodb/mongo/zipball/r4.2.2",
+        "tarball_url": "https://api.github.com/repos/mongodb/mongo/tarball/r4.2.2",
+        "commit": {
+          "sha": "a0bbbff6ada159e19298d37946ac8dc4b497eadf",
+          "url": "https://api.github.com/repos/mongodb/mongo/commits/a0bbbff6ada159e19298d37946ac8dc4b497eadf"
+        },
+        "node_id": "MDM6UmVmMTA4MTEwOnJlZnMvdGFncy9yNC4yLjI="
+      }
+    ]
+query_type: api.github.tags
