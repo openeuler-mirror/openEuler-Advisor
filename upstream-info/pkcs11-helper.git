@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: OpenSC/pkcs11-helper
+tag_prefix: ^pkcs11-helper-
+seperator: .

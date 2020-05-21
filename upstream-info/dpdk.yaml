@@ -1,0 +1,311 @@
+---
+version_control: github
+src_repo: DPDK/dpdk
+tag_prefix: ^v
+seperator: .
+last_query:
+  time_stamp: 2020-05-07 03:39:05.428874541 -04:00
+  raw_data: |
+    [
+      {
+        "name": "v20.05-rc1",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v20.05-rc1",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v20.05-rc1",
+        "commit": {
+          "sha": "bc7a868ec154c23408f12190f2fb02d173564a9d",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/bc7a868ec154c23408f12190f2fb02d173564a9d"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djIwLjA1LXJjMQ=="
+      },
+      {
+        "name": "v20.02",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v20.02",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v20.02",
+        "commit": {
+          "sha": "d7142fbae16f185e11bfa44be061399afc40a1be",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/d7142fbae16f185e11bfa44be061399afc40a1be"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djIwLjAy"
+      },
+      {
+        "name": "v20.02-rc4",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v20.02-rc4",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v20.02-rc4",
+        "commit": {
+          "sha": "fbd54248bb18040166a3e6d792282bd5ca5ed240",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/fbd54248bb18040166a3e6d792282bd5ca5ed240"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djIwLjAyLXJjNA=="
+      },
+      {
+        "name": "v20.02-rc3",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v20.02-rc3",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v20.02-rc3",
+        "commit": {
+          "sha": "914397d6c1141235b48ca60249221976e9e08feb",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/914397d6c1141235b48ca60249221976e9e08feb"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djIwLjAyLXJjMw=="
+      },
+      {
+        "name": "v20.02-rc2",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v20.02-rc2",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v20.02-rc2",
+        "commit": {
+          "sha": "2636c2a23878b4f9906d90744664d8740bc9ec66",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/2636c2a23878b4f9906d90744664d8740bc9ec66"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djIwLjAyLXJjMg=="
+      },
+      {
+        "name": "v20.02-rc1",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v20.02-rc1",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v20.02-rc1",
+        "commit": {
+          "sha": "f061f23bcaa619209b9180f8720a128bd719e95b",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/f061f23bcaa619209b9180f8720a128bd719e95b"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djIwLjAyLXJjMQ=="
+      },
+      {
+        "name": "v19.11",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.11",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.11",
+        "commit": {
+          "sha": "7001c8fdb27357c67147c0a13cb3826e48c0f2bf",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/7001c8fdb27357c67147c0a13cb3826e48c0f2bf"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjEx"
+      },
+      {
+        "name": "v19.11-rc4",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.11-rc4",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.11-rc4",
+        "commit": {
+          "sha": "2d0cfc0e0528bb6be3676032a2d0573d7c3b3999",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/2d0cfc0e0528bb6be3676032a2d0573d7c3b3999"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjExLXJjNA=="
+      },
+      {
+        "name": "v19.11-rc3",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.11-rc3",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.11-rc3",
+        "commit": {
+          "sha": "e5d0ba08703099c12e4bb2eac650cbb047df1a13",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/e5d0ba08703099c12e4bb2eac650cbb047df1a13"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjExLXJjMw=="
+      },
+      {
+        "name": "v19.11-rc2",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.11-rc2",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.11-rc2",
+        "commit": {
+          "sha": "31aa07759ecd151967b568b1f1aa12b7794217c8",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/31aa07759ecd151967b568b1f1aa12b7794217c8"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjExLXJjMg=="
+      },
+      {
+        "name": "v19.11-rc1",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.11-rc1",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.11-rc1",
+        "commit": {
+          "sha": "19397c7bf2545e6adab41b657a1f1da3c7344e7b",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/19397c7bf2545e6adab41b657a1f1da3c7344e7b"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjExLXJjMQ=="
+      },
+      {
+        "name": "v19.08",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.08",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.08",
+        "commit": {
+          "sha": "b81660d09e9caa928ab1c683cd0fbfbe2439ac3d",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/b81660d09e9caa928ab1c683cd0fbfbe2439ac3d"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA4"
+      },
+      {
+        "name": "v19.08-rc4",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.08-rc4",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.08-rc4",
+        "commit": {
+          "sha": "0710d87b7f5d0a2cd01861d44c4689efd4714b5f",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/0710d87b7f5d0a2cd01861d44c4689efd4714b5f"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA4LXJjNA=="
+      },
+      {
+        "name": "v19.08-rc3",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.08-rc3",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.08-rc3",
+        "commit": {
+          "sha": "0bbc72e599ed8b2593efccfae5692f1c6a15d2e8",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/0bbc72e599ed8b2593efccfae5692f1c6a15d2e8"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA4LXJjMw=="
+      },
+      {
+        "name": "v19.08-rc2",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.08-rc2",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.08-rc2",
+        "commit": {
+          "sha": "83a124fb73c50b051ee20ef6b1998c81be7e65df",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/83a124fb73c50b051ee20ef6b1998c81be7e65df"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA4LXJjMg=="
+      },
+      {
+        "name": "v19.08-rc1",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.08-rc1",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.08-rc1",
+        "commit": {
+          "sha": "cc091931dc05212db32ddbd7da3031104ca4963f",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/cc091931dc05212db32ddbd7da3031104ca4963f"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA4LXJjMQ=="
+      },
+      {
+        "name": "v19.05",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.05",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.05",
+        "commit": {
+          "sha": "07efd6ddc0499688eb11ae4866d3532295d6db2b",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/07efd6ddc0499688eb11ae4866d3532295d6db2b"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA1"
+      },
+      {
+        "name": "v19.05-rc4",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.05-rc4",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.05-rc4",
+        "commit": {
+          "sha": "93fa422f742ad9c4679a25d4b0e875856fd6a393",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/93fa422f742ad9c4679a25d4b0e875856fd6a393"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA1LXJjNA=="
+      },
+      {
+        "name": "v19.05-rc3",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.05-rc3",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.05-rc3",
+        "commit": {
+          "sha": "46155cb49a61423ab67095c786f83a6d57a1891b",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/46155cb49a61423ab67095c786f83a6d57a1891b"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA1LXJjMw=="
+      },
+      {
+        "name": "v19.05-rc2",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.05-rc2",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.05-rc2",
+        "commit": {
+          "sha": "7f251bcf22c5729792f9243480af1b3c072876a5",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/7f251bcf22c5729792f9243480af1b3c072876a5"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA1LXJjMg=="
+      },
+      {
+        "name": "v19.05-rc1",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.05-rc1",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.05-rc1",
+        "commit": {
+          "sha": "bdcfcceb7a0b7534a0dba669279d18bd0f98d5e5",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/bdcfcceb7a0b7534a0dba669279d18bd0f98d5e5"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjA1LXJjMQ=="
+      },
+      {
+        "name": "v19.02",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.02",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.02",
+        "commit": {
+          "sha": "8b937bae24a306ad82c0983c83feb1be23d41f13",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/8b937bae24a306ad82c0983c83feb1be23d41f13"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjAy"
+      },
+      {
+        "name": "v19.02-rc4",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.02-rc4",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.02-rc4",
+        "commit": {
+          "sha": "a2f9c0d417e3417e2858f2446b08ea27d962b056",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/a2f9c0d417e3417e2858f2446b08ea27d962b056"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjAyLXJjNA=="
+      },
+      {
+        "name": "v19.02-rc3",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.02-rc3",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.02-rc3",
+        "commit": {
+          "sha": "84a1d4a873634f53cc6e3555dc78ca611bbc3458",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/84a1d4a873634f53cc6e3555dc78ca611bbc3458"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjAyLXJjMw=="
+      },
+      {
+        "name": "v19.02-rc2",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.02-rc2",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.02-rc2",
+        "commit": {
+          "sha": "05853e1784ab004a42451aebcbde22e0c732122a",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/05853e1784ab004a42451aebcbde22e0c732122a"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjAyLXJjMg=="
+      },
+      {
+        "name": "v19.02-rc1",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v19.02-rc1",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v19.02-rc1",
+        "commit": {
+          "sha": "7637518249ca8da08bbbccd3cae0e30f0e70cff9",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/7637518249ca8da08bbbccd3cae0e30f0e70cff9"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE5LjAyLXJjMQ=="
+      },
+      {
+        "name": "v18.11",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v18.11",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v18.11",
+        "commit": {
+          "sha": "0da7f445df445630c794897347ee360d6fe6348b",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/0da7f445df445630c794897347ee360d6fe6348b"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE4LjEx"
+      },
+      {
+        "name": "v18.11-rc5",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v18.11-rc5",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v18.11-rc5",
+        "commit": {
+          "sha": "6cff3183c2035fe90e18e59c1ea3c0304116a4de",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/6cff3183c2035fe90e18e59c1ea3c0304116a4de"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE4LjExLXJjNQ=="
+      },
+      {
+        "name": "v18.11-rc4",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v18.11-rc4",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v18.11-rc4",
+        "commit": {
+          "sha": "d82e5db6f6561356990000cac40e78b59ba0c65f",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/d82e5db6f6561356990000cac40e78b59ba0c65f"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE4LjExLXJjNA=="
+      },
+      {
+        "name": "v18.11-rc3",
+        "zipball_url": "https://api.github.com/repos/DPDK/dpdk/zipball/v18.11-rc3",
+        "tarball_url": "https://api.github.com/repos/DPDK/dpdk/tarball/v18.11-rc3",
+        "commit": {
+          "sha": "3e42b6ce06a1901b1ab631df4484ec8f548091c6",
+          "url": "https://api.github.com/repos/DPDK/dpdk/commits/3e42b6ce06a1901b1ab631df4484ec8f548091c6"
+        },
+        "node_id": "MDM6UmVmOTYzNDg4NDI6djE4LjExLXJjMw=="
+      }
+    ]
+query_type: api.github.tags

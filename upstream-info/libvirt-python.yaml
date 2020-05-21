@@ -1,0 +1,5 @@
+---
+version_control: git
+src_repo: https://libvirt.org/git/libvirt-python.git
+tag_prefix: v
+seperator: .

@@ -1,1 +1,5 @@
-git_repo: https://github.com/template/template.git
+---
+version_control: git
+src_repo: xxxx
+tag_prefix: ^v
+seperator: .
