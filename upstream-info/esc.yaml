@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: mjibson/esc
+tag_prefix: ^v
+seperator: .
