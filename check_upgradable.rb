@@ -19,7 +19,7 @@ require './gitee/advisor'
 options = {}
 
 OptionParser.new do |opts|
-	opts.banner = "Usage: ./check_upstream.rb [options]"
+	opts.banner = "Usage: check_upgradable.rb [options]"
 	opts.on("-p", "--push", "Push the advise to gitee.com/src-openeuler") do |v|
 		options[:push] = v
 	end
