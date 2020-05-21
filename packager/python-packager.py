@@ -46,12 +46,6 @@ buildreq_tag_template = 'BuildRequires:\t{req}'
 
 build_noarch = True # Usually python modules are arch independent
 
-# TODO List
-# 1. Need a reliable way to get description of module .. Partially done
-# 2. requires_dist has some dependency restirction, need to present
-# 3. dependency outside python (i.e. pycurl depends on libcurl) doesn't exist in pipy
-
-
 def get_license(j):
     """
     By default, the license info can be achieved from json["info"]["license"]
@@ -99,7 +93,7 @@ def transform_module_name(n):
     if len(ns) > 1:
         vers = ns[1].split(",")
         for ver in vers:
-            m = re.match("([!<>=]+)( *)(\d.*)", ver.strip()) 
+            m = re.match(r"([!<>=]+)( *)(\d.*)", ver.strip()) 
             ver_constrain.append(ns[0] + " " + m[1] + " " + m[3])
         return ", ".join(ver_constrain)
     else:
@@ -126,7 +120,7 @@ def refine_requires(req):
     ra = req.split(";", 1)
     #
     # Do not add requires which has ;, which is often has very complicated precondition
-    # TODO: need more parsing of the denpency after ;
+    # Will need more parsing of the denpency after ;
     return transform_module_name(ra[0])
 
 def get_build_requires(resp):
@@ -272,7 +266,7 @@ def try_install_package(pkg):
         print("%s can not be installed correctly, Fix it later, go ahead to do building..." % pip_name)
 
     #
-    # TODO: try to build anyway, fix it later
+    # Try to build anyway, fix it later
     #
     return True
 
