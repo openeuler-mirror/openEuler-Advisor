@@ -158,6 +158,8 @@ print "Latest upstream is ", tags[-1], "\n"
 #print "Recommended is     ", upgrade_recommend(tags, Cur_ver, "latest-stable"), "\n"
 print "Current version is ", Cur_ver, "\n"
 
+puts "This package has #{spec_struct.get_diverse} patches"
+
 if tags.length == 0 or compare_tags(tags[-1], Cur_ver) < 0 then
 	STDERR.puts "DEBUG #{Prj_name} > tags are #{tags}"
 	File.delete("upstream-info/"+Prj_name+".yaml") if File.exist?("upstream-info/"+Prj_name+".yaml")

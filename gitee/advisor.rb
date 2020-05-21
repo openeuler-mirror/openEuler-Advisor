@@ -5,7 +5,7 @@ require 'json'
 class Advisor
 	def initialize
 		@token = JSON.parse(File.read (File.expand_path "~/.gitee_token.json"))
-		@cmd = "curl -X POST --header 'Content-Type: application/json;charset=UTF-8'"
+		@cmd = "curl -s -X POST --header 'Content-Type: application/json;charset=UTF-8'"
 		@param = {}
 	end
 

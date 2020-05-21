@@ -3,6 +3,15 @@
 require 'yaml'
 require 'set'
 
+def rpmspec_split_file (line, prefix)
+    m = line.scan (/#{prefix}\s*(.*)/)
+    if m != [] then
+	    return m[0][0]
+    else
+	    return nil
+    end
+end
+
 def rpmspec_split_tags (line, prefix)
     m = line.scan (/#{prefix}\s*(.*)/)
     if m != [] then
@@ -73,6 +82,9 @@ class Specfile
 		@requires = Set.new
 		@provides = Set.new
 
+		@sources = Set.new
+		@patches = Set.new
+
 		spec.each_line { |line| 
 			m = line.scan (/^[Nn]ame\s*:\s*([^\s]*)\s*/)
 			if m != [] then
@@ -106,6 +118,14 @@ class Specfile
 			if po != nil then
 				@provides += po
 			end
+			src = rpmspec_split_file(line, "Source\\d*:")
+			if src != nil then
+				@sources << src
+			end
+			pa = rpmspec_split_file(line, "Patch\\d*:")
+			if pa != nil then
+				@patches << pa
+			end
 		}
 		@name = rpmspec_macro_expand(@name, @macros)
 		@macros["name"] = @name
@@ -127,6 +147,10 @@ class Specfile
 
 	def get_version
 		return @version
+	end
+
+	def get_diverse
+		return @patches.length
 	end
 #newspec = {}
 #newspec["name"] = name
