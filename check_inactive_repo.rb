@@ -39,10 +39,16 @@ refs.each_line { |line|
 	end
 	puts line
 }
-puts merge_count
 if merge_count < INACTIVE_THRESHOLD then
-	ad = Advisor.new
-	ad.new_issue("openeuler", options[:repo],
-		     "Inactive repository",
-		     "Dear #{options[:repo]} developer:\n亲爱的 #{options[:repo]} 开发者：\n\n  We found this repository has not fulfill what it prupose to be.\n我们发现这个代码仓并没有承载它被期望的功能。\n\n  Long time no progress will discourge other developers to follow and participant this initiative.\n长期没有代码会使得关注这个项目的开发者失望。\n\n  Please start submit something as soon as possible.\n建议您尽快向代码仓提交进展。\n\n  This is a automatic advise from openEuler-Advisor. If you think the advise is not correct, please fill an issue at https\:\/\/gitee.com\/openeuler\/openEuler-Advisor to help us improve.\n这是一条由 openEuler-Advisor 自动生成的建议。如果您认为这个建议不对，请访问 https\:\/\/gitee.com\/openeuler\/openEuler-Advisor 来帮助我们改进。\n\n Yours openEuler Advisor.")
+	if options[:push] then
+		ad = Advisor.new
+		ad.new_issue("openeuler", options[:repo],
+			     "Inactive repository",
+			     "Dear #{options[:repo]} developer:\n亲爱的 #{options[:repo]} 开发者：\n\n  We found this repository has not fulfill what it prupose to be.\n我们发现这个代码仓并没有承载它被期望的功能。\n\n  Long time no progress will discourge other developers to follow and participant this initiative.\n长期没有代码会使得关注这个项目的开发者失望。\n\n  Please start submit something as soon as possible.\n建议您尽快向代码仓提交进展。\n\n  This is a automatic advise from openEuler-Advisor. If you think the advise is not correct, please fill an issue at https\:\/\/gitee.com\/openeuler\/openEuler-Advisor to help us improve.\n这是一条由 openEuler-Advisor 自动生成的建议。如果您认为这个建议不对，请访问 https\:\/\/gitee.com\/openeuler\/openEuler-Advisor 来帮助我们改进。\n\n Yours openEuler Advisor.")
+	else
+		puts "#{options[:repo]} is not active. But we keep it between us"
+	end
+else
+	puts "#{options[:repo]} is active and good."
 end
+
