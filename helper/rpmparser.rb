@@ -40,16 +40,18 @@ def rpmspec_clean_tag (oset, mac)
             new_set << bra[0]
         elsif br.match(/%{/) then
             m = br.scan(/%{(.*?)}/)
-            if m != [] then
-		    if mac[m[0][0]] then
-			    nbr = br.gsub(/%{#{m[0][0]}}/, mac[m[0][0]])
+	    i = 0
+	    nbr = br
+	    while i < m.length do
+		    if mac[m[i][0]] then
+			    nbr = nbr.gsub(/%{#{m[i][0]}}/, mac[m[i][0]])
 		    else
 			    # some strange RPM macro needs shell expand, I dont know ohw to handle this
-			    nbr = br
 		    end
-                oset.delete(br)
-                new_set << nbr
-            end
+		    i = i + 1
+	    end
+	    oset.delete(br)
+	    new_set << nbr
         end
     }
     oset += new_set
@@ -151,6 +153,14 @@ class Specfile
 
 	def get_diverse
 		return @patches.length
+	end
+
+	def get_sources
+		return @sources
+	end
+
+	def expand_macros(s)
+		return rpmspec_clean_tag(s, @macros)
 	end
 #newspec = {}
 #newspec["name"] = name
