@@ -59,6 +59,7 @@ def rpmspec_clean_tag (oset, mac)
 end
 
 def rpmspec_macro_expand(tag, macro)
+	##This needs a fix
 	if tag.match(/%{/) then
 		m = tag.scan(/%{(.*)}/)
 		if m != [] then
