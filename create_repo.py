@@ -40,6 +40,11 @@ if __name__ == "__main__":
     nr["protected_branches"] = ["master"]
     nr["type"] = "public"
 
+    exist = [ x for x in repo["repositories"] if x["name"] == args.name ]
+    if exist != []:
+        print("Repo already exist")
+        sys.exit(1)
+
     if repo["community"] == "openeuler":
         repo["repositories"].append(nr)
     elif repo["community"] == "src-openeuler":
