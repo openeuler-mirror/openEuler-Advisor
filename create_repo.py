@@ -40,7 +40,7 @@ if __name__ == "__main__":
     nr["protected_branches"] = ["master"]
     nr["type"] = "public"
 
-    exist = [ x for x in repo["repositories"] if x["name"] == args.name ]
+    exist = [x for x in repo["repositories"] if x["name"] == args.name]
     if exist != []:
         print("Repo already exist")
         sys.exit(1)
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     valid_sig = False
     for s in sigs["sigs"]:
         if s["name"] == args.sig:
-            s["repositories"].append(repo["community"]+"/"+args.name)
+            s["repositories"].append(repo["community"] + "/" + args.name)
             s["repositories"].sort()
             valid_sig=True
             continue
