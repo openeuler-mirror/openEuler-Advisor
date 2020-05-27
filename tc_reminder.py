@@ -51,14 +51,14 @@ if __name__ == "__main__":
     adv = Advisor()
     PRs = adv.get_prs()
     for pr in PRs:
-        pprint("https://gitee.com/openeuler/community/pulls/{number}".format(number=pr["number"]))
-        pprint(pr["title"])
+        print("URL: https://gitee.com/openeuler/community/pulls/{number}".format(number=pr["number"]))
+        print("Title: "+pr["title"])
         comm = adv.get_pr_comments(pr["number"])
         users = []
         for c in comm:
            users.append(c["user"]["login"]) 
         tc = adv.filter_out_tc(users)
-        pprint("Involved TC member:")
-        pprint(tc)
+        print("Currently involved TC members: " + ", ".join(tc))
+        print("\n")
 
 
