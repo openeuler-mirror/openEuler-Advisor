@@ -88,7 +88,7 @@ if __name__ == "__main__":
         if line.startswith("%changelog"):
             in_changelog = True
         if line.startswith("*") and in_changelog:
-            m = re.match(".*\d\d\d\d (.*) .*", line)
+            m = re.match(r".*\d\d\d\d (.*) .*", line)
             if m is None:
                 emails.add(line)
             else:
