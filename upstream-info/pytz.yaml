@@ -1,4 +1,311 @@
+---
 version_control: github
-src_repo:  stub42/pytz
-tag_prefix: ^v
-seperator: .
+src_repo: stub42/pytz
+tag_prefix: release_
+seperator: "."
+last_query:
+  time_stamp: 2020-05-20 09:43:13.414808150 +00:00
+  raw_data: |
+    [
+      {
+        "name": "release_2020.1",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2020.1",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2020.1",
+        "commit": {
+          "sha": "164d6af6dc335c0adf6f7fa97800b6fa6d17cc9f",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/164d6af6dc335c0adf6f7fa97800b6fa6d17cc9f"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAyMC4x"
+      },
+      {
+        "name": "release_2019.3",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2019.3",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2019.3",
+        "commit": {
+          "sha": "3db12139c6da6ae3fb2f6fb4988adc9db14e3838",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/3db12139c6da6ae3fb2f6fb4988adc9db14e3838"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOS4z"
+      },
+      {
+        "name": "release_2019.2",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2019.2",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2019.2",
+        "commit": {
+          "sha": "62f872054dde69e5c510094093cd6e221d96d5db",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/62f872054dde69e5c510094093cd6e221d96d5db"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOS4y"
+      },
+      {
+        "name": "release_2019.1",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2019.1",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2019.1",
+        "commit": {
+          "sha": "c09737e968b232aa8f824d94506a4962fc655814",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/c09737e968b232aa8f824d94506a4962fc655814"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOS4x"
+      },
+      {
+        "name": "release_2018.9",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2018.9",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2018.9",
+        "commit": {
+          "sha": "e7193ead5ace1ccaeb4a33d185a42b50c9cbaef9",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/e7193ead5ace1ccaeb4a33d185a42b50c9cbaef9"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOC45"
+      },
+      {
+        "name": "release_2018.7",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2018.7",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2018.7",
+        "commit": {
+          "sha": "024e87765ac37cd5b818347c3e6afa98a1e4f5a6",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/024e87765ac37cd5b818347c3e6afa98a1e4f5a6"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOC43"
+      },
+      {
+        "name": "release_2018.6",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2018.6",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2018.6",
+        "commit": {
+          "sha": "c9df7ae6222875f943245c14782873c0863fd99c",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/c9df7ae6222875f943245c14782873c0863fd99c"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOC42"
+      },
+      {
+        "name": "release_2018.5",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2018.5",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2018.5",
+        "commit": {
+          "sha": "b70911542755aeeea7b5a9e066df5e1c87e8f2c8",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/b70911542755aeeea7b5a9e066df5e1c87e8f2c8"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOC41"
+      },
+      {
+        "name": "release_2018.4",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2018.4",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2018.4",
+        "commit": {
+          "sha": "fae0ac547f40eed5a9cce27e0b53cfc2fadfaabe",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/fae0ac547f40eed5a9cce27e0b53cfc2fadfaabe"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOC40"
+      },
+      {
+        "name": "release_2018.3",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2018.3",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2018.3",
+        "commit": {
+          "sha": "fe7d934c4c6fe0b0e81eab4cd5a4881f0d3c2864",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/fe7d934c4c6fe0b0e81eab4cd5a4881f0d3c2864"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxOC4z"
+      },
+      {
+        "name": "release_2017.3",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2017.3",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2017.3",
+        "commit": {
+          "sha": "b4dfd2cc2099185d8bf507592bc4ff8d50cfaa6c",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/b4dfd2cc2099185d8bf507592bc4ff8d50cfaa6c"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNy4z"
+      },
+      {
+        "name": "release_2017.2",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2017.2",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2017.2",
+        "commit": {
+          "sha": "c00dbe290bd1aa896b01db94f2e93449cf3bfd07",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/c00dbe290bd1aa896b01db94f2e93449cf3bfd07"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNy4y"
+      },
+      {
+        "name": "release_2016.10",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2016.10",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2016.10",
+        "commit": {
+          "sha": "4e3b609f67bd31c0ef6dd205e08e5135dfee397e",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/4e3b609f67bd31c0ef6dd205e08e5135dfee397e"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNi4xMA=="
+      },
+      {
+        "name": "release_2016.7",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2016.7",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2016.7",
+        "commit": {
+          "sha": "aea262738d341cff78131934155ff9c1f84a5ac7",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/aea262738d341cff78131934155ff9c1f84a5ac7"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNi43"
+      },
+      {
+        "name": "release_2016.6.1",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2016.6.1",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2016.6.1",
+        "commit": {
+          "sha": "f55399cddbef67c56db1b83e0939ecc1e276cf42",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/f55399cddbef67c56db1b83e0939ecc1e276cf42"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNi42LjE="
+      },
+      {
+        "name": "release_2016.6",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2016.6",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2016.6",
+        "commit": {
+          "sha": "da34db62c844307ff170e130cfd0c2d2b33df7bb",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/da34db62c844307ff170e130cfd0c2d2b33df7bb"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNi42"
+      },
+      {
+        "name": "release_2016.4",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2016.4",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2016.4",
+        "commit": {
+          "sha": "53a9db37a96524ee500230cee5865d81dad93a51",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/53a9db37a96524ee500230cee5865d81dad93a51"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNi40"
+      },
+      {
+        "name": "release_2016.1",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2016.1",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2016.1",
+        "commit": {
+          "sha": "b418e3fb41fec1fd2cba09e6bdbd10bf0fdb0908",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/b418e3fb41fec1fd2cba09e6bdbd10bf0fdb0908"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNi4x"
+      },
+      {
+        "name": "release_2015.6",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2015.6",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2015.6",
+        "commit": {
+          "sha": "d53e863459e1a61075af44209e3581636682a162",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/d53e863459e1a61075af44209e3581636682a162"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNS42"
+      },
+      {
+        "name": "release_2015.2",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2015.2",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2015.2",
+        "commit": {
+          "sha": "0b9d95f6caec79698ace872366cf88c720912f66",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/0b9d95f6caec79698ace872366cf88c720912f66"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNS4y"
+      },
+      {
+        "name": "release_2014.10",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.10",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.10",
+        "commit": {
+          "sha": "625e5644587277f56a082d15e828cdf380b9b4f1",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/625e5644587277f56a082d15e828cdf380b9b4f1"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC4xMA=="
+      },
+      {
+        "name": "release_2014.9",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.9",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.9",
+        "commit": {
+          "sha": "46021a739fac6878f7250bb4a57acd0f789f5362",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/46021a739fac6878f7250bb4a57acd0f789f5362"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC45"
+      },
+      {
+        "name": "release_2014.7",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.7",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.7",
+        "commit": {
+          "sha": "880f0956d1eb9b64d64786f4f53fdf0cbf8b00b4",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/880f0956d1eb9b64d64786f4f53fdf0cbf8b00b4"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC43"
+      },
+      {
+        "name": "release_2014.4",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.4",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.4",
+        "commit": {
+          "sha": "056207cdda4a8f01f7f0bd924e89d0df434c7547",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/056207cdda4a8f01f7f0bd924e89d0df434c7547"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC40"
+      },
+      {
+        "name": "release_2014.3",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.3",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.3",
+        "commit": {
+          "sha": "54b09ec9de8f5a1ab29a261db4a465b9bb27e159",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/54b09ec9de8f5a1ab29a261db4a465b9bb27e159"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC4z"
+      },
+      {
+        "name": "release_2014.2",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.2",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.2",
+        "commit": {
+          "sha": "766a3160ed86adbfc8498734f1c84650f02728ca",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/766a3160ed86adbfc8498734f1c84650f02728ca"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC4y"
+      },
+      {
+        "name": "release_2014.1.1",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.1.1",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.1.1",
+        "commit": {
+          "sha": "4252eaa41454da5b41f9f7d8bf4fcd22fe83cd58",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/4252eaa41454da5b41f9f7d8bf4fcd22fe83cd58"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC4xLjE="
+      },
+      {
+        "name": "release_2014.1",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2014.1",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2014.1",
+        "commit": {
+          "sha": "6d7de33f12264e88456b0c91c152c178aa25dbfe",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/6d7de33f12264e88456b0c91c152c178aa25dbfe"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxNC4x"
+      },
+      {
+        "name": "release_2013.9",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2013.9",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2013.9",
+        "commit": {
+          "sha": "4ed0cfa6d3ae3ba79bf4e8d3347b4c385fb405e7",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/4ed0cfa6d3ae3ba79bf4e8d3347b4c385fb405e7"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxMy45"
+      },
+      {
+        "name": "release_2013.8",
+        "zipball_url": "https://api.github.com/repos/stub42/pytz/zipball/release_2013.8",
+        "tarball_url": "https://api.github.com/repos/stub42/pytz/tarball/release_2013.8",
+        "commit": {
+          "sha": "d4ac4e52e0da663fe4c0c0c9f1e0a78bf583278b",
+          "url": "https://api.github.com/repos/stub42/pytz/commits/d4ac4e52e0da663fe4c0c0c9f1e0a78bf583278b"
+        },
+        "node_id": "MDM6UmVmNjMxNTU2Mzg6cmVmcy90YWdzL3JlbGVhc2VfMjAxMy44"
+      }
+    ]
+query_type: api.github.tags

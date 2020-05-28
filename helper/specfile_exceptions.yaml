@@ -1,0 +1,55 @@
+---
+libnetwork:
+  dir: script
+  file: docker-proxy.spec
+authz:
+  dir: hack
+  file: authz.spec
+lxcfs-tools:
+  dir: hack
+  file: lxcfs-tools.spec
+libkae:
+  dir: .
+  file: kae.spec
+autotune:
+  dir: .
+  file: atune.spec
+dvdplusrw-tools:
+  dir: .
+  file: dvd+rw-tools.spec
+gtk:
+  dir: .
+  file: gtk+.spec
+docker:
+  dir: .
+  file: docker-engine-openeuler.spec
+libsigcpp20:
+  dir: .
+  file: libsigc++20.spec
+libwd:
+  dir: .
+  file: warpdrive.spec
+kmod-kvdo:
+  dir: .
+  file: kvdo.spec
+jboss-el:
+  dir: .
+  file: jboss-el-2.2-api.spec
+openEuler-rpm-config:
+  dir: .
+  file: generic-rpm-config.spec
+openEuler-release:
+  dir: .
+  file: generic-release.spec
+openjdk-1.8.0:
+  dir: .
+  file: java-1.8.0-openjdk.spec
+openjdk-11:
+  dir: .
+  file: java-11-openjdk.spec
+A-Tune:
+  dir: .
+  file: atune.spec
+runc:
+  dir: .
+  file: runc-openeuler.spec

@@ -3,6 +3,7 @@
 require 'yaml'
 require 'json'
 require 'date'
+require 'optparse'
 
 require './check_upstream/github'
 require './check_upstream/git'
@@ -11,9 +12,40 @@ require './check_upstream/svn'
 require './check_upstream/metacpan'
 require './check_upstream/gnome'
 require './check_upstream/pypi'
+require './helper/download_spec'
+require './helper/rpmparser'
+require './gitee/advisor'
 
-Prj_name = ARGV[0]
-Cur_ver = ARGV[1]
+options = {}
+
+OptionParser.new do |opts|
+	opts.banner = "Usage: check_upgradable.rb [options]"
+	opts.on("-p", "--push", "Push the advise to gitee.com/src-openeuler") do |v|
+		options[:push] = v
+	end
+	opts.on("-r", "--repo REPO_NAME", "Repo to check upstream info") do |n|
+		puts "Checking #{n}"
+		options[:repo] = n
+	end
+	opts.on("-h", "--help", "Prints this help") do
+		puts opts
+		exit
+	end
+end.parse!
+
+if not options[:repo] then
+	puts "Missing repo name\n"
+	exit 1
+end 
+
+Prj_name = options[:repo]
+specfile=download_spec(Prj_name)
+if specfile == "" then
+	puts "no specfile found for project\n"
+	exit 1
+end
+spec_struct = Specfile.new(specfile)
+Cur_ver = spec_struct.get_version
 
 Prj_info = YAML.load(File.read "upstream-info/"+Prj_name+".yaml")
 
@@ -44,7 +76,7 @@ end
 def clean_tags(tags)
 	new_tags = []
 	tags.each{|line|
-		new_tags = new_tags.push(clean_tag(line, Prj_info))
+		new_tags = new_tags.append clean_tag(line, Prj_info)
 	}
 	return new_tags
 end
@@ -123,8 +155,10 @@ end
 
 tags = sort_tags(tags)
 print "Latest upstream is ", tags[-1], "\n"
-print "Recommended is     ", upgrade_recommend(tags, Cur_ver, "latest-stable"), "\n"
+#print "Recommended is     ", upgrade_recommend(tags, Cur_ver, "latest-stable"), "\n"
 print "Current version is ", Cur_ver, "\n"
+
+puts "This package has #{spec_struct.get_diverse} patches"
 
 if tags.length == 0 or compare_tags(tags[-1], Cur_ver) < 0 then
 	STDERR.puts "DEBUG #{Prj_name} > tags are #{tags}"
@@ -132,4 +166,13 @@ if tags.length == 0 or compare_tags(tags[-1], Cur_ver) < 0 then
 	File.open("known-issues/"+Prj_name+".yaml", "w") { |file| file.write(Prj_info.to_yaml) }
 else
 	File.open("upstream-info/"+Prj_name+".yaml", "w") { |file| file.write(Prj_info.to_yaml) }
+end
+File.delete(specfile) if specfile != ""
+
+if options[:push] then
+	puts "Push to gitee\n"
+	ad = Advisor.new
+	ad.new_issue("src-openeuler", Prj_name, "Upgrade to Latest Release", "Dear #{Prj_name} maintainer:\n\n  We found the latst version of #{Prj_name} is #{tags[-1]}, while the current version in openEuler is #{Cur_ver}.\n\n  Please consider upgrading.\n\n\nYours openEuler Advisor.")
+else
+	puts "keep it to us\n"
 end

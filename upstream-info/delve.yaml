@@ -4,8 +4,9 @@ src_repo: go-delve/delve
 tag_prefix: "^v"
 seperator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
+query_type: api.github.releases
 last_query:
-  time_stamp: 2020-04-26 09:04:21.263120210 +00:00
+  time_stamp: 2020-05-20 07:11:10.626083670 +00:00
   raw_data: |
     [
       {
@@ -255,4 +256,3 @@ last_query:
         "body": "[delve-1.0.0.tar.gz](https://github.com/derekparker/delve/files/1738674/delve-1.0.0.tar.gz)\r\n"
       }
     ]
-query_type: api.github.releases

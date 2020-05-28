@@ -3,8 +3,9 @@ version_control: github
 src_repo: dm-vdo/vdo
 tag_prefix: "^v"
 seperator: "."
+query_type: api.github.releases
 last_query:
-  time_stamp: 2020-04-27 08:46:26.581681600 +00:00
+  time_stamp: 2020-05-12 06:47:59.365408980 +00:00
   raw_data: |
     [
       {
@@ -1238,4 +1239,3 @@ last_query:
         "body": ""
       }
     ]
-query_type: api.github.releases

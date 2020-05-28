@@ -3,8 +3,9 @@ version_control: github
 src_repo: leethomason/tinyxml2
 tag_prefix: "^v"
 seperator: "."
+query_type: api.github.tags
 last_query:
-  time_stamp: 2020-04-26 11:22:11.013614790 +00:00
+  time_stamp: 2020-05-22 07:12:53.108621880 +00:00
   raw_data: |
     [
       {
@@ -15,7 +16,7 @@ last_query:
           "sha": "bf15233ad88390461f6ab0dbcf046cce643c5fcb",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/bf15233ad88390461f6ab0dbcf046cce643c5fcb"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo4LjAuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvOC4wLjA="
       },
       {
         "name": "7.1.0",
@@ -25,7 +26,7 @@ last_query:
           "sha": "9c740e8d2341bd46dbe8e87053cdb4d931971967",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/9c740e8d2341bd46dbe8e87053cdb4d931971967"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo3LjEuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNy4xLjA="
       },
       {
         "name": "7.0.1",
@@ -35,7 +36,7 @@ last_query:
           "sha": "de6d164822076f9b1e26a7222808a25ac03867d8",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/de6d164822076f9b1e26a7222808a25ac03867d8"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo3LjAuMQ=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNy4wLjE="
       },
       {
         "name": "7.0.0",
@@ -45,7 +46,7 @@ last_query:
           "sha": "397f22581b6f3969208f2cc41f36d4b39c39ad39",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/397f22581b6f3969208f2cc41f36d4b39c39ad39"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo3LjAuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNy4wLjA="
       },
       {
         "name": "6.2.0",
@@ -55,7 +56,7 @@ last_query:
           "sha": "c1424ee4e1c1ed8129d9147ccc920ab92dd9ef86",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/c1424ee4e1c1ed8129d9147ccc920ab92dd9ef86"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo2LjIuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNi4yLjA="
       },
       {
         "name": "6.0.0",
@@ -65,7 +66,7 @@ last_query:
           "sha": "8c8293ba8969a46947606a93ff0cb5a083aab47a",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/8c8293ba8969a46947606a93ff0cb5a083aab47a"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo2LjAuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNi4wLjA="
       },
       {
         "name": "5.0.1",
@@ -75,7 +76,7 @@ last_query:
           "sha": "37bc3aca429f0164adf68c23444540b4a24b5778",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/37bc3aca429f0164adf68c23444540b4a24b5778"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo1LjAuMQ=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNS4wLjE="
       },
       {
         "name": "5.0.0",
@@ -85,7 +86,7 @@ last_query:
           "sha": "81b219446220f5475ff4b5eaf9b21d99b8c4ed6b",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/81b219446220f5475ff4b5eaf9b21d99b8c4ed6b"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo1LjAuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNS4wLjA="
       },
       {
         "name": "4.0.1",
@@ -95,7 +96,7 @@ last_query:
           "sha": "74d44acb176f8510abf28ee0a70961eb26631988",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/74d44acb176f8510abf28ee0a70961eb26631988"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo0LjAuMQ=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNC4wLjE="
       },
       {
         "name": "4.0.0",
@@ -105,7 +106,7 @@ last_query:
           "sha": "6ba2a077ed575f05c0fa147bc56f4aa41f908b80",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/6ba2a077ed575f05c0fa147bc56f4aa41f908b80"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzo0LjAuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvNC4wLjA="
       },
       {
         "name": "3.0.0",
@@ -115,7 +116,7 @@ last_query:
           "sha": "1977a7258cc66fd4da7f1e9da05a4933646a7803",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/1977a7258cc66fd4da7f1e9da05a4933646a7803"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzozLjAuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvMy4wLjA="
       },
       {
         "name": "2.2.0",
@@ -125,7 +126,7 @@ last_query:
           "sha": "5321a0e21f111536e17fbff81b51e30acdcd8738",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/5321a0e21f111536e17fbff81b51e30acdcd8738"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzoyLjIuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvMi4yLjA="
       },
       {
         "name": "2.1.0",
@@ -135,7 +136,7 @@ last_query:
           "sha": "6ee53e7d49a4dbfd5c1d7e67fb0228703bbe7309",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/6ee53e7d49a4dbfd5c1d7e67fb0228703bbe7309"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzoyLjEuMA=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvMi4xLjA="
       },
       {
         "name": "2.0.2",
@@ -145,7 +146,7 @@ last_query:
           "sha": "b59ac45131eab3ad1f53b0d3ec60a98e8a96230a",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/b59ac45131eab3ad1f53b0d3ec60a98e8a96230a"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzoyLjAuMg=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvMi4wLjI="
       },
       {
         "name": "2.0.1",
@@ -155,7 +156,6 @@ last_query:
           "sha": "686ef404b8718ab4fa40c2f10633a1f69375c20d",
           "url": "https://api.github.com/repos/leethomason/tinyxml2/commits/686ef404b8718ab4fa40c2f10633a1f69375c20d"
         },
-        "node_id": "MDM6UmVmMzU0MjYwNzoyLjAuMQ=="
+        "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvMi4wLjE="
       }
     ]
-query_type: api.github.tags

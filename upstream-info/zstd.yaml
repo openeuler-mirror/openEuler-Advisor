@@ -3,8 +3,9 @@ version_control: github
 src_repo: facebook/zstd
 tag_prefix: "^v"
 seperator: "."
+query_type: api.github.releases
 last_query:
-  time_stamp: 2020-04-27 08:38:36.132951720 +00:00
+  time_stamp: 2020-05-21 06:54:19.758429460 +00:00
   raw_data: |
     [
       {
@@ -71,7 +72,7 @@ last_query:
             "content_type": "application/x-gzip",
             "state": "uploaded",
             "size": 1948426,
-            "download_count": 25732,
+            "download_count": 30364,
             "created_at": "2019-11-05T19:09:37Z",
             "updated_at": "2019-11-05T19:09:45Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-1.4.4.tar.gz"
@@ -105,7 +106,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 84,
-            "download_count": 232,
+            "download_count": 269,
             "created_at": "2019-11-05T19:10:19Z",
             "updated_at": "2019-11-05T19:10:19Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-1.4.4.tar.gz.sha256"
@@ -139,7 +140,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 1401877,
-            "download_count": 307,
+            "download_count": 347,
             "created_at": "2019-11-05T19:09:37Z",
             "updated_at": "2019-11-05T19:09:44Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-1.4.4.tar.zst"
@@ -173,7 +174,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 85,
-            "download_count": 48,
+            "download_count": 54,
             "created_at": "2019-11-05T19:09:36Z",
             "updated_at": "2019-11-05T19:09:37Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-1.4.4.tar.zst.sha256"
@@ -207,7 +208,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1316690,
-            "download_count": 893,
+            "download_count": 1057,
             "created_at": "2019-11-05T20:18:09Z",
             "updated_at": "2019-11-05T20:18:15Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-v1.4.4-win32.zip"
@@ -241,7 +242,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1420581,
-            "download_count": 3644,
+            "download_count": 5081,
             "created_at": "2019-11-05T20:18:09Z",
             "updated_at": "2019-11-05T20:18:16Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-v1.4.4-win64.zip"
@@ -315,7 +316,7 @@ last_query:
             "content_type": "application/gzip",
             "state": "uploaded",
             "size": 1899158,
-            "download_count": 13957,
+            "download_count": 15140,
             "created_at": "2019-08-19T21:10:11Z",
             "updated_at": "2019-08-19T21:10:11Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.3/zstd-1.4.3.tar.gz"
@@ -383,7 +384,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 1366664,
-            "download_count": 82,
+            "download_count": 83,
             "created_at": "2019-08-19T21:10:11Z",
             "updated_at": "2019-08-19T21:10:12Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.3/zstd-1.4.3.tar.zst"
@@ -451,7 +452,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1344151,
-            "download_count": 412,
+            "download_count": 413,
             "created_at": "2019-08-19T21:59:38Z",
             "updated_at": "2019-08-19T21:59:38Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.3/zstd-v1.4.3-win32.zip"
@@ -485,7 +486,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1415946,
-            "download_count": 1340,
+            "download_count": 1342,
             "created_at": "2019-08-19T21:59:38Z",
             "updated_at": "2019-08-19T21:59:39Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.3/zstd-v1.4.3-win64.zip"
@@ -559,7 +560,7 @@ last_query:
             "content_type": "application/gzip",
             "state": "uploaded",
             "size": 1896786,
-            "download_count": 4192,
+            "download_count": 4408,
             "created_at": "2019-07-25T19:13:23Z",
             "updated_at": "2019-07-25T19:13:23Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.2/zstd-1.4.2.tar.gz"
@@ -661,7 +662,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 85,
-            "download_count": 12,
+            "download_count": 13,
             "created_at": "2019-07-25T19:13:24Z",
             "updated_at": "2019-07-25T19:13:24Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.2/zstd-1.4.2.tar.zst.sha256"
@@ -695,7 +696,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1341695,
-            "download_count": 146,
+            "download_count": 147,
             "created_at": "2019-07-25T19:35:08Z",
             "updated_at": "2019-07-25T19:35:09Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.2/zstd-v1.4.2-win32.zip"
@@ -803,7 +804,7 @@ last_query:
             "content_type": "application/gzip",
             "state": "uploaded",
             "size": 1895842,
-            "download_count": 2924,
+            "download_count": 2925,
             "created_at": "2019-07-19T19:17:24Z",
             "updated_at": "2019-07-19T19:17:25Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.1/zstd-1.4.1.tar.gz"
@@ -837,7 +838,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 84,
-            "download_count": 26,
+            "download_count": 27,
             "created_at": "2019-07-19T19:17:24Z",
             "updated_at": "2019-07-19T19:17:25Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.1/zstd-1.4.1.tar.gz.sha256"
@@ -1047,7 +1048,7 @@ last_query:
             "content_type": "application/x-gzip",
             "state": "uploaded",
             "size": 1886068,
-            "download_count": 18127,
+            "download_count": 21323,
             "created_at": "2019-04-16T23:04:37Z",
             "updated_at": "2019-04-16T23:04:45Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.0/zstd-1.4.0.tar.gz"
@@ -1081,7 +1082,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 84,
-            "download_count": 103,
+            "download_count": 104,
             "created_at": "2019-04-16T23:04:37Z",
             "updated_at": "2019-04-16T23:04:45Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.0/zstd-1.4.0.tar.gz.sha256"
@@ -1183,7 +1184,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1258203,
-            "download_count": 423,
+            "download_count": 424,
             "created_at": "2019-04-16T22:53:07Z",
             "updated_at": "2019-04-16T22:53:14Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.0/zstd-v1.4.0-win32.zip"
@@ -1217,7 +1218,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1348170,
-            "download_count": 24782,
+            "download_count": 25319,
             "created_at": "2019-04-16T22:53:07Z",
             "updated_at": "2019-04-16T22:53:15Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.4.0/zstd-v1.4.0-win64.zip"
@@ -1291,7 +1292,7 @@ last_query:
             "content_type": "application/gzip",
             "state": "uploaded",
             "size": 1862954,
-            "download_count": 53720,
+            "download_count": 57696,
             "created_at": "2018-12-28T18:26:35Z",
             "updated_at": "2018-12-28T18:26:37Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.8/zstd-1.3.8.tar.gz"
@@ -1359,7 +1360,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 81,
-            "download_count": 24,
+            "download_count": 25,
             "created_at": "2018-12-27T20:54:46Z",
             "updated_at": "2018-12-27T20:54:50Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.8/zstd-1.3.8.tar.sha256"
@@ -1461,7 +1462,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1250426,
-            "download_count": 494,
+            "download_count": 495,
             "created_at": "2018-12-27T20:41:02Z",
             "updated_at": "2018-12-27T20:41:05Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.8/zstd-v1.3.8-win32.zip"
@@ -1569,7 +1570,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 9147,
-            "download_count": 173,
+            "download_count": 183,
             "created_at": "2018-12-01T00:08:02Z",
             "updated_at": "2018-12-01T00:08:03Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/regression-data/github.dict.zst"
@@ -1603,7 +1604,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 33575,
-            "download_count": 173,
+            "download_count": 184,
             "created_at": "2018-12-01T01:34:19Z",
             "updated_at": "2018-12-01T01:34:20Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/regression-data/github.tar.zst"
@@ -1637,7 +1638,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 4288008,
-            "download_count": 323,
+            "download_count": 334,
             "created_at": "2018-12-01T01:34:19Z",
             "updated_at": "2018-12-01T01:34:29Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/regression-data/silesia.tar.zst"
@@ -1711,7 +1712,7 @@ last_query:
             "content_type": "application/x-gzip",
             "state": "uploaded",
             "size": 1813285,
-            "download_count": 6287,
+            "download_count": 6339,
             "created_at": "2018-10-19T22:05:54Z",
             "updated_at": "2018-10-19T22:06:01Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.7/zstd-1.3.7.tar.gz"
@@ -1813,7 +1814,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 1296060,
-            "download_count": 57,
+            "download_count": 59,
             "created_at": "2018-10-22T19:55:19Z",
             "updated_at": "2018-10-22T19:55:25Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.7/zstd-1.3.7.tar.zst"
@@ -1847,7 +1848,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 85,
-            "download_count": 23,
+            "download_count": 24,
             "created_at": "2018-10-22T19:55:19Z",
             "updated_at": "2018-10-22T19:55:25Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.7/zstd-1.3.7.tar.zst.sha256"
@@ -1915,7 +1916,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1311576,
-            "download_count": 868,
+            "download_count": 869,
             "created_at": "2018-10-19T22:03:40Z",
             "updated_at": "2018-10-19T22:03:47Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.7/zstd-v1.3.7-win64.zip"
@@ -1989,7 +1990,7 @@ last_query:
             "content_type": "application/x-gzip",
             "state": "uploaded",
             "size": 1811241,
-            "download_count": 1347,
+            "download_count": 1349,
             "created_at": "2018-10-05T17:07:48Z",
             "updated_at": "2018-10-05T17:08:21Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.6/zstd-1.3.6.tar.gz"
@@ -2023,7 +2024,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 84,
-            "download_count": 56,
+            "download_count": 57,
             "created_at": "2018-10-05T17:09:42Z",
             "updated_at": "2018-10-05T17:09:42Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.6/zstd-1.3.6.tar.gz.sha256"
@@ -2165,7 +2166,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 1209465,
-            "download_count": 300,
+            "download_count": 301,
             "created_at": "2018-06-28T19:19:18Z",
             "updated_at": "2018-06-28T19:19:21Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.5/zstd-src.tar.zst"
@@ -2267,7 +2268,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1316103,
-            "download_count": 1455,
+            "download_count": 1456,
             "created_at": "2018-06-28T19:19:18Z",
             "updated_at": "2018-06-28T19:19:20Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.5/zstd-v1.3.5-win64.zip"
@@ -2341,7 +2342,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 1561378,
-            "download_count": 273,
+            "download_count": 274,
             "created_at": "2018-03-27T00:56:41Z",
             "updated_at": "2018-03-27T00:56:43Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.4/zstd-src.tar.zst"
@@ -2443,7 +2444,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1221468,
-            "download_count": 1586,
+            "download_count": 1602,
             "created_at": "2018-03-27T00:56:40Z",
             "updated_at": "2018-03-27T00:56:42Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.4/zstd-v1.3.4-win64.zip"
@@ -2625,7 +2626,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1032124,
-            "download_count": 396,
+            "download_count": 399,
             "created_at": "2017-10-10T00:48:06Z",
             "updated_at": "2017-10-10T00:48:08Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.2/zstd-v1.3.2-win32.zip"
@@ -2659,7 +2660,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 1100346,
-            "download_count": 1419,
+            "download_count": 1421,
             "created_at": "2017-10-10T00:48:06Z",
             "updated_at": "2017-10-10T00:48:10Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.2/zstd-v1.3.2-win64.zip"
@@ -2733,7 +2734,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 985271,
-            "download_count": 1910,
+            "download_count": 2618,
             "created_at": "2020-01-08T18:49:16Z",
             "updated_at": "2020-01-08T18:49:23Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/block_decompress_seed_corpus.zip"
@@ -2767,7 +2768,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 65928414,
-            "download_count": 1910,
+            "download_count": 2622,
             "created_at": "2020-01-08T18:49:16Z",
             "updated_at": "2020-01-08T18:49:35Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/block_round_trip_seed_corpus.zip"
@@ -2801,7 +2802,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 117184521,
-            "download_count": 1898,
+            "download_count": 2609,
             "created_at": "2020-01-08T18:49:17Z",
             "updated_at": "2020-01-08T18:49:49Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/dictionary_decompress_seed_corpus.zip"
@@ -2835,7 +2836,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 3043545,
-            "download_count": 1791,
+            "download_count": 2466,
             "created_at": "2020-01-08T18:49:17Z",
             "updated_at": "2020-01-08T18:49:49Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/dictionary_loader_seed_corpus.zip"
@@ -2869,10 +2870,78 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 213270332,
-            "download_count": 1913,
+            "download_count": 2630,
             "created_at": "2020-01-08T18:49:18Z",
             "updated_at": "2020-01-08T18:50:00Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/dictionary_round_trip_seed_corpus.zip"
+          },
+          {
+            "url": "https://api.github.com/repos/facebook/zstd/releases/assets/20741905",
+            "id": 20741905,
+            "node_id": "MDEyOlJlbGVhc2VBc3NldDIwNzQxOTA1",
+            "name": "dictionary_stream_round_trip_seed_corpus.zip",
+            "label": null,
+            "uploader": {
+              "login": "bimbashrestha",
+              "id": 14875426,
+              "node_id": "MDQ6VXNlcjE0ODc1NDI2",
+              "avatar_url": "https://avatars0.githubusercontent.com/u/14875426?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/bimbashrestha",
+              "html_url": "https://github.com/bimbashrestha",
+              "followers_url": "https://api.github.com/users/bimbashrestha/followers",
+              "following_url": "https://api.github.com/users/bimbashrestha/following{/other_user}",
+              "gists_url": "https://api.github.com/users/bimbashrestha/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/bimbashrestha/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/bimbashrestha/subscriptions",
+              "organizations_url": "https://api.github.com/users/bimbashrestha/orgs",
+              "repos_url": "https://api.github.com/users/bimbashrestha/repos",
+              "events_url": "https://api.github.com/users/bimbashrestha/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/bimbashrestha/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "content_type": "application/zip",
+            "state": "uploaded",
+            "size": 103490444,
+            "download_count": 112,
+            "created_at": "2020-05-14T20:16:51Z",
+            "updated_at": "2020-05-14T20:18:31Z",
+            "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/dictionary_stream_round_trip_seed_corpus.zip"
+          },
+          {
+            "url": "https://api.github.com/repos/facebook/zstd/releases/assets/20640035",
+            "id": 20640035,
+            "node_id": "MDEyOlJlbGVhc2VBc3NldDIwNjQwMDM1",
+            "name": "raw_dictionary_round_trip_seed_corpus.zip",
+            "label": null,
+            "uploader": {
+              "login": "terrelln",
+              "id": 6619134,
+              "node_id": "MDQ6VXNlcjY2MTkxMzQ=",
+              "avatar_url": "https://avatars1.githubusercontent.com/u/6619134?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/terrelln",
+              "html_url": "https://github.com/terrelln",
+              "followers_url": "https://api.github.com/users/terrelln/followers",
+              "following_url": "https://api.github.com/users/terrelln/following{/other_user}",
+              "gists_url": "https://api.github.com/users/terrelln/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/terrelln/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/terrelln/subscriptions",
+              "organizations_url": "https://api.github.com/users/terrelln/orgs",
+              "repos_url": "https://api.github.com/users/terrelln/repos",
+              "events_url": "https://api.github.com/users/terrelln/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/terrelln/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "content_type": "application/zip",
+            "state": "uploaded",
+            "size": 89617111,
+            "download_count": 195,
+            "created_at": "2020-05-12T03:29:38Z",
+            "updated_at": "2020-05-12T03:30:54Z",
+            "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/raw_dictionary_round_trip_seed_corpus.zip"
           },
           {
             "url": "https://api.github.com/repos/facebook/zstd/releases/assets/17214533",
@@ -2903,7 +2972,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 185686491,
-            "download_count": 1902,
+            "download_count": 2615,
             "created_at": "2020-01-08T18:49:18Z",
             "updated_at": "2020-01-08T18:50:13Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/simple_compress_seed_corpus.zip"
@@ -2937,7 +3006,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 20811769,
-            "download_count": 1921,
+            "download_count": 2630,
             "created_at": "2020-01-08T18:49:19Z",
             "updated_at": "2020-01-08T18:50:15Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/simple_decompress_seed_corpus.zip"
@@ -2971,7 +3040,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 141065863,
-            "download_count": 1926,
+            "download_count": 2641,
             "created_at": "2020-01-08T18:49:19Z",
             "updated_at": "2020-01-08T18:50:26Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/simple_round_trip_seed_corpus.zip"
@@ -3005,7 +3074,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 14873750,
-            "download_count": 1913,
+            "download_count": 2626,
             "created_at": "2020-01-08T18:49:19Z",
             "updated_at": "2020-01-08T18:50:27Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/stream_decompress_seed_corpus.zip"
@@ -3039,7 +3108,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 103490444,
-            "download_count": 1913,
+            "download_count": 2634,
             "created_at": "2020-01-08T18:49:20Z",
             "updated_at": "2020-01-08T18:50:32Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/stream_round_trip_seed_corpus.zip"
@@ -3073,7 +3142,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 2652648,
-            "download_count": 1893,
+            "download_count": 2603,
             "created_at": "2020-01-08T18:49:20Z",
             "updated_at": "2020-01-08T18:50:32Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/fuzz-corpora/zstd_frame_info_seed_corpus.zip"
@@ -3181,7 +3250,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 353434,
-            "download_count": 445,
+            "download_count": 447,
             "created_at": "2017-08-21T18:10:18Z",
             "updated_at": "2017-08-21T18:10:57Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.1/zstd-v1.3.1-win64.zip"
@@ -3255,7 +3324,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 898013,
-            "download_count": 141,
+            "download_count": 142,
             "created_at": "2017-07-12T16:25:00Z",
             "updated_at": "2017-07-12T16:25:02Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.3.0/zstd-v1.3.0-win32.zip"
@@ -3363,7 +3432,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 859856,
-            "download_count": 223,
+            "download_count": 225,
             "created_at": "2017-05-05T04:43:03Z",
             "updated_at": "2017-05-05T04:43:10Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.2.0/zstd-v1.2.0-win32.zip"
@@ -3579,7 +3648,7 @@ last_query:
             "content_type": "application/x-gzip",
             "state": "uploaded",
             "size": 1074314,
-            "download_count": 782,
+            "download_count": 791,
             "created_at": "2017-02-06T17:56:59Z",
             "updated_at": "2017-02-06T17:57:30Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.1.3/github_users_sample_set.tar.gz"
@@ -3613,7 +3682,7 @@ last_query:
             "content_type": "application/octet-stream",
             "state": "uploaded",
             "size": 585218,
-            "download_count": 587,
+            "download_count": 599,
             "created_at": "2017-02-06T17:41:57Z",
             "updated_at": "2017-02-06T17:42:15Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.1.3/github_users_sample_set.tar.zst"
@@ -3687,7 +3756,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 852908,
-            "download_count": 224,
+            "download_count": 226,
             "created_at": "2016-12-15T20:03:50Z",
             "updated_at": "2016-12-15T20:04:18Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.1.2/zstd-v1.1.2-win32.zip"
@@ -3977,7 +4046,7 @@ last_query:
             "content_type": "application/zip",
             "state": "uploaded",
             "size": 904254,
-            "download_count": 757,
+            "download_count": 765,
             "created_at": "2016-09-01T13:47:48Z",
             "updated_at": "2016-09-01T13:47:54Z",
             "browser_download_url": "https://github.com/facebook/zstd/releases/download/v1.0.0/zstd-windows-v1.0.0.zip"
@@ -4341,4 +4410,3 @@ last_query:
         "body": "fixed : ZSTD_decompressBlock() using multiple consecutive blocks. Reported by @GregSlazinski\nfixed : potential segfault on very large files (many gigabytes). Reported by @chipturner \nfixed : CLI displays system error message when destination file cannot be created (#231). Reported by @chipturner \nfixed : leak in some fail scenario in dictionary builder, reported by @nemequ\n"
       }
     ]
-query_type: api.github.releases
