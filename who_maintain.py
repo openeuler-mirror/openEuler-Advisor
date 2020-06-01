@@ -32,7 +32,7 @@ def get_sigs():
 
 
 def get_spec(pkg, specfile):
-    url = specfile_url.template.format(package=pkg, specfile=specfile)
+    url = specfile_url_template.format(package=pkg, specfile=specfile)
     req = urllib.request.Request(url=url, headers=headers)
     u = urllib.request.urlopen(req)
     return u.read().decode("utf-8")
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         if line.startswith("%changelog"):
             in_changelog = True
         if line.startswith("*") and in_changelog:
-            m = re.match(".*\d\d\d\d (.*) .*", line)
+            m = re.match(r".*\d\d\d\d (.*) .*", line)
             if m is None:
                 emails.add(line)
             else:

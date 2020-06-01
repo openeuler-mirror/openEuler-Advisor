@@ -76,8 +76,8 @@ if __name__ == "__main__":
     adv = Advisor()
     PRs = adv.get_prs()
     for pr in PRs:
-        users = []
-        users.append(pr["user"]["login"])
+        commenters = []
+        commenters.append(pr["user"]["login"])
         last_update = pr["updated_at"]
         print("URL: https://gitee.com/openeuler/community/pulls/{number}".format(number=pr["number"]))
         print("Title: "+pr["title"])
@@ -85,8 +85,8 @@ if __name__ == "__main__":
         for c in comm:
             #print("comment updated at:")
             #pprint(datetime.strptime(c["updated_at"], adv.time_format)) 
-            users.append(c["user"]["login"]) 
-        tc = adv.filter_out_tc(users)
+            commenters.append(c["user"]["login"]) 
+        tc = adv.filter_out_tc(commenters)
         print("Currently involved TC members: " + ", ".join(tc) + "\n")
 
 
