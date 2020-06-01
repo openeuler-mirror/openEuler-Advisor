@@ -53,7 +53,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     in_changelog = False
     for l in spec_str.splitlines():
         if l.startswith("Release:"):
-            fn.write("Release:\t\t0\n")
+            fn.write("Release:\t0\n")
             continue
         if l.startswith("Source:") or l.startswith("Source0:"):
             if src_fn:
@@ -80,6 +80,10 @@ if __name__ == "__main__":
     pars.add_argument("pkg", type=str, help="The package to be upgraded")
     pars.add_argument("-o", "--old_version", type=str, help="Current upstream version of package")
     pars.add_argument("-n", "--new_version", type=str, help="New upstream version of package will be upgrade to")
+    pars.add_argument("-s", "--create_spec", help="Create spec file", action="store_true")
+    pars.add_argument("-d", "--download", help="Download upstream source code", action="store_true")
+    pars.add_argument("-f", "--fork", help="fork src-openeuler repo into users", action="store_true")
+    pars.add_argument("-p", "--PR", help="Create upgrade PR", action="store_true")
     args = pars.parse_args()
 
     gt = gitee.Gitee()
@@ -91,19 +95,23 @@ if __name__ == "__main__":
         print("This package has multiple in-house patches.")
         sys.exit(1)
 
-    source_file = download_source_url(spec, args.old_version, args.new_version)
-    if source_file:
-        print(source_file)
-    else:
-        source_file = download_upstream_url(gt, args.pkg, args.old_version, args.new_version)
+    if args.download:
+        source_file = download_source_url(spec, args.old_version, args.new_version)
         if source_file:
             print(source_file)
         else:
-            print("Failed to download the latest source code.")
-            sys.exit(1)
+            source_file = download_upstream_url(gt, args.pkg, args.old_version, args.new_version)
+            if source_file:
+                print(source_file)
+            else:
+                print("Failed to download the latest source code.")
+                sys.exit(1)
 
-    create_spec(args.pkg, spec_string, args.old_version, args.new_version)
+    if args.create_spec:
+        create_spec(args.pkg, spec_string, args.old_version, args.new_version)
 
-"""
+    if args.fork:
+        gt.fork_repo(args.pkg)
 
-"""
+    if args.PR:
+        gt.create_pr("shinwell_hu", args.pkg)
