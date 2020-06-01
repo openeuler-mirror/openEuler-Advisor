@@ -1,0 +1,9 @@
+---
+version_control: github
+src_repo: hunspell/hyphen
+tag_prefix: "^v"
+seperator: "."
+last_query:
+  time_stamp: 2020-06-01 05:35:19.023933660 +00:00
+  raw_data: ''
+query_type: git-ls
