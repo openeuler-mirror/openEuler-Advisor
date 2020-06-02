@@ -25,7 +25,7 @@ class Gitee(object):
 
         self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) Gecko/20100101 Firefox/50.0'}
         self.gitee_url = "https://gitee.com/"
-        self.src_openeuler_url = self.gitee_url+"src-openeuler/{package}/raw/master/"
+        self.src_openeuler_url = self.gitee_url + "src-openeuler/{package}/raw/master/"
         self.advisor_url = self.gitee_url + "openeuler/openEuler-Advisor/raw/master/"
         self.specfile_url_template = self.src_openeuler_url + "{specfile}"
         self.yamlfile_url_template = self.src_openeuler_url + "{package}.yaml"
@@ -120,7 +120,7 @@ class Gitee(object):
             file_name = exp[pkg]["file"]
             specurl = self.specfile_url_template.format(package=pkg, specfile=dir_name + "/" + file_name)
         else:
-            specurl = self.specfile_url_template.format(package=pkg, specfile=pkg+".spec")
+            specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
 
         return self.get_gitee(specurl)
 
