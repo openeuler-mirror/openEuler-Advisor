@@ -44,10 +44,11 @@ class Gitee(object):
         req = urllib.request.Request(url=url, data=data, headers=headers, method="POST")
         try:
             u = urllib.request.urlopen(req)
+            return u.read().decode("utf-8")
         except urllib.error.HTTPError as err:
             print("WARNING:" + str(err.code))
             print("WARNING:" + str(err.headers))
-        return u.read().decode("utf-8")
+            return False
 
     def fork_repo(self, repo):
         """
@@ -72,13 +73,12 @@ class Gitee(object):
         values["title"] = "Upgrade to latest version of {repo}".format(repo=repo)
         values["head"] = "{head}:master".format(head=head)
         values["base"] = "master"
-        values["body"] = """
-        This is a (mostly) automatically created PR by openEuler-Advisor.
-        Please be noted that it's not throughly tested.
-        Review carefully before accept this PR.
-        Thanks.
-        Yours openEuler-Advisor.
-        """
+        values["body"] = """This is a (mostly) automatically created PR by openEuler-Advisor.
+Please be noted that it's not throughly tested.
+Review carefully before accept this PR.
+Thanks.
+Yours openEuler-Advisor.
+"""
         return self.post_gitee(url, values)
 
     def get_gitee(self, url, headers=None):

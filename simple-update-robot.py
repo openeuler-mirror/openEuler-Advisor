@@ -96,6 +96,7 @@ if __name__ == "__main__":
     pars.add_argument("-s", "--create_spec", help="Create spec file", action="store_true")
     pars.add_argument("-d", "--download", help="Download upstream source code", action="store_true")
     pars.add_argument("-f", "--fork", help="fork src-openeuler repo into users", action="store_true")
+    pars.add_argument("-c", "--clone", help="clone privatge repo to local", action="store_true")
     pars.add_argument("-p", "--PR", help="Create upgrade PR", action="store_true")
     args = pars.parse_args()
 
@@ -110,6 +111,8 @@ if __name__ == "__main__":
 
     if args.fork:
         gt.fork_repo(args.pkg)
+
+    if args.clone:
         subprocess.call(["git", "clone", "git@gitee.com:shinwell_hu/"+args.pkg])
         os.chdir(args.pkg)
 
