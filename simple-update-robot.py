@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-# process
-# 1. get URL to download updated version
-#    so far we know the URL in spec is not reliable
-# 2. Change Version to new one
-# 3. Change Source or Source0 if needed
-# 4. Update %changelog
-# 5. try rpmbuild -bb
-# 6. fork on gitee
-# 7. git clone, git add, git commit, git push
-# 8. PR on gitee
+"""
+This is a robot to do package upgrade automation
+Expected process:
+ 1. get URL to download updated version
+ 2. Change Version to new one
+ 3. Change Source or Source0 if needed
+ 4. Update %changelog
+ 5. try rpmbuild -bb (not yet)
+ 6. fork on gitee
+ 7. git clone, git add, git commit, git push (manually now)
+ 8. PR on gitee
+"""
 
 from pyrpm.spec import Spec, replace_macros
 import yaml
@@ -21,6 +23,9 @@ import re
 import datetime
 
 def download_source_url(spec, o_ver, n_ver):
+    """
+    Download source file from Source or Source0 URL
+    """
     source = replace_macros(spec.sources[0], spec).replace(o_ver, n_ver) 
     if re.match(r"%{.*?}", source):
         print("Extra macros in URL which failed to be expanded")
@@ -33,7 +38,11 @@ def download_source_url(spec, o_ver, n_ver):
         print("Not valid URL for Source code")
         return False
 
+
 def download_upstream_url(gt, repo, o_ver, n_ver):
+    """
+    Download source from upstream metadata URL
+    """
     upstream_yaml = gt.get_yaml(repo)
     if not upstream_yaml:
         return False
@@ -48,8 +57,12 @@ def download_upstream_url(gt, repo, o_ver, n_ver):
         print("Handling {vc} is still under developing".format(vc=rp_yaml["version_control"]))
         return False
 
+
 def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
-    fn = open(repo+".spec", "w")
+    """
+    Create new spec file for upgraded package
+    """
+    fn = open(repo + ".spec", "w")
     in_changelog = False
     for l in spec_str.splitlines():
         if l.startswith("Release:"):
@@ -65,7 +78,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
             nl = l.replace(o_ver, n_ver)
         else:
             nl = l
-        fn.write(nl+"\n")
+        fn.write(nl + "\n")
 
         if nl.startswith("%changelog"):
             in_changelog = True
