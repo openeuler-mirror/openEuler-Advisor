@@ -55,7 +55,7 @@ class Gitee:
         values["title"] = "Upgrade to latest version of {repo}".format(repo=repo)
         values["head"] = "{head}:master".format(head=head)
         values["base"] = "master"
-        values["body"] = "This is a automatically created PR from openEuler-Advisor"
+        values["body"] = "This is a (mostly) automatically created PR by openEuler-Advisor.\nPlease be noted that it's not throughly tested.\nReview carefully before accept this PR.\nThanks.\nYours openEuler-Advisor.\n"
         return self.post_gitee(url, values)
 
     def get_gitee(self, url, headers=None):
