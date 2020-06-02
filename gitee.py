@@ -140,22 +140,5 @@ class openEuler_TC:
         return [x for x in self.tc_members if x in users]
         
 if __name__ == "__main__":
-    par = argparse.ArgumentParser()
-
-    args = par.parse_args()
-
-    oe_tc = openEuler_TC()
-    PRs = oe_tc.get_prs()
-    for pr in PRs:
-        print("URL: https://gitee.com/openeuler/community/pulls/{number}".format(number=pr["number"]))
-        print("Title: "+pr["title"])
-        comm = oe_tc.get_pr_comments(pr["number"])
-        users = []
-        for c in comm:
-           users.append(c["user"]["login"]) 
-        tc = oe_tc.filter_out_tc(users)
-        print("Currently involved TC members: " + ", ".join(tc))
-        print("\n")
-
-
+    pass
 

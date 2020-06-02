@@ -57,9 +57,9 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
             continue
         if l.startswith("Source:") or l.startswith("Source0:"):
             if src_fn:
-                fn.write("Source:	{src_fn}\n".format(src_fn=src_fn))
+                fn.write("Source:	{src_fn}\n".format(src_fn=src_fn).replace(o_ver, n_ver))
             else:
-                fn.write(l+"\n")
+                fn.write(l.replace(o_ver, n_ver)+"\n")
             continue
         if not in_changelog:
             nl = l.replace(o_ver, n_ver)
@@ -95,6 +95,11 @@ if __name__ == "__main__":
         print("This package has multiple in-house patches.")
         sys.exit(1)
 
+    if args.fork:
+        gt.fork_repo(args.pkg)
+        subprocess.call(["git", "clone", "git@gitee.com:shinwell_hu/"+args.pkg])
+        os.chdir(args.pkg)
+
     if args.download:
         source_file = download_source_url(spec, args.old_version, args.new_version)
         if source_file:
@@ -109,9 +114,6 @@ if __name__ == "__main__":
 
     if args.create_spec:
         create_spec(args.pkg, spec_string, args.old_version, args.new_version)
-
-    if args.fork:
-        gt.fork_repo(args.pkg)
 
     if args.PR:
         gt.create_pr("shinwell_hu", args.pkg)
