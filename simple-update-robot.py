@@ -109,7 +109,8 @@ if __name__ == "__main__":
         my_gitee.fork_repo(args.pkg)
 
     if args.clone:
-        subprocess.call(["git", "clone", "git@gitee.com:shinwell_hu/" + args.pkg])
+        user=my_gitee.token["user"]
+        subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=user, pkg=args.pkg)])
         os.chdir(args.pkg)
 
     if args.download:
@@ -132,4 +133,4 @@ if __name__ == "__main__":
         create_spec(args.pkg, spec_string, args.old_version, args.new_version)
 
     if args.PR:
-        my_gitee.create_pr("shinwell_hu", args.pkg)
+        my_gitee.create_pr(my_gitee.token["user"], args.pkg)
