@@ -39,7 +39,7 @@ def download_source_url(spec, o_ver, n_ver):
         return False
 
 
-def download_upstream_url(gt, repo, o_ver, n_ver):
+def download_upstream_url(gt, repo, n_ver):
     """
     Download source from upstream metadata URL
     """
@@ -100,28 +100,24 @@ if __name__ == "__main__":
     pars.add_argument("-p", "--PR", help="Create upgrade PR", action="store_true")
     args = pars.parse_args()
 
-    gt = gitee.Gitee()
-    spec_string= gt.get_spec(args.pkg)
+    my_gitee = gitee.Gitee()
+    spec_string= my_gitee.get_spec(args.pkg)
 
-    spec = Spec.from_string(spec_string)
-    if len(spec.patches) >= 1:
-        print("I'm too naive to handle complicated package.")
-        print("This package has multiple in-house patches.")
-        sys.exit(1)
+    s_spec = Spec.from_string(spec_string)
 
     if args.fork:
-        gt.fork_repo(args.pkg)
+        my_gitee.fork_repo(args.pkg)
 
     if args.clone:
-        subprocess.call(["git", "clone", "git@gitee.com:shinwell_hu/"+args.pkg])
+        subprocess.call(["git", "clone", "git@gitee.com:shinwell_hu/" + args.pkg])
         os.chdir(args.pkg)
 
     if args.download:
-        source_file = download_source_url(spec, args.old_version, args.new_version)
+        source_file = download_source_url(s_spec, args.old_version, args.new_version)
         if source_file:
             print(source_file)
         else:
-            source_file = download_upstream_url(gt, args.pkg, args.old_version, args.new_version)
+            source_file = download_upstream_url(my_gitee, args.pkg, args.new_version)
             if source_file:
                 print(source_file)
             else:
@@ -129,7 +125,11 @@ if __name__ == "__main__":
                 sys.exit(1)
 
     if args.create_spec:
+        if len(spec.patches) >= 1:
+            print("I'm too naive to handle complicated package.")
+            print("This package has multiple in-house patches.")
+            sys.exit(1)
         create_spec(args.pkg, spec_string, args.old_version, args.new_version)
 
     if args.PR:
-        gt.create_pr("shinwell_hu", args.pkg)
+        my_gitee.create_pr("shinwell_hu", args.pkg)
