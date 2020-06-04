@@ -126,7 +126,7 @@ if __name__ == "__main__":
                 sys.exit(1)
 
     if args.create_spec:
-        if len(spec.patches) >= 1:
+        if len(s_spec.patches) >= 1:
             print("I'm too naive to handle complicated package.")
             print("This package has multiple in-house patches.")
             sys.exit(1)
