@@ -16,7 +16,7 @@ from datetime import datetime
 
 class Advisor:
     def __init__(self):
-        self.secret = open(os.path.expanduser("~/.gitee_token.json"), "r")
+        self.secret = open(os.path.expanduser("~/.gitee_personal_token.json"), "r")
         self.token = json.load(self.secret)
 #        self.req = urllib.request.Request('https://gitee.com/api/v5/repos/#{owner}/issues')
         self.header = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0"}
@@ -48,12 +48,14 @@ class Advisor:
         return resp
 
     def get_prs(self):
-        list_url = "https://gitee.com/api/v5/repos/openeuler/community/pulls?access_token={token}&state=open&sort=created&direction=desc&page=1&per_page=100"
+        pulls_url = "https://gitee.com/api/v5/repos/openeuler/community/pulls"
+        list_url = pulls_url + "?access_token={token}&state=open&sort=created&direction=desc&page=1&per_page=100"
         url = list_url.format(token=self.token["access_token"])
         return self.get_json(url)
 
     def get_pr_comments(self, number):
-        desc_url = "https://gitee.com/api/v5/repos/openeuler/community/pulls/{number}/comments?access_token={token}&page=1&per_page=100"
+        pulls_url = "https://gitee.com/api/v5/repos/openeuler/community/pulls"
+        desc_url = pulls_url + "/{number}/comments?access_token={token}&page=1&per_page=100"
         url = desc_url.format(number=number, token=self.token["access_token"])
         return self.get_json(url)
 
@@ -81,12 +83,28 @@ if __name__ == "__main__":
         last_update = pr["updated_at"]
         print("URL: https://gitee.com/openeuler/community/pulls/{number}".format(number=pr["number"]))
         print("Title: "+pr["title"])
-        comm = adv.get_pr_comments(pr["number"])
-        for c in comm:
-            #print("comment updated at:")
-            #pprint(datetime.strptime(c["updated_at"], adv.time_format)) 
-            commenters.append(c["user"]["login"]) 
+        comments = adv.get_pr_comments(pr["number"])
+        last_update = datetime.strptime(comments[0]["updated_at"], adv.time_format)
+        comments.reverse()
+        current_lgtm = 0
+        current_approve = False
+        for comment in comments:
+            commenters.append(comment["user"]["login"]) 
+            if comment["body"].startswith("new changes are detected"):
+                last_update = datetime.strptime(comment["updated_at"], adv.time_format)
+                break # older comments are ignored
+            elif comment["body"].startswith("***lgtm*** is added in this pull request"):
+                current_lgtm = current_lgtm + 1
+            elif comment["body"].startswith("***approved*** is added in this pull request"):
+                current_approve = True
+
         tc = adv.filter_out_tc(commenters)
-        print("Currently involved TC members: " + ", ".join(tc) + "\n")
+        old = datetime.now() - last_update.replace(tzinfo=None)
+        print("Currently {num} days old".format(num=old.days))
+        print("Currently involved TC members: " + ", ".join(tc))
+        print("Currently has {num} /lgtm".format(num=current_lgtm))
+        if current_approve:
+            print("Currently /approve")
+        print("")
 
 
