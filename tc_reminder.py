@@ -77,6 +77,7 @@ if __name__ == "__main__":
 
     adv = Advisor()
     PRs = adv.get_prs()
+    PRs.reverse()
     for pr in PRs:
         commenters = []
         commenters.append(pr["user"]["login"])
@@ -99,8 +100,9 @@ if __name__ == "__main__":
                 current_approve = True
 
         tc = adv.filter_out_tc(commenters)
-        old = datetime.now() - last_update.replace(tzinfo=None)
-        print("Currently {num} days old".format(num=old.days))
+        age = datetime.now() - last_update.replace(tzinfo=None)
+        age_days = max(age.days, 0)
+        print("Currently {num} days old".format(num=age_days))
         print("Currently involved TC members: " + ", ".join(tc))
         print("Currently has {num} /lgtm".format(num=current_lgtm))
         if current_approve:
