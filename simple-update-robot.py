@@ -83,7 +83,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
         if nl.startswith("%changelog"):
             in_changelog = True
             d = datetime.date.today()
-            fn.write(d.strftime("* %a %b %d %Y SimpleUpdate Robot <tc@openeuler.org>\n"))
+            fn.write(d.strftime("* %a %b %d %Y SimpleUpdate Robot <tc@openeuler.org> - {ver}-0\n").format(ver=n_ver))
             fn.write("- Update to version {ver}\n".format(ver=n_ver))
             fn.write("\n")
     fn.close()
