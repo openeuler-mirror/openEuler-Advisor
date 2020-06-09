@@ -3,6 +3,18 @@
 #### Description
 Collection of automation tools for easily maintaining openEuler
 
+| Pharse           | Rules           | Requires  | Automatic  | Data & Tool   |
+|------------------|-----------------------|---|---|------|
+| 1.Select & Fetch | 1.1 Official Release  | official git/svn.. url  | from spec, from other package system  | [Data Standard](./template.yaml), [Data Source](./upstream-info)  |  
+|                  | 1.2 Best Version     | release note、test、user feedback   | newest/stable/official/compatible version  |      |
+|                  | 1.3 Best Version Notify | issue/PR | auto issue/PR | |
+| 2.Package        | 2.1 Meta data | summary, deps ...  |  from spec, from other package system    |    |
+|                  | 2.2 Check Old Patch (while updating) | drop upstreamed patch; check conflict  |   |     
+| 3.Modify         | 3.1 CVE & CVE official fix | CVE notify & official patch/commit  |   |      
+|                  | 3.2 Patch upstream    | upstream bugzilla/git URL | auto bugzilla/PR  |      |
+| 4.Test           | 4.1 Upstream Test & Feedback   | upstream test entry & feedback channel  | standard test entry & auto feedback  |  |
+| 5.Release        | TODO       |   |   |   
+
 #### Software Architecture
 Software architecture description
 
