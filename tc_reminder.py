@@ -25,7 +25,6 @@ class Advisor(object):
         self.tc_members = None
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
-
     def get_json(self, url):
         """
         Return object parsed from remote json
@@ -39,7 +38,6 @@ class Advisor(object):
         with urllib.request.urlopen(req) as u:
             resp = json.loads(u.read().decode("utf-8"))
         return resp
-
 
     def get_file(self, repo, path):
         """
