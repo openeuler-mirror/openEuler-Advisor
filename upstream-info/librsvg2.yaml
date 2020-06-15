@@ -1,0 +1,311 @@
+---
+version_control: github
+src_repo: GNOME/librsvg
+tag_prefix: ''
+seperator: "."
+last_query:
+  time_stamp: 2020-06-02 13:58:29.948841320 +00:00
+  raw_data: |
+    [
+      {
+        "name": "release-2-11-1",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/release-2-11-1",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/release-2-11-1",
+        "commit": {
+          "sha": "0a236be53fd71d380adfb88c8fd9181020098239",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/0a236be53fd71d380adfb88c8fd9181020098239"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvcmVsZWFzZS0yLTExLTE="
+      },
+      {
+        "name": "release-2-4-0",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/release-2-4-0",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/release-2-4-0",
+        "commit": {
+          "sha": "429a28d97b2023fd847c8486d32236d6f52155fc",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/429a28d97b2023fd847c8486d32236d6f52155fc"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvcmVsZWFzZS0yLTQtMA=="
+      },
+      {
+        "name": "release-2-3-0",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/release-2-3-0",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/release-2-3-0",
+        "commit": {
+          "sha": "1614297ddebc5e6dfd15ee88a1eea2a3746b43a1",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/1614297ddebc5e6dfd15ee88a1eea2a3746b43a1"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvcmVsZWFzZS0yLTMtMA=="
+      },
+      {
+        "name": "release-2-2-5",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/release-2-2-5",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/release-2-2-5",
+        "commit": {
+          "sha": "87605ee9f7dc1f2b235d39d4f8b448f22dc19952",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/87605ee9f7dc1f2b235d39d4f8b448f22dc19952"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvcmVsZWFzZS0yLTItNQ=="
+      },
+      {
+        "name": "release-2-2-4",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/release-2-2-4",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/release-2-2-4",
+        "commit": {
+          "sha": "0f5337a7df15b31995faa7330c8dc7cc83d2a52c",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/0f5337a7df15b31995faa7330c8dc7cc83d2a52c"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvcmVsZWFzZS0yLTItNA=="
+      },
+      {
+        "name": "librsvg-2-13-93",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/librsvg-2-13-93",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/librsvg-2-13-93",
+        "commit": {
+          "sha": "bb1050ccd9babe15523f170f50728ee6e6f2485f",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/bb1050ccd9babe15523f170f50728ee6e6f2485f"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvbGlicnN2Zy0yLTEzLTkz"
+      },
+      {
+        "name": "librsvg-2-13-90",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/librsvg-2-13-90",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/librsvg-2-13-90",
+        "commit": {
+          "sha": "dc988d3bd6300a3451b1fbda990dec658eef4a6a",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/dc988d3bd6300a3451b1fbda990dec658eef4a6a"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvbGlicnN2Zy0yLTEzLTkw"
+      },
+      {
+        "name": "librsvg-2-13-3",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/librsvg-2-13-3",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/librsvg-2-13-3",
+        "commit": {
+          "sha": "85b7070c87780b8a6bff07f6010cbb8c25ff1136",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/85b7070c87780b8a6bff07f6010cbb8c25ff1136"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvbGlicnN2Zy0yLTEzLTM="
+      },
+      {
+        "name": "help",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/help",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/help",
+        "commit": {
+          "sha": "0a48a8b673b84cf24c03aa29e93bee3d4b91dadb",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/0a48a8b673b84cf24c03aa29e93bee3d4b91dadb"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvaGVscA=="
+      },
+      {
+        "name": "LIBRSVG_2_31_0",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_31_0",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_31_0",
+        "commit": {
+          "sha": "823a32d0e41b3e4c5b539bad88d461da04379338",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/823a32d0e41b3e4c5b539bad88d461da04379338"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzMxXzA="
+      },
+      {
+        "name": "LIBRSVG_2_26_3",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_26_3",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_26_3",
+        "commit": {
+          "sha": "364a9334e0f7dd0e36d013e6097cebce7615177d",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/364a9334e0f7dd0e36d013e6097cebce7615177d"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzI2XzM="
+      },
+      {
+        "name": "LIBRSVG_2_26_2",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_26_2",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_26_2",
+        "commit": {
+          "sha": "288f4d82d61b2d6a852bc791b0a7fbe64c6af45d",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/288f4d82d61b2d6a852bc791b0a7fbe64c6af45d"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzI2XzI="
+      },
+      {
+        "name": "LIBRSVG_2_26_1",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_26_1",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_26_1",
+        "commit": {
+          "sha": "08ffdfbddaac47f4987780a56e16ef3536fe68ce",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/08ffdfbddaac47f4987780a56e16ef3536fe68ce"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzI2XzE="
+      },
+      {
+        "name": "LIBRSVG_2_22_3",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_22_3",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_22_3",
+        "commit": {
+          "sha": "4df8e26cd3d10e04a4eba87162d2ca2765ccb23a",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/4df8e26cd3d10e04a4eba87162d2ca2765ccb23a"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzIyXzM="
+      },
+      {
+        "name": "LIBRSVG_2_2_0",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_2_0",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_2_0",
+        "commit": {
+          "sha": "de0244b9a772ab0457fd91cbaec37674d84bf1ba",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/de0244b9a772ab0457fd91cbaec37674d84bf1ba"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzJfMA=="
+      },
+      {
+        "name": "LIBRSVG_2_1_5",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_1_5",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_1_5",
+        "commit": {
+          "sha": "0504ed7d1b803190f53e8a11e735a002a22d50a5",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/0504ed7d1b803190f53e8a11e735a002a22d50a5"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzFfNQ=="
+      },
+      {
+        "name": "LIBRSVG_2_1_4",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_1_4",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_1_4",
+        "commit": {
+          "sha": "f6a50e0ebda357ee13bab80e489c79bc8374e701",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/f6a50e0ebda357ee13bab80e489c79bc8374e701"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzFfNA=="
+      },
+      {
+        "name": "LIBRSVG_2_1_3",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_1_3",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_1_3",
+        "commit": {
+          "sha": "870c70748d09615b5b0797aac8fa5315288d2589",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/870c70748d09615b5b0797aac8fa5315288d2589"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzFfMw=="
+      },
+      {
+        "name": "LIBRSVG_2_1_2",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_1_2",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_1_2",
+        "commit": {
+          "sha": "fa58e7e3ba9eab0e62b88d8b93eb395561024cdd",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/fa58e7e3ba9eab0e62b88d8b93eb395561024cdd"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzFfMg=="
+      },
+      {
+        "name": "LIBRSVG_2_1_1",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_1_1",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_1_1",
+        "commit": {
+          "sha": "26bb1c031db67a6e8693a196e548b99c2903a8f4",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/26bb1c031db67a6e8693a196e548b99c2903a8f4"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzFfMQ=="
+      },
+      {
+        "name": "LIBRSVG_2_1_0",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_1_0",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_1_0",
+        "commit": {
+          "sha": "44c68780f31e16e0a0ca56be7e51d540c6ae05d1",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/44c68780f31e16e0a0ca56be7e51d540c6ae05d1"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzFfMA=="
+      },
+      {
+        "name": "LIBRSVG_2_0_1",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_0_1",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_0_1",
+        "commit": {
+          "sha": "a2603719613ed2b5610dce0b42b1acd8b72b239d",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/a2603719613ed2b5610dce0b42b1acd8b72b239d"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzBfMQ=="
+      },
+      {
+        "name": "LIBRSVG_2_0_0",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_2_0_0",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_2_0_0",
+        "commit": {
+          "sha": "ae8e171e68aad016607da1daa29c60755a1ba3f1",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/ae8e171e68aad016607da1daa29c60755a1ba3f1"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18yXzBfMA=="
+      },
+      {
+        "name": "LIBRSVG_1_1_6",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_1_6",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_1_6",
+        "commit": {
+          "sha": "e0fe99ffe3250816f787910487a317396f1789f7",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/e0fe99ffe3250816f787910487a317396f1789f7"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzFfNg=="
+      },
+      {
+        "name": "LIBRSVG_1_1_5",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_1_5",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_1_5",
+        "commit": {
+          "sha": "bb9904ee4eccd7f4f63ea64dca78cddc2409d03d",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/bb9904ee4eccd7f4f63ea64dca78cddc2409d03d"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzFfNQ=="
+      },
+      {
+        "name": "LIBRSVG_1_1_4",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_1_4",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_1_4",
+        "commit": {
+          "sha": "ec3f21d69b82666393daeb53c0abed8dbfc8e2e1",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/ec3f21d69b82666393daeb53c0abed8dbfc8e2e1"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzFfNA=="
+      },
+      {
+        "name": "LIBRSVG_1_1_3",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_1_3",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_1_3",
+        "commit": {
+          "sha": "48015cc5fee79753003e8aba75ce1176a0238353",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/48015cc5fee79753003e8aba75ce1176a0238353"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzFfMw=="
+      },
+      {
+        "name": "LIBRSVG_1_1_2",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_1_2",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_1_2",
+        "commit": {
+          "sha": "e8733090897dc8d6adf7908edfa9f20b092cf281",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/e8733090897dc8d6adf7908edfa9f20b092cf281"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzFfMg=="
+      },
+      {
+        "name": "LIBRSVG_1_1_1",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_1_1",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_1_1",
+        "commit": {
+          "sha": "0853a7373839a2cc5bcc2fa562f080195543fa5e",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/0853a7373839a2cc5bcc2fa562f080195543fa5e"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzFfMQ=="
+      },
+      {
+        "name": "LIBRSVG_1_0_3",
+        "zipball_url": "https://api.github.com/repos/GNOME/librsvg/zipball/LIBRSVG_1_0_3",
+        "tarball_url": "https://api.github.com/repos/GNOME/librsvg/tarball/LIBRSVG_1_0_3",
+        "commit": {
+          "sha": "e1f30e54c8dec142aea8bdad8fdc9e09d9e81351",
+          "url": "https://api.github.com/repos/GNOME/librsvg/commits/e1f30e54c8dec142aea8bdad8fdc9e09d9e81351"
+        },
+        "node_id": "MDM6UmVmNDUzNDg0MzpyZWZzL3RhZ3MvTElCUlNWR18xXzBfMw=="
+      }
+    ]
+query_type: api.github.tags
