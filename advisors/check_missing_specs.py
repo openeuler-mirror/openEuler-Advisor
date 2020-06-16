@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This is a simple script to check if SPEC already been submit into repository.
+If not, it can be used to push an issue to remind the developer.
+"""
 
 import argparse
 import gitee
@@ -56,9 +60,13 @@ if __name__ == "__main__":
             for issue in issues:
                 if issue["title"] == "Submit spec file into this repository":
                     ages = datetime.now() - my_gitee.get_gitee_datetime(issue["created_at"])
-                    print("Advise has been issues %d days ago"%ages.days)
-                    my_gitee.post_issue_comment(args.repo, issue["number"],
-                            new_comment.format(repo=args.repo, days=ages.days))
+                    if ages.days <= 10:
+                        print("Advise has been issues only %d days ago" % ages.days)
+                        print("Give developers more time to handle it.")
+                        break
+                    else:
+                        my_gitee.post_issue_comment(args.repo, issue["number"],
+                                new_comment.format(repo=args.repo, days=ages.days))
                     break
             else:
                 my_gitee.post_issue(args.repo,
