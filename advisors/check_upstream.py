@@ -91,46 +91,166 @@ def check_hg(info):
                 k, v = c.split('=')
                 c_dict[k] = v
             resp = requests.get(url, headers=headers, cookies=c_dict)
+            resp = resp.text
 
     last_query = {}
     last_query["time_stamp"] = datetime.now()
-    last_query["raw_data"] = resp.text
+    last_query["raw_data"] = resp
     info["last_query"] = last_query
     # try and except ?
-    tags_json = json.loads(resp.text)
+    tags_json = json.loads(resp)
     sort_tags = tags_json["tags"]
     sort_tags.sort(reverse=True, key=lambda x: x['date'][0])
     result_list = [tag['tag'] for tag in sort_tags]
     result_list = clean_tags(result_list, info)
     return result_list
 
-def check_github(info):
+def check_metacpan(info):
     resp = load_last_query_result(info)
-    if info.get("query_type", "git-ls") != "git-ls":
-        resp = ""
-    cmd_list = ["git", "ls-remote", "--tags", "https://github.com/" + info["src_repo"] + ".git"]
     if resp == "":
-        eprint("{repo} > Using git ls-remote".format(repo=info["src_repo"]))
-        subp = subprocess.Popen(cmd_list, stdout=subprocess.PIPE)
-        resp = subp.stdout.read().decode("utf-8")
-        if subp.wait() != 0:
-            eprint("{repo} > git ls-remote encount errors".format(repo=info["src_repo"]))
+        headers = {
+                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+                }
+        url = urljoin("https://fastapi.metacpan.org/release/", info["src_repo"])
+        resp = requests.get(url, headers=headers)
+        resp = resp.text
+
+    tags = []
+    result_json = json.loads(resp)
+    if result_json != {}:
+        if "version" not in result_json.keys():
+            eprint("{repo} > ERROR FOUND".format(repo=info["src_repo"]))
             sys.exit(1)
+        else:
+            tags.append(result_json["version"])
+    else:
+        eprint("{repo} found unsorted on cpan.metacpan.org".format(repo=info["src_repo"]))
+        sys.exit(1)
 
-        last_query = {}
-        last_query["time_stamp"] = datetime.now()
-        last_query["raw_data"] = resp
-        info["last_query"] = last_query
-        info["query_type"] = "git-ls"
+    last_query = {}
+    last_query["time_stamp"] = datetime.now()
+    last_query["raw_data"] = resp
+    info["last_query"] = last_query
+    return tags
 
+def check_pypi(info):
+    resp = load_last_query_result(info)
+    tags = []
+    if resp == "":
+        headers = {
+                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+                }
+        url = urljoin("https://pypi.org/pypi/", info["src_repo"] + "/json")
+        resp = requests.get(url, headers=headers)
+        resp = resp.text
+
+    result_json = json.loads(resp)
+    if result_json != {}:
+        tags.append(result_json["info"]["version"])
+    else:
+        eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
+        sys.exit(1)
+    return tags
+
+def __check_subprocess(cmd_list):
+    subp = subprocess.Popen(cmd_list, stdout=subprocess.PIPE)
+    resp = subp.stdout.read().decode("utf-8")
+    if subp.wait() != 0:
+        eprint("{cmd} > encount errors".format(cmd=" ".join(cmd_list)))
+        sys.exit(1)
+    return resp
+
+def __check_svn_helper(repo_url):
+    eprint("{repo} > Using svn ls".format(repo=repo_url))
+    cmd_list = ["/usr/bin/svn", "ls", "-v", repo_url]
+    return __check_subprocess(cmd_list)
+
+def __check_git_helper(repo_url):
+    eprint("{repo} > Using git ls-remote".format(repo=repo_url))
+    cmd_list = ["git", "ls-remote", "--tags", repo_url]
+    return __check_subprocess(cmd_list)
+
+def __svn_resp_to_tags(resp):
+    tags = []
+    for line in resp.splitlines():
+        items = line.split()
+        for item in items:
+            if item[-1] == "/":
+                tags.append(item[:-1])
+                break
+    return tags
+
+def __git_resp_to_tags(resp):
     tags = []
     pattern = re.compile("^([^ \t]*)[ \t]*refs\/tags\/([^ \t]*)")
     for line in resp.splitlines():
         m = pattern.match(line)
         if m:
             tags.append(m.group(2))
+    return tags
+
+def check_git (info):
+    resp = load_last_query_result(info)
+    if resp == "":
+        resp = __check_git_helper(info["src_repo"])
+        last_query={}
+        last_query["time_stamp"] = datetime.now()
+        last_query["raw_data"] = resp
+        info["last_query"] = last_query
+
+    tags = __git_resp_to_tags(resp)
+    tags = clean_tags(tags, info)
+
+    return tags
+
+def check_github(info):
+    resp = load_last_query_result(info)
+    if info.get("query_type", "git-ls") != "git-ls":
+        resp = ""
+
+    repo_url = "https://github.com/" + info["src_repo"] + ".git"
+
+    if resp == "":
+        resp = __check_git_helper(repo_url)
+        last_query = {}
+        last_query["time_stamp"] = datetime.now()
+        last_query["raw_data"] = resp
+        info["last_query"] = last_query
+        info["query_type"] = "git-ls"
+
+    tags = __git_resp_to_tags(resp)
     tags = clean_tags(tags, info)
     return tags
+
+def check_gnome(info):
+    resp = load_last_query_result(info)
+    repo_url = "https://gitlab.gnome.org/GNOME/"+info["src_repo"]+".git"
+
+    if resp == "":
+        resp = __check_git_helper(repo_url)
+        last_query={}
+        last_query["time_stamp"] = datetime.now()
+        last_query["raw_data"] = resp
+        info["last_query"] = last_query
+
+    tags = __git_resp_to_tags(resp)
+    tags = clean_tags(tags, info)
+    return tags
+
+def check_svn(info):
+    resp = load_last_query_result(info)
+    repo_url = info["src_repo"] + "/tags"
+    if resp == "":
+        resp = __check_svn_helper(repo_url)
+        last_query = {}
+        last_query["time_stamp"] = datetime.now()
+        last_query["raw_data"] = resp
+        info["last_query"] = last_query
+
+    tags = __svn_resp_to_tags(resp)
+    tags = clean_tags(tags, info)
+    return tags
+
 
 if __name__ == "__main__":
     pass
@@ -158,6 +278,5 @@ def sort_tags (tags)
 	}
 	return tags
 end
-
 
 """
