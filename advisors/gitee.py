@@ -141,7 +141,7 @@ Yours openEuler-Advisor.
             else:
                 return resp
         else:
-            return False
+            return resp
 
     def get_issues(self, pkg, prj="src-openeuler"):
         """

@@ -188,7 +188,9 @@ def __git_resp_to_tags(resp):
     for line in resp.splitlines():
         m = pattern.match(line)
         if m:
-            tags.append(m.group(2))
+            tag = m.group(2)
+            if not tag.endswith("^{}"):
+                tags.append(tag)
     return tags
 
 def check_git (info):
