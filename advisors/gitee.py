@@ -13,6 +13,7 @@ import re
 import os.path
 import json
 import pprint
+from datetime import datetime
 
 
 class Gitee(object):
@@ -33,6 +34,7 @@ class Gitee(object):
         self.advisor_url_template = self.advisor_url + "upstream-info/{package}.yaml"
         #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
         self.specfile_exception_url = self.advisor_url + "helper/specfile_exceptions.yaml"
+        self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
     def post_gitee(self, url, values, headers=None):
         """
@@ -96,8 +98,8 @@ Yours openEuler-Advisor.
         """
         get and load gitee json response
         """
-        #headers = self.headers.copy()
-        headers = {}
+        headers = self.headers.copy()
+        #headers = {}
         headers["Content-Type"] = "application/json;charset=UTF-8"
         resp = self.get_gitee(url, headers)
         return json.loads(resp)
@@ -140,6 +142,48 @@ Yours openEuler-Advisor.
                 return resp
         else:
             return False
+
+    def get_issues(self, pkg, prj="src-openeuler"):
+        """
+        List all open issues of pkg
+        """
+        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues?".format(prj=prj, pkg=pkg)
+        #parameters = "access_token={token}&state=open&sort=created&derection=desc&creator=" + self.token["user"]
+        parameters = "state=open&sort=created&direction=desc&page=1&per_page=20"
+        return self.get_gitee_json(issues_url + parameters)
+
+    def get_issue_comments(self, pkg, number, prj="src-openeuler"):
+        """
+        Get comments of specific issue
+        """
+        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues?".format(prj=prj, pkg=pkg)
+        parameters = "number={num}&page=1&per_page=20&order=asc"
+        return self.get_gitee_json(issues_url + parameters)
+
+    def post_issue(self, pkg, title, body, prj="src-openeuler"):
+        """
+        Post new issue
+        """
+        issues_url = "https://gitee.com/api/v5/repos/{prj}/issues".format(prj=prj)
+        parameters = {}
+        parameters["access_token"] = self.token["access_token"]
+        parameters["repo"] = pkg
+        parameters["title"] = title
+        parameters["body"] = body
+        self.post_gitee(issues_url, parameters)
+
+    def post_issue_comment(self, pkg, number, comment, prj="src-openeuler"):
+        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues/{number}/comments".format(
+                prj=prj, pkg=pkg, number=number)
+        parameters = {}
+        parameters["access_token"] = self.token["access_token"]
+        parameters["body"] = comment
+        self.post_gitee(issues_url, parameters)
+
+    def get_gitee_datetime(self, time_string):
+        result = datetime.strptime(time_string, self.time_format)
+        return result.replace(tzinfo=None)
+
         
 if __name__ == "__main__":
     pass
