@@ -28,9 +28,13 @@ if __name__ == "__main__":
     gitee = gitee.Gitee()
     prj_name = args.repo
     spec_string = gitee.get_spec(prj_name)
+    if not spec_string:
+        print("{repo} seems to be an empty repository".format(repo=args.repo))
+        sys.exit(1)
+
     s_spec = Spec.from_string(spec_string)
 
-    current_version = s_spec.version
+    current_version = replace_macros(s_spec.version, s_spec)
 
     print("Checking ", prj_name)
     print("current version is ",current_version)
@@ -42,11 +46,11 @@ if __name__ == "__main__":
 
     if not prj_info_string:
         print("Fallback to {dir}".format(dir=args.default))
-        prj_info_string = open(os.path.join(args.default, prj_name + ".yaml")).read()
-
-    if not prj_info_string:
-        print("Failed to get YAML info for {pkg}".format(pkg=prj_name))
-        sys.exit(1)
+        try:
+            prj_info_string = open(os.path.join(args.default, prj_name + ".yaml")).read()
+        except FileNotFoundError:
+            print("Failed to get YAML info for {pkg}".format(pkg=prj_name))
+            sys.exit(1)
 
     prj_info = yaml.load(prj_info_string, Loader=yaml.Loader)
 

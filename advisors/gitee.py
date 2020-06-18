@@ -33,7 +33,7 @@ class Gitee(object):
         #self.advisor_url_template = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/{package}.yaml"
         self.advisor_url_template = self.advisor_url + "upstream-info/{package}.yaml"
         #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
-        self.specfile_exception_url = self.advisor_url + "helper/specfile_exceptions.yaml"
+        self.specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
     def post_gitee(self, url, values, headers=None):
@@ -124,7 +124,12 @@ Yours openEuler-Advisor.
         else:
             specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
 
-        return self.get_gitee(specurl)
+        try:
+            resp = self.get_gitee(specurl)
+        except urllib.error.HTTPError:
+            resp = ""
+
+        return resp
 
     def get_yaml(self, pkg):
         """
