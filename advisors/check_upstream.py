@@ -38,16 +38,16 @@ def load_last_query_result(info, force_reload=False):
 
 def clean_tags(tags, info):
 
-    if info.get("tag_pattern", "") != "":
+    if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
         result_list = [pattern_regex.sub("\\1", x) for x in tags]
-    elif info.get("tag_prefix", "") != "":
+    elif info.get("tag_prefix", "") != "" and info.get("tag_prefix", "") is not None:
         prefix_regex = re.compile(info["tag_prefix"])
         result_list = [prefix_regex.sub("", x) for x in tags]
     else:
         result_list = tags
 
-    if info.get("seperator", ".") != ".":
+    if info.get("seperator", ".") != "." and info.get("seperator", ".") is not None:
         seperator_regex = re.compile(info["seperator"])
         result_list = [seperator_regex.sub(".", x) for x in result_list]
 
@@ -84,7 +84,8 @@ def check_hg(info):
                 }
         url = urljoin(info["src_repo"] + "/", "json-tags")
         resp = requests.get(url, headers=headers)
-        need_trick, url, cookie = dirty_redirect_tricks(url, resp.text)
+        resp = resp.text
+        need_trick, url, cookie = dirty_redirect_tricks(url, resp)
         if need_trick:
             # I dont want to introduce another dependency on requests
             # but urllib handling cookie is outragely complex
