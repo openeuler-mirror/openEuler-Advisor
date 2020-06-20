@@ -16,7 +16,6 @@ except FileNotFoundError as file_not_found:
         'the system configuration file does not exist and the log cannot be started')
 else:
     from packageship.libs.configutils.readconfig import ReadConfig
-    from packageship.application.initsystem.data_import import InitDataBase
 
 from packageship.application import init_app
 try:
