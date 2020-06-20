@@ -32,4 +32,4 @@ DATABASE_FOLDER_PATH = os.path.join('/', 'var', 'run', 'pkgship_dbs')
 
 # If the directory of log storage is not configured,
 # it will be stored in the following directory specified by the system by default
-LOG_FOLDER_PATH = os.path.join('/', 'run', 'log')
+LOG_FOLDER_PATH = os.path.join('/', 'var', 'log', 'pkgship')

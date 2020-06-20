@@ -1,6 +1,3 @@
-'''
-include modules and requirement
-'''
 from distutils.core import setup
 import os
 
@@ -31,12 +28,10 @@ setup(
         'packageship.application.initsystem.datamerge',
         'packageship.application.models.package',
         'packageship.application.models.temporarydb',
-        'packageship.application.settings.dev',
-        'packageship.application.settings.pro',
+        'packageship.application.settings',
         'packageship.libs.__init__',
         'packageship.libs.configutils.readconfig',
         'packageship.libs.dbutils.sqlalchemy_helper',
-        'packageship.libs.dbutils.sqlalchemy_config',
         'packageship.libs.exception.ext',
         'packageship.libs.log.loghelper',
         'packageship.tests.test_build_depend',
@@ -69,5 +64,6 @@ setup(
     data_files=[
         (configpath, ['packageship/package.ini',
                       'packageship/manage.ini',
-                      'packageship/selfpkg.ini'])]
+                      'packageship/selfpkg.ini',
+                      'packageship/packageship.sh'])]
 )

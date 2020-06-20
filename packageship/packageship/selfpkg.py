@@ -19,7 +19,7 @@ except FileNotFoundError as file_not_found:
 
 from packageship.application import init_app
 try:
-    app = init_app('prop', 'query')
+    app = init_app('query')
 except Error as error:
     raise Exception('Service failed to start')
 else:
@@ -35,9 +35,5 @@ def before_request():
 if __name__ == "__main__":
     _readconfig = ReadConfig()
     port = _readconfig.get_system('query_port')
-    if port is None:
-        port = 5000
     addr = _readconfig.get_system('query_ip_addr')
-    if addr is None:
-        addr = '127.0.0.1'
     app.run(port=port, host=addr)
