@@ -24,8 +24,8 @@ module=packageship.manage
 wsgi-file=$wsgi_file_path/manage.py
 callable=app
 buffer-size=$buffer_size
-daemonize=$daemonize" > manage.ini
-        cat manage.ini
+daemonize=$daemonize" > $SYS_PATH/manage.ini
+        cat $SYS_PATH/manage.ini
     fi
     
     if [ $config_type = "selfpkg" -o $config_type = "all" ];then
@@ -40,11 +40,12 @@ module=packageship.selfpkg
 wsgi-file=$wsgi_file_path/selfpkg.py
 callable=app
 buffer-size=$buffer_size
-daemonize=$daemonize" > selfpkg.ini
-        cat selfpkg.ini
+daemonize=$daemonize" > $SYS_PATH/selfpkg.ini
+        cat $SYS_PATH/selfpkg.ini
 
     fi
 
+    rm -f config_file
 }
 
 if [ ! -n "$1" ]
@@ -74,18 +75,18 @@ then
 	else
 		uwsgi -d --ini /etc/pkgship/manage.ini
 		uwsgi -d --ini /etc/pkgship/selfpkg.ini
-		echo "Start uwsgi service [OK]"
+		echo "Start uwsgi service [OK], Please see the run log in $daemonize"
 	fi
 
 
 elif [ $1 = stop ];then
 	killall -9 uwsgi
-	echo "Stop uwsgi service [OK]"
+	echo "Stop uwsgi service [OK], Please see the run log in $daemonize"
 elif [ $1 = restart ];then
 	killall -9 uwsgi
 	uwsgi -d --ini /etc/pkgship/manage.ini
 	uwsgi -d --ini /etc/pkgship/selfpkg.ini
-	echo "Restart uwsgi service [OK]"
+	echo "Restart uwsgi service [OK], Please see the run log in $daemonize"
 
 else
 	echo "Usages: sh packageship.sh [start|stop|restart]"
