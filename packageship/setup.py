@@ -63,7 +63,6 @@ setup(
     author='gongzt',
     data_files=[
         (configpath, ['packageship/package.ini',
-                      'packageship/manage.ini',
-                      'packageship/selfpkg.ini',
+                      'packageship/uWSGI_service.sh',
                       'packageship/packageship.sh'])]
 )
