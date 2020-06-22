@@ -63,5 +63,5 @@ setup(
     author='gongzt',
     data_files=[
         (configpath, ['packageship/package.ini']),
-        ('/usr/bin', ['packageship/pkgshipd.sh'])]
+        ('/usr/bin', ['packageship/pkgshipd'])]
 )
