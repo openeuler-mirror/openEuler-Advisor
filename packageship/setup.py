@@ -62,7 +62,6 @@ setup(
     long_description=open('README.md', encoding='utf-8').read(),
     author='gongzt',
     data_files=[
-        (configpath, ['packageship/package.ini',
-                      'packageship/uWSGI_service.sh',
-                      'packageship/packageship.sh'])]
+        (configpath, ['packageship/package.ini']),
+        ('/usr/bin', ['packageship/pkgshipd.sh'])]
 )
