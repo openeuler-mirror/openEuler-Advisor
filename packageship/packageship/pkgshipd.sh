@@ -1,8 +1,13 @@
 #!/bin/bash
-SYS_PATH=/etc/pkgship/
+SYS_PATH=/etc/pkgship
 OUT_PATH=/var/run/pkgship_uwsgi
 if [ ! -d "$OUT_PATH" ]; then
         mkdir $OUT_PATH
+fi
+
+if [ ! -f "$SYS_PATH/package.ini" ]; then
+    echo "!!!$SYS_PATH/package.ini dose not exist!!!"
+    exit 0
 fi
 
 function get_config(){
@@ -17,6 +22,15 @@ function create_config_file(){
     if [ $service = "manage" -o $service = "all" ];then
         write_port=$(get_config "$service" "write_port")
         write_ip_addr=$(get_config "$service" "write_ip_addr")
+        if [[ -z "$daemonize" ]] || [[ -z "$buffer_size" ]] || [[ -z "$write_ip_addr" ]] || [[ -z "$write_port" ]];then
+            echo "!!!CAN NOT find  all config name in $SYS_PATH/package.ini, Please check the file!!!"
+            echo "!!!The following config name is needed: daemonize, buffer_size, write_port and write_ip_addr!!!"
+            exit 1
+        fi
+        if [ -z "$wsgi_file_path" ];then
+            echo "!!!CAN NOT find the wsgi file path under /usr/lib/!!!"
+            exit 1
+        fi
         echo "manage.ini is saved to $OUT_PATH/manage.ini"
         echo "[uwsgi]
 http=$write_ip_addr:$write_port
@@ -31,6 +45,17 @@ daemonize=$daemonize" > $OUT_PATH/manage.ini
     if [ $service = "selfpkg" -o $service = "all" ];then
         query_port=$(get_config "$service" "query_port")
         query_ip_addr=$(get_config "$service" "query_ip_addr")
+
+        if [[ -z "$daemonize" ]] || [[ -z "$buffer_size" ]] || [[ -z "$query_ip_addr" ]] || [[ -z "$query_port" ]];then
+            echo "!!!CAN NOT find  all config name in $SYS_PATH/package.ini, Please check the file!!!"
+            echo "!!!The following config name is needed: daemonize, buffer_size, query_port and query_ip_addr!!!"
+            exit 1
+        fi
+        if [ -z "$wsgi_file_path" ];then
+            echo "!!!CAN NOT find the wsgi file path under /usr/lib/!!!"
+            exit 1
+        fi
+
         echo "selfpkg.ini is saved to $OUT_PATH/selfpkg.ini"
         echo "[uwsgi]
 http=$query_ip_addr:$query_port
@@ -60,12 +85,13 @@ function stop_service(){
         uwsgi --$2 $OUT_PATH/$1.pid
     else
         echo "!!!STOP service [FAILED], Please start the service first!!!"
-        echo "===If the service has already exist, Please stop it manually by using [ps -aux] and [uwsgi --stop #PID]"
+        echo "===If the service has already exist, Please stop it manually by using [ps -aux] and [uwsgi --stop #PID]==="
+    fi
 }
 
 if [ ! -n "$1" ]
 then
-	echo "Usages: sh packageship.sh [start|stop|restart]"
+	echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
 	exit 0
 fi
 
@@ -79,6 +105,9 @@ else
 fi
 
 create_config_file $service
+if [ $? -ne 0 ];then  
+    exit 0
+fi
 
 if [ $1 = start ]
 then
@@ -109,6 +138,6 @@ elif [ $1 = restart ];then
     echo "===The run log is saved into $daemonize==="
 
 else
-	echo "Usages: sh packageship.sh [start|stop|restart]"
+	echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
 fi
 

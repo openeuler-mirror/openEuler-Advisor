@@ -56,18 +56,18 @@ pkgmnt希望提供软件包依赖，生命周期，补丁查询等功能。
 
     3.3 启动系统服务
 
-        单独启动manage服务： sh /etc/pkgship/uWSGI_service.sh start manage
+        单独启动manage服务： sh /usr/bin/pkgshipd.sh start manage
 
-        单独启动selfpkg服务： sh /etc/pkgship/uWSGI_service.sh start selfpkg
+        单独启动selfpkg服务： sh /usr/bin/pkgshipd.sh start selfpkg
 
-        同时启动manage和selfpkg服务： sh /etc/pkgship/uWSGI_service.sh start
+        同时启动manage和selfpkg服务： sh /usr/bin/pkgshipd.sh start
 
     3.4 停止系统服务
-        停止manage服务： sh /etc/pkgship/uWSGI_service.sh stop manage
+        停止manage服务： sh /usr/bin/pkgshipd.sh stop manage
 
-        停止selfpkg服务： sh /etc/pkgship/uWSGI_service.sh stop selfpkg
+        停止selfpkg服务： sh /usr/bin/pkgshipd.sh stop selfpkg
 
-        同时停止manage和selfpkg服务： sh /etc/pkgship/uWSGI_service.sh stop
+        同时停止manage和selfpkg服务： sh /usr/bin/pkgshipd.sh stop
 
 
 
