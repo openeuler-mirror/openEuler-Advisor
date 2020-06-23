@@ -15,7 +15,7 @@ class VersionType:
         return version_entry[0]
 
     def maintain_version(self, version_entry, current_version, pkg_type):
-        return None
+        return current_version
 
     def _max(self, z1, z2):
         d1 = tuple(self._split(z1))  # 第一个参数版本号拆分,获取里面的数字/字母,得到序列
@@ -137,7 +137,6 @@ class VersionType_x_y_z(VersionType):
         for version in version_list:    # 第一轮比较取出最大的第一位
             if self._max(x, version[0]) < 0:
                 x = version[0]
-        print('x = ',x)
 
         version_candidate = []
         for version in version_list:    # 将第一位最大的列入候选列表,准备第二位比较
@@ -154,7 +153,7 @@ class VersionType_x_y_z(VersionType):
                 continue
             if self._max(y, version[1]) < 0:
                 y = version[1]
-        print('y = ',y)
+
 
         version_candidate.clear()
         for version in version_list:    # 将第二位最大的列入候选列表,准备第三位比较
@@ -171,7 +170,7 @@ class VersionType_x_y_z(VersionType):
                 continue
             if self._max(z, version[2]) < 0:
                 z = version[2]
-        print('z = ',z)
+
 
         for version in version_list:    # 最后一位最大版本必须惟一,直接返回结果
             if len(version) <= 2:  # 过滤仅二位的版本号
@@ -210,7 +209,7 @@ class VersionType_x_y(VersionType):
         for version in version_list:    # 第一轮比较取出最大的第一位
             if self._max(x, version[0]) < 0:
                 x = version[0]
-        print('x = ',x)
+
 
         version_candidate = []
         for version in version_list:    # 将第一位最大的列入候选列表,准备第二位比较
@@ -227,7 +226,7 @@ class VersionType_x_y(VersionType):
                 continue
             if self._max(y, version[1]) < 0:
                 y = version[1]
-        print('y = ',y)
+
 
         version_candidate.clear()
         for version in version_list:    # x.y 版本类型中会小概率出现三位版本号,需要将第二位最大的列入候选列表,准备第三位比较
@@ -244,7 +243,6 @@ class VersionType_x_y(VersionType):
                 continue
             if self._max(z, version[2]) < 0:
                 z = version[2]
-        print('z = ',z)
 
         for version in version_list:    # 最后一位最大版本必须惟一,直接返回结果
             if len(version) <= 2:  # 过滤仅二位的版本号
@@ -255,7 +253,6 @@ class VersionType_x_y(VersionType):
         return ''
 
     def maintain_version(self, version_entry, current_version, pkg_type):
-        print(version_entry)
         version_candidate = []
         version_digital = re.split(r'[._]', current_version)  # 将版本号做拆分
         x = []
@@ -288,6 +285,58 @@ class VersionType_x(VersionType):
             return False
         return True
 
+    def latest_version(self, version_entry):
+        if len(version_entry) == 1:  # 仅一个版本,当前即为最新版本
+            return version_entry[0]
+        version_list = []
+        for version in version_entry:
+            version_list.append(re.split(r'[._]', version))  # 将 version 拆分为列表,方便后续比较
+        x = '0'
+        for version in version_list:  # 第一轮比较取出最大的第一位
+            if self._max(x, version[0]) < 0:
+                x = version[0]
+
+        version_candidate = []
+        for version in version_list:  # 将第一位最大的列入候选列表,准备第二位比较
+            if x == version[0]:
+                version_candidate.append(version)
+
+        if len(version_candidate) == 1:  # 仅一个版本,候选即为最新版本
+            return '.'.join(version_candidate[0])
+
+        version_list = version_candidate[:]
+        y = '0'
+        for version in version_list:  # 第二轮比较取出最大的第二位
+            if len(version) <= 1:  # 过滤仅一位的版本号
+                continue
+            if self._max(y, version[1]) < 0:
+                y = version[1]
+
+        x.append(y)
+        return '.'.join(x)
+
+    def maintain_version(self, version_entry, current_version, pkg_type):
+        version_candidate = []
+        version_digital = re.split(r'[._]', current_version)  # 将版本号做拆分
+        x = []
+        x.append(version_digital[0])
+        for version in version_entry:
+            version_temp = re.split(r'[._]', version)
+            if version_digital[0] == version_temp[0]:  # 如果版本号与当前版本前两位一致，说明是维护分支版本
+                version_candidate.append(version_temp)   # 将同特性版本的子版本挑选出来
+
+        if len(version_candidate) == 1:
+            return '.'.join(version_candidate[0])
+
+        y = '0'
+        for version in version_candidate[0:]:
+            if len(version) <= 1:
+                continue
+
+            if self._max(version[1], y) > 0:
+                y = version[1]
+        x.append(y)
+        return '.'.join(x)
     def __init__(self):
         self._version_type = 'x'
 
@@ -498,7 +547,6 @@ class VersionRecommend:
                 version_entry.remove(version)
             else:
                 break
-        print(version_entry)
         self.version_type = self._version_match(version_entry)
         if self.version_type is None:
             print('version type is None:', current_version)
@@ -529,7 +577,6 @@ class VersionRecommend:
                 continue
             for method, count in version_method.items():
                 if method.version_match(version):
-                    print(version, method.get_version_mode())
                     version_method[method] = count + 1
 
         # 解决多版本类型问题,选取类型最多的作为匹配,这个处理不是最优方案,需要改进
@@ -542,18 +589,15 @@ class VersionRecommend:
     def _version_valid(self, version):
         m = re.match('^[a-z0-9_\.]*$',version)
         if m is None: # 版本号应该是 数字/小写字母/下划线/. 组成
-            print(version, 'is invalid')
             return False
 
         m = re.match('^[0-9].*', version)
         if m is None: # 版本号应该是数字开头
-            print(version, 'is invalid')
             return False
 
         if 'rc' in version or 'RC' in version: # 仅获取正式版本
             return False
 
-        print(version, 'is valid')
         return True
 
     def _get_latest_version(self, version_entry):
