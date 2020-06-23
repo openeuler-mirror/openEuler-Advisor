@@ -1,3 +1,6 @@
+'''
+Logging related
+'''
 import os
 import pathlib
 import logging
@@ -8,12 +11,12 @@ from packageship.libs.configutils.readconfig import ReadConfig
 READCONFIG = ReadConfig()
 
 
-def setup_log(Config=None):
+def setup_log(config=None):
     '''
         Log logging in the context of flask
     '''
-    if Config:
-        logging.basicConfig(level=Config.LOG_LEVEL)
+    if config:
+        logging.basicConfig(level=config.LOG_LEVEL)
     else:
         _level = READCONFIG.get_config('LOG', 'log_level')
         if _level is None:
@@ -28,7 +31,7 @@ def setup_log(Config=None):
     if not os.path.exists(path):
         try:
             os.makedirs(os.path.split(path)[0])
-        except FileExistsError as file_exists:
+        except FileExistsError:
             pathlib.Path(path).touch()
 
     file_log_handler = RotatingFileHandler(
@@ -43,6 +46,9 @@ def setup_log(Config=None):
 
 
 class Log():
+    '''
+        General log operations
+    '''
 
     def __init__(self, name=__name__, path=None):
         self.__name = name
@@ -86,14 +92,20 @@ class Log():
         # self.__stream_handler.setFormatter(formatter)
         self.__file_handler.setFormatter(formatter)
 
-    def __close_handler(self):
+    def close_handler(self):
+        '''
+            Turn off log processing
+        '''
         # self.__stream_handler.close()
         self.__file_handler.close()
 
     @property
     def logger(self):
+        '''
+            Get logs
+        '''
         self.__ini_handler()
         self.__set_handler()
         self.__set_formatter()
-        self.__close_handler()
+        self.close_handler()
         return self.__logger
