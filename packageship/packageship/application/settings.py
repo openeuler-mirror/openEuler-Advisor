@@ -1,6 +1,8 @@
-from packageship.libs.configutils.readconfig import ReadConfig
+'''
+    Basic configuration of flask framework
+'''
 import random
-import string
+from packageship.libs.configutils.readconfig import ReadConfig
 
 
 class Config():
@@ -13,7 +15,7 @@ class Config():
 
     LOG_LEVEL = 'INFO'
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
 
         self._read_config = ReadConfig()
 
