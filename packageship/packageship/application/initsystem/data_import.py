@@ -252,12 +252,6 @@ class InitDataBase():
                     self._bin_package_dicts[src_package_name][index]['relation'] = False
 
         self._bin_package_dicts[src_package_name].append(_bin_package)
-        # self._bin_package_dicts[src_package_name].append(_bin_package)
-        # self._bin_package_dicts[src_package_name].sort(
-        #     key=lambda x: x.get('version'))
-        # self._bin_package_dicts[src_package_name][-1]['relation'] = True
-        # for bin_package_item in self._bin_package_dicts[src_package_name][:-1]:
-        #     bin_package_item['relation'] = False
 
     def _bin_requires_relation(self, bin_requires_data):
         '''
