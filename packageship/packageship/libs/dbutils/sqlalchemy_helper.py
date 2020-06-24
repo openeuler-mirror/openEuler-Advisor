@@ -3,7 +3,6 @@ Simple encapsulation of sqlalchemy orm framework operation database
 
 '''
 import os
-from packageship.system_config import DATABASE_FOLDER_PATH
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData
 from sqlalchemy.orm import sessionmaker
@@ -15,15 +14,18 @@ from packageship.libs.exception.ext import Error
 from packageship.libs.exception.ext import DbnameNoneException
 from packageship.libs.exception.ext import ContentNoneException
 from packageship.libs.configutils.readconfig import ReadConfig
+from packageship.system_config import DATABASE_FOLDER_PATH
 
 
 class DBHelper():
-
+    '''
+        Database connection, operation public class
+    '''
     # The base class inherited by the data model
     BASE = declarative_base()
 
-    def __init__(self, user_name=None, passwrod=None, ip_address=None, \
-                port=None, db_name=None, db_type=None, *args, **kwargs):
+    def __init__(self, user_name=None, passwrod=None, ip_address=None,  # pylint: disable=R0913
+                 port=None, db_name=None, db_type=None, **kwargs):
         self.user_name = user_name
         self._readconfig = ReadConfig()
         if self.user_name is None:
@@ -61,6 +63,13 @@ class DBHelper():
                     self._db_file_path()
                     self.db_name = os.path.join(
                         self.database_file_path, self.db_name + '.db')
+        self._create_engine()
+        self.session = None
+
+    def _create_engine(self):
+        '''
+            Create a database connection object
+        '''
         if self.db_type.startswith('sqlite'):
             if not self.db_name:
                 raise DbnameNoneException(
@@ -75,13 +84,12 @@ class DBHelper():
                                                    'password': self.passwrod,
                                                    'host': self.ip_address,
                                                    'port': self.port,
-                                                   'drivername': self.db_type}), \
-                                                    encoding='utf-8', \
-                                                    convert_unicode=True)
+                                                   'drivername': self.db_type}),
+                                            encoding='utf-8',
+                                            convert_unicode=True)
             else:
                 raise DisconnectionError(
                     'A disconnect is detected on a raw DB-API connection')
-        self.session = None
 
     def _db_file_path(self):
         '''
@@ -99,12 +107,12 @@ class DBHelper():
         functional description:Create a context manager for the database connection
         '''
 
-        Session = sessionmaker()
+        session = sessionmaker()
         if getattr(self, 'engine') is None:
             raise DisconnectionError('Abnormal database connection')
-        Session.configure(bind=self.engine)
+        session.configure(bind=self.engine)
 
-        self.session = Session()
+        self.session = session()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -132,7 +140,6 @@ class DBHelper():
         '''
         meta = MetaData(self.engine)
         for table_name in DBHelper.BASE.metadata.tables.keys():
-            from sqlalchemy import Table
             if table_name in tables:
                 table = DBHelper.BASE.metadata.tables[table_name]
                 table.metadata = meta
@@ -153,8 +160,8 @@ class DBHelper():
         try:
             self.session.add(entity)
 
-        except SQLAlchemyError as e:
-            raise Error(e)
+        except SQLAlchemyError as sql_error:
+            raise Error(sql_error)
         else:
             self.session.commit()
             return entity
@@ -183,7 +190,7 @@ class DBHelper():
                 model.__table__.insert(),
                 dicts
             )
-        except SQLAlchemyError as e:
-            raise Error(e)
+        except SQLAlchemyError as sql_error:
+            raise Error(sql_error)
         else:
             self.session.commit()

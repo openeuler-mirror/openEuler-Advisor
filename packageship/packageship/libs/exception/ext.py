@@ -1,6 +1,12 @@
+'''
+    System exception information
+'''
+
 
 class Error(Exception):
-    """Base class for ConfigParser exceptions."""
+    """
+        Base class for ConfigParser exceptions
+    """
 
     def __init__(self, msg=''):
         self.message = msg

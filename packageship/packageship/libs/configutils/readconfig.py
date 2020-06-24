@@ -3,7 +3,6 @@
     which mainly includes obtaining specific node values
     and obtaining arbitrary node values
 '''
-import os
 import configparser
 from configparser import NoSectionError
 from configparser import NoOptionError
@@ -30,6 +29,7 @@ class ReadConfig:
                 return None
             except NoOptionError:
                 return None
+        return None
 
     def get_database(self, param):
         '''
@@ -42,6 +42,7 @@ class ReadConfig:
                 return None
             except NoOptionError:
                 return None
+        return None
 
     def get_config(self, node, param):
         '''
@@ -54,3 +55,4 @@ class ReadConfig:
                 return None
             except NoOptionError:
                 return None
+        return None
