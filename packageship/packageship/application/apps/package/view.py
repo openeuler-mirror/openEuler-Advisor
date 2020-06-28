@@ -274,7 +274,7 @@ class InstallDepend(Resource):
             )
 
         response_code, install_dict = \
-            installdepend(db_list).install_depend_result([pkg_name])
+            installdepend(db_list).query_install_depend([pkg_name])
 
         if not install_dict:
             return jsonify(

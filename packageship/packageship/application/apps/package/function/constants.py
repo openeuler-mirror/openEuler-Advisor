@@ -53,6 +53,7 @@ class ResponseCode():
         PACK_NAME_NOT_FOUND: "Sorry! The querying package does not exist in the databases",
         CONNECT_DB_ERROR: "Failed to Connect the database! "
                           "Please check the database connection",
+        INPUT_NONE: "The input is None, please check the input value.",
         FILE_NOT_FOUND: "Database import success file does not exist",
         DELETE_DB_ERROR: "Failed to delete database",
         CONFIGFILE_PATH_EMPTY: "Initialization profile does not exist or cannot be found",

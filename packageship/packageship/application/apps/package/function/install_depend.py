@@ -26,7 +26,7 @@ class InstallDepend():
         self.db_list = db_list
         self.search_db = SearchDB(db_list)
 
-    def install_depend_result(self, binary_list, history_dicts=None):
+    def query_install_depend(self, binary_list, history_dicts=None):
         '''
         Description: init result dict and determint the loop end point
         :param binary_list: A list of binary rpm package name
@@ -46,26 +46,24 @@ class InstallDepend():
         if not self.search_db.db_object_dict:
             return ResponseCode.DIS_CONNECTION_DB, None
         if not binary_list:
-            response_code = ResponseCode.INPUT_NONE,
-            return response_code, None
+            return ResponseCode.INPUT_NONE, None
         for binary in binary_list:
             if binary:
                 self.search_list.append(binary)
             else:
                 LOGGER.logger.warning("There is a  NONE in input value:" + str(binary_list))
         while self.search_list:
-            response_code = self.query_install(history_dicts)
-        return response_code, self.binary_dict.dictionary if response_code != \
-                ResponseCode.DIS_CONNECTION_DB else None
+            self.__query_single_install_dep(history_dicts)
+        return  ResponseCode.SUCCESS, self.binary_dict.dictionary
 
-    def query_install(self, history_dicts):
+    def __query_single_install_dep(self, history_dicts):
         """
         Description: query a package install depend and append to result
         :param history_dicts
         :return response_code
         changeLog:
         """
-        response_code, result_list = self.search_db.get_install_depend(self.search_list)
+        result_list = self.search_db.get_install_depend(self.search_list)
         for search in self.search_list:
             if search not in self.binary_dict.dictionary:
                 self.binary_dict.init_key(key=search, parent_node=[])
@@ -99,7 +97,6 @@ class InstallDepend():
                         self.binary_dict.init_key(key=result.depend_name,
                                                   parent_node=[[result.search_name, 'install']])
                         self.search_list.append(result.depend_name)
-        return response_code
 
 class DictionaryOperations():
     '''

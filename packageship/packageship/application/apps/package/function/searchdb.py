@@ -47,16 +47,18 @@ class SearchDB():
         :return install depend list
         changeLog:
         """
+        result_list = []
+        get_list = []
         if not self.db_object_dict:
-            return ResponseCode.DIS_CONNECTION_DB, None
-
+            LOGGER.logger.warning("Unable to connect to the database, \
+                check the database configuration")
+            return result_list
         if None in binary_list:
             binary_list.remove(None)
         search_set = set(binary_list)
-        result_list = []
-        get_list = []
         if not search_set:
-            return ResponseCode.INPUT_NONE, None
+            LOGGER.logger.warning("The input is None, please check the input value.")
+            return result_list
         for db_name, data_base in self.db_object_dict.items():
             try:
                 name_in = literal_column('name').in_(search_set)
@@ -88,7 +90,7 @@ class SearchDB():
                     get_list.clear()
                     search_set.symmetric_difference_update(get_set)
                     if not search_set:
-                        return ResponseCode.SUCCESS, result_list
+                        return result_list
                 else:
                     continue
             except AttributeError as error_msg:
@@ -101,7 +103,7 @@ class SearchDB():
         for binary_name in search_set:
             result_list.append((return_tuple(None, None, None,
                                              binary_name, None, None), 'NOT FOUND'))
-        return ResponseCode.SUCCESS, result_list
+        return result_list
 
     def get_src_name(self, binary_name):
         """
