@@ -87,12 +87,12 @@ def get_contents(filename):
     return None
 
 
-def get_tarball_from_url(upstream_url, download_path, tarfile):
+def get_tarball_from_url(upstream_url, download_path, tarpackage):
     """
     Get tar package from url.
     return: tar package path.
     """
-    tarball_path = download_path + "/" + tarfile
+    tarball_path = download_path + "/" + tarpackage
     if not os.path.isfile(tarball_path):
         download.do_curl(upstream_url, dest=tarball_path)
     return tarball_path
@@ -104,30 +104,30 @@ def extract_tar(tarball_path, extraction_path):
     If extract failed the program will exit.
     """
     if not os.path.isfile(tarball_path):
-        logging.error("{} is not a tarball file".format(tarball_path))
+        logging.error("%s is not a tarball file", tarball_path)
         exit(1)
     with tarfile.open(tarball_path) as content:
         content.extractall(path=extraction_path)
 
 
-def decode_license(license, charset):
+def decode_license(license_string, charset):
     """ 
     Decode the license string.
     return the license string or nothing.
     """
     if not charset:
         return
-    return license.decode(charset)
+    return license_string.decode(charset)
 
 
-def add_license_from_spec_file(license):
+def add_license_from_spec_file(spec_license):
     """
     Add license to licenses_for_spec.
     """
-    if license in licenses_for_spec:
-        logging.debug("the license was in licenses_for_spec:{}".format(license))
+    if spec_license in licenses_for_spec:
+        logging.debug("the license was in licenses_for_spec: %s", spec_license)
     else:
-        licenses_for_spec.append(license)
+        licenses_for_spec.append(spec_license)
 
 
 def add_license_from_license_file(license):
@@ -135,7 +135,7 @@ def add_license_from_license_file(license):
     Add license to licenses_for_license.
     """
     if license in licenses_for_license:
-        logging.debug("the license was in licenses_for_license:{}\n".format(license))
+        logging.debug("the license was in licenses_for_license: %s\n", license)
     else:
         licenses_for_license.append(license)
 
@@ -156,7 +156,7 @@ def scan_licenses(copying):
         if word in data:
             real_word = license_translations.get(word, word)
             add_license_from_license_file(real_word)
-    logging.debug("all licenses from license file is:{}".format(licenses_for_license))
+    logging.debug("all licenses from license file is: %s", licenses_for_license)
 
 
 def scan_licenses_in_LICENSE(srcdir):
@@ -215,7 +215,7 @@ def scan_licenses_in_SPEC(specfile):
     the program will exit with an error. 
     """
     if not specfile.endswith(".spec"):
-        logging.error("{} is not a spec file".format(specfile))
+        logging.error("%s is not a spec file", specfile)
         exit(1)
     try:
         with open(specfile, 'r') as specfd:
@@ -239,9 +239,9 @@ def scan_licenses_in_SPEC(specfile):
                     if word not in excludes:
                         real_word = license_translations.get(word, word)
                         logging.debug("after translate license_string ==> "
-                                    "real_license: {} ==> {}".format(word, real_word))
+                                    "real_license: %s ==> %s", word, real_word)
                         add_license_from_spec_file(real_word)
-    logging.debug("\nall licenses from SPEC file is:{}".format(licenses_for_spec))                        
+    logging.debug("\nall licenses from SPEC file is: %s", licenses_for_spec)                        
 
 
 def check_licenses_is_same():
@@ -295,7 +295,7 @@ def read_licenses_translate_conf(filename):
     conf_dir = os.path.dirname(os.path.abspath(__file__))
     conf_path = os.path.join(conf_dir, filename)
     if not os.path.isfile(conf_path):
-        logging.info("not found the config file:{}".format(conf_path))
+        logging.info("not found the config file: %s", conf_path)
         return
     with open(conf_path, "r") as conf_file:
         for line in conf_file:
@@ -327,10 +327,10 @@ def process_licenses(args, download_path):
 
     if check_licenses_is_same():
         logging.info("licenses from LICENSES are same as form SPEC:"
-                    "{} <==> {}".format(licenses_for_license, licenses_for_spec))
+                    "%s <==> %s", licenses_for_license, licenses_for_spec)
     else:
         logging.info("licenses from LICENSES are not same as form SPEC:"
-                    "{} <==> {}".format(licenses_for_license, licenses_for_spec))
+                    "%s <==> %s", licenses_for_license, licenses_for_spec)
         if args.writespec:
             overwrite_spec(specfile)
             exit(0)
