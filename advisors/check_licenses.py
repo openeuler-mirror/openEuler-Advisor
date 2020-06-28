@@ -120,24 +120,24 @@ def decode_license(license_string, charset):
     return license_string.decode(charset)
 
 
-def add_license_from_spec_file(spec_license):
+def add_license_from_spec_file(license_string):
     """
     Add license to licenses_for_spec.
     """
-    if spec_license in licenses_for_spec:
-        logging.debug("the license was in licenses_for_spec: %s", spec_license)
+    if license_string in licenses_for_spec:
+        logging.debug("the license was in licenses_for_spec: %s", license_string)
     else:
-        licenses_for_spec.append(spec_license)
+        licenses_for_spec.append(license_string)
 
 
-def add_license_from_license_file(license):
+def add_license_from_license_file(license_string):
     """
     Add license to licenses_for_license.
     """
-    if license in licenses_for_license:
-        logging.debug("the license was in licenses_for_license: %s\n", license)
+    if license_string in licenses_for_license:
+        logging.debug("the license was in licenses_for_license: %s\n", license_string)
     else:
-        licenses_for_license.append(license)
+        licenses_for_license.append(license_string)
 
 
 def scan_licenses(copying):
