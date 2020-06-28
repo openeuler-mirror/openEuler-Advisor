@@ -3,9 +3,9 @@ view: Request logic processing Return json format
 """
 import yaml
 from flask import request
-from flask_restful import Resource
 from flask import jsonify
 from flask import current_app
+from flask_restful import Resource
 from sqlalchemy.exc import DisconnectionError
 
 from packageship.application.apps.package.function.constants import ResponseCode
@@ -144,7 +144,7 @@ class SinglePack(Resource):
             current_app.logger.error(dis_connection_error)
             abnormal = ResponseCode.DIS_CONNECTION_DB
 
-        except (AttributeError, Error) as attribute_error:
+        except (AttributeError, TypeError, Error) as attribute_error:
             current_app.logger.error(attribute_error)
             abnormal = ResponseCode.PACK_NAME_NOT_FOUND
         if abnormal is not None:
@@ -198,7 +198,7 @@ class SinglePack(Resource):
             return jsonify(
                 ResponseCode.response_json(
                     ResponseCode.DIS_CONNECTION_DB))
-        except (AttributeError, Error) as attri_error:
+        except (AttributeError, TypeError, Error) as attri_error:
             current_app.logger.error(attri_error)
             return jsonify(
                 ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
@@ -367,13 +367,13 @@ class Repodatas(Resource):
                     ResponseCode.response_json(
                         ResponseCode.SUCCESS,
                         data=init_database_date))
-        except (FileNotFoundError, Error) as file_not_found:
+        except (FileNotFoundError, TypeError, Error) as file_not_found:
             current_app.logger.error(file_not_found)
             return jsonify(
                 ResponseCode.response_json(ResponseCode.FILE_NOT_FOUND)
             )
 
-    def delete(self, *args, **kwargs):
+    def delete(self):
         '''
         description: get all database
         input: database name
@@ -401,7 +401,7 @@ class Repodatas(Resource):
             return jsonify(
                 ResponseCode.response_json(ResponseCode.SUCCESS)
             )
-        except Error as error:
+        except (FileNotFoundError, TypeError, Error) as error:
             current_app.logger.error(error)
             return jsonify(
                 ResponseCode.response_json(ResponseCode.DELETE_DB_ERROR)
@@ -411,7 +411,7 @@ class Repodatas(Resource):
 class InitSystem(Resource):
     '''InitSystem'''
 
-    def post(self, *args, **kwargs):
+    def post(self):
         """
         description: InitSystem
         input:
@@ -443,14 +443,14 @@ class InitSystem(Resource):
             abnormal = ResponseCode.DIS_CONNECTION_DB
         except TypeError as type_error:
             LOGGER.logger.error(type_error)
-            abnormal = ResponseCode.TYPEERROR
+            abnormal = ResponseCode.TYPE_ERROR
         except DataMergeException as data_merge_error:
             LOGGER.logger.error(data_merge_error)
-            abnormal = ResponseCode.DATAMERGEERROR
+            abnormal = ResponseCode.DATA_MERGE_ERROR
         except FileNotFoundError as file_not_found_error:
             LOGGER.logger.error(file_not_found_error)
             abnormal = ResponseCode.FILE_NOT_FIND_ERROR
-        except Error as error:
+        except (Error, Exception) as error:
             LOGGER.logger.error(error)
             abnormal = ResponseCode.FAILED_CREATE_DATABASE_TABLE
         if abnormal is not None:

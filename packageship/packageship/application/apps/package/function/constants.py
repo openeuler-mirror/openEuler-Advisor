@@ -29,21 +29,21 @@ class ResponseCode():
         Description: response code to web
         changeLog:
     """
-
+    # Four digits are common status codes
     SUCCESS = "2001"
     PARAM_ERROR = "4001"
     DB_NAME_ERROR = "4002"
     PACK_NAME_NOT_FOUND = "4003"
     CONNECT_DB_ERROR = "4004"
-    FILE_NOT_FOUND = "40041"
-
     INPUT_NONE = "4005"
+    # Delete database module error status code
+    FILE_NOT_FOUND = "40041"
     DELETE_DB_ERROR = "40051"
-
+    # Database initialization module error status code
     CONFIGFILE_PATH_EMPTY = "50001"
     FAILED_CREATE_DATABASE_TABLE = "50002"
-    TYPEERROR = "50003"
-    DATAMERGEERROR = "50004"
+    TYPE_ERROR = "50003"
+    DATA_MERGE_ERROR = "50004"
     FILE_NOT_FIND_ERROR = "50005"
     DIS_CONNECTION_DB = "50006"
 
@@ -58,8 +58,8 @@ class ResponseCode():
         DELETE_DB_ERROR: "Failed to delete database",
         CONFIGFILE_PATH_EMPTY: "Initialization profile does not exist or cannot be found",
         FAILED_CREATE_DATABASE_TABLE: "Failed to create database or table",
-        TYPEERROR: "The source code and binary path types in the initialization file are abnormal",
-        DATAMERGEERROR: "abnormal multi-file database integration",
+        TYPE_ERROR: "The source code and binary path types in the initialization file are abnormal",
+        DATA_MERGE_ERROR: "abnormal multi-file database integration",
         FILE_NOT_FIND_ERROR: "system initialization configuration file does not exist",
         DIS_CONNECTION_DB: "Unable to connect to the database, check the database configuration"}
 
