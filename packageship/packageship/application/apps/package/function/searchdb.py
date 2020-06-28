@@ -1,13 +1,132 @@
 """
     A set for all query databases function
 """
+from collections import namedtuple
 
 import yaml
 from flask import current_app
+from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError, DisconnectionError
+from sqlalchemy.sql import literal_column
 
+from packageship.libs.dbutils import DBHelper
+from packageship.libs.log import Log
+from packageship.application.models.package import bin_pack
 from packageship.libs.exception import ContentNoneException, Error
 from packageship.system_config import DATABASE_SUCCESS_FILE
+from .constants import ResponseCode
 
+LOGGER = Log(__name__)
+
+class SearchDB():
+    """
+    Description: query in database
+    changeLog:
+    """
+    def __new__(cls, *args, **kwargs):
+        # pylint: disable=w0613
+        if not hasattr(cls, "_instance"):
+            cls._instance = super(SearchDB, cls).__new__(cls)
+        return cls._instance
+
+    def __init__(self, db_list):
+        self.db_object_dict = dict()
+        for db_name in db_list:
+            try:
+                with DBHelper(db_name=db_name) as data_base:
+                    self.db_object_dict[db_name] = data_base
+            except DisconnectionError as connection_error:
+                current_app.logger.error(connection_error)
+
+    def get_install_depend(self, binary_list):
+        """
+        Description: get a package install depend from database:
+                     binary_name -> binary_id -> requires_set -> requires_id_set -> provides_set
+                     -> install_depend_binary_id_key_list -> install_depend_binary_name_list
+        :param binary_lsit: a list of binary package name
+        :return install depend list
+        changeLog:
+        """
+        if not self.db_object_dict:
+            return ResponseCode.DIS_CONNECTION_DB, None
+
+        if None in binary_list:
+            binary_list.remove(None)
+        search_set = set(binary_list)
+        result_list = []
+        get_list = []
+        if not search_set:
+            return ResponseCode.INPUT_NONE, None
+        for db_name, data_base in self.db_object_dict.items():
+            try:
+                name_in = literal_column('name').in_(search_set)
+                sql_com = text("""
+                SELECT DISTINCT
+                bin_pack.NAME AS depend_name,
+                bin_pack.version AS depend_version,
+                s2.NAME AS depend_src_name,
+                bin.NAME AS search_name,
+                s1.`name` AS search_src_name,
+                s1.version AS search_version
+                FROM
+                ( SELECT id, NAME,srcIDkey FROM bin_pack WHERE {} ) bin
+                LEFT JOIN pack_requires ON bin.id = pack_requires.binIDkey
+                LEFT JOIN pack_provides ON pack_provides.id = pack_requires.depProIDkey
+                LEFT JOIN bin_pack ON bin_pack.id = pack_provides.binIDkey
+                LEFT JOIN src_pack s1 ON s1.id = bin.srcIDkey
+                LEFT JOIN src_pack s2 ON s2.id = bin_pack.srcIDkey;""".format(name_in))
+                install_set = data_base.session. \
+                    execute(sql_com, {'name_{}'.format(i): v
+                                      for i, v in enumerate(search_set, 1)}).fetchall()
+                if install_set:
+                    # find search_name in db_name
+                    # depend_name's db_name will be found in next loop
+                    for result in install_set:
+                        result_list.append((result, db_name))
+                        get_list.append(result.search_name)
+                    get_set = set(get_list)
+                    get_list.clear()
+                    search_set.symmetric_difference_update(get_set)
+                    if not search_set:
+                        return ResponseCode.SUCCESS, result_list
+                else:
+                    continue
+            except AttributeError as error_msg:
+                LOGGER.logger.error(error_msg)
+            except SQLAlchemyError as error_msg:
+                LOGGER.logger.error(error_msg)
+        return_tuple = namedtuple('return_tuple',
+                                  'depend_name depend_version depend_src_name \
+                                      search_name search_src_name search_version')
+        for binary_name in search_set:
+            result_list.append((return_tuple(None, None, None,
+                                             binary_name, None, None), 'NOT FOUND'))
+        return ResponseCode.SUCCESS, result_list
+
+    def get_src_name(self, binary_name):
+        """
+        Description: get a package source name from database:
+                     bianry_name ->binary_source_name -> source_name
+        input: search package's name, database preority list
+        return: database name, source name
+        changeLog:
+        """
+        for db_name, data_base in self.db_object_dict.items():
+            try:
+                bin_obj = data_base.session.query(bin_pack).filter_by(
+                    name=binary_name
+                ).first()
+                source_name = bin_obj.src_pack.name
+                source_version = bin_obj.src_pack.version
+                if source_name is not None:
+                    return ResponseCode.SUCCESS, db_name, \
+                        source_name, source_version
+            except AttributeError as error_msg:
+                LOGGER.logger.error(error_msg)
+            except SQLAlchemyError as error_msg:
+                LOGGER.logger.error(error_msg)
+                return ResponseCode.DIS_CONNECTION_DB, None
+        return ResponseCode.PACK_NAME_NOT_FOUND, None, None, None
 
 def db_priority():
     """

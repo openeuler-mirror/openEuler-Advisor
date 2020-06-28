@@ -8,17 +8,6 @@ from flask import current_app
 from flask_restful import Resource
 from sqlalchemy.exc import DisconnectionError
 
-from packageship.application.apps.package.function.constants import ResponseCode
-from packageship.application.apps.package.function.packages import get_packages
-from packageship.application.apps.package.function.packages import update_single_package
-from packageship.application.apps.package.function.packages import update_maintaniner_info
-from packageship.application.apps.package.function.packages import get_single_package
-from packageship.application.apps.package.function.searchdb import db_priority
-from packageship.application.apps.package.serialize import PackagesSchema
-from packageship.application.apps.package.serialize import GetpackSchema
-from packageship.application.apps.package.serialize import PutpackSchema
-from packageship.application.apps.package.serialize import DeletedbSchema
-from packageship.application.apps.package.serialize import InitSystemSchema
 from packageship.application.initsystem.data_import import InitDataBase
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error
@@ -26,9 +15,24 @@ from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DataMergeException
 from packageship.libs.log import Log
 from packageship.system_config import DATABASE_SUCCESS_FILE
+from .function.constants import ResponseCode
+from .function.packages import get_packages
+from .function.packages import update_single_package
+from .function.packages import update_maintaniner_info
+from .function.packages import get_single_package
+from .function.searchdb import db_priority
+from .serialize import PackagesSchema
+from .serialize import GetpackSchema
+from .serialize import PutpackSchema
+from .serialize import DeletedbSchema
+from .serialize import InitSystemSchema
+
+from .function.install_depend import InstallDepend as installdepend
+from .serialize import InstallDependSchema
+from .serialize import have_err_db_name
 
 LOGGER = Log(__name__)
-
+#pylint: disable = no-self-use
 
 class Packages(Resource):
     '''
@@ -212,7 +216,7 @@ class InstallDepend(Resource):
     changeLog:
     '''
 
-    def post(self, *args, **kwargs):
+    def post(self):
         '''
         Description: Query a package's install depend(support
                      querying in one or more databases)
@@ -220,22 +224,66 @@ class InstallDepend(Resource):
             binaryName
             dbPreority：the array for database preority
         return:
-            resultList[
-                result[
-                    binaryName: binary package name
-                    srcName: the source package name for
-                             that binary packge
-                    dbName:
-                    type: install  install or build, which
-                          depend on the function
-                    parentNode: the binary package name which is
-                                the install depend for binaryName
+            resultDict{
+                binary_name: //binary package name
+                [
+                    src, //the source package name for
+                            that binary packge
+                    dbname,
+                    version,
+                    [
+                        parent_node, //the binary package name which is
+                                       the install depend for binaryName
+                        type //install  install or build, which
+                                depend on the function
+                    ]
                 ]
-            ]
+            }
         exception:
         changeLog:
         '''
-        pass
+        schema = InstallDependSchema()
+
+        data = request.get_json()
+        validate_err = schema.validate(data)
+        if validate_err:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+        pkg_name = data.get("binaryName")
+
+        db_pri = db_priority()
+        if not db_pri:
+            return jsonify(
+                ResponseCode.response_json(
+                    ResponseCode.FILE_NOT_FIND_ERROR
+                )
+            )
+
+        db_list = data.get("db_list") if data.get("db_list") \
+            else db_pri
+
+        if not all([pkg_name, db_list]):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+
+        if have_err_db_name(db_list, db_pri):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+            )
+
+        response_code, install_dict = \
+            installdepend(db_list).install_depend_result([pkg_name])
+
+        if not install_dict:
+            return jsonify(
+                ResponseCode.response_json(response_code)
+            )
+
+        return jsonify(
+            ResponseCode.response_json(ResponseCode.SUCCESS, data=install_dict)
+        )
 
 
 class BuildDepend(Resource):
@@ -330,7 +378,8 @@ class BeDepend(Resource):
                     srcName:
                     dbName:
                     type: beinstall or bebuild, which depend on the function
-                    childNode: the binary package name which is the be built/installed depend for binaryName
+                    childNode: the binary package name which is the be built/installed
+                               depend for binaryName
                 ]
             ]
         exception:

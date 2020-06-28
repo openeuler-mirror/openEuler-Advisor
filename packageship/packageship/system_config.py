@@ -23,7 +23,7 @@ SYS_CONFIG_PATH = os.path.join('/', 'etc', 'pkgship', 'package.ini')
 #     BASE_PATH, 'application', 'initsystem', 'import_success_databse.yaml')
 
 DATABASE_SUCCESS_FILE = os.path.join(
-    '/', 'var', 'run', 'import_success_databse.yaml')
+    '/', 'var', 'run', 'import_success_database.yaml')
 
 # If the path of the imported database is not specified in the configuration file, the
 # configuration in the system is used by default
