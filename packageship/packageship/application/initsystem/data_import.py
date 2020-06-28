@@ -139,6 +139,7 @@ class InitDataBase():
             database:database configuration information
         '''
         try:
+            db_file = None
             # 1. create a database and related tables in the database
             db_name = self._create_database(database)
             # 2. get the data of binary packages and source packages
