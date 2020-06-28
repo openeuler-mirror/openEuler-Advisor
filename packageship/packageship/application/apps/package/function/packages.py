@@ -15,6 +15,7 @@ from packageship.libs.exception import Error
 def get_packages(dbname):
     '''
     Description: Get all packages info
+    :param dbname: Database name
     :return: package info
     '''
     with DBHelper(db_name=dbname) as db_name:
@@ -37,6 +38,7 @@ def get_packages(dbname):
 
 def buildep_packages(dbname, src_pack_id):
     """
+    Description: Query package layer 1 compilation dependency
     :param dbname:  databases name
     :param src_pack_id: srcpackage id
     :return:  buildDep   Compile dependencies of source packages
@@ -58,6 +60,7 @@ def buildep_packages(dbname, src_pack_id):
 
 def sub_packages(dbname, src_pack_id):
     """
+    Description: Query package layer 1 installation dependency
     :param dbname:  databases name
     :param src_pack_id: srcpackage id
     :return: subpack  Source package to binary package, then find the installation dependencies
@@ -92,6 +95,8 @@ def sub_packages(dbname, src_pack_id):
 def get_single_package(dbname, sourcename):
     '''
     Description: Get all packages info
+    :param dbname: Database name
+    :param sourcename: Source package name
     :return: package info
     '''
     with DBHelper(db_name=dbname) as db_name:
@@ -120,7 +125,11 @@ def update_single_package(
         maintainer,
         maintain_level):
     """
-    change single package management
+    Description: change single package management
+    :param package_name: package name
+    :param dbname: Database name
+    :param maintainer: maintainer info
+    :param maintain_level: maintain_level info
     :return: message  success or failed
     """
     with DBHelper(db_name=dbname) as db_name:
@@ -136,7 +145,14 @@ def update_maintaniner_info(package_name,
                             maintaniner,
                             maintainlevel):
     '''
-    Separate maintenance information
+    """
+    update separately maintaniner info
+    :param package_name: package name
+    :param dbname: Database name
+    :param maintainer: maintainer info
+    :param maintain_level: maintain_level info
+    :return: message  success or failed
+    """
     '''
     with DBHelper(db_name=dbname) as db_name:
         src_pack_obj = db_name.session.query(src_pack).filter_by(

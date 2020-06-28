@@ -36,10 +36,9 @@ class ResponseCode():
     PACK_NAME_NOT_FOUND = "4003"
     CONNECT_DB_ERROR = "4004"
     INPUT_NONE = "4005"
-    # Delete database module error status code
-    FILE_NOT_FOUND = "40041"
+    FILE_NOT_FOUND = "4006"
+    # Database operation module error status code
     DELETE_DB_ERROR = "40051"
-    # Database initialization module error status code
     CONFIGFILE_PATH_EMPTY = "50001"
     FAILED_CREATE_DATABASE_TABLE = "50002"
     TYPE_ERROR = "50003"

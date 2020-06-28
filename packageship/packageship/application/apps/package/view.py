@@ -450,7 +450,7 @@ class InitSystem(Resource):
         except FileNotFoundError as file_not_found_error:
             LOGGER.logger.error(file_not_found_error)
             abnormal = ResponseCode.FILE_NOT_FIND_ERROR
-        except (Error, Exception) as error:
+        except Error as error:
             LOGGER.logger.error(error)
             abnormal = ResponseCode.FAILED_CREATE_DATABASE_TABLE
         if abnormal is not None:
