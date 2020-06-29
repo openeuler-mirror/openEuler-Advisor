@@ -15,16 +15,16 @@ class InstallDepend():
     Description: quert install depend of package
     changeLog:
     '''
-
+    #pylint: disable = too-few-public-methods
     def __init__(self, db_list):
         '''
         :param db_list: A list of Database name to show the priority
         '''
         self.binary_dict = DictionaryOperations()
-        self.search_list = []
+        self.__search_list = []
 
         self.db_list = db_list
-        self.search_db = SearchDB(db_list)
+        self.__search_db = SearchDB(db_list)
 
     def query_install_depend(self, binary_list, history_dicts=None):
         '''
@@ -43,16 +43,16 @@ class InstallDepend():
                         ]
                     ]}
         '''
-        if not self.search_db.db_object_dict:
+        if not self.__search_db.db_object_dict:
             return ResponseCode.DIS_CONNECTION_DB, None
         if not binary_list:
             return ResponseCode.INPUT_NONE, None
         for binary in binary_list:
             if binary:
-                self.search_list.append(binary)
+                self.__search_list.append(binary)
             else:
                 LOGGER.logger.warning("There is a  NONE in input value:" + str(binary_list))
-        while self.search_list:
+        while self.__search_list:
             self.__query_single_install_dep(history_dicts)
         return  ResponseCode.SUCCESS, self.binary_dict.dictionary
 
@@ -63,11 +63,11 @@ class InstallDepend():
         :return response_code
         changeLog:
         """
-        result_list = self.search_db.get_install_depend(self.search_list)
-        for search in self.search_list:
+        result_list = self.__search_db.get_install_depend(self.__search_list)
+        for search in self.__search_list:
             if search not in self.binary_dict.dictionary:
                 self.binary_dict.init_key(key=search, parent_node=[])
-        self.search_list.clear()
+        self.__search_list.clear()
         if result_list:
             for result, dbname in result_list:
                 if not self.binary_dict.dictionary[result.search_name][ListNode.PARENT_LIST]:
@@ -96,7 +96,7 @@ class InstallDepend():
                     else:
                         self.binary_dict.init_key(key=result.depend_name,
                                                   parent_node=[[result.search_name, 'install']])
-                        self.search_list.append(result.depend_name)
+                        self.__search_list.append(result.depend_name)
 
 class DictionaryOperations():
     '''
