@@ -122,13 +122,195 @@ class SearchDB():
                 source_version = bin_obj.src_pack.version
                 if source_name is not None:
                     return ResponseCode.SUCCESS, db_name, \
-                        source_name, source_version
+                           source_name, source_version
             except AttributeError as error_msg:
                 LOGGER.logger.error(error_msg)
             except SQLAlchemyError as error_msg:
                 LOGGER.logger.error(error_msg)
                 return ResponseCode.DIS_CONNECTION_DB, None
         return ResponseCode.PACK_NAME_NOT_FOUND, None, None, None
+
+    def get_binary_in_other_database(self, not_found_binary, db_):
+        """
+        Binary package name data not found in the current database, go to other databases to try
+        @:param:not_found_build These data cannot be found in the current database
+        @:param:db:current database name
+        return:a list :[(search_name,source_name,bin_name,
+                            bin_version,db_name,search_version,req_name),
+                        (search_name,source_name,bin_name,
+                            bin_version,db_name,search_version,req_name),]
+        changeLog:new method to look for data in other databases
+        """
+        if not not_found_binary:
+            return []
+
+        return_tuple = namedtuple("return_tuple", [
+            "search_name",
+            "source_name",
+            "bin_name",
+            "version",
+            "db_name",
+            "search_version",
+            "req_name"
+        ])
+        src_req_map = {req_: src for src, req_ in not_found_binary}
+
+        local_search_set = {req_ for _, req_ in not_found_binary}
+
+        local_dict = {k: v for k, v in self.db_object_dict.items() if k != db_}
+        res = []
+
+        for db_name, data_base in local_dict.items():
+            try:
+                sql_string = text("""
+                     SELECT
+                         t3.NAME AS source_name,
+                         t1.NAME AS bin_name,
+                         t1.version,
+                         t3.version as search_version,
+                         t2.NAME AS req_name
+                     FROM
+                         bin_pack t1,
+                         pack_provides t2,
+                         src_pack t3
+                     WHERE
+                         t2.{}
+                         AND t1.id = t2.binIDkey
+                         AND t1.srcIDkey = t3.id;
+                 """.format(literal_column('name').in_(local_search_set)))
+                build_set_2 = data_base.session. \
+                    execute(sql_string, {'name_{}'.format(i): v
+                                         for i, v in enumerate(local_search_set, 1)}).fetchall()
+                if not build_set_2:
+                    continue
+
+                res.extend([return_tuple(
+                    src_req_map.get(bin_pack.req_name),
+                    bin_pack.source_name,
+                    bin_pack.bin_name,
+                    bin_pack.version,
+                    db_name,
+                    bin_pack.search_version,
+                    bin_pack.req_name
+                ) for bin_pack in build_set_2 if bin_pack.bin_name])
+
+                for obj in res:
+                    local_search_set.remove(obj.req_name)
+
+            except AttributeError as attr_error:
+                current_app.logger.error(attr_error)
+            except SQLAlchemyError as sql_error:
+                current_app.logger.error(sql_error)
+        return res
+
+    def get_build_depend(self, source_name_li):
+        """
+        Description: get a package build depend from database
+        input:
+        @:param: search package's name list
+        return: all source pkg build depend list
+                structure :[(search_name,source_name,bin_name,bin_version,db_name,search_version),
+                            (search_name,source_name,bin_name,bin_version,db_name,search_version),]
+
+        changeLog: Modify SQL logic and modify return content by:zhangtao
+        """
+        # pylint: disable=R0914
+        return_tuple = namedtuple("return_tuple", [
+            "search_name",
+            "source_name",
+            "bin_name",
+            "version",
+            "db_name",
+            "search_version"
+        ])
+
+        s_name_set = set(source_name_li)
+        if not s_name_set:
+            return ResponseCode.PARAM_ERROR, None
+
+        not_found_binary = set()
+        build_list = []
+
+        for db_name, data_base in self.db_object_dict.items():
+            try:
+                sql_com = text("""SELECT DISTINCT
+                     src.NAME AS search_name,
+                     src.version AS search_version,
+                     s2.NAME AS source_name,
+                     pack_provides.binIDkey AS bin_id,
+                     pack_requires.NAME AS req_name,
+                     bin_pack.version AS version,
+                     bin_pack.NAME AS bin_name
+                 FROM
+                      ( SELECT id, NAME,version FROM src_pack WHERE {} ) src
+                      LEFT JOIN pack_requires ON src.id = pack_requires.srcIDkey
+                      LEFT JOIN pack_provides ON pack_provides.id = pack_requires.depProIDkey
+                      LEFT JOIN bin_pack ON bin_pack.id = pack_provides.binIDkey
+                      LEFT JOIN src_pack s1 ON s1.id = pack_requires.srcIDkey
+                      LEFT JOIN src_pack s2 ON bin_pack.srcIDkey = s2.id;
+                """.format(literal_column("name").in_(s_name_set)))
+
+                build_set = data_base.session. \
+                    execute(sql_com, {'name_{}'.format(i): v
+                                      for i, v in enumerate(s_name_set, 1)}).fetchall()
+
+                if not build_set:
+                    continue
+
+                # When processing source package without compilation dependency
+                to_remove_obj_index = []
+                for index, b_pack in enumerate(build_set):
+                    if not b_pack.source_name and not b_pack.req_name:
+                        obj = return_tuple(
+                            b_pack.search_name,
+                            b_pack.source_name,
+                            b_pack.bin_name,
+                            b_pack.version,
+                            db_name,
+                            b_pack.search_version
+                        )
+
+                        build_list.append(obj)
+                        to_remove_obj_index.append(index)
+
+                for i in reversed(to_remove_obj_index):
+                    build_set.pop(i)
+
+                if not build_set:
+                    continue
+
+                build_list.extend([
+                    return_tuple(
+                        bin_pack.search_name,
+                        bin_pack.source_name,
+                        bin_pack.bin_name,
+                        bin_pack.version,
+                        db_name,
+                        bin_pack.search_version
+                    ) for bin_pack in build_set if bin_pack.bin_id and bin_pack.bin_name
+                ])
+                # Component name can't find its binary package name
+                not_found_binary.update([(bin_pack.search_name, bin_pack.req_name)
+                                         for bin_pack in build_set if not bin_pack.bin_id])
+
+                s_name_set -= {bin_pack.search_name for bin_pack in build_set
+                               if bin_pack.bin_id}
+
+                if not not_found_binary and not s_name_set:
+                    return ResponseCode.SUCCESS, build_list
+
+                for obj in self.get_binary_in_other_database(not_found_binary, db_name):
+                    build_list.append(obj)
+
+                not_found_binary.clear()
+
+            except AttributeError as attr_error:
+                current_app.logger.error(attr_error)
+            except SQLAlchemyError as sql_error:
+                current_app.logger.error(sql_error)
+                return ResponseCode.DIS_CONNECTION_DB, None
+        return ResponseCode.SUCCESS, build_list
+
 
 def db_priority():
     """

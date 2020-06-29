@@ -28,7 +28,9 @@ from .serialize import DeletedbSchema
 from .serialize import InitSystemSchema
 
 from .function.install_depend import InstallDepend as installdepend
+from .function.build_depend import BuildDepend as builddepend
 from .serialize import InstallDependSchema
+from .serialize import BuildDependSchema
 from .serialize import have_err_db_name
 
 LOGGER = Log(__name__)
@@ -293,7 +295,7 @@ class BuildDepend(Resource):
     changeLog:
     '''
 
-    def post(self, *args, **kwargs):
+    def post(self):
         '''
         Description: Query a package's build depend and
                      build depend package's install depend
@@ -316,7 +318,42 @@ class BuildDepend(Resource):
         exception:
         changeLog:
         '''
-        pass
+        schema = BuildDependSchema()
+
+        data = request.get_json()
+        if schema.validate(data):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+        pkg_name = data.get("sourceName")
+
+        db_pri = db_priority()
+
+        if not db_pri:
+            return jsonify(
+                ResponseCode.response_json(
+                    ResponseCode.FILE_NOT_FIND_ERROR
+                )
+            )
+
+        db_list = data.get("db_list") if data.get("db_list") \
+            else db_pri
+
+        if have_err_db_name(db_list, db_pri):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+            )
+
+        build_ins = builddepend([pkg_name], db_list)
+
+        res_code, res_dict, _ = build_ins.build_depend_main()
+
+        return jsonify(
+            ResponseCode.response_json(
+                res_code,
+                data=res_dict if res_dict else None
+            )
+        )
 
 
 class SelfDepend(Resource):
