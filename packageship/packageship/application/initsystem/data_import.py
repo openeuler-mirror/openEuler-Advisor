@@ -20,7 +20,7 @@ from packageship.application.models.temporarydb import src_requires
 from packageship.application.models.temporarydb import bin_package
 from packageship.application.models.temporarydb import bin_requiresment
 from packageship.application.models.temporarydb import bin_provides
-from packageship.system_config import DATABASE_SUCCESS_FILE
+from packageship.system_config import DATABASE_FILE_INFO
 from packageship.system_config import DATABASE_FOLDER_PATH
 
 LOGGER = Log(__name__)
@@ -498,9 +498,9 @@ class InitDataBase():
                 priority: priority
         '''
         try:
-            if not os.path.exists(DATABASE_SUCCESS_FILE):
-                pathlib.Path(DATABASE_SUCCESS_FILE).touch()
-            with open(DATABASE_SUCCESS_FILE, 'a+', encoding='utf8') as file_context:
+            if not os.path.exists(DATABASE_FILE_INFO):
+                pathlib.Path(DATABASE_FILE_INFO).touch()
+            with open(DATABASE_FILE_INFO, 'a+', encoding='utf8') as file_context:
                 setting_content = []
                 if 'database_content' in Kwargs.keys():
                     content = Kwargs.get('database_content')
@@ -523,8 +523,8 @@ class InitDataBase():
         modify record:
         '''
         try:
-            if os.path.exists(DATABASE_SUCCESS_FILE):
-                os.remove(DATABASE_SUCCESS_FILE)
+            if os.path.exists(DATABASE_FILE_INFO):
+                os.remove(DATABASE_FILE_INFO)
         except (IOError, Error) as exception_msg:
             LOGGER.logger.error(exception_msg)
             return False
@@ -544,14 +544,14 @@ class InitDataBase():
 
         if del_result:
             try:
-                file_read = open(DATABASE_SUCCESS_FILE, 'r', encoding='utf-8')
+                file_read = open(DATABASE_FILE_INFO, 'r', encoding='utf-8')
                 _databases = yaml.load(
                     file_read.read(), Loader=yaml.FullLoader)
                 for database in _databases:
                     if database.get('database_name') == db_name:
                         _databases.remove(database)
                 # Delete the successfully imported database configuration node
-                with open(DATABASE_SUCCESS_FILE, 'w+', encoding='utf-8') as file_context:
+                with open(DATABASE_FILE_INFO, 'w+', encoding='utf-8') as file_context:
                     yaml.safe_dump(_databases, file_context)
             except (IOError, Error) as del_config_error:
                 LOGGER.logger.error(del_config_error)

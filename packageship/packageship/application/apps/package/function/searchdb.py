@@ -13,10 +13,11 @@ from packageship.libs.dbutils import DBHelper
 from packageship.libs.log import Log
 from packageship.application.models.package import bin_pack
 from packageship.libs.exception import ContentNoneException, Error
-from packageship.system_config import DATABASE_SUCCESS_FILE
+from packageship.system_config import DATABASE_FILE_INFO
 from .constants import ResponseCode
 
 LOGGER = Log(__name__)
+
 
 class SearchDB():
     """
@@ -57,7 +58,8 @@ class SearchDB():
             binary_list.remove(None)
         search_set = set(binary_list)
         if not search_set:
-            LOGGER.logger.warning("The input is None, please check the input value.")
+            LOGGER.logger.warning(
+                "The input is None, please check the input value.")
             return result_list
         for db_name, data_base in self.db_object_dict.items():
             try:
@@ -130,12 +132,13 @@ class SearchDB():
                 return ResponseCode.DIS_CONNECTION_DB, None
         return ResponseCode.PACK_NAME_NOT_FOUND, None, None, None
 
+
 def db_priority():
     """
     return dbprioty
     """
     try:
-        with open(DATABASE_SUCCESS_FILE, 'r', encoding='utf-8') as file_context:
+        with open(DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
 
             init_database_date = yaml.load(
                 file_context.read(), Loader=yaml.FullLoader)

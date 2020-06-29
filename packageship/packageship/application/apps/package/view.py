@@ -14,7 +14,7 @@ from packageship.libs.exception import Error
 from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DataMergeException
 from packageship.libs.log import Log
-from packageship.system_config import DATABASE_SUCCESS_FILE
+from packageship.system_config import DATABASE_FILE_INFO
 from .function.constants import ResponseCode
 from .function.packages import get_packages
 from .function.packages import update_single_package
@@ -33,6 +33,7 @@ from .serialize import have_err_db_name
 
 LOGGER = Log(__name__)
 #pylint: disable = no-self-use
+
 
 class Packages(Resource):
     '''
@@ -403,7 +404,7 @@ class Repodatas(Resource):
         changeLog:
         '''
         try:
-            with open(DATABASE_SUCCESS_FILE, 'r', encoding='utf-8') as file_context:
+            with open(DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
                 init_database_date = yaml.load(
                     file_context.read(), Loader=yaml.FullLoader)
                 if init_database_date is None:
