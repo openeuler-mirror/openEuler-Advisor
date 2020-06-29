@@ -43,7 +43,7 @@ class BeDepend:
             src_obj = data_base.session.query(
                 src_pack).filter_by(name=self.source_name).first()
             if src_obj:
-                # 拼字典
+                # spell dictionary
                 self.result_dict[self.source_name + "_src"] = [
                     "source",
                     src_obj.version,
@@ -64,7 +64,6 @@ class BeDepend:
         :param package_type: package type
         :return:
         '''
-        # package_type
         search_set = set(pkg_id_list)
         id_in = literal_column('id').in_(search_set)
         # package_type
@@ -75,8 +74,8 @@ class BeDepend:
                         src.NAME AS source_name,
                         b2.name AS bin_name,
                         b2.id AS bin_id,
-                        s1.name AS src_name,
-                        s1.id AS src_id,
+                        s1.name AS bebuild_src_name,
+                        s1.id AS bebuild_src_id,
                         s2.name AS install_depend_src_name,
                         s2.id AS  install_depend_src_id
                         FROM
@@ -94,8 +93,8 @@ class BeDepend:
                         s3.NAME AS source_name,
                         b2.name AS bin_name,
                         b2.id AS bin_id,
-                        s1.name AS src_name,
-                        s1.id AS src_id,
+                        s1.name AS bebuild_src_name,
+                        s1.id AS bebuild_src_id,
                         s2.name AS install_depend_src_name,
                         s2.id AS  install_depend_src_id
                         FROM
@@ -114,7 +113,7 @@ class BeDepend:
                         search_set, 1)}).fetchall()
         except SQLAlchemyError as sql_err:
             current_app.logger.error(sql_err)
-            return ResponseCode.CONNECT_DB_ERROR, None
+            return ResponseCode.response_json(ResponseCode.CONNECT_DB_ERROR)
 
         if result is None:
             return
@@ -126,14 +125,13 @@ class BeDepend:
                 source_name = 'NOT FOUND'
             else:
                 source_name = obj.source_name
-            if obj.src_name:
+            if obj.bebuild_src_name:
                 # Determine if the source package has been checked
-                if obj.src_name not in self.source_name_set:
+                if obj.bebuild_src_name not in self.source_name_set:
+                    self.source_name_set.add(obj.bebuild_src_name)
+                    source_id_list.append(obj.bebuild_src_id)
 
-                    self.source_name_set.add(obj.src_name)
-                    source_id_list.append(obj.src_id)
-
-                    parent_node = obj.src_name
+                    parent_node = obj.bebuild_src_name
                     be_type = "build"
                     # Call the spell dictionary function
                     self.make_dicts(
