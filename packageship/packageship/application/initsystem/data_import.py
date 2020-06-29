@@ -74,7 +74,9 @@ class InitDataBase():
                     'The content of the database initialization configuration file cannot be empty')
             if not isinstance(init_database_config, list):
                 raise TypeError('wrong type of configuration file')
-
+            for config_item in init_database_config:
+                if not isinstance(config_item, dict):
+                    raise TypeError('wrong type of configuration file')
             return init_database_config
 
     def init_data(self):
@@ -101,14 +103,14 @@ class InitDataBase():
                 'maintenance.information').create_datum_database()
 
         for database in self.config_file_datas:
-            if not isinstance(database, dict):
-                continue
             if not database.get('dbname'):
                 continue
             priority = database.get('priority')
             if not isinstance(priority, int) or priority < 0 or priority > 100:
                 continue
             status = database.get('status')
+            if status not in ['enable', 'disable']:
+                continue
 
             # Initialization data
             self._init_data(database)
