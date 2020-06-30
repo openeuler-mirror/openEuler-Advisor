@@ -35,7 +35,7 @@ setup(
         'packageship.libs.exception.ext',
         'packageship.libs.log.loghelper',
         'packageship.manage',
-        'packageship.cli',
+        'packageship.pkgship',
         'packageship.selfpkg',
         'packageship.system_config'],
     requires=['prettytable (==0.7.2)',
