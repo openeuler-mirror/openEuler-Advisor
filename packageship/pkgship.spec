@@ -30,8 +30,8 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 %post
 #build cli bin
-if [ -f "/usr/bin/cli" ];then
-    rm -rf /usr/bin/cli
+if [ -f "/usr/bin/pkgship" ];then
+    rm -rf /usr/bin/pkgship
 fi
 
 
