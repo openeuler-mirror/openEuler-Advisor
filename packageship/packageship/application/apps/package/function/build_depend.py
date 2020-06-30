@@ -41,7 +41,7 @@ class BuildDepend:
             self.self_build(self.pkg_name_list)
             if None in self.result_dict:
                 del self.result_dict[None]
-            return None, self.result_dict, self.source_dict
+            return ResponseCode.SUCCESS, self.result_dict, self.source_dict
 
         return ResponseCode.PARAM_ERROR, None, None
 
@@ -150,15 +150,15 @@ class BuildDepend:
         :return:
         """
         if not pkg_name_li:
-            return None
+            return
 
         next_src_set = set()
         _, bin_info_lis = self.search_db.get_build_depend(pkg_name_li)
 
         if not bin_info_lis:
-            return None
+            return
 
-        # generate data content
+            # generate data content
         for obj in bin_info_lis:
 
             if not obj.bin_name:
@@ -187,4 +187,4 @@ class BuildDepend:
 
         self.self_build(next_src_set)
 
-        return None
+        return
