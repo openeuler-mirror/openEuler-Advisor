@@ -26,7 +26,8 @@ from .serialize import GetpackSchema
 from .serialize import PutpackSchema
 from .serialize import DeletedbSchema
 from .serialize import InitSystemSchema
-
+from .serialize import BeDependSchema
+from .function.be_depend import BeDepend as be_depend
 from .function.install_depend import InstallDepend as installdepend
 from .function.build_depend import BuildDepend as builddepend
 from .serialize import InstallDependSchema
@@ -423,7 +424,35 @@ class BeDepend(Resource):
         exception:
         changeLog:
         '''
-        pass
+        schema = BeDependSchema()
+        data = request.get_json()
+        validate_err = schema.validate(data)
+
+        if validate_err:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+
+        package_name = data.get("packagename")
+        with_sub_pack = data.get("withsubpack")
+        db_name = data.get("dbname")
+
+        if db_name not in db_priority():
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+            )
+
+        bedepnd_ins = be_depend(package_name, db_name, with_sub_pack)
+
+        res_dict = bedepnd_ins.main()
+
+        if not res_dict:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
+            )
+        return jsonify(
+            ResponseCode.response_json(ResponseCode.SUCCESS, data=res_dict)
+        )
 
 
 class Repodatas(Resource):
