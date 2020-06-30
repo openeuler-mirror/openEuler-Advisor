@@ -33,7 +33,7 @@ setup(
         'packageship.libs.configutils.readconfig',
         'packageship.libs.dbutils.sqlalchemy_helper',
         'packageship.libs.exception.ext',
-        'packageship.libs.log.loghelper'
+        'packageship.libs.log.loghelper',
         'packageship.manage',
         'packageship.cli',
         'packageship.selfpkg',
