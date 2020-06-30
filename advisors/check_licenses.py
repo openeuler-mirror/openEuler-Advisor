@@ -1,5 +1,22 @@
 #!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+# Author: wangchuangGG
+# Create: 2020-06-27
+# ******************************************************************************/
+
 """
+Caution:
+This script is for information only. It's known to provide false result in situations.
+
 (1) This is a script that checks whether the licenses in the LICENSE file 
     in the tar package and the licenses in the SPEC file are the same. 
     If they are the same, output:
@@ -25,20 +42,6 @@
     -d  Specify the decompression path of the tar package, 
         default: /var/tmp/tmp_tarball
 """
-#******************************************************************************
-# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
-# licensed under the Mulan PSL v2.
-# You can use this software according to the terms and conditions of the Mulan PSL v2.
-# You may obtain a copy of Mulan PSL v2 at:
-#     http://license.coscl.org.cn/MulanPSL2
-# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
-# PURPOSE.
-# See the Mulan PSL v2 for more details.
-# Author: wangchuangGG
-# Create: 2020-06-27
-# Description: provide a tool to check licenses in tar package and spec file
-# ******************************************************************************/
 
 import argparse
 import configparser
@@ -49,9 +52,11 @@ import hashlib
 import tarfile
 import bz2
 import shutil
-import download
+#import download
 import chardet
 import logging
+from pyrpm.spec import Spec, replace_macros
+
 logging.basicConfig(format='%(message)s', level=logging.INFO)
 
 licenses_for_license = []
@@ -121,6 +126,9 @@ def extract_tar(tarball_path, extraction_path):
     if not os.path.isfile(tarball_path):
         logging.error("%s is not a tarball file", tarball_path)
         exit(1)
+    #cmd_list = ["tar", "xvf", tarball_path]
+    #subprocess.call(cmd_list)
+
     with tarfile.open(tarball_path) as content:
         content.extractall(path=extraction_path)
 
@@ -229,33 +237,22 @@ def scan_licenses_in_SPEC(specfile):
     If no spec file or open file failed,
     the program will exit with an error. 
     """
-    if not specfile.endswith(".spec"):
-        logging.error("%s is not a spec file", specfile)
-        exit(1)
-    try:
-        with open(specfile, 'r') as specfd:
-            lines = specfd.readlines()
-    except FileNotFoundError:
-        logging.error("no SPEC file found!")
-        exit(1)
-    for line in lines:
-        if line.startswith("#"):
-            continue
-        excludes = ["and", "AND"]
-        if line.startswith("License"):
-            splits = line.split(":")[1:]
-            words = ":".join(splits).strip()
-            if words in license_translations:
-                real_words = license_translations.get(words, words)
-                add_license_from_spec_file(real_words)
-            else:
-                words = clean_license_string(words).split()
-                for word in words:
-                    if word not in excludes:
-                        real_word = license_translations.get(word, word)
-                        logging.debug("after translate license_string ==> "
-                                    "real_license: %s ==> %s", word, real_word)
-                        add_license_from_spec_file(real_word)
+    s_spec = Spec.from_file(specfile)
+    license = replace_macros(s_spec.license, s_spec)
+
+    excludes = ["and", "AND"]
+
+    if license in license_translations:
+        real_words = license_translations.get(license, license)
+        add_license_from_spec_file(real_words)
+    else:
+        words = clean_license_string(license).split()
+        for word in words:
+            if word not in excludes:
+                real_word = license_translations.get(word, word)
+                logging.debug("after translate license_string ==> "
+                            "real_license: %s ==> %s", word, real_word)
+                add_license_from_spec_file(real_word)
     logging.debug("\nall licenses from SPEC file is: %s", licenses_for_spec)                        
 
 
@@ -335,21 +332,22 @@ def process_licenses(args, download_path):
     tarball_name = os.path.basename(tarball_path)
     extract_tar_name = os.path.splitext(tarball_name)[0]
     extract_file_name = os.path.splitext(extract_tar_name)[0]
-    scan_licenses_in_LICENSE(os.path.join(download_path, extract_file_name))
+    #scan_licenses_in_LICENSE(os.path.join(download_path, extract_file_name))
+    scan_licenses_in_LICENSE(download_path)
     
     specfile = args.specfile
     scan_licenses_in_SPEC(specfile)
 
     if check_licenses_is_same():
         logging.info("licenses from LICENSES are same as form SPEC:"
-                    "%s <==> %s", licenses_for_license, licenses_for_spec)
+                    "%s == %s", licenses_for_license, licenses_for_spec)
+        sys.exit(0)
     else:
         logging.info("licenses from LICENSES are not same as form SPEC:"
-                    "%s <==> %s", licenses_for_license, licenses_for_spec)
+                    "%s <=> %s", licenses_for_license, licenses_for_spec)
         if args.writespec:
             overwrite_spec(specfile)
-            exit(0)
-    exit(0)
+        sys.exit(1)
 
 
 if __name__ == '__main__':
