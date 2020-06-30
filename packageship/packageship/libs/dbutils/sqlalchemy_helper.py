@@ -75,7 +75,8 @@ class DBHelper():
                 raise DbnameNoneException(
                     'The connected database name is empty')
             self.engine = create_engine(
-                self.db_type + self.db_name, encoding='utf-8', convert_unicode=True)
+                self.db_type + self.db_name, encoding='utf-8', convert_unicode=True,
+                connect_args={'check_same_thread': False})
         else:
             if all([self.user_name, self.passwrod, self.ip_address, self.port, self.db_name]):
                 # create connection object
