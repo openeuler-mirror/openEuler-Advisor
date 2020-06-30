@@ -20,7 +20,7 @@ from packageship.application.models.temporarydb import src_requires
 from packageship.application.models.temporarydb import bin_package
 from packageship.application.models.temporarydb import bin_requiresment
 from packageship.application.models.temporarydb import bin_provides
-from packageship.system_config import DATABASE_SUCCESS_FILE
+from packageship.system_config import DATABASE_FILE_INFO
 from packageship.system_config import DATABASE_FOLDER_PATH
 
 LOGGER = Log(__name__)
@@ -74,7 +74,9 @@ class InitDataBase():
                     'The content of the database initialization configuration file cannot be empty')
             if not isinstance(init_database_config, list):
                 raise TypeError('wrong type of configuration file')
-
+            for config_item in init_database_config:
+                if not isinstance(config_item, dict):
+                    raise TypeError('wrong type of configuration file')
             return init_database_config
 
     def init_data(self):
@@ -101,14 +103,14 @@ class InitDataBase():
                 'maintenance.information').create_datum_database()
 
         for database in self.config_file_datas:
-            if not isinstance(database, dict):
-                continue
             if not database.get('dbname'):
                 continue
             priority = database.get('priority')
             if not isinstance(priority, int) or priority < 0 or priority > 100:
                 continue
             status = database.get('status')
+            if status not in ['enable', 'disable']:
+                continue
 
             # Initialization data
             self._init_data(database)
@@ -496,9 +498,9 @@ class InitDataBase():
                 priority: priority
         '''
         try:
-            if not os.path.exists(DATABASE_SUCCESS_FILE):
-                pathlib.Path(DATABASE_SUCCESS_FILE).touch()
-            with open(DATABASE_SUCCESS_FILE, 'a+', encoding='utf8') as file_context:
+            if not os.path.exists(DATABASE_FILE_INFO):
+                pathlib.Path(DATABASE_FILE_INFO).touch()
+            with open(DATABASE_FILE_INFO, 'a+', encoding='utf8') as file_context:
                 setting_content = []
                 if 'database_content' in Kwargs.keys():
                     content = Kwargs.get('database_content')
@@ -521,8 +523,8 @@ class InitDataBase():
         modify record:
         '''
         try:
-            if os.path.exists(DATABASE_SUCCESS_FILE):
-                os.remove(DATABASE_SUCCESS_FILE)
+            if os.path.exists(DATABASE_FILE_INFO):
+                os.remove(DATABASE_FILE_INFO)
         except (IOError, Error) as exception_msg:
             LOGGER.logger.error(exception_msg)
             return False
@@ -542,14 +544,14 @@ class InitDataBase():
 
         if del_result:
             try:
-                file_read = open(DATABASE_SUCCESS_FILE, 'r', encoding='utf-8')
+                file_read = open(DATABASE_FILE_INFO, 'r', encoding='utf-8')
                 _databases = yaml.load(
                     file_read.read(), Loader=yaml.FullLoader)
                 for database in _databases:
                     if database.get('database_name') == db_name:
                         _databases.remove(database)
                 # Delete the successfully imported database configuration node
-                with open(DATABASE_SUCCESS_FILE, 'w+', encoding='utf-8') as file_context:
+                with open(DATABASE_FILE_INFO, 'w+', encoding='utf-8') as file_context:
                     yaml.safe_dump(_databases, file_context)
             except (IOError, Error) as del_config_error:
                 LOGGER.logger.error(del_config_error)
