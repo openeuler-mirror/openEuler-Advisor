@@ -132,6 +132,62 @@ class SearchDB():
                 return ResponseCode.DIS_CONNECTION_DB, None
         return ResponseCode.PACK_NAME_NOT_FOUND, None, None, None
 
+    def get_sub_pack(self, source_name_list):
+        """
+        Description: get a subpack list based on source name list:
+                     source_name ->source_name_id -> binary_name
+        input: search package's name, database preority list
+        return: subpack tuple
+        changeLog:
+        """
+        if not self.db_object_dict:
+            return ResponseCode.DIS_CONNECTION_DB, None
+
+        if None in source_name_list:
+            source_name_list.remove(None)
+        search_set = set(source_name_list)
+        result_list = []
+        get_list = []
+        if not search_set:
+            return ResponseCode.INPUT_NONE, None
+        for db_name, data_base in self.db_object_dict.items():
+            try:
+                name_in = literal_column('name').in_(search_set)
+                sql_com = text('''SELECT
+                                t1.NAME as subpack_name,
+                                t2.version as search_version,
+                                t2.NAME as search_name
+                                FROM bin_pack t1, src_pack t2 
+                                WHERE
+                                t2.id = t1.srcIDkey 
+                                AND t2.{}
+                                '''.format(name_in))
+                subpack_tuple = data_base.session. \
+                    execute(sql_com, {'name_{}'.format(i): v
+                                      for i, v in enumerate(search_set, 1)}).fetchall()
+                if subpack_tuple:
+                    for result in subpack_tuple:
+                        result_list.append((result, db_name))
+                        get_list.append(result.search_name)
+                    search_set.symmetric_difference_update(set(get_list))
+                    get_list.clear()
+                    if not search_set:
+                        return ResponseCode.SUCCESS, result_list
+                else:
+                    continue
+            except AttributeError as attr_error:
+                current_app.logger.error(attr_error)
+            except SQLAlchemyError as sql_error:
+                current_app.logger.error(sql_error)
+        return_tuple = namedtuple(
+            'return_tuple', 'subpack_name search_version search_name')
+        for search_name in search_set:
+            LOGGER.logger.warning("Can't not find " +
+                                  search_name + " subpack in all database")
+            result_list.append(
+                (return_tuple(None, None, search_name), 'NOT_FOUND'))
+        return ResponseCode.SUCCESS, result_list
+
     def get_binary_in_other_database(self, not_found_binary, db_):
         """
         Binary package name data not found in the current database, go to other databases to try
