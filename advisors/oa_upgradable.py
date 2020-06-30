@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+This is a script to check upgradable information against upstream
+"""
 from pyrpm.spec import Spec, replace_macros
 
 import yaml
@@ -37,7 +39,7 @@ if __name__ == "__main__":
     current_version = replace_macros(s_spec.version, s_spec)
 
     print("Checking ", prj_name)
-    print("current version is ",current_version)
+    print("current version is ", current_version)
 
     try:
         prj_info_string = gitee.get_yaml(prj_name)

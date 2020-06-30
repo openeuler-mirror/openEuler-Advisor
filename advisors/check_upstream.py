@@ -65,10 +65,10 @@ def dirty_redirect_tricks(url, resp):
         if line.startswith("Redirecting"):
             eprint("Redirecting with document.cookie")
             need_trick = True
-        m = re.search("document\.cookie=\"(.*)\";", line)
+        m = re.search(r"document\.cookie=\"(.*)\";", line)
         if m:
             cookie = cookie | set(m.group(1).split(';'))
-        m = re.search("document\.location\.href=\"(.*)\";", line)
+        m = re.search(r"document\.location\.href=\"(.*)\";", line)
         if m:
             href = m.group(1)
     new_url = urljoin(url, href)
@@ -185,7 +185,7 @@ def __svn_resp_to_tags(resp):
 
 def __git_resp_to_tags(resp):
     tags = []
-    pattern = re.compile("^([^ \t]*)[ \t]*refs\/tags\/([^ \t]*)")
+    pattern = re.compile(r"^([^ \t]*)[ \t]*refs\/tags\/([^ \t]*)")
     for line in resp.splitlines():
         m = pattern.match(line)
         if m:
@@ -259,29 +259,4 @@ def check_svn(info):
 
 if __name__ == "__main__":
     pass
-"""
-def compare_tags (a, b)
-	arr_a = a.split(".")
-	arr_b = b.split(".")
-	len = [arr_a.length, arr_b.length].min
-	idx = 0
-	while idx < len do
-		res1 = arr_a[idx].to_i <=> arr_b[idx].to_i
-		return res1 if res1 != 0
-		res2 = arr_a[idx].length <=> arr_b[idx].length
-		return -res2 if res2 != 0
-		res3 = arr_a[idx][-1].to_i <=> arr_b[idx][-1].to_i
-		return res3 if res3 != 0
-		idx = idx + 1
-	end
-	return arr_a.length <=> arr_b.length
-end
 
-def sort_tags (tags)
-	tags.sort! { |a, b|
-		compare_tags(a,b)
-	}
-	return tags
-end
-
-"""

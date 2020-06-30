@@ -163,7 +163,7 @@ Yours openEuler-Advisor.
         parameters = "state=open&sort=created&direction=desc&page=1&per_page=20"
         return self.get_gitee_json(issues_url + parameters)
 
-    def get_issue_comments(self, pkg, number, prj="src-openeuler"):
+    def get_issue_comments(self, pkg, prj="src-openeuler"):
         """
         Get comments of specific issue
         """
