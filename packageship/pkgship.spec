@@ -49,9 +49,13 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 %doc README.md 
 %{python3_sitelib}/*
 %config %{_sysconfdir}/pkgship/*
+%attr(0755,root,root) %{_bindir}/pkgshipd
 
 
 %changelog
+* Tue JUN 30 2020 Yiru Wang <wangyiru1@huawei.com>
+- add pkgshipd file
+
 * Tue Jun 11 2020 Feng Hu <solar.hu@foxmail.com>
 - add macro to build cli bin when rpm install
 
