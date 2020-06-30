@@ -6,7 +6,6 @@ from packageship.application.apps.package.function.install_depend import Install
 from packageship.application.apps.package.function.constants import ResponseCode, ListNode
 
 
-
 class BuildDepend:
     """
     Find compilation dependency of source package
@@ -42,7 +41,7 @@ class BuildDepend:
             self.self_build(self.pkg_name_list)
             if None in self.result_dict:
                 del self.result_dict[None]
-            return ResponseCode.SUCCESS, self.result_dict, self.source_dict
+            return None, self.result_dict, self.source_dict
 
         return ResponseCode.PARAM_ERROR, None, None
 
