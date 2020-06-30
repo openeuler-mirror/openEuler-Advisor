@@ -41,6 +41,11 @@ class BuildDepend:
             self.self_build(self.pkg_name_list)
             if None in self.result_dict:
                 del self.result_dict[None]
+            # There are two reasons for the current status code to return SUCCESS
+            # 1, Other branches return three return values.
+            #    Here, a place holder is needed to prevent unpacking errors during call
+            # 2, This function is an auxiliary function of other modules.
+            #    The status code is not the final display status code
             return ResponseCode.SUCCESS, self.result_dict, self.source_dict
 
         return ResponseCode.PARAM_ERROR, None, None
