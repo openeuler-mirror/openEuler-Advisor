@@ -53,11 +53,11 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
-* Tue JUN 30 2020 Yiru Wang <wangyiru1@huawei.com>
+* Tue JUN 30 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-1
 - add pkgshipd file
 
-* Tue Jun 11 2020 Feng Hu <solar.hu@foxmail.com>
+* Tue Jun 11 2020 Feng Hu <solar.hu@foxmail.com> - 1.0-0
 - add macro to build cli bin when rpm install
 
-* Sat Jun 6 2020 Feng Hu  <solar.hu@foxmail.com>
+* Sat Jun 6 2020 Feng Hu  <solar.hu@foxmail.com> - 1.0-0
 - init package
