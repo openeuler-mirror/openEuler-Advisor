@@ -14,7 +14,7 @@ from packageship.libs.exception.ext import Error
 from packageship.libs.exception.ext import DbnameNoneException
 from packageship.libs.exception.ext import ContentNoneException
 from packageship.libs.configutils.readconfig import ReadConfig
-from packageship.system_config import DATABASE_FOLDER_PATH
+from packageship import system_config
 
 
 class DBHelper():
@@ -99,7 +99,7 @@ class DBHelper():
         self.database_file_path = self._readconfig.get_system(
             'data_base_path')
         if not self.database_file_path:
-            self.database_file_path = DATABASE_FOLDER_PATH
+            self.database_file_path = system_config.DATABASE_FOLDER_PATH
         if not os.path.exists(self.database_file_path):
             os.makedirs(self.database_file_path)
 

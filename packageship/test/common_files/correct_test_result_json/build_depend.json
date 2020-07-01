@@ -1,0 +1,91 @@
+[
+  {
+    "input": {
+      "sourceName": "A"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "A_src": [
+          "source",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "root",
+              null
+            ]
+          ]
+        ],
+        "B1": [
+          "B",
+          "0.0.2",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A",
+              "build"
+            ]
+          ]
+        ],
+        "C1": [
+          "C",
+          "0.1",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A",
+              "build"
+            ],
+            [
+              "A2",
+              "install"
+            ]
+          ]
+        ],
+        "A1": [
+          "A",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "B1",
+              "install"
+            ],
+            [
+              "D1",
+              "install"
+            ]
+          ]
+        ],
+        "A2": [
+          "A",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A1",
+              "install"
+            ],
+            [
+              "C1",
+              "install"
+            ]
+          ]
+        ],
+        "D1": [
+          "D",
+          "0.11",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A2",
+              "install"
+            ]
+          ]
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  }
+]
