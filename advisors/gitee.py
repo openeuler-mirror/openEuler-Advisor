@@ -116,13 +116,12 @@ Yours openEuler-Advisor.
         """
         get openeuler spec file for specific package
         """
+        specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
         exp = self.get_spec_exception()
         if pkg in exp:
             dir_name = exp[pkg]["dir"]
             file_name = exp[pkg]["file"]
-            specurl = self.specfile_url_template.format(package=pkg, specfile=dir_name + "/" + file_name)
-        else:
-            specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
+            specurl = urllib.parse.urljoin(specurl, os.path.join(dir_name, file_name))
 
         try:
             resp = self.get_gitee(specurl)
