@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.0
-Release:        0
+Release:        1
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -30,16 +30,16 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 %post
 #build cli bin
-if [ -f "/usr/bin/cli" ];then
-    rm -rf /usr/bin/cli
+if [ -f "/usr/bin/pkgship" ];then
+    rm -rf /usr/bin/pkgship
 fi
 
 
 cd %{python3_sitelib}/packageship/
-/usr/local/bin/pyinstaller -F cli.py
-sed -i "s/hiddenimports\=\[\]/hiddenimports\=\['pkg_resources.py2_warn'\]/g" cli.spec
-/usr/local/bin/pyinstaller cli.spec
-cp dist/cli /usr/bin/
+/usr/local/bin/pyinstaller -F pkgship.py
+sed -i "s/hiddenimports\=\[\]/hiddenimports\=\['pkg_resources.py2_warn'\]/g" pkgship.spec
+/usr/local/bin/pyinstaller pkgship.spec
+cp dist/pkgship /usr/bin/
 rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 %postun
@@ -49,11 +49,15 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 %doc README.md 
 %{python3_sitelib}/*
 %config %{_sysconfdir}/pkgship/*
+%attr(0755,root,root) %{_bindir}/pkgshipd
 
 
 %changelog
-* Tue Jun 11 2020 Feng Hu <solar.hu@foxmail.com>
+* Tue JUN 30 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-1
+- add pkgshipd file
+
+* Tue Jun 11 2020 Feng Hu <solar.hu@foxmail.com> - 1.0-0
 - add macro to build cli bin when rpm install
 
-* Sat Jun 6 2020 Feng Hu  <solar.hu@foxmail.com>
+* Sat Jun 6 2020 Feng Hu  <solar.hu@foxmail.com> - 1.0-0
 - init package

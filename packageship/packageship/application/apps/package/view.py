@@ -26,11 +26,14 @@ from .serialize import GetpackSchema
 from .serialize import PutpackSchema
 from .serialize import DeletedbSchema
 from .serialize import InitSystemSchema
-
+from .serialize import BeDependSchema
+from .function.be_depend import BeDepend as be_depend
 from .function.install_depend import InstallDepend as installdepend
 from .function.build_depend import BuildDepend as builddepend
+from .function.self_depend import SelfDepend as self_depend
 from .serialize import InstallDependSchema
 from .serialize import BuildDependSchema
+from .serialize import SelfDependSchema
 from .serialize import have_err_db_name
 
 LOGGER = Log(__name__)
@@ -365,7 +368,7 @@ class SelfDepend(Resource):
     changeLog:
     '''
 
-    def post(self, *args, **kwargs):
+    def post(self):
         '''
         description: Query a package's all dependencies including install and build depend
                         (support quering a binary or source package in one or more databases)
@@ -390,7 +393,51 @@ class SelfDepend(Resource):
         exception:
         changeLog:
         '''
-        pass
+        schema = SelfDependSchema()
+
+        data = request.get_json()
+        validate_err = schema.validate(data)
+
+        if validate_err:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+
+        pkg_name = data.get("packagename")
+        db_pri = db_priority()
+
+        if not db_pri:
+            return jsonify(
+                ResponseCode.response_json(
+                    ResponseCode.FILE_NOT_FIND_ERROR
+                )
+            )
+        db_list = data.get("db_list") if data.get("db_list") \
+            else db_pri
+
+        self_build = data.get("selfbuild", 0)
+        with_sub_pack = data.get("withsubpack", 0)
+        pack_type = data.get("packtype", "binary")
+
+        if have_err_db_name(db_list, db_pri):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+            )
+        response_code, binary_dicts, source_dicts = \
+            self_depend(db_list).query_depend(pkg_name, int(self_build),
+                                              int(with_sub_pack), pack_type)
+
+        if not all([binary_dicts, source_dicts]):
+            return jsonify(
+                ResponseCode.response_json(response_code)
+            )
+
+        return jsonify(
+            ResponseCode.response_json(ResponseCode.SUCCESS, data={
+                "binary_dicts": binary_dicts,
+                "source_dicts": source_dicts
+            })
+        )
 
 
 class BeDepend(Resource):
@@ -423,7 +470,35 @@ class BeDepend(Resource):
         exception:
         changeLog:
         '''
-        pass
+        schema = BeDependSchema()
+        data = request.get_json()
+        validate_err = schema.validate(data)
+
+        if validate_err:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+
+        package_name = data.get("packagename")
+        with_sub_pack = data.get("withsubpack")
+        db_name = data.get("dbname")
+
+        if db_name not in db_priority():
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+            )
+
+        bedepnd_ins = be_depend(package_name, db_name, with_sub_pack)
+
+        res_dict = bedepnd_ins.main()
+
+        if not res_dict:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
+            )
+        return jsonify(
+            ResponseCode.response_json(ResponseCode.SUCCESS, data=res_dict)
+        )
 
 
 class Repodatas(Resource):

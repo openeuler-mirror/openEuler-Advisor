@@ -168,7 +168,10 @@ class BuildDepend:
 
             if not obj.bin_name:
                 continue
-
+            # for first loop, init the source_dict
+            if not self.source_dict:
+                for src_name in pkg_name_li:
+                    self.source_dict[src_name] = [obj.db_name, obj.search_version]
             if obj.bin_name not in self.result_dict:
                 self.result_dict[obj.bin_name] = [
                     obj.source_name if obj.source_name else None,
@@ -185,7 +188,8 @@ class BuildDepend:
                     node_list.append(node)
 
             if obj.source_name and \
-                    obj.source_name not in self.source_dict:
+                    obj.source_name not in self.source_dict and \
+                        obj.source_name not in self.history_dicts:
                 self.source_dict[obj.source_name] = [obj.db_name,
                                                      obj.version]
                 next_src_set.add(obj.source_name)

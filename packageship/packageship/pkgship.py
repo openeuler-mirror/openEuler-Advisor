@@ -18,8 +18,8 @@ except ImportError as import_error:
     print('Error importing related dependencies, \
             please check if related dependencies are installed')
 else:
-    from packageship.application.apps.package.function.Constants import ResponseCode
-    from packageship.application.apps.package.function.Constants import ListNode
+    from packageship.application.apps.package.function.constants import ResponseCode
+    from packageship.application.apps.package.function.constants import ListNode
 
 
 DB_NAME = 0
