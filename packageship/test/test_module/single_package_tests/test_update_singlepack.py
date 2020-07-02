@@ -1,0 +1,162 @@
+"""TestUpdatePackage"""
+# -*- coding:utf-8 -*-
+from test.base_code.operate_data_base import OperateTestBase
+import unittest
+import json
+
+
+from packageship.application.apps.package.function.constants import ResponseCode
+
+
+class TestUpdatePackage(OperateTestBase):
+    """TestUpdatePackage"""
+    def test_empty_dbname(self):
+        """Parameter error"""
+
+        resp = self.client.put("/packages/findByPackName",
+                               data=json.dumps({"dbName": "",
+                                                "sourceName": "xx",
+                                                "maintainer": "",
+                                                "maintainlevel": "1"}),
+                               content_type="application/json")
+        resp_dict = json.loads(resp.data)
+        resp_dict.get("data")
+
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.PARAM_ERROR,
+                         resp_dict.get("code"),
+                         msg="Error in status code return")
+
+        self.assertIn("msg", resp_dict, msg="Error in data format return")
+        self.assertEqual(
+            ResponseCode.CODE_MSG_MAP.get(
+                ResponseCode.PARAM_ERROR),
+            resp_dict.get("msg"),
+            msg="Error in status prompt return")
+
+        self.assertIn("data", resp_dict, msg="Error in data format return")
+        self.assertIsNone(
+            resp_dict.get("data"),
+            msg="Error in data information return")
+
+        # wrong dbname
+        resp = self.client.put("/packages/findByPackName",
+                               data=json.dumps({"dbName": "xx",
+                                                "sourceName": "xx",
+                                                "maintainer": "",
+                                                "maintainlevel": "1"}),
+                               content_type="application/json")
+        resp_dict = json.loads(resp.data)
+        resp_dict.get("data")
+
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.DB_NAME_ERROR,
+                         resp_dict.get("code"),
+                         msg="Error in status code return")
+
+        self.assertIn("msg", resp_dict, msg="Error in data format return")
+        self.assertEqual(
+            ResponseCode.CODE_MSG_MAP.get(
+                ResponseCode.DB_NAME_ERROR),
+            resp_dict.get("msg"),
+            msg="Error in status prompt return")
+
+        self.assertIn("data", resp_dict, msg="Error in data format return")
+        self.assertIsNone(
+            resp_dict.get("data"),
+            msg="Error in data information return")
+
+    def test_empty_sourcename(self):
+        """Parameter error"""
+
+        resp = self.client.put("/packages/findByPackName",
+                               data=json.dumps({"dbName": "openEuler-20.04-LTS",
+                                                "sourceName": "xx",
+                                                "maintainer": "1"}),
+                               content_type="application/json")
+        resp_dict = json.loads(resp.data)
+        resp_dict.get("data")
+
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.PACK_NAME_NOT_FOUND,
+                         resp_dict.get("code"),
+                         msg="Error in status code return")
+
+        self.assertIn("msg", resp_dict, msg="Error in data format return")
+        self.assertEqual(
+            ResponseCode.CODE_MSG_MAP.get(
+                ResponseCode.PACK_NAME_NOT_FOUND),
+            resp_dict.get("msg"),
+            msg="Error in status prompt return")
+
+        self.assertIn("data", resp_dict, msg="Error in data format return")
+        self.assertIsNone(
+            resp_dict.get("data"),
+            msg="Error in data information return")
+        #  miss maintainer maintainlevel
+        resp = self.client.put("/packages/findByPackName",
+                               data=json.dumps({"dbName": "openEuler-20.04-LTS",
+                                                "sourceName": "xx"}),
+                               content_type="application/json")
+        resp_dict = json.loads(resp.data)
+        resp_dict.get("data")
+
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.PARAM_ERROR,
+                         resp_dict.get("code"),
+                         msg="Error in status code return")
+
+        self.assertIn("msg", resp_dict, msg="Error in data format return")
+        self.assertEqual(
+            ResponseCode.CODE_MSG_MAP.get(
+                ResponseCode.PARAM_ERROR),
+            resp_dict.get("msg"),
+            msg="Error in status prompt return")
+
+        self.assertIn("data", resp_dict, msg="Error in data format return")
+        self.assertIsNone(
+            resp_dict.get("data"),
+            msg="Error in data information return")
+
+    def test_true_parram(self):
+        """
+        Returns:
+        """
+        resp = self.client.put("/packages/findByPackName",
+                               data=json.dumps({"dbName": "openEuler-20.04-LTS",
+                                                "sourceName": "A",
+                                                "maintainer": "x",
+                                                "maintainlevel": "1"}),
+                               content_type="application/json")
+        resp_dict = json.loads(resp.data)
+        resp_dict.get("data")
+
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.SUCCESS,
+                         resp_dict.get("code"),
+                         msg="Error in status code return")
+
+        self.assertIn("msg", resp_dict, msg="Error in data format return")
+        self.assertEqual(
+            ResponseCode.CODE_MSG_MAP.get(
+                ResponseCode.SUCCESS),
+            resp_dict.get("msg"),
+            msg="Error in status prompt return")
+
+        self.assertIn("data", resp_dict, msg="Error in data format return")
+        self.assertIsNone(
+            resp_dict.get("data"),
+            msg="Error in data information return")
+
+def test_updata_single_package_suit():
+    """unit testing"""
+    print("---TestUpdatePackage START---")
+    suite = unittest.TestSuite()
+    suite.addTest(TestUpdatePackage("test_empty_dbname"))
+    suite.addTest(TestUpdatePackage("test_empty_sourcename"))
+    suite.addTest(TestUpdatePackage("test_true_parram"))
+    unittest.TextTestRunner().run(suite)
+
+
+if __name__ == '__main__':
+    unittest.main()
