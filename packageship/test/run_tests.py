@@ -9,9 +9,10 @@ def execute_operate():
     # Import test cases and calls related to query database
     from test.test_module.dependent_query_tests.test_build_depend import test_build_depend_suit
     from test.test_module.packages_tests.test_packages import test_packages_suit
+    from test.test_module.dependent_query_tests.test_be_depend import test_be_depend_suit
     test_build_depend_suit()
     test_packages_suit()
-
+    test_be_depend_suit()
     # Import test cases and calls related to the operation database
     # like update database
 

@@ -127,35 +127,36 @@ class BeDepend:
                 source_name = obj.source_name
             if obj.bebuild_src_name:
                 # Determine if the source package has been checked
+                parent_node = obj.bebuild_src_name
+                be_type = "build"
+                # Call the spell dictionary function
+                self.make_dicts(
+                    obj.search_bin_name,
+                    source_name,
+                    obj.search_bin_version,
+                    parent_node,
+                    be_type)
+
                 if obj.bebuild_src_name not in self.source_name_set:
                     self.source_name_set.add(obj.bebuild_src_name)
                     source_id_list.append(obj.bebuild_src_id)
 
-                    parent_node = obj.bebuild_src_name
-                    be_type = "build"
-                    # Call the spell dictionary function
-                    self.make_dicts(
-                        obj.search_bin_name,
-                        source_name,
-                        obj.search_bin_version,
-                        parent_node,
-                        be_type)
-
             if obj.bin_name:
                 # Determine if the bin package has been checked
+                parent_node = obj.bin_name
+                be_type = "install"
+                # Call the spell dictionary function
+                self.make_dicts(
+                    obj.search_bin_name,
+                    source_name,
+                    obj.search_bin_version,
+                    parent_node,
+                    be_type)
+
                 if obj.bin_name not in self.bin_name_set:
                     self.bin_name_set.add(obj.bin_name)
                     bin_id_list.append(obj.bin_id)
 
-                    parent_node = obj.bin_name
-                    be_type = "install"
-                    # Call the spell dictionary function
-                    self.make_dicts(
-                        obj.search_bin_name,
-                        source_name,
-                        obj.search_bin_version,
-                        parent_node,
-                        be_type)
                     # withsubpack=1
                     if self.with_sub_pack == "1":
                         if obj.install_depend_src_name not in self.source_name_set:
@@ -190,7 +191,8 @@ class BeDepend:
                 ]
             ]
         else:
-            self.result_dict[key][-1].append([
-                parent_node,
-                be_type
-            ])
+            if [parent_node,be_type] not in self.result_dict[key][-1]:
+                self.result_dict[key][-1].append([
+                    parent_node,
+                    be_type
+                ])
