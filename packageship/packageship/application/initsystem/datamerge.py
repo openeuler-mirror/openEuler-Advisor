@@ -17,7 +17,11 @@ LOGGER = Log(__name__)
 
 class MergeData():
     '''
-        Load data from sqlite database
+    Load data from sqlite database
+    Attributes:
+        db_file: Database file
+        db_type: Connected database type
+        datum_database: Base database name
     '''
 
     def __init__(self, db_file):
@@ -36,7 +40,13 @@ class MergeData():
 
     def get_package_data(self):
         '''
-            get binary package or source package data
+        get binary package or source package data
+        Args:
+
+        Returns:
+            All source package data queried
+        Raises:
+            SQLAlchemyError: An error occurred while executing the sql statement
         '''
         try:
             with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True)\
@@ -52,7 +62,13 @@ class MergeData():
 
     def get_requires_data(self):
         '''
-            get dependent package data of binary package or source package
+        get dependent package data of binary package or source package
+        Args:
+
+        Returns:
+            All dependent data queried
+        Raises:
+            SQLAlchemyError: An error occurred while executing the sql statement
         '''
         try:
             with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True)\
@@ -67,7 +83,13 @@ class MergeData():
 
     def get_provides(self):
         '''
-            get the dependency package provided by the binary package
+        get the dependency package provided by the binary package
+        Args:
+
+        Returns:
+            Query the component data provided by all binary packages
+        Raises:
+            SQLAlchemyError: An error occurred while executing the sql statement
         '''
         try:
             with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True)\
@@ -82,7 +104,13 @@ class MergeData():
 
     def get_maintenance_info(self):
         '''
-            Obtain the information of the maintainer
+        Obtain the information of the maintainer
+        Args:
+
+        Returns:
+            Maintainer related information
+        Raises:
+            SQLAlchemyError: An error occurred while executing the sql statement
         '''
         try:
             if not hasattr(self, 'mainter_infos'):
@@ -100,7 +128,15 @@ class MergeData():
 
     def src_file_merge(self, src_package_key, db_file):
         '''
-            Source code related data integration
+        Source code related data integration
+        Args:
+            src_package_key: The relevant key value of the source package
+            db_file: Database file
+        Returns:
+            Key value after successful data combination
+            (0, False) or (src_package_key, True)
+        Raises:
+            SQLAlchemyError: An error occurred while executing the sql statement
         '''
         self.get_maintenance_info()
 
@@ -240,9 +276,16 @@ class MergeData():
 
     def bin_file_merge(self, bin_package_key, db_file):
         '''
-            Binary package related data integration
+        Binary package related data integration
+        Args:
+            bin_package_key: Primary key of binary package
+            db_file: Database file
+        Returns:
+            Key value after successful data combination
+            (0, False) or (bin_package_key, True)
+        Raises:
+            SQLAlchemyError: An error occurred while executing the sql statement
         '''
-
         self.__compose_bin_package()
         # binary package dependent package integration
 

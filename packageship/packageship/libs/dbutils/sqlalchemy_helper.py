@@ -109,7 +109,7 @@ class DBHelper():
         '''
 
         session = sessionmaker()
-        if getattr(self, 'engine') is None:
+        if not hasattr(self, 'engine'):
             raise DisconnectionError('Abnormal database connection')
         session.configure(bind=self.engine)
 
