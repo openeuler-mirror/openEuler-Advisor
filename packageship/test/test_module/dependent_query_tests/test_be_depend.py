@@ -368,5 +368,5 @@ def test_be_depend_suit():
     unittest.TextTestRunner().run(suite)
 
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
