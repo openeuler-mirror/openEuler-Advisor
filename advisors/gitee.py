@@ -33,7 +33,7 @@ class Gitee(object):
         #self.advisor_url_template = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/{package}.yaml"
         self.advisor_url_template = self.advisor_url + "upstream-info/{package}.yaml"
         #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
-        self.specfile_exception_url = self.advisor_url + "helper/specfile_exceptions.yaml"
+        self.specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
     def post_gitee(self, url, values, headers=None):
@@ -116,32 +116,42 @@ Yours openEuler-Advisor.
         """
         get openeuler spec file for specific package
         """
+        specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
         exp = self.get_spec_exception()
         if pkg in exp:
             dir_name = exp[pkg]["dir"]
             file_name = exp[pkg]["file"]
-            specurl = self.specfile_url_template.format(package=pkg, specfile=dir_name + "/" + file_name)
-        else:
-            specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
+            specurl = urllib.parse.urljoin(specurl, os.path.join(dir_name, file_name))
 
-        return self.get_gitee(specurl)
+        try:
+            resp = self.get_gitee(specurl)
+        except urllib.error.HTTPError:
+            resp = ""
+
+        return resp
 
     def get_yaml(self, pkg):
         """
         get upstream yaml metadata for specific package
         """
         yamlurl = self.advisor_url_template.format(package=pkg)
-        resp = self.get_gitee(yamlurl)
+        try:
+            resp = self.get_gitee(yamlurl)
+        except urllib.error.HTTPError:
+            resp = "Not found"
         if re.match("Not found", resp):
             yamlurl = self.yamlfile_url_template.format(package=pkg)
-            resp = self.get_gitee(yamlurl)
+            try:
+                resp = self.get_gitee(yamlurl)
+            except urllib.error.HTTPError:
+                resp = "Not found"
             if re.match("Not found", resp):
                 print("Cannot find upstream metadata")
                 return False
             else:
                 return resp
         else:
-            return False
+            return resp
 
     def get_issues(self, pkg, prj="src-openeuler"):
         """
@@ -152,7 +162,7 @@ Yours openEuler-Advisor.
         parameters = "state=open&sort=created&direction=desc&page=1&per_page=20"
         return self.get_gitee_json(issues_url + parameters)
 
-    def get_issue_comments(self, pkg, number, prj="src-openeuler"):
+    def get_issue_comments(self, pkg, prj="src-openeuler"):
         """
         Get comments of specific issue
         """
