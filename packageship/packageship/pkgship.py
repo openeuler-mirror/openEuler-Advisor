@@ -426,7 +426,7 @@ class InitDatabaseCommand(PkgshipCommand):
             response = requests.post(self.write_host +
                                      '/initsystem', data=json.dumps({'configfile': file_path}),
                                      headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -527,7 +527,7 @@ class AllPackageCommand(PkgshipCommand):
             '/packages?dbName={dbName}'.format(dbName=params.db)
         try:
             response = requests.get(_url)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -591,7 +591,7 @@ class UpdatePackageCommand(PkgshipCommand):
                                        'maintainer': params.m,
                                        'maintainlevel': params.l}),
                 headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -663,7 +663,7 @@ class BuildDepCommand(PkgshipCommand):
                 _url, data=json.dumps({'sourceName': params.packagename,
                                        'db_list': params.dbs}),
                 headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -792,7 +792,7 @@ class InstallDepCommand(PkgshipCommand):
                     'binaryName': params.packagename,
                     'db_list': params.dbs
                 }, ensure_ascii=True), headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -969,7 +969,7 @@ class SelfBuildCommand(PkgshipCommand):
                                          'selfbuild': str(params.s),
                                          'withsubpack': str(params.w)}),
                                      headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -1040,7 +1040,7 @@ class BeDependCommand(PkgshipCommand):
                     'withsubpack': str(params.w)
                 }
             ), headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -1134,7 +1134,7 @@ class SingleCommand(PkgshipCommand):
             .format(db_name=params.db, packagename=params.packagename)
         try:
             response = requests.get(_url)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:

@@ -1,6 +1,6 @@
 '''
     Initialization of data import
-    Import the data in the sqlite database into the mysql database
+    Import the data in the sqlite database into the mysql database
 '''
 import os
 import pathlib
@@ -56,6 +56,14 @@ class InitDataBase():
         if self.db_type not in ['mysql', 'sqlite']:
             LOGGER.logger.error("database type configuration error")
             raise Exception('database type configuration error')
+        self._bin_provides_dicts = None
+        self._bin_requires_dicts = None
+        self._bin_package_name = None
+        self._bin_package_dicts = None
+        self._src_requires_dicts = None
+        self._src_packages = None
+        self._src_package_names = None
+        self._sqlite_db = None
 
     def __read_config_file(self):
         '''
@@ -593,7 +601,7 @@ class InitDataBase():
         Args:
 
         Returns:
-            **Kwargs：data related to configuration file nodes
+            **Kwargs: data related to configuration file nodes
             database_name: Name database
             priority: priority
         Raises:
@@ -844,7 +852,7 @@ class SqliteDatabaseOperations():
         _db_file = os.path.join(
             self.database_file_folder, self.db_name)
 
-        if os.path.exists(_db_file+'.db'):
+        if os.path.exists(_db_file + '.db'):
             os.remove(_db_file + '.db')
 
         # create a  sqlite database
@@ -872,7 +880,7 @@ class SqliteDatabaseOperations():
 
         try:
             db_path = os.path.join(
-                self.database_file_folder, self.db_name+'.db')
+                self.database_file_folder, self.db_name + '.db')
             if os.path.exists(db_path):
                 os.remove(db_path)
         except IOError as exception_msg:
@@ -899,7 +907,7 @@ class SqliteDatabaseOperations():
         _db_file = os.path.join(
             self.database_file_folder, self.db_name)
 
-        if not os.path.exists(_db_file+'.db'):
+        if not os.path.exists(_db_file + '.db'):
             # create a  sqlite database
             with DBHelper(db_name=_db_file) as database:
                 tables = ['maintenance_info']

@@ -29,6 +29,11 @@ class MergeData():
         self.db_file = db_file
         self.db_type = 'sqlite:///'
         self.datum_database = 'maintenance.information'
+        self.src_requires_dicts = None
+        self.src_package_datas = None
+        self.bin_provides_dicts = None
+        self.bin_package_datas = None
+        self.mainter_infos = None
 
     @staticmethod
     def __columns(cursor):
