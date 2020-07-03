@@ -42,17 +42,18 @@ if __name__ == "__main__":
     print("current version is ", current_version)
 
     try:
-        prj_info_string = gitee.get_yaml(prj_name)
-    except urllib.error.HTTPError:
+        prj_info_string = open(os.path.join(args.default, prj_name + ".yaml")).read()
+    except FileNotFoundError:
         prj_info_string = ""
 
     if not prj_info_string:
-        print("Fallback to {dir}".format(dir=args.default))
+        print("Get YAML info from gitee")
         try:
-            prj_info_string = open(os.path.join(args.default, prj_name + ".yaml")).read()
-        except FileNotFoundError:
+            prj_info_string = gitee.get_yaml(prj_name)
+        except urllib.error.HTTPError:
             print("Failed to get YAML info for {pkg}".format(pkg=prj_name))
             sys.exit(1)
+
 
     prj_info = yaml.load(prj_info_string, Loader=yaml.Loader)
 
