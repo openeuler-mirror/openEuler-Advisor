@@ -81,8 +81,13 @@ class Packages(Resource):
                 return jsonify(
                     ResponseCode.response_json(ResponseCode.SUCCESS, response)
                 )
+            if dbname not in dbpreority:
+                return jsonify(
+                    ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+                )
+            response = get_packages(dbname)
             return jsonify(
-                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
+                ResponseCode.response_json(ResponseCode.SUCCESS, response)
             )
         # Database queries data and catches exceptions
         except DisconnectionError as dis_connection_error:
@@ -90,12 +95,6 @@ class Packages(Resource):
             return jsonify(
                 ResponseCode.response_json(
                     ResponseCode.DIS_CONNECTION_DB))
-        except (AttributeError, Error) as attri_error:
-            current_app.logger.error(attri_error)
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
-            )
-
 
 class SinglePack(Resource):
     '''
