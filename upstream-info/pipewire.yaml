@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  PipeWire/pipewire
 tag_prefix: ^v
-seperator: .
+separator: .

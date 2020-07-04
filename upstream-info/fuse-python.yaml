@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  libfuse/python-fuse
 tag_prefix: ^v
-seperator: .
+separator: .

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: PyMySQL
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:24:20.655347700 +00:00
   raw_data: '{"info":{"author":"yutaka.matsubara","author_email":"yutaka.matsubara@gmail.com","bugtrack_url":null,"classifiers":["Development

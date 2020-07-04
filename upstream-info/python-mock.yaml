@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: mock
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:27:45.459931960 +00:00
   raw_data: '{"info":{"author":"Testing Cabal","author_email":"testing-in-python@lists.idyll.org","bugtrack_url":null,"classifiers":["Development

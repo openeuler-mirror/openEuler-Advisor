@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: polib
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:10:39.143204690 +00:00
   raw_data: '{"info":{"author":"David Jean Louis","author_email":"izimobil@gmail.com","bugtrack_url":null,"classifiers":["Development

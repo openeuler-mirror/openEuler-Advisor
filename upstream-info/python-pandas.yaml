@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pandas
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:20:08.741182750 +00:00
   raw_data: '{"info":{"author":"","author_email":"","bugtrack_url":null,"classifiers":["Development

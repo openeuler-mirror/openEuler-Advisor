@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: setuptools_git
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:09:56.872341270 +00:00
   raw_data: '{"info":{"author":"Marc Abramowitz","author_email":"msabramo@gmail.com","bugtrack_url":null,"classifiers":["Development

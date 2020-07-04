@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: path
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:29:13.852706750 +00:00
   raw_data: '{"info":{"author":"Jason Orendorff","author_email":"jason.orendorff@gmail.com","bugtrack_url":null,"classifiers":["Development

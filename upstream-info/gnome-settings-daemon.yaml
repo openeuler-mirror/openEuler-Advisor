@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-settings-daemon
 tag_prefix: GNOME_SETTINGS_DAEMON_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:54:37.670063160 +00:00
   raw_data: |

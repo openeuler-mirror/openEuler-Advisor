@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  diegonehab/luasocket
 tag_prefix: ^v
-seperator: .
+separator: .

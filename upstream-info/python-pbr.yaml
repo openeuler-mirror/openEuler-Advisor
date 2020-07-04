@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pbr
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:18:48.828655410 +00:00
   raw_data: '{"info":{"author":"OpenStack","author_email":"openstack-discuss@lists.openstack.org","bugtrack_url":null,"classifiers":["Development

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: sphinx_rtd_theme
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:29:39.490108060 +00:00
   raw_data: '{"info":{"author":"Dave Snider, Read the Docs, Inc. & contributors","author_email":"dev@readthedocs.org","bugtrack_url":null,"classifiers":["Development

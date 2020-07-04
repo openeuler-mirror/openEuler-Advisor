@@ -2,7 +2,7 @@
 version_control: github
 src_repo: xinetd-org/xinetd
 tag_prefix: xinetd-
-seperator: "-"
+separator: "-"
 last_query:
   time_stamp: 2020-04-26 09:19:40.953184590 +00:00
   raw_data: |

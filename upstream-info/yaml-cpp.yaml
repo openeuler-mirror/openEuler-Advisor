@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  jbeder/yaml-cpp
 tag_prefix: yaml-cpp-
-seperator: .
+separator: .

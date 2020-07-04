@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: libgxps
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:54:09.872135830 +00:00
   raw_data: |

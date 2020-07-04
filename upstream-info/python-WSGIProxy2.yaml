@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: WSGIProxy2
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:26:24.401987810 +00:00
   raw_data: '{"info":{"author":"Gael Pasgrimaud","author_email":"gael@gawel.org","bugtrack_url":null,"classifiers":["License

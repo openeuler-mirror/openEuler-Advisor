@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-keyring
 tag_prefix: GNOME_KEYRING_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:51:31.463317180 +00:00
   raw_data: |

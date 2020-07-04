@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: Sub-Quote
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:40:10.237775080 +00:00
   raw_data: |

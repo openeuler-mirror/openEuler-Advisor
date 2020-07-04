@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: ntplib
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:13:06.828739650 +00:00
   raw_data: '{"info":{"author":"Charles-Francois Natali","author_email":"cf.natali@gmail.com","bugtrack_url":null,"classifiers":["License

@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: Test-Harness
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 06:57:44.523430440 +00:00
   raw_data: |

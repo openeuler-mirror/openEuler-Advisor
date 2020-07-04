@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: nose
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:27:23.640705410 +00:00
   raw_data: '{"info":{"author":"Jason Pellerin","author_email":"jpellerin+nose@gmail.com","bugtrack_url":null,"classifiers":["Development

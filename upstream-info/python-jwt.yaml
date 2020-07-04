@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pyjwt
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 04:12:06.998637860 +00:00
   raw_data: '{"info":{"author":"Jose Padilla","author_email":"hello@jpadilla.com","bugtrack_url":null,"classifiers":["Development

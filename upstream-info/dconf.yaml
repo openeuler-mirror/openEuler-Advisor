@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: dconf
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:56:37.367094070 +00:00
   raw_data: |

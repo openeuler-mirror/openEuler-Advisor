@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: werkzeug
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:18:05.940918970 +00:00
   raw_data: '{"info":{"author":"Armin Ronacher","author_email":"armin.ronacher@active-4.com","bugtrack_url":null,"classifiers":["Development

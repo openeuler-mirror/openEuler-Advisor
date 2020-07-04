@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: productmd
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:17:47.312153000 +00:00
   raw_data: '{"info":{"author":"Daniel Mach","author_email":"dmach@redhat.com","bugtrack_url":null,"classifiers":[],"description":"","description_content_type":"","docs_url":null,"download_url":"","downloads":{"last_day":-1,"last_month":-1,"last_week":-1},"home_page":"https://github.com/release-engineering/productmd","keywords":"","license":"LGPLv2.1","maintainer":"","maintainer_email":"","name":"productmd","package_url":"https://pypi.org/project/productmd/","platform":"","project_url":"https://pypi.org/project/productmd/","project_urls":{"Homepage":"https://github.com/release-engineering/productmd"},"release_url":"https://pypi.org/project/productmd/1.26/","requires_dist":["six"],"requires_python":"","summary":"Product,

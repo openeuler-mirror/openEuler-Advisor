@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  GNOME/libcroco
 tag_prefix: ^v
-seperator: .
+separator: .

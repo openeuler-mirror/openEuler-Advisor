@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: cryptography-vectors
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:16:21.095464310 +00:00
   raw_data: '{"info":{"author":"The cryptography developers","author_email":"cryptography-dev@python.org","bugtrack_url":null,"classifiers":[],"description":"","description_content_type":"","docs_url":null,"download_url":"","downloads":{"last_day":-1,"last_month":-1,"last_week":-1},"home_page":"https://github.com/pyca/cryptography","keywords":"","license":"BSD

@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-session
 tag_prefix: GNOME_SESSION_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:50:55.119290750 +00:00
   raw_data: |

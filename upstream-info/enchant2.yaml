@@ -2,7 +2,7 @@
 version_control: github
 src_repo: AbiWord/enchant
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:03:30.225824600 +00:00
   raw_data: |

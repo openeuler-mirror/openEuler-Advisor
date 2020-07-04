@@ -2,7 +2,7 @@
 version_control: github
 src_repo: go-delve/delve
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
 query_type: api.github.releases
 last_query:

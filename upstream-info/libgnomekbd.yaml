@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: libgnomekbd
 tag_prefix: LIBGNOMEKBD_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:58:27.419945650 +00:00
   raw_data: |

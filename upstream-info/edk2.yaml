@@ -2,7 +2,7 @@
 version_control: github
 src_repo: tianocore/edk2
 tag_prefix: edk2-stable
-seperator: "."
+separator: "."
 query_type: api.github.releases
 last_query:
   time_stamp: 2020-05-20 07:12:36.247706470 +00:00

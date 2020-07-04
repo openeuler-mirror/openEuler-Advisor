@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: fixtures
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:17:55.557454770 +00:00
   raw_data: '{"info":{"author":"Robert Collins","author_email":"robertc@robertcollins.net","bugtrack_url":null,"classifiers":["Development

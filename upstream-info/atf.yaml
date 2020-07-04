@@ -2,7 +2,7 @@
 version_control: github
 src_repo: jmmv/atf
 tag_prefix: atf-
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-05-20 06:51:24.645509860 +00:00
   raw_data: |

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: traceback2
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:12:13.125300160 +00:00
   raw_data: '{"info":{"author":"Testing-cabal","author_email":"testing-cabal@lists.launchpad.net","bugtrack_url":null,"classifiers":["Development

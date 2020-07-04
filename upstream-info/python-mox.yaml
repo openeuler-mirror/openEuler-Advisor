@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: mox
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:18:41.401594800 +00:00
   raw_data: '{"info":{"author":"pymox maintainers","author_email":"mox-discuss@googlegroups.com","bugtrack_url":null,"classifiers":["Programming

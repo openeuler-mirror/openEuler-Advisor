@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-bluetooth
 tag_prefix: GNOMEBT_V_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:47:02.737631620 +00:00
   raw_data: |

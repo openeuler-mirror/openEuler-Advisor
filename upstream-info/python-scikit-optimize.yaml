@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: scikit-optimize
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:19:47.263131290 +00:00
   raw_data: '{"info":{"author":"The scikit-optimize contributors","author_email":"","bugtrack_url":null,"classifiers":["Intended

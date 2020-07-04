@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  zdohnal/system-config-printer
 tag_prefix: ^v
-seperator: .
+separator: .

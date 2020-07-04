@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: File-DesktopEntry
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:40:53.373890140 +00:00
   raw_data: |

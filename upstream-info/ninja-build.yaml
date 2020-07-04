@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  ninja-build/ninja
 tag_prefix: ^v
-seperator: .
+separator: .

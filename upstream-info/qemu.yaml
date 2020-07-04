@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.qemu.org/git/qemu.git
 tag_prefix: v
-seperator: .
+separator: .

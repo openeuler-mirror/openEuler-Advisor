@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: Business-ISBN
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:41:38.286119630 +00:00
   raw_data: |

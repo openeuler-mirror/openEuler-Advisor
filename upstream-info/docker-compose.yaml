@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: docker-compose
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:09:12.439805290 +00:00
   raw_data: '{"info":{"author":"Docker, Inc.","author_email":"","bugtrack_url":null,"classifiers":["Development

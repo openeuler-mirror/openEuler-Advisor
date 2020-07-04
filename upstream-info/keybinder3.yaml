@@ -2,7 +2,7 @@
 version_control: github
 src_repo: kupferlauncher/keybinder
 tag_prefix: keybinder-3.0-v
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:17:52.279564910 +00:00
   raw_data: |

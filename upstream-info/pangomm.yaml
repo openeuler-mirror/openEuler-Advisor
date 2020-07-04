@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: pangomm
 tag_prefix: pangomm-
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:54:08.285516010 +00:00
   raw_data: |

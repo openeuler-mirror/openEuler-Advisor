@@ -2,7 +2,7 @@
 version_control: svn
 src_repo: https://svn.code.sf.net/p/amanda/code/amanda
 tag_prefix: community_
-seperator: _
+separator: _
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
 last_query:
   time_stamp: 2020-05-20 06:50:49.139714320 +00:00

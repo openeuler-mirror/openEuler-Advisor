@@ -2,7 +2,7 @@
 version_control: github
 src_repo: uclouvain/openjpeg
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:28:49.160505920 +00:00
   raw_data: |

@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: folks
 tag_prefix: FOLKS
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:59:02.150855020 +00:00
   raw_data: |

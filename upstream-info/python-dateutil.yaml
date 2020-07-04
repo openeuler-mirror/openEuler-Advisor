@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: python-dateutil
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:46:51.520417220 +00:00
   raw_data: '{"info":{"author":"Gustavo Niemeyer","author_email":"gustavo@niemeyer.net","bugtrack_url":null,"classifiers":["Development

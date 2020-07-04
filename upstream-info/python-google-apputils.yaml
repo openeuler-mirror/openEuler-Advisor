@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: google-apputils
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:16:16.959737640 +00:00
   raw_data: '{"info":{"author":"Google Inc.","author_email":"opensource@google.com","bugtrack_url":null,"classifiers":[],"description":"Google

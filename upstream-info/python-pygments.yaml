@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pygments
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:10:16.864286920 +00:00
   raw_data: '{"info":{"author":"Georg Brandl","author_email":"georg@python.org","bugtrack_url":null,"classifiers":["Development

@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: json-glib
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:54:20.624407370 +00:00
   raw_data: |

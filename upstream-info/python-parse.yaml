@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: parse
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:11:01.014416080 +00:00
   raw_data: '{"info":{"author":"Richard Jones","author_email":"richard@python.org","bugtrack_url":null,"classifiers":["Environment

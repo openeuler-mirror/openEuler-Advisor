@@ -2,7 +2,7 @@
 version_control: github
 src_repo: google/googletest
 tag_prefix: release-
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:04:33.460248160 +00:00
   raw_data: |

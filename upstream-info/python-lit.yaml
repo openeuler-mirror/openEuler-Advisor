@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: lit
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:13:47.598071030 +00:00
   raw_data: '{"info":{"author":"Daniel Dunbar","author_email":"daniel@minormatter.com","bugtrack_url":null,"classifiers":["Development

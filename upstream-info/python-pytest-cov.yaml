@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pytest-cov
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:23:50.435754700 +00:00
   raw_data: '{"info":{"author":"Marc Schlaich","author_email":"marc.schlaich@gmail.com","bugtrack_url":null,"classifiers":["Development

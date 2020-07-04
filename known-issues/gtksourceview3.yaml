@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gtksourceview3
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:55:18.591144420 +00:00
   raw_data: ''

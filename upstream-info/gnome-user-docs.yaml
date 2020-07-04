@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-user-docs
 tag_prefix: GNOME_USER_DOCS_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:43:21.792957950 +00:00
   raw_data: |

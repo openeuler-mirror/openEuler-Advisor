@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: YAML
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:39:51.130195530 +00:00
   raw_data: |

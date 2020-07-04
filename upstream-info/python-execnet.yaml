@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: execnet
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:17:25.607359100 +00:00
   raw_data: '{"info":{"author":"holger krekel and others","author_email":"","bugtrack_url":null,"classifiers":["Development

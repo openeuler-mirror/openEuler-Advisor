@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  rhinstaller/initial-setup
 tag_prefix: ^v
-seperator: .
+separator: .

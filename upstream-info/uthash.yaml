@@ -2,7 +2,7 @@
 version_control: github
 src_repo: troydhanson/uthash
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-05-20 09:49:23.365070810 +00:00
   raw_data: |

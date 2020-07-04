@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: virtualenv
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:14:39.865492250 +00:00
   raw_data: '{"info":{"author":"Bernat Gabor","author_email":"gaborjbernat@gmail.com","bugtrack_url":null,"classifiers":["Development

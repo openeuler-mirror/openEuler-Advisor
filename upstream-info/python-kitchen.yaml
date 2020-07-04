@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: kitchen
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:16:19.823537120 +00:00
   raw_data: '{"info":{"author":"Toshio Kuratomi","author_email":"toshio@fedoraproject.org","bugtrack_url":null,"classifiers":["Development

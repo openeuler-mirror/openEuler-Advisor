@@ -2,7 +2,7 @@
 version_control: github
 src_repo: fontforge/libspiro
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 08:53:43.131064960 +00:00
   raw_data: |

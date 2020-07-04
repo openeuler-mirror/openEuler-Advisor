@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  storaged-project/blivet-gui
 tag_prefix: ^v
-seperator: .
+separator: .

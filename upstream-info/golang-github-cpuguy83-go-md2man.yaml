@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  cpuguy83/go-md2man
 tag_prefix: ^v
-seperator: .
+separator: .

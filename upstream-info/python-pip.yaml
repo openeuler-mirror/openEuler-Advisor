@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pip
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:24:04.811084650 +00:00
   raw_data: '{"info":{"author":"The pip developers","author_email":"pypa-dev@groups.google.com","bugtrack_url":null,"classifiers":["Development

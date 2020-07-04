@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: logutils
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:29:47.618780370 +00:00
   raw_data: '{"info":{"author":"Vinay Sajip","author_email":"vinay_sajip@red-dove.com","bugtrack_url":null,"classifiers":["Development

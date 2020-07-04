@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  dyne/frei0r
 tag_prefix: ^v
-seperator: .
+separator: .

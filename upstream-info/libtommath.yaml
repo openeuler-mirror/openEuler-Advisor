@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  libtom/libtommath
 tag_prefix: ^v
-seperator: .
+separator: .

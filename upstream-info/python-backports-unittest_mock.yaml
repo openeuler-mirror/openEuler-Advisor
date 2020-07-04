@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: backports-unittest_mock
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:23:48.687220800 +00:00
   raw_data: '{"info":{"author":"Jason R. Coombs","author_email":"jaraco@jaraco.com","bugtrack_url":null,"classifiers":["Development

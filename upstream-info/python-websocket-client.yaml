@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: websocket-client
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:28:33.555609990 +00:00
   raw_data: '{"info":{"author":"liris","author_email":"liris.pp@gmail.com","bugtrack_url":null,"classifiers":["Development

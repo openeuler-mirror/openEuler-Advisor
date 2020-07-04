@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: Digest-SHA1
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:40:36.536633510 +00:00
   raw_data: |

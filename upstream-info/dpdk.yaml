@@ -2,7 +2,7 @@
 version_control: github
 src_repo: DPDK/dpdk
 tag_prefix: ^v
-seperator: .
+separator: .
 last_query:
   time_stamp: 2020-05-07 03:39:05.428874541 -04:00
   raw_data: |

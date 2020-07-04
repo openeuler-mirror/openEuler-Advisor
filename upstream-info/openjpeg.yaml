@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  uclouvain/openjpeg
 tag_prefix: version.
-seperator: .
+separator: .

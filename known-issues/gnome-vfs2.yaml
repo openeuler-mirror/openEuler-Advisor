@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-vfs2
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:57:10.900064930 +00:00
   raw_data: ''

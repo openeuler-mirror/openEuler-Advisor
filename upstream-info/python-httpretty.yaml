@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: httpretty
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:30:12.309881770 +00:00
   raw_data: '{"info":{"author":"Gabriel Falcao","author_email":"gabriel@nacaolivre.org","bugtrack_url":null,"classifiers":["Development

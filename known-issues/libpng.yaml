@@ -2,7 +2,7 @@
 version_control: github
 src_repo: glennrp/libpng
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 10:58:34.918601600 +00:00
   raw_data: |

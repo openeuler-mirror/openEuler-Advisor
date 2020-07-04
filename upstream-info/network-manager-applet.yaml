@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: network-manager-applet
 tag_prefix: NETWORKMANAGER_APPLET_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:48:10.860351510 +00:00
   raw_data: |

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: m2crypto
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:16:26.691213580 +00:00
   raw_data: '{"info":{"author":"Ng Pheng Siong","author_email":"ngps@sandbox.rulemaker.net","bugtrack_url":null,"classifiers":["Development

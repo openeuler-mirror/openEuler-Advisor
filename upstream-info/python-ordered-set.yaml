@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: ordered-set
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:13:30.051121970 +00:00
   raw_data: '{"info":{"author":"","author_email":"","bugtrack_url":null,"classifiers":["Development

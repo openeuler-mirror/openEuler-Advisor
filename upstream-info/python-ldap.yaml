@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: python-ldap
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:48:53.609560080 +00:00
   raw_data: '{"info":{"author":"python-ldap project","author_email":"python-ldap@python.org","bugtrack_url":null,"classifiers":["Development

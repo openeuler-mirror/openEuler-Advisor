@@ -2,4 +2,4 @@
 version_control: git
 src_repo: xxxx
 tag_prefix: ^v
-seperator: .
+separator: .

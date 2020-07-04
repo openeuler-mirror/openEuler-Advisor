@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  NVIDIA/egl-wayland
 tag_prefix: ^v
-seperator: .
+separator: .

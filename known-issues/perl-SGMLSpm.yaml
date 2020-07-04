@@ -2,4 +2,4 @@
 version_control: metacpan
 src_repo: SGMLSpm
 tag_prefix: "^v"
-seperator: "."
+separator: "."

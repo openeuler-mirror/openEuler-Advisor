@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  rhboot/efi-rpm-macros
 tag_prefix: ^v
-seperator: .
+separator: .
