@@ -7,23 +7,71 @@ from typing import List
 
 __ALL__ = ["VersionRecommend"]
 
+"""
+
+The base class of the version recommend, used to get the latest version and maintain version.
+
+"""
+
+
 class VersionType(object):
+    """Base class for version recommend"""
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         self._version_type = None
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns: None
+        :raises: None
+        """
         pass
 
     def latest_version(self, version_entry):
+        """
+        Get the latest version.
+
+        :param version_entry: Package version list
+        :returns: None
+        :raises: None
+        """
         version_entry.sort(reverse=True)
         return version_entry[0]
 
     def maintain_version(self, version_entry, current_version, pkg_type):
+        """
+        Get the maintain version.
+
+        :param version_entry: Package version list
+        :param current_version: Current version
+        :param pkg_type: Package type
+        :returns : Maintain version
+        :raises: None
+        """
         _ = version_entry, pkg_type
         return current_version
 
     def _max(self, z1, z2):
+        """
+        Get the max version.
+
+        :param z1: The first version
+        :param z2: The second version
+        :returns 1: z1 great then z2
+        :return -1: z2 great then z1
+        :return 0: z1 equal then z2
+        :raises: None
+        """
         d1 = tuple(self._split(z1))  # 第一个参数版本号拆分,获取里面的数字/字母,得到序列
         d2 = tuple(self._split(z2))  # 第二个参数版本号拆分,获取里面的数字/字母,得到序列
         len1 = len(d1)
@@ -46,9 +94,23 @@ class VersionType(object):
             return -1
 
     def get_version_mode(self):
+        """
+        Get the version mode.
+
+        :param: None
+        :returns: Version type
+        :raises: None
+        """
         return self._version_type
 
     def _split(self, x):
+        """
+        Split the input args.
+
+        :param x: Input args
+        :returns: The split result
+        :raises: None
+        """
         for f, s in re.findall(r'([\d.]+)|([^\d.]+)', x):
             if f:
                 float(f)
@@ -58,8 +120,17 @@ class VersionType(object):
 
 
 class VersionTypeXYZW(VersionType):
+    """Version type Class for x.y.z.w"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 4:  # 通过 '.'分割后，应该剩下4位
@@ -75,6 +146,15 @@ class VersionTypeXYZW(VersionType):
         return True
 
     def maintain_version(self, version_entry, current_version, pkg_type):
+        """
+        Get the maintain version.
+
+        :param version_entry: Package version list
+        :param current_version: Current version
+        :param pkg_type: Package type
+        :returns : Maintain version
+        :raises: None
+        """
         if len(version_entry) == 1:  # 仅一个版本,当前即为最新版本
             return version_entry[0]
 
@@ -101,6 +181,13 @@ class VersionTypeXYZW(VersionType):
         return '.'.join(xyz)
 
     def latest_version(self, version_entry):
+        """
+        Get latest version.
+
+        :param version_entry: Package version list
+        :returns: latest version
+        :raises: None
+        """
         if len(version_entry) == 1:  # 仅一个版本,当前即为最新版本
             return version_entry[0]
         version_list = []
@@ -170,13 +257,29 @@ class VersionTypeXYZW(VersionType):
         return ''
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'x.y.z.w'
 
 
 class VersionTypeXYZ(VersionType):
+    """Version type Class for x.y.z"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 3:  # 通过 '.'分割后，应该剩下3位
@@ -190,6 +293,15 @@ class VersionTypeXYZ(VersionType):
         return True
 
     def maintain_version(self, version_entry, current_version, pkg_type):
+        """
+        Get the maintain version.
+
+        :param version_entry: Package version list
+        :param current_version: Current version
+        :param pkg_type: Package type
+        :returns : Maintain version
+        :raises: None
+        """
         if len(version_entry) == 1:  # 仅一个版本,当前即为最新版本
             return version_entry[0]
 
@@ -216,6 +328,13 @@ class VersionTypeXYZ(VersionType):
         return '.'.join(xy)
 
     def latest_version(self, version_entry):
+        """
+        Get latest version.
+
+        :param version_entry: Package version list
+        :returns: latest version
+        :raises: None
+        """
         if len(version_entry) == 1:  # 仅一个版本,当前即为最新版本
             return version_entry[0]
         version_list = []
@@ -267,13 +386,29 @@ class VersionTypeXYZ(VersionType):
         return ''
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'x.y.z'
 
 
 class VersionTypeXY(VersionType):
+    """Version type Class for x.y"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 2:  # 通过 '.'分割后，应该剩下2位
@@ -285,10 +420,24 @@ class VersionTypeXY(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'x.y'
 
     def latest_version(self, version_entry):
+        """
+        Get latest version.
+
+        :param version_entry: Package version list
+        :returns: latest version
+        :raises: None
+        """
         if len(version_entry) == 1:  # 仅一个版本,当前即为最新版本
             return version_entry[0]
         version_list = []
@@ -342,6 +491,15 @@ class VersionTypeXY(VersionType):
         return ''
 
     def maintain_version(self, version_entry, current_version, pkg_type):
+        """
+        Get the maintain version.
+
+        :param version_entry: Package version list
+        :param current_version: Current version
+        :param pkg_type: Package type
+        :returns : Maintain version
+        :raises: None
+        """
         version_candidate = []
         version_digital = re.split(r'[._-]', current_version)  # 将版本号做拆分
         x = [version_digital[0]]
@@ -365,8 +523,17 @@ class VersionTypeXY(VersionType):
 
 
 class VersionTypeX(VersionType):
+    """Version type Class for x"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 1:  # 通过 '.'分割后，应该剩下1位
@@ -376,6 +543,13 @@ class VersionTypeX(VersionType):
         return True
 
     def latest_version(self, version_entry):
+        """
+        Get latest version.
+
+        :param version_entry: Package version list
+        :returns: latest version
+        :raises: None
+        """
         if 1 == len(version_entry):  # 仅一个版本,当前即为最新版本
             return version_entry[0]
         version_list: List[List[str]] = []
@@ -406,6 +580,15 @@ class VersionTypeX(VersionType):
         return '.'.join(x)
 
     def maintain_version(self, version_entry, current_version, pkg_type):
+        """
+        Get the maintain version.
+
+        :param version_entry: Package version list
+        :param current_version: Current version
+        :param pkg_type: Package type
+        :returns : Maintain version
+        :raises: None
+        """
         version_candidate = []
         version_digital = re.split(r'[._-]', current_version)  # 将版本号做拆分
         x = [version_digital[0]]
@@ -428,13 +611,29 @@ class VersionTypeX(VersionType):
         return '.'.join(x)
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'x'
 
 
 class VersionTypeYyyyXY(VersionType):
+    """Version type Class for yyyy.x.y"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 3:  # 通过 '.'分割后，应该剩下3位
@@ -462,13 +661,29 @@ class VersionTypeYyyyXY(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyy.x.y'
 
 
 class VersionTypeYyyyX(VersionType):
+    """Version type Class for yyyy.x"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 2:  # 通过 '.'分割后，应该剩下2位
@@ -485,13 +700,29 @@ class VersionTypeYyyyX(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyy.x'
 
 
 class VersionTypeYyyyW(VersionType):
+    """Version type Class for yyyyw"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         if len(version) != 5:  # 共5 位
             return False
@@ -505,13 +736,29 @@ class VersionTypeYyyyW(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyyw'
 
 
 class VersionTypeYyyyMmDd(VersionType):
+    """Version type Class for yyyy.mm.dd"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 3:  # 通过 '.'分割后，应该剩下3位
@@ -544,17 +791,34 @@ class VersionTypeYyyyMmDd(VersionType):
             else:
                 return True
         except ValueError as e:  # 时间格式非法
+            _ = e
             print('Time foramt failed %s.', version)
             return False
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyy.mm.dd'
 
 
 class VersionTypeYyyyMm(VersionType):
+    """Version type Class for yyyy.mm"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 2:  # 通过 '.'分割后，应该剩下2位
@@ -576,13 +840,29 @@ class VersionTypeYyyyMm(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyy.mm'
 
 
-class VersionTypeYyyyMm(VersionType):
+class VersionTypeYyyymm(VersionType):
+    """Version type Class for yyyy.mm"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         if len(version) != 6:  # 长度为6
             return False
@@ -608,13 +888,28 @@ class VersionTypeYyyyMm(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyymm'
 
 
 class VersionTypeXYymmZ(VersionType):
-
+    """Version type Class for x.yymm.z"""
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         digital_list = re.split(r'[._-]', version)
         if len(digital_list) != 3:  # 通过 '.'分割后，应该剩下3位
@@ -636,13 +931,29 @@ class VersionTypeXYymmZ(VersionType):
         return True
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'x.yymm.z'
 
 
 class VersionTypeYyyymmdd(VersionType):
+    """Version type Class for yyyymmdd"""
 
     def version_match(self, pkg_version):
+        """
+        Version match.
+
+        :param pkg_version: Package version
+        :returns True:  Version match success
+        :returns False: version match fail
+        :raises: None
+        """
         version = pkg_version.strip()
         if len(version) != 8:  # 日期长度满足 8 位要求
             return False
@@ -666,17 +977,33 @@ class VersionTypeYyyymmdd(VersionType):
             else:
                 return True
         except ValueError as e:  # 时间格式非法
+            _ = e
             print('Time format failed %s,', version)
             return False
 
     def __init__(self):
+        """
+        Initialize.
+
+        :param None: No parameter
+        :returns: None
+        :raises: None
+        """
         super().__init__()
         self._version_type = 'yyyymmdd'
 
 
 class VersionRecommend(object):
-
+    """Version recommend Class for open source"""
     def __init__(self, version_entry, current_version, pkg_type):
+        """
+        Initialize.
+
+        :param version_entry: The version list of open source
+        :param current_version: The current version  of open source
+        :returns: None
+        :raises: None
+        """
         self.latest_version = current_version  # 提供初值,避免 current_version 为空导致后面出现异常
         self.maintain_version = current_version
         self.version_type = self._version_match(version_entry)
@@ -689,7 +1016,13 @@ class VersionRecommend(object):
         self.maintain_version = self._get_maintain_version(version_entry, current_version, pkg_type)
 
     def _version_match(self, version_entry):
+        """
+        Version match function.
 
+        :param version_entry: The version list of open source
+        :returns: The method input version list
+        :raises: None
+        """
         version_method = {VersionTypeXYZW(): 0,
                           VersionTypeXYZ(): 0,
                           VersionTypeXY(): 0,
@@ -698,8 +1031,7 @@ class VersionRecommend(object):
                           VersionTypeYyyyX(): 0,
                           VersionTypeYyyyW(): 0,
                           VersionTypeYyyyMmDd(): 0,
-                          VersionTypeYyyyMm(): 0,
-                          VersionTypeYyyyMm(): 0,
+                          VersionTypeYyyymm(): 0,
                           VersionTypeXYymmZ(): 0,
                           VersionTypeYyyymmdd(): 0}
         if not version_entry:
@@ -720,7 +1052,16 @@ class VersionRecommend(object):
         else:
             return method
 
-    def _version_valid(self, version):
+    @staticmethod
+    def _version_valid(version):
+        """
+        Version valid check.
+
+        :param version: The version of open source
+        :returns True: valid version
+        :returns False: invalid version
+        :raises: None
+        """
         m = re.match("^[0-9a-zA-Z._-]*$", version)
         if m is None:  # 版本号应该是 数字/小写字母/下划线/. 组成
             return False
@@ -758,10 +1099,3 @@ class VersionRecommend(object):
             return ''
         else:
             return self.version_type.maintain_version(version_entry, current_version, pkg_type)
-
-
-if __name__ == '__main__':
-    version_recommend = VersionRecommend(
-        ['0.1', '0.2', '1.2.3', '1.2.4', '1.2.6', '1.3.0', '1.5-rc', '2.0-rc'], '1.2.3', 0)
-    print('latest_version', version_recommend.latest_version)
-    print('maintain_version', version_recommend.maintain_version)
