@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: importlib-metadata
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:27:10.233658530 +00:00
   raw_data: '{"info":{"author":"Barry Warsaw","author_email":"barry@python.org","bugtrack_url":null,"classifiers":["Development

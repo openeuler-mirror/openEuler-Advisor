@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  latchset/clevis
 tag_prefix: ^v
-seperator: .
+separator: .

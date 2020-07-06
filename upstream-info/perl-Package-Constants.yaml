@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: Package-Constants
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:39:42.154055280 +00:00
   raw_data: |

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: six
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:10:13.575662010 +00:00
   raw_data: '{"info":{"author":"Benjamin Peterson","author_email":"benjamin@python.org","bugtrack_url":null,"classifiers":["Development

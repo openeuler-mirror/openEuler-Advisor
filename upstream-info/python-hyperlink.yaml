@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: hyperlink
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:10:27.720319970 +00:00
   raw_data: '{"info":{"author":"Mahmoud Hashemi and Glyph Lefkowitz","author_email":"mahmoud@hatnote.com","bugtrack_url":null,"classifiers":["Development

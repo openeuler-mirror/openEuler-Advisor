@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  jirka-h/haveged
 tag_prefix: ^v
-seperator: .
+separator: .

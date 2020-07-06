@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pyxdg
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-05-20 09:43:05.776718170 +00:00
   raw_data: '{"info":{"author":"Freedesktop.org","author_email":"xdg@lists.freedesktop.org","bugtrack_url":null,"classifiers":["License

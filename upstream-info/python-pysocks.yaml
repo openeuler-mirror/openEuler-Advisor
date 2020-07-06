@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pysocks
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:26:19.783985300 +00:00
   raw_data: '{"info":{"author":"Anorov","author_email":"anorov.vorona@gmail.com","bugtrack_url":null,"classifiers":["Programming

@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  amluto/u2f-hidraw-policy
 tag_prefix: ^v
-seperator: .
+separator: .

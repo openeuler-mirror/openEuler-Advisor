@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: Math-BigInt-FastCalc
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 07:41:43.334893030 +00:00
   raw_data: |

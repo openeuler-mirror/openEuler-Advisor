@@ -2,7 +2,7 @@
 version_control: github
 src_repo: numactl/numactl
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 query_type: api.github.releases
 last_query:
   time_stamp: 2020-05-22 07:12:18.352085190 +00:00

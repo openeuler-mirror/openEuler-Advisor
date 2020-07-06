@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  oauthlib/oauthlib
 tag_prefix: ^v
-seperator: .
+separator: .

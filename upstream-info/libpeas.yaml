@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: libpeas
 tag_prefix: libpeas-
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:56:22.896540570 +00:00
   raw_data: |

@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  rhash/RHash
 tag_prefix: ^v
-seperator: .
+separator: .

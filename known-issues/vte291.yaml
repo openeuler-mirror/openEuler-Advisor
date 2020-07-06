@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: vte291
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:48:52.992902280 +00:00
   raw_data: ''

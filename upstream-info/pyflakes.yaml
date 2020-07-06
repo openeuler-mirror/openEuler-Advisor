@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pyflakes
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:10:09.168598080 +00:00
   raw_data: '{"info":{"author":"A lot of people","author_email":"code-quality@python.org","bugtrack_url":null,"classifiers":["Development

@@ -2,7 +2,7 @@
 version_control: github
 src_repo: libexif/libexif
 tag_pattern: libexif-(.*)-release
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-26 09:42:25.734118190 +00:00
   raw_data: |

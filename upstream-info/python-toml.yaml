@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: toml
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:24:12.077625320 +00:00
   raw_data: '{"info":{"author":"William Pearson","author_email":"uiri@xqz.ca","bugtrack_url":null,"classifiers":["Development

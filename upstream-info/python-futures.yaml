@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: futures
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:13:42.725157290 +00:00
   raw_data: '{"info":{"author":"Brian Quinlan","author_email":"brian@sweetapp.com","bugtrack_url":null,"classifiers":["Development

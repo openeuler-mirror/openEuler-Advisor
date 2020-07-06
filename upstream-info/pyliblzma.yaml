@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pyliblzma
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:29:31.170902590 +00:00
   raw_data: '{"info":{"author":"Per Oyvind Karlsen","author_email":"peroyvind@mandriva.org","bugtrack_url":null,"classifiers":["Development

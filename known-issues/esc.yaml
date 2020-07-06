@@ -2,7 +2,7 @@
 version_control: github
 src_repo: mjibson/esc
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:13:50.672576160 +00:00
   raw_data: |

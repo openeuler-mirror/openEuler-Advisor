@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: ruamel-yaml-clib
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:39:29.305958840 +00:00
   raw_data: '{"info":{"author":"Anthon van der Neut","author_email":"a.van.der.neut@ruamel.eu","bugtrack_url":null,"classifiers":["Development

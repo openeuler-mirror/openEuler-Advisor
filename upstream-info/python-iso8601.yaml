@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: iso8601
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:13:50.554632080 +00:00
   raw_data: '{"info":{"author":"Michael Twomey","author_email":"micktwomey+iso8601@gmail.com","bugtrack_url":null,"classifiers":["License

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: simplegeneric
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:27:18.742417470 +00:00
   raw_data: '{"info":{"author":"Phillip J. Eby","author_email":"peak@eby-sarna.com","bugtrack_url":null,"classifiers":["Development

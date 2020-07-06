@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: unittest2
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:12:44.052168430 +00:00
   raw_data: '{"info":{"author":"Robert Collins","author_email":"rbtcollins@hp.com","bugtrack_url":null,"classifiers":["Development

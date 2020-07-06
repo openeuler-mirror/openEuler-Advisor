@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: distro
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:12:32.848075880 +00:00
   raw_data: '{"info":{"author":"Nir Cohen","author_email":"nir36g@gmail.com","bugtrack_url":null,"classifiers":["Development

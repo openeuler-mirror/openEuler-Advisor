@@ -2,7 +2,7 @@
 version_control: github
 src_repo: cockpit-project/cockpit
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:04:23.826331300 +00:00
   raw_data: |

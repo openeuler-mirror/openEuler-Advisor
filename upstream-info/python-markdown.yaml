@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: markdown
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:10:48.019270250 +00:00
   raw_data: '{"info":{"author":"Manfred Stienstra, Yuri takhteyev and Waylan limberg","author_email":"waylan.limberg@icloud.com","bugtrack_url":null,"classifiers":["Development

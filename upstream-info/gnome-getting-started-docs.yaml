@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-getting-started-docs
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:58:42.431760350 +00:00
   raw_data: |

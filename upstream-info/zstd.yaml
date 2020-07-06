@@ -2,7 +2,7 @@
 version_control: github
 src_repo: facebook/zstd
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 query_type: api.github.releases
 last_query:
   time_stamp: 2020-05-21 06:54:19.758429460 +00:00

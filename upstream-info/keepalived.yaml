@@ -2,7 +2,7 @@
 version_control: github
 src_repo: acassen/keepalived
 tag_prefix: ^v
-seperator: .
+separator: .
 last_query:
   time_stamp: 2020-05-07 02:29:54.617483357 -04:00
   raw_data: |

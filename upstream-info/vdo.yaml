@@ -2,7 +2,7 @@
 version_control: github
 src_repo: dm-vdo/vdo
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 query_type: api.github.releases
 last_query:
   time_stamp: 2020-05-12 06:47:59.365408980 +00:00

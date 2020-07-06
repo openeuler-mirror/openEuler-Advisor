@@ -2,7 +2,7 @@
 version_control: github
 src_repo: dm-vdo/kvdo
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:03:29.189942980 +00:00
   raw_data: |

@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gupnp-igd
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:56:51.879548600 +00:00
   raw_data: |

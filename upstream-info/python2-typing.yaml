@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: typing
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 04:01:54.754943720 +00:00
   raw_data: '{"info":{"author":"Guido van Rossum, Jukka Lehtosalo, \u0141ukasz Langa,

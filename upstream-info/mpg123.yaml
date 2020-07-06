@@ -2,7 +2,7 @@
 version_control: svn
 src_repo: svn://scm.orgis.org/mpg123
 tag_prefix: ''
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-06-02 05:05:43.996596950 +00:00
   raw_data: |2

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: jsonpointer
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:22:16.621017540 +00:00
   raw_data: '{"info":{"author":"Stefan K\u00f6gl","author_email":"stefan@skoegl.net","bugtrack_url":null,"classifiers":["Development

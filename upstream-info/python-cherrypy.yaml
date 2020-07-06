@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: cherrypy
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:23:26.903944250 +00:00
   raw_data: '{"info":{"author":"CherryPy Team","author_email":"team@cherrypy.org","bugtrack_url":null,"classifiers":["Development

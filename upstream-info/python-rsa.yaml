@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: rsa
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:29:20.705603760 +00:00
   raw_data: '{"info":{"author":"Sybren A. Stuvel","author_email":"sybren@stuvel.eu","bugtrack_url":null,"classifiers":["Development

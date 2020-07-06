@@ -2,7 +2,7 @@
 version_control: github
 src_repo: open-iscsi/open-isns
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-05-20 09:42:29.787102980 +00:00
   raw_data: |

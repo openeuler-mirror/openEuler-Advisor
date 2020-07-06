@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: aniso8601
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:08:59.948334080 +00:00
   raw_data: '{"info":{"author":"Brandon Nielsen","author_email":"nielsenb@jetfuse.net","bugtrack_url":null,"classifiers":["Development

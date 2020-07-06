@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: alabaster
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 04:06:25.254501850 +00:00
   raw_data: '{"info":{"author":"Jeff Forcier","author_email":"jeff@bitprophet.org","bugtrack_url":null,"classifiers":["Development

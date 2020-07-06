@@ -2,7 +2,7 @@
 version_control: github
 src_repo: westes/flex
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:04:13.790400870 +00:00
   raw_data: |

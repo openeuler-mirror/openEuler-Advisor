@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gnome-packagekit
 tag_prefix: GNOME_PACKAGEKIT_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:58:30.278503960 +00:00
   raw_data: |

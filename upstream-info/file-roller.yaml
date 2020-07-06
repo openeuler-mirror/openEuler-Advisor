@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: file-roller
 tag_prefix: FILE_ROLLER_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:48:35.929494920 +00:00
   raw_data: |

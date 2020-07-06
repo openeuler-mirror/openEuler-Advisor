@@ -2,7 +2,7 @@
 version_control: metacpan
 src_repo: threads
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 06:56:40.677497630 +00:00
   raw_data: |

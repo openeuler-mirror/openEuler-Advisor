@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  andymccurdy/redis-py
 tag_prefix: ^v
-seperator: .
+separator: .

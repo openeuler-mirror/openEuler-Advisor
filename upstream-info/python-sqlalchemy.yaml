@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: sqlalchemy
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:25:18.262172630 +00:00
   raw_data: '{"info":{"author":"Mike Bayer","author_email":"mike_mp@zzzcomputing.com","bugtrack_url":null,"classifiers":["Development

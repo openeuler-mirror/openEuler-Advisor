@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: testscenarios
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:26:26.546622070 +00:00
   raw_data: '{"info":{"author":"Testing-cabal","author_email":"testing-cabal@lists.launchpad.net","bugtrack_url":null,"classifiers":["Development

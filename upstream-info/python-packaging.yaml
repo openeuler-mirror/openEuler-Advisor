@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: packaging
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:22:41.544150490 +00:00
   raw_data: '{"info":{"author":"Donald Stufft and individual contributors","author_email":"donald@stufft.io","bugtrack_url":null,"classifiers":["Development

@@ -2,7 +2,7 @@
 version_control: github
 src_repo: libnet/libnet
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-06-02 14:01:49.300687660 +00:00
   raw_data: |

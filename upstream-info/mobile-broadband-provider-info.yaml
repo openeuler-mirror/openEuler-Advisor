@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: mobile-broadband-provider-info
 tag_prefix: MOBILE_BROADBAND_PROVIDER_INFO_
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:57:42.448026140 +00:00
   raw_data: |

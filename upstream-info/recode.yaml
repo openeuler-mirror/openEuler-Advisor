@@ -2,7 +2,7 @@
 version_control: github
 src_repo: rrthomas/recode
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:26:37.271601180 +00:00
   raw_data: |

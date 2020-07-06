@@ -2,7 +2,7 @@
 version_control: github
 src_repo: BYVoid/OpenCC
 tag_prefix: "^ver."
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:25:44.759063890 +00:00
   raw_data: |

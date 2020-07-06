@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: kiwi
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-05-20 09:33:17.041909170 +00:00
   raw_data: '{"info":{"author":"Marcus Schaefer","author_email":"ms@suse.com","bugtrack_url":null,"classifiers":["Development

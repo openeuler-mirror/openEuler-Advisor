@@ -2,7 +2,7 @@
 version_control: github
 src_repo: achernya/hesiod
 tag_prefix: hesiod-
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:27:10.662870680 +00:00
   raw_data: |

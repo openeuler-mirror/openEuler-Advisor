@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: backports_abc
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:14:37.030315150 +00:00
   raw_data: '{"info":{"author":"Stefan Behnel et al.","author_email":"cython-devel@python.org","bugtrack_url":null,"classifiers":["Development

@@ -2,7 +2,7 @@
 version_control: github
 src_repo: fribidi/fribidi
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:04:03.191224450 +00:00
   raw_data: |

@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: librsvg2
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:59:10.575757240 +00:00
   raw_data: ''

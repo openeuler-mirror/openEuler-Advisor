@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: nautilus
 tag_prefix: NAUTILUS_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 14:01:04.097322110 +00:00
   raw_data: |

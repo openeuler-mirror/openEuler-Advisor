@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: vinagre
 tag_prefix: VINAGRE_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:43:36.728840900 +00:00
   raw_data: |

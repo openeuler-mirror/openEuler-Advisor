@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  rpm-software-management/librepo
 tag_prefix: ^v
-seperator: .
+separator: .

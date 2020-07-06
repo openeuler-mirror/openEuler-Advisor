@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: httplib2
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:28:31.768287370 +00:00
   raw_data: '{"info":{"author":"Joe Gregorio","author_email":"joe@bitworking.org","bugtrack_url":null,"classifiers":["Development

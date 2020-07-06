@@ -47,9 +47,9 @@ def clean_tags(tags, info):
     else:
         result_list = tags
 
-    if info.get("seperator", ".") != "." and info.get("seperator", ".") is not None:
-        seperator_regex = re.compile(info["seperator"])
-        result_list = [seperator_regex.sub(".", x) for x in result_list]
+    if info.get("separator", ".") != "." and info.get("separator", ".") is not None:
+        separator_regex = re.compile(info["separator"])
+        result_list = [separator_regex.sub(".", x) for x in result_list]
 
     result_list = [x for x in result_list if x[0].isdigit()]
 

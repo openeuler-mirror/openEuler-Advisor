@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: gtkmm30
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-24 13:50:46.921854220 +00:00
   raw_data: ''

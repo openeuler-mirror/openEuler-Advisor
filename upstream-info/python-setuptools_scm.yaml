@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: setuptools_scm
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:18:13.086987970 +00:00
   raw_data: '{"info":{"author":"Ronny Pfannschmidt","author_email":"opensource@ronnypfannschmidt.de","bugtrack_url":null,"classifiers":["Development

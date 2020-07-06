@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: blinker
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:12:28.645047000 +00:00
   raw_data: '{"info":{"author":"Jason Kirtland","author_email":"jek@discorporate.us","bugtrack_url":null,"classifiers":["Development

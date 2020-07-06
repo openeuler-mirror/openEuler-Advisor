@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  systemd/python-systemd
 tag_prefix: ^v
-seperator: .
+separator: .

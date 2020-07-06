@@ -2,7 +2,7 @@
 version_control: github
 src_repo: fontforge/fontforge
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 08:52:48.054127240 +00:00
   raw_data: |

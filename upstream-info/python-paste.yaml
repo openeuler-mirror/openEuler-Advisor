@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: paste
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:19:57.395734290 +00:00
   raw_data: '{"info":{"author":"Chris Dent","author_email":"chris.dent@gmail.com","bugtrack_url":null,"classifiers":["Development

@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: pluggy
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:12:11.399617070 +00:00
   raw_data: '{"info":{"author":"Holger Krekel","author_email":"holger@merlinux.eu","bugtrack_url":null,"classifiers":["Development

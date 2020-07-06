@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: setuptools
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:16:32.910227200 +00:00
   raw_data: '{"info":{"author":"Python Packaging Authority","author_email":"distutils-sig@python.org","bugtrack_url":null,"classifiers":["Development

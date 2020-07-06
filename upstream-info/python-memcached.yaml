@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: python-memcached
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:48:34.974907780 +00:00
   raw_data: '{"info":{"author":"Sean Reifschneider","author_email":"jafo@tummy.com","bugtrack_url":null,"classifiers":["Development

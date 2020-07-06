@@ -2,7 +2,7 @@
 version_control: gitlab.gnome
 src_repo: ORBit2
 tag_prefix: ORBIT2?_
-seperator: _
+separator: _
 last_query:
   time_stamp: 2020-04-24 13:51:02.654048380 +00:00
   raw_data: |

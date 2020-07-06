@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  NagiosEnterprises/nagioscore
 tag_prefix: ^v
-seperator: .
+separator: .

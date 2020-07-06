@@ -2,7 +2,7 @@
 version_control: github
 src_repo: GNOME/librsvg
 tag_prefix: ''
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-06-02 13:58:29.948841320 +00:00
   raw_data: |

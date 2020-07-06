@@ -2,7 +2,7 @@
 version_control: github
 src_repo: andikleen/mcelog
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 11:21:16.397985260 +00:00
   raw_data: |

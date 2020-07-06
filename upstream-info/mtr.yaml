@@ -2,7 +2,7 @@
 version_control: github
 src_repo: traviscross/mtr
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 09:25:17.039398270 +00:00
   raw_data: |

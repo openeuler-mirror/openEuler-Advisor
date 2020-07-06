@@ -2,7 +2,7 @@
 version_control: pypi
 src_repo: singledispatch
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-04-26 03:09:04.565089500 +00:00
   raw_data: '{"info":{"author":"\u0141ukasz Langa","author_email":"lukasz@langa.pl","bugtrack_url":null,"classifiers":["Development
