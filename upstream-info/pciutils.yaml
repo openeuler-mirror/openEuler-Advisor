@@ -1,0 +1,5 @@
+version_control: git
+src_repo: git://git.kernel.org/pub/scm/utils/pciutils/pciutils.git
+tag_prefix: "^v"
+seperator: "."
+

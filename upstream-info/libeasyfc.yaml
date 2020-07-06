@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://bitbucket.org/tagoh/libeasyfc.git
+tag_prefix: ^
+seperator: .

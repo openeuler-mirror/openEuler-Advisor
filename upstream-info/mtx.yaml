@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: https://svn.code.sf.net/p/mtx/code
+tag_prefix: ^v
+seperator: _

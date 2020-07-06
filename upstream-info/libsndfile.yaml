@@ -1,0 +1,5 @@
+version_control: github
+src_repo: erikd/libsndfile
+tag_prefix:
+seperator: "."
+

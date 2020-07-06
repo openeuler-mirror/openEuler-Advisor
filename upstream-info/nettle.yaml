@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.lysator.liu.se/nettle/nettle.git
+tag_prefix: nettle_
+seperator: .

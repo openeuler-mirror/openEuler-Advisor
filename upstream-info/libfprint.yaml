@@ -1,0 +1,5 @@
+git_url: https://gitlab.freedesktop.org/libfprint/libfprint.git
+version_control: git
+src_repo: https://gitlab.freedesktop.org/libfprint/libfprint
+tag_prefix: "^v"
+seperator: "."

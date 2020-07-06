@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: http://svn.apache.org/repos/asf/httpd/mod_fcgid/
+tag_prefix: "^"
+seperator: "."

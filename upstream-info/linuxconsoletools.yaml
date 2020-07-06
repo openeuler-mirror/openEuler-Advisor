@@ -1,0 +1,4 @@
+version_control: git
+src_repo:  https://git.code.sf.net/p/linuxconsole/code
+tag_prefix: linuxconsoletools-
+seperator: .

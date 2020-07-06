@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ImageMagick/ImageMagick6
+tag_prefix: "^"
+seperator: "."

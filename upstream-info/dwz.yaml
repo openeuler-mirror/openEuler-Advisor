@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://sourceware/git/dwz.git
+tag_prefix: ^dwz- 
+seperator: . 

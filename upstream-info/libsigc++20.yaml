@@ -1,0 +1,4 @@
+version_control: github
+src_repo: libsigcplusplus/libsigcplusplus
+tag_pattern: ^v
+seperator: .

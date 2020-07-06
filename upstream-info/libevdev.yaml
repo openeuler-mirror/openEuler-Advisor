@@ -1,0 +1,5 @@
+version_control: git
+src_repo: git@gitlab.freedesktop.org:xorg/lib/libevdev.git
+tag_prefix: libevdev-
+seperator: "."
+

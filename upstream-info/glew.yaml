@@ -1,0 +1,4 @@
+version_control: github
+src_repo: nigels-com/glew
+tag_prefix: glew-
+seperator: .

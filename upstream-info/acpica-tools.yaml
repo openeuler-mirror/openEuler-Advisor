@@ -1,0 +1,4 @@
+version_control: github
+src_repo: acpica/acpica
+tag_prefix: "^R"
+seperator: "_"

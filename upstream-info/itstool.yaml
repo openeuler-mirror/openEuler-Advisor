@@ -1,0 +1,4 @@
+version_control: github
+src_repo: itstool/itstool
+tag_prefix: ^
+seperator: .

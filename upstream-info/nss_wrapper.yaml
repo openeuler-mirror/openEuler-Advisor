@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.samba.org/nss_wrapper.git
+tag_prefix: nss_wrapper-
+seperator: .

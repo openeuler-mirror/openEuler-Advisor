@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.lttng.org/lttng-ust.git
+tag_prefix: ^v
+seperator: .

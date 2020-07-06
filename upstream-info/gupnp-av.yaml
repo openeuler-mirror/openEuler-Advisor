@@ -1,0 +1,4 @@
+version_control: git
+src_repo:  gupng-av
+tag_prefix: ^gupng-av-
+seperator: .

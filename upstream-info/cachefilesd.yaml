@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.kernel.org/pub/scm/linux/kernel/git/dhowells/cachefilesd.git 
+tag_prefix: "^v"
+seperator: "."

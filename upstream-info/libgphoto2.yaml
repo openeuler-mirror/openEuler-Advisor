@@ -1,0 +1,4 @@
+version_control: github
+src_repo: gphoto/libgphoto2
+tag_pattern: libgphoto2-
+seperator: _

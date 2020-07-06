@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  GStreamer/gst-plugins-good
+tag_prefix: ^
+seperator: .

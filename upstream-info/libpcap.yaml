@@ -1,0 +1,4 @@
+version_control: github
+src_repo: the-tcpdump-group/libpcap
+tag_prefix: libpcap-
+seperator: .

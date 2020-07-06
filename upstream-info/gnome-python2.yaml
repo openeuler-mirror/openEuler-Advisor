@@ -1,0 +1,4 @@
+version_control: gitlab.gnome
+src_repo: gnome-python
+tag_prefix: GNOME_PYTHON_
+seperator: _

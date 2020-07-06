@@ -1,0 +1,5 @@
+version_control: git
+src_repo: git://git.savannah.gnu.org/parted.git
+tag_prefix: "^v"
+seperator: "."
+

@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.netfilter.org/libnetfilter_queue
+tag_prefix: libnetfilter_queue
+seperator: .

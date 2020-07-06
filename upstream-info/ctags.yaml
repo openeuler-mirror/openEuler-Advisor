@@ -1,0 +1,4 @@
+version_control: svn                                                                                              
+src_repo: https://svn.code.sf.net/p/ctags/code/trunk                                                                                             
+tag_prefix: "^Ctags-"                                                                                              
+seperator: "_"

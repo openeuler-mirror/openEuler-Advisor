@@ -1,0 +1,4 @@
+version_control: github
+src_repo: pld-linux/jfsutils
+tag_prefix: ^.*jfsutils- 
+seperator: . 

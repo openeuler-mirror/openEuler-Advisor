@@ -1,0 +1,4 @@
+version_control: svn
+src_repo:  http://svn.musepack.net/libmpcdec
+tag_prefix: release-
+seperator: .

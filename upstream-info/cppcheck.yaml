@@ -1,0 +1,4 @@
+version_control: github
+src_repo: danmar/cppcheck
+tag_prefix: ^
+seperator: .

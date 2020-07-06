@@ -1,0 +1,5 @@
+version_control: github
+src_repo: tlwg/libthai
+tag_prefix: "^v"
+seperator: "."
+

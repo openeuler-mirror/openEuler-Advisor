@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: https://svn.code.sf.net/p/lame/svn/trunk/lame
+tag_prefix: RELEASE_
+seperator: _

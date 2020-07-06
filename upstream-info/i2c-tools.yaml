@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git
+tag_prefix: ^v
+seperator: .
+

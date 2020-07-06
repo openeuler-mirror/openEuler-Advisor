@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ipmitool/ipmitool
+tag_prefix: IPMITOOL_
+seperator: _
