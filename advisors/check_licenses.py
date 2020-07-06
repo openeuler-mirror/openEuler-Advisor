@@ -25,7 +25,7 @@ This script is for information only. It's known to provide false result in situa
     If they are not the same, output:
     "licenses from LICENSES are not same as form SPEC:[xxx, yyy] <=> [xxx, yyy]"
 
-(2) This script depends on download.py and license_translations,
+(2) This script depends on license_translations,
     you can add keywords for licenses in license_translations.
 
 (3) Command parameters
@@ -36,9 +36,6 @@ This script is for information only. It's known to provide false result in situa
         (e.g. /home/test.spec)
 
     Optional parameters:		
-    -w  With this parameter, if the licenses in the tar 
-        and the licenses in the spec file are are not the same, 
-        modify the spec file directly.
     -d  Specify the decompression path of the tar package, 
         default: /var/tmp/tmp_tarball
 """
