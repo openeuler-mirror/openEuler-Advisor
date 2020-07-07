@@ -21,6 +21,7 @@ import subprocess
 import os.path
 import re
 import datetime
+import version_recommend
 
 def download_source_url(spec, o_ver, n_ver):
     """
@@ -100,6 +101,7 @@ if __name__ == "__main__":
     args = pars.parse_args()
 
     my_gitee = gitee.Gitee()
+    my_version = version_recommend.VersionType()
     spec_string= my_gitee.get_spec(args.pkg)
 
     s_spec = Spec.from_string(spec_string)
@@ -131,7 +133,11 @@ if __name__ == "__main__":
             print("I'm too naive to handle complicated package.")
             print("This package has multiple in-house patches.")
             sys.exit(1)
-        create_spec(args.pkg, spec_string, cur_ver, args.new_version)
+        if(my_version._max(args.new_version, cur_ver) ==1):
+            create_spec(args.pkg, spec_string, cur_ver, args.new_version)
+        else:
+            print("Please check version of {pkg} will upgrade to, it's current version is {version}.".format(
+				pkg=args.pkg, version=cur_ver))
 
     if args.PR:
         my_gitee.create_pr(my_gitee.token["user"], args.pkg)

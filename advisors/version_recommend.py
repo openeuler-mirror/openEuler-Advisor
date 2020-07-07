@@ -90,8 +90,10 @@ class VersionType(object):
                     return -1
         if len1 > len2:
             return 1
-        else:
+        elif len1 < len2:
             return -1
+        else:
+            return 0
 
     def get_version_mode(self):
         """
@@ -111,7 +113,7 @@ class VersionType(object):
         :returns: The split result
         :raises: None
         """
-        for f, s in re.findall(r'([\d.]+)|([^\d.]+)', x):
+        for f, s in re.findall(r'([\d]+)|([^\d.]+)', x):
             if f:
                 float(f)
                 yield f
