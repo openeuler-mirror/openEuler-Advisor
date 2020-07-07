@@ -1,0 +1,1036 @@
+[
+  {
+    "input": {
+      "packagename": "A1"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B1",
+                "install"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B2",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "C",
+      "packtype": "source"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B1",
+                "install"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "A",
+                "build"
+              ],
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B2",
+                "install"
+              ]
+            ]
+          ],
+          "C2": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A2",
+      "selfbuild": "0",
+      "withsubpack": "1"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B1",
+                "install"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B2",
+                "install"
+              ],
+              [
+                "A",
+                "build"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "D2",
+                "install"
+              ]
+            ]
+          ],
+          "C2": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "Subpack"
+              ]
+            ]
+          ],
+          "D2": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "D",
+                "Subpack"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "B": [
+            "openEuler-20.03-LTS",
+            "0.0.2"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A",
+      "selfbuild": "0",
+      "withsubpack": "1",
+      "packtype": "source"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B1",
+                "install"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B2",
+                "install"
+              ],
+              [
+                "A",
+                "build"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "D2",
+                "install"
+              ]
+            ]
+          ],
+          "C2": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "Subpack"
+              ]
+            ]
+          ],
+          "D2": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "D",
+                "Subpack"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "B": [
+            "openEuler-20.03-LTS",
+            "0.0.2"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A",
+      "selfbuild": "1",
+      "withsubpack": "1",
+      "packtype": "source"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ],
+              [
+                "B1",
+                "install"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B",
+                "build"
+              ],
+              [
+                "A",
+                "build"
+              ],
+              [
+                "B2",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "D2",
+                "install"
+              ]
+            ]
+          ],
+          "C2": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "Subpack"
+              ]
+            ]
+          ],
+          "D2": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "D",
+                "Subpack"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "B": [
+            "openEuler-20.03-LTS",
+            "0.0.2"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A2",
+      "selfbuild": "1",
+      "withsubpack": "0"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ],
+              [
+                "B1",
+                "install"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B",
+                "build"
+              ],
+              [
+                "A",
+                "build"
+              ],
+              [
+                "B2",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "B": [
+            "openEuler-20.03-LTS",
+            "0.0.2"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A",
+      "selfbuild": "1",
+      "withsubpack": "0",
+      "packtype": "source"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "D1",
+                "install"
+              ],
+              [
+                "B",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ],
+              [
+                "B1",
+                "install"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "root",
+                null
+              ],
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C1",
+                "install"
+              ],
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "D",
+                "build"
+              ]
+            ]
+          ],
+          "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "C",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ],
+              [
+                "B",
+                "build"
+              ],
+              [
+                "A",
+                "build"
+              ],
+              [
+                "B2",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ]
+        },
+        "source_dicts": {
+          "A": [
+            "openEuler-20.03-LTS",
+            "0.0.23b"
+          ],
+          "B": [
+            "openEuler-20.03-LTS",
+            "0.0.2"
+          ],
+          "C": [
+            "openEuler-20.03-LTS",
+            "0.1"
+          ],
+          "D": [
+            "openEuler-20.03-LTS",
+            "0.11"
+          ]
+        }
+      },
+      "msg": "Successful Operation!"
+    }
+  }
+]
