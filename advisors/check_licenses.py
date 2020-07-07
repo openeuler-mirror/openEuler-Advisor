@@ -226,15 +226,15 @@ def scan_licenses_in_SPEC(specfile):
     the program will exit with an error. 
     """
     s_spec = Spec.from_file(specfile)
-    license = replace_macros(s_spec.license, s_spec)
+    licenses = replace_macros(s_spec.license, s_spec)
 
     excludes = ["and", "AND"]
 
-    if license in license_translations:
-        real_words = license_translations.get(license, license)
+    if licenses in license_translations:
+        real_words = license_translations.get(licenses, licenses)
         add_license_from_spec_file(real_words)
     else:
-        words = clean_license_string(license).split()
+        words = clean_license_string(licenses).split()
         for word in words:
             if word not in excludes:
                 real_word = license_translations.get(word, word)
