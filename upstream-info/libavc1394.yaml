@@ -1,4 +1,4 @@
 version_control: svn
 src_repo: https://svn.code.sf.net/p/libavc1394/code/trunk
 tag_prefix: "^v"
-seperator: "."
+separator: "."

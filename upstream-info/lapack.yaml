@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  Reference-LAPACK/lapack
 tag_prefix: ^v
-seperator: .
+separator: .

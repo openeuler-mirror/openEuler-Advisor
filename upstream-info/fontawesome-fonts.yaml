@@ -1,4 +1,4 @@
 version_control: github
 src_repo: FortAwesome/Font-Awesome
 tag_prefix: ^
-seperator: .
+separator: .

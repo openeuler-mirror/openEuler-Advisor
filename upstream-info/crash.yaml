@@ -1,4 +1,4 @@
 version_control: github
 src_repo: carsh-utility/crash
 tag_prefix: 
-seperator: . 
+separator: . 

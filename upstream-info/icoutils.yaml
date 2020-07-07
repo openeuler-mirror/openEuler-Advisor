@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/icoutils.git
 tag_prefix: ^
-seperator: .
+separator: .

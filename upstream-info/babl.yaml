@@ -1,4 +1,4 @@
 version_control: gitlab.gnome
 src_repo: babl
 tag_prefix: ^BABL_
-seperator: _
+separator: _

@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://cgit.libimobiledevice.org/libplist.git
 tag_prefix: 
-seperator: 
+separator: 

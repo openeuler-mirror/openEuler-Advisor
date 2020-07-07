@@ -2,7 +2,7 @@
 version_control: gitee
 src_repo: openEuler/lcr
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-07-01 16:03:11.677912422 +08:00
   raw_data: 

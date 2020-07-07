@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://fedorapeople.org/cgit/adelton/public_git/mod_intercept_form_submit.git
 tag_prefix: mod_intercept_form_submit-
-seperator: .
+separator: .

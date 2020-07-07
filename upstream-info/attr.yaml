@@ -1,4 +1,4 @@
 version_control: git
 src_repo: git://git.savannah.gnu.org/attr.git
 tag_prefix: attr-
-seperator: "."
+separator: "."

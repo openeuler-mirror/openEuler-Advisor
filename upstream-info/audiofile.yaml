@@ -1,4 +1,4 @@
 version_control: github
 src_repo: mpruett/audiofile
 tag_prefix: ^audiofile- 
-seperator: . 
+separator: . 

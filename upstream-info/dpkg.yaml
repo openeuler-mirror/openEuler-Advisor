@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://git.dpkg.org/git/dpkg/dpkg.git
 tag_prefix: ^
-seperator: .
+separator: .

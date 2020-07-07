@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  libguestfs/hivex
 tag_prefix: ^v
-seperator: .
+separator: .

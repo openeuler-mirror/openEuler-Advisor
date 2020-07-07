@@ -1,4 +1,4 @@
 version_control: git
 src_repo: http://bitmath.org/git/mtdev.git
 tag_prefix: ^v
-seperator: 
+separator: 

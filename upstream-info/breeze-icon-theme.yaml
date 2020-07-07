@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://anongit.kde.org/breeze-icons.git
 tag_prefix: ^v
-seperator: .
+separator: .

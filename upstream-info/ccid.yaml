@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://salsa.debian.org/rousseau/CCID.git
 tag_prefix: ^ccid-
-seperator: .
+separator: .

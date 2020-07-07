@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://dev.gnupg.org/source/gnupg.git
 tag_prefix: ^gnupg-
-seperator: .
+separator: .

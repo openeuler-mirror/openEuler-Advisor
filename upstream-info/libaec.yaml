@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://gitlab.dkrz.de/k202009/libaec.git
 tag_prefix: ^v
-seperator: .
+separator: .

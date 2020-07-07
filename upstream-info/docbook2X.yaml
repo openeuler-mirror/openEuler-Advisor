@@ -1,4 +1,4 @@
 version_control: github
 src_repo: Distrotech/docbook2X
 tag_prefix: ^
-seperator: .
+separator: .

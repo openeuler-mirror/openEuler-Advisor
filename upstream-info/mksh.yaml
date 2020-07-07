@@ -1,4 +1,4 @@
 version_control: github
 src_repo: MirBSD/mksh
 tag_prefix: "mksh-R"
-seperator: "."
+separator: "."

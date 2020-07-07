@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://dev.gnupg.org/source/libassuan.git
 tag_prefix: libassuan-
-seperator: .
+separator: .

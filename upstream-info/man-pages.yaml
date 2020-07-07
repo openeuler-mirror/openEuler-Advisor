@@ -1,4 +1,4 @@
 version_control: git 
 src_repo: https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git 
 tag_prefix: ^man-pages- 
-seperator: . 
+separator: . 

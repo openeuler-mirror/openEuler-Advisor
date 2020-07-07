@@ -1,4 +1,4 @@
 version_control: svn
 src_repo: https://svn.code.sf.net/p/openjade/code
 tag_prefix: jade_RELEASE-
-seperator: _
+separator: _

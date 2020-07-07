@@ -1,4 +1,4 @@
 version_control: git
 src_repo: git://git.kernel.blktrace 
 tag_prefix: "blktrace-"
-seperator: "."
+separator: "."

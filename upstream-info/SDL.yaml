@@ -1,4 +1,4 @@
 version_control: hg
 src_repo: http://hg.libsdl.org/SDL
 tag_prefix: "release-"
-seperator: "."
+separator: "."

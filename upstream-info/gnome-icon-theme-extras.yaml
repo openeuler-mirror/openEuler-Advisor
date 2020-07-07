@@ -1,4 +1,4 @@
 version_control: gitlab.gnome
 src_repo: gnome-icon-theme-extras
 tag_prefix: GNOME_ICON_THEME_EXTRAS_
-seperator: _
+separator: _

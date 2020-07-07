@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://git.launchpad.net/cloud-utils
 tag_prefix: ^ubuntu/0.31-
-seperator: .
+separator: .

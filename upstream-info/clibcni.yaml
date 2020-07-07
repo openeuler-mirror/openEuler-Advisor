@@ -2,7 +2,7 @@
 version_control: gitee
 src_repo: openEuler/clibcni
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-07-01 17:57:03.951067211 +08:00
   raw_data: 

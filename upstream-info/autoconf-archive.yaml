@@ -1,4 +1,4 @@
 version_control: git
 src_repo: git://git.sv.gnu.org/autoconf-archive.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

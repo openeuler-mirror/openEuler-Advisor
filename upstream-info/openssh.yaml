@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://anongit.mindrot.org/openssh.git
 tag_prefix: V.
-seperator: _
+separator: _

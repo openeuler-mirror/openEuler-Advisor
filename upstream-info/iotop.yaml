@@ -1,4 +1,4 @@
 version_control: git 
 src_repo: git://repo.or.cz/iotop.git
 tag_prefix: iotop-
-seperator: .
+separator: .

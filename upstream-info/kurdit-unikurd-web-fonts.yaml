@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  gooselinux/kurdit-unikurd-web-fonts
 tag_prefix: ^
-seperator: .
+separator: .

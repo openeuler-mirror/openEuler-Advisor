@@ -1,4 +1,4 @@
 version_control: git
 src_repo: git://git.linux-nfs.org/projects/steved/nfs-utils.git 
 tag_prefix: "nfs-utils-"
-seperator: "-"
+separator: "-"

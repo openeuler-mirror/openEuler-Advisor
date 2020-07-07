@@ -1,4 +1,4 @@
 version_control: gitlab.gnome
 src_repo:  gom
 tag_prefix: ^
-seperator: .
+separator: .

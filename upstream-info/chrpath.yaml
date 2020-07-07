@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://salsa.debian.org/themusicgod1-guest/chrpath.git
 tag_prefix: 
-seperator: 
+separator: 

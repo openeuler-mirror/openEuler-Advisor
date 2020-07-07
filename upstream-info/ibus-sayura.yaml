@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://pagure.io/ibus-sayura.git
 tag_prefix: ^v
-seperator: .
+separator: .

@@ -1,4 +1,4 @@
 version_control: github
 src_repo: adelton/mod_lookup_identity
 tag_prefix: mod_lookup_identity-
-seperator: .
+separator: .

@@ -1,4 +1,4 @@
 version_control: git
 src_repo: git://git.netfilter.org/ebtables
 tag_prefix: ebtables-
-seperator: .
+separator: .

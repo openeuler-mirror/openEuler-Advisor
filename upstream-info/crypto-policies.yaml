@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://gitlab.com/redhat-crypto/fedora-crypto-policies.git
 tag_prefix: "^f"
-seperator:
+separator:

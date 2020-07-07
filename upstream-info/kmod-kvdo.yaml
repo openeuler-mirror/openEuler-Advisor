@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  dm-vdo/kvdo
 tag_prefix: ^v
-seperator: .
+separator: .

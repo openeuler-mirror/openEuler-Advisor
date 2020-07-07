@@ -1,4 +1,4 @@
 version_control: hg
 src_repo: https://hg.mozilla.org/projects/nss
 tag_prefix: ^NSS_
-seperator: _
+separator: _

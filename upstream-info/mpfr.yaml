@@ -1,4 +1,4 @@
 version_control: svn
 src_repo: https://scm.gforge.inria.fr/anonscm/svn/mpfr/tags
 tag_prefix: 
-seperator: .
+separator: .

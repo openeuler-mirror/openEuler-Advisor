@@ -1,4 +1,4 @@
 version_control: git
 src_repo:  https://gitlab.freedesktop.org/vdpau/libvdpau.git
 tag_prefix: libvdpau-
-seperator: .
+separator: .

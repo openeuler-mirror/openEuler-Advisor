@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  open-mpi/hwloc
 tag_prefix: hwloc-
-seperator: .
+separator: .

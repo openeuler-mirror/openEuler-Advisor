@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://dev.lovelyhq.com/libburnia
 tag_pattern: release-
-seperator: .
+separator: .

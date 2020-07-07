@@ -1,4 +1,4 @@
 version_control: git
 src_repo: git://git.savannah.gnu.org/libcdio.git
 tag_prefix: libcdio-
-seperator: "."
+separator: "."

@@ -2,7 +2,7 @@
 version_control: gitee
 src_repo: openEuler/iSulad
 tag_prefix: "^v"
-seperator: "."
+separator: "."
 last_query:
   time_stamp: 2020-07-01 16:18:27.627607538 +08:00
   raw_data: 

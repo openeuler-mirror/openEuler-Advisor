@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://pagure.io/oddjob.git
 tag_prefix: ^oddjob- 
-seperator: . 
+separator: . 

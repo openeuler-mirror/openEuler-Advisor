@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://pagure.io/mlocate.git
 tag_prefix: ^mlocate- 
-seperator: . 
+separator: . 
