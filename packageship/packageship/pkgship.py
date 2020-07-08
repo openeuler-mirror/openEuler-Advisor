@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
 Description: Entry method for custom commands
-Class: BaseCommand,PkgshipCommand,RemoveCommand,InitDatabaseCommand,UpdateDatabaseCommand,AllPackageCommand,
-       UpdatePackageCommand,BuildDepCommand,InstallDepCommand,SelfBuildCommand,BeDependCommand,SingleCommand
+Class: BaseCommand,PkgshipCommand,RemoveCommand,InitDatabaseCommand,UpdateDatabaseCommand,
+       AllPackageCommand,UpdatePackageCommand,BuildDepCommand,InstallDepCommand,
+       SelfBuildCommand,BeDependCommand,SingleCommand
 """
 import os
 import json
@@ -246,7 +247,7 @@ class PkgshipCommand(BaseCommand):
                         if bin_package not in \
                                 self.statistics[package_depend[ListNode.DBNAME]]['binary']:
                             self.statistics[package_depend[ListNode.DBNAME]
-                            ]['binary'].append(bin_package)
+                                            ]['binary'].append(bin_package)
                             bin_package_count += 1
                         # Determine whether the source package exists
                         if package_depend[ListNode.SOURCE_NAME] not in \
@@ -558,10 +559,10 @@ class AllPackageCommand(PkgshipCommand):
             ConnectionError: Request connection error
         """
         _url = self.read_host + \
-               '/packages?dbName={dbName}'.format(dbName=params.db)
+            '/packages?dbName={dbName}'.format(dbName=params.db)
         try:
             response = requests.get(_url)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -626,9 +627,9 @@ class UpdatePackageCommand(PkgshipCommand):
                 _url, data=json.dumps({'sourceName': params.packagename,
                                        'dbName': params.db,
                                        'maintainer': params.m,
-                                       'maintainLevel': params.l}),
+                                       'maintainlevel': params.l}),
                 headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -703,7 +704,7 @@ class BuildDepCommand(PkgshipCommand):
                 _url, data=json.dumps({'sourceName': params.packagename,
                                        'db_list': params.dbs}),
                 headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -799,7 +800,7 @@ class InstallDepCommand(PkgshipCommand):
                         if bin_package not in \
                                 self.statistics[package_depend[ListNode.DBNAME]]['binary']:
                             self.statistics[package_depend[ListNode.DBNAME]
-                            ]['binary'].append(bin_package)
+                                            ]['binary'].append(bin_package)
                             bin_package_count += 1
                         # Determine whether the source package exists
                         if package_depend[ListNode.SOURCE_NAME] not in \
@@ -835,7 +836,7 @@ class InstallDepCommand(PkgshipCommand):
                     'binaryName': params.packagename,
                     'db_list': params.dbs
                 }, ensure_ascii=True), headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -911,9 +912,9 @@ class SelfBuildCommand(PkgshipCommand):
             bin_packages: Binary package data
 
         Returns:
-        
+
         Raises:
-            
+
         """
         bin_package_count = 0
         if bin_packages:
@@ -934,7 +935,7 @@ class SelfBuildCommand(PkgshipCommand):
                     if bin_package not in \
                             self.statistics[package_depend[ListNode.DBNAME]]['binary']:
                         self.statistics[package_depend[ListNode.DBNAME]
-                        ]['binary'].append(bin_package)
+                                        ]['binary'].append(bin_package)
                         bin_package_count += 1
                     self.bin_package_table.add_row(row_data)
 
@@ -968,7 +969,7 @@ class SelfBuildCommand(PkgshipCommand):
                     # Determine whether the current binary package exists
                     if src_package not in self.statistics[package_depend[DB_NAME]]['source']:
                         self.statistics[package_depend[DB_NAME]
-                        ]['source'].append(src_package)
+                                        ]['source'].append(src_package)
                         src_package_count += 1
 
                     self.src_package_table.add_row(row_data)
@@ -1029,7 +1030,7 @@ class SelfBuildCommand(PkgshipCommand):
                                          'selfbuild': str(params.s),
                                          'withsubpack': str(params.w)}),
                                      headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -1195,11 +1196,11 @@ class SingleCommand(PkgshipCommand):
             ConnectionError: requests connection error
         """
         _url = self.read_host + \
-               '/packages/findByPackName?dbName={db_name}&sourceName={packagename}' \
+            '/packages/findByPackName?dbName={db_name}&sourceName={packagename}' \
                    .format(db_name=params.db, packagename=params.packagename)
         try:
             response = requests.get(_url)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:

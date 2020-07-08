@@ -30,7 +30,8 @@ LOGGER = Log(__name__)
 
 class InitDataBase():
     """
-    Description: Database initialization, generate multiple databases and data based on configuration files
+    Description: Database initialization, generate multiple databases and data
+                 based on configuration files
     Attributes:
         config_file_path: configuration file path
         config_file_datas: initialize the configuration content of the database
@@ -62,7 +63,8 @@ class InitDataBase():
 
     def __read_config_file(self):
         """
-        Description: Read the contents of the configuration file load each node data in the yaml configuration file as
+        Description: Read the contents of the configuration file load each
+                    node data in the yaml configuration file as
         a list to return
         Args:
 
@@ -831,7 +833,7 @@ class SqliteDatabaseOperations():
         self.db_name = db_name
         self._read_config = ReadConfig()
         if getattr(kwargs, 'database_path', None) is None:
-            self.database_file_path()
+            self._database_file_path()
         else:
             self.database_file_folder = kwargs.get('database_path')
 

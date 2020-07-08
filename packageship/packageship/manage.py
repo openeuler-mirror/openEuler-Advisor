@@ -1,8 +1,8 @@
+#!/usr/bin/python3
 '''
     Entry for project initialization and service startupc
 '''
 import os
-from flask_script import Manager
 from packageship.libs.exception import Error
 try:
     from packageship.system_config import SYS_CONFIG_PATH

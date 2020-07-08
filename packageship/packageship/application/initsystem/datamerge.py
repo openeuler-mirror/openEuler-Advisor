@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Description: Integration of multiple sqlite file data, including reading sqlite database and inserting data
+Description: Integration of multiple sqlite file data, including reading
+             sqlite database and inserting data
 Class: MergeData
 """
 from sqlalchemy.exc import SQLAlchemyError
@@ -34,11 +35,17 @@ class MergeData():
         self.db_file = db_file
         self.db_type = 'sqlite:///'
         self.datum_database = 'maintenance.information'
+        self.src_requires_dicts = None
+        self.src_package_datas = None
+        self.bin_provides_dicts = None
+        self.bin_package_datas = None
+        self.mainter_infos = None
 
     @staticmethod
     def __columns(cursor):
         """
-        Description: functional description:Returns all the column names queried by the current cursor
+        Description: functional description:Returns all the column names
+                     queried by the current cursor
         Args:
             cursor: Cursor
 
@@ -195,14 +202,17 @@ class MergeData():
             if src_package_name:
                 # Find the maintainer information of the current data
                 maintenance_infos = self.mainter_infos.get(src_package_name)
-                maintenance = None
+                maintenance = []
+                version = src_package_item.get('version')
                 if self.mainter_infos.get(src_package_name):
-                    maintenance = list(filter(lambda x: x.get(
-                        'version') == src_package_item.get('version'), maintenance_infos))
+                    for maintenance_item in maintenance_infos:
+                        if maintenance_item.get('version') == version:
+                            maintenance.append(maintenance_item)
+
                 self.src_package_datas.append(
                     {
                         "name": src_package_item.get('name'),
-                        "version": src_package_item.get('version'),
+                        "version": version,
                         "rpm_license": src_package_item.get('rpm_license'),
                         "url": src_package_item.get('url'),
                         "pkgKey": src_package_item.get('pkgKey'),

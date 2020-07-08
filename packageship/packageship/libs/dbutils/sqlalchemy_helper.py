@@ -33,7 +33,7 @@ class DBHelper():
     # The base class inherited by the data model
     BASE = declarative_base()
 
-    def __init__(self, user_name=None, passwrod=None, ip_address=None,  # pylint: disable=R0913
+    def __init__(self, user_name=None, password=None, ip_address=None,  # pylint: disable=R0913
                  port=None, db_name=None, db_type=None, **kwargs):
         """
         Description: Class instance initialization
@@ -44,7 +44,7 @@ class DBHelper():
         if self.user_name is None:
             self.user_name = self._readconfig.get_database('user_name')
 
-        self.password = passwrod
+        self.password = password
         if self.password is None:
             self.password = self._readconfig.get_database('password')
 
@@ -139,7 +139,7 @@ class DBHelper():
         """
 
         session = sessionmaker()
-        if getattr(self, 'engine') is None:
+        if not hasattr(self, 'engine'):
             raise DisconnectionError('Abnormal database connection')
         session.configure(bind=self.engine)
 
@@ -148,7 +148,8 @@ class DBHelper():
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """
-        Description: functional description:Release the database connection pool and close the connection
+        Description: functional description:Release the database connection pool
+                     and close the connection
         Args:
 
         Returns:

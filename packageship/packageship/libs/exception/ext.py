@@ -5,6 +5,7 @@ Class:Error,ContentNoneException,DbnameNoneException,
     DatabaseRepeatException,DataMergeException
 """
 
+
 class Error(Exception):
 
     """
@@ -12,6 +13,7 @@ class Error(Exception):
     Attributes:
         message:Exception information
     """
+
     def __init__(self, msg=''):
         self.message = msg
         Exception.__init__(self, msg)
