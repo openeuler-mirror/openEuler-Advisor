@@ -184,14 +184,17 @@ class MergeData():
             if src_package_name:
                 # Find the maintainer information of the current data
                 maintenance_infos = self.mainter_infos.get(src_package_name)
-                maintenance = None
+                maintenance = []
+                version = src_package_item.get('version')
                 if self.mainter_infos.get(src_package_name):
-                    maintenance = list(filter(lambda x: x.get(
-                        'version') == src_package_item.get('version'), maintenance_infos))
+                    for maintenance_item in maintenance_infos:
+                        if maintenance_item.get('version') == version:
+                            maintenance.append(maintenance_item)
+
                 self.src_package_datas.append(
                     {
                         "name": src_package_item.get('name'),
-                        "version": src_package_item.get('version'),
+                        "version": version,
                         "rpm_license": src_package_item.get('rpm_license'),
                         "url": src_package_item.get('url'),
                         "pkgKey": src_package_item.get('pkgKey'),
