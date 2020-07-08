@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: https://code.google.com/archive/p/libmodman/source/default/source
+tag_prefix: ^libmodman-
+separator: .

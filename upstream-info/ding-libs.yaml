@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://pagure.io/SSSD/ding-libs.git
+tag_prefix: ^ding_libs-
+separator: _

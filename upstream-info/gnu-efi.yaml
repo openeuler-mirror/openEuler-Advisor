@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.code.sf.net/p/gnu-efi/code
+tag_prefix: gnu-efi-
+separator: .

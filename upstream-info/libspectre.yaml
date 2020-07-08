@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  qunying/libspectre
+tag_prefix: ^
+separator: .

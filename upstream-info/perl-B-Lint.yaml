@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: B-Lint
+tag_prefix: "^v"
+separator: "."

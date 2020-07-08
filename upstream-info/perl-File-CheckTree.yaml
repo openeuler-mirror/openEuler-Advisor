@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: File-CheckTree
+tag_prefix: ^
+separator: .

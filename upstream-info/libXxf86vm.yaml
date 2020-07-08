@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitee.com/tong_1001/libXxf86vm.git/
+tag_prefix: ^libXxf86vm-
+separator: "."

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ocaml/ocaml
+tag_prefix: ^v
+separator: .

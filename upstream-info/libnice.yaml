@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  libnice/libnice
+tag_prefix: ^
+separator: .

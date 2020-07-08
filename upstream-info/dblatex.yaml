@@ -1,0 +1,4 @@
+version_control: hg
+src_repo: http://hg.code.sf.net/p/dblatex/dblatex
+tag_prefix: ^v
+separator: _

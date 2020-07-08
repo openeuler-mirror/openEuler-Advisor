@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: DBD-Pg
+tag_prefix: ^
+separator: .

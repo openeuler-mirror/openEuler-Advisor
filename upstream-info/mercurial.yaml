@@ -1,0 +1,4 @@
+version_control: hg
+src_repo: https://www.mercurial-scm.org/repo/hg
+tag_prefix: 
+separator: 

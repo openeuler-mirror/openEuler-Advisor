@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  voikko/corevoikko
+tag_prefix: rel-libvoikko-
+separator: .

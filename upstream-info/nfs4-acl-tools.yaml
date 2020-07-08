@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.linux-nfs.org/projects/bfields/nfs4-acl-tools.git 
+tag_prefix: "nfs4-acl-tools-"
+separator: "."

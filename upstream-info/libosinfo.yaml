@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.com/libosinfo/libosinfo.git
+tag_prefix: ^v 
+separator: . 

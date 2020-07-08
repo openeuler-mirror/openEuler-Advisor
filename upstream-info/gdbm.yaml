@@ -1,0 +1,4 @@
+version_control: git 
+src_repo: git://gnu.org.ua/gdbm.git
+tag_prefix: gdbm-
+separator: .

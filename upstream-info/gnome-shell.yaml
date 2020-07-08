@@ -1,0 +1,4 @@
+version_control: gitlab.gnome
+src_repo: gnome-shell
+tag_prefix: ^
+separator: .

@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.savannah.nongnu.org/cgit/m4.git
+tag_prefix: ^v 
+separator: . 

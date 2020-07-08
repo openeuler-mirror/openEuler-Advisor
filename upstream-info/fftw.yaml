@@ -1,0 +1,4 @@
+version_control: github
+src_repo: FFTW/fftw3
+tag_prefix: ^fftw-
+separator: .

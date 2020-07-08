@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  nih-at/libzip
+tag_prefix: ^(rel-|v)
+separator: "-"

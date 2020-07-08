@@ -1,0 +1,4 @@
+version_control: github
+src_repo: kdave/btrfs-progs
+tag_prefix: ^v
+separator: "."

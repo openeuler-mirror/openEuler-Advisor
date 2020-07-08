@@ -1,0 +1,4 @@
+version_control: github
+src_repo: legatvs/libquvi-scripts
+tag_prefix: ^v 
+separator: . 

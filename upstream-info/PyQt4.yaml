@@ -1,0 +1,4 @@
+version_control: pypi
+src_repo: PyQt4
+tag_prefix: ^
+separator: .

@@ -1,0 +1,4 @@
+version_control: gitlab.gnome
+src_repo: gupnp-dlna
+tag_prefix: "^gupnp-dlna-"
+separator: "."

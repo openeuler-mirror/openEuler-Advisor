@@ -1,0 +1,4 @@
+version_control: github
+src_repo: metabrainz/libmusicbrainz
+tag_prefix: release-
+separator: .

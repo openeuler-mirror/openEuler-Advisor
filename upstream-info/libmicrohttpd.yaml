@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  Karlson2k/libmicrohttpd
+tag_prefix: ^v
+separator: .
