@@ -25,16 +25,16 @@ class DBHelper():
     # The base class inherited by the data model
     BASE = declarative_base()
 
-    def __init__(self, user_name=None, passwrod=None, ip_address=None,  # pylint: disable=R0913
+    def __init__(self, user_name=None, password=None, ip_address=None,  # pylint: disable=R0913
                  port=None, db_name=None, db_type=None, **kwargs):
         self.user_name = user_name
         self._readconfig = ReadConfig()
         if self.user_name is None:
             self.user_name = self._readconfig.get_database('user_name')
 
-        self.passwrod = passwrod
-        if self.passwrod is None:
-            self.passwrod = self._readconfig.get_database('password')
+        self.password = password
+        if self.password is None:
+            self.password = self._readconfig.get_database('password')
 
         self.ip_address = ip_address
 
@@ -79,11 +79,11 @@ class DBHelper():
                 self.db_type + self.db_name, encoding='utf-8', convert_unicode=True,
                 connect_args={'check_same_thread': False})
         else:
-            if all([self.user_name, self.passwrod, self.ip_address, self.port, self.db_name]):
+            if all([self.user_name, self.password, self.ip_address, self.port, self.db_name]):
                 # create connection object
                 self.engine = create_engine(URL(**{'database': self.db_name,
                                                    'username': self.user_name,
-                                                   'password': self.passwrod,
+                                                   'password': self.password,
                                                    'host': self.ip_address,
                                                    'port': self.port,
                                                    'drivername': self.db_type}),
