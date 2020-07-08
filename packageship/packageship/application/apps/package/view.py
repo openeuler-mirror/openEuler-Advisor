@@ -1,5 +1,8 @@
+#!/usr/bin/python3
 """
-view: Request logic processing Return json format
+description: Interface processing
+class: BeDepend, BuildDepend, InitSystem, InstallDepend, Packages,
+Repodatas, SelfDepend, SinglePack
 """
 import yaml
 from flask import request
@@ -41,22 +44,38 @@ LOGGER = Log(__name__)
 
 
 class Packages(Resource):
-    '''
+    """
     Description: interface for package info management
     Restful API: get
     changeLog:
-    '''
+    """
 
     def get(self):
-        '''
+        """
         Description: Get all package info from a database
-        input:
-            dbName
-        return:
-            json file contain package's info
-        Exception:
-        Changelog:
-        '''
+        Args:
+            dbName: Data path name, not required parameter
+        Returns:
+           {
+               "code": "",
+                "data": [
+                    {
+                        "dbname": "",
+                        "downloadURL": "",
+                        "license": "",
+                        "maintainer": ,
+                        "maintainlevel": ,
+                        "sourceName": "",
+                        "sourceURL": "",
+                        "version": ""
+                    },
+                 "msg": ""
+            }
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            Error: Abnormal error
+        """
         # Get verification parameters
         schema = PackagesSchema()
         data = schema.dump(request.args)
@@ -96,24 +115,45 @@ class Packages(Resource):
                 ResponseCode.response_json(
                     ResponseCode.DIS_CONNECTION_DB))
 
+
 class SinglePack(Resource):
-    '''
+    """
     description: single package management
-    Restful API: get, put
+    Restful API: get、put
     ChangeLog:
-    '''
+    """
 
     def get(self):
-        '''
+        """
         description: Searching a package info
-        input:
-            sourceName
-            dbName
-        return:
-            json file contain package's detailed info
-        exception:
-        changeLog:
-        '''
+        Args:
+            dbName: Database name, not required parameter
+            sourceName: Source code package name, must pass
+        Returns:
+            {
+            "code": "",
+            "data": [
+                {
+                    "buildDep": [],
+                    "dbname": "",
+                    "downloadURL": "",
+                    "license": "",
+                    "maintainer": "",
+                    "maintainlevel": "",
+                    "sourceName": "",
+                    "sourceURL": "",
+                    "subpack": {},
+                    "version": ""
+                }
+                    ],
+            "msg": ""
+            }
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            TypeError: Exception of type
+            Error: Abnormal error
+        """
         # Get verification parameters
         schema = GetpackSchema()
         data = schema.dump(request.args)
@@ -160,17 +200,25 @@ class SinglePack(Resource):
             return jsonify(ResponseCode.response_json(abnormal))
 
     def put(self):
-        '''
-        Description: update a package info
-        input:
-            packageName
-            dbName
-            maintainer
-            maintainLevel
-        return:
-        exception:
-        changeLog:
-        '''
+        """
+        Description: update a package info,
+        Args:
+            dbName: Database name,Parameters are required
+            sourceName: The name of the source code package. Parameters are required
+            maintainer: Maintainer, parameter not required
+            maintainlevel: Maintenance level, parameter not required
+        Returns:
+            {
+              "code": "",
+              "data": "",
+              "msg": ""
+            }
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            TypeError: Exception of type
+            Error: Abnormal error
+        """
         # Get verification parameters
         schema = PutpackSchema()
         data = schema.dump(request.get_json())
@@ -215,38 +263,27 @@ class SinglePack(Resource):
 
 
 class InstallDepend(Resource):
-    '''
+    """
     Description: install depend of binary package
     Restful API: post
     changeLog:
-    '''
+    """
 
     def post(self):
-        '''
+        """
         Description: Query a package's install depend(support
                      querying in one or more databases)
-        input:
-            binaryName
-            dbPreority: the array for database preority
-        return:
-            resultDict{
-                binary_name: //binary package name
-                [
-                    src, //the source package name for
-                            that binary packge
-                    dbname,
-                    version,
-                    [
-                        parent_node, //the binary package name which is
-                                       the install depend for binaryName
-                        type //install  install or build, which
-                                depend on the function
-                    ]
-                ]
+        Args:
+            binaryName:name of the bin package
+            dbPreority:the array for database preority
+        Returns:
+            {
+              "code": "",
+              "data": "",
+              "msg": ""
             }
-        exception:
-        changeLog:
-        '''
+        Raises:
+        """
         schema = InstallDependSchema()
 
         data = request.get_json()
@@ -292,35 +329,28 @@ class InstallDepend(Resource):
 
 
 class BuildDepend(Resource):
-    '''
+    """
     Description: build depend of binary package
     Restful API: post
     changeLog:
-    '''
+    """
 
     def post(self):
-        '''
+        """
         Description: Query a package's build depend and
                      build depend package's install depend
                      (support querying in one or more databases)
-        input:
-            sourceName:
-            dbPreority: the array for database preority
-        return:
-            resultList[
-                restult[
-                    binaryName:
-                    srcName:
-                    dbName:
-                    type: install or build, which depend
-                          on the function
-                    parentNode: the binary package name which is
-                                the build/install depend for binaryName
-                ]
-            ]
-        exception:
-        changeLog:
-        '''
+        Args:
+            sourceName :name of the source package
+            dbPreority：the array for database preority
+        Returns:
+            {
+              "code": "",
+              "data": "",
+              "msg": ""
+            }
+        Raises:
+        """
         schema = BuildDependSchema()
 
         data = request.get_json()
@@ -360,38 +390,31 @@ class BuildDepend(Resource):
 
 
 class SelfDepend(Resource):
-    '''
+    """
     Description: querying install and build depend for a package
                  and others which has the same src name
     Restful API: post
     changeLog:
-    '''
+    """
 
     def post(self):
-        '''
-        description: Query a package's all dependencies including install and build depend
+        """
+        Description: Query a package's all dependencies including install and build depend
                         (support quering a binary or source package in one or more databases)
-        input:
-            packageName:
+        Args:
+            packageName:package name
             packageType: source/binary
             selfBuild :0/1
             withSubpack: 0/1
-            dbPreority: the array for database preority
-        return:
-            resultList[
-                restult[
-                    binaryName:
-                    srcName:
-                    dbName:
-                    type: install or build, which depend on the function
-                    parentNode: the binary package name which is the
-                                build/install depend for binaryName
-                ]
-            ]
-
-        exception:
-        changeLog:
-        '''
+            dbPreority：the array for database preority
+        Returns:
+            {
+              "code": "",
+              "data": "",
+              "msg": ""
+            }
+        Raises:
+        """
         schema = SelfDependSchema()
 
         data = request.get_json()
@@ -440,22 +463,22 @@ class SelfDepend(Resource):
 
 
 class BeDepend(Resource):
-    '''
+    """
     Description: querying be installed and built depend for a package
                  and others which has the same src name
     Restful API: post
     changeLog:
-    '''
+    """
 
     def post(self):
-        '''
+        """
         description: Query a package's all dependencies including
                      be installed and built depend
-        input:
-            packageName:
+        Args:
+            packageName:package name
             withSubpack: 0/1
-            dbname:
-        return:
+            dbname:database name
+        Returns:
             resultList[
                 restult[
                     binaryName:
@@ -468,7 +491,7 @@ class BeDepend(Resource):
             ]
         exception:
         changeLog:
-        '''
+        """
         schema = BeDependSchema()
         data = request.get_json()
         validate_err = schema.validate(data)
@@ -501,27 +524,41 @@ class BeDepend(Resource):
 
 
 class Repodatas(Resource):
-    """API for operating databases"""
+    """
+    description: Get database information and delete database
+    Restful API: get, delete
+    ChangeLog:
+    """
 
     def get(self):
-        '''
+        """
         description: get all database
-        input:
-        return:
-            databasesName
-            status
-            priority
-        exception:
-        changeLog:
-        '''
+        Args:
+        Returns:
+            {
+              "code": "",
+              "data": [
+                    {
+                        "database_name": "",
+                        "priority": "",
+                        "status": ""
+                    }
+                ],
+                "msg": ""
+            }
+        Raises:
+            FileNotFoundError: File not found exception
+            TypeError: Exception of wrong type
+            Error: abnormal Error
+        """
         try:
             with open(DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
                 init_database_date = yaml.load(
                     file_context.read(), Loader=yaml.FullLoader)
                 if init_database_date is None:
                     raise ContentNoneException(
-                        "The content of the database initialization configuration "
-                        "file cannot be empty ")
+                        "The content of the database initialization configuration "
+                        "file cannot be empty")
                 init_database_date.sort(
                     key=lambda x: x['priority'], reverse=False)
                 return jsonify(
@@ -535,11 +572,20 @@ class Repodatas(Resource):
             )
 
     def delete(self):
-        '''
+        """
         description: get all database
-        input: database name
-        return: success or failure
-        '''
+        Args:
+        Returns:
+            {
+              "code": "",
+              "data": "",
+              "msg": ""
+            }
+        Raises:
+            FileNotFoundError: File not found exception,
+            TypeError: Exception of wrong type
+            Error: Abnormal error
+        """
         schema = DeletedbSchema()
         data = schema.dump(request.args)
         if schema.validate(data):
@@ -570,15 +616,29 @@ class Repodatas(Resource):
 
 
 class InitSystem(Resource):
-    '''InitSystem'''
+    """
+    description: Initialize database
+    Restful API: post
+    ChangeLog:
+    """
 
     def post(self):
         """
         description: InitSystem
-        input:
-        return:
-        exception:
-        changeLog:
+        Args:
+        Returns:
+            {
+              "code": "",
+              "data": "",
+              "msg": ""
+            }
+        Raises:
+            ContentNoneException: Unable to connect to the exception of the database
+            DisconnectionError：Exception connecting to database
+            TypeError：Exception of wrong type
+            DataMergeException：Exception of merging data
+            FileNotFoundError：File not found exception
+            Error: abnormal Error
         """
         schema = InitSystemSchema()
 

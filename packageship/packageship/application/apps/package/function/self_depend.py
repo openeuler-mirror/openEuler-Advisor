@@ -1,8 +1,10 @@
-'''
-    Querying for self dependencies
+#!/usr/bin/python3
+"""
+Description: Querying for self dependencies
     Querying packages install and build depend for those package can be
     build and install
-'''
+class: SelfDepend, DictionaryOperations
+"""
 
 import copy
 from packageship.libs.log import Log
@@ -14,13 +16,28 @@ from .build_depend import BuildDepend as build_depend
 
 LOGGER = Log(__name__)
 
+
 class SelfDepend():
-    '''
+    """
+    Description:
         Querying for self dependencies
         Querying packages install and build depend for those package can be
         build and install
-    '''
+    Attributes:
+        db_list: list of database names
+        binary_dict: Contain all the binary packages info and operation
+        source_dicts: Contain all the source packages info and operation
+        result_tmp: restore the return result dict
+        search_install_list: Contain the binary packages searched install dep in the next loop
+        search_build_list: Contain the source packages searched build dep in the next loop
+        search_subpack_list: Contain the source packages searched subpack in the next loop
+        withsubpack: withsubpack
+        search_db: A object of database which would be connected
+    """
     def __init__(self, db_list):
+        """
+        init class
+        """
         self.binary_dict = DictionaryOperations()
         self.source_dicts = DictionaryOperations()
         self.result_tmp = dict()
@@ -34,9 +51,15 @@ class SelfDepend():
     def query_depend(self, packname, selfbuild, withsubpack, packtype='binary'):
         """
         Description: init result dict and determint the loop end point
-        input: packname, selfbuild, withsubpack, packtype
-        return: result dicts, source dicts
-        changeLog:
+        Args:
+             packname: Package name
+             selfbuild: selfbuild
+             withsubpack: withsubpack
+             packtype: package type
+        Returns:
+             binary_dict.dictionary: Contain all the binary packages info after searching
+             source_dicts.dictionary: Contain all the source packages info after searching
+        Raises:
         """
         if not self.search_db.db_object_dict:
             return ResponseCode.DIS_CONNECTION_DB, None, None
@@ -67,9 +90,12 @@ class SelfDepend():
     def init_dict(self, packname, packtype):
         """
         Description: init result dict
-        input: packname, packtype
-        return: response_code
-        changeLog:
+        Args:
+             packname: package name
+             packtype: package type
+        Returns:
+            response_code
+        Raises:
         """
         if packtype == 'source':
             response_code, subpack_list = self.search_db.get_sub_pack([packname])
@@ -99,8 +125,9 @@ class SelfDepend():
     def query_install(self):
         """
         Description: query install depend
-        return:
-        changeLog:
+        Args:
+        Returns:
+        Raises:
         """
         self.result_tmp.clear()
         _, self.result_tmp = \
@@ -131,8 +158,9 @@ class SelfDepend():
     def with_subpack(self):
         """
         Description: query subpackage
-        return:
-        changeLog:
+        Args:
+        Returns:
+        Raises:
         """
         if None in self.search_subpack_list:
             LOGGER.logger.warning("There is a  NONE in input value:" + \
@@ -153,8 +181,10 @@ class SelfDepend():
     def query_build(self, selfbuild):
         """
         Description: query build depend
-        return:
-        changeLog:
+        Args:
+            selfbuild: selfbuild
+        Returns:
+        Raises:
         """
         self.result_tmp.clear()
         if selfbuild == 0:
@@ -165,8 +195,9 @@ class SelfDepend():
     def query_builddep(self):
         """
         Description: for selfbuild == 0, query selfbuild depend
-        return:
-        changeLog:
+        Args:
+        Returns:
+        Raises:
         """
         _, self.result_tmp, _ = build_depend(
             self.search_build_list,
@@ -197,8 +228,8 @@ class SelfDepend():
     def query_selfbuild(self):
         """
         Description: for selfbuild == 1, query selfbuild depend
-        return:
-        changeLog:
+        Args:
+        Returns:
         """
         _, self.result_tmp, source_dicts_tmp = build_depend(
             self.search_build_list,
@@ -228,32 +259,55 @@ class SelfDepend():
 
 
 class DictionaryOperations():
-    '''
-        Related to dictionary operations, creating dictionary, append dictionary
-    '''
+    """
+    Description: Related to dictionary operations, creating dictionary, append dictionary
+    Attributes:
+        dictionary: dict
+    """
 
     def __init__(self):
-
+        """
+        init class
+        """
         self.dictionary = dict()
 
     def append_src(self, key, dbname, version):
-        '''
-        Appending source dictionary
-        '''
+        """
+        Description: Appending source dictionary
+        Args:
+            key: bianry name
+            dbname: database name
+            version: version
+        Returns:
+        Raises:
+        """
         self.dictionary[key] = [dbname, version]
 
     def append_bin(self, key, src=None, version=None, dbname=None, parent_node=None):
-        '''
-        Appending binary dictionary
-        '''
+        """
+        Description: Appending binary dictionary
+        Args:
+            key: binary name
+            src: source name
+            version: version
+            dbname: database name
+            parent_node: parent node
+        Returns:
+        Raises:
+        """
         if not parent_node:
             self.dictionary[key] = [src, version, dbname, [['root', None]]]
         else:
             self.dictionary[key] = [src, version, dbname, [parent_node]]
 
     def update_value(self, key, parent_list=None):
-        '''
-        append dictionary
-        '''
+        """
+        Args:
+            key: binary name
+            parent_list: parent list
+        Returns:
+        Raises:
+        """
+
         if parent_list:
             self.dictionary[key][ListNode.PARENT_LIST].extend(parent_list)

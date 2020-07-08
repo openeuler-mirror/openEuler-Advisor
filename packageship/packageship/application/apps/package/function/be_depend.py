@@ -1,9 +1,10 @@
-# -*- coding:utf-8 -*-
-'''
-    The dependencies of the query package
+#!/usr/bin/python3
+"""
+Description:The dependencies of the query package
     Used for package deletion and upgrade scenarios
     This includes both install and build dependencies
-'''
+Class: BeDepend
+"""
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql import literal_column
@@ -12,33 +13,50 @@ from packageship.libs.dbutils import DBHelper
 from packageship.application.models.package import src_pack
 from packageship.application.apps.package.function.constants import ResponseCode
 
-class BeDepend:
-    '''
-    Find the dependencies of the source package
-    '''
+
+class BeDepend():
+    """
+    Description: Find the dependencies of the source package
+    Attributes:
+        source_name: source name
+        db_name: database name
+        with_sub_pack: with_sub_pack
+        source_name_set:Source package lookup set
+        bin_name_set:Bin package lookup set
+        result_dict:return json
+    """
 
     def __init__(self, source_name, db_name, with_sub_pack):
-        '''
-        :param source_name: source_name
-        :param db_name: db_name
-        :param with_sub_pack: with_sub_pack
-        '''
+        """
+        init class
+        """
         self.source_name = source_name
         self.db_name = db_name
         self.with_sub_pack = with_sub_pack
-        # Source package lookup set
         self.source_name_set = set()
-        # Bin package lookup set
         self.bin_name_set = set()
-        # return json
         self.result_dict = dict()
 
     def main(self):
-        '''
-        Map the database, if the source package of the query is not in the database,
+        """
+            Description: Map the database, if the source
+            package of the query is not in the database,
          throw an exception. Directly to the end
-        :return:
-        '''
+            Args:
+            Returns:
+                "source name": [
+                "source",
+                "version",
+                "dbname",
+                [
+                    [
+                        "root",
+                        null
+                    ]
+                ]
+                ]
+            Raises:
+        """
         with DBHelper(db_name=self.db_name) as data_base:
             src_obj = data_base.session.query(
                 src_pack).filter_by(name=self.source_name).first()
@@ -57,13 +75,16 @@ class BeDepend:
         return self.result_dict
 
     def package_bedepend(self, pkg_id_list, data_base, package_type):
-        '''
-        Query the dependent function
-        :param pkg_id_list:source or binary packages id
-        :param data_base: database
-        :param package_type: package type
-        :return:
-        '''
+        """
+            Description: Query the dependent function
+            Args:
+                pkg_id_list:source or binary packages id
+                data_base: database
+                package_type: package type
+            Returns:
+            Raises:
+                SQLAlchemyError: Database connection exception
+        """
         search_set = set(pkg_id_list)
         id_in = literal_column('id').in_(search_set)
         # package_type
@@ -171,14 +192,17 @@ class BeDepend:
             self.package_bedepend(bin_id_list, data_base, package_type="bin")
 
     def make_dicts(self, key, source_name, version, parent_node, be_type):
-        '''
-        :param key: dependent bin name
-        :param source_name: source name
-        :param version: version
-        :param parent_node: Rely on package name
-        :param be_type: dependent type
-        :return:
-        '''
+        """
+            Description: Splicing dictionary function
+            Args:
+                 key: dependent bin name
+                 source_name: source name
+                 version: version
+                 parent_node: Rely on package name
+                 be_type: dependent type
+            Returns:
+            Raises:
+        """
         if key not in self.result_dict:
             self.result_dict[key] = [
                 source_name,
@@ -191,7 +215,7 @@ class BeDepend:
                 ]
             ]
         else:
-            if [parent_node,be_type] not in self.result_dict[key][-1]:
+            if [parent_node, be_type] not in self.result_dict[key][-1]:
                 self.result_dict[key][-1].append([
                     parent_node,
                     be_type

@@ -1,13 +1,17 @@
-'''
-    System exception information
-'''
-
+#!/usr/bin/python3
+"""
+Description:System exception information
+Class:Error,ContentNoneException,DbnameNoneException,
+    DatabaseRepeatException,DataMergeException
+"""
 
 class Error(Exception):
-    """
-        Base class for ConfigParser exceptions
-    """
 
+    """
+    Description: Read the configuration file base class in the system
+    Attributes:
+        message:Exception information
+    """
     def __init__(self, msg=''):
         self.message = msg
         Exception.__init__(self, msg)
@@ -19,36 +23,40 @@ class Error(Exception):
 
 
 class ContentNoneException(Error):
-    '''
-        Content is empty exception
-    '''
+    """
+    Description: Content is empty exception
+    Attributes:
+    """
 
     def __init__(self, message):
         Error.__init__(self, 'No content: %r' % (message,))
 
 
 class DbnameNoneException(ContentNoneException):
-    '''
-        Exception with empty database name
-    '''
+    """
+    Description: Exception with empty database name
+    Attributes:
+    """
 
     def __init__(self, message):
         ContentNoneException.__init__(self, '%r' % (message,))
 
 
 class DatabaseRepeatException(Error):
-    '''
-        There are duplicate exceptions in the database
-    '''
+    """
+    Description: There are duplicate exceptions in the database
+    Attributes:
+    """
 
     def __init__(self, message):
         Error.__init__(self, 'Database repeat: %r' % (message,))
 
 
 class DataMergeException(Error):
-    '''
-        abnormal integration data
-    '''
+    """
+    Description: abnormal integration data
+    Attributes:
+    """
 
     def __init__(self, message):
         Error.__init__(self, 'DataMerge exception: %r' % (message,))
