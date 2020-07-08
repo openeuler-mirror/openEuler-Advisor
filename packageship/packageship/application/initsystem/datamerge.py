@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-'''
- Integration of multiple sqlite file data, including
- reading sqlite database and inserting data
-'''
+"""
+Description: Integration of multiple sqlite file data, including reading
+             sqlite database and inserting data
+Class: MergeData
+"""
 from sqlalchemy.exc import SQLAlchemyError
 from packageship.application.models.temporarydb import src_package
 from packageship.application.models.temporarydb import src_requires
@@ -17,16 +18,20 @@ LOGGER = Log(__name__)
 
 
 class MergeData():
-    '''
-    Load data from sqlite database
+    """
+    Description: Load data from sqlite database
     Attributes:
         db_file: Database file
         db_type: Connected database type
         datum_database: Base database name
-    '''
+    """
 
     def __init__(self, db_file):
-
+        """
+        Description: Class instance initialization
+        Args:
+            db_file: Database file
+        """
         self.db_file = db_file
         self.db_type = 'sqlite:///'
         self.datum_database = 'maintenance.information'
@@ -38,24 +43,31 @@ class MergeData():
 
     @staticmethod
     def __columns(cursor):
-        '''
-            functional description:Returns all the column names queried by the current cursor
-        '''
+        """
+        Description: functional description:Returns all the column names
+                     queried by the current cursor
+        Args:
+            cursor: Cursor
 
+        Returns:
+            The first columns
+        Raises:
+
+        """
         return [col[0] for col in cursor.description]
 
     def get_package_data(self):
-        '''
-        get binary package or source package data
+        """
+        Description: get binary package or source package data
         Args:
 
         Returns:
             All source package data queried
         Raises:
             SQLAlchemyError: An error occurred while executing the sql statement
-        '''
+        """
         try:
-            with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True)\
+            with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True) \
                     as database:
                 src_packages_data = database.session.execute(
                     "select pkgKey,name,version,rpm_license,url,rpm_sourcerpm from packages")
@@ -67,17 +79,17 @@ class MergeData():
             return None
 
     def get_requires_data(self):
-        '''
-        get dependent package data of binary package or source package
+        """
+        Description: get dependent package data of binary package or source package
         Args:
 
         Returns:
             All dependent data queried
         Raises:
             SQLAlchemyError: An error occurred while executing the sql statement
-        '''
+        """
         try:
-            with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True)\
+            with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True) \
                     as database:
                 requires = database.session.execute(
                     "select pkgKey,name from requires")
@@ -88,17 +100,17 @@ class MergeData():
             return None
 
     def get_provides(self):
-        '''
-        get the dependency package provided by the binary package
+        """
+        Description: get the dependency package provided by the binary package
         Args:
 
         Returns:
             Query the component data provided by all binary packages
         Raises:
             SQLAlchemyError: An error occurred while executing the sql statement
-        '''
+        """
         try:
-            with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True)\
+            with DBHelper(db_name=self.db_file, db_type=self.db_type, import_database=True) \
                     as database:
                 requires = database.session.execute(
                     "select pkgKey,name from provides")
@@ -109,15 +121,15 @@ class MergeData():
             return None
 
     def get_maintenance_info(self):
-        '''
-        Obtain the information of the maintainer
+        """
+        Description: Obtain the information of the maintainer
         Args:
 
         Returns:
             Maintainer related information
         Raises:
             SQLAlchemyError: An error occurred while executing the sql statement
-        '''
+        """
         try:
             if not hasattr(self, 'mainter_infos'):
                 self.mainter_infos = dict()
@@ -133,8 +145,8 @@ class MergeData():
             LOGGER.logger.error(sql_error)
 
     def src_file_merge(self, src_package_key, db_file):
-        '''
-        Source code related data integration
+        """
+        Description: Source code related data integration
         Args:
             src_package_key: The relevant key value of the source package
             db_file: Database file
@@ -143,7 +155,7 @@ class MergeData():
             (0, False) or (src_package_key, True)
         Raises:
             SQLAlchemyError: An error occurred while executing the sql statement
-        '''
+        """
         self.get_maintenance_info()
 
         self.__compose_src_package()
@@ -173,9 +185,15 @@ class MergeData():
             return (src_package_key, True)
 
     def __compose_src_package(self):
-        '''
-            Combine source package data
-        '''
+        """
+        Description: Combine source package data
+        Args:
+
+        Returns:
+
+        Raises:
+
+        """
         if getattr(self, 'src_package_datas', None) is None:
             self.src_package_datas = []
 
@@ -199,15 +217,21 @@ class MergeData():
                         "url": src_package_item.get('url'),
                         "pkgKey": src_package_item.get('pkgKey'),
                         'maintaniner':
-                        maintenance[0].get('maintaniner') if maintenance and len(
-                            maintenance) > 0 else None
+                            maintenance[0].get('maintaniner') if maintenance and len(
+                                maintenance) > 0 else None
                     }
                 )
 
     def __compose_src_rquires(self):
-        '''
-            Combine source package dependent package data
-        '''
+        """
+        Description: Combine source package dependent package data
+        Args:
+
+        Returns:
+
+        Raises:
+
+        """
         if getattr(self, 'src_requires_dicts', None) is None:
             self.src_requires_dicts = dict()
 
@@ -224,9 +248,15 @@ class MergeData():
                 )
 
     def __compose_bin_package(self):
-        '''
-            Combine binary package data
-        '''
+        """
+        Description: Combine binary package data
+        Args:
+
+        Returns:
+
+        Raises:
+            AttributeError
+        """
         if getattr(self, 'bin_package_datas', None) is None:
             self.bin_package_datas = []
 
@@ -250,9 +280,14 @@ class MergeData():
                 )
 
     def __compose_bin_requires(self):
-        '''
-            Combining binary dependent package data
-        '''
+        """
+        Description: Combining binary dependent package data
+        Args:
+
+        Returns:
+
+        Raises:
+        """
         if getattr(self, 'bin_requires_dicts', None) is None:
             self.bin_requires_dicts = dict()
 
@@ -267,9 +302,15 @@ class MergeData():
                 })
 
     def __compose_bin_provides(self):
-        '''
-            Combine binary package data
-        '''
+        """
+        Description: Combine binary package data
+        Args:
+
+        Returns:
+
+        Raises:
+
+        """
         if getattr(self, 'bin_provides_dicts', None) is None:
             self.bin_provides_dicts = dict()
 
@@ -284,8 +325,8 @@ class MergeData():
                 })
 
     def bin_file_merge(self, bin_package_key, db_file):
-        '''
-        Binary package related data integration
+        """
+        Description: Binary package related data integration
         Args:
             bin_package_key: Primary key of binary package
             db_file: Database file
@@ -294,7 +335,7 @@ class MergeData():
             (0, False) or (bin_package_key, True)
         Raises:
             SQLAlchemyError: An error occurred while executing the sql statement
-        '''
+        """
         self.__compose_bin_package()
         # binary package dependent package integration
 

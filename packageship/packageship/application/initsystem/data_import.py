@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-'''
-    Initialization of data import
-    Import the data in the sqlite database into the mysql database
-'''
+"""
+Description: Initialization of data import
+            Import the data in the sqlite database into the mysql database
+Class: InitDataBase,MysqlDatabaseOperations,SqliteDatabaseOperations
+"""
 import os
 import pathlib
 import yaml
@@ -28,19 +29,21 @@ LOGGER = Log(__name__)
 
 
 class InitDataBase():
-    '''
-    Database initialization, generate multiple databases and data based on configuration files
+    """
+    Description: Database initialization, generate multiple databases and data
+                 based on configuration files
     Attributes:
         config_file_path: configuration file path
         config_file_datas: initialize the configuration content of the database
         db_type: type of database
-    '''
+    """
 
     def __init__(self, config_file_path=None):
-        '''
-        Class instance initialization   
-        '''
-
+        """
+        Description: Class instance initialization
+        Args:
+            config_file_path: Configuration file path
+        """
         self.config_file_path = config_file_path
 
         if self.config_file_path:
@@ -56,20 +59,13 @@ class InitDataBase():
 
         if self.db_type not in ['mysql', 'sqlite']:
             LOGGER.logger.error("database type configuration error")
-            raise Exception('database type configuration error')
-        self._bin_provides_dicts = None
-        self._bin_requires_dicts = None
-        self._bin_package_name = None
-        self._bin_package_dicts = None
-        self._src_requires_dicts = None
-        self._src_packages = None
-        self._src_package_names = None
-        self._sqlite_db = None
+            raise Error('database type configuration error')
 
     def __read_config_file(self):
-        '''
-        Read the contents of the configuration file load each node data in the yaml
-            configuration file as a list to return
+        """
+        Description: Read the contents of the configuration file load each
+                    node data in the yaml configuration file as
+        a list to return
         Args:
 
         Returns:
@@ -77,7 +73,7 @@ class InitDataBase():
         Raises:
             FileNotFoundError: The specified file does not exist
             TypeError: Wrong type of data
-        '''
+        """
 
         if not os.path.exists(self.config_file_path):
             raise FileNotFoundError(
@@ -97,15 +93,15 @@ class InitDataBase():
             return init_database_config
 
     def init_data(self):
-        '''
-        Initialization of the database
+        """
+        Description: Initialization of the database
         Args:
 
         Returns:
 
         Raises:
             IOError: An error occurred while deleting the database information file
-        '''
+        """
         if getattr(self, 'config_file_datas', None) is None or \
                 self.config_file_datas is None:
             raise ContentNoneException('Initialization file content is empty')
@@ -139,15 +135,15 @@ class InitDataBase():
             self._init_data(database)
 
     def _create_database(self, database):
-        '''
-        create related databases
+        """
+        Description: create related databases
         Args:
             database: Initialize the configuration content of the database
         Returns:
             The generated mysql database or sqlite database
         Raises:
             SQLAlchemyError: Abnormal database operation
-        '''
+        """
 
         db_name = database.get('dbname')
         self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
@@ -165,8 +161,8 @@ class InitDataBase():
         return sqltedb_file
 
     def _init_data(self, database):
-        '''
-        data initialization operation
+        """
+        Description: data initialization operation
         Args:
             database: Initialize the configuration content of the database
         Returns:
@@ -177,7 +173,7 @@ class InitDataBase():
             SQLAlchemyError: Abnormal database operation
             DataMergeException: Error in data integration
             IOError: An error occurred while deleting the database information file
-        '''
+        """
 
         try:
             db_file = None
@@ -199,7 +195,7 @@ class InitDataBase():
                 src_package_paths, bin_package_paths)
             # 4. dependencies between combined data
             self.data_relationship(db_file)
-            # # 5. save data
+            # 5. save data
             self.save_data(db_name)
 
         except (SQLAlchemyError, ContentNoneException,
@@ -231,15 +227,15 @@ class InitDataBase():
                 LOGGER.logger.error(error_msg)
 
     def _src_package_relation(self, src_package_data):
-        '''
-        Mapping of data relations of source packages
+        """
+        Description: Mapping of data relations of source packages
         Args:
             src_package_data: Source package data
         Returns:
 
         Raises:
 
-        '''
+        """
 
         _src_package_name = src_package_data.name
         _src_package = {
@@ -265,15 +261,15 @@ class InitDataBase():
         self._src_package_names[src_package_data.pkgKey] = _src_package_name
 
     def _src_requires_relation(self, src_requires_data):
-        '''
-        Source package dependent package data relationship mapping
+        """
+        Description: Source package dependent package data relationship mapping
         Args:
             src_requires_data: Source package dependent package data
         Returns:
 
         Raises:
 
-        '''
+        """
 
         _src_package_name = self._src_package_names.get(
             src_requires_data.pkgKey)
@@ -285,15 +281,15 @@ class InitDataBase():
             })
 
     def _bin_package_relation(self, bin_package_data):
-        '''
-        Binary package relationship mapping problem
+        """
+        Description: Binary package relationship mapping problem
         Args:
             bin_package_data: Binary package data
         Returns:
 
         Raises:
 
-        '''
+        """
 
         _bin_pkg_key = bin_package_data.pkgKey
         self._bin_package_name[bin_package_data.name] = _bin_pkg_key
@@ -317,15 +313,15 @@ class InitDataBase():
         self._bin_package_dicts[src_package_name].append(_bin_package)
 
     def _bin_requires_relation(self, bin_requires_data):
-        '''
-        Binary package dependency package relationship mapping problem
+        """
+        Description: Binary package dependency package relationship mapping problem
         Args:
             bin_requires_data: Binary package dependency package data
         Returns:
 
         Raises:
 
-        '''
+        """
 
         _bin_pkg_key = bin_requires_data.pkgKey
         if _bin_pkg_key:
@@ -337,15 +333,16 @@ class InitDataBase():
             })
 
     def _bin_provides_relation(self, bin_provides_data):
-        '''
-        Binary package provided by the relationship mapping problem
+        """
+        Description: Binary package provided by the relationship mapping problem
         Args:
             bin_provides_data: Component data provided by the binary package
         Returns:
 
         Raises:
 
-        '''
+        """
+
         _bin_pkg_key = bin_provides_data.pkgKey
         if _bin_pkg_key:
             if _bin_pkg_key not in self._bin_provides_dicts:
@@ -355,15 +352,15 @@ class InitDataBase():
             })
 
     def data_relationship(self, db_file):
-        '''
-        dependencies between combined data
+        """
+        Description: dependencies between combined data
         Args:
             db_file: Temporary database file
         Returns:
 
         Raises:
-
-        '''
+            Error information
+        """
 
         self._bin_provides_dicts = dict()
         self._bin_requires_dicts = dict()
@@ -400,8 +397,8 @@ class InitDataBase():
             LOGGER.logger.error(error_msg)
 
     def file_merge(self, src_package_paths, bin_package_paths):
-        '''
-        integration of multiple data files
+        """
+        Description: integration of multiple data files
         Args:
             src_package_paths: Source package database file
             bin_package_paths: Binary package database file
@@ -409,7 +406,7 @@ class InitDataBase():
             Path of the generated temporary database file
         Raises:
             DataMergeException: Abnormal data integration
-        '''
+        """
         _db_file = os.path.join(
             self._sqlite_db.database_file_folder, 'temporary_database')
 
@@ -448,15 +445,15 @@ class InitDataBase():
         return _db_file
 
     def __exists_repeat_database(self):
-        '''
-        Determine if the same database name exists
+        """
+        Description: Determine if the same database name exists
         Args:
 
         Returns:
             True if there are duplicate databases, false otherwise
         Raises:
 
-        '''
+        """
         db_names = [name.get('dbname')
                     for name in self.config_file_datas]
 
@@ -466,15 +463,15 @@ class InitDataBase():
         return False
 
     def _save_bin_package(self, src_packages):
-        '''
-        Save binary package data
+        """
+        Description: Save binary package data
         Args:
             src_packages: Source package data
         Returns:
-
+            Binary package data
         Raises:
 
-        '''
+        """
         bin_packages = []
         for package_data in src_packages:
             try:
@@ -522,15 +519,15 @@ class InitDataBase():
         return bin_packages
 
     def _save_bin_provides(self, bin_packages):
-        '''
-        Save package data provided by binary
+        """
+        Description: Save package data provided by binary
         Args:
             bin_packages: Binary package data
         Returns:
-
+            Package data provided by binary
         Raises:
 
-        '''
+        """
         bin_provides_list = []
         for bin_pack_entity in bin_packages:
 
@@ -559,15 +556,15 @@ class InitDataBase():
         return bin_provides_list
 
     def save_data(self, db_name):
-        '''
-        save related package data
+        """
+        Description: save related package data
         Args:
             db_name: The name of the database
         Returns:
 
         Raises:
 
-        '''
+        """
 
         with DBHelper(db_name=db_name) as data_base:
             # Add source package data
@@ -597,18 +594,17 @@ class InitDataBase():
 
     @staticmethod
     def __updata_settings_file(**Kwargs):
-        '''
-        update some configuration files related to the database in the system
+        """
+        Description: update some configuration files related to the database in the system
         Args:
-
-        Returns:
             **Kwargs: data related to configuration file nodes
             database_name: Name database
-            priority: priority
+        Returns:
+
         Raises:
             FileNotFoundError: The specified file was not found
             IOError: File or network operation io abnormal
-        '''
+        """
         try:
             if not os.path.exists(DATABASE_FILE_INFO):
                 pathlib.Path(DATABASE_FILE_INFO).touch()
@@ -627,15 +623,15 @@ class InitDataBase():
 
     @staticmethod
     def delete_settings_file():
-        '''
-        Delete the configuration file of the database
+        """
+        Description: Delete the configuration file of the database
         Args:
 
         Returns:
             True if the deletion is successful, otherwise false
         Raises:
             IOError: File or network operation io abnormal
-        '''
+        """
 
         try:
             if os.path.exists(DATABASE_FILE_INFO):
@@ -647,15 +643,15 @@ class InitDataBase():
             return True
 
     def delete_db(self, db_name):
-        '''
-        Delete the database
+        """
+        Description: elete the database
         Args:
             db_name: The name of the database
         Returns:
 
         Raises:
             IOError: File or network operation io abnormal
-        '''
+        """
         if self.db_type == 'mysql':
             del_result = MysqlDatabaseOperations.drop_database(db_name)
         else:
@@ -681,16 +677,20 @@ class InitDataBase():
 
 
 class MysqlDatabaseOperations():
-    '''
-    Related to database operations, creating databases, creating tables
+    """
+    Description: Related to database operations, creating databases, creating tables
     Attributes:
         db_name: The name of the database
         create_database_sql: SQL statement to create a database
         drop_database_sql: Delete the SQL statement of the database
-    '''
+    """
 
     def __init__(self, db_name):
-
+        """
+        Description: Class instance initialization
+        Args:
+            db_name: Database name
+        """
         self.db_name = db_name
         self.create_database_sql = ''' CREATE DATABASE if not exists `{db_name}` \
                                     DEFAULT CHARACTER SET utf8mb4; '''.format(db_name=self.db_name)
@@ -698,15 +698,15 @@ class MysqlDatabaseOperations():
             db_name=self.db_name)
 
     def create_database(self):
-        '''
-        create a database
+        """
+        Description: create a database
         Args:
 
         Returns:
             True if successful, otherwise false
         Raises:
             SQLAlchemyError: An exception occurred while creating the database
-        '''
+        """
 
         with DBHelper(db_name='mysql') as data_base:
 
@@ -723,15 +723,15 @@ class MysqlDatabaseOperations():
 
     @classmethod
     def drop_database(cls, db_name):
-        '''
-        Delete the database according to the specified name
+        """
+        Description: Delete the database according to the specified name
         Args:
             db_name: The name of the database to be deleted
         Returns:
-
+            True if successful, otherwise false
         Raises:
             SQLAlchemyError: An exception occurred while creating the database
-        '''
+        """
         if db_name is None:
             raise IOError(
                 "The name of the database to be deleted cannot be empty")
@@ -747,9 +747,15 @@ class MysqlDatabaseOperations():
                 return True
 
     def __create_tables(self):
-        '''
-            Create the specified data table
-        '''
+        """
+        Description: Create the specified data table
+        Args:
+
+        Returns:
+            True if successful, otherwise false
+        Raises:
+            SQLAlchemyError: An exception occurred while creating the database
+        """
         try:
             with DBHelper(db_name=self.db_name) as database:
                 tables = ['src_pack', 'bin_pack', 'pack_provides',
@@ -763,15 +769,15 @@ class MysqlDatabaseOperations():
             return True
 
     def create_datum_database(self):
-        '''
-        Create a benchmark database to save the maintainer's information
+        """
+        Description: Create a benchmark database to save the maintainer's information
         Args:
 
         Returns:
             True if successful, otherwise false
         Raises:
             SQLAlchemyError: An exception occurred while creating the database
-        '''
+        """
         with DBHelper(db_name='mysql') as data_base:
             # create database
             try:
@@ -784,9 +790,16 @@ class MysqlDatabaseOperations():
                 return self.__create_datum_tables()
 
     def __create_datum_tables(self):
-        '''
-            Create a data table of maintainer information
-        '''
+        """
+        Description: Create a data table of maintainer information
+        rgs:
+
+        Returns:
+            True if successful, otherwise false
+        Raises:
+            SQLAlchemyError: An exception occurred while creating the database
+            Error: Error information
+        """
         try:
             with DBHelper(db_name=self.db_name) as database:
                 tables = ['maintenance_info']
@@ -803,15 +816,20 @@ class MysqlDatabaseOperations():
 
 
 class SqliteDatabaseOperations():
-    '''
-    sqlite database related operations
+    """
+    Description: sqlite database related operations
     Attributes:
         db_name: Name database
         database_file_folder: Database folder path
-    '''
+    """
 
     def __init__(self, db_name, **kwargs):
-
+        """
+        Description: Class instance initialization
+        Args:
+            db_name: Database name
+            kwargs: data related to configuration file nodes
+        """
         self.db_name = db_name
         self._read_config = ReadConfig()
         if getattr(kwargs, 'database_path', None) is None:
@@ -820,9 +838,14 @@ class SqliteDatabaseOperations():
             self.database_file_folder = kwargs.get('database_path')
 
     def _database_file_path(self):
-        '''
-            Database file path
-        '''
+        """
+        Description: Database file path
+        Args:
+        Returns:
+
+        Raises:
+            IOError: File or network operation io abnormal
+        """
         self.database_file_folder = self._read_config.get_system(
             'data_base_path')
         if not self.database_file_folder:
@@ -836,8 +859,8 @@ class SqliteDatabaseOperations():
                 self.database_file_folder = None
 
     def create_sqlite_database(self):
-        '''
-        create sqlite database and table
+        """
+        Description: create sqlite database and table
         Args:
 
         Returns:
@@ -846,7 +869,7 @@ class SqliteDatabaseOperations():
         Raises:
             FileNotFoundError: The specified folder path does not exist
             SQLAlchemyError: An error occurred while generating the database
-        '''
+        """
         if self.database_file_folder is None:
             raise FileNotFoundError('Database folder does not exist')
 
@@ -869,15 +892,15 @@ class SqliteDatabaseOperations():
         return _db_file
 
     def drop_database(self):
-        '''
-        Delete the specified sqlite database
+        """
+        Description: Delete the specified sqlite database
         Args:
 
         Returns:
-            Returns true after successful deletion, otherwise returns false
+            Return true after successful deletion, otherwise return false
         Raises:
             IOError: An io exception occurred while deleting the specified database file
-        '''
+        """
 
         try:
             db_path = os.path.join(
@@ -891,8 +914,8 @@ class SqliteDatabaseOperations():
             return True
 
     def create_datum_database(self):
-        '''
-        create sqlite database and table
+        """
+        Description: create sqlite database and table
         Args:
 
         Returns:
@@ -901,7 +924,7 @@ class SqliteDatabaseOperations():
         Raises:
             FileNotFoundError: The specified database folder does not exist
             SQLAlchemyError: An error occurred while generating the database
-        '''
+        """
         if self.database_file_folder is None:
             raise FileNotFoundError('Database folder does not exist')
 
