@@ -11,7 +11,7 @@ from configparser import NoOptionError
 from packageship.system_config import SYS_CONFIG_PATH
 
 
-class ReadConfig:
+class ReadConfig():
     """
     Description: Read the configuration file base class in the system
     Attributes:

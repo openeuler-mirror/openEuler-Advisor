@@ -14,7 +14,7 @@ from packageship.application.models.package import src_pack
 from packageship.application.apps.package.function.constants import ResponseCode
 
 
-class BeDepend:
+class BeDepend():
     """
     Description: Find the dependencies of the source package
     Attributes:

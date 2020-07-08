@@ -8,7 +8,7 @@ from packageship.application.apps.package.function.install_depend import Install
 from packageship.application.apps.package.function.constants import ResponseCode, ListNode
 
 
-class BuildDepend:
+class BuildDepend():
     """
     Description: Find compilation dependency of source package
     Attributes:
