@@ -1,5 +1,8 @@
+#!/usr/bin/python3
 """
-docstring:Get package information and modify package information
+Description: Get package information and modify package information
+functions: get_packages, buildep_packages, sub_packages, get_single_package,
+ update_single_package, update_maintaniner_info
 """
 from flask import current_app
 
@@ -13,11 +16,16 @@ from packageship.libs.exception import Error
 
 
 def get_packages(dbname):
-    '''
+    """
     Description: Get all packages info
-    :param dbname: Database name
-    :return: package info
-    '''
+    Args:
+        dbname: Database name
+    Returns:
+        Package information is returned as a list
+    Raises:
+        AttributeError: Object does not have this property
+        Error: Abnormal error
+    """
     with DBHelper(db_name=dbname) as db_name:
         src_pack_queryset = db_name.session.query(src_pack).all()
         resp_list = []
@@ -39,9 +47,13 @@ def get_packages(dbname):
 def buildep_packages(dbname, src_pack_id):
     """
     Description: Query package layer 1 compilation dependency
-    :param dbname:  databases name
-    :param src_pack_id: srcpackage id
-    :return:  buildDep   Compile dependencies of source packages
+    Args:
+        dbname:  databases name
+        src_pack_id: The ID of the source package
+    Returns:
+        buildDep Compile dependencies of source packages
+    Raises:
+        AttributeError: Object does not have this property
     """
     with DBHelper(db_name=dbname) as db_name:
         b_pack_requires_set = db_name.session.query(
@@ -61,10 +73,14 @@ def buildep_packages(dbname, src_pack_id):
 def sub_packages(dbname, src_pack_id):
     """
     Description: Query package layer 1 installation dependency
-    :param dbname:  databases name
-    :param src_pack_id: srcpackage id
-    :return: subpack  Source package to binary package, then find the installation dependencies
+    Args:
+        dbname:  databases name
+        src_pack_id: srcpackage id
+    Returns:
+        subpack  Source package to binary package, then find the installation dependencies
      of the binary package
+    Raises:
+         AttributeError: Object does not have this property
     """
     with DBHelper(db_name=dbname) as db_name:
         subpack = {}
@@ -93,12 +109,16 @@ def sub_packages(dbname, src_pack_id):
 
 
 def get_single_package(dbname, sourcename):
-    '''
+    """
     Description: Get all packages info
-    :param dbname: Database name
-    :param sourcename: Source package name
-    :return: package info
-    '''
+    Args：
+        dbname: Database name
+        sourcename: Source package name
+    Returns：
+        package info
+    Raises:
+        AttributeError: Object does not have this property
+    """
     with DBHelper(db_name=dbname) as db_name:
         package = {}
         src_pack_obj = db_name.session.query(src_pack).filter_by(
@@ -126,11 +146,16 @@ def update_single_package(
         maintain_level):
     """
     Description: change single package management
-    :param package_name: package name
-    :param dbname: Database name
-    :param maintainer: maintainer info
-    :param maintain_level: maintain_level info
-    :return: message  success or failed
+    Args：
+        package_name: package name
+        dbname: Database name
+        maintainer: maintainer info
+        maintain_level: maintain_level info
+    Returns：
+        message  success or failed
+    Raises:
+        AttributeError: Object does not have this property
+        TypeError: Abnormal error
     """
     with DBHelper(db_name=dbname) as db_name:
         update_obj = db_name.session.query(
@@ -144,16 +169,19 @@ def update_maintaniner_info(package_name,
                             dbname,
                             maintaniner,
                             maintainlevel):
-    '''
     """
-    update separately maintaniner info
-    :param package_name: package name
-    :param dbname: Database name
-    :param maintainer: maintainer info
-    :param maintain_level: maintain_level info
-    :return: message  success or failed
+    Description: update separately maintaniner info
+    Args：
+       package_name: package name
+       dbname: Database name
+       maintainer: maintainer info
+       maintain_level: maintain_level info
+    Returns：
+       message  success or failed
+    Raises:
+       AttributeError: Object does not have this property
+       Error: Abnormal error
     """
-    '''
     with DBHelper(db_name=dbname) as db_name:
         src_pack_obj = db_name.session.query(src_pack).filter_by(
             name=package_name).first()

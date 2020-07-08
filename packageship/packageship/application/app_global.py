@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''
-    Interception before request
-'''
+"""
+Description: Interception before request
+"""
 from flask import request
 from packageship.application import OPERATION
 from packageship.application.apps.package.url import urls
@@ -11,9 +11,12 @@ __all__ = ['identity_verification']
 
 
 def identity_verification():
-    '''
-        Requested authentication
-    '''
+    """
+    Description: Requested authentication
+    Args:
+    Returns:
+    Raises:
+    """
     if request.url_rule:
         url_rule = request.url_rule.rule
         for view, url, authentication in urls:
