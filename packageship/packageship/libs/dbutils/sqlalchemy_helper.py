@@ -1,7 +1,8 @@
-'''
-Simple encapsulation of sqlalchemy orm framework operation database
-
-'''
+#!/usr/bin/python3
+"""
+Description: Simple encapsulation of sqlalchemy orm framework operation database
+Class: DBHelper
+"""
 import os
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData
@@ -18,22 +19,34 @@ from packageship import system_config
 
 
 class DBHelper():
-    '''
-        Database connection, operation public class
-    '''
+    """
+    Description: Database connection, operation public class
+    Attributes:
+        user_name: Username
+        password: Password
+        ip_address: Ip address
+        port: Port
+        db_name: Database name
+        db_type: Database type
+        session: Session
+    """
     # The base class inherited by the data model
     BASE = declarative_base()
 
     def __init__(self, user_name=None, passwrod=None, ip_address=None,  # pylint: disable=R0913
                  port=None, db_name=None, db_type=None, **kwargs):
+        """
+        Description: Class instance initialization
+
+        """
         self.user_name = user_name
         self._readconfig = ReadConfig()
         if self.user_name is None:
             self.user_name = self._readconfig.get_database('user_name')
 
-        self.passwrod = passwrod
-        if self.passwrod is None:
-            self.passwrod = self._readconfig.get_database('password')
+        self.password = password
+        if self.password is None:
+            self.password = self._readconfig.get_database('password')
 
         self.ip_address = ip_address
 
@@ -67,9 +80,15 @@ class DBHelper():
         self.session = None
 
     def _create_engine(self):
-        '''
-            Create a database connection object
-        '''
+        """
+        Description: Create a database connection object
+        Args:
+
+        Returns:
+        Raises:
+            DisconnectionError: A disconnect is detected on a raw DB-API connection.
+
+        """
         if self.db_type.startswith('sqlite'):
             if not self.db_name:
                 raise DbnameNoneException(
@@ -78,11 +97,11 @@ class DBHelper():
                 self.db_type + self.db_name, encoding='utf-8', convert_unicode=True,
                 connect_args={'check_same_thread': False})
         else:
-            if all([self.user_name, self.passwrod, self.ip_address, self.port, self.db_name]):
+            if all([self.user_name, self.password, self.ip_address, self.port, self.db_name]):
                 # create connection object
                 self.engine = create_engine(URL(**{'database': self.db_name,
                                                    'username': self.user_name,
-                                                   'password': self.passwrod,
+                                                   'password': self.password,
                                                    'host': self.ip_address,
                                                    'port': self.port,
                                                    'drivername': self.db_type}),
@@ -93,9 +112,14 @@ class DBHelper():
                     'A disconnect is detected on a raw DB-API connection')
 
     def _db_file_path(self):
-        '''
-            load the path stored in the sqlite database
-        '''
+        """
+        Description: load the path stored in the sqlite database
+        Args:
+
+        Returns:
+        Raises:
+
+        """
         self.database_file_path = self._readconfig.get_system(
             'data_base_path')
         if not self.database_file_path:
@@ -104,9 +128,15 @@ class DBHelper():
             os.makedirs(self.database_file_path)
 
     def __enter__(self):
-        '''
-        functional description:Create a context manager for the database connection
-        '''
+        """
+        Description: functional description:Create a context manager for the database connection
+        Args:
+
+        Returns:
+            Class instance
+        Raises:
+
+        """
 
         session = sessionmaker()
         if getattr(self, 'engine') is None:
@@ -117,28 +147,42 @@ class DBHelper():
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        '''
-        functional description:Release the database connection pool and close the connection
-        '''
+        """
+        Description: functional description:Release the database connection pool and close the connection
+        Args:
 
+        Returns:
+            exc_type: Abnormal type
+            exc_val: Abnormal value
+            exc_tb: Abnormal table
+        Raises:
+
+        """
         self.session.close()
 
     @classmethod
     def create_all(cls, db_name=None):
-        '''
-        functional description:Create all database tables
-        parameter:
-        return value:
-        exception description:
-        modify record:
-        '''
+        """
+        Description: functional description:Create all database tables
+        Args:
+            db_name: Database name
+        Returns:
+
+        Raises:
+
+        """
 
         cls.BASE.metadata.create_all(bind=cls(db_name=db_name).engine)
 
     def create_table(self, tables):
-        '''
-            Create a single table
-        '''
+        """
+        Description: Create a single table
+        Args:
+            tables: Table
+        Returns:
+
+        Raises:
+        """
         meta = MetaData(self.engine)
         for table_name in DBHelper.BASE.metadata.tables.keys():
             if table_name in tables:
@@ -147,12 +191,16 @@ class DBHelper():
                 table.create()
 
     def add(self, entity):
-        '''
-        functional description:Insert a single data entity
-        parameter:
-        return value:
+        """
+        Description: Insert a single data entity
+        Args:
+            entity: Data entity
+        Return:
             If the addition is successful, return the corresponding entity, otherwise return None
-        '''
+        Raises:
+            ContentNoneException: An exception occurred while content is none
+            SQLAlchemyError: An exception occurred while creating the database
+        """
 
         if entity is None:
             raise ContentNoneException(
@@ -168,12 +216,17 @@ class DBHelper():
             return entity
 
     def batch_add(self, dicts, model):
-        '''
-        functional description:tables for adding databases in bulk
-        parameter:
-        :param dicts:Entity dictionary data to be added
-        :param model:Solid model class
-        '''
+        """
+        Description:tables for adding databases in bulk
+        Args:
+            dicts:Entity dictionary data to be added
+            model:Solid model class
+        Returns:
+
+        Raises:
+            TypeError: An exception occurred while incoming type does not meet expectations
+            SQLAlchemyError: An exception occurred while creating the database
+        """
 
         if model is None:
             raise ContentNoneException('solid model must be specified')
