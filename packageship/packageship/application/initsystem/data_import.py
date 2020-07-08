@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
     Initialization of data import
     Import the data in the sqlite database into the mysql database

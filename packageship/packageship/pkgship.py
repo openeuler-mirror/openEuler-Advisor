@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
     Entry method for custom commands
 '''

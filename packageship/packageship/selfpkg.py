@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
     Entry for project initialization and service startupc
 '''

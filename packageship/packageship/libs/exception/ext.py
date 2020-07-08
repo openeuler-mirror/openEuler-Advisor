@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
     System exception information
 '''

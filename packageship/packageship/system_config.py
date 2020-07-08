@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
 System-level file configuration, mainly configure
 the address of the operating environment, commonly used variables, etc.

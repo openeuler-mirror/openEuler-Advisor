@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
     Read the base class of the configuration file in the system
     which mainly includes obtaining specific node values

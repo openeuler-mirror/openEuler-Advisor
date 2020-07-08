@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
  Integration of multiple sqlite file data, including
  reading sqlite database and inserting data
