@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-'''
-Database entity model mapping
-'''
+"""
+Description: Database entity model mapping
+"""
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
 class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
-    '''
-    functional description:Source package model
+    """
+    Description: functional description:Source package model
     modify record:
-    '''
+    """
 
     __tablename__ = 'src_pack'
 
@@ -33,10 +33,10 @@ class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
 
 
 class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
-    '''
-    functional description:Binary package data
+    """
+    Description: functional description:Binary package data
     modify record:
-    '''
+    """
     __tablename__ = 'bin_pack'
 
     id = Column(Integer, primary_key=True)
