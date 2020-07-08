@@ -53,6 +53,7 @@ class Log():
     def __init__(self, name=__name__, path=None):
         self.__name = name
         self.__path = path
+        self.__file_handler = None
         if self.__path is None:
             self.__path = READCONFIG.get_system('log_path')
             log_name = READCONFIG.get_config('LOG', 'log_name')

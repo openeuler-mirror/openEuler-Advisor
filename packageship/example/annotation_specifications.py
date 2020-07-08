@@ -2,15 +2,19 @@
 description: Function and class annotation specifications in the project
 functions: test
 """
-# py文件中，如果全部为函数，顶部信息格式如上,description填写描述信息，functions填写函数名称
+# In the PY file, if all are functions, the format of the top information is as above,
+# the description information is filled in, and the function name is filled in functions
 # Args:
-# 列出每个参数的名字, 并在名字后使用一个冒号和一个空格,
-# 分隔对该参数的描述.如果描述太长超过了单行80字符,使用2或者4个空格的悬挂缩进(与文件其他部分保持一致).
-# 描述应该包括所需的类型和含义.
+# List the name of each parameter with a colon and a space after the name,
+# Separate the description of this parameter.
+# If the description is too long than 80 characters in a single line,
+# use a hanging indent of 2 or 4 spaces (consistent with the rest of the file)
+# The description should include the type and meaning required
 # Returns:
-# 描述返回值的类型和语义. 如果函数返回None, 这一部分可以省略.
+# Describes the type and semantics of the return value. If the function returns none,
+# this part can be omitted
 # Raises:
-# 可能产生的异常
+# Possible anomalies
 
 
 def test(name, age):
@@ -31,13 +35,14 @@ def test(name, age):
 
 # description: Function and class annotation specifications in the project
 # class: SampleClass
-# py文件中，如果全部为类，顶部信息格式如上,description填写描述信息，class填写类名称,用 三引号，不用#
-# 类应该在其定义下有一个用于描述该类的文档字符串.
-# 如果你的类有公共属性(Attributes),
-# 那么文档中应该有一个属性(Attributes)段.
-# 并且应该遵守和函数参数相同的格式.
-
-
+# In the PY file, if all are classes, the top information format is as above,
+# description fills in the description information, class fills in the class name,
+# uses three quotation marks, does not need#
+# Class should have a document string under its definition that describes
+# the class
+# If your class has attributes,
+# Then there should be an attribute section in the document
+# And it should follow the same format as function parameters
 class SampleClass():
     """
     Summary of class here.

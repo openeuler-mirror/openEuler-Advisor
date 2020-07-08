@@ -55,7 +55,7 @@ class Packages(Resource):
         return:
             json file contain package's info
         Exception:
-        Changelog：
+        Changelog:
         '''
         # Get verification parameters
         schema = PackagesSchema()
@@ -99,7 +99,7 @@ class Packages(Resource):
 class SinglePack(Resource):
     '''
     description: single package management
-    Restful API: get、put
+    Restful API: get, put
     ChangeLog:
     '''
 
@@ -227,7 +227,7 @@ class InstallDepend(Resource):
                      querying in one or more databases)
         input:
             binaryName
-            dbPreority：the array for database preority
+            dbPreority: the array for database preority
         return:
             resultDict{
                 binary_name: //binary package name
@@ -304,8 +304,8 @@ class BuildDepend(Resource):
                      build depend package's install depend
                      (support querying in one or more databases)
         input:
-            sourceName ：
-            dbPreority：the array for database preority
+            sourceName:
+            dbPreority: the array for database preority
         return:
             resultList[
                 restult[
@@ -376,7 +376,7 @@ class SelfDepend(Resource):
             packageType: source/binary
             selfBuild :0/1
             withSubpack: 0/1
-            dbPreority：the array for database preority
+            dbPreority: the array for database preority
         return:
             resultList[
                 restult[
@@ -447,7 +447,7 @@ class BeDepend(Resource):
     changeLog:
     '''
 
-    def post(self, *args, **kwargs):
+    def post(self):
         '''
         description: Query a package's all dependencies including
                      be installed and built depend
@@ -520,8 +520,8 @@ class Repodatas(Resource):
                     file_context.read(), Loader=yaml.FullLoader)
                 if init_database_date is None:
                     raise ContentNoneException(
-                        "The content of the database initialization configuration "
-                        "file cannot be empty")
+                        "The content of the database initialization configuration "
+                        "file cannot be empty ")
                 init_database_date.sort(
                     key=lambda x: x['priority'], reverse=False)
                 return jsonify(
