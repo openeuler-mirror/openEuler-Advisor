@@ -1,6 +1,7 @@
-'''
+#!/usr/bin/python3
+"""
     Entry method for custom commands
-'''
+"""
 import os
 import json
 try:
@@ -26,9 +27,9 @@ DB_NAME = 0
 
 
 def main():
-    '''
+    """
         command entry function
-    '''
+    """
     try:
         packship_cmd = PkgshipCommand()
         packship_cmd.parser_args()
@@ -38,9 +39,9 @@ def main():
 
 
 class BaseCommand():
-    '''
+    """
         Basic attributes used for command invocation
-    '''
+    """
 
     def __init__(self):
         self._read_config = ReadConfig()
@@ -54,9 +55,9 @@ class BaseCommand():
         self.load_write_host()
 
     def load_write_host(self):
-        '''
+        """
             Address to load write permission
-        '''
+        """
         wirte_port = self._read_config.get_system('write_port')
 
         write_ip = self._read_config.get_system('write_ip_addr')
@@ -66,9 +67,9 @@ class BaseCommand():
         setattr(self, 'write_host', _write_host)
 
     def load_read_host(self):
-        '''
+        """
             Address to load write permission
-        '''
+        """
         read_port = self._read_config.get_system('query_port')
 
         read_ip = self._read_config.get_system('query_ip_addr')
@@ -79,9 +80,9 @@ class BaseCommand():
 
 
 class PkgshipCommand(BaseCommand):
-    '''
+    """
        PKG package command line
-    '''
+    """
     parser = argparse.ArgumentParser(
         description='package related dependency management')
     subparsers = parser.add_subparsers(
@@ -99,15 +100,15 @@ class PkgshipCommand(BaseCommand):
 
     @staticmethod
     def register_command(command):
-        '''
+        """
             Register command
-        '''
+        """
         command.register()
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         for command_params in self.params:
             self.parse.add_argument(  # pylint: disable=E1101
                 command_params[0],
@@ -117,9 +118,9 @@ class PkgshipCommand(BaseCommand):
 
     @classmethod
     def parser_args(cls):
-        '''
+        """
             Command parsing
-        '''
+        """
         cls.register_command(RemoveCommand())
         cls.register_command(InitDatabaseCommand())
         cls.register_command(UpdateDatabaseCommand())
@@ -137,9 +138,9 @@ class PkgshipCommand(BaseCommand):
             print('command error')
 
     def parse_package(self, response_data):
-        '''
+        """
             Parse the corresponding data of the package
-        '''
+        """
         if response_data.get('code') == ResponseCode.SUCCESS:
             package_all = response_data.get('data')
             if isinstance(package_all, list):
@@ -151,9 +152,9 @@ class PkgshipCommand(BaseCommand):
             print(response_data.get('msg'))
 
     def parse_depend_package(self, response_data):
-        '''
+        """
             Parse the corresponding data of the package
-        '''
+        """
         bin_package_count = 0
         src_package_count = 0
         if response_data.get('code') == ResponseCode.SUCCESS:
@@ -198,9 +199,9 @@ class PkgshipCommand(BaseCommand):
         return statistics_table
 
     def print_(self, content=None, character='=', dividing_line=False):
-        '''
+        """
             Output formatted characters
-        '''
+        """
         # Get the current width of the console
 
         if dividing_line:
@@ -212,9 +213,9 @@ class PkgshipCommand(BaseCommand):
 
     @staticmethod
     def create_table(title):
-        '''
+        """
             Create printed forms
-        '''
+        """
         table = PrettyTable(title)
         # table.set_style(prettytable.PLAIN_COLUMNS)
         table.align = 'l'
@@ -225,9 +226,9 @@ class PkgshipCommand(BaseCommand):
         return table
 
     def statistics_table(self, bin_package_count, src_package_count):
-        '''
+        """
             Generate data for total statistical tables
-        '''
+        """
         statistics_table = self.create_table(['', 'binary', 'source'])
         statistics_table.add_row(
             ['self depend sum', bin_package_count, src_package_count])
@@ -240,9 +241,9 @@ class PkgshipCommand(BaseCommand):
 
     @staticmethod
     def http_error(response):
-        '''
+        """
         Log error messages for http
-        '''
+        """
         try:
             print(response.raise_for_status())
         except HTTPError as http_error:
@@ -252,9 +253,9 @@ class PkgshipCommand(BaseCommand):
 
 
 class RemoveCommand(PkgshipCommand):
-    '''
+    """
         Delete database command
-    '''
+    """
 
     def __init__(self):
         super(RemoveCommand, self).__init__()
@@ -263,16 +264,16 @@ class RemoveCommand(PkgshipCommand):
         self.params = [('db', 'str', 'name of the database operated', '')]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(RemoveCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         if params.db is None:
             print('No database specified for deletion')
         else:
@@ -296,9 +297,9 @@ class RemoveCommand(PkgshipCommand):
 
 
 class InitDatabaseCommand(PkgshipCommand):
-    '''
+    """
         Initialize  database command
-    '''
+    """
 
     def __init__(self):
         super(InitDatabaseCommand, self).__init__()
@@ -308,16 +309,16 @@ class InitDatabaseCommand(PkgshipCommand):
             ('-filepath', 'str', 'name of the database operated', '')]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(InitDatabaseCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         file_path = params.filepath
         try:
             response = requests.post(self.write_host +
@@ -339,9 +340,9 @@ class InitDatabaseCommand(PkgshipCommand):
 
 
 class UpdateDatabaseCommand(PkgshipCommand):
-    '''
+    """
         update  database command
-    '''
+    """
 
     def __init__(self):
         super(UpdateDatabaseCommand, self).__init__()
@@ -351,23 +352,23 @@ class UpdateDatabaseCommand(PkgshipCommand):
         self.params = [('db', 'str', 'name of the database operated', '')]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(UpdateDatabaseCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         pass  # pylint: disable= W0107
 
 
 class AllPackageCommand(PkgshipCommand):
-    '''
+    """
         get all package commands
-    '''
+    """
 
     def __init__(self):
         super(AllPackageCommand, self).__init__()
@@ -379,16 +380,16 @@ class AllPackageCommand(PkgshipCommand):
         self.params = [('-db', 'str', 'name of the database operated', '')]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(AllPackageCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.read_host + \
             '/packages?dbName={dbName}'.format(dbName=params.db)
         try:
@@ -407,9 +408,9 @@ class AllPackageCommand(PkgshipCommand):
 
 
 class UpdatePackageCommand(PkgshipCommand):
-    '''
+    """
         update package data
-    '''
+    """
 
     def __init__(self):
         super(UpdatePackageCommand, self).__init__()
@@ -424,16 +425,16 @@ class UpdatePackageCommand(PkgshipCommand):
         ]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(UpdatePackageCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.write_host + '/packages/findByPackName'
         try:
             response = requests.put(
@@ -458,9 +459,9 @@ class UpdatePackageCommand(PkgshipCommand):
 
 
 class BuildDepCommand(PkgshipCommand):
-    '''
+    """
         query the compilation dependencies of the specified package
-    '''
+    """
 
     def __init__(self):
         super(BuildDepCommand, self).__init__()
@@ -476,9 +477,9 @@ class BuildDepCommand(PkgshipCommand):
         ]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(BuildDepCommand, self).register()
         # collection parameters
 
@@ -488,9 +489,9 @@ class BuildDepCommand(PkgshipCommand):
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.read_host + '/packages/findBuildDepend'
         try:
             response = requests.post(
@@ -515,9 +516,9 @@ class BuildDepCommand(PkgshipCommand):
 
 
 class InstallDepCommand(PkgshipCommand):
-    '''
+    """
         query the installation dependencies of the specified package
-    '''
+    """
 
     def __init__(self):
         super(InstallDepCommand, self).__init__()
@@ -533,9 +534,9 @@ class InstallDepCommand(PkgshipCommand):
         ]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(InstallDepCommand, self).register()
         # collection parameters
 
@@ -545,9 +546,9 @@ class InstallDepCommand(PkgshipCommand):
         self.parse.set_defaults(func=self.do_command)
 
     def parse_package(self, response_data):
-        '''
+        """
             Parse the corresponding data of the package
-        '''
+        """
         if getattr(self, 'statistics'):
             setattr(self, 'statistics', dict())
         bin_package_count = 0
@@ -593,9 +594,9 @@ class InstallDepCommand(PkgshipCommand):
         return statistics_table
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.read_host + '/packages/findInstallDepend'
         try:
             response = requests.post(_url, data=json.dumps(
@@ -621,9 +622,9 @@ class InstallDepCommand(PkgshipCommand):
 
 
 class SelfBuildCommand(PkgshipCommand):
-    '''
+    """
         self-compiled dependency query
-    '''
+    """
 
     def __init__(self):
         super(SelfBuildCommand, self).__init__()
@@ -647,9 +648,9 @@ class SelfBuildCommand(PkgshipCommand):
         ]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(SelfBuildCommand, self).register()
         # collection parameters
 
@@ -659,9 +660,9 @@ class SelfBuildCommand(PkgshipCommand):
         self.parse.set_defaults(func=self.do_command)
 
     def _parse_bin_package(self, bin_packages):
-        '''
+        """
             Parsing binary result data
-        '''
+        """
         bin_package_count = 0
         if bin_packages:
             for bin_package, package_depend in bin_packages.items():
@@ -688,9 +689,9 @@ class SelfBuildCommand(PkgshipCommand):
         return bin_package_count
 
     def _parse_src_package(self, src_apckages):
-        '''
+        """
             Source package data analysis
-        '''
+        """
         src_package_count = 0
         if src_apckages:
             for src_package, package_depend in src_apckages.items():
@@ -716,9 +717,9 @@ class SelfBuildCommand(PkgshipCommand):
         return src_package_count
 
     def parse_package(self, response_data):
-        '''
+        """
             Parse the corresponding data of the package
-        '''
+        """
         if getattr(self, 'statistics'):
             setattr(self, 'statistics', dict())
         bin_package_count = 0
@@ -744,9 +745,9 @@ class SelfBuildCommand(PkgshipCommand):
         return statistics_table
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.read_host + '/packages/findSelfDepend'
         try:
             response = requests.post(_url,
@@ -778,9 +779,9 @@ class SelfBuildCommand(PkgshipCommand):
 
 
 class BeDependCommand(PkgshipCommand):
-    '''
+    """
         dependent query
-    '''
+    """
 
     def __init__(self):
         super(BeDependCommand, self).__init__()
@@ -794,16 +795,16 @@ class BeDependCommand(PkgshipCommand):
         ]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(BeDependCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.read_host + '/packages/findBeDepend'
         try:
             response = requests.post(_url, data=json.dumps(
@@ -831,9 +832,9 @@ class BeDependCommand(PkgshipCommand):
 
 
 class SingleCommand(PkgshipCommand):
-    '''
+    """
         query single package information
-    '''
+    """
 
     def __init__(self):
         super(SingleCommand, self).__init__()
@@ -846,16 +847,16 @@ class SingleCommand(PkgshipCommand):
         ]
 
     def register(self):
-        '''
+        """
             Command line parameter injection
-        '''
+        """
         super(SingleCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def parse_package(self, response_data):
-        '''
+        """
             Parse the corresponding data of the package
-        '''
+        """
         show_field_name = ('sourceName', 'dbname', 'version',
                            'license', 'maintainer', 'maintainlevel')
         print_contents = []
@@ -878,9 +879,9 @@ class SingleCommand(PkgshipCommand):
                 self.print_(content=content)
 
     def do_command(self, params):
-        '''
+        """
             Action to execute command
-        '''
+        """
         _url = self.read_host + \
             '/packages/findByPackName?dbName={db_name}&sourceName={packagename}' \
             .format(db_name=params.db, packagename=params.packagename)
