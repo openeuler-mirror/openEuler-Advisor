@@ -44,7 +44,7 @@ class DBHelper():
         if self.user_name is None:
             self.user_name = self._readconfig.get_database('user_name')
 
-        self.password = password
+        self.password = passwrod
         if self.password is None:
             self.password = self._readconfig.get_database('password')
 

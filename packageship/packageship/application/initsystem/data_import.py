@@ -58,7 +58,7 @@ class InitDataBase():
 
         if self.db_type not in ['mysql', 'sqlite']:
             LOGGER.logger.error("database type configuration error")
-            raise Exception('database type configuration error')
+            raise Error('database type configuration error')
 
     def __read_config_file(self):
         """
