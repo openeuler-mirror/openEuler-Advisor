@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 test delete repodatas
@@ -9,7 +10,7 @@ from test.base_code.operate_data_base import OperateTestBase
 import unittest
 import json
 from packageship import system_config
-# from test.base_code.operate_data_base import system_config
+from packageship.libs.exception import Error
 from packageship.application.apps.package.function.constants import ResponseCode
 
 
@@ -89,20 +90,10 @@ class TestDeleteRepodatas(OperateTestBase):
             self.assertIsNone(
                 resp_dict.get("data"),
                 msg="Error in data information return")
-        except Exception as e:
+        except Error:
             return None
         finally:
             os.remove(system_config.DATABASE_FILE_INFO)
             os.rename(system_config.DATABASE_FILE_INFO + '.bak', system_config.DATABASE_FILE_INFO)
             shutil.rmtree(system_config.DATABASE_FOLDER_PATH)
             os.rename(system_config.DATABASE_FOLDER_PATH + '.bak', system_config.DATABASE_FOLDER_PATH)
-
-
-
-def test_delete_repodatas_suit():
-    """unit testing"""
-    print("---TestDeleteRepodatas START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestDeleteRepodatas("test_wrong_dbname"))
-    suite.addTest(TestDeleteRepodatas("test_true_dbname"))
-    unittest.TextTestRunner().run(suite)

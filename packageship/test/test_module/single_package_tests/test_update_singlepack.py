@@ -1,15 +1,16 @@
+#!/usr/bin/python3
 """TestUpdatePackage"""
 # -*- coding:utf-8 -*-
 from test.base_code.operate_data_base import OperateTestBase
 import unittest
 import json
 
-
 from packageship.application.apps.package.function.constants import ResponseCode
 
 
 class TestUpdatePackage(OperateTestBase):
     """TestUpdatePackage"""
+
     def test_empty_dbname(self):
         """Parameter error"""
 
@@ -147,15 +148,6 @@ class TestUpdatePackage(OperateTestBase):
         self.assertIsNone(
             resp_dict.get("data"),
             msg="Error in data information return")
-
-def test_updata_single_package_suit():
-    """unit testing"""
-    print("---TestUpdatePackage START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestUpdatePackage("test_empty_dbname"))
-    suite.addTest(TestUpdatePackage("test_empty_sourcename"))
-    suite.addTest(TestUpdatePackage("test_true_parram"))
-    unittest.TextTestRunner().run(suite)
 
 
 if __name__ == '__main__':

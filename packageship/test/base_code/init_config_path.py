@@ -1,5 +1,8 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
-
+"""
+InitConf
+"""
 import os
 from configparser import ConfigParser
 from packageship import system_config
@@ -7,6 +10,10 @@ import yaml
 
 
 class InitConf:
+    """
+    InitConf
+    """
+
     def __init__(self):
         base_path = os.path.join(os.path.dirname(system_config.BASE_PATH),
                                  "test",
@@ -23,8 +30,10 @@ class InitConf:
             origin_yaml = yaml.load(f.read(), Loader=yaml.FullLoader)
 
             for index, obj in enumerate(origin_yaml, 1):
-                src_path = os.path.join(base_path, "db_origin", f"data_{str(index)}_src.sqlite")
-                bin_path = os.path.join(base_path, "db_origin", f"data_{str(index)}_bin.sqlite")
+                src_path = os.path.join(base_path, "db_origin",
+                                        "data_{}_src.sqlite".format(str(index)))
+                bin_path = os.path.join(base_path, "db_origin",
+                                        "data_{}_bin.sqlite".format(str(index)))
                 obj["src_db_file"] = [src_path]
                 obj["bin_db_file"] = [bin_path]
             with open(conf_path, 'w', encoding='utf-8') as w_f:
