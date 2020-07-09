@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 test_get_single_packages
@@ -8,7 +9,6 @@ from test.base_code.read_data_base import ReadTestBase
 import unittest
 import json
 
-
 from packageship.application.apps.package.function.constants import ResponseCode
 
 
@@ -16,6 +16,7 @@ class TestGetSinglePack(ReadTestBase):
     """
     Single package test case
     """
+
     def test_error_sourcename(self):
         """sourceName  is none or err"""
 
@@ -148,14 +149,6 @@ class TestGetSinglePack(ReadTestBase):
             resp_dict.get("data"),
             msg="Error in data information return")
 
-def test_get_single_package_suit():
-    """unit testing"""
-    print("---TestSinglePack START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestGetSinglePack("test_error_sourcename"))
-    suite.addTest(TestGetSinglePack("test_true_dbname"))
-    suite.addTest(TestGetSinglePack("test_wrong_dbname"))
-    unittest.TextTestRunner().run(suite)
 
 if __name__ == '__main__':
     unittest.main()

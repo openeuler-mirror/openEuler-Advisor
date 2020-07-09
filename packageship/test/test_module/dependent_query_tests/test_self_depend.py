@@ -1,4 +1,8 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
+"""
+TestSelfDepend
+"""
 import unittest
 import json
 
@@ -9,8 +13,16 @@ from packageship.application.apps.package.function.searchdb import db_priority
 
 
 class TestSelfDepend(ReadTestBase):
+    """
+    TestSelfDepend
+    """
 
     def test_empty_parameter(self):
+        """
+        test_empty_parameter
+        Returns:
+
+        """
         resp = self.client.post("/packages/findSelfDepend",
                                 data='{}',
                                 content_type="application/json")
@@ -116,6 +128,11 @@ class TestSelfDepend(ReadTestBase):
         self.assertIsNotNone(resp_dict.get("data"), msg="Data return error!")
 
     def test_wrong_parameter(self):
+        """
+        test_wrong_parameter
+        Returns:
+
+        """
         resp = self.client.post("/packages/findSelfDepend",
                                 data=json.dumps({
                                     "packagename": "wukong"
@@ -248,6 +265,11 @@ class TestSelfDepend(ReadTestBase):
         self.assertIsNone(resp_dict.get("data"), msg="Data return error!")
 
     def test_true_params_result(self):
+        """
+        test_true_params_result
+        Returns:
+
+        """
         correct_list = get_correct_json_by_filename("self_depend")
 
         self.assertNotEqual([], correct_list, msg="Error reading JSON file")
@@ -259,22 +281,8 @@ class TestSelfDepend(ReadTestBase):
                                     content_type="application/json")
             output_for_input = correct_data["output"]
             resp_dict = json.loads(resp.data)
-            if not compare_two_values(output_for_input, resp_dict):
-                from pprint import pprint
-                print(input_value)
-                # pprint(output_for_input)
-                pprint(resp_dict)
-
-            # self.assertTrue(compare_two_values(output_for_input, resp_dict),
-            #                 msg="The answer is not correct")
-
-
-def test_self_depend_suit():
-    suite = unittest.TestSuite()
-    suite.addTest(TestSelfDepend("test_empty_parameter"))
-    suite.addTest(TestSelfDepend("test_wrong_parameter"))
-    suite.addTest(TestSelfDepend("test_true_params_result"))
-    unittest.TextTestRunner().run(suite)
+            self.assertTrue(compare_two_values(output_for_input, resp_dict),
+                            msg="The answer is not correct")
 
 
 if __name__ == '__main__':

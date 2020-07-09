@@ -1,7 +1,8 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
-'''
+"""
  build_depend unittest
-'''
+"""
 import json
 import unittest
 
@@ -11,15 +12,15 @@ from packageship.application.apps.package.function.constants import ResponseCode
 
 
 class TestBuildDepend(ReadTestBase):
-    '''
+    """
     class for test build_depend
-    '''
+    """
 
     def test_empty_source_name_dblist(self):
-        '''
+        """
         test empty parameters:sourceName,dbList
         :return:
-        '''
+        """
         resp = self.client.post("/packages/findBuildDepend",
                                 data="{}",
                                 content_type="application/json")
@@ -57,10 +58,10 @@ class TestBuildDepend(ReadTestBase):
         self.assertIsNotNone(resp_dict.get("data"), msg="Error in data information return")
 
     def test_wrong_source_name_dblist(self):
-        '''
+        """
         test wrong parameters:sourceName,dbList
         :return: None
-        '''
+        """
         resp = self.client.post("/packages/findBuildDepend",
                                 data=json.dumps({"sourceName": 0}),
                                 content_type="application/json")
@@ -136,6 +137,11 @@ class TestBuildDepend(ReadTestBase):
         self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
 
     def test_true_params_result(self):
+        """
+        test_true_params_result
+        Returns:
+
+        """
         correct_list = get_correct_json_by_filename("build_depend")
 
         self.assertNotEqual([], correct_list, msg="Error reading JSON file")
@@ -149,15 +155,6 @@ class TestBuildDepend(ReadTestBase):
             resp_dict = json.loads(resp.data)
             self.assertTrue(compare_two_values(output_for_input, resp_dict),
                             msg="The answer is not correct")
-
-
-def test_build_depend_suit():
-    print("---TestBuildDepend START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestBuildDepend("test_empty_source_name_dblist"))
-    suite.addTest(TestBuildDepend("test_wrong_source_name_dblist"))
-    suite.addTest(TestBuildDepend("test_true_params_result"))
-    unittest.TextTestRunner().run(suite)
 
 
 if __name__ == '__main__':

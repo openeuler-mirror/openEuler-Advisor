@@ -1,7 +1,9 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 import os
 import unittest
 
+from packageship.libs.exception import Error
 try:
     from packageship import system_config
 
@@ -22,10 +24,10 @@ try:
     from test.base_code.init_config_path import init_config
     from packageship.selfpkg import app
 
-except Exception as e:
+except Error:
     raise
 
 
 class ReadTestBase(unittest.TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         self.client = app.test_client()

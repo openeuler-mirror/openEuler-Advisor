@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 test import_databases
@@ -5,8 +6,11 @@ test import_databases
 import os
 import shutil
 import unittest
+import warnings
 from configparser import ConfigParser
+import yaml
 from packageship import system_config
+from packageship.libs.exception import Error
 
 try:
 
@@ -29,13 +33,12 @@ try:
 
     from test.base_code.init_config_path import init_config
 
-except Exception:
-    raise
-import warnings
-import yaml
+except Error:
+    raise Error
 
 from packageship.application.initsystem.data_import import InitDataBase
-from packageship.libs.exception import ContentNoneException, DatabaseRepeatException
+from packageship.libs.exception import ContentNoneException
+from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.configutils.readconfig import ReadConfig
 
 
@@ -49,13 +52,12 @@ class ImportData(unittest.TestCase):
         warnings.filterwarnings("ignore")
 
     def test_empty_param(self):
-
-        # If init is not obtained_ conf_ Path parameter
+        """If init is not obtained_ conf_ Path parameter"""
         try:
             InitDataBase(config_file_path=None).init_data()
-        except Exception as e:
+        except ContentNoneException as error:
             self.assertEqual(
-                e.__class__,
+                error.__class__,
                 ContentNoneException,
                 msg="No init in package_ conf_ Path parameter, wrong exception type thrown")
 
@@ -69,9 +71,9 @@ class ImportData(unittest.TestCase):
                 w_f.write("")
 
             InitDataBase(config_file_path=_config_path).init_data()
-        except Exception as e:
+        except ContentNoneException as error:
             self.assertEqual(
-                e.__class__,
+                error.__class__,
                 ContentNoneException,
                 msg="Yaml file exists, but the content is empty. The exception type is wrong")
         finally:
@@ -83,18 +85,18 @@ class ImportData(unittest.TestCase):
         try:
             _config_path = ReadConfig().get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
-            with open(_config_path, 'r', encoding='utf-8') as f:
-                origin_yaml = yaml.load(f.read(), Loader=yaml.FullLoader)
+            with open(_config_path, 'r', encoding='utf-8') as file:
+                origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
                 for obj in origin_yaml:
                     obj["dbname"] = "openEuler"
                 with open(_config_path, 'w', encoding='utf-8') as w_f:
                     yaml.dump(origin_yaml, w_f)
 
             InitDataBase(config_file_path=_config_path).init_data()
-        except Exception as e:
+        except DatabaseRepeatException as error:
 
             self.assertEqual(
-                e.__class__,
+                error.__class__,
                 DatabaseRepeatException,
                 msg="Yaml file exists but DB_ Name duplicate exception type is wrong")
         finally:
@@ -103,8 +105,8 @@ class ImportData(unittest.TestCase):
             os.rename(_config_path + '.bak', _config_path)
 
     def test_wrong_param(self):
-        # If the corresponding current init_ conf_ The directory specified by
-        # path is incorrect
+        """If the corresponding current init_ conf_ The directory
+        specified by path is incorrect"""
         try:
             # Back up source files
             shutil.copyfile(
@@ -118,9 +120,9 @@ class ImportData(unittest.TestCase):
 
             _config_path = ReadConfig().get_system('init_conf_path')
             InitDataBase(config_file_path=_config_path).init_data()
-        except Exception as e:
+        except FileNotFoundError as error:
             self.assertEqual(
-                e.__class__,
+                error.__class__,
                 FileNotFoundError,
                 msg="init_ conf_ Path specified directory is empty exception type is wrong")
         finally:
@@ -144,10 +146,10 @@ class ImportData(unittest.TestCase):
 
             _config_path = ReadConfig().get_system('init_conf_path')
             InitDataBase(config_file_path=None).init_data()
-        except Exception as e:
+        except Error as error:
             self.assertEqual(
-                e.__class__,
-                Exception,
+                error.__class__,
+                Error,
                 msg="Wrong exception type thrown when dbtype is wrong")
         finally:
             # To restore a file, delete the file first and then rename it back
@@ -157,61 +159,60 @@ class ImportData(unittest.TestCase):
                 system_config.SYS_CONFIG_PATH)
 
     def test_dbname(self):
+        """test dbname"""
         try:
             _config_path = ReadConfig().get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
-            with open(_config_path, 'r', encoding='utf-8') as f:
-                origin_yaml = yaml.load(f.read(), Loader=yaml.FullLoader)
+            with open(_config_path, 'r', encoding='utf-8') as file:
+                origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
                 for obj in origin_yaml:
                     obj["dbname"] = ""
                 with open(_config_path, 'w', encoding='utf-8') as w_f:
                     yaml.dump(origin_yaml, w_f)
+
             InitDataBase(config_file_path=_config_path).init_data()
-            with open(system_config.DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
-                init_database_date = yaml.load(
-                    file_context.read(), Loader=yaml.FullLoader)
+        except DatabaseRepeatException as error:
+
             self.assertEqual(
-                init_database_date,
-                None,
-                msg=" Priority must be a positive integer between 0 and 100 ")
-        except Exception as e:
-            return
+                error.__class__,
+                DatabaseRepeatException,
+                msg="Yaml file exists but DB_ Name duplicate exception type is wrong")
         finally:
             # Restore files
             os.remove(_config_path)
             os.rename(_config_path + '.bak', _config_path)
 
     def test_src_db_file(self):
+        """test src db file"""
         try:
             _config_path = ReadConfig().get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
-            with open(_config_path, 'r', encoding='utf-8') as f:
-                origin_yaml = yaml.load(f.read(), Loader=yaml.FullLoader)
+            with open(_config_path, 'r', encoding='utf-8') as file:
+                origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
                 for obj in origin_yaml:
                     obj["src_db_file"] = ""
                 with open(_config_path, 'w', encoding='utf-8') as w_f:
                     yaml.dump(origin_yaml, w_f)
+
             InitDataBase(config_file_path=_config_path).init_data()
-            with open(system_config.DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
-                init_database_date = yaml.load(
-                    file_context.read(), Loader=yaml.FullLoader)
+        except TypeError as error:
+
             self.assertEqual(
-                init_database_date,
-                None,
-                msg=" Priority must be a positive integer between 0 and 100 ")
-        except Exception as e:
-            return
+                error.__class__,
+                TypeError,
+                msg="Yaml file exists but DB_ Name duplicate exception type is wrong")
         finally:
             # Restore files
             os.remove(_config_path)
             os.rename(_config_path + '.bak', _config_path)
 
     def test_priority(self):
+        """test priority"""
         try:
             _config_path = ReadConfig().get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
-            with open(_config_path, 'r', encoding='utf-8') as f:
-                origin_yaml = yaml.load(f.read(), Loader=yaml.FullLoader)
+            with open(_config_path, 'r', encoding='utf-8') as file:
+                origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
                 for obj in origin_yaml:
                     obj["priority"] = "-1"
                 with open(_config_path, 'w', encoding='utf-8') as w_f:
@@ -224,7 +225,7 @@ class ImportData(unittest.TestCase):
                 init_database_date,
                 None,
                 msg=" Priority must be a positive integer between 0 and 100 ")
-        except Exception as e:
+        except FileNotFoundError:
             return
         finally:
             # Restore files
@@ -232,9 +233,9 @@ class ImportData(unittest.TestCase):
             os.rename(_config_path + '.bak', _config_path)
 
     def test_true_init_data(self):
-        '''
+        """
             Initialization of system data
-        '''
+        """
         # Normal configuration
         _config_path = ReadConfig().get_system('init_conf_path')
         InitDataBase(config_file_path=_config_path).init_data()
@@ -250,11 +251,11 @@ class ImportData(unittest.TestCase):
 
         # And there is data in this file, and it comes from the yaml file of
         # conf
-        with open(_config_path, 'r', encoding='utf-8') as f:
-            yaml_config = yaml.load(f.read(), Loader=yaml.FullLoader)
+        with open(_config_path, 'r', encoding='utf-8') as file:
+            yaml_config = yaml.load(file.read(), Loader=yaml.FullLoader)
 
-        with open(path, 'r', encoding='utf-8') as f:
-            yaml_success = yaml.load(f.read(), Loader=yaml.FullLoader)
+        with open(path, 'r', encoding='utf-8') as files:
+            yaml_success = yaml.load(files.read(), Loader=yaml.FullLoader)
 
         self.assertEqual(
             len(yaml_config),
@@ -264,7 +265,8 @@ class ImportData(unittest.TestCase):
         # Compare name and priority
         success_name_priority = dict()
         config_name_priority = dict()
-        for i in range(len(yaml_config)):
+        len_con = len(yaml_config)
+        for i in range(len_con):
             success_name_priority[yaml_success[i]["database_name"]] = \
                 yaml_success[i]["priority"]
             config_name_priority[yaml_config[i]["dbname"]] = \
@@ -273,17 +275,5 @@ class ImportData(unittest.TestCase):
         self.assertEqual(
             success_name_priority,
             config_name_priority,
-            msg="The database and priority after initialization are inconsistent with the original file")
-
-
-def test_import_data_suit():
-    """test_import_data_suit"""
-    print("-----ImportData START----")
-    suite = unittest.TestSuite()
-    suite.addTest(ImportData("test_empty_param"))
-    suite.addTest(ImportData("test_wrong_param"))
-    suite.addTest(ImportData("test_dbname"))
-    suite.addTest(ImportData("test_src_db_file"))
-    suite.addTest(ImportData("test_priority"))
-    suite.addTest(ImportData("test_true_init_data"))
-    unittest.TextTestRunner().run(suite)
+            msg="The database and priority after initialization are"
+                "inconsistent with the original file")

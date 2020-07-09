@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 packges test
@@ -14,7 +15,7 @@ class TestPackages(ReadTestBase):
     All package test cases
     """
 
-    def test_empty_dbName(self):
+    def test_empty_dbname(self):
         """dbName is none"""
 
         resp = self.client.get("/packages")
@@ -53,7 +54,7 @@ class TestPackages(ReadTestBase):
             resp_dict.get("data"),
             msg="Error in data information return")
 
-    def test_wrong_dbName(self):
+    def test_wrong_dbname(self):
         """dbName is err"""
 
         resp = self.client.get("/packages?dbName=test")
@@ -75,14 +76,6 @@ class TestPackages(ReadTestBase):
         self.assertIsNone(
             resp_dict.get("data"),
             msg="Error in data information return")
-
-
-def test_packages_suit():
-    print("---TestPackages START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestPackages("test_empty_dbName"))
-    suite.addTest(TestPackages("test_wrong_dbName"))
-    unittest.TextTestRunner().run(suite)
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 Compare the values in two Python data types for equality, ignoring the order of values
@@ -38,7 +39,7 @@ def get_correct_json_by_filename(filename):
                              "test",
                              "common_files",
                              "correct_test_result_json",
-                             f"{filename}.json")
+                             "{}.json".format(filename))
     try:
         with open(json_path, "r") as json_fp:
             correct_list = json.loads(json_fp.read())
