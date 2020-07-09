@@ -1,7 +1,8 @@
-'''
-System-level file configuration, mainly configure
+#!/usr/bin/python3
+"""
+Description：System-level file configuration, mainly configure
 the address of the operating environment, commonly used variables, etc.
-'''
+"""
 
 import os
 import sys

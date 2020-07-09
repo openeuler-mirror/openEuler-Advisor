@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 """
-    Entry method for custom commands
+Description: Entry method for custom commands
+Class: BaseCommand,PkgshipCommand,RemoveCommand,InitDatabaseCommand,UpdateDatabaseCommand,
+       AllPackageCommand,UpdatePackageCommand,BuildDepCommand,InstallDepCommand,
+       SelfBuildCommand,BeDependCommand,SingleCommand
 """
 import os
 import json
+
 try:
     import argparse
     import requests
@@ -14,6 +18,7 @@ try:
     from packageship.libs.log import Log
     from packageship.libs.exception import Error
     from packageship.libs.configutils.readconfig import ReadConfig
+
     LOGGER = Log(__name__)
 except ImportError as import_error:
     print('Error importing related dependencies, \
@@ -22,13 +27,18 @@ else:
     from packageship.application.apps.package.function.constants import ResponseCode
     from packageship.application.apps.package.function.constants import ListNode
 
-
 DB_NAME = 0
 
 
 def main():
     """
-        command entry function
+    Description: Command line tool entry, register related commands
+    Args:
+
+    Returns:
+
+    Raises:
+        Error: An error occurred while executing the command
     """
     try:
         packship_cmd = PkgshipCommand()
@@ -40,10 +50,18 @@ def main():
 
 class BaseCommand():
     """
-        Basic attributes used for command invocation
+    Description: Basic attributes used for command invocation
+    Attributes:
+        write_host: Can write operation single host address
+        read_host: Can read the host address of the operation
+        headers: Send HTTP request header information
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+
+        """
         self._read_config = ReadConfig()
         self.write_host = None
         self.read_host = None
@@ -56,7 +74,12 @@ class BaseCommand():
 
     def load_write_host(self):
         """
-            Address to load write permission
+        Description: Address to load write permission
+        Args:
+
+        Returns:
+        Raises:
+
         """
         wirte_port = self._read_config.get_system('write_port')
 
@@ -68,7 +91,12 @@ class BaseCommand():
 
     def load_read_host(self):
         """
-            Address to load write permission
+        Returns:Address to load read permission
+        Args:
+
+        Returns:
+        Raises:
+
         """
         read_port = self._read_config.get_system('query_port')
 
@@ -81,7 +109,12 @@ class BaseCommand():
 
 class PkgshipCommand(BaseCommand):
     """
-       PKG package command line
+    Description: PKG package command line
+    Attributes:
+        statistics: Summarized data table
+        table: Output table
+        columns: Calculate the width of the terminal dynamically
+        params: Command parameters
     """
     parser = argparse.ArgumentParser(
         description='package related dependency management')
@@ -89,6 +122,9 @@ class PkgshipCommand(BaseCommand):
         help='package related dependency management')
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(PkgshipCommand, self).__init__()
         self.statistics = dict()
         self.table = PkgshipCommand.create_table(
@@ -101,13 +137,26 @@ class PkgshipCommand(BaseCommand):
     @staticmethod
     def register_command(command):
         """
-            Register command
+        Description: Registration of related commands
+
+        Args:
+            command: Related commands
+
+        Returns:
+        Raises:
+
         """
         command.register()
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         for command_params in self.params:
             self.parse.add_argument(  # pylint: disable=E1101
@@ -119,7 +168,13 @@ class PkgshipCommand(BaseCommand):
     @classmethod
     def parser_args(cls):
         """
-            Command parsing
+        Description: Register the command line and parse related commands
+        Args:
+
+        Returns:
+
+        Raises:
+            Error: An error occurred during command parsing
         """
         cls.register_command(RemoveCommand())
         cls.register_command(InitDatabaseCommand())
@@ -139,7 +194,13 @@ class PkgshipCommand(BaseCommand):
 
     def parse_package(self, response_data):
         """
-            Parse the corresponding data of the package
+        Description: Parse the corresponding data of the package
+        Args:
+            response_data: http request response content
+        Returns:
+
+        Raises:
+
         """
         if response_data.get('code') == ResponseCode.SUCCESS:
             package_all = response_data.get('data')
@@ -153,7 +214,13 @@ class PkgshipCommand(BaseCommand):
 
     def parse_depend_package(self, response_data):
         """
-            Parse the corresponding data of the package
+        Description: Parsing package data with dependencies
+        Args:
+            response_data: http request response content
+        Returns:
+            Summarized data table
+        Raises:
+
         """
         bin_package_count = 0
         src_package_count = 0
@@ -200,7 +267,15 @@ class PkgshipCommand(BaseCommand):
 
     def print_(self, content=None, character='=', dividing_line=False):
         """
-            Output formatted characters
+        Description: Output formatted characters
+        Args:
+           content: Output content
+           character: Output separator content
+           dividing_line: Whether to show the separator
+        Returns:
+
+        Raises:
+
         """
         # Get the current width of the console
 
@@ -214,7 +289,13 @@ class PkgshipCommand(BaseCommand):
     @staticmethod
     def create_table(title):
         """
-            Create printed forms
+        Description: Create printed forms
+        Args:
+            title: Table title
+        Returns:
+            ASCII format table
+        Raises:
+
         """
         table = PrettyTable(title)
         # table.set_style(prettytable.PLAIN_COLUMNS)
@@ -227,7 +308,14 @@ class PkgshipCommand(BaseCommand):
 
     def statistics_table(self, bin_package_count, src_package_count):
         """
-            Generate data for total statistical tables
+        Description: Generate data for total statistical tables
+        Args:
+            bin_package_count: Number of binary packages
+            src_package_count: Number of source packages
+        Returns:
+            Summarized data table
+        Raises:
+
         """
         statistics_table = self.create_table(['', 'binary', 'source'])
         statistics_table.add_row(
@@ -242,7 +330,13 @@ class PkgshipCommand(BaseCommand):
     @staticmethod
     def http_error(response):
         """
-        Log error messages for http
+        Description: Log error messages for http
+        Args:
+            response: Response content of http request
+        Returns:
+
+        Raises:
+            HTTPError: http request error
         """
         try:
             print(response.raise_for_status())
@@ -254,10 +348,16 @@ class PkgshipCommand(BaseCommand):
 
 class RemoveCommand(PkgshipCommand):
     """
-        Delete database command
+    Description: Delete database command
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(RemoveCommand, self).__init__()
         self.parse = PkgshipCommand.subparsers.add_parser(
             'rm', help='delete database operation')
@@ -265,14 +365,27 @@ class RemoveCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(RemoveCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: Command line parameters
+        Returns:
+
+        Raises:
+            ConnErr: Request connection error
+
         """
         if params.db is None:
             print('No database specified for deletion')
@@ -298,10 +411,16 @@ class RemoveCommand(PkgshipCommand):
 
 class InitDatabaseCommand(PkgshipCommand):
     """
-        Initialize  database command
+    Description: Initialize  database command
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(InitDatabaseCommand, self).__init__()
         self.parse = PkgshipCommand.subparsers.add_parser(
             'init', help='initialization of the database')
@@ -310,21 +429,33 @@ class InitDatabaseCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(InitDatabaseCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: Command line parameters
+        Returns:
+
+        Raises:
+
         """
         file_path = params.filepath
         try:
             response = requests.post(self.write_host +
                                      '/initsystem', data=json.dumps({'configfile': file_path}),
                                      headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -341,10 +472,16 @@ class InitDatabaseCommand(PkgshipCommand):
 
 class UpdateDatabaseCommand(PkgshipCommand):
     """
-        update  database command
+    Description: update  database command
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(UpdateDatabaseCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -353,24 +490,43 @@ class UpdateDatabaseCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(UpdateDatabaseCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         pass  # pylint: disable= W0107
 
 
 class AllPackageCommand(PkgshipCommand):
     """
-        get all package commands
+    Description: get all package commands
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
+        table: Output table
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(AllPackageCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -381,20 +537,32 @@ class AllPackageCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(AllPackageCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: Command line parameters
+        Returns:
+
+        Raises:
+            ConnectionError: Request connection error
         """
         _url = self.read_host + \
             '/packages?dbName={dbName}'.format(dbName=params.db)
         try:
             response = requests.get(_url)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -409,10 +577,16 @@ class AllPackageCommand(PkgshipCommand):
 
 class UpdatePackageCommand(PkgshipCommand):
     """
-        update package data
+    Description: update package data
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(UpdatePackageCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -426,14 +600,26 @@ class UpdatePackageCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(UpdatePackageCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: Command line parameters
+        Returns:
+
+        Raises:
+            ConnectionError: Request connection error
         """
         _url = self.write_host + '/packages/findByPackName'
         try:
@@ -441,9 +627,9 @@ class UpdatePackageCommand(PkgshipCommand):
                 _url, data=json.dumps({'sourceName': params.packagename,
                                        'dbName': params.db,
                                        'maintainer': params.m,
-                                       'maintainLevel': params.l}),
+                                       'maintainlevel': params.l}),
                 headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -460,10 +646,18 @@ class UpdatePackageCommand(PkgshipCommand):
 
 class BuildDepCommand(PkgshipCommand):
     """
-        query the compilation dependencies of the specified package
+    Description: query the compilation dependencies of the specified package
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
+        collection: Is there a collection parameter
+        collection_params: Command line collection parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(BuildDepCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -478,7 +672,13 @@ class BuildDepCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(BuildDepCommand, self).register()
         # collection parameters
@@ -490,7 +690,13 @@ class BuildDepCommand(PkgshipCommand):
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: Command line parameters
+        Returns:
+
+        Raises:
+            ConnectionError: Request connection error
         """
         _url = self.read_host + '/packages/findBuildDepend'
         try:
@@ -498,7 +704,7 @@ class BuildDepCommand(PkgshipCommand):
                 _url, data=json.dumps({'sourceName': params.packagename,
                                        'db_list': params.dbs}),
                 headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -517,10 +723,18 @@ class BuildDepCommand(PkgshipCommand):
 
 class InstallDepCommand(PkgshipCommand):
     """
-        query the installation dependencies of the specified package
+    Description: query the installation dependencies of the specified package
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
+        collection: Is there a collection parameter
+        collection_params: Command line collection parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(InstallDepCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -535,7 +749,13 @@ class InstallDepCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(InstallDepCommand, self).register()
         # collection parameters
@@ -547,7 +767,13 @@ class InstallDepCommand(PkgshipCommand):
 
     def parse_package(self, response_data):
         """
-            Parse the corresponding data of the package
+        Description: Parse the corresponding data of the package
+        Args:
+            response_data: http response data
+        Returns:
+
+        Raises:
+
         """
         if getattr(self, 'statistics'):
             setattr(self, 'statistics', dict())
@@ -595,7 +821,13 @@ class InstallDepCommand(PkgshipCommand):
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: Command line parameters
+        Returns:
+
+        Raises:
+            ConnectionError: requests connection error
         """
         _url = self.read_host + '/packages/findInstallDepend'
         try:
@@ -604,7 +836,7 @@ class InstallDepCommand(PkgshipCommand):
                     'binaryName': params.packagename,
                     'db_list': params.dbs
                 }, ensure_ascii=True), headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -623,10 +855,18 @@ class InstallDepCommand(PkgshipCommand):
 
 class SelfBuildCommand(PkgshipCommand):
     """
-        self-compiled dependency query
+    Description: self-compiled dependency query
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
+        collection: Is there a collection parameter
+        collection_params: Command line collection parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(SelfBuildCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -649,7 +889,13 @@ class SelfBuildCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(SelfBuildCommand, self).register()
         # collection parameters
@@ -661,7 +907,14 @@ class SelfBuildCommand(PkgshipCommand):
 
     def _parse_bin_package(self, bin_packages):
         """
-            Parsing binary result data
+        Description: Parsing binary result data
+        Args:
+            bin_packages: Binary package data
+
+        Returns:
+
+        Raises:
+
         """
         bin_package_count = 0
         if bin_packages:
@@ -688,13 +941,20 @@ class SelfBuildCommand(PkgshipCommand):
 
         return bin_package_count
 
-    def _parse_src_package(self, src_apckages):
+    def _parse_src_package(self, src_packages):
         """
-            Source package data analysis
+        Description: Source package data analysis
+        Args:
+            src_packages: Source package
+
+        Returns:
+            Source package data
+        Raises:
+
         """
         src_package_count = 0
-        if src_apckages:
-            for src_package, package_depend in src_apckages.items():
+        if src_packages:
+            for src_package, package_depend in src_packages.items():
                 # distinguish whether the current data is the data of the root node
                 if isinstance(package_depend, list):
 
@@ -718,7 +978,13 @@ class SelfBuildCommand(PkgshipCommand):
 
     def parse_package(self, response_data):
         """
-            Parse the corresponding data of the package
+        Description: Parse the corresponding data of the package
+        Args:
+            response_data: http response data
+        Returns:
+            Summarized data table
+        Raises:
+
         """
         if getattr(self, 'statistics'):
             setattr(self, 'statistics', dict())
@@ -746,7 +1012,13 @@ class SelfBuildCommand(PkgshipCommand):
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: commands lines params
+        Returns:
+
+        Raises:
+            ConnectionError: requests connection error
         """
         _url = self.read_host + '/packages/findSelfDepend'
         try:
@@ -758,7 +1030,7 @@ class SelfBuildCommand(PkgshipCommand):
                                          'selfbuild': str(params.s),
                                          'withsubpack': str(params.w)}),
                                      headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -780,10 +1052,16 @@ class SelfBuildCommand(PkgshipCommand):
 
 class BeDependCommand(PkgshipCommand):
     """
-        dependent query
+    Description: dependent query
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(BeDependCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -796,14 +1074,26 @@ class BeDependCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(BeDependCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: command lines params
+        Returns:
+
+        Raises:
+            ConnectionError: requests connection error
         """
         _url = self.read_host + '/packages/findBeDepend'
         try:
@@ -814,7 +1104,7 @@ class BeDependCommand(PkgshipCommand):
                     'withsubpack': str(params.w)
                 }
             ), headers=self.headers)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:
@@ -833,10 +1123,16 @@ class BeDependCommand(PkgshipCommand):
 
 class SingleCommand(PkgshipCommand):
     """
-        query single package information
+    Description: query single package information
+    Attributes:
+        parse: Command line parsing example
+        params: Command line parameters
     """
 
     def __init__(self):
+        """
+        Description: Class instance initialization
+        """
         super(SingleCommand, self).__init__()
 
         self.parse = PkgshipCommand.subparsers.add_parser(
@@ -848,14 +1144,26 @@ class SingleCommand(PkgshipCommand):
 
     def register(self):
         """
-            Command line parameter injection
+        Description: Command line parameter injection
+        Args:
+
+        Returns:
+
+        Raises:
+
         """
         super(SingleCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
     def parse_package(self, response_data):
         """
-            Parse the corresponding data of the package
+        Description: Parse the corresponding data of the package
+        Args:
+            response_data: http response data
+        Returns:
+
+        Raises:
+
         """
         show_field_name = ('sourceName', 'dbname', 'version',
                            'license', 'maintainer', 'maintainlevel')
@@ -868,10 +1176,9 @@ class SingleCommand(PkgshipCommand):
                         if value is None:
                             value = ''
                         if key in show_field_name:
-
                             line_content = '%-15s:%s' % (key, value)
                             print_contents.append(line_content)
-                    print_contents.append('='*self.columns)
+                    print_contents.append('=' * self.columns)
         else:
             print(response_data.get('msg'))
         if print_contents:
@@ -880,14 +1187,20 @@ class SingleCommand(PkgshipCommand):
 
     def do_command(self, params):
         """
-            Action to execute command
+        Description: Action to execute command
+        Args:
+            params: command lines params
+        Returns:
+
+        Raises:
+            ConnectionError: requests connection error
         """
         _url = self.read_host + \
             '/packages/findByPackName?dbName={db_name}&sourceName={packagename}' \
-            .format(db_name=params.db, packagename=params.packagename)
+                   .format(db_name=params.db, packagename=params.packagename)
         try:
             response = requests.get(_url)
-        except ConnectionError as conn_error:
+        except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)
             print(str(conn_error))
         else:

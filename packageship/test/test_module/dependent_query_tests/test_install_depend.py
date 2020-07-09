@@ -1,27 +1,28 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
- build_depend unittest
+TestInstallDepend
 """
-import json
 import unittest
+import json
 
+from test.base_code.common_test_code import get_correct_json_by_filename, compare_two_values
 from test.base_code.read_data_base import ReadTestBase
-from test.base_code.common_test_code import compare_two_values, get_correct_json_by_filename
 from packageship.application.apps.package.function.constants import ResponseCode
 
 
-class TestBuildDepend(ReadTestBase):
+class TestInstallDepend(ReadTestBase):
     """
-    class for test build_depend
+    TestInstallDepend
     """
 
-    def test_empty_source_name_dblist(self):
+    def test_empty_binaryName_dbList(self):
         """
-        test empty parameters:sourceName,dbList
-        :return:
+        test_empty_binaryName_dbList
+        Returns:
+
         """
-        resp = self.client.post("/packages/findBuildDepend",
+        resp = self.client.post("/packages/findInstallDepend",
                                 data="{}",
                                 content_type="application/json")
         resp_dict = json.loads(resp.data)
@@ -39,8 +40,8 @@ class TestBuildDepend(ReadTestBase):
         self.assertIn("data", resp_dict, msg="Error in data format return")
         self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
 
-        resp = self.client.post("/packages/findBuildDepend",
-                                data=json.dumps({"sourceName": "A"}),
+        resp = self.client.post("/packages/findInstallDepend",
+                                data=json.dumps({"binaryName": "A1"}),
                                 content_type="application/json")
 
         resp_dict = json.loads(resp.data)
@@ -57,13 +58,14 @@ class TestBuildDepend(ReadTestBase):
         self.assertIn("data", resp_dict, msg="Error in data format return")
         self.assertIsNotNone(resp_dict.get("data"), msg="Error in data information return")
 
-    def test_wrong_source_name_dblist(self):
+    def test_wrong_binaryName_dbList(self):
         """
-        test wrong parameters:sourceName,dbList
-        :return: None
+        test_empty_binaryName_dbList
+        Returns:
+
         """
-        resp = self.client.post("/packages/findBuildDepend",
-                                data=json.dumps({"sourceName": 0}),
+        resp = self.client.post("/packages/findInstallDepend",
+                                data=json.dumps({"binaryName": 0}),
                                 content_type="application/json")
         resp_dict = json.loads(resp.data)
 
@@ -80,26 +82,27 @@ class TestBuildDepend(ReadTestBase):
         self.assertIn("data", resp_dict, msg="Error in data format return")
         self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
 
-        resp = self.client.post("/packages/findBuildDepend",
-                                data=json.dumps({"sourceName": "qitiandasheng"}),
+        resp = self.client.post("/packages/findInstallDepend",
+                                data=json.dumps(
+                                    {"binaryName": "qitiandasheng"}),
                                 content_type="application/json")
 
         resp_dict = json.loads(resp.data)
         self.assertIn("code", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.PACK_NAME_NOT_FOUND,
+        self.assertEqual(ResponseCode.SUCCESS,
                          resp_dict.get("code"),
                          msg="Error in status code return")
 
         self.assertIn("msg", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.CODE_MSG_MAP.get(ResponseCode.PACK_NAME_NOT_FOUND),
+        self.assertEqual(ResponseCode.CODE_MSG_MAP.get(ResponseCode.SUCCESS),
                          resp_dict.get("msg"),
                          msg="Error in status prompt return")
 
         self.assertIn("data", resp_dict, msg="Error in data format return")
-        self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
+        self.assertIsNotNone(resp_dict.get("data"), msg="Error in data information return")
 
-        resp = self.client.post("/packages/findBuildDepend",
-                                data=json.dumps({"sourceName": "CUnit",
+        resp = self.client.post("/packages/findInstallDepend",
+                                data=json.dumps({"binaryName": "A1",
                                                  "db_list": [12, 3, 4]}),
                                 content_type="application/json")
         resp_dict = json.loads(resp.data)
@@ -117,8 +120,8 @@ class TestBuildDepend(ReadTestBase):
         self.assertIn("data", resp_dict, msg="Error in data format return")
         self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
 
-        resp = self.client.post("/packages/findBuildDepend",
-                                data=json.dumps({"sourceName": "CUnit",
+        resp = self.client.post("/packages/findInstallDepend",
+                                data=json.dumps({"binaryName": "A1",
                                                  "db_list": ["shifu", "bajie"]
                                                  }), content_type="application/json")
         resp_dict = json.loads(resp.data)
@@ -138,17 +141,17 @@ class TestBuildDepend(ReadTestBase):
 
     def test_true_params_result(self):
         """
-        test_true_params_result
+        test_empty_binaryName_dbList
         Returns:
 
         """
-        correct_list = get_correct_json_by_filename("build_depend")
+        correct_list = get_correct_json_by_filename("install_depend")
 
         self.assertNotEqual([], correct_list, msg="Error reading JSON file")
 
         for correct_data in correct_list:
             input_value = correct_data["input"]
-            resp = self.client.post("/packages/findBuildDepend",
+            resp = self.client.post("/packages/findInstallDepend",
                                     data=json.dumps(input_value),
                                     content_type="application/json")
             output_for_input = correct_data["output"]

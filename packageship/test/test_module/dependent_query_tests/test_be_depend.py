@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 Less transmission is always parameter transmission
@@ -8,10 +9,11 @@ from test.base_code.read_data_base import ReadTestBase
 from test.base_code.common_test_code import compare_two_values, get_correct_json_by_filename
 from packageship.application.apps.package.function.constants import ResponseCode
 
+
 class TestBeDepend(ReadTestBase):
-    '''
+    """
     The dependencies of the package are tested
-    '''
+    """
 
     def test_lack_parameter(self):
         """
@@ -355,18 +357,3 @@ class TestBeDepend(ReadTestBase):
             resp_dict = json.loads(resp.data)
             self.assertTrue(compare_two_values(output_for_input, resp_dict),
                             msg="The answer is not correct")
-
-def test_be_depend_suit():
-    """
-     Start the test case function
-    """
-    print("---TestBeDepend START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestBeDepend("test_lack_parameter"))
-    suite.addTest(TestBeDepend("test_wrong_parameter"))
-    suite.addTest(TestBeDepend("test_true_params_result"))
-    unittest.TextTestRunner().run(suite)
-
-
-# if __name__ == '__main__':
-#     unittest.main()

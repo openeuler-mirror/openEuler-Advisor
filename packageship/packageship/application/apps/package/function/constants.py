@@ -1,16 +1,19 @@
-'''
-    Response contain and code ID
-'''
+#!/usr/bin/python3
+"""
+Description: Response contain and code ID
+class: ListNode, ResponseCode
+"""
 
 
-class ListNode:
+class ListNode():
     """
-    the structure of dict:
+    Description: Dethe structure of dict:
     {package_name: [source_name,
                 dbname,
                 [[parent_node_1, depend_type],[parent_node_2, depend_type],...]],
                 check_tag]
     }
+    changeLog:
     """
 
     SOURCE_NAME = 0
@@ -26,8 +29,8 @@ class ListNode:
 
 class ResponseCode():
     """
-        Description: response code to web
-        changeLog:
+    Description: response code to web
+    changeLog:
     """
     # Four digits are common status codes
     SUCCESS = "2001"
@@ -66,7 +69,7 @@ class ResponseCode():
     @classmethod
     def response_json(cls, code, data=None):
         """
-        classmethod
+        Description: classmethod
         """
         return {
             "code": code,

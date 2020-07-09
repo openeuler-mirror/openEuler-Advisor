@@ -1,6 +1,7 @@
-'''
-    Entry for project initialization and service startupc
-'''
+#!/usr/bin/python3
+"""
+Description: Entry for project initialization and service startupc
+"""
 import os
 from flask_script import Manager
 from packageship.libs.exception import Error
@@ -28,6 +29,9 @@ else:
 
 @app.before_request
 def before_request():
+    """
+    Description: Global request interception
+    """
     if not identity_verification():
         return 'No right to perform operation'
 

@@ -1,5 +1,8 @@
+#!/usr/bin/python3
 """
-    A set for all query databases function
+Description:  A set for all query databases function
+class: SearchDB
+functions: db_priority
 """
 from collections import namedtuple
 
@@ -22,6 +25,9 @@ LOGGER = Log(__name__)
 class SearchDB():
     """
     Description: query in database
+    Attributes:
+        db_list: Database list
+        db_object_dict:A dictionary for storing database connection objects
     changeLog:
     """
     def __new__(cls, *args, **kwargs):
@@ -31,6 +37,9 @@ class SearchDB():
         return cls._instance
 
     def __init__(self, db_list):
+        """
+        init class
+        """
         self.db_object_dict = dict()
         for db_name in db_list:
             try:
@@ -44,9 +53,11 @@ class SearchDB():
         Description: get a package install depend from database:
                      binary_name -> binary_id -> requires_set -> requires_id_set -> provides_set
                      -> install_depend_binary_id_key_list -> install_depend_binary_name_list
-        :param binary_lsit: a list of binary package name
-        :return install depend list
-        changeLog:
+        Args:
+             binary_list: a list of binary package name
+        Returns:
+             install depend list
+        Raises:
         """
         result_list = []
         get_list = []
@@ -111,9 +122,15 @@ class SearchDB():
         """
         Description: get a package source name from database:
                      bianry_name ->binary_source_name -> source_name
-        input: search package's name, database preority list
-        return: database name, source name
-        changeLog:
+        Args:
+            binary_name: search package's name, database preority list
+        Returns:
+             db_name: database name
+             source_name: source name
+             source_version: source version
+        Raises:
+            AttributeError: The object does not have this property
+            SQLAlchemyError: sqlalchemy error
         """
         for db_name, data_base in self.db_object_dict.items():
             try:
@@ -136,9 +153,13 @@ class SearchDB():
         """
         Description: get a subpack list based on source name list:
                      source_name ->source_name_id -> binary_name
-        input: search package's name, database preority list
-        return: subpack tuple
-        changeLog:
+        Args:
+             source_name_list: search package's name, database preority list
+        Returns:
+             result_list: subpack tuple
+        Raises:
+            AttributeError: The object does not have this property
+            SQLAlchemyError: sqlalchemy error
         """
         if not self.db_object_dict:
             return ResponseCode.DIS_CONNECTION_DB, None
@@ -190,14 +211,19 @@ class SearchDB():
 
     def get_binary_in_other_database(self, not_found_binary, db_):
         """
-        Binary package name data not found in the current database, go to other databases to try
-        @:param:not_found_build These data cannot be found in the current database
-        @:param:db:current database name
-        return:a list :[(search_name,source_name,bin_name,
+        Description: Binary package name data not found in
+        the current database, go to other databases to try
+        Args:
+            not_found_binary: not_found_build These data cannot be found in the current database
+            db_:current database name
+        Returns:
+            a list :[(search_name,source_name,bin_name,
                             bin_version,db_name,search_version,req_name),
                         (search_name,source_name,bin_name,
                             bin_version,db_name,search_version,req_name),]
-        changeLog:new method to look for data in other databases
+        Raises:
+            AttributeError: The object does not have this property
+            SQLAlchemyError: sqlalchemy error
         """
         if not not_found_binary:
             return []
@@ -264,13 +290,16 @@ class SearchDB():
     def get_build_depend(self, source_name_li):
         """
         Description: get a package build depend from database
-        input:
-        @:param: search package's name list
-        return: all source pkg build depend list
-                structure :[(search_name,source_name,bin_name,bin_version,db_name,search_version),
+        Args:
+            source_name_li: search package's name list
+        Returns:
+             all source pkg build depend list
+             structure :[(search_name,source_name,bin_name,bin_version,db_name,search_version),
                             (search_name,source_name,bin_name,bin_version,db_name,search_version),]
 
-        changeLog: Modify SQL logic and modify return content by:zhangtao
+        Raises:
+            AttributeError: The object does not have this property
+            SQLAlchemyError: sqlalchemy error
         """
         # pylint: disable=R0914
         return_tuple = namedtuple("return_tuple", [
@@ -372,7 +401,13 @@ class SearchDB():
 
 def db_priority():
     """
-    return dbprioty
+    Description: Read yaml file, return database name, according to priority
+    Args:
+    Returns:
+        db_list: database name list
+    Raises:
+        FileNotFoundError: file cannot be found
+        Error: abnormal error
     """
     try:
         with open(DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:

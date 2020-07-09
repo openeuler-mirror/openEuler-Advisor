@@ -1,17 +1,30 @@
+#!/usr/bin/python3
 """
-Find compilation dependency of source package
+Description: Find compilation dependency of source package
+class: BuildDepend
 """
 from packageship.application.apps.package.function.searchdb import SearchDB
 from packageship.application.apps.package.function.install_depend import InstallDepend
 from packageship.application.apps.package.function.constants import ResponseCode, ListNode
 
 
-class BuildDepend:
+class BuildDepend():
     """
-    Find compilation dependency of source package
+    Description: Find compilation dependency of source package
+    Attributes:
+        pkg_name_list: List of package names
+        db_list: List of database names
+        self_build: Compile dependency conditions
+        history_dict: Query history dict
+        search_db:Query an instance of a database class
+        result_dict:A dictionary to store the data that needs to be echoed
+        source_dict:A dictionary to store the searched source code package name
     """
 
     def __init__(self, pkg_name_list, db_list, self_build=0, history_dict=None):
+        """
+        init class
+        """
         self.pkg_name_list = pkg_name_list
         self._self_build = self_build
 
@@ -25,8 +38,13 @@ class BuildDepend:
 
     def build_depend_main(self):
         """
-        Entry function
-        :return: ResponseCode,result_dict,source_dict
+        Description: Entry function
+        Args:
+        Returns:
+            ResponseCode: response code
+            result_dict: Dictionary of query results
+            source_dict: Dictionary of source code package
+        Raises:
         """
         if not self.search_db.db_object_dict:
             return ResponseCode.DIS_CONNECTION_DB, None, None
@@ -52,8 +70,12 @@ class BuildDepend:
 
     def build_depend(self, pkg_list):
         """
-        @:param pkg_list:You need to find the dependent source package name
-        :return ResponseCode
+        Description: Compile dependency query
+        Args:
+             pkg_list:You need to find the dependent source package name
+        Returns:
+             ResponseCode: response code
+        Raises:
         """
         res_status, build_list = self.search_db.get_build_depend(pkg_list)
 
@@ -84,11 +106,14 @@ class BuildDepend:
 
     def _create_node_and_get_search_list(self, build_list, pkg_list):
         """
-        To create root node in self.result_dict and
+        Description: To create root node in self.result_dict and
             return the name of the source package to be found next time
-        @:param build_list:List of binary package names
-        @:param pkg_list: List of binary package names
-        :return the name of the source package to be found next time
+        Args:
+            build_list:List of binary package names
+            pkg_list: List of binary package names
+        Returns:
+             the name of the source package to be found next time
+        Raises:
         """
         search_set = set()
         search_list = []
@@ -150,9 +175,11 @@ class BuildDepend:
 
     def self_build(self, pkg_name_li):
         """
-        Using recursion to find compilation dependencies
-        :param pkg_name_li: Source package name list
-        :return:
+        Description: Using recursion to find compilation dependencies
+        Args:
+            pkg_name_li: Source package name list
+        Returns:
+        Raises:
         """
         if not pkg_name_li:
             return

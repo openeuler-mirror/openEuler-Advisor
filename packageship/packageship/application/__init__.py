@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
    Initial operation and configuration of the flask project
 '''
