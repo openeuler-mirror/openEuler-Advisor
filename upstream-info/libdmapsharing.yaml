@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.gnome.org/GNOME/libdmapsharing.git
+tag_prefix: LIBDMAPSHARING
+separator: _

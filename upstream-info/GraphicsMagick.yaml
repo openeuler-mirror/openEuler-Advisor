@@ -1,0 +1,4 @@
+version_control: hg
+src_repo: http://hg.code.sf.net/p/graphicsmagick/code
+tag_prefix: "GraphicsMagick-"
+separator: "_"

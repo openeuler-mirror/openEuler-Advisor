@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://pagure.io/newt.git
+tag_prefix: r
+separator: '-'

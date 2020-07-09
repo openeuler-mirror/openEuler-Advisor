@@ -1,0 +1,4 @@
+version_control: github
+src_repo: nkadel/libtdb-1.4.x-srpm
+tag_prefix: ^v 
+separator: . 

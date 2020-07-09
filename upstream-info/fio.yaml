@@ -1,0 +1,4 @@
+version_control: github
+src_repo: axboe/fio
+tag_prefix: ^fio-
+separator: .

@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://sourceware.org/git/bzip2.git
+tag_prefix: ^bzip2- 
+separator: . 

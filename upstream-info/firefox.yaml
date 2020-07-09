@@ -1,0 +1,4 @@
+version_control: github
+src_repo: mozilla/gecko-dev
+tag_prefix: ^B2G_
+separator: _

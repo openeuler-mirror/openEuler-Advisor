@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.netfilter.org/libnftnl
+tag_prefix: ^libbftnl-
+separator: .

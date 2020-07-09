@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  felipec/libomxil-bellagio
+tag_prefix: ^
+separator: .

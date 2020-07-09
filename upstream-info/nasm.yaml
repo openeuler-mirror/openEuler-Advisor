@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://repo.or.cz/w/nasm.git
+tag_prefix: nasm-
+separator: .

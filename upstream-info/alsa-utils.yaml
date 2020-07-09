@@ -1,0 +1,4 @@
+version_control: git
+src_repo: http://git.alsa-project.org/http/alsa-utils.git
+tag_prefix: "^v"
+separator: "."

@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.infradead.org/users/hch/nvmetcli.git
+tag_prefix: ^v
+separator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo:  Distrotech/libnetfilter_cthelper
+tag_prefix: libnetfilter_cthelper-
+separator: . 

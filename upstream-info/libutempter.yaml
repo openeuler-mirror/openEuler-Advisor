@@ -1,0 +1,4 @@
+version_control: github
+src_repo: altlinux/libutempter
+tag_prefix: 
+separator: 

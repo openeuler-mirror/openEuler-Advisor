@@ -51,6 +51,12 @@ def clean_tags(tags, info):
         separator_regex = re.compile(info["separator"])
         result_list = [separator_regex.sub(".", x) for x in result_list]
 
+    # Xinwei used to mis-spell 'separator'. 
+    # Followings are kept for compatability until all yaml files are fixed.
+    if info.get("seperator", ".") != "." and info.get("seperator", ".") is not None:
+        separator_regex = re.compile(info["seperator"])
+        result_list = [separator_regex.sub(".", x) for x in result_list]
+
     result_list = [x for x in result_list if x[0].isdigit()]
 
     return result_list

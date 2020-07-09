@@ -1,0 +1,4 @@
+version_control: github
+src_repo: NLnetLabs/dnssec-trigger
+tag_prefix: ^dnssec-trigger-
+separator: .
