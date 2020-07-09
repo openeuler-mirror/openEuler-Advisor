@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+"""
+Package management program installation configuration
+file for software packaging
+"""
 from distutils.core import setup
 import os
 

@@ -40,6 +40,7 @@ class MergeData():
         self.bin_provides_dicts = dict()
         self.bin_package_datas = []
         self.mainter_infos = dict()
+        self.bin_requires_dicts = dict()
 
     @staticmethod
     def __columns(cursor):

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''
+"""
    Initial operation and configuration of the flask project
-'''
+"""
 from flask import Flask
 from flask_session import Session
 from packageship.application.settings import Config
@@ -11,9 +11,9 @@ OPERATION = None
 
 
 def init_app(operation):
-    '''
+    """
         Project initialization function
-    '''
+    """
     app = Flask(__name__)
 
     # log configuration

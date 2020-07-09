@@ -10,7 +10,6 @@ from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
     Description: functional description:Source package model
-    modify record:
     """
 
     __tablename__ = 'src_pack'
@@ -35,7 +34,6 @@ class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
 class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
     Description: functional description:Binary package data
-    modify record:
     """
     __tablename__ = 'bin_pack'
 
@@ -51,10 +49,9 @@ class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
 
 
 class pack_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
-    '''
+    """
     functional description:
-    modify record:
-    '''
+    """
 
     __tablename__ = 'pack_requires'
 
@@ -72,10 +69,9 @@ class pack_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
 
 
 class pack_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
-    '''
+    """
     functional description:
-    modify record:
-    '''
+    """
     __tablename__ = 'pack_provides'
 
     id = Column(Integer, primary_key=True)
@@ -86,9 +82,9 @@ class pack_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
 
 
 class maintenance_info(DBHelper.BASE):  # pylint: disable=C0103,R0903
-    '''
+    """
         Maintain data related to person information
-    '''
+    """
     __tablename__ = 'maintenance_info'
 
     id = Column(Integer, primary_key=True)

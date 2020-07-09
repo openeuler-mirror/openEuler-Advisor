@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""
+Customized exception information class
+"""
 from packageship.libs.exception.ext import ContentNoneException
 from packageship.libs.exception.ext import DatabaseRepeatException
 from packageship.libs.exception.ext import DataMergeException
