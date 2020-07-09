@@ -1,4 +1,8 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
+"""
+TestInstallDepend
+"""
 import unittest
 import json
 
@@ -8,10 +12,16 @@ from packageship.application.apps.package.function.constants import ResponseCode
 
 
 class TestInstallDepend(ReadTestBase):
-
+    """
+    TestInstallDepend
+    """
 
     def test_empty_binaryName_dbList(self):
+        """
+        test_empty_binaryName_dbList
+        Returns:
 
+        """
         resp = self.client.post("/packages/findInstallDepend",
                                 data="{}",
                                 content_type="application/json")
@@ -49,6 +59,11 @@ class TestInstallDepend(ReadTestBase):
         self.assertIsNotNone(resp_dict.get("data"), msg="Error in data information return")
 
     def test_wrong_binaryName_dbList(self):
+        """
+        test_empty_binaryName_dbList
+        Returns:
+
+        """
         resp = self.client.post("/packages/findInstallDepend",
                                 data=json.dumps({"binaryName": 0}),
                                 content_type="application/json")
@@ -125,6 +140,11 @@ class TestInstallDepend(ReadTestBase):
         self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
 
     def test_true_params_result(self):
+        """
+        test_empty_binaryName_dbList
+        Returns:
+
+        """
         correct_list = get_correct_json_by_filename("install_depend")
 
         self.assertNotEqual([], correct_list, msg="Error reading JSON file")
@@ -138,12 +158,7 @@ class TestInstallDepend(ReadTestBase):
             resp_dict = json.loads(resp.data)
             self.assertTrue(compare_two_values(output_for_input, resp_dict),
                             msg="The answer is not correct")
-def test_install_depend_suit():
-    suite = unittest.TestSuite()
-    suite.addTest(TestInstallDepend("test_empty_binaryName_dbList"))
-    suite.addTest(TestInstallDepend("test_wrong_binaryName_dbList"))
-    suite.addTest(TestInstallDepend("test_true_params_result"))
-    unittest.TextTestRunner().run(suite)
+
 
 if __name__ == '__main__':
     unittest.main()

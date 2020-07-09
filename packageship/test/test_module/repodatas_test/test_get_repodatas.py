@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 """
 test get repodatas
@@ -59,14 +60,6 @@ class TestGetRepodatas(ReadTestBase):
                 resp_dict.get("data"),
                 correct_list),
             msg="Error in data information return")
-
-
-def test_get_repodatas_suit():
-    """unit testing"""
-    print("---TestGetRepodatas START---")
-    suite = unittest.TestSuite()
-    suite.addTest(TestGetRepodatas("test_dbname"))
-    unittest.TextTestRunner().run(suite)
 
 
 if __name__ == '__main__':

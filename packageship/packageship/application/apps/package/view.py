@@ -119,7 +119,7 @@ class Packages(Resource):
 class SinglePack(Resource):
     """
     description: single package management
-    Restful API: get、put
+    Restful API: get, put
     ChangeLog:
     """
 
@@ -273,14 +273,24 @@ class InstallDepend(Resource):
         """
         Description: Query a package's install depend(support
                      querying in one or more databases)
-        Args:
-            binaryName:name of the bin package
-            dbPreority:the array for database preority
-        Returns:
-            {
-              "code": "",
-              "data": "",
-              "msg": ""
+        input:
+            binaryName
+            dbPreority: the array for database preority
+        return:
+            resultDict{
+                binary_name: //binary package name
+                [
+                    src, //the source package name for
+                            that binary packge
+                    dbname,
+                    version,
+                    [
+                        parent_node, //the binary package name which is
+                                       the install depend for binaryName
+                        type //install  install or build, which
+                                depend on the function
+                    ]
+                ]
             }
         Raises:
         """
@@ -557,8 +567,8 @@ class Repodatas(Resource):
                     file_context.read(), Loader=yaml.FullLoader)
                 if init_database_date is None:
                     raise ContentNoneException(
-                        "The content of the database initialization configuration "
-                        "file cannot be empty")
+                        "The content of the database initialization configuration "
+                        "file cannot be empty ")
                 init_database_date.sort(
                     key=lambda x: x['priority'], reverse=False)
                 return jsonify(
