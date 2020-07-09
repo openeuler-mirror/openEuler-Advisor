@@ -1,14 +1,14 @@
 Name:           pkgship
 Version:        1.0
-Release:        1
+Release:        2
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
-Source0:        https://gitee.com/openeuler/openEuler-Advisor/pkgship-%{version}.tar
+Source0:        https://gitee.com/openeuler/openEuler-Advisor/pkgship-%{version}.tar.gz
 
 BuildArch:      noarch
 
-Requires: python3-pip python3-flask-restful python3-flask python3.7 python3-pyyaml
+Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
 #Requires: pyinstaller python3-flask-session python3-flask-script marshmallow uwsig
 
@@ -30,13 +30,21 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 %post
 #build cli bin
-if [ -f "/usr/bin/pkgship" ];then
+if [ -f "/usr/bin/pkgship" ]; then
     rm -rf /usr/bin/pkgship
 fi
 
 
 cd %{python3_sitelib}/packageship/
-/usr/local/bin/pyinstaller -F pkgship.py
+if [ -f "/usr/bin/pyinstaller" ]; then
+    /usr/bin/pyinstaller -F pkgship.py
+elif [ -f "/usr/local/bin/pyinstaller" ]; then
+    /usr/local/bin/pyinstaller -F pkgship.py
+else
+    echo "pkship install fail,there is no pyinstaller!"
+    exit
+fi
+
 sed -i "s/hiddenimports\=\[\]/hiddenimports\=\['pkg_resources.py2_warn'\]/g" pkgship.spec
 /usr/local/bin/pyinstaller pkgship.spec
 cp dist/pkgship /usr/bin/
@@ -53,6 +61,9 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
+* Sat JUL 4 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-2
+- cheange requires python3.7 to python3,add check pyinstaller file.
+
 * Tue JUN 30 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-1
 - add pkgshipd file
 
