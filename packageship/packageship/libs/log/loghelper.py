@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''
+"""
 Logging related
-'''
+"""
 import os
 import pathlib
 import logging
@@ -13,9 +13,9 @@ READCONFIG = ReadConfig()
 
 
 def setup_log(config=None):
-    '''
+    """
         Log logging in the context of flask
-    '''
+    """
     if config:
         logging.basicConfig(level=config.LOG_LEVEL)
     else:
@@ -47,9 +47,9 @@ def setup_log(config=None):
 
 
 class Log():
-    '''
+    """
         General log operations
-    '''
+    """
 
     def __init__(self, name=__name__, path=None):
         self.__name = name
@@ -95,17 +95,17 @@ class Log():
         self.__file_handler.setFormatter(formatter)
 
     def close_handler(self):
-        '''
+        """
             Turn off log processing
-        '''
+        """
         # self.__stream_handler.close()
         self.__file_handler.close()
 
     @property
     def logger(self):
-        '''
+        """
             Get logs
-        '''
+        """
         self.__ini_handler()
         self.__set_handler()
         self.__set_formatter()
