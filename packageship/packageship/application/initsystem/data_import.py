@@ -60,6 +60,15 @@ class InitDataBase():
         if self.db_type not in ['mysql', 'sqlite']:
             LOGGER.logger.error("database type configuration error")
             raise Error('database type configuration error')
+        self._src_requires_dicts = dict()
+        self._bin_package_dicts = dict()
+        self._bin_package_name = dict()
+        self._bin_requires_dicts = dict()
+        self._bin_provides_dicts = dict()
+        self._src_packages = dict()
+        self._src_package_names = dict()
+        self._sqlite_db = None
+        self.requires = dict()
 
     def __read_config_file(self):
         """
