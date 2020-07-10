@@ -133,7 +133,7 @@ if __name__ == "__main__":
             print("I'm too naive to handle complicated package.")
             print("This package has multiple in-house patches.")
             sys.exit(1)
-        if(my_version._max(args.new_version, cur_ver) ==1):
+        if(my_version.compare(args.new_version, cur_ver) ==1):
             create_spec(args.pkg, spec_string, cur_ver, args.new_version)
         else:
             print("Please check version of {pkg} will upgrade to, it's current version is {version}.".format(

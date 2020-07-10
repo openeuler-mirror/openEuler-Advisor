@@ -61,7 +61,20 @@ class VersionType(object):
         _ = version_entry, pkg_type
         return current_version
 
-    def _max(self, z1, z2):
+    def compare(self, z1, z2):
+        """
+        Get the max version.
+
+        :param z1: The first version
+        :param z2: The second version
+        :returns 1: z1 great then z2
+        :return -1: z2 great then z1
+        :return 0: z1 equal then z2
+        :raises: None
+        """
+        return self._compare(self, z1, z2)
+
+    def _compare(self, z1, z2):
         """
         Get the max version.
 
@@ -176,7 +189,7 @@ class VersionTypeXYZW(VersionType):
             if len(version) <= 3:
                 continue
 
-            if self._max(version[3], w) > 0:
+            if self._compare(version[3], w) > 0:
                 w = version[3]
 
         xyz.append(w)
@@ -197,7 +210,7 @@ class VersionTypeXYZW(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
-            if self._max(x, version[0]) < 0:
+            if self._compare(x, version[0]) < 0:
                 x = version[0]
 
         version_candidate = []
@@ -213,7 +226,7 @@ class VersionTypeXYZW(VersionType):
         for version in version_list:  # 第二轮比较取出最大的第二位
             if len(version) <= 1:  # 过滤仅一位的版本号
                 continue
-            if self._max(y, version[1]) < 0:
+            if self._compare(y, version[1]) < 0:
                 y = version[1]
 
         version_candidate.clear()
@@ -229,7 +242,7 @@ class VersionTypeXYZW(VersionType):
         for version in version_list:  # 第三轮比较取出最大的第三位
             if len(version) <= 2:  # 过滤仅二位的版本号
                 continue
-            if self._max(z, version[2]) < 0:
+            if self._compare(z, version[2]) < 0:
                 z = version[2]
 
         version_candidate.clear()
@@ -247,7 +260,7 @@ class VersionTypeXYZW(VersionType):
         for version in version_list:  # 最后一位最大版本必须惟一,直接返回结果
             if len(version) <= 3:  # 过滤仅三位的版本号
                 continue
-            if self._max(w, version[3]) < 0:
+            if self._compare(w, version[3]) < 0:
                 w = version[3]
 
         for version in version_list:  # 最后一位最大版本必须惟一,直接返回结果
@@ -323,7 +336,7 @@ class VersionTypeXYZ(VersionType):
             if len(version) <= 2:
                 continue
 
-            if self._max(version[2], z) > 0:
+            if self._compare(version[2], z) > 0:
                 z = version[2]
 
         xy.append(z)
@@ -344,7 +357,7 @@ class VersionTypeXYZ(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
-            if self._max(x, version[0]) < 0:
+            if self._compare(x, version[0]) < 0:
                 x = version[0]
 
         version_candidate = []
@@ -360,7 +373,7 @@ class VersionTypeXYZ(VersionType):
         for version in version_list:  # 第二轮比较取出最大的第二位
             if len(version) <= 1:  # 过滤仅一位的版本号
                 continue
-            if self._max(y, version[1]) < 0:
+            if self._compare(y, version[1]) < 0:
                 y = version[1]
 
         version_candidate.clear()
@@ -376,7 +389,7 @@ class VersionTypeXYZ(VersionType):
         for version in version_list:  # 第三轮比较取出最大的第三位
             if len(version) <= 2:  # 过滤仅二位的版本号
                 continue
-            if self._max(z, version[2]) < 0:
+            if self._compare(z, version[2]) < 0:
                 z = version[2]
 
         for version in version_list:  # 最后一位最大版本必须惟一,直接返回结果
@@ -447,7 +460,7 @@ class VersionTypeXY(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
-            if self._max(x, version[0]) < 0:
+            if self._compare(x, version[0]) < 0:
                 x = version[0]
 
         version_candidate = []
@@ -463,7 +476,7 @@ class VersionTypeXY(VersionType):
         for version in version_list:  # 第二轮比较取出最大的第二位
             if len(version) <= 1:  # 过滤仅一位的版本号
                 continue
-            if self._max(y, version[1]) < 0:
+            if self._compare(y, version[1]) < 0:
                 y = version[1]
 
         version_candidate.clear()
@@ -481,7 +494,7 @@ class VersionTypeXY(VersionType):
         for version in version_list:  # 第三轮比较取出最大的第三位
             if len(version) <= 2:  # 过滤仅二位的版本号
                 continue
-            if self._max(z, version[2]) < 0:
+            if self._compare(z, version[2]) < 0:
                 z = version[2]
 
         for version in version_list:  # 最后一位最大版本必须惟一,直接返回结果
@@ -518,7 +531,7 @@ class VersionTypeXY(VersionType):
             if len(version) <= 1:
                 continue
 
-            if self._max(version[1], y) > 0:
+            if self._compare(version[1], y) > 0:
                 y = version[1]
         x.append(y)
         return '.'.join(x)
@@ -559,7 +572,7 @@ class VersionTypeX(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
-            if self._max(x, version[0]) < 0:
+            if self._compare(x, version[0]) < 0:
                 x = version[0]
 
         version_candidate = []
@@ -575,7 +588,7 @@ class VersionTypeX(VersionType):
         for version in version_list:  # 第二轮比较取出最大的第二位
             if len(version) <= 1:  # 过滤仅一位的版本号
                 continue
-            if self._max(y, version[1]) < 0:
+            if self._compare(y, version[1]) < 0:
                 y = version[1]
 
         x.append(y)
@@ -607,7 +620,7 @@ class VersionTypeX(VersionType):
             if len(version) <= 1:
                 continue
 
-            if self._max(version[1], y) > 0:
+            if self._compare(version[1], y) > 0:
                 y = version[1]
         x.append(y)
         return '.'.join(x)
