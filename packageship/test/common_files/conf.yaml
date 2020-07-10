@@ -1,0 +1,14 @@
+- bin_db_file:
+  - C:\Users\14500\Desktop\workspace\openEuler_pkgmnt\openEuler_Advisor\packageship\test\common_files\db_origin\data_1_bin.sqlite
+  dbname: openEuler-20.03-LTS
+  priority: 1
+  src_db_file:
+  - C:\Users\14500\Desktop\workspace\openEuler_pkgmnt\openEuler_Advisor\packageship\test\common_files\db_origin\data_1_src.sqlite
+  status: enable
+- bin_db_file:
+  - C:\Users\14500\Desktop\workspace\openEuler_pkgmnt\openEuler_Advisor\packageship\test\common_files\db_origin\data_2_bin.sqlite
+  dbname: openEuler-20.04-LTS
+  priority: 2
+  src_db_file:
+  - C:\Users\14500\Desktop\workspace\openEuler_pkgmnt\openEuler_Advisor\packageship\test\common_files\db_origin\data_2_src.sqlite
+  status: enable

@@ -1,0 +1,161 @@
+[
+  {
+    "input": {
+      "binaryName": "A1"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "A1": [
+          "A",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "root",
+              null
+            ],
+            [
+              "D1",
+              "install"
+            ]
+          ]
+        ],
+        "A2": [
+          "A",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A1",
+              "install"
+            ],
+            [
+              "C1",
+              "install"
+            ]
+          ]
+        ],
+        "C1": [
+          "C",
+          "0.1",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A2",
+              "install"
+            ]
+          ]
+        ],
+        "D1": [
+          "D",
+          "0.11",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A2",
+              "install"
+            ]
+          ]
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "binaryName": "D2"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "A1": [
+          "A",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "D1",
+              "install"
+            ]
+          ]
+        ],
+        "A2": [
+          "A",
+          "0.0.23b",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A1",
+              "install"
+            ],
+            [
+              "C1",
+              "install"
+            ]
+          ]
+        ],
+        "C1": [
+          "C",
+          "0.1",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "A2",
+              "install"
+            ]
+          ]
+        ],
+        "D1": [
+          "D",
+          "0.11",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "D2",
+              "install"
+            ],
+            [
+              "A2",
+              "install"
+            ]
+          ]
+        ],
+        "D2": [
+          "D",
+          "0.11",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "root",
+              null
+            ]
+          ]
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "binaryName": "C2"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "C2": [
+          "C",
+          "0.1",
+          "openEuler-20.03-LTS",
+          [
+            [
+              "root",
+              null
+            ]
+          ]
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  }
+]

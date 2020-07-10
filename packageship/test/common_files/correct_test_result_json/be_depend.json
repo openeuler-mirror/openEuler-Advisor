@@ -1,0 +1,131 @@
+[
+    {
+    "input": {
+      "packagename": "A",
+        "dbname":"openEuler-20.03-LTS"
+    },
+    "output": {
+    "code": "2001",
+    "data": {
+        "A1": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+                [
+                    "B",
+                    "build"
+                ],
+				[
+                    "D",
+                    "build"
+                ],
+                [
+                    "D1",
+                    "install"
+                ],
+                [
+                    "B1",
+                    "install"
+                ]
+            ]
+        ],
+        "A2": [
+            "A",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+			    [
+                    "C",
+                    "build"
+                ],
+                [
+                    "C1",
+                    "install"
+                ],
+                [
+                    "A1",
+                    "install"
+                ]
+            ]
+        ],
+        "A_src": [
+            "source",
+            "0.0.23b",
+            "openEuler-20.03-LTS",
+            [
+                [
+                    "root",
+                    null
+                ]
+            ]
+        ],
+        "B1": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+                [
+                    "A",
+                    "build"
+                ],
+                [
+                    "D",
+                    "build"
+                ]
+            ]
+        ],
+        "B2": [
+            "B",
+            "0.0.2",
+            "openEuler-20.03-LTS",
+            [
+                [
+                    "C",
+                    "build"
+                ]
+            ]
+        ],
+        "C1": [
+            "C",
+            "0.1",
+            "openEuler-20.03-LTS",
+            [
+				[
+                    "A",
+                    "build"
+                ],
+				[
+                    "B",
+                    "build"
+                ],
+				[
+                    "A2",
+                    "install"
+                ],
+                [
+                    "B2",
+                    "install"
+                ]
+            ]
+        ],
+        "D1": [
+            "D",
+            "0.11",
+            "openEuler-20.03-LTS",
+            [
+                [
+                    "D2",
+                    "install"
+                ],
+                [
+                    "A2",
+                    "install"
+                ]
+            ]
+        ]
+    },
+        "msg": "Successful Operation!"
+}}
+]
+
