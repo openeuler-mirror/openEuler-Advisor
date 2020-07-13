@@ -21,6 +21,7 @@ import subprocess
 import os.path
 import re
 import datetime
+import version_recommend
 
 def download_source_url(spec, o_ver, n_ver):
     """
@@ -91,7 +92,6 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
 if __name__ == "__main__":
     pars = argparse.ArgumentParser()
     pars.add_argument("pkg", type=str, help="The package to be upgraded")
-    pars.add_argument("-o", "--old_version", type=str, help="Current upstream version of package")
     pars.add_argument("-n", "--new_version", type=str, help="New upstream version of package will be upgrade to")
     pars.add_argument("-s", "--create_spec", help="Create spec file", action="store_true")
     pars.add_argument("-d", "--download", help="Download upstream source code", action="store_true")
@@ -101,12 +101,15 @@ if __name__ == "__main__":
     args = pars.parse_args()
 
     my_gitee = gitee.Gitee()
+    my_version = version_recommend.VersionType()
     spec_string= my_gitee.get_spec(args.pkg)
 
     s_spec = Spec.from_string(spec_string)
+    cur_ver = replace_macros(s_spec.version, s_spec)
 
     if args.fork:
-        my_gitee.fork_repo(args.pkg)
+        if not my_gitee.fork_repo(args.pkg):
+            print("The repo of {pkg} seems to have been forked.".format(pkg=args.pkg))
 
     if args.clone:
         user=my_gitee.token["user"]
@@ -114,7 +117,7 @@ if __name__ == "__main__":
         os.chdir(args.pkg)
 
     if args.download:
-        source_file = download_source_url(s_spec, args.old_version, args.new_version)
+        source_file = download_source_url(s_spec, cur_ver, args.new_version)
         if source_file:
             print(source_file)
         else:
@@ -130,7 +133,11 @@ if __name__ == "__main__":
             print("I'm too naive to handle complicated package.")
             print("This package has multiple in-house patches.")
             sys.exit(1)
-        create_spec(args.pkg, spec_string, args.old_version, args.new_version)
+        if(my_version.compare(args.new_version, cur_ver) ==1):
+            create_spec(args.pkg, spec_string, cur_ver, args.new_version)
+        else:
+            print("Please check version of {pkg} will upgrade to, it's current version is {version}.".format(
+				pkg=args.pkg, version=cur_ver))
 
     if args.PR:
         my_gitee.create_pr(my_gitee.token["user"], args.pkg)
