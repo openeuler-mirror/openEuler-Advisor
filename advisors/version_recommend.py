@@ -72,7 +72,7 @@ class VersionType(object):
         :return 0: z1 equal then z2
         :raises: None
         """
-        return self._compare(self, z1, z2)
+        return self._compare(z1, z2)
 
     def _compare(self, z1, z2):
         """
