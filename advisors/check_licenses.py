@@ -20,12 +20,12 @@ This script is for information only. It's known to provide false result in situa
 (1) This is a script that checks whether the licenses in the LICENSE file 
     in the tar package and the licenses in the SPEC file are the same. 
     If they are the same, output:
-    "licenses from LICENSES are same as form SPEC:[xxx, yyy] <==> [xxx, zzz]"
+    "licenses from LICENSES are same as form SPEC:[xxx, yyy] == [xxx, zzz]"
 
     If they are not the same, output:
-    "licenses from LICENSES are not same as form SPEC:[xxx, yyy] <==> [xxx, yyy]"
+    "licenses from LICENSES are not same as form SPEC:[xxx, yyy] <=> [xxx, yyy]"
 
-(2) This script depends on download.py and license_translations,
+(2) This script depends on license_translations,
     you can add keywords for licenses in license_translations.
 
 (3) Command parameters
@@ -36,9 +36,6 @@ This script is for information only. It's known to provide false result in situa
         (e.g. /home/test.spec)
 
     Optional parameters:		
-    -w  With this parameter, if the licenses in the tar 
-        and the licenses in the spec file are are not the same, 
-        modify the spec file directly.
     -d  Specify the decompression path of the tar package, 
         default: /var/tmp/tmp_tarball
 """
@@ -52,10 +49,10 @@ import hashlib
 import tarfile
 import bz2
 import shutil
-#import download
 import chardet
 import logging
 from pyrpm.spec import Spec, replace_macros
+import subprocess
 
 logging.basicConfig(format='%(message)s', level=logging.INFO)
 
@@ -65,36 +62,24 @@ license_translations = {}
 def main():
     """ Entry point for check_licenses."""
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t", "--tarball", default="", nargs="?",
+    parser.add_argument("-t", "--tarball", default="", nargs="?", required=True,
                         help="tarball path or url (e.g."
                         "/home/test.tar.gz" 
                         " or http://example.com/test.tar.gz)")
-    parser.add_argument("-s", "--specfile", default="", nargs="?",
+    parser.add_argument("-s", "--specfile", default="", nargs="?", required=True,
                         help="SPEC file path (e.g. /home/mytar.spec)")
     parser.add_argument("-w", "--writespec", dest="writespec", action="store_true",
                         default=False,
                         help="Overwrite the licenses of SPEC file")
-    parser.add_argument("-d", "--downloadpath", default="", nargs="?",
+    parser.add_argument("-d", "--downloadpath", default="/var/tmp/tmp_tarball", nargs="?",
                         help="The dest download or extract path of tarball"
                         " (e.g. /home/tmp_tarball default: /var/tmp/tmp_tarball)")
     args = parser.parse_args()
 
-    if not args.tarball:
-        parser.error(argparse.ArgumentTypeError(
-            "the tarball path or url argument['-t'] is required"))
-    
-    if not args.specfile:
-        parser.error(argparse.ArgumentTypeError(
-            "the spec file argument['-s'] is required"))
-    
-    if args.downloadpath:
-        download_path = args.downloadpath
-    else:
-        download_path = "/var/tmp/tmp_tarball"
-        if os.path.exists(download_path):
-            shutil.rmtree(download_path)
-    os.makedirs(download_path, exist_ok=True)
-    process_licenses(args, download_path)
+    if os.path.exists(args.downloadpath):
+        shutil.rmtree(args.downloadpath)
+    os.makedirs(args.downloadpath, exist_ok=True)
+    process_licenses(args, args.downloadpath)
 
 
 def get_contents(filename):
@@ -114,7 +99,10 @@ def get_tarball_from_url(upstream_url, download_path, tarpackage):
     """
     tarball_path = download_path + "/" + tarpackage
     if not os.path.isfile(tarball_path):
-        download.do_curl(upstream_url, dest=tarball_path)
+        subprocess.call(["curl", upstream_url, "-L", 
+            "--connect-timeout", "10", 
+            "--max-time", "600", 
+            "-S", "-o", tarball_path])
     return tarball_path
 
 
@@ -238,15 +226,15 @@ def scan_licenses_in_SPEC(specfile):
     the program will exit with an error. 
     """
     s_spec = Spec.from_file(specfile)
-    license = replace_macros(s_spec.license, s_spec)
+    licenses = replace_macros(s_spec.license, s_spec)
 
     excludes = ["and", "AND"]
 
-    if license in license_translations:
-        real_words = license_translations.get(license, license)
+    if licenses in license_translations:
+        real_words = license_translations.get(licenses, licenses)
         add_license_from_spec_file(real_words)
     else:
-        words = clean_license_string(license).split()
+        words = clean_license_string(licenses).split()
         for word in words:
             if word not in excludes:
                 real_word = license_translations.get(word, word)
@@ -332,7 +320,6 @@ def process_licenses(args, download_path):
     tarball_name = os.path.basename(tarball_path)
     extract_tar_name = os.path.splitext(tarball_name)[0]
     extract_file_name = os.path.splitext(extract_tar_name)[0]
-    #scan_licenses_in_LICENSE(os.path.join(download_path, extract_file_name))
     scan_licenses_in_LICENSE(download_path)
     
     specfile = args.specfile
