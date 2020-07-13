@@ -665,6 +665,8 @@ class InitDataBase():
         else:
             if not hasattr(self, '_sqlite_db'):
                 self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
+            if getattr(self, '_sqlite_db') is None:
+                self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
             del_result = self._sqlite_db.drop_database()
 
         if del_result:
