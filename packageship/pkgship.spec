@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.0
-Release:        2
+Release:        3
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -61,13 +61,16 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
-* Sat JUL 4 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-2
+* Mon Jul 13 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-3
+- run test cases while building
+
+* Sat Jul 4 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-2
 - cheange requires python3.7 to python3,add check pyinstaller file.
 
-* Tue JUN 30 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-1
+* Tue Jun 30 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-1
 - add pkgshipd file
 
-* Tue Jun 11 2020 Feng Hu <solar.hu@foxmail.com> - 1.0-0
+* Thu Jun 11 2020 Feng Hu <solar.hu@foxmail.com> - 1.0-0
 - add macro to build cli bin when rpm install
 
 * Sat Jun 6 2020 Feng Hu  <solar.hu@foxmail.com> - 1.0-0
