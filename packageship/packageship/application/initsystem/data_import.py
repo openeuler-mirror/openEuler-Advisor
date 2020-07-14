@@ -663,9 +663,7 @@ class InitDataBase():
         if self.db_type == 'mysql':
             del_result = MysqlDatabaseOperations.drop_database(db_name)
         else:
-            if not hasattr(self, '_sqlite_db'):
-                self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
-            if getattr(self, '_sqlite_db') is None:
+            if not hasattr(self, '_sqlite_db') or getattr(self, '_sqlite_db') is None:
                 self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
             del_result = self._sqlite_db.drop_database()
 
