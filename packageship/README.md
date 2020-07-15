@@ -20,7 +20,7 @@ pkgship是一款管理OS软件包依赖关系，提供依赖和被依赖关系�
 #### 方法一: 可以使用dnf挂载pkgship软件在所在repo源，直接下载安装pkgship及其依赖
 
 ```
-dnf install pkgship（版本号）
+dnf install pkgship(版本号)
 ```
 
 #### 方法二: 可以直接下载pkgship的rpm包后安装软件包
@@ -35,7 +35,7 @@ dnf install pkgship-(版本号)
 
 系统配置
 ---
-系统的默认配置文件存放在 /etc/pkgship/packge.ini, 请根据实际情况进行配置更改
+系统的默认配置文件存放在 /etc/pkgship/packge.ini，请根据实际情况进行配置更改
 
 ```
 vim /etc/pkgship/package.ini
@@ -44,13 +44,13 @@ vim /etc/pkgship/package.ini
 conf.yaml 文件默认存放在 /etc/pkgship/ 路径下，pkgship会通过该配置读取要建立的数据库名称以及需要导入的sqlite文件。conf.yaml 示例如下：
 
 ```
-- dbname: openEuler-20.03-LTS
+- dbname:openEuler-20.03-LTS
  src_db_file:
 - /etc/pkgship/src.sqlite
  bin_db_file:
 - /etc/pkgship/bin.sqlite
- status: enable
- priority: 1
+ status:enable
+ priority:1
 ```
 
 如需更改存放路径，请更改package.ini下的 init_conf_path 选项
@@ -91,7 +91,7 @@ pkgship list
 pkgship list -db dbName
 ```  
 #### 4. 安装依赖查询
-查询二进制包(binaryName)的安装依赖,按照默认优先级查询数据库
+查询二进制包(binaryName)的安装依赖，按照默认优先级查询数据库
 ``` 
 pkgship installdep binaryName
 ``` 
@@ -101,7 +101,7 @@ pkgship installdep binaryName
 pkgship installdep binaryName -dbs dbName1 dbName2...
 ``` 
 #### 5. 编译依赖查询
-查询源码包(sourceName)的所有编译依赖,按照默认优先级查询数据库
+查询源码包(sourceName)的所有编译依赖，按照默认优先级查询数据库
 ``` 
 pkgship builddep sourceName
 ``` 
@@ -111,11 +111,11 @@ pkgship builddep sourceName
 pkgship builddep sourceName -dbs dbName1 dbName2...
 ``` 
 #### 6. 自编译自安装依赖查询
-查询二进制包(binaryName)的安装和编译依赖,按照默认优先级查询数据库
+查询二进制包(binaryName)的安装和编译依赖，按照默认优先级查询数据库
 ``` 
 pkgship selfbuild binaryName
 ``` 
-查询源码包(sourceName )的安装和编译依赖,按照默认优先级查询数据库
+查询源码包(sourceName )的安装和编译依赖，按照默认优先级查询数据库
 ``` 
 pkgship selfbuild sourceName -t source
 ``` 
@@ -123,16 +123,16 @@ pkgship selfbuild sourceName -t source
 
 -dbs 指定数据库优先级.
 ``` 
-示例: pkgship selfbuild binaryName -dbs dbName1 dbName2 
+示例:pkgship selfbuild binaryName -dbs dbName1 dbName2 
 ``` 
 -s 是否查询自编译依赖
-默认为0不查询自编译依赖,可以指定0或1(表示查询自编译)
+默认为0不查询自编译依赖，可以指定0或1(表示查询自编译)
 ``` 
 查询自编译示例:pkgship selfbuild sourceName -t source -s 1
 ``` 
--w 是否查询对应包的子包.默认为0,不查询对应子包,可以指定 0或1(表示查询对应子包)
+-w 是否查询对应包的子包.默认为0，不查询对应子包，可以指定 0或1(表示查询对应子包)
 ``` 
-查询子包示例: pkgship selfbuild binaryName -w 1
+查询子包示例:pkgship selfbuild binaryName -w 1
 ``` 
 #### 7. 被依赖查询
 查询源码包(sourceName)在某数据库(dbName)中被哪些包所依赖
@@ -149,7 +149,7 @@ pkgship bedepend sourceName -db dbName -w 1
 ```
 pkgship updatepkg sourceName db dbName -m Newmaintainer 
 ```
-变更数据库中(dbName)源码包(sourceName)的maintainlevel为Newmaintainlevel,值在1～4之间
+变更数据库中(dbName)源码包(sourceName)的maintainlevel为Newmaintainlevel，值在1～4之间
 ```
 pkgship updatepkg sourceName db dbName -l Newmaintainlevel 
 ```
