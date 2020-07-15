@@ -1,4 +1,4 @@
-<img src="\Python_Project\openEuler-Advisor-C\openEuler-Advisor\packageship\pkgship-logo.png" width="50%" height="50%"/>
+<img src="doc\design\pkgimg\pkgship-logo.png" width="50%" height="50%"/>
 
 [English](./README.md) | 简体中文
 
