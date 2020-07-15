@@ -2,7 +2,7 @@
 """
 Description: Database entity model mapping
 """
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
@@ -39,6 +39,8 @@ class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     location_href = Column(String(500), nullable=True)
     location_base = Column(String(500), nullable=True)
     checksum_type = Column(String(500), nullable=True)
+    maintaniner = Column(String(100), nullable=True)
+    maintainlevel = Column(String(100), nullable=True)
 
 
 class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903

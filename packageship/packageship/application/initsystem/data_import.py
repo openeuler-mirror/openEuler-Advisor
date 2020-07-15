@@ -14,7 +14,12 @@ from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.exception import Error
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.log import Log
-from packageship.application.models.package import src_pack, bin_pack, bin_requires, src_requires, bin_provides, maintenance_info
+from packageship.application.models.package import src_pack
+from packageship.application.models.package import bin_pack
+from packageship.application.models.package import bin_requires
+from packageship.application.models.package import src_requires
+from packageship.application.models.package import bin_provides
+from packageship.application.models.package import maintenance_info
 from packageship import system_config
 
 LOGGER = Log(__name__)
@@ -24,6 +29,7 @@ class InitDataBase():
     """
     Description: Database initialization, generate multiple databases and data
                  based on configuration files
+
     Attributes:
         config_file_path: configuration file path
         config_file_datas: initialize the configuration content of the database
@@ -33,6 +39,7 @@ class InitDataBase():
     def __init__(self, config_file_path=None):
         """
         Description: Class instance initialization
+
         Args:
             config_file_path: Configuration file path
         """
@@ -57,10 +64,8 @@ class InitDataBase():
 
     def __read_config_file(self):
         """
-        Description: Read the contents of the configuration file load each
-                    node data in the yaml configuration file as
-        a list to return
-        Args:
+        Read the contents of the configuration file load each
+        node data in the yaml configuration file as a list to return
 
         Returns:
             Initialize the contents of the database configuration file
@@ -88,10 +93,7 @@ class InitDataBase():
 
     def init_data(self):
         """
-        Description: Initialization of the database
-        Args:
-
-        Returns:
+        Initialization of the database
 
         Raises:
             IOError: An error occurred while deleting the database information file
@@ -118,7 +120,7 @@ class InitDataBase():
                 db_name='maintenance.information',
                 tables=['maintenance_info'],
                 is_datum=True).create_database()
-
+        self._get_maintenance_info()
         for database in self.config_file_datas:
             if not database.get('dbname'):
                 continue
@@ -134,7 +136,8 @@ class InitDataBase():
 
     def _create_database(self, database):
         """
-        Description: create related databases
+        create related databases
+
         Args:
             database: Initialize the configuration content of the database
         Returns:
@@ -163,7 +166,8 @@ class InitDataBase():
 
     def _init_data(self, database):
         """
-        Description: data initialization operation
+        data initialization operation
+
         Args:
             database: Initialize the configuration content of the database
         Returns:
@@ -186,7 +190,6 @@ class InitDataBase():
                 raise ContentNoneException(
                     'The path to the sqlite file in the database initialization configuration \
                     is incorrect ')
-            self._get_maintenance_info()
             # # 3. Obtain temporary source package files and binary package files
             self.__save_data(src_db_file, bin_db_file, db_name)
 
@@ -198,7 +201,6 @@ class InitDataBase():
                         database.get('dbname'))
                 else:
                     self._sqlite_db.drop_database()
-
             except (IOError, Error) as exception_msg:
                 LOGGER.logger.error(exception_msg)
         else:
@@ -214,11 +216,11 @@ class InitDataBase():
     @staticmethod
     def __columns(cursor):
         """
-        Description: functional description:Returns all the column names
-                     queried by the current cursor
+        functional description:Returns all the column names
+        queried by the current cursor
+
         Args:
             cursor: Cursor
-
         Returns:
             The first columns
         Raises:
@@ -250,7 +252,8 @@ class InitDataBase():
 
     def __save_data(self, src_db_file, bin_db_file, db_name):
         """
-        Description: integration of multiple data files
+        integration of multiple data files
+
         Args:
             src_package_paths: Source package database file
             bin_package_paths: Binary package database file
@@ -290,7 +293,13 @@ class InitDataBase():
         packages_datas = self.__get_data()
         if packages_datas is None:
             raise ContentNoneException(
-                'There is no relevant data in the source package provided')
+                '{db_name}:There is no relevant data in the source \
+                    package provided '.format(db_name=db_name))
+        for index, src_package_item in enumerate(packages_datas):
+            maintaniner, maintainlevel = self._get_mainter_info(
+                src_package_item.get('name'), src_package_item.get('version'))
+            packages_datas[index]['maintaniner'] = maintaniner
+            packages_datas[index]['maintainlevel'] = maintainlevel
         try:
             with DBHelper(db_name=db_name) as database:
                 database.batch_add(packages_datas, src_pack)
@@ -299,9 +308,10 @@ class InitDataBase():
 
     def _save_src_requires(self, db_name):
         """
+        Save the dependent package data of the source package
 
         Args:
-
+            db_name：Name database
         Returns:
 
         Raises:
@@ -323,8 +333,9 @@ class InitDataBase():
     def _save_bin_packages(self, db_name):
         """
         Save binary package data
-        Args:
 
+        Args:
+            db_name：Name database
         Returns:
 
         Raises:
@@ -353,9 +364,10 @@ class InitDataBase():
 
     def _save_bin_requires(self, db_name):
         """
+        Save the dependent package data of the binary package
 
         Args:
-
+            db_name：Name database
         Returns:
 
         Raises:
@@ -375,9 +387,10 @@ class InitDataBase():
 
     def _save_bin_provides(self, db_name):
         """
+        Save the component data provided by the binary package
 
         Args:
-
+            db_name：Name database
         Returns:
 
         Raises:
@@ -398,7 +411,6 @@ class InitDataBase():
     def _get_maintenance_info(self):
         """
         Description: Obtain the information of the maintainer
-        Args:
 
         Returns:
             Maintainer related information
@@ -440,12 +452,13 @@ class InitDataBase():
                     maintaniner = (maintenance_item.get(
                         'maintaniner'), maintenance_item.get('maintainlevel'))
                     break
+        if maintaniner is None:
+            maintaniner = (None, None)
         return maintaniner
 
     def __exists_repeat_database(self):
         """
-        Description: Determine if the same database name exists
-        Args:
+        Determine if the same database name exists
 
         Returns:
             True if there are duplicate databases, false otherwise
@@ -463,7 +476,8 @@ class InitDataBase():
     @staticmethod
     def __updata_settings_file(**Kwargs):
         """
-        Description: update some configuration files related to the database in the system
+        update some configuration files related to the database in the system
+
         Args:
             **Kwargs: data related to configuration file nodes
             database_name: Name database
@@ -492,7 +506,8 @@ class InitDataBase():
     @staticmethod
     def delete_settings_file():
         """
-        Description: Delete the configuration file of the database
+        Delete the configuration file of the database
+
         Args:
 
         Returns:
@@ -512,7 +527,8 @@ class InitDataBase():
 
     def delete_db(self, db_name):
         """
-        Description: elete the database
+        delete the database
+
         Args:
             db_name: The name of the database
         Returns:
@@ -547,7 +563,8 @@ class InitDataBase():
 
 class MysqlDatabaseOperations():
     """
-    Description: Related to database operations, creating databases, creating tables
+    Related to database operations, creating databases, creating tables
+
     Attributes:
         db_name: The name of the database
         create_database_sql: SQL statement to create a database
@@ -556,7 +573,8 @@ class MysqlDatabaseOperations():
 
     def __init__(self, db_name, tables=None, is_datum=False):
         """
-        Description: Class instance initialization
+        Class instance initialization
+
         Args:
             db_name: Database name
         """
@@ -570,8 +588,7 @@ class MysqlDatabaseOperations():
 
     def create_database(self):
         """
-        Description: create a database
-        Args:
+        create a mysql database
 
         Returns:
             True if successful, otherwise false
@@ -596,7 +613,8 @@ class MysqlDatabaseOperations():
     @classmethod
     def drop_database(cls, db_name):
         """
-        Description: Delete the database according to the specified name
+        Delete the database according to the specified name
+
         Args:
             db_name: The name of the database to be deleted
         Returns:
@@ -620,8 +638,7 @@ class MysqlDatabaseOperations():
 
     def __create_tables(self):
         """
-        Description: Create the specified data table
-        Args:
+        Create the specified data table
 
         Returns:
             True if successful, otherwise false
@@ -642,7 +659,8 @@ class MysqlDatabaseOperations():
 
 class SqliteDatabaseOperations():
     """
-    Description: sqlite database related operations
+    sqlite database related operations
+
     Attributes:
         db_name: Name database
         database_file_folder: Database folder path
@@ -650,7 +668,8 @@ class SqliteDatabaseOperations():
 
     def __init__(self, db_name, tables=None, is_datum=False, ** kwargs):
         """
-        Description: Class instance initialization
+        Class instance initialization
+
         Args:
             db_name: Database name
             kwargs: data related to configuration file nodes
@@ -666,8 +685,8 @@ class SqliteDatabaseOperations():
 
     def _database_file_path(self):
         """
-        Description: Database file path
-        Args:
+        Database file path
+
         Returns:
 
         Raises:
@@ -687,8 +706,7 @@ class SqliteDatabaseOperations():
 
     def create_database(self):
         """
-        Description: create sqlite database and table
-        Args:
+        create sqlite database and table
 
         Returns:
             After successful generation, return the database file address,
@@ -719,15 +737,13 @@ class SqliteDatabaseOperations():
 
     def drop_database(self):
         """
-        Description: Delete the specified sqlite database
-        Args:
+        Delete the specified sqlite database
 
         Returns:
             Return true after successful deletion, otherwise return false
         Raises:
             IOError: An io exception occurred while deleting the specified database file
         """
-
         try:
             db_path = os.path.join(
                 self.database_file_folder, self.db_name + '.db')
