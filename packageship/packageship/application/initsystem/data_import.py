@@ -14,7 +14,12 @@ from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.exception import Error
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.log import Log
-from packageship.application.models.package import src_pack, bin_pack, bin_requires, src_requires, bin_provides, maintenance_info
+from packageship.application.models.package import src_pack
+from packageship.application.models.package import bin_pack
+from packageship.application.models.package import bin_requires
+from packageship.application.models.package import src_requires
+from packageship.application.models.package import bin_provides
+from packageship.application.models.package import maintenance_info
 from packageship import system_config
 
 LOGGER = Log(__name__)
@@ -290,7 +295,8 @@ class InitDataBase():
         packages_datas = self.__get_data()
         if packages_datas is None:
             raise ContentNoneException(
-                'There is no relevant data in the source package provided')
+                '{db_name}:There is no relevant data in the source \
+                    package provided'.format(db_name=db_name))
         try:
             with DBHelper(db_name=db_name) as database:
                 database.batch_add(packages_datas, src_pack)
