@@ -26,12 +26,13 @@ class Gitee(object):
 
         self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) Gecko/20100101 Firefox/50.0'}
         self.gitee_url = "https://gitee.com/"
-        self.src_openeuler_url = self.gitee_url + "src-openeuler/{package}/raw/master/"
+        self.src_openeuler_url = self.gitee_url + "src-openeuler/{package}/raw/{branch}/"
         self.advisor_url = self.gitee_url + "openeuler/openEuler-Advisor/raw/master/"
         self.specfile_url_template = self.src_openeuler_url + "{specfile}"
         self.yamlfile_url_template = self.src_openeuler_url + "{package}.yaml"
         #self.advisor_url_template = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/{package}.yaml"
         self.advisor_url_template = self.advisor_url + "upstream-info/{package}.yaml"
+        self.community_url_template = self.gitee_url + "openeuler/community/raw/master/repository/{repository}.yaml"
         #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
         self.specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
@@ -96,7 +97,7 @@ Yours openEuler-Advisor.
 
     def get_gitee_json(self, url):
         """
-        get and load gitee json response
+        Get and load gitee json response
         """
         headers = self.headers.copy()
         #headers = {}
@@ -106,31 +107,29 @@ Yours openEuler-Advisor.
 
     def get_spec_exception(self):
         """
-        get well known spec file exceptions
+        Get well known spec file exceptions
         """
         resp = self.get_gitee(self.specfile_exception_url)
         exps = yaml.load(resp, Loader=yaml.Loader)
         return exps
 
-    def get_spec(self, pkg):
+    def get_spec(self, pkg, br="master"):
         """
-        get openeuler spec file for specific package
+        Get openeuler spec file for specific package
         """
-        specurl = self.specfile_url_template.format(package=pkg, specfile=pkg + ".spec")
+        specurl = self.specfile_url_template.format(branch=br, package=pkg, specfile=pkg + ".spec")
         exp = self.get_spec_exception()
         if pkg in exp:
             dir_name = exp[pkg]["dir"]
             file_name = exp[pkg]["file"]
             specurl = urllib.parse.urljoin(specurl, os.path.join(dir_name, file_name))
-
         try:
             resp = self.get_gitee(specurl)
         except urllib.error.HTTPError:
             resp = ""
-
         return resp
 
-    def get_yaml(self, pkg):
+    def get_yaml(self, pkg, br="master"):
         """
         get upstream yaml metadata for specific package
         """
@@ -140,7 +139,7 @@ Yours openEuler-Advisor.
         except urllib.error.HTTPError:
             resp = "Not found"
         if re.match("Not found", resp):
-            yamlurl = self.yamlfile_url_template.format(package=pkg)
+            yamlurl = self.yamlfile_url_template.format(branch=br, package=pkg)
             try:
                 resp = self.get_gitee(yamlurl)
             except urllib.error.HTTPError:
@@ -152,6 +151,17 @@ Yours openEuler-Advisor.
                 return resp
         else:
             return resp
+
+    def get_community(self, repo):
+        """
+        Get yaml data from community repo
+        """
+        yamlurl = self.community_url_template.format(repository=repo)
+        try:
+            resp = self.get_gitee(yamlurl)
+        except urllib.error.HTTPError:
+            resp = ""
+        return resp
 
     def get_issues(self, pkg, prj="src-openeuler"):
         """
