@@ -121,6 +121,8 @@ class InitDataBase():
                 tables=['maintenance_info'],
                 is_datum=True).create_database()
 
+        self._get_maintenance_info()
+
         for database in self.config_file_datas:
             if not database.get('dbname'):
                 continue
@@ -190,7 +192,6 @@ class InitDataBase():
                 raise ContentNoneException(
                     'The path to the sqlite file in the database initialization configuration \
                     is incorrect ')
-            self._get_maintenance_info()
             # # 3. Obtain temporary source package files and binary package files
             self.__save_data(src_db_file, bin_db_file, db_name)
 
