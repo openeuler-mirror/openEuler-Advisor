@@ -1,6 +1,4 @@
-<img src="doc/design/pkgimg/pkgship-logo.png" width="50%" height="50%"/>
-
-[English](./README.md) | 简体中文
+[English](./README-en.md) | 简体中文
 
 # pkgship
 
@@ -145,7 +143,7 @@ pkgship bedepend sourceName -db dbName
 pkgship bedepend sourceName -db dbName -w 1 
 ``` 
 #### 8. 修改包信息记录
-变更数据库中(dbName)源码包(sourceName)的maintainer 为Newmaintainer 
+变更数据库中(dbName)源码包(sourceName)的maintainer为Newmaintainer 
 ```
 pkgship updatepkg sourceName db dbName -m Newmaintainer 
 ```
