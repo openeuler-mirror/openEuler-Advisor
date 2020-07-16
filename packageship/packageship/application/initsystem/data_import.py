@@ -58,8 +58,10 @@ class InitDataBase():
             self.db_type = 'mysql'
 
         if self.db_type not in ['mysql', 'sqlite']:
-            LOGGER.logger.error("database type configuration error")
-            raise Error('database type configuration error')
+            _msg = "The database type is incorrectly configured.\
+                The system temporarily supports only sqlite and mysql databases"
+            LOGGER.logger.error(_msg)
+            raise Error(_msg)
         self._sqlite_db = None
 
     def __read_config_file(self):
@@ -76,7 +78,8 @@ class InitDataBase():
 
         if not os.path.exists(self.config_file_path):
             raise FileNotFoundError(
-                'system initialization configuration file does not exist')
+                'system initialization configuration file \
+                    does not exist: %s' % self.config_file_path)
         # load yaml configuration file
         with open(self.config_file_path, 'r', encoding='utf-8') as file_context:
             init_database_config = yaml.load(
@@ -100,7 +103,8 @@ class InitDataBase():
         """
         if getattr(self, 'config_file_datas', None) is None or \
                 self.config_file_datas is None:
-            raise ContentNoneException('Initialization file content is empty')
+            raise ContentNoneException('The content of the database initialization \
+                configuration file is empty')
 
         if self.__exists_repeat_database():
             raise DatabaseRepeatException(
@@ -120,19 +124,23 @@ class InitDataBase():
                 db_name='maintenance.information',
                 tables=['maintenance_info'],
                 is_datum=True).create_database()
-
+        # Obtain the maintenance information of the previous data of the system
         self._get_maintenance_info()
 
         for database in self.config_file_datas:
             if not database.get('dbname'):
+                LOGGER.logger.error(
+                    'The database name in the database initialization configuration file is empty')
                 continue
             priority = database.get('priority')
             if not isinstance(priority, int) or priority < 0 or priority > 100:
+                LOGGER.logger.error('The priority value type in the database initialization \
+                    configuration file is incorrect')
                 continue
-            status = database.get('status')
-            if status not in ['enable', 'disable']:
+            if database.get('status') not in ['enable', 'disable']:
+                LOGGER.logger.error('The database status value in the database \
+                    initialization configuration file is incorrect')
                 continue
-
             # Initialization data
             self._init_data(database)
 
@@ -192,8 +200,16 @@ class InitDataBase():
                 raise ContentNoneException(
                     'The path to the sqlite file in the database initialization configuration \
                     is incorrect ')
-            # # 3. Obtain temporary source package files and binary package files
-            self.__save_data(src_db_file, bin_db_file, db_name)
+            # 3. Obtain temporary source package files and binary package files
+            if self.__save_data(src_db_file, bin_db_file, db_name):
+                # Update the configuration file of the database
+                database_content = {
+                    'database_name': database.get('dbname'),
+                    'priority': database.get('priority'),
+                    'status': database.get('status')
+                }
+                InitDataBase.__updata_settings_file(
+                    database_content=database_content)
 
         except (SQLAlchemyError, ContentNoneException, TypeError, Error) as error_msg:
             # Delete the specified database
@@ -205,15 +221,6 @@ class InitDataBase():
                     self._sqlite_db.drop_database()
             except (IOError, Error) as exception_msg:
                 LOGGER.logger.error(exception_msg)
-        else:
-            # Update the configuration file of the database
-            database_content = {
-                'database_name': database.get('dbname'),
-                'priority': database.get('priority'),
-                'status': database.get('status')
-            }
-            InitDataBase.__updata_settings_file(
-                database_content=database_content)
 
     @staticmethod
     def __columns(cursor):
@@ -264,20 +271,26 @@ class InitDataBase():
         Raises:
 
         """
-        with DBHelper(db_name=src_db_file, db_type='sqlite:///', import_database=True) \
-                as database:
-            self._database = database
-            # Save data related to source package
-            self._save_src_packages(db_name)
-            self._save_src_requires(db_name)
+        try:
+            with DBHelper(db_name=src_db_file, db_type='sqlite:///', import_database=True) \
+                    as database:
+                self._database = database
+                # Save data related to source package
+                self._save_src_packages(db_name)
+                self._save_src_requires(db_name)
 
-        with DBHelper(db_name=bin_db_file, db_type='sqlite:///', import_database=True)\
-                as database:
-            self._database = database
-            # Save binary package related data
-            self._save_bin_packages(db_name)
-            self._save_bin_requires(db_name)
-            self._save_bin_provides(db_name)
+            with DBHelper(db_name=bin_db_file, db_type='sqlite:///', import_database=True)\
+                    as database:
+                self._database = database
+                # Save binary package related data
+                self._save_bin_packages(db_name)
+                self._save_bin_requires(db_name)
+                self._save_bin_provides(db_name)
+        except (SQLAlchemyError, ContentNoneException) as sql_error:
+            LOGGER.logger.error(sql_error)
+            return False
+        else:
+            return True
 
     def _save_src_packages(self, db_name):
         """
@@ -302,11 +315,9 @@ class InitDataBase():
                 src_package_item.get('name'), src_package_item.get('version'))
             packages_datas[index]['maintaniner'] = maintaniner
             packages_datas[index]['maintainlevel'] = maintainlevel
-        try:
-            with DBHelper(db_name=db_name) as database:
-                database.batch_add(packages_datas, src_pack)
-        except SQLAlchemyError as sql_error:
-            LOGGER.logger.error(sql_error)
+
+        with DBHelper(db_name=db_name) as database:
+            database.batch_add(packages_datas, src_pack)
 
     def _save_src_requires(self, db_name):
         """
@@ -323,14 +334,10 @@ class InitDataBase():
         self.sql = " select * from requires "
         requires_datas = self.__get_data()
         if requires_datas is None:
-            LOGGER.logger.warning(
-                '{db_name}: The package data that the source package depends on is\
-                    empty'.format(db_name=db_name))
-        try:
-            with DBHelper(db_name=db_name) as database:
-                database.batch_add(requires_datas, src_requires)
-        except SQLAlchemyError as sql_error:
-            LOGGER.logger.error(sql_error)
+            raise ContentNoneException('{db_name}: The package data that the source package \
+                depends on is empty'.format(db_name=db_name))
+        with DBHelper(db_name=db_name) as database:
+            database.batch_add(requires_datas, src_requires)
 
     def _save_bin_packages(self, db_name):
         """
@@ -358,11 +365,9 @@ class InitDataBase():
                 LOGGER.logger.warning(exception_msg)
             finally:
                 bin_packaegs[index]['src_name'] = src_package_name
-        try:
-            with DBHelper(db_name=db_name) as database:
-                database.batch_add(bin_packaegs, bin_pack)
-        except SQLAlchemyError as sql_error:
-            LOGGER.logger.error(sql_error)
+
+        with DBHelper(db_name=db_name) as database:
+            database.batch_add(bin_packaegs, bin_pack)
 
     def _save_bin_requires(self, db_name):
         """
@@ -381,11 +386,9 @@ class InitDataBase():
             raise ContentNoneException(
                 '{db_name}:There is no relevant data in the provided binary \
                     dependency package'.format(db_name=db_name))
-        try:
-            with DBHelper(db_name=db_name) as database:
-                database.batch_add(requires_datas, bin_requires)
-        except SQLAlchemyError as sql_error:
-            LOGGER.logger.error(sql_error)
+
+        with DBHelper(db_name=db_name) as database:
+            database.batch_add(requires_datas, bin_requires)
 
     def _save_bin_provides(self, db_name):
         """
@@ -403,12 +406,10 @@ class InitDataBase():
         if provides_datas is None:
             raise ContentNoneException(
                 '{db_name}:There is no relevant data in the provided \
-                    binary component'.format(db_name=db_name))
-        try:
-            with DBHelper(db_name=db_name) as database:
-                database.batch_add(provides_datas, bin_provides)
-        except SQLAlchemyError as sql_error:
-            LOGGER.logger.error(sql_error)
+                    binary component '.format(db_name=db_name))
+
+        with DBHelper(db_name=db_name) as database:
+            database.batch_add(provides_datas, bin_provides)
 
     def _get_maintenance_info(self):
         """
@@ -420,8 +421,6 @@ class InitDataBase():
             SQLAlchemyError: An error occurred while executing the sql statement
         """
         try:
-            if not hasattr(self, 'mainter_infos'):
-                self.mainter_infos = dict()
             with DBHelper(db_name='maintenance.information') as database:
                 for info in database.session.query(maintenance_info).all():
                     if info.name not in self.mainter_infos.keys():
