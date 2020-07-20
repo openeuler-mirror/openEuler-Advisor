@@ -18,13 +18,16 @@ function create_config_file(){
     echo "[INFO] config type is: $service"
     daemonize=$(get_config "$service" "daemonize")
     buffer_size=$(get_config "$service" "buffer-size")
+    http_timeout=$(get_config "$service" "http-timeout")
+    harakiri=$(get_config "$service" "harakiri")
     wsgi_file_path=$(find /usr/lib/ -name "packageship")
     if [ $service = "manage" -o $service = "all" ];then
         write_port=$(get_config "$service" "write_port")
         write_ip_addr=$(get_config "$service" "write_ip_addr")
-        if [[ -z "$daemonize" ]] || [[ -z "$buffer_size" ]] || [[ -z "$write_ip_addr" ]] || [[ -z "$write_port" ]];then
+        if [[ -z "$daemonize" ]] || [[ -z "$buffer_size" ]] || [[ -z "$write_ip_addr" ]] || [[ -z "$http_timeout" ]] || [[ -z "$harakiri" ]] || [[ -z "$write_port" ]];
+        then
             echo "[ERROR] CAN NOT find  all config name in: $SYS_PATH/package.ini, Please check the file"
-            echo "[ERROR] The following config name is needed: daemonize, buffer_size, write_port and write_ip_addr"
+            echo "[ERROR] The following config name is needed: daemonize, buffer-size, write_port, write_ip_addr, harakiri and http-timeout"
             exit 1
         fi
         if [ -z "$wsgi_file_path" ];then
@@ -39,8 +42,8 @@ wsgi-file=$wsgi_file_path/manage.py
 callable=app
 buffer-size=$buffer_size
 pidfile=$OUT_PATH/manage.pid
-http-timeout=600
-harakiri=600
+http-timeout=$http_timeout
+harakiri=$harakiri
 daemonize=$daemonize" > $OUT_PATH/manage.ini
     fi
     
