@@ -566,8 +566,10 @@ class InitDataBase():
                     yaml.safe_dump(_databases, file_context)
             except (IOError, Error) as del_config_error:
                 LOGGER.logger.error(del_config_error)
+                del_result = False
             finally:
                 file_read.close()
+        return del_result
 
 
 class MysqlDatabaseOperations():
