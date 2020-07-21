@@ -200,6 +200,9 @@ class InitDataBase():
                 raise ContentNoneException(
                     'The path to the sqlite file in the database initialization configuration \
                     is incorrect ')
+            if os.path.exists(src_db_file) or os.path.exists(bin_db_file):
+                raise FileNotFoundError("sqlite file {src} or {bin} does not exist, please \
+                    check and try again".format(src=src_db_file, bin=bin_db_file))
             # 3. Obtain temporary source package files and binary package files
             if self.__save_data(src_db_file, bin_db_file, db_name):
                 # Update the configuration file of the database
@@ -211,16 +214,20 @@ class InitDataBase():
                 InitDataBase.__updata_settings_file(
                     database_content=database_content)
 
-        except (SQLAlchemyError, ContentNoneException, TypeError, Error) as error_msg:
+        except (SQLAlchemyError, ContentNoneException, TypeError,
+                Error, FileNotFoundError) as error_msg:
+            LOGGER.logger.error(error_msg)
             # Delete the specified database
-            try:
-                if self.db_type == 'mysql':
-                    MysqlDatabaseOperations.drop_database(
-                        database.get('dbname'))
-                else:
-                    self._sqlite_db.drop_database()
-            except (IOError, Error) as exception_msg:
-                LOGGER.logger.error(exception_msg)
+            self.__del_fail_database(database.get('dbname'))
+
+    def __del_fail_database(self, db_name):
+        try:
+            if self.db_type == 'mysql':
+                MysqlDatabaseOperations.drop_database(db_name)
+            else:
+                self._sqlite_db.drop_database()
+        except (IOError, Error) as exception_msg:
+            LOGGER.logger.error(exception_msg)
 
     @staticmethod
     def __columns(cursor):
@@ -288,6 +295,7 @@ class InitDataBase():
                 self._save_bin_provides(db_name)
         except (SQLAlchemyError, ContentNoneException) as sql_error:
             LOGGER.logger.error(sql_error)
+            self.__del_fail_database(db_name)
             return False
         else:
             return True
