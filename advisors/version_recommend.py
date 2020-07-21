@@ -91,11 +91,15 @@ class VersionType(object):
         len2 = len(d2)
         length = min(len1, len2)
         for index in range(length):
-            if d1[index].isdigit() and d1[index].isdigit():
+            if d1[index].isdigit() and d2[index].isdigit():
                 if int(d1[index]) > int(d2[index]):
                     return 1
                 elif int(d1[index]) < int(d2[index]):
                     return -1
+            elif d1[index].isdigit():
+                return 1
+            elif d2[index].isdigit():
+                return -1
             else:
                 if d1[index] > d2[index]:
                     return 1
@@ -126,7 +130,7 @@ class VersionType(object):
         :returns: The split result
         :raises: None
         """
-        for f, s in re.findall(r'([\d]+)|([^\d.]+)', x):
+        for f, s in re.findall(r'([\d]+)|([^\d.-]+)', x):
             if f:
                 float(f)
                 yield f
@@ -1083,6 +1087,10 @@ class VersionRecommend(object):
 
         m = re.match('^[0-9].*', version)
         if m is None:  # 版本号应该是数字开头
+            return False
+
+        m = re.search(r'b\d', version)
+        if not m is None:
             return False
 
         if 'rc' in version \

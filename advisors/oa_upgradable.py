@@ -18,6 +18,15 @@ import check_upstream
 import version_recommend
 
 
+def _get_rec_excpt():
+    """
+    Get except case of version recommend
+    """
+    y_file = open(os.getcwd() + "/helper/ver_rec_excpt.yaml")
+    excpt = yaml.load(y_file, Loader=yaml.Loader)
+    return excpt
+
+
 def get_ver_tags(gt, repo, d_path=None):
     """
     Get version tags of given package
@@ -57,6 +66,12 @@ def get_ver_tags(gt, repo, d_path=None):
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None
     
+    excpt_list = _get_rec_excpt()
+    if repo in excpt_list:
+        for excpt in excpt_list[repo]:
+            for tag in tags:
+                if excpt in tag:
+                    tags.remove(tag)
     return tags
 
 
@@ -88,6 +103,6 @@ if __name__ == "__main__":
         sys.exit(1)
     ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
 
-    print("known release tags :", pkg_tags)
-    print("Latest version is ", ver_rec.latest_version)
+    print("known release tags:", pkg_tags)
+    print("Latest version is", ver_rec.latest_version)
     print("Maintain version is", ver_rec.maintain_version)

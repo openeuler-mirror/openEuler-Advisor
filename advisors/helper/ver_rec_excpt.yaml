@@ -1,0 +1,10 @@
+---
+# version recommend exception list
+gegl04:
+    - '20001120.v002'
+gimp:
+    - '19990910'
+nss:
+    - '334.20030307'
+glibc:
+    - '9000'
