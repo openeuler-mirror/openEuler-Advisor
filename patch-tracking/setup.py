@@ -1,12 +1,12 @@
 """
 setup about building of pactch tracking
 """
-from setuptools import setup, find_packages
+import setuptools
 
-setup(
+setuptools.setup(
     name='patch-tracking',
     version='1.0.0',
-    packages=find_packages(),
+    packages=setuptools.find_packages(),
     url='https://openeuler.org/zh/',
     license='Mulan PSL v2',
     author='ChenYanpan',
