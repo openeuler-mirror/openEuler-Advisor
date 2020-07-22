@@ -3,6 +3,7 @@ module of issue API
 """
 import logging
 from flask import request, Blueprint
+from sqlalchemy.exc import SQLAlchemyError
 from patch_tracking.database.models import Tracking
 from patch_tracking.api.business import create_tracking, update_tracking
 from patch_tracking.api.constant import ResponseCode
@@ -72,12 +73,12 @@ def post():
         try:
             update_tracking(data)
             logger.info('Update tracking. Data: %s.', data)
-        except Exception as exception:
-            return ResponseCode.gen_dict(code=ResponseCode.INSERT_DATA_ERROR, data=exception)
+        except SQLAlchemyError as err:
+            return ResponseCode.gen_dict(code=ResponseCode.INSERT_DATA_ERROR, data=err)
     else:
         try:
             create_tracking(data)
             logger.info('Create tracking. Data: %s.', data)
-        except Exception as exception:
-            return ResponseCode.gen_dict(code=ResponseCode.INSERT_DATA_ERROR, data=exception)
+        except SQLAlchemyError as err:
+            return ResponseCode.gen_dict(code=ResponseCode.INSERT_DATA_ERROR, data=err)
     return ResponseCode.gen_dict(code=ResponseCode.SUCCESS, data=request.json)
