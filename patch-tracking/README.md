@@ -72,8 +72,10 @@ pip3 install -I uwsgi
 
 ### 3.2 安装
 
+这里以 `patch-tracking-1.0.0-1.oe1.noarch.rpm` 为例
+
 ```shell script
-rpm -ivh patch-tracking-xxx.rpm
+rpm -ivh patch-tracking-1.0.0-1.oe1.noarch.rpm
 ```
 
 ### 3.3 配置
