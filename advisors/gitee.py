@@ -131,7 +131,7 @@ Yours openEuler-Advisor.
 
     def get_yaml(self, pkg, br="master"):
         """
-        get upstream yaml metadata for specific package
+        Get upstream yaml metadata for specific package
         """
         yamlurl = self.advisor_url_template.format(package=pkg)
         try:
@@ -145,7 +145,7 @@ Yours openEuler-Advisor.
             except urllib.error.HTTPError:
                 resp = "Not found"
             if re.match("Not found", resp):
-                print("Cannot find upstream metadata")
+                print("Cann't find yaml metadata for {package} from upstream-info.".format(package=pkg))
                 return False
             else:
                 return resp

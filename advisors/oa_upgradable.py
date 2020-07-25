@@ -22,30 +22,26 @@ def _get_rec_excpt():
     """
     Get except case of version recommend
     """
-    y_file = open(os.getcwd() + "/helper/ver_rec_excpt.yaml")
+    y_file = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "helper/ver_rec_excpt.yaml"))
     excpt = yaml.load(y_file, Loader=yaml.Loader)
     return excpt
 
-
-def get_ver_tags(gt, repo, d_path=None):
+def get_ver_tags(gt, repo, cwd_path=None):
     """
     Get version tags of given package
     """
     repo_yaml = ""
-    if d_path:
+    if cwd_path:
         try:
-            repo_yaml = open(os.path.join(d_path, repo + ".yaml")).read()
+            repo_yaml = open(os.path.join(cwd_path, repo + ".yaml")).read()
         except FileNotFoundError:
-            print("Failed to get YAML info from default path.")
-
-    if not repo_yaml:
-        try:
+            print("Cann't find yaml metadata for {pkg} from current working directory.".format(pkg=repo))
             repo_yaml = gt.get_yaml(repo)
-        except urllib.error.HTTPError:
-            print("Failed to get YAML info for {pkg}".format(pkg=repo))
-            return None
 
-    pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
+    if repo_yaml:
+        pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
+    else:
+        return None
 
     vc_type = pkg_info["version_control"]
     if vc_type == "hg":
@@ -65,7 +61,7 @@ def get_ver_tags(gt, repo, d_path=None):
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None
-    
+
     excpt_list = _get_rec_excpt()
     if repo in excpt_list:
         for excpt in excpt_list[repo]:
