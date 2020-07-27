@@ -99,10 +99,12 @@ def download_src(gt, spec, o_ver, n_ver):
     source_file = download_source_url(spec, o_ver, n_ver)
     if source_file:
         print(source_file)
+        return True
     else:
         source_file = download_upstream_url(gt, spec.name, n_ver)
         if source_file:
             print(source_file)
+            return True
         else:
             print("Failed to download the latest source code.")
             return False
@@ -112,6 +114,9 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     """
     Create new spec file for upgraded package
     """
+    fn = open(repo + "_old.spec", "w")
+    fn.write(spec_str)
+    fn.close()
     fn = open(repo + ".spec", "w")
     in_changelog = False
     for l in spec_str.splitlines():

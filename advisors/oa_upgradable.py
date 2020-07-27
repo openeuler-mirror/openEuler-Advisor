@@ -26,17 +26,28 @@ def _get_rec_excpt():
     excpt = yaml.load(y_file, Loader=yaml.Loader)
     return excpt
 
+
+def _filter_except(excpts, sources):
+    """
+    Filter except case in sources
+    """
+    for e in excpts:
+        sources = [s for s in sources if e not in s]
+    return sources
+    
+
 def get_ver_tags(gt, repo, cwd_path=None):
     """
     Get version tags of given package
     """
-    repo_yaml = ""
     if cwd_path:
         try:
             repo_yaml = open(os.path.join(cwd_path, repo + ".yaml")).read()
         except FileNotFoundError:
             print("Cann't find yaml metadata for {pkg} from current working directory.".format(pkg=repo))
             repo_yaml = gt.get_yaml(repo)
+    else:
+        repo_yaml = gt.get_yaml(repo)
 
     if repo_yaml:
         pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
@@ -60,14 +71,10 @@ def get_ver_tags(gt, repo, cwd_path=None):
         tags = check_upstream.check_pypi(pkg_info)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
-        return None
 
     excpt_list = _get_rec_excpt()
     if repo in excpt_list:
-        for excpt in excpt_list[repo]:
-            for tag in tags:
-                if excpt in tag:
-                    tags.remove(tag)
+        tags = _filter_except(excpt_list[repo], tags) 
     return tags
 
 
@@ -95,10 +102,11 @@ if __name__ == "__main__":
     print("current version is ", cur_version)
 
     pkg_tags = get_ver_tags(user_gitee, args.repo, args.default)
+    print("known release tags:", pkg_tags)
+
     if pkg_tags is None:
         sys.exit(1)
     ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
 
-    print("known release tags:", pkg_tags)
     print("Latest version is", ver_rec.latest_version)
     print("Maintain version is", ver_rec.maintain_version)
