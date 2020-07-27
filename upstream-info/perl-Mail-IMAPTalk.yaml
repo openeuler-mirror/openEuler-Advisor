@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: Mail-IMAPTalk
+tag_prefix: "^"
+seperator: "."

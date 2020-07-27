@@ -1,0 +1,4 @@
+version_control: github
+src_repo: Dual-Life/experimental
+tag_prefix: ^v 
+seperator: . 

@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: SUPER
+tag_prefix: "^"
+seperator: "."

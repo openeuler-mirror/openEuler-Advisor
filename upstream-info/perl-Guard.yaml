@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: Guard
+tag_prefix: "^"
+seperator: "."

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: google/keyczar
+tag_prefix: Python_release_
+seperator: .

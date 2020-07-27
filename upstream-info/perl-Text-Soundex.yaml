@@ -1,0 +1,4 @@
+version-control: metacpan
+src_repo: Text-Soundex
+tag_prefix: "^v"
+seperator: "."

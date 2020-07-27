@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: App-FatPacker
+tag_prefix: "^"
+seperator: "."

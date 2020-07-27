@@ -1,0 +1,4 @@
+version_control: pypi
+src_repo: pungi 
+tag_prefix: "^"
+seperator: "."

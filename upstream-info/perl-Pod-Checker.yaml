@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: Pod-Checker
+tag_prefix: "^v"
+seperator: "."

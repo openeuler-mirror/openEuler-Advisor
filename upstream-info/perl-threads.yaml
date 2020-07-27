@@ -1,0 +1,4 @@
+version_control: meatcpan
+src_repo: threads
+tag_prefix: "^v"
+seperator: "."

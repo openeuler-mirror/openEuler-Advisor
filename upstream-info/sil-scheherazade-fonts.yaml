@@ -1,0 +1,4 @@
+version_control: github
+src_repo: silnrsi/font-scheherazade
+tag_prefix: ^
+seperator: .

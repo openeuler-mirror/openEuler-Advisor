@@ -1,0 +1,4 @@
+n_control: metacpan
+src_repo: Font-TTF
+tag_prefix: "^v"
+seperator: "."
