@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://pagure.io/install-guide.git
 tag_prefix: anaconda-user-help-
-seperator: "."
+separator: "."

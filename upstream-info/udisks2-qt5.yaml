@@ -2,4 +2,4 @@
 version_control: github
 src_repo: linuxdeepin/udisks2-qt5
 tag_prefix: "^v"
-seperator: "."
+separator: "."

@@ -2,4 +2,4 @@
 version_control: github
 src_repo: sleinen/snmp-session
 tag_prefix: "^"
-seperator: "."
+separator: "."

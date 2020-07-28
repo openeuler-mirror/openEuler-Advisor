@@ -2,4 +2,4 @@
 version_control: github
 src_repo: silnrsi/font-nuosu
 tag_prefix: "^"
-seperator: "."
+separator: "."

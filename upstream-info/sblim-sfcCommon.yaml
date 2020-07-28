@@ -2,4 +2,4 @@
 version_control: NA
 src_repo: https://git.code.sf.net/p/sblim/sfccommon
 tag_prefix: "^scfCommon_"
-seperator: _
+separator: _

@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://pagure.io/polkit-pkla-compat.git
 tag_prefix: "^polkit-"
-seperator: "."
+separator: "."

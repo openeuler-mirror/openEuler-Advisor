@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xdg/xdg-utils.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

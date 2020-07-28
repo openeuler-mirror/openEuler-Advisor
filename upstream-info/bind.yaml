@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.isc.org/isc-projects/bind9.git
 tag_prefix: "^v"
-seperator: _
+separator: _

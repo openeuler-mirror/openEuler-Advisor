@@ -2,4 +2,4 @@
 version_control: github
 src_repo: alsa-project/alsa-lib
 tag_prefix: "^v"
-seperator: "."
+separator: "."

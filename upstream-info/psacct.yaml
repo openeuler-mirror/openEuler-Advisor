@@ -2,5 +2,5 @@
 version_control: gnu-ftp
 src_repo: acct
 tag_pattern: acct-(.*).tar.gz(.sig)?
-seperator: "."
+separator: "."
 svn_url: http://svn.savannah.gnu.org/svn/acct/

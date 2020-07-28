@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.samba.org/samba.git
 tag_prefix: samba-
-seperator: "."
+separator: "."

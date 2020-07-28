@@ -2,4 +2,4 @@
 version_control: git
 src_repo: git://git.jedsoft.org/git/slang.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

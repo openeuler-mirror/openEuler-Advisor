@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.code.sf.net/p/pptpclient/git
 tag_prefix: "^"
-seperator: "."
+separator: "."

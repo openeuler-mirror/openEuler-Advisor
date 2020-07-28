@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.com/sane-project/frontends.git
 tag_prefix: RELEASE_
-seperator: _
+separator: _

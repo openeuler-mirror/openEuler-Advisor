@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.freedesktop.org/mesa/glu.git
 tag_prefix: "^glu-"
-seperator: "."
+separator: "."

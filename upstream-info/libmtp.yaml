@@ -3,4 +3,4 @@ git_url: https://github.com/libmtp/libmtp.git
 version_control: github
 src_repo: libmtp/libmtp
 tag_prefix: libmtp-
-seperator: "-"
+separator: "-"

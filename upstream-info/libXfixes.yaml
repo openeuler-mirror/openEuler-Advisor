@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxfixes.git
 tag_prefix: "^libXfixes-"
-seperator: "."
+separator: "."

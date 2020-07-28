@@ -2,4 +2,4 @@
 version_control: github
 src_repo: madler/zlib
 tag_prefix: "^v"
-seperator: "."
+separator: "."

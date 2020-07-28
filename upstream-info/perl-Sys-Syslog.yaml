@@ -2,4 +2,4 @@
 version_control: github
 src_repo: maddingue/Sys-Syslog
 tag_prefix: "^Sys-Syslog-"
-seperator: "."
+separator: "."

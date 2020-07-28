@@ -3,4 +3,4 @@ git_url: https://github.com/snapcore/snapd-glib
 version_control: github
 src_repo: snapcore/snapd-glib
 tag_prefix: "^"
-seperator: "."
+separator: "."

@@ -3,4 +3,4 @@ git_url: https://gitlab.gnome.org/GNOME/libwnck.git
 version_control: git
 src_repo: https://gitlab.gnome.org/GNOME/libwnck.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

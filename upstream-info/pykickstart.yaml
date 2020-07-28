@@ -2,4 +2,4 @@
 version_control: github
 src_repo: pykickstart/pykickstart
 tag_prefix: "^r"
-seperator: 
+separator: 

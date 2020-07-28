@@ -2,4 +2,4 @@
 version_control: metacpan
 src_repo: Task-Weaken
 tag_prefix: "^"
-seperator: "."
+separator: "."

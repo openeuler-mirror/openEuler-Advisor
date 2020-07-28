@@ -2,4 +2,4 @@
 version_control: github
 src_repo: hreinecke/sg3_utils
 tag_prefix: "^v"
-seperator: "."
+separator: "."

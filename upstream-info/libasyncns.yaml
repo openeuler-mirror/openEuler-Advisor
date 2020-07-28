@@ -2,4 +2,4 @@
 version_control: git
 src_repo: http://git.0pointer.net/clone/libasyncns.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

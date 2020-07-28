@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/app/xkbutils.git
 tag_prefix: "^xkbutils-"
-seperator: "."
+separator: "."

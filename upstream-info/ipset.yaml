@@ -2,4 +2,4 @@
 version_control: git
 src_repo: git://git.netfilter.org/ipset.git
 tag_prefix: ipset-
-seperator: "."
+separator: "."

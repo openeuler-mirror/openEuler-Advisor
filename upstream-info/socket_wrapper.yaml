@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.samba.org/socket_wrapper.git
 tag_prefix: "^socket_wrapper-"
-seperator: "."
+separator: "."

@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.postgresql.org/git/psqlodbc.git
 tag_prefix: "^REL-"
-seperator: _
+separator: _

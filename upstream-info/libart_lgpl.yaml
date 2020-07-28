@@ -2,4 +2,4 @@
 version_control: github
 src_repo: Distrotech/libart
 tag_prefix: "^LIBART_LGPL_"
-seperator: _
+separator: _

@@ -2,4 +2,4 @@
 version_control: github
 src_repo: xz-mirror/xz
 tag_prefix: "^v"
-seperator: "."
+separator: "."

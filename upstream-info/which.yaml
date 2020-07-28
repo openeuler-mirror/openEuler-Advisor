@@ -2,4 +2,4 @@
 version_control: gnu-ftp
 src_repo: which
 tag_pattern: which-(.*).(tar.*)
-seperator: "."
+separator: "."

@@ -2,4 +2,4 @@
 version_control: svn
 src_repo: https://svn.webkit.org/repository/webkit
 tag_pattern: "^v"
-seperator: "."
+separator: "."

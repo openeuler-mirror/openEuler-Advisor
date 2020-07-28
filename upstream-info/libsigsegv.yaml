@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/libsigsegv.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

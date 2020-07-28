@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.code.sf.net/p/sblim/sfcb
 tag_prefix: SFCB_
-seperator: _
+separator: _

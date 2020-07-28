@@ -2,4 +2,4 @@
 version_control: fossil
 src_repo: https://www.sqlite.org/src
 tag_prefix: version-
-seperator: "."
+separator: "."

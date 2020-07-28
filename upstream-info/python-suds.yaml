@@ -2,4 +2,4 @@
 version_control: hg
 src_repo: https://bitbucket.org/jurko/suds
 tag_pattern: "^v"
-seperator: "."
+separator: "."

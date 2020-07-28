@@ -2,4 +2,4 @@
 version_control: hg
 src_repo: https://hg.mozilla.org/projects/python-nss
 tag_prefix: "^PYNSS_RELEASE_"
-seperator: _
+separator: _

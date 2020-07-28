@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxtrans.git
 tag_prefix: xtrans-
-seperator: "."
+separator: "."

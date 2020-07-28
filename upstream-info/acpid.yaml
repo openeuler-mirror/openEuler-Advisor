@@ -2,4 +2,4 @@
 version_control: git
 src_repo: git://git.code.sf.net/p/acpid2/code
 tag_prefix: 
-seperator: "."
+separator: "."

@@ -2,4 +2,4 @@
 version_control: svn
 src_repo: https://tug.org/svn/texlive
 tag_prefix: texlive-
-seperator: "."
+separator: "."

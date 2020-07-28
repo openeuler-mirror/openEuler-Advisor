@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/emacs.git
 tag_prefix: "^emacs-"
-seperator: "."
+separator: "."

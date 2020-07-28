@@ -2,4 +2,4 @@
 version_control: git
 src_repo: git://anongit.freedesktop.org/pulseaudio/pulseaudio
 tag_prefix: "^v"
-seperator: "."
+separator: "."

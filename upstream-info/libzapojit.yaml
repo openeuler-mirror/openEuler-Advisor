@@ -3,4 +3,4 @@ git_url: https://gitlab.gnome.org/GNOME/libzapojit
 version_control: gitlab.gnome
 src_repo: libzapojit
 tag_prefix: "^"
-seperator: "."
+separator: "."

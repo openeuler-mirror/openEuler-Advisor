@@ -2,4 +2,4 @@
 version_control: github
 src_repo: tlwg/fonts-tlwg
 tag_prefix: "^v"
-seperator: "."
+separator: "."

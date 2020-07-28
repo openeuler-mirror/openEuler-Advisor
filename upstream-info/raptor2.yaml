@@ -2,4 +2,4 @@
 version_control: github
 src_repo: dajobe/raptor
 tag_prefix: raptor2_
-seperator: _
+separator: _

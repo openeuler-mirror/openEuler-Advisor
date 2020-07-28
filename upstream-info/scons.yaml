@@ -2,4 +2,4 @@
 version_control: github
 src_repo: SCons/scons
 tag_pattern: "^v"
-seperator: "."
+separator: "."

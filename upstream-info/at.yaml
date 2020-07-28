@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://salsa.debian.org/debian/at.git
 tag_prefix: "^.*/"
-seperator: "."
+separator: "."

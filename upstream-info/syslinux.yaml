@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://repo.or.cz/syslinux.git
 tag_prefix: syslinux-
-seperator: "."
+separator: "."

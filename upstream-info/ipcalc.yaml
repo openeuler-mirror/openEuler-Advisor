@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.com/ipcalc/ipcalc.git
 tag_prefix: ipcalc-
-seperator: "."
+separator: "."

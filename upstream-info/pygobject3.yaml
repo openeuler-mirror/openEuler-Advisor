@@ -2,4 +2,4 @@
 version_control: gitlab.gnome
 src_repo: pygobject
 tag_prefix: 
-seperator: 
+separator: 

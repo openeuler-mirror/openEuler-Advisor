@@ -2,4 +2,4 @@
 version-control: metacpan
 src_repo: FCGI
 tag_prefix: "^"
-seperator: "."
+separator: "."

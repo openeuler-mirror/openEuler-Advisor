@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.strongswan.org/strongswan.git
 tag_prefix: 
-seperator: "."
+separator: "."

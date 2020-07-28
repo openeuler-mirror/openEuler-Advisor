@@ -2,4 +2,4 @@
 version_control: git
 src_repo: git://git.code.sf.net/p/watchdog/code
 tag_prefix: "^"
-seperator: "."
+separator: "."

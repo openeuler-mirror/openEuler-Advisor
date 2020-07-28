@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-input-evdev.git
 tag_prefix: "^xf86-input-evdev-"
-seperator: "."
+separator: "."

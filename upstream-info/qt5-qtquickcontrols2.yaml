@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://code.qt.io/qt/qtquickcontrols2.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."

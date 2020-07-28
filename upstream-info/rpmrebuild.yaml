@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.code.sf.net/p/rpmrebuild/git
 tag_prefix: "^v"
-seperator: _
+separator: _

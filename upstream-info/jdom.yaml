@@ -3,4 +3,4 @@ git_url: https://github.com/hunterhacker/jdom
 version_control: github
 src_repo: hunterhacker/jdom
 tag_prefix: JDOM-
-seperator: "."
+separator: "."

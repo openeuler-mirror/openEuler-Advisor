@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://pagure.io/portreserve.git
 tag_prefix: "^"
-seperator: "."
+separator: "."

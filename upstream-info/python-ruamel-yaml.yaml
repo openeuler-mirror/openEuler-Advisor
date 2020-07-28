@@ -2,4 +2,4 @@
 version_control: pypi
 src_repo: ruamel.yaml
 tag_prefix: "^v"
-seperator: "."
+separator: "."

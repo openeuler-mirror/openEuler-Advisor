@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.sr.ht/~kaniini/pkgconf
 tag_prefix: "^pkgconf-"
-seperator: "."
+separator: "."

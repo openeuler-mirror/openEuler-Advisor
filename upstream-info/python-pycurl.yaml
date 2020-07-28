@@ -2,4 +2,4 @@
 version_control: pypi
 src_repo: pycurl
 tag_prefix: "^"
-seperator: "."
+separator: "."

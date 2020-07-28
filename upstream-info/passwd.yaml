@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://pagure.io/passwd.git
 tag_prefix: "^passwd-"
-seperator: "."
+separator: "."

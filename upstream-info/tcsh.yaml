@@ -2,4 +2,4 @@
 version_control: github
 src_repo: tcsh-org/tcsh
 tag_prefix: "^TCSH"
-seperator: _
+separator: _

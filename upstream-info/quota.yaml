@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.code.sf.net/p/linuxquota/code
 tag_prefix: quota-
-seperator: "."
+separator: "."

@@ -2,4 +2,4 @@
 version_control: metacpan
 src_repo: Math-BigRat
 tag_prefix: 
-seperator: "."
+separator: "."

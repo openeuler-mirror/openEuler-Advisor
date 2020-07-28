@@ -2,4 +2,4 @@
 version_control: svn
 src_repo: http://svn.code.sf.net/p/rospell/code/rospell
 tag_prefix: "^"
-seperator: "."
+separator: "."

@@ -2,4 +2,4 @@
 version_control: cvs
 src_repo: http://cvs.schmorp.de/libev
 tag_prefix: rel-
-seperator: _
+separator: _

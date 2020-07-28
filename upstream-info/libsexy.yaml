@@ -2,5 +2,5 @@
 version_control: NA
 src_repo: 
 tag_prefix: 
-seperator: "."
+separator: "."
 url: https://releases.chipx86.com/libsexy/libsexy/

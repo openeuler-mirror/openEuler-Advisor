@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://src.fedoraproject.org/rpms/mcstrans.git
 tag_prefix: "^mcstrans-"
-seperator: "-"
+separator: "-"

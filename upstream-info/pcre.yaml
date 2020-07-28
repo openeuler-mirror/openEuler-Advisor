@@ -2,4 +2,4 @@
 version_control: svn
 src_repo: svn://vcs.pcre.org/pcre/code
 tag_prefix: pcre-
-seperator: "."
+separator: "."
