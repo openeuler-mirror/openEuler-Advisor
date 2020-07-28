@@ -1,3 +1,4 @@
+---
 version_control: github
 src_repo: phusion/passenger
 tag_prefix: release-

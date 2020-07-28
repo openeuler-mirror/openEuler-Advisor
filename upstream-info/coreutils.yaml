@@ -1,4 +1,5 @@
-version_control: github                                                                                              
-src_repo: coreutils/coreutils                                                                                              
-tag_prefix: "^v"                                                                                              
+---
+version_control: github
+src_repo: coreutils/coreutils
+tag_prefix: "^v"
 separator: "."

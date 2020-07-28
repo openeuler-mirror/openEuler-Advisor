@@ -1,4 +1,5 @@
+---
 version_control: NA
-src_repo: "http://matthewwild.co.uk/projects/luaexpat/"
-tag_prefix: NA 
-seperator: NA 
+src_repo: http://matthewwild.co.uk/projects/luaexpat/
+tag_prefix: NA
+seperator: NA

@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: dajobe/rasqal
-tag_prefix: ^rasqal_
+tag_prefix: "^rasqal_"
 seperator: _

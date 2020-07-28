@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  anholt/libepoxy
-tag_prefix: ^v
-separator: .
+src_repo: anholt/libepoxy
+tag_prefix: "^v"
+separator: "."

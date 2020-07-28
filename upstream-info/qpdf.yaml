@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: qpdf/qpdf
-tag_prefix: ^release-qpdf-
-seperator: .
+tag_prefix: "^release-qpdf-"
+seperator: "."

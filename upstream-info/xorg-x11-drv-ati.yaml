@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-video-ati.git
-tag_prefix: "^xf86-video-ati-" 
-seperator: .
+tag_prefix: "^xf86-video-ati-"
+seperator: "."

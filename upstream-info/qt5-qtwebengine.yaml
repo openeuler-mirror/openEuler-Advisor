@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://code.qt.io/cgit/qt/qtwebengine.git
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+seperator: "."

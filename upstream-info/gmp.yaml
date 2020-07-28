@@ -1,3 +1,4 @@
+---
 version_control: hg
 src_repo: https://gmplib.org/repo/gmp/
 tag_prefix: "^gmp-"

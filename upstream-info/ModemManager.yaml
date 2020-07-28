@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/mobile-broadband/ModemManager
 tag_prefix: ModemManager-
-separator: .
+separator: "."

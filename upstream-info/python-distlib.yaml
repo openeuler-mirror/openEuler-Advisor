@@ -1,4 +1,5 @@
+---
 version_control: pypi
 src_repo: distlib
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

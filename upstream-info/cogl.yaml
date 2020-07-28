@@ -1,4 +1,5 @@
+---
 version_control: gitlab.gnome
-src_repo:  cogl
+src_repo: cogl
 tag_prefix: 
-separator: .
+separator: "."

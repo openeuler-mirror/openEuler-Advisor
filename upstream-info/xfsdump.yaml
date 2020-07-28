@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo: git://git.kernel.org/pub/scm/fs/xfs/xfsdump-dev.git 
+src_repo: git://git.kernel.org/pub/scm/fs/xfs/xfsdump-dev.git
 tag_prefix: "^v"
 seperator: "."

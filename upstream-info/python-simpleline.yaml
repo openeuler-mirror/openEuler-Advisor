@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  rhinstaller/python-simpleline
+src_repo: rhinstaller/python-simpleline
 tag_prefix: "^simpleline-"
-separator: .
+separator: "."

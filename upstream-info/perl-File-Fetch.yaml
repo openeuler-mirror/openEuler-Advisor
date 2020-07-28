@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: PERL-Toolchain-Gang/File-Fetch
 tag_prefix: 
-separator: . 
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: fltk/fltk
-tag_prefix: ^release-
-seperator: .
+tag_prefix: "^release-"
+seperator: "."

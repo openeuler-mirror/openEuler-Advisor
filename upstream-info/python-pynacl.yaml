@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  pyca/pynacl
-tag_prefix: ^v
-separator: .
+src_repo: pyca/pynacl
+tag_prefix: "^v"
+separator: "."

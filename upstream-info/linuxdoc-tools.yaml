@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo:  https://salsa.debian.org/xml-sgml-team/linuxdoc-tools.git
-tag_prefix: ^v
-separator: .
+src_repo: https://salsa.debian.org/xml-sgml-team/linuxdoc-tools.git
+tag_prefix: "^v"
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.gnome.org/GNOME/gexiv2.git
-tag_prefix: ^gexiv2- 
-separator: . 
+tag_prefix: "^gexiv2-"
+separator: "."

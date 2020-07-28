@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  kaio/ibus-table
-tag_prefix: ^v
-separator: .
+src_repo: kaio/ibus-table
+tag_prefix: "^v"
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  gperftools/gperftools
+src_repo: gperftools/gperftools
 tag_prefix: "^gperftools-"
-separator: .
+separator: "."

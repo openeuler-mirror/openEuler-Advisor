@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://salsa.debian.org/clint/fakeroot.git
-tag_prefix: ^debian/
-separator: .
+tag_prefix: "^debian/"
+separator: "."

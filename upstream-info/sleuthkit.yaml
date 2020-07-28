@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  sleuthkit/sleuthkit
+src_repo: sleuthkit/sleuthkit
 tag_prefix: "^sleuthkit-"
-separator: .
+separator: "."

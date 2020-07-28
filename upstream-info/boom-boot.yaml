@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  bmr-cymru/boom
-tag_prefix: ^v
-separator: .
+src_repo: bmr-cymru/boom
+tag_prefix: "^v"
+separator: "."

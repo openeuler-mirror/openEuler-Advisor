@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: FreeTDS/freetds
-tag_prefix: ^R1_
-separator: .
+tag_prefix: "^R1_"
+separator: "."

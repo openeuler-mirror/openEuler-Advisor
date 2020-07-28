@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  andymccurdy/redis-py
-tag_prefix: ^v
-separator: .
+src_repo: andymccurdy/redis-py
+tag_prefix: "^v"
+separator: "."

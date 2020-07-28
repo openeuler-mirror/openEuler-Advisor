@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  fedora-selinux/setroubleshoot
+src_repo: fedora-selinux/setroubleshoot
 tag_prefix: "^setroubleshoot-plugins-"
-separator: .
+separator: "."

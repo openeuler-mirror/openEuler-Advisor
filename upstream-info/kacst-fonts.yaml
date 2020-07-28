@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  gooselinux/kacst-fonts
-tag_prefix: ^v
-separator: .
+src_repo: gooselinux/kacst-fonts
+tag_prefix: "^v"
+separator: "."

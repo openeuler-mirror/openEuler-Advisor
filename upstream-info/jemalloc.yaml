@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  jemalloc/jemalloc
-tag_prefix: ^v
-separator: .
+src_repo: jemalloc/jemalloc
+tag_prefix: "^v"
+separator: "."

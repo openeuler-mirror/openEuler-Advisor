@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo: https://gitlab.gnome.org/Archive/libcroco.git 
-tag_prefix: ^v
-separator: .
+src_repo: https://gitlab.gnome.org/Archive/libcroco.git
+tag_prefix: "^v"
+separator: "."

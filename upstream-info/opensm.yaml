@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: linux-rdma/opensm
 tag_prefix: opensm-
-separator: .
+separator: "."

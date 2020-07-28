@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo: "https://pagure.io/usermode.git"
+src_repo: https://pagure.io/usermode.git
 tag_prefix: "^usermode-"
-seperator:
+seperator: 

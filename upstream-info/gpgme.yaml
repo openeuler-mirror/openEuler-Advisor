@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://dev.gnupg.org/source/gpgme.git
-tag_prefix: ^gpgme-
-seperator: .
+tag_prefix: "^gpgme-"
+seperator: "."

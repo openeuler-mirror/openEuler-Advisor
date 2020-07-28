@@ -1,8 +1,8 @@
 ---
 version_control: github
 src_repo: containers/skopeo
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
 last_query:
   time_stamp: 2020-05-07 02:16:06.594243271 -04:00
   raw_data: |

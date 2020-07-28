@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: git://git.netfilter.org/libnetfilter_conntrack
 tag_prefix: libnetfilter_conntrack-
-separator: .
+separator: "."

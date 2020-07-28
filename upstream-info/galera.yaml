@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: codership/galera
 tag_prefix: release_
-separator: .
+separator: "."

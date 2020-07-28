@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/accountsservice/accountsservice.git
-tag_prefix: "^" 
+tag_prefix: "^"
 seperator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  hughsie/appstream-glib
+src_repo: hughsie/appstream-glib
 tag_prefix: "^appstream_glib_"
 separator: _

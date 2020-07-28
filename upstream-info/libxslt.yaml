@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  GNOME/libxslt
-tag_prefix: ^v
-separator: .
+src_repo: GNOME/libxslt
+tag_prefix: "^v"
+separator: "."

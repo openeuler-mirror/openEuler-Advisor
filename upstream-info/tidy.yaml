@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  htacg/tidy-html5
+src_repo: htacg/tidy-html5
 tag_prefix: 
-separator: .
+separator: "."

@@ -1,3 +1,4 @@
+---
 version_control: metacpan
 src_repo: Test-MockModule
 tag_prefix: "^"

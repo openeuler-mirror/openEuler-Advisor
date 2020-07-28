@@ -1,5 +1,6 @@
+---
 version_control: github
 src_repo: libfuse/libfuse
 tag_prefix: fuse-
-separator: .
+separator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo: doug-gilbert/smp_utils 
-tag_prefix: "release-"
+src_repo: doug-gilbert/smp_utils
+tag_prefix: release-
 seperator: "."

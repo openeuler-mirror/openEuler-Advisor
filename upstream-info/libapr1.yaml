@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_rpeo: https://svn.apache.org/repos/asf/apr/apr
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

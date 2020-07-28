@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: crash-utility/crash
 tag_prefix: 
-separator: . 
+separator: "."

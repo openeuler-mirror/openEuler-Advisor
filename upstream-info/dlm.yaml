@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://pagure.io/dlm.git
 tag_prefix: dlm-
-separator: .
+separator: "."

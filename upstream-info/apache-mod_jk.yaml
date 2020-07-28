@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: apache/tomcat-connectors
-tag_prefix: "JK_"
-seperator: "_"
+tag_prefix: JK_
+seperator: _

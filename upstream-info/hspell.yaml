@@ -1,4 +1,5 @@
+---
 version_control: NA
 src_repo: hspell.ivrix.org.il/download.html
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."

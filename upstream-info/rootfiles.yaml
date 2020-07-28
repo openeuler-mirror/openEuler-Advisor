@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo: "https://src.fedoraproject.org/rpms/rootfiles.git"
+src_repo: https://src.fedoraproject.org/rpms/rootfiles.git
 tag_prefix: "^rootfiles-"
 seperator: _

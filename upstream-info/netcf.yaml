@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://pagure.io/netcf.git
 tag_prefix: release-
-separator: .
+separator: "."

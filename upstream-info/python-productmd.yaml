@@ -1,5 +1,5 @@
 ---
-version_control: pypi 
+version_control: pypi
 src_repo: productmd
 tag_prefix: "^v"
 separator: "."

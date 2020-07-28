@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: lxde/lxsession
 tag_prefix: v
-separator: .
+separator: "."

@@ -1,3 +1,4 @@
+---
 version_control: gnu-ftp
 src_repo: acct
 tag_pattern: acct-(.*).tar.gz(.sig)?

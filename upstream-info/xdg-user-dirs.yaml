@@ -1,4 +1,5 @@
+---
 version_control: github.gnome
 src_repo: xdg-user-dirs
 tag_prefix: XDG_USER_DIRS_
-seperator: .
+seperator: "."

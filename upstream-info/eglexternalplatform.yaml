@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: NVIDIA/eglexternalplatform
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."

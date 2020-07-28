@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  abrt/container-exception-logger
+src_repo: abrt/container-exception-logger
 tag_prefix: "^container-exception-logger-"
-separator: .
+separator: "."

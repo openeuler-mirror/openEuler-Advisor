@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: legatvs/libquvi
-tag_prefix: ^v 
-separator: . 
+tag_prefix: "^v"
+separator: "."

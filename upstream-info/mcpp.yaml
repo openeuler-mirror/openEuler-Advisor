@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_repo: https://svn.code.sf.net/p/mcpp/code
-tag_prefix: ^V
-separator: .
+tag_prefix: "^V"
+separator: "."

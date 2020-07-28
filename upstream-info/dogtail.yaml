@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.com/dogtail/dogtail.git
-tag_prefix: ^DOGTAIL_
+tag_prefix: "^DOGTAIL_"
 separator: _

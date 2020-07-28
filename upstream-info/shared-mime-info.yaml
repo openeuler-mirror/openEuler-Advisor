@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xdg/shared-mime-info.git
-tag_prefix: ^Release-
-seperator: '.'
+tag_prefix: "^Release-"
+seperator: "."

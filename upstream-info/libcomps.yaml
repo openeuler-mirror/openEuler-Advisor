@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  rpm-software-management/libcomps
+src_repo: rpm-software-management/libcomps
 tag_prefix: "^libcomps-"
-separator: .
+separator: "."

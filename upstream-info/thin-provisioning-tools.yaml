@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  jthornber/thin-provisioning-tools
-tag_prefix: ^v
-separator: .
+src_repo: jthornber/thin-provisioning-tools
+tag_prefix: "^v"
+separator: "."

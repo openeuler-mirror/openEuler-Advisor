@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  d11wtq/dockerpty
-tag_prefix: ^v
-separator: .
+src_repo: d11wtq/dockerpty
+tag_prefix: "^v"
+separator: "."

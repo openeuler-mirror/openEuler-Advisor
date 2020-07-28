@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: openSUSE/apache2-mod_xforward
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."

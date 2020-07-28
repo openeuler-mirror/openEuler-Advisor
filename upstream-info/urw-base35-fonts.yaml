@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  ArtifexSoftware/urw-base35-fonts
-tag_prefix: ^v
-separator: .
+src_repo: ArtifexSoftware/urw-base35-fonts
+tag_prefix: "^v"
+separator: "."

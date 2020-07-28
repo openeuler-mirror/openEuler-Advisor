@@ -1,4 +1,5 @@
-version_control: git 
+---
+version_control: git
 src_repo: http://git.gnu.org.ua/repo/gdbm.git
 tag_prefix: "^v"
-separator: .
+separator: "."

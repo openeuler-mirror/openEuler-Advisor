@@ -1,3 +1,4 @@
+---
 version_control: github
 src_repo: rocky/libcdio-paranoia
 tag_prefix: "^release-"

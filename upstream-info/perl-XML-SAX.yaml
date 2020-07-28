@@ -1,3 +1,4 @@
+---
 version_control: metacpan
 src_repo: XML-SAX
 tag_prefix: "^v"

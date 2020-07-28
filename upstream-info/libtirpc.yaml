@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: git://git.linux-nfs.org/projects/steved/libtirpc.git
 tag_prefix: libtirpc-
-separator: '-'
+separator: "-"

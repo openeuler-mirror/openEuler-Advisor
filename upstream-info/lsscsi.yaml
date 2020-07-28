@@ -1,5 +1,5 @@
+---
 version_control: github
 src_repo: hreinecke/lsscsi
 tag_prefix: "^v"
 separator: "."
-

@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: http://elinks.cz/elinks.git
-tag_prefix: ^elinks-
-separator: .
+tag_prefix: "^elinks-"
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  latex2html/latex2html
-tag_prefix: ^v
-separator: .
+src_repo: latex2html/latex2html
+tag_prefix: "^v"
+separator: "."

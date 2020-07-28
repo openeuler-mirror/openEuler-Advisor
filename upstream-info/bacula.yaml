@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: http://git.bacula.org/bacula.git
-tag_prefix: "Release-"
+tag_prefix: Release-
 separator: "."

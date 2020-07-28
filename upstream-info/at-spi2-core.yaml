@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  GNOME/at-spi2-core
+src_repo: GNOME/at-spi2-core
 tag_prefix: AT_SPI2_CORE_
 separator: _

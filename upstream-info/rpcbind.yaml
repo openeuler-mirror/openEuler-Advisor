@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: git://linux-nfs.org/~steved/rpcbind
 tag_prefix: rpcbind-

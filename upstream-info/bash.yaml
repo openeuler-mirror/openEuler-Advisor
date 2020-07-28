@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: git://git.savannah.gnu.org/bash.git
-tag_prefix: ^bash-
+tag_prefix: "^bash-"
 separator: 

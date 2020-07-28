@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: plougher/squashfs-tools
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

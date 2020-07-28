@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  untitaker/python-atomicwrites
-tag_prefix: ^v
-separator: .
+src_repo: untitaker/python-atomicwrites
+tag_prefix: "^v"
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxxf86dga.git
-tag_prefix: ^libXxf86dga-
-seperator: .
+tag_prefix: "^libXxf86dga-"
+seperator: "."

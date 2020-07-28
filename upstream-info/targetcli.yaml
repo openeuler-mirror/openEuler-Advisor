@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  open-iscsi/targetcli-fb
-tag_prefix: ^v
-separator: .
+src_repo: open-iscsi/targetcli-fb
+tag_prefix: "^v"
+separator: "."

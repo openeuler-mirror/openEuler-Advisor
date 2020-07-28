@@ -1,5 +1,5 @@
 ---
 version_control: git
 src_repo: https://arthurdejong.org/git/nss-pam-ldapd
-tag_prefix:
+tag_prefix: 
 seperator: "."

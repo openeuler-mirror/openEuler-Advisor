@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  pywbem/pywbem
-tag_prefix: ^v
-separator: .
+src_repo: pywbem/pywbem
+tag_prefix: "^v"
+separator: "."

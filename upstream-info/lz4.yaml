@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  lz4/lz4
-tag_prefix: ^v
-separator: .
+src_repo: lz4/lz4
+tag_prefix: "^v"
+separator: "."

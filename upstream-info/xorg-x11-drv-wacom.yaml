@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  linuxwacom/xf86-input-wacom
+src_repo: linuxwacom/xf86-input-wacom
 tag_prefix: "^xf86-input-wacom-"
-separator: .
+separator: "."

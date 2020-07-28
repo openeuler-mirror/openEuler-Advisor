@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo: "WayneD/rsync"
+src_repo: WayneD/rsync
 tag_prefix: "^v"
-seperator:
+seperator: 

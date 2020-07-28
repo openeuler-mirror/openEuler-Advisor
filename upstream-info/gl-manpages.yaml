@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: KhronosGroup/OpenGL-Refpages
-tag_prefix: ^
-sepreator: .
+tag_prefix: "^"
+sepreator: "."

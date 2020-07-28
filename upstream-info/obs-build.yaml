@@ -1,5 +1,5 @@
 ---
 version_control: github
 src_repo: openSUSE/obs-build
-tag_prefix: ^obs_
-separator: .
+tag_prefix: "^obs_"
+separator: "."

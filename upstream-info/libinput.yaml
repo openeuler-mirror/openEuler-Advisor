@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/libinput/libinput.git
 tag_prefix: "^v"

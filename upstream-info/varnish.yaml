@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: varnishcache/varnish-cache
-tag_prefix: ^varnish-
-seperator: .
+tag_prefix: "^varnish-"
+seperator: "."

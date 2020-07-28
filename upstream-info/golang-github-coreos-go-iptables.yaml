@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  coreos/go-iptables
-tag_prefix: ^v
-separator: .
+src_repo: coreos/go-iptables
+tag_prefix: "^v"
+separator: "."

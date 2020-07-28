@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.com/graphviz/graphviz.git
-tag_prefix: ^stable_release_
-separator: .
+tag_prefix: "^stable_release_"
+separator: "."

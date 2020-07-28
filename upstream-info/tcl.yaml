@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: tcltk/tcl
-tag_prefix: ^core-
+tag_prefix: "^core-"
 seperator: "-"

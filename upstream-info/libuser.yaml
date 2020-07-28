@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://pagure.io/libuser.git
-tag_prefix: ^libuser-
-separator: .
+tag_prefix: "^libuser-"
+separator: "."

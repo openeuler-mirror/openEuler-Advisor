@@ -1,5 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxft.git
 tag_prefix: libXft-
 seperator: "."
-

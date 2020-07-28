@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: FreeRADIUS/freeradius-server
-tag_prefix: ^release_
+tag_prefix: "^release_"
 separator: _

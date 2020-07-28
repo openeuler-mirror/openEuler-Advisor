@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  cyrusimap/cyrus-sasl
+src_repo: cyrusimap/cyrus-sasl
 tag_prefix: "^cyrus-sasl-"
-separator: .
+separator: "."

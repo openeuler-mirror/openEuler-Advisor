@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: opendnssec/SoftHSMv2
-tag_prefix:
+tag_prefix: 
 seperator: "."

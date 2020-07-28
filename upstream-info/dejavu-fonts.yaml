@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: dejavu-fonts/dejavu-fonts
-tag_prefix: ^version_
+tag_prefix: "^version_"
 separator: _

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  pyparsing/pyparsing
+src_repo: pyparsing/pyparsing
 tag_prefix: "^pyparsing_"
-separator: .
+separator: "."

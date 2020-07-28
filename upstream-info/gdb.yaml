@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: https://sourceware.org/git/binutils-gdb.git
 tag_prefix: "^gdb-"

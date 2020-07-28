@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  ianw/libiptcdata
+src_repo: ianw/libiptcdata
 tag_prefix: "^release_"
-separator: "_" 
+separator: _

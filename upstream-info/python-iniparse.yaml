@@ -1,4 +1,5 @@
+---
 version_control: pypi
 src_repo: iniparse
 tag_prefix: 
-seperator: .
+seperator: "."

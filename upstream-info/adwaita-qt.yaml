@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: FedoraQt/adwaita-qt
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."

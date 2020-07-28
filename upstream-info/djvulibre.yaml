@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: Distrotech/djvulibre
-tag_prefix: ^release.
-separator: .
+tag_prefix: "^release."
+separator: "."

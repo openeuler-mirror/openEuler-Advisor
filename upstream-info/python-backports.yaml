@@ -1,5 +1,1 @@
----
-version_control: pypi 
-src_repo: backports
-tag_prefix: "^v"
-seperator: "."
+--- 

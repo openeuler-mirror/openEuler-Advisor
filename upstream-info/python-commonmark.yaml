@@ -1,5 +1,5 @@
 ---
 version_control: github
 src_repo: readthedocs/commonmark.py
-tag_prefix:
+tag_prefix: 
 seperator: "."

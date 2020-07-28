@@ -1,4 +1,5 @@
+---
 version_control: NA
 src_repo: https://sourceforge.net/p/trousers/tpm-tools/ci/master/tree/
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

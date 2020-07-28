@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  rack/rack
-tag_prefix: ^v
-separator: .
+src_repo: rack/rack
+tag_prefix: "^v"
+separator: "."

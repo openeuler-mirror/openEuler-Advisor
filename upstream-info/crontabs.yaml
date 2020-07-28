@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  cronie-crond/crontabs
+src_repo: cronie-crond/crontabs
 tag_prefix: crontabs-
 separator: "."

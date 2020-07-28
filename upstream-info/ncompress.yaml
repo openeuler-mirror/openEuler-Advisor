@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  vapier/ncompress
-tag_prefix: ^v
-separator: .
+src_repo: vapier/ncompress
+tag_prefix: "^v"
+separator: "."

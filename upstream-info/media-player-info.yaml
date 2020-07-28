@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/media-player-info/media-player-info.git
-tag_prefix: ^
-separator:
+tag_prefix: "^"
+separator: 

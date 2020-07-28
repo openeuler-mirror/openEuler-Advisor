@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  weldr/lorax
+src_repo: weldr/lorax
 tag_pattern: "lorax-(.*)-1"
 separator: "-"

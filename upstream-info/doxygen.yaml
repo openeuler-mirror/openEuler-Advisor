@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: doxygen/doxygen
-tag_prefix: ^Release_
+tag_prefix: "^Release_"
 separator: _

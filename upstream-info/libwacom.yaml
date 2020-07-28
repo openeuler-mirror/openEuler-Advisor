@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  linuxwacom/libwacom
+src_repo: linuxwacom/libwacom
 tag_prefix: "^libwacom-"
-separator: .
+separator: "."

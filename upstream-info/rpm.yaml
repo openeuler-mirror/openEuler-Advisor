@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo: "rpm-software-management/rpm"
+src_repo: rpm-software-management/rpm
 tag_prefix: "^rpm-"
 seperator: _

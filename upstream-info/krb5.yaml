@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: krb5/krb5
-tag_prefix: ^krb5-
-separator: .
+tag_prefix: "^krb5-"
+separator: "."

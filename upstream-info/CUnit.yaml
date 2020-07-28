@@ -1,4 +1,5 @@
-version_control: svn                                                                                              
+---
+version_control: svn
 src_repo: http://svn.code.sf.net/p/cunit/code
-tag_prefix:                                                                                              
+tag_prefix: 
 separator: 

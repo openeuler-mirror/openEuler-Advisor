@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  en-wl/wordlist
+src_repo: en-wl/wordlist
 tag_prefix: "^rel-"
-separator: .
+separator: "."

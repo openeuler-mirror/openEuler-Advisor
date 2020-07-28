@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  thom311/libnl
+src_repo: thom311/libnl
 tag_prefix: "^libnl"
-separator: "_"
+separator: _

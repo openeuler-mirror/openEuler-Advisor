@@ -1,5 +1,5 @@
+---
 version_control: github
 src_repo: alsa-project/alsa-firmware
-tag_prefix: ^v
+tag_prefix: "^v"
 seperator: "."
-

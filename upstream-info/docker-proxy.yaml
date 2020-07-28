@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  docker/libnetwork
-tag_prefix: ^v
-separator: .
+src_repo: docker/libnetwork
+tag_prefix: "^v"
+separator: "."

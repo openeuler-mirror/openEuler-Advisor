@@ -1,4 +1,5 @@
+---
 version_control: gitlab.gnome
-src_repo:  gtksourceview
-tag_prefix: ^
-separator: .
+src_repo: gtksourceview
+tag_prefix: "^"
+separator: "."

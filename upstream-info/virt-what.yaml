@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo: "git://git.annexia.org/virt-what.git"
-tag_prefix: "^v"                                                                                              
-seperator:
+src_repo: git://git.annexia.org/virt-what.git
+tag_prefix: "^v"
+seperator: 

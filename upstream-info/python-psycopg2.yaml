@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: psycopg/psycopg2
-tag_prefix: ^
+tag_prefix: "^"
 seperator: _

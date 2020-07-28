@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  openSUSE/obs-service-set_version
-tag_prefix: ^v
-separator: .
+src_repo: openSUSE/obs-service-set_version
+tag_prefix: "^v"
+separator: "."

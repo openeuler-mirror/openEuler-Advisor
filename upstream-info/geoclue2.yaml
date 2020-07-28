@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/geoclue/geoclue.git
 tag_prefix: "^"

@@ -1,3 +1,4 @@
+---
 version_control: github
 src_repo: gphoto/gphoto2
 tag_prefix: gphoto2-

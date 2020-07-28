@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.com/muttmua/mutt.git
 tag_prefix: mutt-
-separator: .
+separator: "."

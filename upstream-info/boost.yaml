@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: boostorg/boost
-tag_prefix: ^boost-
-seperator: .
+tag_prefix: "^boost-"
+seperator: "."

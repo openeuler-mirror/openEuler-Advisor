@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://salsa.debian.org/minicom-team/minicom.git
 tag_prefix: "^v"
-separator: .
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  fedora-modularity/libmodulemd
+src_repo: fedora-modularity/libmodulemd
 tag_prefix: "^libmodulemd-"
-separator: .
+separator: "."

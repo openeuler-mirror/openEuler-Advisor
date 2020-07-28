@@ -1,4 +1,5 @@
+---
 version-ctrl: github
 src_repo: abhijitiitr/marisa-trie
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo: "sudo-project/sudo"
+src_repo: sudo-project/sudo
 tag_prefix: "^SUDO_"
 seperator: _

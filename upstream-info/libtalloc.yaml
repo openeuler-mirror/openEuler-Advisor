@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: git://git.samba.org/samba.git
 tag_prefix: "^talloc-"

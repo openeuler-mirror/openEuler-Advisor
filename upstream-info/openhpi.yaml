@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_repo: https://svn.code.sf.net/p/openhpi/code/openhpi
-tag_prefix: ""
+tag_prefix: ''
 seperator: "."

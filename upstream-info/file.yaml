@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: file/file
 tag_prefix: "^FILE"
-separator: "_"
+separator: _

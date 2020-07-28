@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  ivmai/libatomic_ops
-tag_prefix: ^v
-separator: .
+src_repo: ivmai/libatomic_ops
+tag_prefix: "^v"
+separator: "."

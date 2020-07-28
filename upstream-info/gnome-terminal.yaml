@@ -1,7 +1,7 @@
 ---
 version_control: gitlab.gnome
 src_repo: gnome-terminal
-tag_prefix:
+tag_prefix: 
 separator: "."
 last_query:
   time_stamp: 2020-04-26 07:56:04.073725180 +00:00

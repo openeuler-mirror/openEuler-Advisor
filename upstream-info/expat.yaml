@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  libexpat/libexpat
+src_repo: libexpat/libexpat
 tag_prefix: "^R_"
 separator: _

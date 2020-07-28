@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/smc/fonts.git
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  sgallagher/sscg
+src_repo: sgallagher/sscg
 tag_prefix: "^sscg-"
-separator: .
+separator: "."

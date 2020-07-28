@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://pagure.io/sanlock.git
 tag_prefix: sanlock-
-seperator: .
+seperator: "."

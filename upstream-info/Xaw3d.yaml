@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxaw3d.git
-tag_prefix: ^libXaw3d-
-seperator: .
+tag_prefix: "^libXaw3d-"
+seperator: "."

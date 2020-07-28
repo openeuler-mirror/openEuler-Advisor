@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  mike-fabian/langtable
-tag_prefix: ^v
-separator: .
+src_repo: mike-fabian/langtable
+tag_prefix: "^v"
+separator: "."

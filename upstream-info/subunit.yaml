@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: testing-cabal/subunit
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+seperator: "."

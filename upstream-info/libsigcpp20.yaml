@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: libsigcplusplus/libsigcplusplus
 tag_prefix: "^v?2.99|^3"
-separator: .
+separator: "."

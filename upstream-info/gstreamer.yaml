@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: GStreamer/gstreamer
 tag_prefix: RELEASE-
-separator: .
+separator: "."

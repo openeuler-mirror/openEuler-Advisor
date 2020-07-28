@@ -1,8 +1,8 @@
 ---
 version_control: github
 src_repo: opencontainers/runc
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
 last_query:
   time_stamp: 2020-05-07 23:36:11.201589130 -04:00
   raw_data: |

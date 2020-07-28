@@ -1,4 +1,4 @@
 ---
 version_control: github
 src_repo: openSUSE/osc
-separator: .
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxp.git
 tag_prefix: libXp-
-separator: .
+separator: "."

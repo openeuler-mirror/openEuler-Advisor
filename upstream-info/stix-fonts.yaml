@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: stipub/stixfonts
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+seperator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: jftuga/less-Windows
-tag_prefix: ^less-v
-separator: .
+tag_prefix: "^less-v"
+separator: "."

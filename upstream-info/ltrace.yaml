@@ -1,4 +1,5 @@
-version_control: git 
+---
+version_control: git
 src_repo: https://gitlab.com/cespedes/ltrace.git/
-tag_prefix: ""
+tag_prefix: ''
 seperator: "."

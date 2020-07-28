@@ -1,5 +1,5 @@
 ---
 version_control: github
 src_repo: dateutil/dateutil
-tag_prefix:
+tag_prefix: 
 separator: "."

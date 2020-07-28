@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: https://git.remlab.net/git/ndisc6.git
 tag_prefix: "^v"

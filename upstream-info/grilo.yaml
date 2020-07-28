@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  grilofw/grilo
+src_repo: grilofw/grilo
 tag_prefix: "^grilo-"
-separator: .
+separator: "."

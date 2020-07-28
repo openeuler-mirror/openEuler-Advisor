@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: linuxdeepin/deepin-gtk-theme
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+seperator: "."

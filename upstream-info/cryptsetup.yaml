@@ -1,4 +1,5 @@
+---
 version_control: git
-src_repo: https://gitlab.com/cryptsetup/cryptsetup.git 
+src_repo: https://gitlab.com/cryptsetup/cryptsetup.git
 tag_prefix: "^v"
 separator: "."

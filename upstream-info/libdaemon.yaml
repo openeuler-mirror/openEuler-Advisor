@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: Distrotech/libdaemon
-tag_prefix: ^distrotech-libdaemon-
-separator: .
+tag_prefix: "^distrotech-libdaemon-"
+separator: "."

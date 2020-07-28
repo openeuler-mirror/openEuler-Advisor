@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  ClusterLabs/resource-agents
-tag_prefix: ^v
-separator: .
+src_repo: ClusterLabs/resource-agents
+tag_prefix: "^v"
+separator: "."

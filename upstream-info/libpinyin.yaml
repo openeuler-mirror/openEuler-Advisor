@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  libpinyin/libpinyin
-tag_prefix: ^v
-separator: .
+src_repo: libpinyin/libpinyin
+tag_prefix: "^v"
+separator: "."

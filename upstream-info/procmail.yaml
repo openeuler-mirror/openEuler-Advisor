@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: achernya/procmail
 tag_prefix: "^upstream/"
-seperator: .
+seperator: "."

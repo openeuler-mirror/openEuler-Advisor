@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: rhinstaller/anaconda
 tag_prefix: anaconda-
-separator: .
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: DrTimothyAldenDavis/SuiteSparse
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+seperator: "."

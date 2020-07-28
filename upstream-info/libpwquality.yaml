@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  libpwquality/libpwquality
+src_repo: libpwquality/libpwquality
 tag_prefix: "^libpwquality-"
-separator: .
+separator: "."

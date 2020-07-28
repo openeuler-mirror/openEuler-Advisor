@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  vishvananda/netns
-tag_prefix: ^v
-separator: .
+src_repo: vishvananda/netns
+tag_prefix: "^v"
+separator: "."

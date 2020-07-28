@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  dex4er/fakechroot
-tag_prefix: ^v
-separator: .
+src_repo: dex4er/fakechroot
+tag_prefix: "^v"
+separator: "."

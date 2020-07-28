@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo: MariaDB/server 
-tag_prefix: "mariadb-"
+src_repo: MariaDB/server
+tag_prefix: mariadb-
 seperator: "."

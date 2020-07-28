@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://dev.lovelyhq.com/libburnia/libburn
-tag_prefix: "release-"
+tag_prefix: release-
 separator: "."

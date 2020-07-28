@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: mm2/Little-CMS
-tag_prefix: ^lcms
-seperator: .
+tag_prefix: "^lcms"
+seperator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  dell/libsmbios
-tag_prefix: ^v
-separator: .
+src_repo: dell/libsmbios
+tag_prefix: "^v"
+separator: "."

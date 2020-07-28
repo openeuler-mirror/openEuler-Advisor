@@ -1,3 +1,4 @@
+---
 version_control: metacpan
 src_repo: Pod-Coverage
 tag_prefix: "^v"

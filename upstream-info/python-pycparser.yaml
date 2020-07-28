@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  eliben/pycparser
+src_repo: eliben/pycparser
 tag_prefix: "^release_v"
-separator: .
+separator: "."

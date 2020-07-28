@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  icing/mod_h2
-tag_prefix: ^v
-separator: .
+src_repo: icing/mod_h2
+tag_prefix: "^v"
+separator: "."

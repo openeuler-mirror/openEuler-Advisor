@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/spice/spice-protocol.git
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+seperator: "."

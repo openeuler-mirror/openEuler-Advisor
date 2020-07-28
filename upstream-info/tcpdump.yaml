@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: the-tcpdump-group/tcpdump
 tag_prefix: tcpdump-
-seperator: .
+seperator: "."

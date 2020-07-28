@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: Yubico/python-yubico
-tag_prefix: "python-yubico-"
+tag_prefix: python-yubico-
 seperator: "."

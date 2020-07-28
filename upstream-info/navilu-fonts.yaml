@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  aravindavk/Navilu
-tag_prefix: ^v
-separator: .
+src_repo: aravindavk/Navilu
+tag_prefix: "^v"
+separator: "."

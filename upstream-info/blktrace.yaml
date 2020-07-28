@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: git://git.kernel.dk/blktrace
-tag_prefix: "blktrace-"
+tag_prefix: blktrace-
 separator: "."

@@ -1,3 +1,4 @@
+---
 version_control: github
 src_repo: hughsie/PackageKit
 tag_prefix: PACKAGEKIT_

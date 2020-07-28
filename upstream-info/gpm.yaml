@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: telmich/gpm
-tag_prefix: "^" 
+tag_prefix: "^"
 seperator: "."

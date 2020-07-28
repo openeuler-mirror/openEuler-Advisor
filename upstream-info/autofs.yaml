@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: git://git.kernel.org/pub/scm/linux/storage/autofs/autofs.git
-tag_prefix: "release_"
-separator: "_"
+tag_prefix: release_
+separator: _

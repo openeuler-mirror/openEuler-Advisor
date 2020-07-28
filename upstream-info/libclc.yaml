@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  llvm-mirror/libclc
-tag_prefix: ^v
-separator: .
+src_repo: llvm-mirror/libclc
+tag_prefix: "^v"
+separator: "."

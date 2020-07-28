@@ -1,4 +1,5 @@
+---
 version_control: hg
 src_repo: https://hg.mozilla.org/projects/nss
-tag_pattern: ^NSS_(.*)_RTM
+tag_pattern: "^NSS_(.*)_RTM"
 separator: _

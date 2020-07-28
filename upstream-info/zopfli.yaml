@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  google/zopfli
+src_repo: google/zopfli
 tag_prefix: zopfli-
-separator: .
+separator: "."

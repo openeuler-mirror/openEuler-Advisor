@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: libssh2/libssh2
-tag_prefix: libssh2- 
-separator: .
+tag_prefix: libssh2-
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  gflags/gflags
-tag_prefix: ^v
-separator: .
+src_repo: gflags/gflags
+tag_prefix: "^v"
+separator: "."

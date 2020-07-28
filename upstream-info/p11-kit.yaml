@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  p11-glue/p11-kit
-tag_prefix: ^v
-separator: .
+src_repo: p11-glue/p11-kit
+tag_prefix: "^v"
+separator: "."

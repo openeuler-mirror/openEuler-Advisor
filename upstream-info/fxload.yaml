@@ -1,5 +1,6 @@
+---
 version_control: NA
-src_repo:
-tag_prefix:
+src_repo: 
+tag_prefix: 
 seperator: 
 url: https://sourceforge.net/projects/linux-hotplug/files/fxload/

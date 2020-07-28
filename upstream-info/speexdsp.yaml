@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: xiph/speexdsp
-tag_prefix: ^SpeexDSP-
-seperator: .
+tag_prefix: "^SpeexDSP-"
+seperator: "."

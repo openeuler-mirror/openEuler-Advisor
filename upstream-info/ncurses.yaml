@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: mirror/ncurses
 tag_prefix: v
-separator: .
+separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  keplerproject/luafilesystem
-tag_prefix: ^v
-separator: "_"
+src_repo: keplerproject/luafilesystem
+tag_prefix: "^v"
+separator: _

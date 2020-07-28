@@ -1,5 +1,5 @@
+---
 version_control: github
 src_repo: LudovicRousseau/PCSC
 tag_prefix: pcsc-
 separator: "."
-

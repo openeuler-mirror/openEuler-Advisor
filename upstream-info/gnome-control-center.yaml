@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: GNOME/gnome-control-center
-tag_prefix: "^" 
+tag_prefix: "^"
 separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  adobe-type-tools/cmap-resources
-tag_prefix: ^v
-separator: .
+src_repo: adobe-type-tools/cmap-resources
+tag_prefix: "^v"
+separator: "."

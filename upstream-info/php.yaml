@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: php/php-src
 tag_prefix: php-
-seperator: .
+seperator: "."

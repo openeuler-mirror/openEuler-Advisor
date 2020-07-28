@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: https://anongit.freedesktop.org/git/pulseaudio/webrtc-audio-processing
 tag_prefix: "^v"

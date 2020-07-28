@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  qtwebkit/qtwebkit
+src_repo: qtwebkit/qtwebkit
 tag_prefix: "^qtwebkit-"
-separator: .
+separator: "."

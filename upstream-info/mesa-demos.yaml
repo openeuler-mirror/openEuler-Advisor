@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/mesa/demos.git
-tag_prefix: "mesa-demos-"
+tag_prefix: mesa-demos-
 separator: "."

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  nghttp2/nghttp2
-tag_prefix: ^v
-separator: .
+src_repo: nghttp2/nghttp2
+tag_prefix: "^v"
+separator: "."

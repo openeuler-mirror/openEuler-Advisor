@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  tpm2-software/tpm2-abrmd
-tag_prefix: ^v
-separator: .
+src_repo: tpm2-software/tpm2-abrmd
+tag_prefix: "^v"
+separator: "."

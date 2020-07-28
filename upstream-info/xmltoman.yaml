@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_repo: http://svn.code.sf.net/p/xmltoman/code
 tag_prefix: 
-seperator: .
+seperator: "."

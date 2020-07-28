@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://sourceware.org/git/libabigail.git
-tag_prefix: "libabigail-"
+tag_prefix: libabigail-
 seperator: "."

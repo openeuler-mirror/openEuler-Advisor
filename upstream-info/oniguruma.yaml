@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  kkos/oniguruma
-tag_prefix: ^v
-separator: .
+src_repo: kkos/oniguruma
+tag_prefix: "^v"
+separator: "."

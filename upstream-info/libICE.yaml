@@ -1,4 +1,5 @@
-version_control: git 
+---
+version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libice.git
 tag_prefix: libICE-
 seperator: "."

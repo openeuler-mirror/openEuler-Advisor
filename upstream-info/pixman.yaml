@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/pixman/pixman.git
-tag_prefix: ^pixman-
-seperator: .
+tag_prefix: "^pixman-"
+seperator: "."

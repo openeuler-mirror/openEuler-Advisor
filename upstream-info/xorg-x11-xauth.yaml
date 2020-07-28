@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/app/xauth.git
-tag_prefix: ^xauth-
-seperator: .
+tag_prefix: "^xauth-"
+seperator: "."

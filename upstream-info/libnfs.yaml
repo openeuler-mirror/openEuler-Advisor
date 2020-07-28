@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  sahlberg/libnfs
+src_repo: sahlberg/libnfs
 tag_prefix: libnfs-
-separator: .
+separator: "."

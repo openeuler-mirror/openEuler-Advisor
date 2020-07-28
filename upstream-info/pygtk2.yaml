@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.gnome.org/Archive/pygtk.git
-tag_prefix: "PYGTK_"
-seperator: "_"
+tag_prefix: PYGTK_
+seperator: _

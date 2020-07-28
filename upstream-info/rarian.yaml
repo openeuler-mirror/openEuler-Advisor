@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: pld-linux/rarian
-tag_prefix: ^auto/th/rarian-
-seperator: .
+tag_prefix: "^auto/th/rarian-"
+seperator: "."

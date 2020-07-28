@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  linux-rdma/infiniband-diags
-tag_prefix: ^v
-separator: .
+src_repo: linux-rdma/infiniband-diags
+tag_prefix: "^v"
+separator: "."

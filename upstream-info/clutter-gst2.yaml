@@ -1,3 +1,4 @@
+---
 version_control: gitlab.gnome
 src_repo: clutter-gst
 tag_prefix: "^v"

@@ -1,3 +1,4 @@
+---
 version_control: gitlab.gnome
 src_repo: cantarell-fonts
 tag_prefix: "^v"

@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: candlepin/subscription-manager
-tag_prefix: ^subscription-manager-
-seperator: .
+tag_prefix: "^subscription-manager-"
+seperator: "."

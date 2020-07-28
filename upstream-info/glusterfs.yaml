@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: gluster/glusterfs
-tag_prefix: ^v
+tag_prefix: "^v"
 separator: "."

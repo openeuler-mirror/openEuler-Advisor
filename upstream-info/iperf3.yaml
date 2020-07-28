@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  esnet/iperf
-tag_prefix: ^v
-separator: .
+src_repo: esnet/iperf
+tag_prefix: "^v"
+separator: "."

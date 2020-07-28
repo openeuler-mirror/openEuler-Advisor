@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxv.git
-tag_prefix: ^libXv-
-seperator: .
+tag_prefix: "^libXv-"
+seperator: "."
