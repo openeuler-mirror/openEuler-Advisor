@@ -19,10 +19,9 @@ from packageship.libs.exception import DataMergeException
 from packageship.libs.log import Log
 from packageship.system_config import DATABASE_FILE_INFO
 from .function.constants import ResponseCode
-from .function.packages import get_packages
-from .function.packages import update_single_package
-from .function.packages import update_maintaniner_info
-from .function.packages import get_single_package
+from .function.packages import get_all_packages
+from .function.packages import _update_package_info
+from .function.packages import get_single
 from .function.searchdb import db_priority
 from .serialize import PackagesSchema
 from .serialize import GetpackSchema
@@ -52,25 +51,27 @@ class Packages(Resource):
 
     def get(self):
         """
-        Description: Get all package info from a database
+        Get all package info from a database
+
         Args:
             dbName: Data path name, not required parameter
         Returns:
-           {
-               "code": "",
-                "data": [
-                    {
+            for
+            example::
+               {
+                   "code": "",
+                    "data": [{
                         "dbname": "",
-                        "downloadURL": "",
                         "license": "",
-                        "maintainer": ,
-                        "maintainlevel": ,
+                        "maintainlevel":,
+                        "maintaniner": ,
+                        "rpm_packager": "",
                         "sourceName": "",
                         "sourceURL": "",
                         "version": ""
-                    },
-                 "msg": ""
-            }
+                        }],
+                "msg": ""
+                }
         Raises:
             DisconnectionError: Unable to connect to database exception
             AttributeError: Object does not have this property
@@ -86,34 +87,19 @@ class Packages(Resource):
         dbname = data.get("dbName", None)
         # Call method to query
         try:
-            dbpreority = db_priority()
-            if dbpreority is None:
-                return jsonify(
-                    ResponseCode.response_json(ResponseCode.FILE_NOT_FOUND)
-                )
-            if not dbname:
-                response = []
-                for dbname in dbpreority:
-                    query_result = get_packages(dbname)
-                    for item in query_result:
-                        response.append(item)
-                return jsonify(
-                    ResponseCode.response_json(ResponseCode.SUCCESS, response)
-                )
-            if dbname not in dbpreority:
-                return jsonify(
-                    ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
-                )
-            response = get_packages(dbname)
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.SUCCESS, response)
-            )
+            response = get_all_packages(dbname)
+            return response
         # Database queries data and catches exceptions
         except DisconnectionError as dis_connection_error:
             current_app.logger.error(dis_connection_error)
             return jsonify(
                 ResponseCode.response_json(
                     ResponseCode.DIS_CONNECTION_DB))
+        except (AttributeError, TypeError, Error) as attribute_error:
+            current_app.logger.error(attribute_error)
+            return jsonify(
+                ResponseCode.response_json(
+                    ResponseCode.PACK_NAME_NOT_FOUND))
 
 
 class SinglePack(Resource):
@@ -125,29 +111,29 @@ class SinglePack(Resource):
 
     def get(self):
         """
-        description: Searching a package info
+        Searching a package info
+
         Args:
             dbName: Database name, not required parameter
             sourceName: Source code package name, must pass
         Returns:
-            {
-            "code": "",
-            "data": [
+            for
+            examples::
                 {
-                    "buildDep": [],
-                    "dbname": "",
-                    "downloadURL": "",
-                    "license": "",
-                    "maintainer": "",
-                    "maintainlevel": "",
-                    "sourceName": "",
-                    "sourceURL": "",
-                    "subpack": {},
-                    "version": ""
-                }
-                    ],
-            "msg": ""
-            }
+                "code": "",
+                "data": [{
+                "buildDep": [],
+                "dbname": "",
+                "license": "",
+                "maintainlevel": "",
+                "maintaniner": "",
+                "rpm_packager": "",
+                "sourceName": "",
+                "sourceURL": "",
+                "subpack": { },
+                "version": ""}],
+                "msg": ""
+                 }
         Raises:
             DisconnectionError: Unable to connect to database exception
             AttributeError: Object does not have this property
@@ -166,29 +152,8 @@ class SinglePack(Resource):
 
         # Call method to query
         try:
-            dbpreority = db_priority()
-            if db_priority is None:
-                return jsonify(
-                    ResponseCode.response_json(ResponseCode.FILE_NOT_FOUND)
-                )
-            if not dbname:
-                response = []
-                for dbname in dbpreority:
-                    query_result = get_single_package(dbname, sourcename)
-                    response.append(query_result)
-                return jsonify(
-                    ResponseCode.response_json(ResponseCode.SUCCESS, response)
-                )
-
-            # Database queries data and catches exceptions
-            if dbname not in dbpreority:
-                return jsonify(
-                    ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
-                )
-            response = get_single_package(dbname, sourcename)
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.SUCCESS, [response])
-            )
+            response = get_single(dbname, sourcename)
+            return response
         except DisconnectionError as dis_connection_error:
             current_app.logger.error(dis_connection_error)
             abnormal = ResponseCode.DIS_CONNECTION_DB
@@ -201,18 +166,21 @@ class SinglePack(Resource):
 
     def put(self):
         """
-        Description: update a package info,
+        update a package info,
+
         Args:
             dbName: Database name,Parameters are required
             sourceName: The name of the source code package. Parameters are required
             maintainer: Maintainer, parameter not required
             maintainlevel: Maintenance level, parameter not required
         Returns:
-            {
-              "code": "",
-              "data": "",
-              "msg": ""
-            }
+            for
+            example::
+                {
+                  "code": "",
+                  "data": "",
+                  "msg": ""
+                }
         Raises:
             DisconnectionError: Unable to connect to database exception
             AttributeError: Object does not have this property
@@ -242,24 +210,24 @@ class SinglePack(Resource):
                 ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
             )
         # Database queries data and catches exceptions
+
         try:
-            update_single_package(
+            result_data = _update_package_info(
                 sourcename, dbname, maintainer, maintain_level)
-            update_maintaniner_info(
-                sourcename, dbname, maintainer, maintain_level)
+            if result_data is False:
+                return jsonify(
+                    ResponseCode.response_json(
+                        ResponseCode.PACK_NAME_NOT_FOUND))
             return jsonify(
-                ResponseCode.response_json(ResponseCode.SUCCESS)
-            )
+                ResponseCode.response_json(ResponseCode.SUCCESS))
         except DisconnectionError as dis_connection_error:
             current_app.logger.error(dis_connection_error)
-            return jsonify(
-                ResponseCode.response_json(
-                    ResponseCode.DIS_CONNECTION_DB))
+            abnormal = ResponseCode.DIS_CONNECTION_DB
         except (AttributeError, TypeError, Error) as attri_error:
             current_app.logger.error(attri_error)
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
-            )
+            abnormal = ResponseCode.CONNECT_DB_ERROR
+        if abnormal is not None:
+            return jsonify(ResponseCode.response_json(abnormal))
 
 
 class InstallDepend(Resource):
@@ -271,12 +239,13 @@ class InstallDepend(Resource):
 
     def post(self):
         """
-        Description: Query a package's install depend(support
-                     querying in one or more databases)
-        input:
+        Query a package's install depend(support
+        querying in one or more databases)
+
+        Args:
             binaryName
             dbPreority: the array for database preority
-        return:
+        Returns:
             resultDict{
                 binary_name: //binary package name
                 [
@@ -347,18 +316,21 @@ class BuildDepend(Resource):
 
     def post(self):
         """
-        Description: Query a package's build depend and
-                     build depend package's install depend
-                     (support querying in one or more databases)
+        Query a package's build depend and
+        build depend package's install depend
+        (support querying in one or more databases)
+
         Args:
             sourceName :name of the source package
             dbPreority：the array for database preority
         Returns:
-            {
-              "code": "",
-              "data": "",
-              "msg": ""
-            }
+            for
+            example::
+                {
+                  "code": "",
+                  "data": "",
+                  "msg": ""
+                }
         Raises:
         """
         schema = BuildDependSchema()
@@ -409,8 +381,9 @@ class SelfDepend(Resource):
 
     def post(self):
         """
-        Description: Query a package's all dependencies including install and build depend
-                        (support quering a binary or source package in one or more databases)
+        Query a package's all dependencies including install and build depend
+        (support quering a binary or source package in one or more databases)
+
         Args:
             packageName:package name
             packageType: source/binary
@@ -418,12 +391,13 @@ class SelfDepend(Resource):
             withSubpack: 0/1
             dbPreority：the array for database preority
         Returns:
-            {
-              "code": "",
-              "data": "",
-              "msg": ""
-            }
-        Raises:
+            for
+            example::
+                {
+                  "code": "",
+                  "data": "",
+                  "msg": ""
+                }
         """
         schema = SelfDependSchema()
 
@@ -482,25 +456,26 @@ class BeDepend(Resource):
 
     def post(self):
         """
-        description: Query a package's all dependencies including
-                     be installed and built depend
+        Query a package's all dependencies including
+        be installed and built depend
+
         Args:
             packageName:package name
             withSubpack: 0/1
             dbname:database name
         Returns:
-            resultList[
-                restult[
-                    binaryName:
-                    srcName:
-                    dbName:
-                    type: beinstall or bebuild, which depend on the function
-                    childNode: the binary package name which is the be built/installed
-                               depend for binaryName
+            for
+            example::
+                resultList[
+                    restult[
+                        binaryName:
+                        srcName:
+                        dbName:
+                        type: beinstall or bebuild, which depend on the function
+                        childNode: the binary package name which is the be built/installed
+                                   depend for binaryName
+                    ]
                 ]
-            ]
-        exception:
-        changeLog:
         """
         schema = BeDependSchema()
         data = request.get_json()
@@ -542,20 +517,22 @@ class Repodatas(Resource):
 
     def get(self):
         """
-        description: get all database
-        Args:
+        get all database
+
         Returns:
-            {
-              "code": "",
-              "data": [
-                    {
-                        "database_name": "",
-                        "priority": "",
-                        "status": ""
-                    }
-                ],
-                "msg": ""
-            }
+            for
+            example::
+                {
+                  "code": "",
+                  "data": [
+                        {
+                            "database_name": "",
+                            "priority": "",
+                            "status": ""
+                        }
+                    ],
+                    "msg": ""
+                }
         Raises:
             FileNotFoundError: File not found exception
             TypeError: Exception of wrong type
@@ -583,14 +560,16 @@ class Repodatas(Resource):
 
     def delete(self):
         """
-        description: get all database
-        Args:
+        get all database
+
         Returns:
-            {
-              "code": "",
-              "data": "",
-              "msg": ""
-            }
+            for
+            example::
+                {
+                  "code": "",
+                  "data": "",
+                  "msg": ""
+                }
         Raises:
             FileNotFoundError: File not found exception,
             TypeError: Exception of wrong type
@@ -614,7 +593,10 @@ class Repodatas(Resource):
             )
         try:
             drop_db = InitDataBase()
-            drop_db.delete_db(db_name)
+            del_result = drop_db.delete_db(db_name)
+            if del_result is False:
+                return jsonify(
+                    ResponseCode.response_json(ResponseCode.DELETE_DB_ERROR))
             return jsonify(
                 ResponseCode.response_json(ResponseCode.SUCCESS)
             )
@@ -634,14 +616,16 @@ class InitSystem(Resource):
 
     def post(self):
         """
-        description: InitSystem
-        Args:
+        InitSystem
+
         Returns:
-            {
-              "code": "",
-              "data": "",
-              "msg": ""
-            }
+            for
+            example::
+                {
+                  "code": "",
+                  "data": "",
+                  "msg": ""
+                }
         Raises:
             ContentNoneException: Unable to connect to the exception of the database
             DisconnectionError：Exception connecting to database
@@ -686,4 +670,9 @@ class InitSystem(Resource):
             abnormal = ResponseCode.FAILED_CREATE_DATABASE_TABLE
         if abnormal is not None:
             return jsonify(ResponseCode.response_json(abnormal))
+        db_list = db_priority()
+        if db_list is None:
+            return jsonify(
+                ResponseCode.response_json(
+                    ResponseCode.FAILED_CREATE_DATABASE_TABLE))
         return jsonify(ResponseCode.response_json(ResponseCode.SUCCESS))
