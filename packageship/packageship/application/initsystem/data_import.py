@@ -478,29 +478,33 @@ class InitDataBase():
         Raises:
             IOError: File or network operation io abnormal
         """
-        if self.db_type == 'mysql':
-            del_result = MysqlDatabaseOperations.drop_database(db_name)
-        else:
-            if not hasattr(self, '_sqlite_db') or getattr(self, '_sqlite_db') is None:
-                self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
-            del_result = self._sqlite_db.drop_database()
+        try:
+            del_result = True
+            file_read = open(
+                system_config.DATABASE_FILE_INFO, 'r', encoding='utf-8')
+            _databases = yaml.load(
+                file_read.read(), Loader=yaml.FullLoader)
+            for database in _databases:
+                if database.get('database_name') == db_name:
+                    _databases.remove(database)
+            # Delete the successfully imported database configuration node
+            with open(system_config.DATABASE_FILE_INFO, 'w+', encoding='utf-8') as file_context:
+                yaml.safe_dump(_databases, file_context)
+        except (IOError, Error) as del_config_error:
+            LOGGER.logger.error(del_config_error)
+            del_result = False
+        finally:
+            file_read.close()
 
         if del_result:
-            try:
-                file_read = open(
-                    system_config.DATABASE_FILE_INFO, 'r', encoding='utf-8')
-                _databases = yaml.load(
-                    file_read.read(), Loader=yaml.FullLoader)
-                for database in _databases:
-                    if database.get('database_name') == db_name:
-                        _databases.remove(database)
-                # Delete the successfully imported database configuration node
-                with open(system_config.DATABASE_FILE_INFO, 'w+', encoding='utf-8') as file_context:
-                    yaml.safe_dump(_databases, file_context)
-            except (IOError, Error) as del_config_error:
-                LOGGER.logger.error(del_config_error)
-            finally:
-                file_read.close()
+            if self.db_type == 'mysql':
+                del_result = MysqlDatabaseOperations.drop_database(db_name)
+            else:
+                if not hasattr(self, '_sqlite_db') or getattr(self, '_sqlite_db') is None:
+                    self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
+                del_result = self._sqlite_db.drop_database()
+
+        return del_result
 
     def create_life_cycle_db(self, db_name, tables=None):
         """
