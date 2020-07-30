@@ -123,7 +123,7 @@ class SearchDB():
                     get_list.clear()
                     search_set.symmetric_difference_update(get_set)
                     if not search_set:
-                        install_result = self.get_install_pro_in_other_database(provides_not_found)
+                        install_result = self._get_install_pro_in_other_database(provides_not_found)
                         result_list.extend(install_result)
                         return result_list
                 else:
@@ -132,7 +132,7 @@ class SearchDB():
                 LOGGER.logger.error(error_msg)
             except SQLAlchemyError as error_msg:
                 LOGGER.logger.error(error_msg)
-        install_result = self.get_install_pro_in_other_database(provides_not_found)
+        install_result = self._get_install_pro_in_other_database(provides_not_found)
         result_list.extend(install_result)
         for binary_name in search_set:
             result_list.append((return_tuple(None, None, None,
