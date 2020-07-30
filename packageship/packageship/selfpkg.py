@@ -3,7 +3,6 @@
 Description: Entry for project initialization and service startupc
 """
 import os
-from flask_script import Manager
 from packageship.libs.exception import Error
 from packageship.libs.configutils.readconfig import ReadConfig
 
