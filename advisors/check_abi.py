@@ -81,13 +81,13 @@ def list_so_files(path):
     """
     Generate a list of all .so files in the directory.
     """
-    so_files = []
+    so_files = set()
     for dirpath, dirnames, files in os.walk(path):
         for filename in files:       
             fp = os.path.join(dirpath, filename)
             if ".so" in filename and not os.path.islink(fp):
                 #fp = os.path.join(dirpath, filename)
-                so_files.append(fp)
+                so_files.add(fp)
     return so_files
 
 def find_all_so_file(path1, path2):
@@ -99,6 +99,8 @@ def find_all_so_file(path1, path2):
     current_sos = list_so_files(path2)
     logging.debug("previous_so:%s", previous_sos)
     logging.debug("current_so:%s", current_sos)
+    prev_matched = set()
+    curr_matched = set()
     if previous_sos and current_sos:
         for so_file1 in previous_sos:
             for so_file2 in current_sos:
@@ -106,9 +108,23 @@ def find_all_so_file(path1, path2):
                 base_name2 = (os.path.basename(so_file2)).split('.')[0]
                 if base_name1 == base_name2:
                     all_so_pair[so_file1] = so_file2
+                    prev_matched.add(so_file1)
+                    curr_matched.add(so_file2)
     else:
         logging.info("Not found so files")
         sys.exit(0)
+    prev_left = previous_sos - prev_matched
+    curr_left = current_sos - curr_matched
+
+    if len(prev_left) != 0:
+        logging.info("Unmatched .so file in previous version")
+        logging.info("Usually means deleted .so in current version")
+        logging.info("%s\n", prev_left)
+    if len(curr_left) != 0:
+        logging.info("Unmatched .so file in current version")
+        logging.info("Usually means newly added .so in current version")
+        logging.info("%s\n", curr_left)
+
     logging.debug("mapping of .so files:%s\n", all_so_pair)
     return all_so_pair
 	
@@ -144,10 +160,12 @@ def do_rpm2cpio(rpm2cpio_path, rpm_file):
     """
     Exec the rpm2cpio at rpm2cpio_path.
     """
+    cur_dir = os.getcwd()
     os.chdir(rpm2cpio_path)
     logging.debug("\n----working in path:%s----", os.getcwd())
     logging.debug("rpm2cpio %s", rpm_file)
     subprocess.run("rpm2cpio {} | cpio -id > /dev/null 2>&1".format(rpm_file), shell=True)
+    os.chdir(cur_dir)
 
 def merge_all_abidiff_files(all_abidiff_files, work_path, rpm_base_name):
     """
@@ -258,7 +276,7 @@ def process_with_rpm(config):
     temp_path = os.path.abspath(tempfile.mkdtemp(dir=work_path))
 
     abi_paths = [make_abi_path(temp_path, name) for name in ["previous_package", "current_package"]]
-    logging.debug("abi_paths:\n", abi_paths)
+    logging.debug("abi_paths:%s\n", abi_paths)
 
     rpm_path = [get_rpm_path(x[0], x[1]) for x in zip(config.rpms, abi_paths)]
     logging.debug("rpm_path:%s\n", rpm_path)
