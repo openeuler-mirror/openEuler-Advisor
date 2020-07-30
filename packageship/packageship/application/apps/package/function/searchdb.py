@@ -11,6 +11,7 @@ from flask import current_app
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError, DisconnectionError
 from sqlalchemy.sql import literal_column
+from sqlalchemy import exists
 
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.log import Log
@@ -30,6 +31,7 @@ class SearchDB():
         db_object_dict:A dictionary for storing database connection objects
     changeLog:
     """
+
     def __new__(cls, *args, **kwargs):
         # pylint: disable=w0613
         if not hasattr(cls, "_instance"):
@@ -61,6 +63,7 @@ class SearchDB():
         """
         result_list = []
         get_list = []
+        provides_not_found = dict()
         if not self.db_object_dict:
             LOGGER.logger.warning("Unable to connect to the database, \
                 check the database configuration")
@@ -72,24 +75,27 @@ class SearchDB():
             LOGGER.logger.warning(
                 "The input is None, please check the input value.")
             return result_list
+        return_tuple = namedtuple('return_tuple',
+                                  'depend_name depend_version depend_src_name \
+                                      search_name search_src_name search_version')
         for db_name, data_base in self.db_object_dict.items():
             try:
                 name_in = literal_column('name').in_(search_set)
                 sql_com = text("""
                 SELECT DISTINCT
-                bin_pack.NAME AS depend_name,
-                bin_pack.version AS depend_version,
-                s2.NAME AS depend_src_name,
-                bin.NAME AS search_name,
-                s1.`name` AS search_src_name,
-                s1.version AS search_version
+                    bin_pack.NAME AS depend_name,
+                    bin_pack.version AS depend_version,
+                    bin_pack.src_name AS depend_src_name,
+                    bin_requires.NAME AS req_name,
+                    bin.NAME AS search_name,
+                    bin.src_name AS search_src_name,
+                    bin.version AS search_version 
                 FROM
-                ( SELECT id, NAME,srcIDkey FROM bin_pack WHERE {} ) bin
-                LEFT JOIN pack_requires ON bin.id = pack_requires.binIDkey
-                LEFT JOIN pack_provides ON pack_provides.id = pack_requires.depProIDkey
-                LEFT JOIN bin_pack ON bin_pack.id = pack_provides.binIDkey
-                LEFT JOIN src_pack s1 ON s1.id = bin.srcIDkey
-                LEFT JOIN src_pack s2 ON s2.id = bin_pack.srcIDkey;""".format(name_in))
+                    ( SELECT pkgKey,NAME,version,src_name FROM bin_pack WHERE {} ) bin
+                    LEFT JOIN bin_requires ON bin.pkgKey = bin_requires.pkgKey
+                    LEFT JOIN bin_provides ON bin_provides.name = bin_requires.name
+                    LEFT JOIN bin_pack ON bin_pack.pkgKey = bin_provides.pkgKey;
+                """.format(name_in))
                 install_set = data_base.session. \
                     execute(sql_com, {'name_{}'.format(i): v
                                       for i, v in enumerate(search_set, 1)}).fetchall()
@@ -97,12 +103,28 @@ class SearchDB():
                     # find search_name in db_name
                     # depend_name's db_name will be found in next loop
                     for result in install_set:
-                        result_list.append((result, db_name))
                         get_list.append(result.search_name)
+                        if not result.depend_name and result.req_name:
+                            if result.req_name in provides_not_found:
+                                provides_not_found[result.req_name].append([result.search_name, result.search_src_name, result.search_version, db_name])
+                            else:
+                                provides_not_found[result.req_name] = [[result.search_name, result.search_src_name, result.search_version, db_name]]
+                        else:
+                            obj = return_tuple(
+                                result.depend_name,
+                                result.depend_src_name,
+                                result.depend_version,
+                                result.search_name,
+                                result.search_src_name,
+                                result.search_version,
+                            )
+                            result_list.append((obj, db_name))
                     get_set = set(get_list)
                     get_list.clear()
                     search_set.symmetric_difference_update(get_set)
                     if not search_set:
+                        install_result = self.get_install_pro_in_other_database(provides_not_found)
+                        result_list.extend(install_result)
                         return result_list
                 else:
                     continue
@@ -110,9 +132,8 @@ class SearchDB():
                 LOGGER.logger.error(error_msg)
             except SQLAlchemyError as error_msg:
                 LOGGER.logger.error(error_msg)
-        return_tuple = namedtuple('return_tuple',
-                                  'depend_name depend_version depend_src_name \
-                                      search_name search_src_name search_version')
+        install_result = self.get_install_pro_in_other_database(provides_not_found)
+        result_list.extend(install_result)
         for binary_name in search_set:
             result_list.append((return_tuple(None, None, None,
                                              binary_name, None, None), 'NOT FOUND'))
@@ -137,8 +158,8 @@ class SearchDB():
                 bin_obj = data_base.session.query(bin_pack).filter_by(
                     name=binary_name
                 ).first()
-                source_name = bin_obj.src_pack.name
-                source_version = bin_obj.src_pack.version
+                source_name = bin_obj.src_name
+                source_version = bin_obj.version
                 if source_name is not None:
                     return ResponseCode.SUCCESS, db_name, \
                            source_name, source_version
@@ -163,28 +184,26 @@ class SearchDB():
         """
         if not self.db_object_dict:
             return ResponseCode.DIS_CONNECTION_DB, None
-
-        if None in source_name_list:
-            source_name_list.remove(None)
-        search_set = set(source_name_list)
+        search_set = set([
+            source_name for source_name in source_name_list if source_name])
         result_list = []
         get_list = []
         if not search_set:
             return ResponseCode.INPUT_NONE, None
         for db_name, data_base in self.db_object_dict.items():
             try:
-                name_in = literal_column('name').in_(search_set)
+                name_in = literal_column('src_name').in_(search_set)
                 sql_com = text('''SELECT
-                                t1.NAME as subpack_name,
-                                t2.version as search_version,
-                                t2.NAME as search_name
-                                FROM bin_pack t1, src_pack t2 
-                                WHERE
-                                t2.id = t1.srcIDkey 
-                                AND t2.{}
+                                NAME AS subpack_name,
+                                src_name AS search_name,
+                                version AS search_version
+                            FROM
+                                bin_pack 
+                            WHERE
+                                {}
                                 '''.format(name_in))
                 subpack_tuple = data_base.session. \
-                    execute(sql_com, {'name_{}'.format(i): v
+                    execute(sql_com, {'src_name_{}'.format(i): v
                                       for i, v in enumerate(search_set, 1)}).fetchall()
                 if subpack_tuple:
                     for result in subpack_tuple:
@@ -203,13 +222,13 @@ class SearchDB():
         return_tuple = namedtuple(
             'return_tuple', 'subpack_name search_version search_name')
         for search_name in search_set:
-            LOGGER.logger.warning("Can't not find " +
-                                  search_name + " subpack in all database")
+            # LOGGER.logger.warning("Can't not find " +
+            #                       search_name + " subpack in all database")
             result_list.append(
                 (return_tuple(None, None, search_name), 'NOT_FOUND'))
         return ResponseCode.SUCCESS, result_list
 
-    def get_binary_in_other_database(self, not_found_binary, db_):
+    def _get_binary_in_other_database(self, not_found_binary):
         """
         Description: Binary package name data not found in
         the current database, go to other databases to try
@@ -235,57 +254,111 @@ class SearchDB():
             "version",
             "db_name",
             "search_version",
-            "req_name"
         ])
-        src_req_map = {req_: src for src, req_ in not_found_binary}
+        search_list = []
+        result_list = []
+        for db_name, data_base in self.db_object_dict.items():
+            for key, _ in not_found_binary.items():
+                search_list.append(key)
 
-        local_search_set = {req_ for _, req_ in not_found_binary}
-
-        local_dict = {k: v for k, v in self.db_object_dict.items() if k != db_}
-        res = []
-
-        for db_name, data_base in local_dict.items():
+            search_set = set(search_list)
+            search_list.clear()
             try:
                 sql_string = text("""
-                     SELECT
-                         t3.NAME AS source_name,
-                         t1.NAME AS bin_name,
-                         t1.version,
-                         t3.version as search_version,
-                         t2.NAME AS req_name
-                     FROM
-                         bin_pack t1,
-                         pack_provides t2,
-                         src_pack t3
-                     WHERE
-                         t2.{}
-                         AND t1.id = t2.binIDkey
-                         AND t1.srcIDkey = t3.id;
-                 """.format(literal_column('name').in_(local_search_set)))
-                build_set_2 = data_base.session. \
+                        SELECT DISTINCT
+                        t1.src_name AS source_name,
+                        t1.NAME AS bin_name,
+                        t1.version,
+                        t2.NAME AS req_name 
+                    FROM
+                        bin_pack t1,
+                        bin_provides t2
+                    WHERE
+                        t2.{}
+                        AND t1.pkgKey = t2.pkgKey;
+                    """.format(literal_column('name').in_(search_set)))
+                bin_set = data_base.session. \
                     execute(sql_string, {'name_{}'.format(i): v
-                                         for i, v in enumerate(local_search_set, 1)}).fetchall()
-                if not build_set_2:
-                    continue
+                                         for i, v in enumerate(search_set, 1)}).fetchall()
+                if bin_set:
+                    for result in bin_set:
+                        if result.req_name not in not_found_binary:
+                            LOGGER.logger.warning(result.req_name + " contains in two rpm packages!!!")
+                        else:
+                            for source_info in not_found_binary[result.req_name]:
+                                obj = return_tuple(
+                                    source_info[0],
+                                    result.source_name,
+                                    result.bin_name,
+                                    result.version,
+                                    db_name,
+                                    source_info[1]
+                                )
+                                result_list.append(obj)
+                            del not_found_binary[result.req_name]
+                    if not not_found_binary:
+                        return result_list
+            except AttributeError as attr_err:
+                current_app.logger.error(attr_err)
+            except SQLAlchemyError as sql_err:
+                current_app.logger.error(sql_err)
 
-                res.extend([return_tuple(
-                    src_req_map.get(bin_pack.req_name),
-                    bin_pack.source_name,
-                    bin_pack.bin_name,
-                    bin_pack.version,
-                    db_name,
-                    bin_pack.search_version,
-                    bin_pack.req_name
-                ) for bin_pack in build_set_2 if bin_pack.bin_name])
+        if not_found_binary:
+            for key, values in not_found_binary.items():
+                LOGGER.logger.warning("CANNOT FOUND THE component" + key + " in all database")
+        return result_list
 
-                for obj in res:
-                    local_search_set.remove(obj.req_name)
-
-            except AttributeError as attr_error:
-                current_app.logger.error(attr_error)
-            except SQLAlchemyError as sql_error:
-                current_app.logger.error(sql_error)
-        return res
+    def _get_install_pro_in_other_database(self, not_found_binary):
+        if not not_found_binary:
+            return []
+        return_tuple = namedtuple('return_tuple',
+                                  'depend_name depend_version depend_src_name \
+                                      search_name search_src_name search_version')
+        search_list = []
+        result_list = []
+        for db_name, data_base in self.db_object_dict.items():
+            for key,values in not_found_binary.items():
+                search_list.append(key)
+            search_set = set(search_list)
+            search_list.clear()
+            sql_string = text("""
+                    SELECT DISTINCT
+                    t1.src_name AS source_name,
+                    t1.NAME AS bin_name,
+                    t1.version,
+                    t2.NAME AS req_name 
+                FROM
+                    bin_pack t1,
+                    bin_provides t2
+                WHERE
+                    t2.{}
+                    AND t1.pkgKey = t2.pkgKey;
+                """.format(literal_column('name').in_(search_set)))
+            bin_set = data_base.session. \
+                execute(sql_string, {'name_{}'.format(i): v
+                                        for i, v in enumerate(search_set, 1)}).fetchall()
+            if bin_set:
+                for result in bin_set:
+                    if result.req_name not in not_found_binary:
+                        LOGGER.logger.warning(result.req_name + " contains in two rpm packages!!!")
+                    else:
+                        for binary_info in not_found_binary[result.req_name]:
+                            obj = return_tuple(
+                                result.bin_name,
+                                result.version,
+                                result.source_name,
+                                binary_info[0],
+                                binary_info[1],
+                                binary_info[2]
+                            )
+                            result_list.append((obj, binary_info[3]))
+                        del not_found_binary[result.req_name]
+                if not not_found_binary:
+                    return result_list
+        # if not_found_binary:
+            # for key, values in not_found_binary.items():
+                # LOGGER.logger.warning("CANNOT FOUND THE component" + key + " in all database")
+        return result_list
 
     def get_build_depend(self, source_name_li):
         """
@@ -315,88 +388,107 @@ class SearchDB():
         if not s_name_set:
             return ResponseCode.PARAM_ERROR, None
 
-        not_found_binary = set()
+        provides_not_found = dict()
         build_list = []
 
         for db_name, data_base in self.db_object_dict.items():
+
+            build_set = []
             try:
-                sql_com = text("""SELECT DISTINCT
-                     src.NAME AS search_name,
-                     src.version AS search_version,
-                     s2.NAME AS source_name,
-                     pack_provides.binIDkey AS bin_id,
-                     pack_requires.NAME AS req_name,
-                     bin_pack.version AS version,
-                     bin_pack.NAME AS bin_name
-                 FROM
-                      ( SELECT id, NAME,version FROM src_pack WHERE {} ) src
-                      LEFT JOIN pack_requires ON src.id = pack_requires.srcIDkey
-                      LEFT JOIN pack_provides ON pack_provides.id = pack_requires.depProIDkey
-                      LEFT JOIN bin_pack ON bin_pack.id = pack_provides.binIDkey
-                      LEFT JOIN src_pack s1 ON s1.id = pack_requires.srcIDkey
-                      LEFT JOIN src_pack s2 ON bin_pack.srcIDkey = s2.id;
-                """.format(literal_column("name").in_(s_name_set)))
+                temp_list = list(s_name_set)
+                for input_name_li in [temp_list[i:i + 900] for i in range(0, len(temp_list), 900)]:
+                    sql_com = text("""
+                        SELECT DISTINCT
+                        src.NAME AS search_name,
+                        src.version AS search_version,
+                        bin_pack.src_name AS source_name,
+                        bin_provides.pkgKey AS bin_id,
+                        src_requires.NAME AS req_name,
+                        bin_pack.version AS version,
+                        bin_pack.NAME AS bin_name
+                    FROM
+                        ( SELECT pkgKey, NAME, version FROM src_pack WHERE {} ) src
+                        LEFT JOIN src_requires ON src.pkgKey = src_requires.pkgKey
+                        LEFT JOIN bin_provides ON bin_provides.NAME = src_requires.NAME
+                        LEFT JOIN bin_pack ON bin_pack.pkgKey = bin_provides.pkgKey;
+                    """.format(literal_column("name").in_(input_name_li)))
+                    res = data_base.session.execute(
+                        sql_com,
+                        {'name_{}'.format(i): v
+                         for i, v in enumerate(input_name_li, 1)}
+                    ).fetchall()
 
-                build_set = data_base.session. \
-                    execute(sql_com, {'name_{}'.format(i): v
-                                      for i, v in enumerate(s_name_set, 1)}).fetchall()
+                    build_set.extend(res)
+            except AttributeError as attr_err:
+                current_app.logger.error(attr_err)
+            except SQLAlchemyError as sql_err:
+                current_app.logger.error(sql_err)
 
-                if not build_set:
-                    continue
+            if not build_set:
+                continue
 
-                # When processing source package without compilation dependency
-                to_remove_obj_index = []
-                for index, b_pack in enumerate(build_set):
-                    if not b_pack.source_name and not b_pack.req_name:
-                        obj = return_tuple(
-                            b_pack.search_name,
-                            b_pack.source_name,
-                            b_pack.bin_name,
-                            b_pack.version,
-                            db_name,
-                            b_pack.search_version
+            # When processing source package without compilation dependency
+            get_list = []
+            for result in build_set:
+                get_list.append(result.search_name)
+                if not result.bin_name and result.req_name:
+                    if result.req_name in provides_not_found:
+                        provides_not_found[result.req_name].append(
+                            [result.search_name, result.search_version, db_name]
                         )
-
-                        build_list.append(obj)
-                        to_remove_obj_index.append(index)
-
-                for i in reversed(to_remove_obj_index):
-                    build_set.pop(i)
-
-                if not build_set:
-                    continue
-
-                build_list.extend([
-                    return_tuple(
-                        bin_pack.search_name,
-                        bin_pack.source_name,
-                        bin_pack.bin_name,
-                        bin_pack.version,
+                    else:
+                        provides_not_found[result.req_name] = [
+                            [result.search_name, result.search_version, db_name]
+                        ]
+                else:
+                    obj = return_tuple(
+                        result.search_name,
+                        result.source_name,
+                        result.bin_name,
+                        result.version,
                         db_name,
-                        bin_pack.search_version
-                    ) for bin_pack in build_set if bin_pack.bin_id and bin_pack.bin_name
-                ])
-                # Component name can't find its binary package name
-                not_found_binary.update([(bin_pack.search_name, bin_pack.req_name)
-                                         for bin_pack in build_set if not bin_pack.bin_id])
-
-                s_name_set -= {bin_pack.search_name for bin_pack in build_set
-                               if bin_pack.bin_id}
-
-                if not not_found_binary and not s_name_set:
-                    return ResponseCode.SUCCESS, build_list
-
-                for obj in self.get_binary_in_other_database(not_found_binary, db_name):
+                        result.search_version
+                    )
                     build_list.append(obj)
 
-                not_found_binary.clear()
+            get_set = set(get_list)
+            get_list.clear()
+            s_name_set.symmetric_difference_update(get_set)
+            if not s_name_set:
+                build_result = self._get_binary_in_other_database(provides_not_found)
+                build_list.extend(build_result)
+                return ResponseCode.SUCCESS, build_list
 
-            except AttributeError as attr_error:
-                current_app.logger.error(attr_error)
-            except SQLAlchemyError as sql_error:
-                current_app.logger.error(sql_error)
-                return ResponseCode.DIS_CONNECTION_DB, None
+        if s_name_set:
+            build_result = self._get_binary_in_other_database(provides_not_found)
+            build_list.extend(build_result)
+            for source in s_name_set:
+                LOGGER.logger.warning("CANNOT FOUND THE source " + source + " in all database")
         return ResponseCode.SUCCESS, build_list
+
+    def binary_search_database_for_first_time(self, binary_name):
+        """
+         Args:
+             binary_name: a binary package name
+
+         Returns:
+             The name of the first database
+             in which the binary package appears according to priority
+             If it does not exist or exception occurred , return 'NOT FOUND'
+
+         """
+        try:
+            for db_name, data_base in self.db_object_dict.items():
+                if data_base.session.query(
+                        exists().where(bin_pack.name == binary_name)
+                ).scalar():
+                    return db_name
+        except AttributeError as attr_err:
+            current_app.logger.error(attr_err)
+        except SQLAlchemyError as sql_err:
+            current_app.logger.error(sql_err)
+
+        return 'NOT FOUND'
 
 
 def db_priority():
