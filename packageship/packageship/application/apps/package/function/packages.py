@@ -45,7 +45,7 @@ def get_packages(dbname):
             package["license"] = src_pack_obj.rpm_license
             package["sourceURL"] = src_pack_obj.url
             package["rpm_packager"] = src_pack_obj.rpm_packager
-            package["maintaniner"] = src_pack_obj.maintaniner
+            package["maintainer"] = src_pack_obj.maintaniner
             package["maintainlevel"] = src_pack_obj.maintainlevel
             package["dbname"] = dbname
             resp_list.append(package)
@@ -194,7 +194,7 @@ def get_single_package(dbname, sourcename):
         package["license"] = src_pack_obj.rpm_license
         package["sourceURL"] = src_pack_obj.url
         package["rpm_packager"] = src_pack_obj.rpm_packager
-        package["maintaniner"] = src_pack_obj.maintaniner
+        package["maintainer"] = src_pack_obj.maintaniner
         package["maintainlevel"] = src_pack_obj.maintainlevel
         package["dbname"] = dbname
         src_pack_pkgkey = src_pack_obj.pkgKey
