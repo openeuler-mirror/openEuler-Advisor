@@ -20,7 +20,8 @@ function create_config_file(){
     buffer_size=$(get_config "$service" "buffer-size")
     http_timeout=$(get_config "$service" "http-timeout")
     harakiri=$(get_config "$service" "harakiri")
-    wsgi_file_path=$(find /usr/lib/ -name "packageship")
+    wsgi_file_path=$(find /usr/lib/ -name "packageship" | head -n 1)
+    echo "[INFO] run packageship under path: $wsgi_file_path"
     if [ $service = "manage" -o $service = "all" ];then
         write_port=$(get_config "$service" "write_port")
         write_ip_addr=$(get_config "$service" "write_ip_addr")

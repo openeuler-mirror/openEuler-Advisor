@@ -213,14 +213,14 @@ class SelfDepend():
                 continue
             if key not in self.binary_dict.dictionary and values[0] != 'source':
                 self.binary_dict.dictionary[key] = copy.deepcopy(values)
-                if self.withsubpack == 1:
-                    source_name = values[ListNode.SOURCE_NAME]
-                    if not source_name:
-                        LOGGER.logger.warning("source name is None")
-                    if source_name and source_name not in self.source_dicts.dictionary:
-                        self.source_dicts.append_src(key=source_name,
-                                                     dbname=values[ListNode.DBNAME],
-                                                     version=values[ListNode.VERSION])
+                source_name = values[ListNode.SOURCE_NAME]
+                if not source_name:
+                    LOGGER.logger.warning("source name is None")
+                if source_name and source_name not in self.source_dicts.dictionary:
+                    self.source_dicts.append_src(key=source_name,
+                                                    dbname=values[ListNode.DBNAME],
+                                                    version=values[ListNode.VERSION])
+                    if self.withsubpack == 1:
                         self.search_subpack_list.append(source_name)
             elif key in self.binary_dict.dictionary:
                 self.binary_dict.update_value(key=key, parent_list=values[ListNode.PARENT_LIST])

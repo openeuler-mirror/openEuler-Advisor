@@ -200,7 +200,7 @@ class InitDataBase():
                 raise ContentNoneException(
                     'The path to the sqlite file in the database initialization configuration \
                     is incorrect ')
-            if os.path.exists(src_db_file) or os.path.exists(bin_db_file):
+            if not os.path.exists(src_db_file) or not os.path.exists(bin_db_file):
                 raise FileNotFoundError("sqlite file {src} or {bin} does not exist, please \
                     check and try again".format(src=src_db_file, bin=bin_db_file))
             # 3. Obtain temporary source package files and binary package files
