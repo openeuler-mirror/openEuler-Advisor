@@ -183,7 +183,7 @@ systemctl start patch-tracking
 
 例如：
 ```shell script
-patch-tracking-cli --server 127.0.0.1:5001 --user admin --password Test@123 --version_control github --repo testPatchTrack/testPatch1 --branch master --scm_repo BJMX/testPatch01 --scm_branch test  --enable true
+patch-tracking-cli add --server 127.0.0.1:5001 --user admin --password Test@123 --version_control github --repo testPatchTrack/testPatch1 --branch master --scm_repo BJMX/testPatch01 --scm_branch test  --enable true
 ```
 
 #### 4.1.2 指定文件添加
@@ -198,7 +198,7 @@ patch-tracking-cli --server 127.0.0.1:5001 --user admin --password Test@123 --ve
 
 例如：
 ```shell script
-patch-tracking-cli --server 127.0.0.1:5001 --user admin --password Test@123 --file tracking.yaml
+patch-tracking-cli add --server 127.0.0.1:5001 --user admin --password Test@123 --file tracking.yaml
 ```
 
 yaml内容格式如下，冒号左边的内容不可修改，右边内容根据实际情况填写。
@@ -230,27 +230,35 @@ enable 是否自动跟踪该仓库
 --dir ：存放yaml文件目录的路径
 
 ```shell script
-patch-tracking-cli --server 127.0.0.1:5001 --user admin --password Test@123 --dir /home/Work/test_yaml/
+patch-tracking-cli add --server 127.0.0.1:5001 --user admin --password Test@123 --dir /home/Work/test_yaml/
 ```
 
 ### 4.2 查询跟踪项
 
+参数含义：
+>--server ：必选参数，启动Patch Tracking服务的URL，例如：127.0.0.1:5001 \
+--table ：必选参数，需要查询的表 \
+--repo ：可选参数，需要查询的repo；如果没有该参数查询表中所有内容 \
+--branch ：可选参数，需要查询的branch，必须和--repo同时查询，没有--repo不允许单独查询该参数
+
+#### 4.2.1 查询tracking表
+
 ```shell script
-curl -k https://<LISTEN>/tracking
+patch-tracking-cli query --server <LISTEN> --table tracking
 ```
 例如：
 ```shell script
-curl -k https://127.0.0.1:5001/tracking
+patch-tracking-cli query --server 127.0.0.1:5001 --table tracking
 ```
 
 ### 4.3 查询生成的 Issue 列表
 
 ```shell script
-curl -k https://<LISTEN>/issue
+patch-tracking-cli query --server <LISTEN> --table issue
 ```
 例如：
 ```shell script
-curl -k https://127.0.0.1:5001/issue
+patch-tracking-cli query --server 127.0.0.1:5001 --table issue
 ```
 
 ### 4.4 码云查看 issue 及 PR

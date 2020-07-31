@@ -19,16 +19,16 @@ def get():
     if not request.args:
         issues = Issue.query.all()
     else:
-        required_params = ['repo', 'branch']
+        allowed_key = ['repo', 'branch']
         input_params = request.args
         data = dict()
         for k, param in input_params.items():
-            if k in required_params:
+            if k in allowed_key:
                 data[k] = param
             else:
-                return ResponseCode.gen_dict(ResponseCode.INPUT_PARAMETERS_ERROR)
+                return ResponseCode.ret_message(ResponseCode.INPUT_PARAMETERS_ERROR)
         issues = Issue.query.filter_by(**data).all()
     resp_data = list()
     for item in issues:
         resp_data.append(item.to_json())
-    return ResponseCode.gen_dict(code=ResponseCode.SUCCESS, data=resp_data)
+    return ResponseCode.ret_message(code=ResponseCode.SUCCESS, data=resp_data)
