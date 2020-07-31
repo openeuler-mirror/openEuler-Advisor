@@ -3,3 +3,4 @@ version_control: github
 src_repo: xiph/speex
 tag_prefix: "^Speex-"
 separator: "."
+git_url: https://github.com/xiph/speex.git

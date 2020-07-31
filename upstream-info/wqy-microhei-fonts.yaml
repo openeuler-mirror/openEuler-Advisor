@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.code.sf.net/p/wqy/git
 tag_prefix: ''
 separator: "."
+git_url: https://salsa.debian.org/fonts-team/fonts-wqy-microhei.git

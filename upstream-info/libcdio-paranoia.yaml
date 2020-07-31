@@ -3,3 +3,4 @@ version_control: github
 src_repo: rocky/libcdio-paranoia
 tag_prefix: "^release-"
 separator: "."
+git_url: https://github.com/rocky/libcdio-paranoia.git

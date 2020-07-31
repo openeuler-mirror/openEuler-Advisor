@@ -3,3 +3,4 @@ version_control: gitlab.gnome
 src_repo: librest
 tag_prefix: librest-
 separator: "."
+git_url: https://gitlab.gnome.org/GNOME/librest.git

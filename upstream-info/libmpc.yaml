@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gforge.inria.fr/anonscm/git/mpc/mpc.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://gforge.inria.fr/anonscm/git/mpc/mpc.git

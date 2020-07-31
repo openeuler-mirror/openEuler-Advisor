@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/app/xinit.git
 tag_prefix: xinit-
 separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/app/xinit.git

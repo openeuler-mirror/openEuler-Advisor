@@ -3,3 +3,4 @@ version_control: github
 src_repo: linux-rdma/opensm
 tag_prefix: opensm-
 separator: "."
+git_url: https://github.com/linux-rdma/opensm.git

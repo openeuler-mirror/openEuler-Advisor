@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://dev.lovelyhq.com/libburnia/libisoburn.git
 tag_prefix: "^release-"
 separator: "."
+git_url: git@dev.lovelyhq.com:libburnia/libisoburn.git

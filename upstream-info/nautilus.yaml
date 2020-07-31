@@ -944,3 +944,4 @@ last_query:
     rm^{}
     show
     show^{}
+git_url: https://gitlab.gnome.org/GNOME/nautilus.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/oddjob.git
 tag_prefix: "^oddjob-"
 separator: "."
+git_url: https://pagure.io/oddjob.git

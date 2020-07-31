@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/setup.git
 tag_prefix: "^setup-"
 separator: 
+git_url: https://pagure.io/setup.git

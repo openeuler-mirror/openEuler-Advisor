@@ -3,3 +3,4 @@ version_control: github
 src_repo: Distrotech/libglade
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/Distrotech/libglade.git

@@ -3,3 +3,4 @@ version_control: github
 src_repo: fedora-modularity/libmodulemd
 tag_prefix: "^libmodulemd-"
 separator: "."
+git_url: https://github.com/fedora-modularity/libmodulemd.git

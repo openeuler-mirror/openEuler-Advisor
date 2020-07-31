@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://anongit.freedesktop.org/git/libreoffice/cppunit/
 tag_prefix: "^cppunit-"
 separator: "."
+git_url: git://anongit.freedesktop.org/git/libreoffice/cppunit/

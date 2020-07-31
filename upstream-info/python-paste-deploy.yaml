@@ -3,3 +3,4 @@ version_control: github
 src_repo: clearlinux-pkgs/PasteDeploy
 tag_prefix: "^"
 separator: "."
+git_url: https://github.com/clearlinux-pkgs/PasteDeploy.git

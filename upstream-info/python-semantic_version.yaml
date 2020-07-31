@@ -3,3 +3,4 @@ version_control: github
 src_repo: rbarrois/python-semanticversion
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/rbarrois/python-semanticversion.git

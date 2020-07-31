@@ -486,3 +486,4 @@ last_query:
     git-migration-GNOME_SYSTEM_MONITOR_2_17_94^{}
     gnome-3-8
     gnome-3-8^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-system-monitor.git

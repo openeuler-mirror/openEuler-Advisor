@@ -60,3 +60,4 @@ last_query:
     3.18.2^{}
     3.20.0
     3.20.0^{}
+git_url: https://gitlab.gnome.org/GNOME/notification-daemon.git

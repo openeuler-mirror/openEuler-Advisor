@@ -2,3 +2,4 @@
 version_control: github
 src_repo: rpm-software-management/dnf
 separator: "."
+git_url: https://github.com/rpm-software-management/dnf.git

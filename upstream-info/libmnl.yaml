@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.netfilter.org/libmnl
 tag_prefix: "^libmnl-"
 separator: "."
+git_url: https://git.netfilter.org/libmnl

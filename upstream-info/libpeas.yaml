@@ -106,3 +106,4 @@ last_query:
     libpeas-1.8.1^{}
     libpeas-1.9.0
     libpeas-1.9.0^{}
+git_url: https://gitlab.gnome.org/GNOME/libpeas.git

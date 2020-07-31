@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/psmisc/psmisc.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://gitlab.com/psmisc/psmisc.git

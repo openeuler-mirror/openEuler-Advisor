@@ -3,3 +3,4 @@ version_control: github
 src_repo: ivmai/bdwgc
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/ivmai/bdwgc.git

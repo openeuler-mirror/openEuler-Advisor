@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://bues.ch/cgit/b43-tools.git
 tag_prefix: b43-fwcutter-
 separator: "."
+git_url: https://bues.ch/cgit/b43-tools.git

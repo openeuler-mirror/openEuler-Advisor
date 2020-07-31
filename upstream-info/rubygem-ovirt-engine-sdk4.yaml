@@ -2,3 +2,4 @@
 version_control: git
 src_repo: https://gerrit.ovirt.org/ovirt-engine-sdk-ruby
 separator: "."
+git_url: https://gerrit.ovirt.org/ovirt-engine-sdk-ruby

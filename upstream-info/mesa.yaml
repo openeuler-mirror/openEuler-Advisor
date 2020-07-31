@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/mesa/mesa.git
 tag_prefix: "^mesa-"
 separator: "."
+git_url: https://gitlab.freedesktop.org/mesa/mesa.git

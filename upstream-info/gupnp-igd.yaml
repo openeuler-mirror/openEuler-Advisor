@@ -40,3 +40,4 @@ last_query:
     0.2.4^{}
     0.2.5
     0.2.5^{}
+git_url: https://gitlab.gnome.org/GNOME/gupnp-igd.git

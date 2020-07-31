@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://code.qt.io/qt/qtwayland.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://code.qt.io/qt/qtwayland.git

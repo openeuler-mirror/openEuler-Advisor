@@ -4,3 +4,4 @@ src_repo: acpica/acpica
 tag_reorder: "^R(\\d\\d)_?(\\d\\d)_?(\\d\\d)"
 tag_neworder: 20\3\1\2
 separator: _
+git_url: https://github.com/acpica/acpica.git

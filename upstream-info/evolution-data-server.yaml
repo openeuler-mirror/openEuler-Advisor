@@ -1128,3 +1128,4 @@ last_query:
     spam-filtering-start^{}
     toshok-libmimedir-base
     toshok-libmimedir-base^{}
+git_url: https://gitlab.gnome.org/GNOME/evolution-data-server.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/soundtouch/soundtouch.git
 tag_prefix: "^"
 separator: "."
+git_url: https://gitlab.com/soundtouch/soundtouch.git

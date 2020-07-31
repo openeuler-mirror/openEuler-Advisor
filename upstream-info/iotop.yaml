@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://repo.or.cz/iotop.git
 tag_prefix: iotop-
 separator: "."
+git_url: git://repo.or.cz/iotop.git

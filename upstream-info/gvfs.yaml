@@ -526,3 +526,4 @@ last_query:
     GVFS_1_2_1^{}
     GVFS_1_2_2
     GVFS_1_2_2^{}
+git_url: https://gitlab.gnome.org/GNOME/gvfs.git

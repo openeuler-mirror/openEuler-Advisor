@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.cryptomilk.org/projects/cmocka.git
 tag_prefix: "^cmocka-"
 separator: "."
+git_url: https://git.cryptomilk.org/projects/cmocka.git

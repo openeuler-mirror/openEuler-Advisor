@@ -3,3 +3,4 @@ version_control: gitlab.gnome
 src_repo: babl
 tag_prefix: "^BABL_"
 separator: _
+git_url: https://gitlab.gnome.org/GNOME/babl.git

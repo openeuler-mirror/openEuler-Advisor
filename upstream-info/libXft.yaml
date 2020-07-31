@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxft.git
 tag_prefix: libXft-
 separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxft.git

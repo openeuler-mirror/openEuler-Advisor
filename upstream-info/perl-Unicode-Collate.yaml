@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://src.fedoraproject.org/rpms/perl-Unicode-Collate.git
 tag_prefix: "^perl-Unicode-Collate-"
 separator: "."
+git_url: https://src.fedoraproject.org/rpms/perl-Unicode-Collate.git

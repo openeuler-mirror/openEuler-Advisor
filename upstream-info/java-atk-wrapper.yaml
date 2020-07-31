@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.gnome.org/GNOME/java-atk-wrapper.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://gitlab.gnome.org/GNOME/java-atk-wrapper.git

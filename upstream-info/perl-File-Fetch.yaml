@@ -3,3 +3,4 @@ version_control: github
 src_repo: PERL-Toolchain-Gang/File-Fetch
 tag_prefix: 
 separator: "."
+git_url: https://github.com/PERL-Toolchain-Gang/File-Fetch.git

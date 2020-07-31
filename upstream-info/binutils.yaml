@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://sourceware.org/git/binutils-gdb.git
 tag_prefix: "^binutils-"
 separator: _
+git_url: https://git.sourceware.org/binutils-gdb.git

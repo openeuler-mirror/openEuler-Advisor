@@ -173,3 +173,4 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/dell/dkms.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.savannah.gnu.org/git/man-db.git
 tag_prefix: 
 separator: "."
+git_url: https://git.savannah.nongnu.org/cgit/man-db.git

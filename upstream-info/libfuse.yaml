@@ -4,3 +4,4 @@ src_repo: libfuse/libfuse
 tag_prefix: fuse-
 separator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
+git_url: https://github.com/libfuse/libfuse.git

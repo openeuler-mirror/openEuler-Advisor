@@ -3,3 +3,4 @@ version_control: github
 src_repo: GNOME/gnome-control-center
 tag_prefix: "^"
 separator: "."
+git_url: https://github.com/GNOME/gnome-control-center.git

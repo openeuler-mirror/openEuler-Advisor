@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.savannah.nongnu.org/git/attr.git
 tag_prefix: "^v"
 separator: "."
+git_url: git://git.savannah.gnu.org/attr.git

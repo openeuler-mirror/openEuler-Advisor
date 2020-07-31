@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.gnome.org/Archive/libcroco.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/GNOME/libcroco.git

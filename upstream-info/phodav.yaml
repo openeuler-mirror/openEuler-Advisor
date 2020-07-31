@@ -28,3 +28,4 @@ last_query:
     v2.3^{}
     v2.4
     v2.4^{}
+git_url: https://gitlab.gnome.org/GNOME/phodav.git

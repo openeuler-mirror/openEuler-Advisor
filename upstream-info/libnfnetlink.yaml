@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://git.netfilter.org/libnfnetlink
 tag_prefix: libnfnetlink-
 separator: "."
+git_url: git://git.netfilter.org/libnfnetlink

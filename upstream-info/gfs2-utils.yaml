@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/gfs2-utils.git
 tag_prefix: "^"
 separator: "."
+git_url: https://pagure.io/gfs2-utils.git

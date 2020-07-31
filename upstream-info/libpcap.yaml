@@ -3,3 +3,4 @@ version_control: github
 src_repo: the-tcpdump-group/libpcap
 tag_prefix: libpcap-
 separator: "."
+git_url: https://github.com/the-tcpdump-group/libpcap.git

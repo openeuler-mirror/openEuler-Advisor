@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.savannah.gnu.org/git/gawk.git
 tag_prefix: "^gawk-"
 separator: "."
+git_url: https://git.savannah.gnu.org/git/gawk.git

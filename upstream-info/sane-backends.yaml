@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/sane-project/backends.git
 tag_prefix: "^"
 separator: "."
+git_url: https://gitlab.com/sane-project/backends.git

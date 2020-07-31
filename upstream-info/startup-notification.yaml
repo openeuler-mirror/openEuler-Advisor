@@ -3,3 +3,4 @@ version_control: github
 src_repo: freedesktop/startup-notification
 tag_prefix: "^STARTUP_NOTIFICATION_"
 separator: _
+git_url: https://github.com/freedesktop/startup-notification.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://code.videolan.org/videolan/libbluray.git
 tag_prefix: 
 separator: "."
+git_url: https://code.videolan.org/videolan/libbluray.git

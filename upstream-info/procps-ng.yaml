@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/procps-ng/procps.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://gitlab.com/procps-ng/procps.git

@@ -3,3 +3,4 @@ version_control: gitlab.gnome
 src_repo: gupnp-av
 tag_prefix: "^gupnp-av-"
 separator: "."
+git_url: gupng-av

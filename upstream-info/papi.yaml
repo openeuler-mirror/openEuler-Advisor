@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://bitbucket.org/icl/papi.git
 tag_prefix: papi-
 separator: "-"
+git_url: https://bitbucket.org/icl/papi.git

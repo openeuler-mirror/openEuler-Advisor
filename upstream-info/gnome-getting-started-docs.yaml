@@ -102,3 +102,4 @@ last_query:
     3.8.3^{}
     3.9.90
     3.9.90^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-getting-started-docs.git

@@ -116,3 +116,4 @@ last_query:
     3.9.91^{}
     split
     split^{}
+git_url: https://gitlab.gnome.org/GNOME/gcr.git

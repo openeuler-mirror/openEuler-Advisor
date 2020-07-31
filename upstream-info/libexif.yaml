@@ -169,3 +169,4 @@ last_query:
       }
     ]
 query_type: api.github.tags
+git_url: https://github.com/libexif/libexif.git

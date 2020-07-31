@@ -3,3 +3,4 @@ version_control: github
 src_repo: phusion/passenger
 tag_prefix: release-
 separator: 
+git_url: https://github.com/phusion/passenger.git

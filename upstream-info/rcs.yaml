@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://git.savannah.gnu.org/rcs.git
 tag_prefix: 
 separator: "."
+git_url: git://git.savannah.gnu.org/src.git

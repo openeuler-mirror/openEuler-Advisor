@@ -778,3 +778,4 @@ last_query:
     help^{}
     merge-from-trunk-19990823
     merge-from-trunk-19990823^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-session.git

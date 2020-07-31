@@ -3,3 +3,4 @@ version_control: github
 src_repo: HypothesisWorks/hypothesis-python
 tag_prefix: hypothesis-python-
 separator: "."
+git_url: https://github.com/HypothesisWorks/hypothesis.git

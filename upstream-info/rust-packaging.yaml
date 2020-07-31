@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/fedora-rust/rust2rpm.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/rust-lang-deprecated/rust-packaging.git

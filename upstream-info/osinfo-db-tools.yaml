@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/libosinfo/osinfo-db-tools.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://gitlab.com/libosinfo/osinfo-db-tools.git

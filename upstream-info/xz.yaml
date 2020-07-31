@@ -3,3 +3,4 @@ version_control: github
 src_repo: xz-mirror/xz
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/xz-mirror/xz.git

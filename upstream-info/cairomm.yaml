@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://anongit.freedesktop.org/git/cairomm
 tag_prefix: "^v"
 separator: "."
+git_url: git://anongit.freedesktop.org/git/cairomm

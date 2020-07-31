@@ -3,3 +3,4 @@ version_control: github
 src_repo: qt/qt5
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/qt/qt5.git

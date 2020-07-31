@@ -242,3 +242,4 @@ last_query:
     2.64.2^{}
     glib-2.33.3
     glib-2.33.3^{}
+git_url: https://gitlab.gnome.org/GNOME/glib-networking.git

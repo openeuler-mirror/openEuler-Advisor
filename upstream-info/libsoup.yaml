@@ -574,3 +574,4 @@ last_query:
     libsoup-hacking-branch-base^{}
     libsoup-pre214-branch-base
     libsoup-pre214-branch-base^{}
+git_url: https://gitlab.gnome.org/GNOME/libsoup.git

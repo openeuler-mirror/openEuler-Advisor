@@ -30,3 +30,4 @@ last_query:
     v1.3^{}
     v1.4
     v1.4^{}
+git_url: https://gitlab.gnome.org/GNOME/gcab.git

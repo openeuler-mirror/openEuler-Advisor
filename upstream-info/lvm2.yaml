@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://sourceware.org/git/lvm2.git
 tag_prefix: "^v"
 separator: _
+git_url: git://sourceware.org/git/lvm2.git

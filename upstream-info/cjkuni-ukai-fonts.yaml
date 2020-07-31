@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://src.fedoraproject.org/rpms/cjkuni-ukai-fonts.git
 tag_prefix: "^cjkuni-ukai-fonts-"
 separator: "."
+git_url: https://src.fedoraproject.org/rpms/cjkuni-ukai-fonts.git

@@ -3,3 +3,4 @@ version_control: github
 src_repo: open-iscsi/rtslib-fb
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/open-iscsi/rtslib-fb.git

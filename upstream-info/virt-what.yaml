@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://git.annexia.org/virt-what.git
 tag_prefix: "^v"
 separator: 
+git_url: git://git.annexia.org/virt-what.git

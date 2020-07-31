@@ -3,3 +3,4 @@ version_control: github
 src_repo: aperezdc/nss-altfiles
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/aperezdc/nss-altfiles.git

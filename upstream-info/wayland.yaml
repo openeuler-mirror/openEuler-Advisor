@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/wayland/wayland.git
 tag_prefix: 
 separator: "."
+git_url: https://gitlab.freedesktop.org/wayland/wayland.git

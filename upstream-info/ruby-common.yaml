@@ -3,3 +3,4 @@ version_control: github
 src_repo: openSUSE/ruby-packaging
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/openSUSE/ruby-packaging.git

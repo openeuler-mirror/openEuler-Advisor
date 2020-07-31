@@ -3,3 +3,4 @@ version_control: github
 src_repo: squid-cache/squid
 tag_prefix: SQUID_
 separator: _
+git_url: https://github.com/squid-cache/squid.git

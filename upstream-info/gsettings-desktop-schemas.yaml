@@ -208,3 +208,4 @@ last_query:
     3.9.91^{}
     3_3_92
     3_3_92^{}
+git_url: https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas.git

@@ -3,3 +3,4 @@ version_control: github
 src_repo: grilofw/grilo
 tag_prefix: "^grilo-"
 separator: "."
+git_url: https://github.com/grilofw/grilo.git

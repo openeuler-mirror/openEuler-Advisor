@@ -3,3 +3,4 @@ version_control: github
 src_repo: eliben/pycparser
 tag_prefix: "^release_v"
 separator: "."
+git_url: https://github.com/eliben/pycparser.git

@@ -3,3 +3,4 @@ version_control: github
 src_repo: amluto/u2f-hidraw-policy
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/amluto/u2f-hidraw-policy.git

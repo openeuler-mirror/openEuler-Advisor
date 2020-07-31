@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.samba.org/samba.git
 tag_prefix: samba-
 separator: "."
+git_url: https://git.samba.org/samba.git

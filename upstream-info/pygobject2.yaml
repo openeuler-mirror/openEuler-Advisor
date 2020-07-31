@@ -3,3 +3,4 @@ version_control: gitlab.gnome
 src_repo: pygobject
 tag_prefix: "^"
 separator: "."
+git_url: https://gitlab.gnome.org/GNOME/pygobject.git

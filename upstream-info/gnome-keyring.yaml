@@ -374,3 +374,4 @@ last_query:
     git-migration-branches-gnome-2-22^{}
     initial_import
     initial_import^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-keyring.git

@@ -4,3 +4,4 @@ src_repo: gooselinux/kurdit-unikurd-web-fonts
 note: src_repo here is not the actual repo for font
 tag_prefix: "^"
 separator: "."
+git_url: https://github.com/gooselinux/kurdit-unikurd-web-fonts.git

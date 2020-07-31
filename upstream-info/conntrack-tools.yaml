@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.netfilter.org/conntrack-tools
 tag_prefix: "^conntrack-tools-"
 separator: "."
+git_url: https://git.netfilter.org/conntrack-tools

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://www.cl.cam.ac.uk/~mgk25/git/jbigkit
 tag_prefix: "^v"
 separator: "."
+git_url: https://www.cl.cam.ac.uk/~mgk25/git/jbigkit

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://repo.or.cz/syslinux.git
 tag_prefix: syslinux-
 separator: "."
+git_url: https://repo.or.cz/syslinux.git

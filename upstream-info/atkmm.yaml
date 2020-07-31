@@ -54,3 +54,4 @@ last_query:
     2.29.1^{}
     2.53.3
     2.53.3^{}
+git_url: https://gitlab.gnome.org/GNOME/atkmm.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxtst.git
 tag_prefix: libXtst-
 separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxtst.git

@@ -150,3 +150,4 @@ last_query:
     LIBGSF_1_9_0^{}
     LIBGSF_1_9_1
     LIBGSF_1_9_1^{}
+git_url: https://gitlab.gnome.org/GNOME/libgsf.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://dev.gnupg.org/source/gpgme.git
 tag_prefix: "^gpgme-"
 separator: "."
+git_url: https://dev.gnupg.org/sourcegpgme.git

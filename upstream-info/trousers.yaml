@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.code.sf.net/p/trousers/trousers
 tag_prefix: "^TROUSERS_"
 separator: _
+git_url: https://git.code.sf.net/p/trousers/trousers

@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://libvirt.org/git/libvirt.git
 tag_prefix: v
 separator: "."
+git_url: https://libvirt.org/git/libvirt.git

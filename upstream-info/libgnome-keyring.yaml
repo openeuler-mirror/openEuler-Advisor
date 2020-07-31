@@ -80,3 +80,4 @@ last_query:
     LIBGNOME_KEYRING_2_31_92^{}
     LIBGNOME_KEYRING_2_32_0
     LIBGNOME_KEYRING_2_32_0^{}
+git_url: https://gitlab.gnome.org/GNOME/libgnome-keyring.git

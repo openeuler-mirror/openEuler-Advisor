@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.netfilter.org/libnetfilter_cthelper
 tag_prefix: "^libnetfilter_cthelper-"
 separator: "."
+git_url: https://github.com/Distrotech/libnetfilter_cthelper.git

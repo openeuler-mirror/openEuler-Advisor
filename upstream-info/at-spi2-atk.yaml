@@ -3,3 +3,4 @@ version_control: github
 src_repo: GNOME/at-spi2-atk
 tag_prefix: AT_SPI2_ATK_
 separator: _
+git_url: https://github.com/GNOME/at-spi2-atk.git

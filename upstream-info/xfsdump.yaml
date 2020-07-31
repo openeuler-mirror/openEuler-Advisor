@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://git.kernel.org/pub/scm/fs/xfs/xfsdump-dev.git
 tag_prefix: "^v"
 separator: "."
+git_url: git://git.kernel.org/pub/scm/fs/xfs/xfsdump-dev.git

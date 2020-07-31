@@ -80,3 +80,4 @@ last_query:
     v0.28.0.1^{}
     v0.99.0.1
     v0.99.0.1^{}
+git_url: https://gitlab.gnome.org/GNOME/libgit2-glib.git

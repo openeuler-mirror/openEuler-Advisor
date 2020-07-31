@@ -4,3 +4,4 @@ src_repo: WuBingzheng/memleax
 tag_prefix: "^v"
 separator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
+git_url: https://github.com/WuBingzheng/memleax.git

@@ -136,3 +136,4 @@ last_query:
     0.9.1^{}
     dconf-0.2
     dconf-0.2^{}
+git_url: https://gitlab.gnome.org/GNOME/dconf.git

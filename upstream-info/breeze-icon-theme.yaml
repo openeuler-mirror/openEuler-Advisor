@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://anongit.kde.org/breeze-icons.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://anongit.kde.org/breeze-icons.git

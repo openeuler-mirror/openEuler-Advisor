@@ -3,3 +3,4 @@ version_control: github
 src_repo: nigels-com/glew
 tag_prefix: glew-
 separator: "."
+git_url: https://github.com/nigels-com/glew.git

@@ -3,3 +3,4 @@ version_control: github
 src_repo: netlabel/netlabel_tools
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/netlabel/netlabel_tools.git

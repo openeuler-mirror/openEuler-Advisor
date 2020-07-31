@@ -2,3 +2,4 @@
 version_control: github
 src_repo: mongodb/mongo-python-driver
 separator: "."
+git_url: https://github.com/mongodb/mongo-python-driver.git

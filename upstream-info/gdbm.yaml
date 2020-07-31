@@ -3,3 +3,4 @@ version_control: git
 src_repo: http://git.gnu.org.ua/repo/gdbm.git
 tag_prefix: "^v"
 separator: "."
+git_url: git://gnu.org.ua/gdbm.git

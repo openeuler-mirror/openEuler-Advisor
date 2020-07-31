@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.gnome.org/Archive/gnome-icon-theme-extras.git
 tag_prefix: GNOME_ICON_THEME_EXTRAS_
 separator: _
+git_url: https://gitlab.gnome.org/GNOME/gnome-icon-theme-extras.git

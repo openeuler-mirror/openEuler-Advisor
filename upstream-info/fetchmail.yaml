@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/fetchmail/fetchmail
 tag_prefix: "^RELEASE_"
 separator: "."
+git_url: https://gitlab.com/fetchmail/fetchmail

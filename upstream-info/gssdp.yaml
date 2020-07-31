@@ -113,3 +113,4 @@ last_query:
     gssdp-1.2.1^{}
     gssdp-1.2.2
     gssdp-1.2.2^{}
+git_url: https://gitlab.gnome.org/GNOME/gssdp.git

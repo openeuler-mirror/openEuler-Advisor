@@ -374,3 +374,4 @@ last_query:
     NETWORK_MANAGER_APPLET_0_6_5_RELEASE^{}
     NETWORK_MANAGER_APPLET_0_6_6_RELEASE
     NETWORK_MANAGER_APPLET_0_6_6_RELEASE^{}
+git_url: https://gitlab.gnome.org/GNOME/network-manager-applet.git

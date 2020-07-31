@@ -3,3 +3,4 @@ version_control: github
 src_repo: ClusterLabs/pacemaker
 tag_prefix: "^Pacemaker-"
 separator: "."
+git_url: https://github.com/ClusterLabs/pacemaker.git

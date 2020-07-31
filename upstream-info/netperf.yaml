@@ -4,3 +4,4 @@ src_repo: HewlettPackard/netperf
 tag_prefix: netperf-
 separator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
+git_url: https://github.com/HewlettPackard/netperf.git

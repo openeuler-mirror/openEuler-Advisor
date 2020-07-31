@@ -4,3 +4,4 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxrandr.git
 tag_prefix: "^libXrandr-"
 separator: "."
+git_url: git@gitlab.freedesktop.org:xorg/lib/libxrandr.git

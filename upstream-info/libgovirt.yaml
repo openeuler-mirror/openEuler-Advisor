@@ -32,3 +32,4 @@ last_query:
     v0.3.6^{}
     v0.3.7
     v0.3.7^{}
+git_url: https://gitlab.gnome.org/GNOME/libgovirt.git

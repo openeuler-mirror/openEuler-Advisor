@@ -3,3 +3,4 @@ version_control: github
 src_repo: rear/rear
 tag_prefix: "^"
 separator: "."
+git_url: https://github.com/rear/rear.git

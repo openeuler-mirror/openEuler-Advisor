@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.gnome.org/World/intltool.git
 tag_prefix: release-
 separator: _
+git_url: https://gitlab.gnome.org/World/intltool.git

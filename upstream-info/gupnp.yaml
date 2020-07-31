@@ -133,3 +133,4 @@ last_query:
     gupnp-1.2.1^{}
     gupnp-1.2.2
     gupnp-1.2.2^{}
+git_url: https://gitlab.gnome.org/GNOME/gupnp.git

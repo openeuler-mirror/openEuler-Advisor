@@ -50,3 +50,4 @@ last_query:
     0.7.8^{}
     0.7.9
     0.7.9^{}
+git_url: https://gitlab.gnome.org/GNOME/libnotify.git

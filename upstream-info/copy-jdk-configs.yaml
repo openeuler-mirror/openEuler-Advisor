@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/copy_jdk_configs.git
 tag_prefix: "^copy_jdk_configs-"
 separator: "."
+git_url: https://pagure.io/copy_jdk_configs.git

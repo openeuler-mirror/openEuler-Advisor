@@ -3,3 +3,4 @@ version_control: github
 src_repo: hreinecke/sg3_utils
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/hreinecke/sg3_utils.git

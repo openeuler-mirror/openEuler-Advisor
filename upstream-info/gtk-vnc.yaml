@@ -90,3 +90,4 @@ last_query:
     v0.9.0^{}
     v1.0.0
     v1.0.0^{}
+git_url: https://gitlab.gnome.org/GNOME/gtk-vnc.git

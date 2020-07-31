@@ -3,3 +3,4 @@ version_control: git
 src_repo: git://git.samba.org/cifs-utils.git
 tag_prefix: cifs-utils-
 separator: "."
+git_url: git://git.samba.org/cifs-utils.git

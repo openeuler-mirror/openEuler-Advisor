@@ -3,3 +3,4 @@ version_control: github
 src_repo: openSUSE/obs-build
 tag_prefix: "^obs_"
 separator: "."
+git_url: https://github.com/openSUSE/obs-build.git

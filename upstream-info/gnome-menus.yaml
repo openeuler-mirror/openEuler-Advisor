@@ -248,3 +248,4 @@ last_query:
     LAYOUT_SUPPORT_BRANCHPOINT^{}
     init
     init^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-menus.git

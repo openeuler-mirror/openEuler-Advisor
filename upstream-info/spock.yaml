@@ -3,3 +3,4 @@ version_control: github
 src_repo: spockframework/spock
 tag_prefix: "^spock-"
 separator: "."
+git_url: https://github.com/spockframework/spock.git

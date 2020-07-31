@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/pam_krb5.git
 tag_prefix: "^pam_krb5-"
 separator: "."
+git_url: https://pagure.io/pam_krb5.git

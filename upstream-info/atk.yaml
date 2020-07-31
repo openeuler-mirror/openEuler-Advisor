@@ -352,3 +352,4 @@ last_query:
     gnome-2-14-0^{}
     gnome-2-16
     gnome-2-16^{}
+git_url: https://gitlab.gnome.org/GNOME/atk.git

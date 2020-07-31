@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.kernel.org/pub/scm/libs/ell/ell.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://git.kernel.org/pub/scm/libs/ell/ell.git

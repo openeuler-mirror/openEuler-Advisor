@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.linuxtv.org/v4l-utils.git
 tag_prefix: "^v4l-utils-"
 separator: "."
+git_url: https://git.linuxtv.org/downloads/v4l-utils.git

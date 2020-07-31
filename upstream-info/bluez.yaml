@@ -4,3 +4,4 @@ version_control: git
 src_repo: https://git.kernel.org/pub/scm/bluetooth/bluez.git
 tag_prefix: "^"
 separator: "."
+git_url: https://gitlab.gnome.org/GNOME/bluez.git

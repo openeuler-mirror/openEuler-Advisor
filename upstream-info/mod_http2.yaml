@@ -3,3 +3,4 @@ version_control: github
 src_repo: icing/mod_h2
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/icing/mod_h2.git

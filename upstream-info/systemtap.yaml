@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://sourceware.org/git/systemtap.git
 tag_prefix: "^release-"
 separator: "."
+git_url: https://sourceware.org/git/systemtap.git

@@ -3,3 +3,4 @@ version_control: git
 src_repo: http://elinks.cz/elinks.git
 tag_prefix: "^elinks-"
 separator: "."
+git_url: http://elinks.cz/elinks.git

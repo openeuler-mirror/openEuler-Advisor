@@ -3,3 +3,4 @@ version_control: github
 src_repo: fltk/fltk
 tag_prefix: "^release-"
 separator: "."
+git_url: https://github.com/fltk/fltk.git

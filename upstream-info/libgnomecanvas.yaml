@@ -4,3 +4,4 @@ version_control: git
 src_repo: https://gitlab.gnome.org/Archive/libgnomecanvas.git
 tag_prefix: "^LIBGNOMECANVAS_"
 separator: _
+git_url: https://gitlab.gnome.org/GNOME/libgnomecanvas.git

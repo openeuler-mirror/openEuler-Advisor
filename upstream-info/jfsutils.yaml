@@ -3,3 +3,4 @@ version_control: github
 src_repo: pld-linux/jfsutils
 tag_prefix: "^.*jfsutils-"
 separator: "."
+git_url: https://github.com/pld-linux/jfsutils.git

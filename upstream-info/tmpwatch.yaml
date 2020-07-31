@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/tmpwatch.git
 tag_prefix: "^tmpwatch-"
 separator: "."
+git_url: https://pagure.io/tmpwatch.git

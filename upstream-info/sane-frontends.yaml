@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://gitlab.com/sane-project/frontends.git
 tag_prefix: RELEASE_
 separator: _
+git_url: https://gitlab.com/sane-project/frontends.git

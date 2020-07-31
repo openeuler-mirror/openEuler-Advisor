@@ -3,3 +3,4 @@ version_control: gitlab.gnome
 src_repo: gupnp-dlna
 tag_prefix: "^gupnp-dlna-"
 separator: "."
+git_url: https://gitlab.gnome.org/GNOME/gupnp-dlna.git

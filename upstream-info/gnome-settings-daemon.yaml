@@ -510,3 +510,4 @@ last_query:
     GNOME_SETTING_DAEMON_3_35_92^{}
     git-migration-GNOME_SETTINGS_DAEMON_2_21_91
     git-migration-GNOME_SETTINGS_DAEMON_2_21_91^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-settings-daemon.git

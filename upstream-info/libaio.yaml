@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://pagure.io/libaio.git
 tag_prefix: libaio-
 separator: "."
+git_url: https://pagure.io/libaio.git

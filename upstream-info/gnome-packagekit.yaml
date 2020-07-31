@@ -238,3 +238,4 @@ last_query:
     GNOME_PACKAGEKIT_3_8_2^{}
     GNOME_PACKAGEKIT_3_9_92
     GNOME_PACKAGEKIT_3_9_92^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-packagekit.git

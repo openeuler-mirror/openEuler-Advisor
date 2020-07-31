@@ -3,3 +3,4 @@ version_control: github
 src_repo: liberationfonts/liberation-fonts
 tag_prefix: "^v"
 separator: "."
+git_url: https://github.com/liberationfonts/liberation-fonts.git

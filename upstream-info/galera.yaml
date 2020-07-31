@@ -3,3 +3,4 @@ version_control: github
 src_repo: codership/galera
 tag_prefix: release_
 separator: "."
+git_url: https://github.com/codership/galera.git

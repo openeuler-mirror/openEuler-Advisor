@@ -3,3 +3,4 @@ version_control: gitlab.gnome
 src_repo: cogl
 tag_prefix: 
 separator: "."
+git_url: https://github.com/GNOME/cogl.git

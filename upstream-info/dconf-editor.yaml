@@ -128,3 +128,4 @@ last_query:
     3.35.91^{}
     3.36.0
     3.36.0^{}
+git_url: https://gitlab.gnome.org/GNOME/dconf-editor.git

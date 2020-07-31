@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://git.sr.ht/~kaniini/pkgconf
 tag_prefix: "^pkgconf-"
 separator: "."
+git_url: https://git.sr.ht/~kaniini/pkgconf

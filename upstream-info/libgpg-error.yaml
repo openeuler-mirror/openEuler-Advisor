@@ -3,3 +3,4 @@ version_control: git
 src_repo: https://dev.gnupg.org/source/libgpg-error.git
 tag_prefix: libgpg-error-
 separator: "."
+git_url: https://dev.gnupg.org/source/libgpg-error.git
