@@ -10,7 +10,7 @@ BuildArch:      noarch
 
 Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
-#Requires: pyinstaller python3-flask-session python3-flask-script marshmallow uwsig
+Requires: python-PyInstaller python3-flask-session python3-flask-script python3-marshmallow uwsgi
 
 %description
 Pkgship implements rpm package dependence ,maintainer, patch query and so no.
