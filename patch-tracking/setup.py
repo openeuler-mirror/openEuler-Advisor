@@ -20,8 +20,6 @@ setuptools.setup(
         ('/usr/bin/', ['patch_tracking/cli/patch-tracking-cli']),
         ('/usr/bin/', ['patch_tracking/patch-tracking']),
         ('/usr/bin/', ['patch_tracking/cli/generate_password']),
-        ('/etc/patch-tracking/', ['patch_tracking/self-signed.crt']),
-        ('/etc/patch-tracking/', ['patch_tracking/self-signed.key']),
         ('/usr/lib/systemd/system/', ['patch_tracking/patch-tracking.service']),
     ],
 )

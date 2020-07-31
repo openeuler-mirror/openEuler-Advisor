@@ -78,7 +78,18 @@ pip3 install -I uwsgi
 rpm -ivh patch-tracking-1.0.0-1.oe1.noarch.rpm
 ```
 
-### 3.3 配置
+
+### 3.3 生成证书
+
+```shell script
+openssl req -x509 -days 3650 -subj "/CN=self-signed" \
+-nodes -newkey rsa:4096 -keyout self-signed.key -out self-signed.crt
+```
+
+将 `self-signed.key` 和 `self-signed.crt` 拷贝到 __/etc/patch-tracking__ 目录
+
+
+### 3.4 配置
 
 在配置文件中进行对应参数的配置。
 
@@ -135,7 +146,7 @@ PASSWORD = ""
 
 将`pbkdf2:sha256:150000$w38eLeRm$ebb5069ba3b4dda39a698bd1d9d7f5f848af3bd93b11e0cde2b28e9e34bfbbae`配置到`PASSWORD = ""`引号中。
 
-### 3.4 启动补丁跟踪服务
+### 3.5 启动补丁跟踪服务
 
 可以使用以下两种方式启动服务：
 

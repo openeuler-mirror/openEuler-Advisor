@@ -52,7 +52,5 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/patch-tracking
 /usr/bin/patch-tracking-cli
 /var/patch-tracking/db.sqlite
-/etc/patch-tracking/self-signed.crt
-/etc/patch-tracking/self-signed.key
 /usr/bin/generate_password
 /usr/lib/systemd/system/patch-tracking.service
