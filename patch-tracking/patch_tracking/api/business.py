@@ -37,12 +37,14 @@ def update_tracking(data):
     db.session.commit()
 
 
-def delete_tracking(id_):
+def delete_tracking(repo_, branch_=None):
     """
     delete tracking
     """
-    post = Tracking.query.filter(Tracking.id == id_).one()
-    db.session.delete(post)
+    if branch_:
+        Tracking.query.filter(Tracking.repo == repo_, Tracking.branch == branch_).delete()
+    else:
+        Tracking.query.filter(Tracking.repo == repo_).delete()
     db.session.commit()
 
 

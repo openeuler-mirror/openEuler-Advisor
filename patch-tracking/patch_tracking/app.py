@@ -14,27 +14,26 @@ logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 app = Flask(__name__)
 logger = logging.getLogger(__name__)
 
-app.config.from_pyfile("settings.conf")
-
 
 def check_settings_conf():
     """
     check settings.conf
     """
-    flag = 0
+    setting_error = False
     required_settings = ['LISTEN', 'GITHUB_ACCESS_TOKEN', 'GITEE_ACCESS_TOKEN', 'SCAN_DB_INTERVAL', 'USER', 'PASSWORD']
     for setting in required_settings:
         if setting in app.config:
             if not app.config[setting]:
                 logger.error('%s is empty in settings.conf.', setting)
-                flag = 1
+                setting_error = True
         else:
             logger.error('%s not configured in settings.conf.', setting)
-            flag = 1
-    if flag:
+            setting_error = True
+    if setting_error:
         sys.exit()
 
 
+app.config.from_pyfile("settings.conf")
 check_settings_conf()
 
 GITHUB_ACCESS_TOKEN = app.config['GITHUB_ACCESS_TOKEN']
@@ -53,7 +52,7 @@ app.register_blueprint(tracking, url_prefix="/tracking")
 
 db.init_app(app)
 
-task.job_init(app)
+task.init(app)
 
 if __name__ == "__main__":
     app.run(ssl_context="adhoc")

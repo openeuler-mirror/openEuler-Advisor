@@ -23,7 +23,7 @@ def get_path_content(repo, branch, path):
     return ret
 
 
-def post_create_branch(repo, branch, new_branch):
+def create_branch(repo, branch, new_branch):
     """
     create branch
     """
@@ -37,7 +37,7 @@ def post_create_branch(repo, branch, new_branch):
     return response.json()
 
 
-def post_upload_patch(data):
+def upload_patch(data):
     """
     upload patch
     """
@@ -54,7 +54,7 @@ def post_upload_patch(data):
     return response.json()
 
 
-def post_create_spec(repo, branch, spec_content, cur_time):
+def create_spec(repo, branch, spec_content, cur_time):
     """
     create spec
     """
@@ -72,7 +72,7 @@ def post_create_spec(repo, branch, spec_content, cur_time):
     return response.json()
 
 
-def put_upload_spec(repo, branch, cur_time, spec_content, spec_sha):
+def upload_spec(repo, branch, cur_time, spec_content, spec_sha):
     """
     upload spec
     """
@@ -99,7 +99,7 @@ def put_upload_spec(repo, branch, cur_time, spec_content, spec_sha):
     return response.json()
 
 
-def post_create_issue(repo, issue_body, cur_time):
+def create_gitee_issue(repo, issue_body, cur_time):
     """
     create issue
     """
@@ -114,7 +114,7 @@ def post_create_issue(repo, issue_body, cur_time):
     return 'error', response.json()
 
 
-def post_create_pull_request(repo, branch, patch_branch, issue_num, cur_time):
+def create_pull_request(repo, branch, patch_branch, issue_num, cur_time):
     """
     create pull request
     """

@@ -40,7 +40,7 @@ class ResponseCode:
     }
 
     @classmethod
-    def gen_dict(cls, code, data=None):
+    def ret_message(cls, code, data=None):
         """
         generate response dictionary
         """

@@ -4,42 +4,39 @@ load job/task of tracking
 import datetime
 import logging
 from patch_tracking.task import scheduler
-from patch_tracking.task import task_apscheduler
+from patch_tracking.database.models import Tracking
 from patch_tracking.util.github_api import GitHubApi
 from patch_tracking.api.business import update_tracking
 
 logger = logging.getLogger(__name__)
 
 
-def job_init(app):
+def init(app):
     """
-    jobs init
+    scheduler jobs init
     """
     scan_db_interval = app.config['SCAN_DB_INTERVAL']
+    scheduler.init_app(app)
+    scheduler.add_job(
+        id='Add Tracking job - Update DB',
+        func=patch_tracking_task,
+        trigger='interval',
+        args=(app, ),
+        seconds=int(scan_db_interval),
+        next_run_time=datetime.datetime.now()
+    )
 
-    with app.app_context():
-        new_track = task_apscheduler.get_track_from_db()
-        scheduler.init_app(app)
-        scheduler.add_job(
-            id='Add Tracking job - Update DB',
-            func=load,
-            trigger='interval',
-            args=(new_track, ),
-            seconds=int(scan_db_interval),
-            next_run_time=datetime.datetime.now()
-        )
+    scheduler.add_job(
+        id=str("Check empty commitID"),
+        func=check_empty_commit_id,
+        trigger='interval',
+        args=(app, ),
+        seconds=600,
+        next_run_time=datetime.datetime.now(),
+        misfire_grace_time=300,
+    )
 
-        scheduler.add_job(
-            id=str("Check empty commitID"),
-            func=get_commit_id_empty,
-            trigger='interval',
-            args=(new_track, app),
-            seconds=600,
-            next_run_time=datetime.datetime.now(),
-            misfire_grace_time=300,
-        )
-
-        scheduler.start()
+    scheduler.start()
 
 
 def add_job(job_id, func, args):
@@ -52,11 +49,12 @@ def add_job(job_id, func, args):
     )
 
 
-def get_commit_id_empty(new_track, flask_app):
+def check_empty_commit_id(flask_app):
     """
     check commit ID for empty tracking
     """
     with flask_app.app_context():
+        new_track = get_track_from_db()
         github_api = GitHubApi()
         for item in new_track:
             if item.scm_commit:
@@ -81,17 +79,29 @@ def get_commit_id_empty(new_track, flask_app):
                 )
 
 
-def load(all_track):
+def get_track_from_db():
     """
-    load trackings to jobs
+    query all trackings from database
     """
-    all_job_id = list()
-    for item in scheduler.get_jobs():
-        all_job_id.append(item.id)
-    for track in all_track:
-        if track.branch.split('/')[0] != 'patch-tracking':
-            job_id = str(track.repo + ":" + track.branch)
-            if job_id not in all_job_id:
-                add_job(
-                    job_id=job_id, func='patch_tracking.task.task_apscheduler:upload_patch_to_gitee', args=(track, )
-                )
+    all_track = Tracking.query.filter_by(enabled=True)
+    return all_track
+
+
+def patch_tracking_task(flask_app):
+    """
+    add patch trackings to jobs
+    """
+    with flask_app.app_context():
+        all_track = get_track_from_db()
+        all_job_id = list()
+        for item in scheduler.get_jobs():
+            all_job_id.append(item.id)
+        for track in all_track:
+            if track.branch.split('/')[0] != 'patch-tracking':
+                job_id = str(track.repo + ":" + track.branch)
+                if job_id not in all_job_id:
+                    add_job(
+                        job_id=job_id,
+                        func='patch_tracking.task.task_apscheduler:upload_patch_to_gitee',
+                        args=(track, )
+                    )
