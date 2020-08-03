@@ -64,8 +64,8 @@
 ### 3.1 安装依赖
 
 ```shell script
-yum install -y gcc python3-devel openssl-devel
-pip3 install flask flask-sqlalchemy flask-apscheduler requests flask_httpauth
+yum install -y gcc gcc-c++ python3-devel openssl-devel
+pip3 install flask flask-sqlalchemy flask-apscheduler requests flask_httpauth pandas
 pip3 install -I uwsgi
 ```
 

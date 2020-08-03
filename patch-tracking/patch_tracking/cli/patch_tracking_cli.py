@@ -333,7 +333,8 @@ parser_query.add_argument("--table", required=True, choices=["tracking", "issue"
 parser_query.add_argument("--repo", help="source package repository")
 parser_query.add_argument("--branch", help="source package branch")
 
-if __name__ == "__main__":
+
+def main():
     args_ = parser.parse_args()
     if args_.subparser_name:
         if args_.func(args_) != "success":
@@ -343,3 +344,7 @@ if __name__ == "__main__":
     else:
         parser.print_help()
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
