@@ -81,13 +81,21 @@ def list_so_files(path):
     """
     Generate a list of all .so files in the directory.
     """
+    # known suffix of exception
+    # we cannot rely on number suffix for some .so files use complex version scheme.
+    exception_list = ["hmac"]
     so_files = set()
     for dirpath, dirnames, files in os.walk(path):
         for filename in files:       
             fp = os.path.join(dirpath, filename)
-            if ".so" in filename and not os.path.islink(fp):
-                #fp = os.path.join(dirpath, filename)
+            if os.path.islink(fp):
+                continue
+            if filename.split(".")[-1] in exception_list:
+                continue
+            if ".so" in filename:
+                logging.debug(".so file found:%s", fp)
                 so_files.add(fp)
+    logging.debug("")
     return so_files
 
 def find_all_so_file(path1, path2):
