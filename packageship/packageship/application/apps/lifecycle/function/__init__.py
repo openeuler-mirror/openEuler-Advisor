@@ -11,5 +11,7 @@ def start_tasks():
         Start of timing tasks, used to register timing tasks that need to be executed
 
     """
-    app.apscheduler.add_job(  # pylint: disable=no-member
-        func=update_pkg_info, id="update_package_data", trigger="interval", seconds=30)
+    # app.apscheduler.add_job(  # pylint: disable=no-member
+    #     func=update_pkg_info, id="update_package_data", trigger="interval", day_of_week=0)
+
+    update_pkg_info()

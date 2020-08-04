@@ -211,6 +211,7 @@ class DBHelper():
             self.session.add(entity)
 
         except SQLAlchemyError as sql_error:
+            self.session.rollback()
             raise Error(sql_error)
         else:
             self.session.commit()
@@ -246,6 +247,7 @@ class DBHelper():
                 dicts
             )
         except SQLAlchemyError as sql_error:
+            self.session.rollback()
             raise Error(sql_error)
         else:
             self.session.commit()

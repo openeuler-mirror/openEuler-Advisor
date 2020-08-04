@@ -14,6 +14,7 @@ from packageship.application.models.package import packages_issue
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error, ContentNoneException
 from .base import Base
+from .gitee import Gitee
 
 
 class ParseYaml():
@@ -88,14 +89,60 @@ class ParseYaml():
         self._parse_warehouse_info()
         tags = self._yaml_content.get('git_tag', None)
         self._parse_tags_content(tags)
-        # TODO 获取issue列表数据，然后进行保存
         # Save data to the database
+        # issue_list = Gitee(self.pkg, self._table_name, self._owner,
+        #                    self._repo).execute_request_content_save()
+
+        issue_list = [
+            {
+                'issue_id': 'I1PGWQ',
+                'issue_url': 'https://gitee.com/openeuler/openEuler-Advisor/issues/I1PGWQ',
+                'issue_content': ' get_yaml 接口的返回值类型有str和bool',
+                'issue_status': 'open',
+                'issue_title': '测试1',
+                'name': 'kata-proxy',
+                'issue_download': '',
+                'issue_type': '需求',
+                'related_release': '11'
+
+            },
+            {
+                'issue_id': 'I1OQW0',
+                'issue_url': 'https://gitee.com/openeuler/openEuler-Advisor/issues/I1OQW0',
+                'issue_content': '【CI加固】对',
+                'issue_status': 'open',
+                'issue_title': '测试2',
+                'name': 'kata-proxy',
+                'issue_download': '',
+                'issue_type': '安全',
+                'related_release': '223'
+            }
+        ]
         try:
             with DBHelper(db_name="lifecycle") as database:
                 database.add(self.pkg)
-                database.batch_add([], packages_issue)
+                self._save_issues(issue_list, database)
         except (Error, ContentNoneException, SQLAlchemyError) as error:
             self.base.log.logger.error(error)
+
+    def _save_issues(self, issue_list, database):
+        """
+            Save the obtained issue information
+
+        """
+        issue_ids = [issue['issue_id'] for issue in issue_list]
+        exist_issues = database.session.query(packages_issue).filter(
+            packages_issue.issue_id.in_(issue_ids)).all()  # pylint: disable=protected-access
+        add_issue_list = []
+        for issue_item in issue_list:
+            issue_model = [
+                issue for issue in exist_issues if issue.issue_id == issue_item['issue_id']]
+            if issue_model:
+                for key, val in issue_item.items():
+                    setattr(issue_model[0], key, val)
+            else:
+                add_issue_list.append(issue_item)
+        database.batch_add(add_issue_list, packages_issue)
 
     def _parse_warehouse_info(self):
         """
@@ -141,7 +188,7 @@ def update_pkg_info():
         base_control = Base()
         pool = ThreadPoolExecutor(max_workers=10)
         with DBHelper(db_name="lifecycle") as database:
-            for table_name in filter(lambda x: x.endswith("_pkg"), database.engine.table_names()):
+            for table_name in filter(lambda x: x != 'packages_issue', database.engine.table_names()):
                 cls_model = type("packages", (packages, DBHelper.BASE), {
                     '__tablename__': table_name})
                 # Query a specific table

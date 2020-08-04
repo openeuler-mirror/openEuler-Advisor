@@ -621,7 +621,7 @@ class UpdatePackageCommand(PkgshipCommand):
         Raises:
             ConnectionError: Request connection error
         """
-        _url = self.write_host + '/packages/findByPackName'
+        _url = self.write_host + '/packages/packageInfo'
         try:
             response = requests.put(
                 _url, data=json.dumps({'sourceName': params.packagename,

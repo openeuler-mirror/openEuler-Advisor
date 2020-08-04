@@ -182,3 +182,5 @@ class packages_issue(DBHelper.BASE):  # pylint: disable=C0103,R0903
     issue_status = Column(String(20), nullable=True)
     name = Column(String(500), nullable=False)
     issue_download = Column(String(500), nullable=False)
+    issue_type = Column(String(50), nullable=True)
+    related_release = Column(String(500), nullable=True)
