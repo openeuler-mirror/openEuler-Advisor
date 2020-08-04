@@ -261,7 +261,21 @@ patch-tracking-cli query --server <LISTEN> --table issue
 patch-tracking-cli query --server 127.0.0.1:5001 --table issue
 ```
 
-### 4.4 码云查看 issue 及 PR
+### 4.4 删除 Tracking 跟踪项数据
+
+```shell script
+patch-tracking-cli delete --server SERVER --user USER --password PWD --table TABLE --repo REPO [--branch BRANCH]
+```
+
+可以删除指定repo和branch的单条数据；也可直接删除指定repo下所有branch的数据。
+
+
+例如：
+```shell script
+patch-tracking-cli delete --server 127.0.0.1:5001 --user admin --password Test@123 --repo testPatchTrack/testPatch1 --branch master
+```
+
+### 4.5 码云查看 issue 及 PR
 
 登录Gitee上进行跟踪的软件项目，在该项目的Issues和Pull Requests页签下，可以查看到名为`[patch tracking] TIME`，例如` [patch tracking] 20200713101548`的条目。
 
