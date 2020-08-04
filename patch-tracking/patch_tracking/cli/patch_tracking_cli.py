@@ -119,6 +119,9 @@ def params_input_track(params, file_path=None):
     """
     load tracking from command line arguments
     """
+    if not check_add_param(params):
+        return 'error', 'Check input params error'
+
     if add_param_check_url(params, file_path) == 'error':
         return 'error', 'Check input params error.'
 
@@ -154,6 +157,19 @@ def params_input_track(params, file_path=None):
 
     print("status_code: {}, return text: {}".format(ret.status_code, ret.text))
     return 'error', 'Unexpected Error.'
+
+
+def check_add_param(params):
+    success = True
+    required_params = ["repo", "branch", "scm_repo", "scm_branch", "version_control", "enabled"]
+    miss_params = list()
+    for param in required_params:
+        if param not in params or not params[param]:
+            miss_params.append(param)
+            success = False
+    if not success:
+        print("patch_tracking_cli add: error: the following arguments are required:  --{}".format(", --".join(miss_params)))
+    return success
 
 
 def add(args):
