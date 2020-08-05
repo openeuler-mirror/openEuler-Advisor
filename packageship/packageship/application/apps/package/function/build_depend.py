@@ -80,9 +80,9 @@ class BuildDepend():
         res_status, build_list = self.search_db.get_build_depend(pkg_list)
 
         if not build_list:
-            return res_status if res_status == \
-                                 ResponseCode.DIS_CONNECTION_DB else \
+            return res_status if res_status == ResponseCode.DIS_CONNECTION_DB else \
                 ResponseCode.PACK_NAME_NOT_FOUND
+
         # create root node and get next search list
         search_list = self._create_node_and_get_search_list(build_list, pkg_list)
 
@@ -153,7 +153,7 @@ class BuildDepend():
                     self.result_dict[obj.bin_name] = [
                         obj.source_name,
                         obj.version,
-                        obj.db_name,
+                        self.search_db.binary_search_database_for_first_time(obj.bin_name),
                         [
                             [obj.search_name, 'build']
                         ]
@@ -191,19 +191,21 @@ class BuildDepend():
             return
 
             # generate data content
+        search_name_set = set()
         for obj in bin_info_lis:
+
+            search_name_set.add(obj.search_name)
+            if obj.search_name not in self.source_dict:
+                self.source_dict[obj.search_name] = [obj.db_name, obj.search_version]
 
             if not obj.bin_name:
                 continue
-            # for first loop, init the source_dict
-            if not self.source_dict:
-                for src_name in pkg_name_li:
-                    self.source_dict[src_name] = [obj.db_name, obj.search_version]
+
             if obj.bin_name not in self.result_dict:
                 self.result_dict[obj.bin_name] = [
                     obj.source_name if obj.source_name else None,
                     obj.version if obj.version else None,
-                    obj.db_name if obj.db_name else "NOT_FOUND",
+                    self.search_db.binary_search_database_for_first_time(obj.bin_name),
                     [
                         [obj.search_name, "build"]
                     ]
@@ -216,11 +218,14 @@ class BuildDepend():
 
             if obj.source_name and \
                     obj.source_name not in self.source_dict and \
-                        obj.source_name not in self.history_dicts:
-                self.source_dict[obj.source_name] = [obj.db_name,
-                                                     obj.version]
+                    obj.source_name not in self.history_dicts:
                 next_src_set.add(obj.source_name)
 
+        not_found_pkg = set(pkg_name_li) - search_name_set
+        for pkg_name in not_found_pkg:
+            if pkg_name not in self.source_dict:
+                self.source_dict[pkg_name] = ['NOT FOUND', 'NOT FOUND']
+        not_found_pkg.clear()
         self.self_build(next_src_set)
 
         return
