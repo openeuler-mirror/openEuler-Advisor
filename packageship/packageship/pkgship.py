@@ -1196,7 +1196,7 @@ class SingleCommand(PkgshipCommand):
             ConnectionError: requests connection error
         """
         _url = self.read_host + \
-            '/packages/findByPackName?dbName={db_name}&sourceName={packagename}' \
+            '/packages/packageInfo?dbName={db_name}&sourceName={packagename}' \
                    .format(db_name=params.db, packagename=params.packagename)
         try:
             response = requests.get(_url)

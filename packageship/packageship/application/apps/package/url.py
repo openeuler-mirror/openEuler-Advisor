@@ -10,7 +10,7 @@ urls = [
 
 
     # Query and update a package info
-    (view.SinglePack, '/packages/findByPackName',
+    (view.SinglePack, '/packages/packageInfo',
      {'query': ('GET'), 'write': ('PUT')}),
 
     # Query a package's install depend(support querying in one or more databases)
