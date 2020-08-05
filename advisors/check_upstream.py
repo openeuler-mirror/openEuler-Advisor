@@ -36,8 +36,8 @@ def load_last_query_result(info, force_reload=False):
         else:
             return ""
 
-def clean_tags(tags, info):
 
+def clean_tags(tags, info):
     if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
         result_list = [pattern_regex.sub("\\1", x) for x in tags]
@@ -50,7 +50,7 @@ def clean_tags(tags, info):
     if info.get("separator", ".") != "." and info.get("separator", ".") is not None:
         separator_regex = re.compile(info["separator"])
         result_list = [separator_regex.sub(".", x) for x in result_list]
-
+    
     # Xinwei used to mis-spell 'separator'. 
     # Followings are kept for compatability until all yaml files are fixed.
     if info.get("seperator", ".") != "." and info.get("seperator", ".") is not None:
@@ -58,7 +58,7 @@ def clean_tags(tags, info):
         result_list = [separator_regex.sub(".", x) for x in result_list]
 
     result_list = [x for x in result_list if x[0].isdigit()]
-
+    
     return result_list
 
 
