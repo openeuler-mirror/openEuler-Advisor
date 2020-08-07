@@ -122,7 +122,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     in_changelog = False
     for l in spec_str.splitlines():
         if l.startswith("Release:"):
-            fn.write("Release:\t0\n")
+            fn.write(re.sub("\d", "1", l)+"\n")
             continue
         if l.startswith("Source:") or l.startswith("Source0:"):
             if src_fn:
@@ -139,8 +139,8 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
         if nl.startswith("%changelog"):
             in_changelog = True
             d = datetime.date.today()
-            fn.write(d.strftime("* %a %b %d %Y SimpleUpdate Robot <tc@openeuler.org> - {ver}-0\n").format(ver=n_ver))
-            fn.write("- Update to version {ver}\n".format(ver=n_ver))
+            fn.write(d.strftime("* %a %b %d %Y SimpleUpdate Robot <tc@openeuler.org> - {ver}-1\n").format(ver=n_ver))
+            fn.write("- Upgrade to version {ver}\n".format(ver=n_ver))
             fn.write("\n")
     fn.close()
 
