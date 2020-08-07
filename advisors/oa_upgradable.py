@@ -55,7 +55,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
         return None
 
     vc_type = pkg_info.get("version_control", None)
-    if vc_type == None:
+    if vc_type is None:
         print("Missing version_control in YAML file")
         return None
     if vc_type == "hg":
