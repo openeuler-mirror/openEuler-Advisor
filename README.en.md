@@ -1,6 +1,6 @@
-# openEuler-Advisor
+## openEuler-Advisor
 
-## Description
+### Description
 Collection of automation tools for easily maintaining openEuler
 
 | Pharse           | Rules           | Requires  | Automatic  | Data & Tool   |
@@ -17,8 +17,8 @@ Collection of automation tools for easily maintaining openEuler
 | 5.Release        | TODO       |   |   |   
 
 
-## Software Metadata
-### Configs
+### Software Metadata
+#### Configs
 ```
 version_control: git
 src_repo: xxxx
@@ -40,7 +40,7 @@ For example, if a software version is 1.0.0, the tag might be v1.0.0. `v` here i
 **separator**
 The separator of a software's version name. For example, if a software version is 1.0.0, the separator is `.`.
 
-### How to add a software metadata file
+#### How to add a software metadata file
 0. Please check if the metafile is already exist
 1. Copy the [Template](./template.yaml) to [Database Dir](./upstream-info)
 2. Rename the file name, it is suggested that the file name SHOULD be same with the repo name in `src-openeuler`.
@@ -50,11 +50,41 @@ The separator of a software's version name. For example, if a software version i
 
 DONE! than you can create a Pull Request.
 
-### Metadata Database
+#### Metadata Database
 [Database](./upstream-info)  
+	
+	
+#### Enviroment Setting
+##### 1. necessary packages install
+	pip3 install python-rpm-spec (ver:0.9)
+	pip3 install PyYAML (ver:5.3.1)
+	
+##### 2. json file config
+	~/.gitee_personal_token.json
+	content format: {"user":"user_name","access_token":"token_passwd"}
+	
+	setting personal access token: https://gitee.com/profile/personal_access_tokens
+	
+#### Use Instructions
+##### 1. simple-update-root.py
+	single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
+	ep: python3 simple-update-root.py -u pkg snappy master
 
-
-## Contribution
+	single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
+	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+	
+	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
+	ep: python3 simple-update-root.py -u repo src_openEuler master
+	
+##### 2. oa_upgradable.py 
+	display all tags of target package: python3 oa_upgradable.py pkg_name
+	ep: python3 oa_upgradable.py glibc
+	
+#### Consultation for advisor:
+	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
+	
+	
+### Contribution
 
 1.  Fork the repository
 2.  Create Feat_xxx branch
