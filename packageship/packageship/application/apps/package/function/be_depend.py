@@ -70,68 +70,54 @@ class BeDepend():
                 ]
                 self.source_name_set.add(self.source_name)
                 self.package_bedepend(
-                    [src_obj.id], data_base, package_type='src')
+                    [self.source_name], data_base, package_type='src')
 
         return self.result_dict
 
-    def package_bedepend(self, pkg_id_list, data_base, package_type):
+    def package_bedepend(self, pkg_name_list, data_base, package_type):
         """
             Description: Query the dependent function
             Args:
-                pkg_id_list:source or binary packages id
+                pkg_name_list:source or binary packages name
                 data_base: database
                 package_type: package type
             Returns:
             Raises:
                 SQLAlchemyError: Database connection exception
         """
-        search_set = set(pkg_id_list)
-        id_in = literal_column('id').in_(search_set)
+        search_set = set(pkg_name_list)
         # package_type
         if package_type == 'src':
-            sql_str = text("""
-                        SELECT b1.name AS search_bin_name,
-                        b1.version AS search_bin_version,
-                        src.NAME AS source_name,
-                        b2.name AS bin_name,
-                        b2.id AS bin_id,
-                        s1.name AS bebuild_src_name,
-                        s1.id AS bebuild_src_id,
-                        s2.name AS install_depend_src_name,
-                        s2.id AS  install_depend_src_id
-                        FROM
-                        ( SELECT id,NAME FROM src_pack WHERE {} ) src
-                        LEFT JOIN bin_pack b1 ON b1.srcIDkey = src.id
-                        LEFT JOIN pack_provides ON pack_provides.binIDkey = b1.id
-                        LEFT JOIN pack_requires ON pack_requires.depProIDkey = pack_provides.id
-                        LEFT JOIN src_pack s1 ON s1.id = pack_requires.srcIDkey
-                        LEFT JOIN bin_pack b2 ON b2.id = pack_requires.binIDkey
-                        LEFT JOIN src_pack s2 ON s2.id = b2.srcIDkey;""".format(id_in))
+            name_in = literal_column('src_name').in_(search_set)
         if package_type == 'bin':
-            sql_str = text("""
-                        SELECT b1.name AS search_bin_name,
-                        b1.version AS search_bin_version,
-                        s3.NAME AS source_name,
-                        b2.name AS bin_name,
-                        b2.id AS bin_id,
-                        s1.name AS bebuild_src_name,
-                        s1.id AS bebuild_src_id,
-                        s2.name AS install_depend_src_name,
-                        s2.id AS  install_depend_src_id
-                        FROM
-                        (SELECT id,NAME,version,srcIDkey FROM bin_pack WHERE {} ) b1
-                        LEFT JOIN src_pack s3 ON s3.id = b1.srcIDkey
-                        LEFT JOIN pack_provides ON pack_provides.binIDkey = b1.id
-                        LEFT JOIN pack_requires ON pack_requires.depProIDkey = pack_provides.id
-                        LEFT JOIN src_pack s1 ON s1.id = pack_requires.srcIDkey
-                        LEFT JOIN bin_pack b2 ON b2.id = pack_requires.binIDkey
-                        LEFT JOIN src_pack s2 ON s2.id = b2.srcIDkey;
-                                """.format(id_in))
+            name_in = literal_column('name').in_(search_set)
+
+        sql_str = text("""
+            SELECT b1.name AS search_bin_name,
+            b1.version AS search_bin_version,
+            b1.src_name AS source_name,
+            b2.name AS bin_name,
+            s1.name AS bebuild_src_name,
+            b2.src_name AS install_depend_src_name
+            FROM ( SELECT pkgKey,src_name,name,version FROM bin_pack WHERE {} ) b1
+            LEFT JOIN bin_provides ON bin_provides.pkgKey = b1.pkgKey
+            LEFT JOIN bin_requires br ON br.name = bin_provides.name
+            LEFT JOIN src_requires sr ON sr.name = bin_provides.name
+            LEFT JOIN src_pack s1 ON s1.pkgKey = sr.pkgKey
+            LEFT JOIN bin_pack b2 ON b2.pkgKey = br.pkgKey;""".format(name_in))
+
         try:
-            result = data_base.session.execute(
-                sql_str, {
-                    'id_{}'.format(i): v for i, v in enumerate(
-                        search_set, 1)}).fetchall()
+            if package_type == 'src':
+                result = data_base.session.execute(
+                    sql_str, {
+                        'src_name_{}'.format(i): v for i, v in enumerate(
+                            search_set, 1)}).fetchall()
+            if package_type == 'bin':
+                result = data_base.session.execute(
+                    sql_str, {
+                        'name_{}'.format(i): v for i, v in enumerate(
+                            search_set, 1)}).fetchall()
+
         except SQLAlchemyError as sql_err:
             current_app.logger.error(sql_err)
             return ResponseCode.response_json(ResponseCode.CONNECT_DB_ERROR)
@@ -139,8 +125,8 @@ class BeDepend():
         if result is None:
             return
         # Source and binary packages that were found to be dependent
-        source_id_list = []
-        bin_id_list = []
+        source_name_list = []
+        bin_name_list = []
         for obj in result:
             if obj.source_name is None:
                 source_name = 'NOT FOUND'
@@ -160,7 +146,7 @@ class BeDepend():
 
                 if obj.bebuild_src_name not in self.source_name_set:
                     self.source_name_set.add(obj.bebuild_src_name)
-                    source_id_list.append(obj.bebuild_src_id)
+                    source_name_list.append(obj.bebuild_src_name)
 
             if obj.bin_name:
                 # Determine if the bin package has been checked
@@ -176,20 +162,34 @@ class BeDepend():
 
                 if obj.bin_name not in self.bin_name_set:
                     self.bin_name_set.add(obj.bin_name)
-                    bin_id_list.append(obj.bin_id)
+                    bin_name_list.append(obj.bin_name)
 
-                    # withsubpack=1
+                    # With_sub_pack=1
                     if self.with_sub_pack == "1":
                         if obj.install_depend_src_name not in self.source_name_set:
                             self.source_name_set.add(
                                 obj.install_depend_src_name)
-                            source_id_list.append(obj.install_depend_src_id)
+                            source_name_list.append(
+                                obj.install_depend_src_name)
 
-        if len(source_id_list) != 0:
+        # Sqlite older versions default to a single query with a maximum of 999
+        # parameters
+        if 0 < len(source_name_list) < 999:
             self.package_bedepend(
-                source_id_list, data_base, package_type="src")
-        if len(bin_id_list) != 0:
-            self.package_bedepend(bin_id_list, data_base, package_type="bin")
+                source_name_list, data_base, package_type="src")
+        elif len(source_name_list) >= 999:
+            count = len(source_name_list) // 999
+            for i in range(count + 1):
+                self.package_bedepend(
+                    source_name_list[999 * i:999 * (i + 1)], data_base, package_type="src")
+
+        if 0 < len(bin_name_list) < 999:
+            self.package_bedepend(bin_name_list, data_base, package_type="bin")
+        elif len(bin_name_list) >= 999:
+            count = len(bin_name_list) // 999
+            for i in range(count + 1):
+                self.package_bedepend(
+                    bin_name_list[999 * i:999 * (i + 1)], data_base, package_type="bin")
 
     def make_dicts(self, key, source_name, version, parent_node, be_type):
         """

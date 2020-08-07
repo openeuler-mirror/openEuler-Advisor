@@ -2,33 +2,45 @@
 """
 Description: Database entity model mapping
 """
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
 class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
-    Description: functional description:Source package model
+        Source package model
     """
 
     __tablename__ = 'src_pack'
 
-    id = Column(Integer, primary_key=True)
-
-    name = Column(String(500), nullable=True)
-
-    version = Column(String(200), nullable=True)
-
-    license = Column(String(500), nullable=True)
-
-    sourceURL = Column(String(200), nullable=True)
-
-    downloadURL = Column(String(200), nullable=True)
-
-    Maintaniner = Column(String(50), nullable=True)
-
-    MaintainLevel = Column(String(20), nullable=True)
+    pkgKey = Column(Integer, primary_key=True)
+    pkgId = Column(String(500), nullable=True)
+    name = Column(String(200), nullable=True)
+    arch = Column(String(200), nullable=True)
+    version = Column(String(500), nullable=True)
+    epoch = Column(String(200), nullable=True)
+    release = Column(String(500), nullable=True)
+    summary = Column(String(500), nullable=True)
+    description = Column(String(500), nullable=True)
+    url = Column(String(500), nullable=True)
+    time_file = Column(Integer, nullable=True)
+    time_build = Column(Integer, nullable=True)
+    rpm_license = Column(String(500), nullable=True)
+    rpm_vendor = Column(String(500), nullable=True)
+    rpm_group = Column(String(500), nullable=True)
+    rpm_buildhost = Column(String(500), nullable=True)
+    rpm_sourcerpm = Column(String(500), nullable=True)
+    rpm_header_start = Column(Integer, nullable=True)
+    rpm_header_end = Column(Integer, nullable=True)
+    rpm_packager = Column(String(500), nullable=True)
+    size_package = Column(Integer, nullable=True)
+    size_installed = Column(Integer, nullable=True)
+    size_archive = Column(Integer, nullable=True)
+    location_href = Column(String(500), nullable=True)
+    location_base = Column(String(500), nullable=True)
+    checksum_type = Column(String(500), nullable=True)
+    maintaniner = Column(String(100), nullable=True)
+    maintainlevel = Column(String(100), nullable=True)
 
 
 class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
@@ -37,48 +49,81 @@ class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
     __tablename__ = 'bin_pack'
 
-    id = Column(Integer, primary_key=True)
-
+    pkgKey = Column(Integer, primary_key=True)
+    pkgId = Column(String(500), nullable=True)
     name = Column(String(500), nullable=True)
+    arch = Column(String(500), nullable=True)
+    version = Column(String(500), nullable=True)
+    epoch = Column(String(500), nullable=True)
+    release = Column(String(500), nullable=True)
+    summary = Column(String(500), nullable=True)
+    description = Column(String(500), nullable=True)
+    url = Column(String(500), nullable=True)
+    time_file = Column(Integer, nullable=True)
+    time_build = Column(Integer, nullable=True)
+    rpm_license = Column(String(500), nullable=True)
+    rpm_vendor = Column(String(500), nullable=True)
+    rpm_group = Column(String(500), nullable=True)
+    rpm_buildhost = Column(String(500), nullable=True)
+    rpm_sourcerpm = Column(String(500), nullable=True)
+    rpm_header_start = Column(Integer, nullable=True)
+    rpm_header_end = Column(Integer, nullable=True)
+    rpm_packager = Column(String(500), nullable=True)
+    size_package = Column(Integer, nullable=True)
+    size_installed = Column(Integer, nullable=True)
+    size_archive = Column(Integer, nullable=True)
+    location_href = Column(String(500), nullable=True)
+    location_base = Column(String(500), nullable=True)
+    checksum_type = Column(String(500), nullable=True)
+    src_name = Column(String(500), nullable=True)
 
-    version = Column(String(200), nullable=True)
 
-    srcIDkey = Column(Integer, ForeignKey('src_pack.id'))
-
-    src_pack = relationship('src_pack', backref="bin_pack")
-
-
-class pack_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class bin_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
-    functional description:
+        Binary package dependent package entity model
     """
 
-    __tablename__ = 'pack_requires'
+    __tablename__ = 'bin_requires'
 
     id = Column(Integer, primary_key=True)
-
-    name = Column(String(500), nullable=True)
-
-    # depProIDkey = Column(Integer, ForeignKey(
-    #     'pack_provides.id'), nullable=True)
-
-    depProIDkey = Column(Integer)
-    srcIDkey = Column(Integer, ForeignKey('src_pack.id'), nullable=True)
-
-    binIDkey = Column(Integer, ForeignKey('bin_pack.id'), nullable=True)
+    name = Column(String(200), nullable=True)
+    flags = Column(String(200), nullable=True)
+    epoch = Column(String(200), nullable=True)
+    version = Column(String(500), nullable=True)
+    release = Column(String(200), nullable=True)
+    pkgKey = Column(Integer, nullable=True)
+    pre = Column(String(20), nullable=True)
 
 
-class pack_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class src_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
-    functional description:
+        Source entity package dependent package entity model
     """
-    __tablename__ = 'pack_provides'
+    __tablename__ = 'src_requires'
 
     id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=True)
+    flags = Column(String(200), nullable=True)
+    epoch = Column(String(200), nullable=True)
+    version = Column(String(500), nullable=True)
+    release = Column(String(200), nullable=True)
+    pkgKey = Column(Integer, nullable=True)
+    pre = Column(String(20), nullable=True)
 
-    name = Column(String(500), nullable=True)
 
-    binIDkey = Column(Integer, ForeignKey('bin_pack.id'))
+class bin_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
+    """
+        Component entity model provided by binary package
+    """
+    __tablename__ = 'bin_provides'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=True)
+    flags = Column(String(200), nullable=True)
+    epoch = Column(String(200), nullable=True)
+    version = Column(String(500), nullable=True)
+    release = Column(String(200), nullable=True)
+    pkgKey = Column(Integer, nullable=True)
 
 
 class maintenance_info(DBHelper.BASE):  # pylint: disable=C0103,R0903
