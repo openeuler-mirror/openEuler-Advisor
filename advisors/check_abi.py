@@ -328,7 +328,7 @@ def process_with_so(config):
     os.chdir(work_path)
     logging.debug("\n----begin abidiff with .so working in path:%s----", os.getcwd())
     
-    so_base_name = os.path.basename(old_so_path).split('.')[0]
+    so_base_name = os.path.basename(so_path[0]).split('.')[0]
     if config.debuginfo_path:
         debuginfo_path = list(map(os.path.abspath, config.debuginfo_path))
     else:
