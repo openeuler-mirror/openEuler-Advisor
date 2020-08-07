@@ -80,7 +80,7 @@ def update_check(spec, o_ver, n_ver):
         return False
 
 
-def fork_clone_repo(gt, repo):
+def fork_clone_repo(gt, repo, br):
     """
     Fork repo from src-openEuler to private repository, then clone it to local
     """
@@ -90,6 +90,7 @@ def fork_clone_repo(gt, repo):
     name = gt.token["user"]
     subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name, pkg=repo)])
     os.chdir(repo)
+    subprocess.call(["git", "checkout", "{branch}".format(branch=br)])
 
 
 def download_src(gt, spec, o_ver, n_ver):
@@ -169,7 +170,7 @@ def auto_update_pkg(gt, u_branch, u_pkg):
         print("Only support master and LTS version upgrade.")
         sys.exit(1)
 
-    fork_clone_repo(gt, u_pkg)
+    fork_clone_repo(gt, u_pkg, u_branch)
 
     if not update_check(pkg_spec, pkg_ver, rec_up_ver):
         sys.exit(1)
@@ -214,7 +215,7 @@ def auto_update_repo(gt, u_branch, u_repo):
             print("Only support master and LTS version upgrade.")
             sys.exit(1)
 
-        fork_clone_repo(gt, pkg_name)
+        fork_clone_repo(gt, pkg_name, u_branch)
 
         if not update_check(pkg_spec, pkg_ver, rec_up_ver):
             continue
@@ -255,7 +256,7 @@ if __name__ == "__main__":
         cur_version = replace_macros(spec_file.version, spec_file)
 
         if args.fork_then_clone:
-            fork_clone_repo(user_gitee, args.repo_pkg)
+            fork_clone_repo(user_gitee, args.repo_pkg, args.branch)
 
         if args.download or args.create_spec:
             if not args.new_version:
