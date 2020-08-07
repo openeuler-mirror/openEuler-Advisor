@@ -54,7 +54,10 @@ def get_ver_tags(gt, repo, cwd_path=None):
     else:
         return None
 
-    vc_type = pkg_info["version_control"]
+    vc_type = pkg_info.get("version_control", None)
+    if vc_type == None:
+        print("Missing version_control in YAML file")
+        return None
     if vc_type == "hg":
         tags = check_upstream.check_hg(pkg_info)
     elif vc_type == "github":
@@ -71,6 +74,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
         tags = check_upstream.check_pypi(pkg_info)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
+        return None
 
     excpt_list = _get_rec_excpt()
     if repo in excpt_list:
