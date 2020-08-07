@@ -110,3 +110,16 @@ if __name__ == "__main__":
 
     print("Latest version is", ver_rec.latest_version)
     print("Maintain version is", ver_rec.maintain_version)
+
+    if cur_version != ver_rec.latest_version:
+        if args.push:
+            user_gitee.post_issue(args.repo, "Upgrade to latest release", """Dear {repo} maintainer:
+
+We found the latest version of {repo} is {ver}, while the current version in openEuler mainline is {cur_ver}.
+
+Please consider upgrading.
+
+Yours openEuler Advisor.
+
+If you think this is not proper issue, Please visit https://gitee.com/openeuler/openEuler-Advisor.
+Issues and feedbacks are welcome.""".format(repo=args.repo, ver=ver_rec.latest_version, cur_ver=cur_version))
