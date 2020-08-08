@@ -23,15 +23,20 @@ class IssueSchema(Schema):
 
 
 class IssueDownloadSchema(Schema):
-
-    class Meta:
+    """
+        Field serialization for issue file download
+    """
+    class Meta:  # pylint: disable=missing-class-docstring
         model = packages_issue
         fields = ('issue_id', 'issue_url', 'issue_content',
                   'issue_title', 'issue_status', 'name', 'issue_type', 'related_release')
 
 
 class PackagesDownloadSchema(Schema):
-    class Meta:
+    """
+        Field serialization for package file download
+    """
+    class Meta:  # pylint: disable=missing-class-docstring
         model = packages
         fields = ('name', 'url', 'rpm_license', 'version', 'release', 'release_time',
                   'end_time', 'maintainer_status', 'latest_version', 'latest_version_time',
