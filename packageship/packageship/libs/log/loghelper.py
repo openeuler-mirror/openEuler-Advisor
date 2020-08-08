@@ -24,11 +24,13 @@ def setup_log(config=None):
             _level = 'INFO'
         logging.basicConfig(level=_level)
     path = READCONFIG.get_config('LOG', 'log_path')
-    if path is None:
-        log_name = READCONFIG.get_config('LOG', 'log_name')
-        if log_name is None:
-            log_name = 'log_info.log'
+    log_name = READCONFIG.get_config('LOG', 'log_name')
+    if not log_name:
+        log_name = 'log_info.log'
+    if not path:
         path = os.path.join(LOG_FOLDER_PATH, log_name)
+    else:
+        path = os.path.join(path, log_name)
     if not os.path.exists(path):
         try:
             os.makedirs(os.path.split(path)[0])
@@ -53,17 +55,20 @@ class Log():
 
     def __init__(self, name=__name__, path=None):
         self.__name = name
-        self.__path = path
+
         self.__file_handler = None
-        if self.__path is None:
-            self.__path = READCONFIG.get_system('log_path')
-            log_name = READCONFIG.get_config('LOG', 'log_name')
-            if log_name is None:
-                log_name = 'log_info.log'
-            if self.__path is None:
-                self.__path = os.path.join(LOG_FOLDER_PATH, log_name)
-        else:
+
+        log_name = READCONFIG.get_config('LOG', 'log_name')
+        if not log_name:
+            log_name = 'log_info.log'
+        if path:
             self.__path = os.path.join(LOG_FOLDER_PATH, path)
+        else:
+            self.__path = READCONFIG.get_system('log_path')
+            if not self.__path:
+                self.__path = os.path.join(LOG_FOLDER_PATH, log_name)
+            else:
+                self.__path = os.path.join(self.__path, log_name)
 
         if not os.path.exists(self.__path):
             try:

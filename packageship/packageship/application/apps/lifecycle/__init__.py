@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+    Blueprint registration for life cycle
 """
 from flask.blueprints import Blueprint
 from flask_restful import Api

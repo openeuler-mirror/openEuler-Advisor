@@ -147,6 +147,7 @@ class packages():  # pylint: disable=C0103,R0903
     """
     Source code package version, issuer and other information
     """
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
     name = Column(String(500), nullable=True)
     url = Column(String(500), nullable=True)
@@ -164,8 +165,8 @@ class packages():  # pylint: disable=C0103,R0903
     maintainer = Column(String(200), nullable=True)
     maintainlevel = Column(Integer, nullable=True)
     feature = Column(String(500), nullable=True)
-    version_control = Column(String(50), nullable=False)
-    src_repo = Column(String(500), nullable=False)
+    version_control = Column(String(50), nullable=True)
+    src_repo = Column(String(500), nullable=True)
     tag_prefix = Column(String(20), nullable=True)
 
 
