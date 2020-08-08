@@ -12,6 +12,6 @@ def start_tasks():
 
     """
     app.apscheduler.add_job(  # pylint: disable=no-member
-        func=update_pkg_info, id="update_package_data", trigger="interval", day_of_week=0)
+        func=update_pkg_info, id="update_package_data", trigger="cron", day_of_week='0')
 
     # update_pkg_info()
