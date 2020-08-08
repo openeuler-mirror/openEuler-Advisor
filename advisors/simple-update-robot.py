@@ -20,6 +20,7 @@ import sys
 import subprocess
 import os.path
 import re
+import time
 import datetime
 
 import oa_upgradable
@@ -62,15 +63,10 @@ def download_upstream_url(gt, repo, n_ver):
         return False
 
 
-def update_check(spec, o_ver, n_ver):
+def update_ver_check(o_ver, n_ver):
     """
-    Requirements check for upgraded package
+    Update version check for upgraded package
     """
-    if len(spec.patches) >= 1:
-        print("I'm too naive to handle complicated package.")
-        print("This package has multiple in-house patches.")
-        return False
-
     ver_type = version_recommend.VersionType()
     if(ver_type.compare(n_ver, o_ver) == 1):
         return True
@@ -88,9 +84,14 @@ def fork_clone_repo(gt, repo, br):
         print("The repo of {pkg} seems to have been forked.".format(pkg=repo))
     
     name = gt.token["user"]
-    subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name, pkg=repo)])
-    os.chdir(repo)
-    subprocess.call(["git", "checkout", "{branch}".format(branch=br)])
+    while True:
+        subprocess.call(["rm", "-rf", "{pkg}".format(pkg=repo)])
+        subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name, pkg=repo)])
+        os.chdir(repo)
+        if subprocess.call(["git", "checkout", "{branch}".format(branch=br)]):
+            time.sleep(1)
+        else:
+            break
 
 
 def download_src(gt, spec, o_ver, n_ver):
@@ -151,7 +152,7 @@ def auto_update_pkg(gt, u_branch, u_pkg):
     """
     spec_str = gt.get_spec(u_pkg, u_branch)
     if not spec_str:
-        print("{pkg}.spec can't be found on the {br} branch. ".format(
+        print("{pkg}.spec can't be found on the {br} branch.".format(
             pkg=u_pkg, br=u_branch))
         sys.exit(1)
     pkg_spec = Spec.from_string(spec_str)
@@ -161,24 +162,21 @@ def auto_update_pkg(gt, u_branch, u_pkg):
     if pkg_tags is None:
         sys.exit(1)
     ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
-    rec_up_ver = pkg_ver
-    if re.search("master", u_branch):
-        rec_up_ver = ver_rec.latest_version
-    elif re.search("LTS", u_branch):
-        rec_up_ver = ver_rec.maintain_version
-    else:
-        print("Only support master and LTS version upgrade.")
-        sys.exit(1)
+    rec_up_ver = ver_rec.latest_version
 
     fork_clone_repo(gt, u_pkg, u_branch)
 
-    if not update_check(pkg_spec, pkg_ver, rec_up_ver):
+    if not update_ver_check(pkg_ver, rec_up_ver):
         sys.exit(1)
 
     if not download_src(gt, pkg_spec, pkg_ver, rec_up_ver):
         sys.exit(1)
 
     create_spec(u_pkg, spec_str, pkg_ver, rec_up_ver)
+    
+    if len(pkg_spec.patches) >= 1:
+        print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=u_pkg))
+        sys.exit(1)
 
 
 def auto_update_repo(gt, u_branch, u_repo):
@@ -206,24 +204,21 @@ def auto_update_repo(gt, u_branch, u_repo):
         if pkg_tags is None:
             continue
         ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
-        rec_up_ver = pkg_ver
-        if re.search("master", u_branch):
-            rec_up_ver = ver_rec.latest_version
-        elif re.search("LTS", u_branch):
-            rec_up_ver = ver_rec.maintain_version
-        else:
-            print("Only support master and LTS version upgrade.")
-            sys.exit(1)
+        rec_up_ver = ver_rec.latest_version
 
         fork_clone_repo(gt, pkg_name, u_branch)
 
-        if not update_check(pkg_spec, pkg_ver, rec_up_ver):
+        if not update_ver_check(pkg_ver, rec_up_ver):
             continue
 
         if not download_src(gt, pkg_spec, pkg_ver, rec_up_ver):
             continue
 
         create_spec(pkg_name, spec_str, pkg_ver, rec_up_ver)
+        
+        if len(pkg_spec.patches) >= 1:
+            print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=pkg_name))
+            continue
 
 
 if __name__ == "__main__":
@@ -243,6 +238,12 @@ if __name__ == "__main__":
     user_gitee = gitee.Gitee()
 
     if args.update:
+        if not args.branch == "master":
+            print("WARNING: Now only support master version auto-upgrade.")
+            print("WARNING: You can try manually upgrade with specified version, command as follow:")
+            print("python3 simple-update-robot.py {pkg} {br} -fc -d -s -n upgrade_ver".format(
+                pkg=args.repo_pkg, br=args.branch))
+            sys.exit(1)
         if args.update == "repo":
             auto_update_repo(user_gitee, args.branch, args.repo_pkg)
         else:
@@ -262,7 +263,7 @@ if __name__ == "__main__":
             if not args.new_version:
                 print("Please specify the upgraded version of the {repo}".format(repo=args.repo_pkg))
                 sys.exit(1)
-            elif not update_check(spec_file, cur_version, args.new_version):
+            elif not update_ver_check(cur_version, args.new_version):
                 sys.exit(1)
 
         if args.download:
@@ -271,6 +272,10 @@ if __name__ == "__main__":
 
         if args.create_spec:
             create_spec(args.repo_pkg, spec_string, cur_version, args.new_version)
+        
+        if len(spec_file.patches) >= 1:
+            print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=args.repo_pkg))
+            sys.exit(1)
 
         if args.PR:
             user_gitee.create_pr(user_gitee.token["user"], args.repo_pkg)
