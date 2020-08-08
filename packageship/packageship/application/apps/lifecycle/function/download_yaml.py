@@ -14,7 +14,7 @@ from packageship.application.models.package import packages_issue
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error, ContentNoneException
 from .base import Base
-# from .gitee import Gitee
+from .gitee import Gitee
 
 
 class ParseYaml():
@@ -90,8 +90,8 @@ class ParseYaml():
         tags = self._yaml_content.get('git_tag', None)
         self._parse_tags_content(tags)
         # Save data to the database
-        # issue_list = Gitee(self.pkg, self._table_name, self._owner,
-        #                    self._repo).execute_request_content_save()
+        issue_list = Gitee(self.pkg, self._table_name, self._owner,
+                           self._repo).execute_request_content_save()
         issue_list = []
         try:
             with DBHelper(db_name="lifecycle") as database:
