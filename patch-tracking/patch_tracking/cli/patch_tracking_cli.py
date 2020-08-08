@@ -21,10 +21,7 @@ def query_table(args):
 
     if args.table == "tracking":
         url = '/'.join(['https:/', server, 'tracking'])
-        if args.branch and args.repo:
-            params = {'repo': args.repo, 'branch': args.branch}
-        else:
-            params = {'repo': args.repo}
+        params = {'repo': args.repo, 'branch': args.branch}
         try:
             ret = requests.get(url, params=params, verify=False)
             if ret.status_code == 200 and ret.json()['code'] == '2001':
@@ -229,19 +226,15 @@ def delete(args):
             print('Tracking delete successfully.')
             return
 
-        print("Tracking delete failed. Error: %s", ret)
+        print("Tracking delete failed. Error: {}".format(ret.text))
     except Exception as exception:
-        print('Error: Connect server error: %s', str(exception))
+        print('Connect server error: ' + str(exception))
 
 
 def query(args):
     """
-        query table data
-        """
-    if args.branch and not args.repo:
-        print(query_usage)
-        return
-
+    query table data
+    """
     status, ret = query_table(args)
     if status == "success":
         df = pandas.DataFrame.from_dict(ret.json()["data"], orient="columns")
@@ -282,16 +275,16 @@ def dir_input_track(dir_path, args):
     load tracking from dir
     """
     if os.path.exists(dir_path) and os.path.isdir(dir_path):
-        for root, _, files in os.walk(dir_path):
-            if not files:
-                print('error: dir path empty')
-                return
-            for file in files:
-                if os.path.splitext(file)[-1] == ".yaml":
-                    file_path = os.path.join(root, file)
-                    file_input_track(file_path, args)
-                else:
-                    print('Please input yaml file. Error in {}'.format(file))
+        dir_files = os.listdir(dir_path)
+        if not dir_files:
+            print('error: dir path empty')
+            return
+        for file in dir_files:
+            if os.path.isfile(os.path.join(dir_path, file)) and os.path.splitext(file)[-1] == ".yaml":
+                file_path = os.path.join(dir_path, file)
+                file_input_track(file_path, args)
+            else:
+                print('Please input yaml file. Error in {}'.format(file))
     else:
         print('error: dir path error. Params error in {}'.format(dir_path))
 
