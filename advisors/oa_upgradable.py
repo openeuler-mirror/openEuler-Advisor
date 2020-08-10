@@ -95,6 +95,8 @@ if __name__ == "__main__":
 
     args = parameters.parse_args()
 
+    print("Checking", args.repo)
+
     user_gitee = gitee.Gitee()
     spec_string = user_gitee.get_spec(args.repo)
     if not spec_string:
@@ -107,7 +109,6 @@ if __name__ == "__main__":
     if cur_version.startswith('v') or cur_version.startswith('V'):
         cur_version = cur_version[1:]
 
-    print("Checking", args.repo)
     print("Current version is", cur_version)
 
     pkg_tags = get_ver_tags(user_gitee, args.repo, args.default)
