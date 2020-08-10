@@ -2,7 +2,7 @@
 """
 Description: Database entity model mapping
 """
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
@@ -141,47 +141,3 @@ class maintenance_info(DBHelper.BASE):  # pylint: disable=C0103,R0903
     maintaniner = Column(String(100), nullable=True)
 
     maintainlevel = Column(String(100), nullable=True)
-
-
-class packages():  # pylint: disable=C0103,R0903
-    """
-    Source code package version, issuer and other information
-    """
-    __table_args__ = {'extend_existing': True}
-    id = Column(Integer, primary_key=True)
-    name = Column(String(500), nullable=True)
-    url = Column(String(500), nullable=True)
-    rpm_license = Column(String(500), nullable=True)
-    version = Column(String(200), nullable=True)
-    release = Column(String(200), nullable=True)
-    release_time = Column(String(50), nullable=True)
-    end_time = Column(String(50), nullable=True)
-    maintainer_status = Column(String(20), nullable=True, default="Available")
-    latest_version = Column(String(200), nullable=True)
-    latest_version_time = Column(String(50), nullable=True)
-    demand = Column(Integer, default=0)
-    cve = Column(Integer, default=0)
-    defect = Column(Integer, default=0)
-    maintainer = Column(String(200), nullable=True)
-    maintainlevel = Column(Integer, nullable=True)
-    feature = Column(String(500), nullable=True)
-    version_control = Column(String(50), nullable=True)
-    src_repo = Column(String(500), nullable=True)
-    tag_prefix = Column(String(20), nullable=True)
-
-
-class packages_issue(DBHelper.BASE):  # pylint: disable=C0103,R0903
-    """
-        Source package issue
-    """
-    __tablename__ = "packages_issue"
-    id = Column(Integer, primary_key=True)
-    issue_id = Column(String(50), nullable=True)
-    issue_url = Column(String(500), nullable=True)
-    issue_content = Column(Text, nullable=True)
-    issue_title = Column(String(1000), nullable=True)
-    issue_status = Column(String(20), nullable=True)
-    name = Column(String(500), nullable=False)
-    issue_download = Column(String(500), nullable=False)
-    issue_type = Column(String(50), nullable=True)
-    related_release = Column(String(500), nullable=True)

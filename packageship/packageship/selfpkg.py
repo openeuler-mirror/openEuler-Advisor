@@ -24,8 +24,6 @@ except Error as error:
     raise Exception('Service failed to start')
 else:
     from packageship.application.app_global import identity_verification
-    from packageship.application.apps.lifecycle.function import start_tasks
-    start_tasks()
 
 
 @app.before_request

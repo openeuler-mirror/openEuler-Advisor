@@ -143,7 +143,7 @@ class PkgshipCommand(BaseCommand):
             ['package name', 'src name', 'version', 'database'])
 
         # Calculate the total width of the current terminal
-        # self.columns = int(os.popen('stty size', 'r').read().split()[1])
+        self.columns = int(os.popen('stty size', 'r').read().split()[1])
         self.params = []
 
     @staticmethod
@@ -173,7 +173,6 @@ class PkgshipCommand(BaseCommand):
         for command_params in self.params:
             self.parse.add_argument(  # pylint: disable=E1101
                 command_params[0],
-                # type=eval(command_params[1]),  # pylint: disable=W0123
                 help=command_params[2],
                 default=command_params[3],
                 action=command_params[4])
@@ -199,8 +198,6 @@ class PkgshipCommand(BaseCommand):
         cls.register_command(SelfBuildCommand())
         cls.register_command(BeDependCommand())
         cls.register_command(SingleCommand())
-        cls.register_command(IssueCommand())
-        cls.register_command(ImportCommand())
         try:
             args = cls.parser.parse_args()
             args.func(args)
@@ -1205,8 +1202,6 @@ class SingleCommand(PkgshipCommand):
             ('-db', 'str', 'name of the database operated', '', 'store'),
             ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
-        self.provides_table = self.create_table(['Symbol', 'Required by'])
-        self.requires_table = self.create_table(['Symbol', 'Provides by'])
 
     def register(self):
         """
@@ -1221,125 +1216,15 @@ class SingleCommand(PkgshipCommand):
         super(SingleCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
-    def __parse_package_detail(self, response_data):
-        """
-
-        """
-        _show_field_name = ('pkg_name', 'version', 'release', 'url', 'license', 'feature',
-                            'maintainer', 'maintainlevel', 'gitee_url', 'issue', 'summary',
-                            'description', 'buildrequired')
-        _package_detail_info = response_data.get('data')
-        _line_content = []
-        if _package_detail_info:
-            for key, value in _package_detail_info.items():
-                if value is None:
-                    value = ''
-                # buildrequired value
-                if isinstance(value, list):
-                    value = '、'.join(value)
-                if key in _show_field_name:
-                    _line_content.append('%-15s:%s' % (key, value))
-        for content in _line_content:
-            self.print_(content=content)
-
-    def __parse_provides(self, subpacks):
-        """
-
-        """
-        if subpacks and isinstance(subpacks, list):
-            for _subpack in subpacks:
-                pass
-
-    def __parse_requires(self, subpacks):
-        """
-
-        """
-        pass
-
-    def __parse_package(self, response_data):
-        """
-        Description: Parse the corresponding data of the package
-        Args:
-            response_data: http response data
-        Returns:
-
-        Raises:
-
-        """
-
-        if response_data.get('code') == ResponseCode.SUCCESS:
-            self.__parse_package_detail(response_data)
-            try:
-                _subpacks = response_data['data']['subpack']
-                self.__parse_provides(_subpacks)
-                self.__parse_requires(_subpacks)
-            except KeyError as key_error:
-                LOGGER.logger.error(key_error)
-        else:
-            print(response_data.get('msg'))
-
-    def do_command(self, params):
-        """
-        Description: Action to execute command
-        Args:
-            params: command lines params
-        Returns:
-
-        Raises:
-            ConnectionError: requests connection error
-        """
-        self._set_read_host(params.remote)
-        _url = self.read_host + \
-            '/packages/packageInfo?table_name={db_name}&pkg_name={packagename}' \
-                   .format(db_name=params.db, packagename=params.packagename)
-        try:
-            response = requests.get(_url)
-        except ConnErr as conn_error:
-            LOGGER.logger.error(conn_error)
-            print(str(conn_error))
-        else:
-            if response.status_code == 200:
-                self.__parse_package(json.loads(response.text))
-            else:
-                self.http_error(response)
-
-
-class IssueCommand(PkgshipCommand):
-    """
-    Description: Get the issue list
-    Attributes:
-        parse: Command line parsing example
-        params: Command line parameters
-    """
-
-    def __init__(self):
-        """
-        Description: Class instance initialization
-        """
-        super(IssueCommand, self).__init__()
-
-        self.parse = PkgshipCommand.subparsers.add_parser(
-            'issue', help='Query the issue list of the specified package')
-        self.params = [
-            ('packagename', 'str', 'source package name', '', 'store'),
-            ('-db', 'str', 'name of the database operated', '', 'store'),
-            ('-remote', 'str', 'The address of the remote service', False, 'store_true')
-        ]
-
-    def register(self):
-        """
-        Description: Command line parameter injection
-
-        """
-        super(IssueCommand, self).register()
-        self.parse.set_defaults(func=self.do_command)
-
     def parse_package(self, response_data):
         """
         Description: Parse the corresponding data of the package
-
         Args:
             response_data: http response data
+        Returns:
+
+        Raises:
+
         """
         show_field_name = ('sourceName', 'dbname', 'version',
                            'license', 'maintainer', 'maintainlevel')
@@ -1373,7 +1258,7 @@ class IssueCommand(PkgshipCommand):
         """
         self._set_read_host(params.remote)
         _url = self.read_host + \
-            '/packages/issueTrace?dbName={db_name}&sourceName={packagename}' \
+            '/packages/packageInfo?dbName={db_name}&sourceName={packagename}' \
                    .format(db_name=params.db, packagename=params.packagename)
         try:
             response = requests.get(_url)
@@ -1383,66 +1268,6 @@ class IssueCommand(PkgshipCommand):
         else:
             if response.status_code == 200:
                 self.parse_package(json.loads(response.text))
-            else:
-                self.http_error(response)
-
-
-class ImportCommand(PkgshipCommand):
-    """
-    Description: Import package information in the life cycle
-    Attributes:
-        parse: Command line parsing example
-        params: Command line parameters
-    """
-
-    def __init__(self):
-        """
-        Description: Class instance initialization
-        """
-        super(ImportCommand, self).__init__()
-
-        self.parse = PkgshipCommand.subparsers.add_parser(
-            'import', help='Import package information in the life cycle')
-        self.params = [
-            ('tablename', 'str', 'The name of the table to be created', '', 'store'),
-            ('filepath', 'str', 'Imported sqlite file path', '', 'store'),
-        ]
-
-    def register(self):
-        """
-        Description: Command line parameter injection
-
-        """
-        super(ImportCommand, self).register()
-        self.parse.set_defaults(func=self.do_command)
-
-    def do_command(self, params):
-        """
-        Description: Action to execute command
-        Args:
-            params: command lines params
-        Returns:
-
-        Raises:
-            ConnectionError: requests connection error
-        """
-        _url = self.write_host + '/lifeCycle/importdata'
-        try:
-            response = requests.post(
-                _url,
-                data=json.dumps(
-                    {'filepath': params.filepath, 'tablename': params.tablename}),
-                headers=self.headers)
-        except ConnErr as conn_error:
-            LOGGER.logger.error(conn_error)
-            print(str(conn_error))
-        else:
-            if response.status_code == 200:
-                _response_content = json.loads(response.text)
-                if _response_content.get('code') == ResponseCode.SUCCESS:
-                    print('import success')
-                else:
-                    print('import failure')
             else:
                 self.http_error(response)
 
