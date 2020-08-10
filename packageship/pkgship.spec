@@ -61,7 +61,7 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
-* Mon Aug 10 2020 Yiru Wang <gongzhengtang@huawei.com> - 1.0-5
+* Mon Aug 10 2020 Zhengtang Gong <gongzhengtang@huawei.com> - 1.0-5
 - Command line supports calling remote services
 
 * Wed Aug 5 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-4
