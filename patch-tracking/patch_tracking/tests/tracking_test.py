@@ -167,12 +167,12 @@ class TestTracking(unittest.TestCase):
             resp_dict = json.loads(resp.data)
             self.assertIn("code", resp_dict, msg="Error in data format return")
             self.assertEqual(
-                ResponseCode.INPUT_PARAMETERS_ERROR, resp_dict.get("code"), msg="Error in status code return"
+                ResponseCode.SUCCESS, resp_dict.get("code"), msg="Error in status code return"
             )
 
             self.assertIn("msg", resp_dict, msg="Error in data format return")
             self.assertEqual(
-                ResponseCode.CODE_MSG_MAP.get(ResponseCode.INPUT_PARAMETERS_ERROR),
+                ResponseCode.CODE_MSG_MAP.get(ResponseCode.SUCCESS),
                 resp_dict.get("msg"),
                 msg="Error in status code return"
             )
@@ -394,6 +394,38 @@ class TestTracking(unittest.TestCase):
 
         self.assertIn("data", resp_dict, msg="Error in data format return")
         self.assertEqual(resp_dict.get("data"), None, msg="Error in data information return")
+
+    def test_delete_data(self):
+        """
+        The POST interface inserts data
+        :return:
+        """
+        data = {
+            "version_control": "github",
+            "scm_repo": "test_delete",
+            "scm_branch": "test_delete",
+            "scm_commit": "test_delete",
+            "repo": "test_delete1",
+            "branch": "test_delete1",
+            "enabled": 0
+        }
+
+        self.client.post("/tracking", json=data, content_type="application/json", headers=self.auth)
+
+        resp = self.client.delete("/tracking?repo=test_delete1&branch=test_delete1", content_type="application/json", headers=self.auth)
+        resp_dict = json.loads(resp.data)
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.SUCCESS, resp_dict.get("code"), msg="Error in status code return")
+
+    def test_delete_not_found(self):
+        """
+        The POST interface inserts data
+        :return:
+        """
+        resp = self.client.delete("/tracking?repo=not_found1&branch=not_found1", content_type="application/json", headers=self.auth)
+        resp_dict = json.loads(resp.data)
+        self.assertIn("code", resp_dict, msg="Error in data format return")
+        self.assertEqual(ResponseCode.DELETE_DB_NOT_FOUND, resp_dict.get("code"), msg="Error in status code return")
 
 
 if __name__ == '__main__':

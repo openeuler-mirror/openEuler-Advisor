@@ -225,6 +225,9 @@ def delete(args):
         if ret.status_code == 200 and ret.json()['code'] == '2001':
             print('Tracking delete successfully.')
             return
+        elif ret.status_code == 200 and ret.json()['code'] == '6005':
+            print('Delete Nothing. Tracking not exist.')
+            return
 
         print("Tracking delete failed. Error: {}".format(ret.text))
     except Exception as exception:
