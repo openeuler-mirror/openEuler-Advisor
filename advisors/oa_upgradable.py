@@ -72,6 +72,8 @@ def get_ver_tags(gt, repo, cwd_path=None):
         tags = check_upstream.check_metacpan(pkg_info)
     elif vc_type == "pypi":
         tags = check_upstream.check_pypi(pkg_info)
+    elif vc_type == "gitee":
+        tags = check_upstream.check_gitee(pkg_info)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None
