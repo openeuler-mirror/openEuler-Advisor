@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.0
-Release:        4
+Release:        5
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -26,7 +26,7 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
-#%{__python3} -m unittest test/run_tests.py
+%{__python3} -m unittest test/run_tests.py
 
 %post
 #build cli bin
@@ -61,6 +61,9 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
+* Mon Aug 10 2020 Yiru Wang <gongzhengtang@huawei.com> - 1.0-5
+- Command line supports calling remote services
+
 * Wed Aug 5 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-4
 - change Requires rpm pakcages' name to latest one
 
