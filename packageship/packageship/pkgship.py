@@ -642,8 +642,8 @@ class UpdatePackageCommand(PkgshipCommand):
         _url = self.write_host + '/packages/packageInfo'
         try:
             response = requests.put(
-                _url, data=json.dumps({'pkg_name': params.packagename,
-                                       'table_name': params.db,
+                _url, data=json.dumps({'sourceName': params.packagename,
+                                       'dbName': params.db,
                                        'maintainer': params.m,
                                        'maintainlevel': params.l}),
                 headers=self.headers)
