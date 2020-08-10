@@ -550,11 +550,6 @@ class AllPackageCommand(PkgshipCommand):
         self.params = [('-db', 'str', 'name of the database operated', '', 'store'),
                        ('-remote', 'str', 'The address of the remote service',
                         False, 'store_true'),
-                       ('-pkgname', 'str',
-                        'Package name that needs fuzzy matching', '', 'store'),
-                       ('-maintainner', 'str', 'Maintainer\'s name', '', 'store'),
-                       ('-maintainlevel', 'str',
-                        'Maintain the level of data', '', 'store'),
                        ]
 
     def register(self):
@@ -570,26 +565,6 @@ class AllPackageCommand(PkgshipCommand):
         super(AllPackageCommand, self).register()
         self.parse.set_defaults(func=self.do_command)
 
-    def __parse_package(self, response_data, table_name):
-        """
-        Description: Parse the corresponding data of the package
-        Args:
-            response_data: http request response content
-        Returns:
-
-        Raises:
-
-        """
-        if response_data.get('code') == ResponseCode.SUCCESS:
-            package_all = response_data.get('data')
-            if isinstance(package_all, list):
-                for package_item in package_all:
-                    row_data = [package_item.get('name'), table_name, package_item.get(
-                        'version'), package_item.get('license')]
-                    self.table.add_row(row_data)
-        else:
-            print(response_data.get('msg'))
-
     def do_command(self, params):
         """
         Description: Action to execute command
@@ -602,12 +577,7 @@ class AllPackageCommand(PkgshipCommand):
         """
         self._set_read_host(params.remote)
         _url = self.read_host + \
-            '/packages?table_name={table_name}&query_pkg_name={pkg_name}& \
-            maintainner={maintainner}&maintainlevel={maintainlevel}'.format(
-                table_name=params.db,
-                pkg_name=params.pkgname,
-                maintainner=params.maintainner,
-                maintainlevel=params.maintainlevel)
+            '/packages?dbName={dbName}'.format(dbName=params.db)
         try:
             response = requests.get(_url)
         except ConnErr as conn_error:
@@ -616,7 +586,7 @@ class AllPackageCommand(PkgshipCommand):
         else:
             if response.status_code == 200:
 
-                self.__parse_package(json.loads(response.text), params.db)
+                self.parse_package(json.loads(response.text))
                 if self.table:
                     print(self.table)
             else:
@@ -642,9 +612,8 @@ class UpdatePackageCommand(PkgshipCommand):
         self.params = [
             ('packagename', 'str', 'Source package name', '', 'store'),
             ('db', 'str', 'name of the database operated', '', 'store'),
-            ('-maintainer', 'str', 'Maintainers name', '', 'store'),
-            ('-maintainlevel', 'int', 'database priority', 1, 'store'),
-            ('-endoflife', 'str', 'package expiry date', '', 'store')
+            ('-m', 'str', 'Maintainers name', '', 'store'),
+            ('-l', 'int', 'database priority', 1, 'store'),
         ]
 
     def register(self):
@@ -670,14 +639,13 @@ class UpdatePackageCommand(PkgshipCommand):
         Raises:
             ConnectionError: Request connection error
         """
-        _url = self.write_host + '/lifeCycle/updatePkgInfo'
+        _url = self.write_host + '/packages/packageInfo'
         try:
             response = requests.put(
                 _url, data=json.dumps({'pkg_name': params.packagename,
                                        'table_name': params.db,
-                                       'maintainer': params.maintainer,
-                                       'maintainlevel': params.maintainlevel,
-                                       'end_of_life': params.endoflife}),
+                                       'maintainer': params.m,
+                                       'maintainlevel': params.l}),
                 headers=self.headers)
         except ConnErr as conn_error:
             LOGGER.logger.error(conn_error)

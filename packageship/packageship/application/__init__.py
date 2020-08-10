@@ -4,7 +4,6 @@
 """
 from flask import Flask
 from flask_session import Session
-from flask_apscheduler import APScheduler
 from packageship.application.settings import Config
 from packageship.libs.log import setup_log
 
@@ -23,11 +22,6 @@ def init_app(operation):
     # Load configuration items
 
     app.config.from_object(Config)
-
-    # Register a scheduled task
-    scheduler = APScheduler()
-    scheduler.init_app(app)
-    scheduler.start()
 
     # Open session function
     Session(app)

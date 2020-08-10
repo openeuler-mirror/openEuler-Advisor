@@ -19,8 +19,6 @@ class Config():
 
     LOG_LEVEL = 'INFO'
 
-    SCHEDULER_API_ENABLED = True
-
     def __init__(self):
 
         self._read_config = ReadConfig()
