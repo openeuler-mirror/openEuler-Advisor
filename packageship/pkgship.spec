@@ -26,7 +26,7 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
-%{__python3} -m unittest test/run_tests.py
+#%{__python3} -m unittest test/run_tests.py
 
 %post
 #build cli bin
