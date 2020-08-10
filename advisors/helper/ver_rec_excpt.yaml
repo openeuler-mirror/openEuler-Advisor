@@ -8,3 +8,13 @@ nss:
     - '334.20030307'
 glibc:
     - '9000'
+kata-shim:
+    - '20191207'
+kata-runtime:
+    - '20191207'
+kata-proxy:
+    - '20191207'
+kata-agent:
+    - '20191207'
+kexec-tools:
+    - '200'

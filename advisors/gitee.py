@@ -133,19 +133,20 @@ Yours openEuler-Advisor.
         """
         Get upstream yaml metadata for specific package
         """
-        yamlurl = self.advisor_url_template.format(package=pkg)
+        yamlurl = self.yamlfile_url_template.format(branch=br, package=pkg)
         try:
             resp = self.get_gitee(yamlurl)
         except urllib.error.HTTPError:
             resp = "Not found"
+            print("WARNING: {repo}.yaml can't be found in repo on {branch}".format(repo=pkg, branch=br))
         if re.match("Not found", resp):
-            yamlurl = self.yamlfile_url_template.format(branch=br, package=pkg)
+            yamlurl = self.advisor_url_template.format(package=pkg)
             try:
                 resp = self.get_gitee(yamlurl)
             except urllib.error.HTTPError:
                 resp = "Not found"
             if re.match("Not found", resp):
-                print("Cann't find yaml metadata for {package} from upstream-info.".format(package=pkg))
+                print("WARNING: {repo}.yaml can't be found in upstream-info too.".format(repo=pkg))
                 return False
             else:
                 return resp
