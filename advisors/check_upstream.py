@@ -166,7 +166,6 @@ def __check_subprocess(cmd_list):
     resp = subp.stdout.read().decode("utf-8")
     if subp.wait() != 0:
         eprint("{cmd} > encount errors".format(cmd=" ".join(cmd_list)))
-        sys.exit(1)
     return resp
 
 def __check_svn_helper(repo_url):
