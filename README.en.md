@@ -74,7 +74,7 @@ DONE! than you can create a Pull Request.
 	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
 	
 	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
-	ep: python3 simple-update-root.py -u repo src_openEuler master
+	ep: python3 simple-update-root.py -u repo src-openeuler master
 	
 ##### 2. oa_upgradable.py 
 	display all tags of target package: python3 oa_upgradable.py pkg_name

@@ -163,7 +163,7 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
 	
 	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
-	ep: python3 simple-update-root.py -u repo src_openEuler master
+	ep: python3 simple-update-root.py -u repo src-openeuler master
 
 ##### b. oa_upgradable.py 
 	display all tags of target package: python3 oa_upgradable.py pkg_name
