@@ -112,6 +112,9 @@ if __name__ == "__main__":
 
     if pkg_tags is None:
         sys.exit(1)
+    if cur_version not in pkg_tags:
+        print("Current version {ver} doesn't exist in upstream. Something must be wrong.".format(ver=cur_version))
+        sys.exit(1)
     ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
 
     print("Latest version is", ver_rec.latest_version)
