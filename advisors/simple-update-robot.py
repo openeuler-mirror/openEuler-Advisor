@@ -126,13 +126,13 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     in_changelog = False
     for l in spec_str.splitlines():
         if l.startswith("Release:"):
-            fn.write(re.sub("\d", "1", l)+"\n")
+            fn.write(re.sub(r"\d", "1", l) + "\n")
             continue
         if l.startswith("Source:") or l.startswith("Source0:"):
             if src_fn:
                 fn.write("Source:	{src_fn}\n".format(src_fn=src_fn).replace(o_ver, n_ver))
             else:
-                fn.write(l.replace(o_ver, n_ver)+"\n")
+                fn.write(l.replace(o_ver, n_ver) + "\n")
             continue
         if not in_changelog:
             nl = l.replace(o_ver, n_ver)
@@ -195,7 +195,7 @@ def auto_update_repo(gt, u_branch, u_repo):
     pkg_list = pkg_info.get("repositories")
     for pkg in pkg_list:
         pkg_name = pkg.get("name")
-        print("\n"+"------------------------Updating "+pkg_name+"------------------------")
+        print("\n------------------------Updating " + pkg_name + "------------------------")
         spec_str = gt.get_spec(pkg_name, u_branch)
         if not spec_str:
             print("WARNING: {pkg}.spec can't be found on the {br} branch. ".format(

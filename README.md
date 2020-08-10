@@ -145,34 +145,34 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 ### 3.2、Introduction of advisors
 #### 3.2.1 Enviroment Setting
 ##### a. necessary packages install
-pip3 install python-rpm-spec (ver:0.9)
-pip3 install PyYAML (ver:5.3.1)
-
+	pip3 install python-rpm-spec (ver:0.9)
+	pip3 install PyYAML (ver:5.3.1)
+	
 ##### b. json file config
-~/.gitee_personal_token.json
-content format: {"user":"user_name","access_token":"token_passwd"}
-
-setting personal access token: https://gitee.com/profile/personal_access_tokens
-
+	~/.gitee_personal_token.json
+	content format: {"user":"user_name","access_token":"token_passwd"}
+	
+	setting personal access token: https://gitee.com/profile/personal_access_tokens
+	
 #### 3.2.2 Use Instructions
 ##### a. simple-update-root.py
-single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
-ep: python3 simple-update-root.py -u pkg snappy master
-
-single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
-ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
-
-multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
-ep: python3 simple-update-root.py -u repo src_openEuler master
+	single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
+	ep: python3 simple-update-root.py -u pkg snappy master
+	
+	single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
+	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+	
+	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
+	ep: python3 simple-update-root.py -u repo src_openEuler master
 
 ##### b. oa_upgradable.py 
-display all tags of target package: python3 oa_upgradable.py pkg_name
-ep: python3 oa_upgradable.py glibc
+	display all tags of target package: python3 oa_upgradable.py pkg_name
+	ep: python3 oa_upgradable.py glibc
 
 #### 3.2.3 Consultation for advisor:
-if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
-
-
+	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
+	
+	
 ### 3.3、checkabi 功能介绍
 
 checkabi 功能依赖libabigail 软件包，使用checkabi 功能前需要安装libabigail ，checkabi  提供了2个功能，下面分别介绍。
