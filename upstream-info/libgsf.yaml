@@ -1,7 +1,7 @@
 ---
 version_control: gitlab.gnome
 src_repo: libgsf
-tag_prefix: LIBGSF
+tag_prefix: LIBGSF_
 separator: _
 last_query:
   time_stamp: 2020-04-24 13:57:08.807496280 +00:00
