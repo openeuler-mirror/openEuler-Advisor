@@ -104,8 +104,11 @@ if __name__ == "__main__":
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
 
-    print("Checking ", args.repo)
-    print("current version is ", cur_version)
+    if cur_version.startswith('v') or cur_version.startswith('V'):
+        cur_version = cur_version[1:]
+
+    print("Checking", args.repo)
+    print("Current version is", cur_version)
 
     pkg_tags = get_ver_tags(user_gitee, args.repo, args.default)
     print("known release tags:", pkg_tags)
