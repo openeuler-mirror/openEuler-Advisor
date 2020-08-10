@@ -44,7 +44,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
         try:
             repo_yaml = open(os.path.join(cwd_path, repo + ".yaml")).read()
         except FileNotFoundError:
-            print("Cann't find yaml metadata for {pkg} from current working directory.".format(pkg=repo))
+            print("Cann't find yaml metadata for {pkg} from in {d}.".format(pkg=repo, d=cwd_path))
             repo_yaml = gt.get_yaml(repo)
     else:
         repo_yaml = gt.get_yaml(repo)
