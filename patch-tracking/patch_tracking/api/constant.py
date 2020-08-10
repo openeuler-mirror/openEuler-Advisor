@@ -38,7 +38,7 @@ class ResponseCode:
         DELETE_DB_ERROR: "Failed to delete database",
         CONFIGFILE_PATH_EMPTY: "Initialization profile does not exist or cannot be found",
         DIS_CONNECTION_DB: "Unable to connect to the database, check the database configuration",
-        DELETE_DB_NOT_FOUND: "The tracking you want to delete is not exist"
+        DELETE_DB_NOT_FOUND: "The tracking you want to delete does not exist"
     }
 
     @classmethod
