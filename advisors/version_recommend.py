@@ -941,7 +941,7 @@ class VersionTypeXYymmZ(VersionType):
             return False
         year = str(digital_list[1][:2])
         month = str(digital_list[1][-2:])
-        if year > datetime.datetime.now().year[-2:]:  # 年份不能大于当前年份，不用考虑20000 年前的情况
+        if year > str(datetime.datetime.now().year)[-2:]:  # 年份不能大于当前年份，不用考虑2000 年前的情况
             return False
         if month > '12' or month == '0':
             return False
