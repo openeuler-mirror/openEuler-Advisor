@@ -99,7 +99,7 @@ def download_src(gt, spec, o_ver, n_ver):
     """
     Download source code for upgraded package
     """
-    os.chdir(spec.name)
+    os.chdir(replace_macros(spec.name, spec))
     source_file = download_source_url(spec, o_ver, n_ver)
     if source_file:
         print(source_file)

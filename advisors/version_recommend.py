@@ -1089,7 +1089,7 @@ class VersionRecommend(object):
         if m is None:  # 版本号应该是数字开头
             return False
 
-        m = re.search(r'[ab]\d', version)
+        m = re.search(r'[ab]', version)
         if not m is None:
             return False
 

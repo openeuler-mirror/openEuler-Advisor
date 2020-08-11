@@ -44,7 +44,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
         try:
             repo_yaml = open(os.path.join(cwd_path, repo + ".yaml")).read()
         except FileNotFoundError:
-            print("Cann't find yaml metadata for {pkg} from current working directory.".format(pkg=repo))
+            print("WARNING: {pkg}.yaml can't be found in local path: {path}.".format(pkg=repo, path=cwd_path))
             repo_yaml = gt.get_yaml(repo)
     else:
         repo_yaml = gt.get_yaml(repo)
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     user_gitee = gitee.Gitee()
     spec_string = user_gitee.get_spec(args.repo)
     if not spec_string:
-        print("{pkg}.spec can't be found on the master branch".format(pkg=args.repo))
+        print("WARNING: {pkg}.spec can't be found on master".format(pkg=args.repo))
         sys.exit(1)
 
     spec_file = Spec.from_string(spec_string)
