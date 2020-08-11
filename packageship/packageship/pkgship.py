@@ -84,9 +84,10 @@ class BaseCommand():
         wirte_port = self._read_config.get_system('write_port')
 
         write_ip = self._read_config.get_system('write_ip_addr')
-
+        if not all([write_ip, wirte_port]):
+            raise Error(
+                "The system does not configure the relevant port and ip correctly")
         _write_host = self.__http + write_ip + ":" + wirte_port
-
         setattr(self, 'write_host', _write_host)
 
     def load_read_host(self):
@@ -101,10 +102,21 @@ class BaseCommand():
         read_port = self._read_config.get_system('query_port')
 
         read_ip = self._read_config.get_system('query_ip_addr')
+        if all([read_ip, read_port]):
+            _read_host = self.__http + read_ip + ":" + read_port
 
-        _read_host = self.__http + read_ip + ":" + read_port
+            setattr(self, 'read_host', _read_host)
 
-        setattr(self, 'read_host', _read_host)
+    def _set_read_host(self, remote=False):
+        """
+            Set read domain name
+        """
+        if remote:
+            _host = self._read_config.get_system('remote_host')
+            self.read_host = _host
+        if self.read_host is None:
+            raise Error(
+                "The system does not configure the relevant port and ip correctly")
 
 
 class PkgshipCommand(BaseCommand):
@@ -161,9 +173,9 @@ class PkgshipCommand(BaseCommand):
         for command_params in self.params:
             self.parse.add_argument(  # pylint: disable=E1101
                 command_params[0],
-                type=eval(command_params[1]),  # pylint: disable=W0123
                 help=command_params[2],
-                default=command_params[3])
+                default=command_params[3],
+                action=command_params[4])
 
     @classmethod
     def parser_args(cls):
@@ -361,7 +373,8 @@ class RemoveCommand(PkgshipCommand):
         super(RemoveCommand, self).__init__()
         self.parse = PkgshipCommand.subparsers.add_parser(
             'rm', help='delete database operation')
-        self.params = [('db', 'str', 'name of the database operated', '')]
+        self.params = [
+            ('db', 'str', 'name of the database operated', '', 'store')]
 
     def register(self):
         """
@@ -425,7 +438,7 @@ class InitDatabaseCommand(PkgshipCommand):
         self.parse = PkgshipCommand.subparsers.add_parser(
             'init', help='initialization of the database')
         self.params = [
-            ('-filepath', 'str', 'name of the database operated', '')]
+            ('-filepath', 'str', 'name of the database operated', '', 'store')]
 
     def register(self):
         """
@@ -486,7 +499,8 @@ class UpdateDatabaseCommand(PkgshipCommand):
 
         self.parse = PkgshipCommand.subparsers.add_parser(
             'updatedb', help='database update operation')
-        self.params = [('db', 'str', 'name of the database operated', '')]
+        self.params = [
+            ('db', 'str', 'name of the database operated', '', 'store')]
 
     def register(self):
         """
@@ -533,7 +547,10 @@ class AllPackageCommand(PkgshipCommand):
             'list', help='get all package data')
         self.table = self.create_table(
             ['packagenames', 'database', 'version', 'license'])
-        self.params = [('-db', 'str', 'name of the database operated', '')]
+        self.params = [('-db', 'str', 'name of the database operated', '', 'store'),
+                       ('-remote', 'str', 'The address of the remote service',
+                        False, 'store_true'),
+                       ]
 
     def register(self):
         """
@@ -558,6 +575,7 @@ class AllPackageCommand(PkgshipCommand):
         Raises:
             ConnectionError: Request connection error
         """
+        self._set_read_host(params.remote)
         _url = self.read_host + \
             '/packages?dbName={dbName}'.format(dbName=params.db)
         try:
@@ -592,10 +610,10 @@ class UpdatePackageCommand(PkgshipCommand):
         self.parse = PkgshipCommand.subparsers.add_parser(
             'updatepkg', help='update package data')
         self.params = [
-            ('packagename', 'str', 'Source package name', ''),
-            ('db', 'str', 'name of the database operated', ''),
-            ('-m', 'str', 'Maintainers name', ''),
-            ('-l', 'int', 'database priority', 1)
+            ('packagename', 'str', 'Source package name', '', 'store'),
+            ('db', 'str', 'name of the database operated', '', 'store'),
+            ('-m', 'str', 'Maintainers name', '', 'store'),
+            ('-l', 'int', 'database priority', 1, 'store'),
         ]
 
     def register(self):
@@ -664,7 +682,8 @@ class BuildDepCommand(PkgshipCommand):
             'builddep', help='query the compilation dependencies of the specified package')
         self.collection = True
         self.params = [
-            ('packagename', 'str', 'source package name', ''),
+            ('packagename', 'str', 'source package name', '', 'store'),
+            ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
         self.collection_params = [
             ('-dbs', 'Operational database collection')
@@ -698,6 +717,8 @@ class BuildDepCommand(PkgshipCommand):
         Raises:
             ConnectionError: Request connection error
         """
+        self._set_read_host(params.remote)
+
         _url = self.read_host + '/packages/findBuildDepend'
         try:
             response = requests.post(
@@ -741,7 +762,8 @@ class InstallDepCommand(PkgshipCommand):
             'installdep', help='query the installation dependencies of the specified package')
         self.collection = True
         self.params = [
-            ('packagename', 'str', 'source package name', ''),
+            ('packagename', 'str', 'source package name', '', 'store'),
+            ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
         self.collection_params = [
             ('-dbs', 'Operational database collection')
@@ -829,6 +851,8 @@ class InstallDepCommand(PkgshipCommand):
         Raises:
             ConnectionError: requests connection error
         """
+        self._set_read_host(params.remote)
+
         _url = self.read_host + '/packages/findInstallDepend'
         try:
             response = requests.post(_url, data=json.dumps(
@@ -877,10 +901,11 @@ class SelfBuildCommand(PkgshipCommand):
         self.src_package_table = self.create_table([
             'src name', 'version', 'database'])
         self.params = [
-            ('packagename', 'str', 'source package name', ''),
-            ('-t', 'str', 'Source of data query', 'binary'),
-            ('-w', 'str', 'whether to include other subpackages of binary', 0),
-            ('-s', 'str', 'whether it is self-compiled', 0)
+            ('packagename', 'str', 'source package name', '', 'store'),
+            ('-t', 'str', 'Source of data query', 'binary', 'store'),
+            ('-w', 'str', 'whether to include other subpackages of binary', 0, 'store'),
+            ('-s', 'str', 'whether it is self-compiled', 0, 'store'),
+            ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
 
         self.collection_params = [
@@ -1020,6 +1045,7 @@ class SelfBuildCommand(PkgshipCommand):
         Raises:
             ConnectionError: requests connection error
         """
+        self._set_read_host(params.remote)
         _url = self.read_host + '/packages/findSelfDepend'
         try:
             response = requests.post(_url,
@@ -1067,9 +1093,10 @@ class BeDependCommand(PkgshipCommand):
         self.parse = PkgshipCommand.subparsers.add_parser(
             'bedepend', help='dependency query for the specified package')
         self.params = [
-            ('packagename', 'str', 'source package name', ''),
-            ('db', 'str', 'name of the database operated', ''),
-            ('-w', 'str', 'whether to include other subpackages of binary', 0),
+            ('packagename', 'str', 'source package name', '', 'store'),
+            ('db', 'str', 'name of the database operated', '', 'store'),
+            ('-w', 'str', 'whether to include other subpackages of binary', 0, 'store'),
+            ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
 
     def register(self):
@@ -1095,6 +1122,7 @@ class BeDependCommand(PkgshipCommand):
         Raises:
             ConnectionError: requests connection error
         """
+        self._set_read_host(params.remote)
         _url = self.read_host + '/packages/findBeDepend'
         try:
             response = requests.post(_url, data=json.dumps(
@@ -1138,8 +1166,9 @@ class SingleCommand(PkgshipCommand):
         self.parse = PkgshipCommand.subparsers.add_parser(
             'single', help='query the information of a single package')
         self.params = [
-            ('packagename', 'str', 'source package name', ''),
-            ('-db', 'str', 'name of the database operated', '')
+            ('packagename', 'str', 'source package name', '', 'store'),
+            ('-db', 'str', 'name of the database operated', '', 'store'),
+            ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
 
     def register(self):
@@ -1195,6 +1224,7 @@ class SingleCommand(PkgshipCommand):
         Raises:
             ConnectionError: requests connection error
         """
+        self._set_read_host(params.remote)
         _url = self.read_host + \
             '/packages/packageInfo?dbName={db_name}&sourceName={packagename}' \
                    .format(db_name=params.db, packagename=params.packagename)
