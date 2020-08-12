@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.0
-Release:        5
+Release:        5.1
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -8,6 +8,8 @@ Source0:        https://gitee.com/openeuler/openEuler-Advisor/pkgship-%{version}
 
 BuildArch:      noarch
 
+BuildRequires: python3-flask-restful python3-flask python3 python3-pyyaml python3-sqlalchemy
+BuildRequires: python3-prettytable python3-requests python3-flask-session python3-flask-script python3-marshmallow
 Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
 Requires: python3-pyinstaller python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
@@ -26,7 +28,11 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
+# change log_path to solve default log_path permission denied problem 
+log_path=`pwd`/tmp/
+sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
 %{__python3} -m unittest test/run_tests.py
+rm -rf $log_path
 
 %post
 #build cli bin
@@ -61,6 +67,10 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
+
+* Wed Aug 12 2020 Zhang Tao <zhangtao306@huawei.com> - 1.0-5.1
+- Fix the test content to adapt to the new data structure, add BuildRequires for running %check
+
 * Mon Aug 10 2020 Zhengtang Gong <gongzhengtang@huawei.com> - 1.0-5
 - Command line supports calling remote services
 

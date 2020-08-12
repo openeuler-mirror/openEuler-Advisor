@@ -9,7 +9,7 @@
         "A1": [
           "A",
           "0.0.23b",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "root",
@@ -24,7 +24,7 @@
         "A2": [
           "A",
           "0.0.23b",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "A1",
@@ -39,7 +39,7 @@
         "C1": [
           "C",
           "0.1",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "A2",
@@ -50,7 +50,7 @@
         "D1": [
           "D",
           "0.11",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "A2",
@@ -72,7 +72,7 @@
         "A1": [
           "A",
           "0.0.23b",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "D1",
@@ -83,7 +83,7 @@
         "A2": [
           "A",
           "0.0.23b",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "A1",
@@ -98,7 +98,7 @@
         "C1": [
           "C",
           "0.1",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "A2",
@@ -109,7 +109,7 @@
         "D1": [
           "D",
           "0.11",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "D2",
@@ -124,7 +124,7 @@
         "D2": [
           "D",
           "0.11",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "root",
@@ -146,7 +146,7 @@
         "C2": [
           "C",
           "0.1",
-          "openEuler-20.03-LTS",
+          "mainline",
           [
             [
               "root",

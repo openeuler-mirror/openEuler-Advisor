@@ -280,7 +280,10 @@ class TestSelfDepend(ReadTestBase):
                                     data=json.dumps(input_value),
                                     content_type="application/json")
             output_for_input = correct_data["output"]
+            from pprint import pprint
+
             resp_dict = json.loads(resp.data)
+
             self.assertTrue(compare_two_values(output_for_input, resp_dict),
                             msg="The answer is not correct")
 

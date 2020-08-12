@@ -10,7 +10,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -33,7 +33,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A1",
@@ -52,7 +52,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -67,7 +67,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -78,7 +78,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -97,7 +97,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -108,15 +108,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
+          "B": [
+            "mainline",
+            "0.0.2"
+          ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
@@ -136,7 +140,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "D1",
@@ -155,7 +159,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C1",
@@ -174,7 +178,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -189,7 +193,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -200,7 +204,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -223,7 +227,7 @@
           "C2": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -234,7 +238,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -245,15 +249,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
+          "B": [
+            "mainline",
+            "0.0.2"
+          ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
@@ -274,7 +282,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "D1",
@@ -293,7 +301,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -316,7 +324,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -331,7 +339,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -342,7 +350,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -361,7 +369,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -376,7 +384,7 @@
           "C2": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -387,7 +395,7 @@
           "D2": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "D",
@@ -398,19 +406,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
           "B": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.2"
           ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
@@ -432,7 +440,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -455,7 +463,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -478,7 +486,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -493,7 +501,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -504,7 +512,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -523,7 +531,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -538,7 +546,7 @@
           "C2": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -549,7 +557,7 @@
           "D2": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "D",
@@ -560,19 +568,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
           "B": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.2"
           ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
@@ -594,7 +602,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -621,7 +629,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -644,7 +652,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -659,7 +667,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -670,7 +678,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -693,7 +701,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -708,7 +716,7 @@
           "C2": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -719,7 +727,7 @@
           "D2": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "D",
@@ -730,19 +738,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
           "B": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.2"
           ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
@@ -763,7 +771,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "D1",
@@ -786,7 +794,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -809,7 +817,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -824,7 +832,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -835,7 +843,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -858,7 +866,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -869,19 +877,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
           "B": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.2"
           ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
@@ -903,7 +911,7 @@
           "A1": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -930,7 +938,7 @@
           "A2": [
             "A",
             "0.0.23b",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "root",
@@ -953,7 +961,7 @@
           "B1": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A",
@@ -968,7 +976,7 @@
           "B2": [
             "B",
             "0.0.2",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "C",
@@ -979,7 +987,7 @@
           "C1": [
             "C",
             "0.1",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -1002,7 +1010,7 @@
           "D1": [
             "D",
             "0.11",
-            "openEuler-20.03-LTS",
+            "mainline",
             [
               [
                 "A2",
@@ -1013,19 +1021,19 @@
         },
         "source_dicts": {
           "A": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.23b"
           ],
           "B": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.0.2"
           ],
           "C": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.1"
           ],
           "D": [
-            "openEuler-20.03-LTS",
+            "mainline",
             "0.11"
           ]
         }
