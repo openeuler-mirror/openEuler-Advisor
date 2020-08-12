@@ -44,7 +44,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
         try:
             repo_yaml = open(os.path.join(cwd_path, repo + ".yaml")).read()
         except FileNotFoundError:
-            print("Cann't find yaml metadata for {pkg} from current working directory.".format(pkg=repo))
+            print("Cann't find yaml metadata for {pkg} from in {d}.".format(pkg=repo, d=cwd_path))
             repo_yaml = gt.get_yaml(repo)
     else:
         repo_yaml = gt.get_yaml(repo)
@@ -54,7 +54,10 @@ def get_ver_tags(gt, repo, cwd_path=None):
     else:
         return None
 
-    vc_type = pkg_info["version_control"]
+    vc_type = pkg_info.get("version_control", None)
+    if vc_type is None:
+        print("Missing version_control in YAML file")
+        return None
     if vc_type == "hg":
         tags = check_upstream.check_hg(pkg_info)
     elif vc_type == "github":
@@ -69,8 +72,11 @@ def get_ver_tags(gt, repo, cwd_path=None):
         tags = check_upstream.check_metacpan(pkg_info)
     elif vc_type == "pypi":
         tags = check_upstream.check_pypi(pkg_info)
+    elif vc_type == "gitee":
+        tags = check_upstream.check_gitee(pkg_info)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
+        return None
 
     excpt_list = _get_rec_excpt()
     if repo in excpt_list:
@@ -89,6 +95,8 @@ if __name__ == "__main__":
 
     args = parameters.parse_args()
 
+    print("Checking", args.repo)
+
     user_gitee = gitee.Gitee()
     spec_string = user_gitee.get_spec(args.repo)
     if not spec_string:
@@ -98,15 +106,34 @@ if __name__ == "__main__":
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
 
-    print("Checking ", args.repo)
-    print("current version is ", cur_version)
+    if cur_version.startswith('v') or cur_version.startswith('V'):
+        cur_version = cur_version[1:]
+
+    print("Current version is", cur_version)
 
     pkg_tags = get_ver_tags(user_gitee, args.repo, args.default)
     print("known release tags:", pkg_tags)
 
     if pkg_tags is None:
         sys.exit(1)
+
+    if cur_version not in pkg_tags:
+        print("WARNING: Current {ver} doesn't exist in upstream. Please double check.".format(ver=cur_version))
+
     ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
 
     print("Latest version is", ver_rec.latest_version)
     print("Maintain version is", ver_rec.maintain_version)
+
+    if cur_version != ver_rec.latest_version:
+        if args.push:
+            user_gitee.post_issue(args.repo, "Upgrade to latest release", """Dear {repo} maintainer:
+
+We found the latest version of {repo} is {ver}, while the current version in openEuler mainline is {cur_ver}.
+
+Please consider upgrading.
+
+Yours openEuler Advisor.
+
+If you think this is not proper issue, Please visit https://gitee.com/openeuler/openEuler-Advisor.
+Issues and feedbacks are welcome.""".format(repo=args.repo, ver=ver_rec.latest_version, cur_ver=cur_version))
