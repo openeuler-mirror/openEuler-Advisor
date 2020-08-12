@@ -1,4 +1,4 @@
 version_control: github
-src_repo:  xiph/lcecast-libshout
+src_repo:  xiph/Icecast-libshout
 tag_prefix: ^v
 separator: .
