@@ -140,6 +140,7 @@ def check_metacpan(info):
     last_query["time_stamp"] = datetime.now()
     last_query["raw_data"] = resp
     info["last_query"] = last_query
+    tags = clean_tags(tags, info)
     return tags
 
 def check_pypi(info):
