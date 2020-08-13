@@ -1,4 +1,4 @@
-version_control: github
-src_repo: nccgroup/libtalloc
-tag_prefix: talloc-
+version_control: git
+src_repo: git://git.samba.org/samba.git
+tag_prefix: "^talloc-"
 separator: "."
