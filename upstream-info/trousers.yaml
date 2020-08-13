@@ -4,3 +4,8 @@ src_repo: https://git.code.sf.net/p/trousers/trousers
 tag_prefix: "^TROUSERS_"
 separator: _
 git_url: https://git.code.sf.net/p/trousers/trousers
+git_tag:
+- 2020-05-27 TROUSERS_0_3_14
+- 2014-04-24 TROUSERS_0_3_13
+- 2013-10-08 TROUSERS_0_3_12
+- 2013-08-16 TROUSERS_0_3_11

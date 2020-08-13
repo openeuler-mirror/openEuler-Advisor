@@ -4,3 +4,14 @@ src_repo: libpinyin/libpinyin
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/libpinyin/libpinyin.git
+git_tag:
+- 2019-03-18 2.3.0
+- 2019-01-17 2.2.2
+- 2018-09-10 2.2.1
+- 2018-04-17 2.2.0
+- 2018-01-02 2.1.91
+- 2017-08-18 2.1.0
+- 2017-07-07 2.0.92
+- 2017-06-06 2.0.91
+- 2017-04-20 2.0.0
+- 2017-03-07 1.9.92

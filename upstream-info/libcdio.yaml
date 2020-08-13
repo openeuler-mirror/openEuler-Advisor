@@ -4,3 +4,7 @@ src_repo: https://git.savannah.gnu.org/git/libcdio.git
 tag_prefix: "^release-"
 separator: "."
 git_url: git://git.savannah.gnu.org/libcdio.git
+git_tag:
+- 2019-04-17 release-2.1.0
+- 2017-12-31 release-2.0.0
+- 2017-12-10 release-1.1.0

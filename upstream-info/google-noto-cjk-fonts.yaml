@@ -4,3 +4,9 @@ src_repo: googlefonts/noto-cjk
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/googlefonts/noto-cjk.git
+git_tag:
+- 2017-09-20 v2017-06-01-serif-cjk-1-1
+- 2017-04-03 v2017-04-03-serif-cjk-1-0
+- 2017-03-10 v2017-03-10-initial-design
+- 2015-06-16 v1.004
+- 2019-04-09 NotoSansV2.001

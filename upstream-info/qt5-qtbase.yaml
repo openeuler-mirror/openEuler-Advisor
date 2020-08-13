@@ -4,3 +4,4 @@ src_repo: https://code.qt.io/qt/qtbase.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://code.qt.io/qt/qtbase.git
+git_tag:

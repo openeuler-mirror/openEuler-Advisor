@@ -4,3 +4,4 @@ src_repo: rack/rack
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/rack/rack.git
+git_tag:

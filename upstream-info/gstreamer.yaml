@@ -4,3 +4,6 @@ src_repo: GStreamer/gstreamer
 tag_prefix: RELEASE-
 separator: "."
 git_url: https://github.com/GStreamer/gstreamer.git
+git_tag:
+- 2020-07-03 1.17.2
+- 2020-06-19 1.17.1

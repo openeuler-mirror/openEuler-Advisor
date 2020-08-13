@@ -8,3 +8,6 @@ last_query:
   raw_data: "4984d25b9de96b67d28444965b26afee7cc3d03a\trefs/tags/2017.0.0-devel\nb475fa16c665cfc929eb088d47cbaa9e8d108257\trefs/tags/2017.0.0-devel^{}\nec11e4ef987d88217f4c9492adf71ce88cbaa52c\trefs/tags/2020.0.0\n42e726f8d004ec2220a291f5a54f000a0c471762\trefs/tags/2020.0.0^{}\nacf6d8092780da85c79a236f0bc2846f2f155d63\trefs/tags/2020.0.0-alpha1\n96d1960c18f9ea93fde5f999bc5450d636d45163\trefs/tags/2020.0.0-alpha1^{}\n240b6b3f9dfc5f0324b1f5774fecbdb208678a82\trefs/tags/2020.0.0-beta1\n32d8131bf18b602128857a5870a9e90b0b18f383\trefs/tags/2020.0.0-beta1^{}\ncf5137a52ececdb64ca561c47351d5ec17907b6e\trefs/tags/93u\ne79c29295092fe2b2282d134e2b7cce32ec9dcac\trefs/tags/93u^{}\n409c775ffe7141429e8970de864b850342e38c24\trefs/tags/93v\n2f2b1b8be315df029ce83c2ccc12a16fdcf73f29\trefs/tags/93v^{}\n691df55f2b79bdd1684fbab0ade3365ec95e0179\trefs/tags/ksh93u\ne79c29295092fe2b2282d134e2b7cce32ec9dcac\trefs/tags/ksh93u^{}\nb1e75e2b8f488eb0b4981897c042d9c02df54932\trefs/tags/ksh93v\n2f2b1b8be315df029ce83c2ccc12a16fdcf73f29\trefs/tags/ksh93v^{}\n"
 query_type: git-ls
 git_url: https://github.com/att/ast.git
+git_tag:
+- 2018-05-19 93u
+- 2018-05-18 ksh93u

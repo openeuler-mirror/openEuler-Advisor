@@ -4,3 +4,4 @@ src_repo: dovecot/core
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/dovecot/core.git
+git_tag:

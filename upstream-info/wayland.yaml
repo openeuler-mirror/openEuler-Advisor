@@ -4,3 +4,9 @@ src_repo: https://gitlab.freedesktop.org/wayland/wayland.git
 tag_prefix: 
 separator: "."
 git_url: https://gitlab.freedesktop.org/wayland/wayland.git
+git_tag:
+- 2020-02-12 1.18.0
+- 2020-02-05 1.17.93
+- 2020-01-28 1.17.92
+- 2020-01-21 1.17.91
+- 2019-03-20 1.17.0

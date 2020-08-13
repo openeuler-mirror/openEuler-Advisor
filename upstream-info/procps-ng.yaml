@@ -4,3 +4,5 @@ src_repo: https://gitlab.com/procps-ng/procps.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://gitlab.com/procps-ng/procps.git
+git_tag:
+- 2019-12-08 v3.3.16

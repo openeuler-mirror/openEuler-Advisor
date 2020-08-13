@@ -4,3 +4,5 @@ src_repo: linux-pam/linux-pam
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/linux-pam/linux-pam.git
+git_tag:
+- 2020-06-04 v1.4.0

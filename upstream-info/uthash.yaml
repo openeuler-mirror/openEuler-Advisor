@@ -80,3 +80,9 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/troydhanson/uthash.git
+git_tag:
+- 2018-12-26 v2.1.0
+- 2017-03-02 v2.0.2
+- 2016-07-05 v2.0.1
+- 2016-07-01 v2.0.0
+- 2016-05-09 v1.9.9.1

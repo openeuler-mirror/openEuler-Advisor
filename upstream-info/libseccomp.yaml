@@ -4,3 +4,4 @@ src_repo: seccomp/libseccomp
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/seccomp/libseccomp.git
+git_tag:

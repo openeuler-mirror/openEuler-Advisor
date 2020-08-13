@@ -4,3 +4,5 @@ src_repo: PipeWire/pipewire
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/PipeWire/pipewire.git
+git_tag:
+- 2020-07-21 0.3.7

@@ -4,3 +4,4 @@ src_repo: openSUSE/obs-service-extract_file
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/openSUSE/obs-service-extract_file.git
+git_tag:

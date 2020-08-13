@@ -4,3 +4,10 @@ src_repo: https://git.savannah.gnu.org/git/time.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://git.savannah.gnu.org/git/time.git
+git_tag:
+- 2018-03-12 v1.9
+- 2017-11-07 v1.8
+- 2017-08-06 v1.7.90
+- 2015-01-21 1.7.2
+- 2015-01-21 1.7.1
+- 2015-01-21 1.7

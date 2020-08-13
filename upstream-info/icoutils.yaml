@@ -4,3 +4,11 @@ src_repo: https://git.savannah.gnu.org/git/icoutils.git
 tag_prefix: "^"
 separator: "."
 git_url: https://git.savannah.gnu.org/git/icoutils.git
+git_tag:
+- 2018-03-07 0.32.3
+- 2017-10-31 0.32.2
+- 2017-10-31 0.32.1
+- 2017-09-02 0.32.0
+- 2017-03-11 0.31.3
+- 2017-01-08 0.31.1
+- 2017-03-06 0.31.2

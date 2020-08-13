@@ -4,3 +4,6 @@ src_repo: git://git.ozlabs.org/~paulus/ppp.git
 tag_prefix: ppp-
 separator: "."
 git_url: git://git.ozlabs.org/~paulus/ppp.git
+git_tag:
+- 2019-12-31 ppp-2.4.8
+- 2014-08-09 ppp-2.4.7

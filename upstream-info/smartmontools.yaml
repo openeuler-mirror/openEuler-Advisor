@@ -4,3 +4,4 @@ src_repo: smartmontools/smartmontools
 tag_prefix: RELEASE_
 separator: _
 git_url: https://github.com/smartmontools/smartmontools.git
+git_tag:

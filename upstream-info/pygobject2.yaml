@@ -4,3 +4,9 @@ src_repo: pygobject
 tag_prefix: "^"
 separator: "."
 git_url: https://gitlab.gnome.org/GNOME/pygobject.git
+git_tag:
+- 2020-03-08 3.36.0
+- 2019-09-09 3.34.0
+- 2019-08-18 3.33.1
+- 2019-03-07 3.31.4
+- 2019-02-02 3.31.3

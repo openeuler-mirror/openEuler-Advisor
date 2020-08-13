@@ -4,3 +4,4 @@ src_repo: njh/rdate
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/njh/rdate.git
+git_tag:

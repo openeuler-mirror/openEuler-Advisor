@@ -4,3 +4,11 @@ src_repo: https://git.code.sf.net/p/gnu-efi/code
 tag_prefix: gnu-efi-
 separator: "."
 git_url: https://git.code.sf.net/p/gnu-efi/code
+git_tag:
+- 2018-10-11 3.0.9
+- 2018-03-14 3.0.8
+- 2017-06-20 3.0.6
+- 2017-01-09 3.0.5
+- 2016-03-17 3.0.4
+- 2019-10-28 3.0.11
+- 2019-10-03 3.0.10

@@ -4,3 +4,16 @@ src_repo: https://pagure.io/volume_key.git
 tag_prefix: "^volume_key-"
 separator: 
 git_url: https://pagure.io/volume_key.git
+git_tag:
+- 2012-09-22 volume_key-0.3.9
+- 2012-03-03 volume_key-0.3.8
+- 2011-08-24 volume_key-0.3.7
+- 2011-03-31 volume_key-0.3.6
+- 2010-11-24 volume_key-0.3.5
+- 2010-08-27 volume_key-0.3.4
+- 2010-03-26 volume_key-0.3.3
+- 2010-03-04 volume_key-0.3.2
+- 2018-10-08 volume_key-0.3.12
+- 2018-07-17 volume_key-0.3.11
+- 2018-05-21 volume_key-0.3.10
+- 2009-12-11 volume_key-0.3.1

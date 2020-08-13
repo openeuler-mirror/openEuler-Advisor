@@ -4,3 +4,11 @@ src_repo: hamcrest/PyHamcrest
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/hamcrest/PyHamcrest.git
+git_tag:
+- 2020-03-02 V2.0.2
+- 2015-02-21 V1.8.2
+- 2015-02-19 V1.8.1
+- 2013-10-21 V1.8.0
+- 2012-12-29 V1.7
+- 2013-10-21 1.8.0
+- 2020-01-06 1.10.0

@@ -4,3 +4,22 @@ src_repo: https://pagure.io/oddjob.git
 tag_prefix: "^oddjob-"
 separator: "."
 git_url: https://pagure.io/oddjob.git
+git_tag:
+- 2020-05-07 oddjob-0.34.6
+- 2020-05-07 oddjob-0.34.5
+- 2017-02-26 oddjob-0.34.4
+- 2015-07-10 oddjob-0.34.3
+- 2015-06-30 oddjob-0.34.2
+- 2015-06-24 oddjob-0.34.1
+- 2015-06-24 oddjob-0.34
+- 2014-04-22 oddjob-0.33
+- 2014-04-08 oddjob-0.32
+- 2013-07-30 oddjob-0.31.5
+- 2013-05-17 oddjob-0.31.4
+- 2013-01-17 oddjob-0.31.3
+- 2012-08-29 oddjob-0.31.2
+- 2011-02-15 oddjob-0.31.1
+- 2011-01-25 oddjob-0.31
+- 2010-09-16 oddjob-0.30.2
+- 2010-04-01 oddjob-0.30.1
+- 2010-01-27 oddjob-0.30

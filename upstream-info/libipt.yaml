@@ -4,3 +4,5 @@ src_repo: intel/libipt
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/intel/libipt.git
+git_tag:
+- 2018-08-07 v2.0

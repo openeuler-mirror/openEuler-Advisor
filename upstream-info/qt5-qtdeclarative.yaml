@@ -4,3 +4,4 @@ src_repo: qt/qtdeclarative
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/qt/qtdeclarative.git
+git_tag:

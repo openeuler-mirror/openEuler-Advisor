@@ -137,3 +137,4 @@ last_query:
     3.9.92
     3.9.92^{}
 git_url: https://gitlab.gnome.org/GNOME/gnome-clocks.git
+git_tag:

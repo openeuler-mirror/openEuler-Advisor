@@ -4,3 +4,6 @@ src_repo: jrfastab/cgdcbxd
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/jrfastab/cgdcbxd.git
+git_tag:
+- 2013-07-22 v1.0.2
+- 2012-06-21 v1.0.1

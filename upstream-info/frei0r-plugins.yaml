@@ -4,3 +4,9 @@ src_repo: dyne/frei0r
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/dyne/frei0r.git
+git_tag:
+- 2016-03-19 v1.5
+- 2019-12-06 v1.7.0
+- 2017-05-31 v1.6.1
+- 2017-03-24 v1.6.0
+- 2016-04-02 1.5-tarball

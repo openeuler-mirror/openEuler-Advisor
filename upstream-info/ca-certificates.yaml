@@ -4,3 +4,4 @@ src_repo: NA
 tag_prefix: ca-certificates-
 separator: "[-_]"
 git_url: https://src.fedoraproject.org/rpms/ca-certificates.git
+git_tag:

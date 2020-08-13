@@ -4,3 +4,17 @@ src_repo: linuxwacom/xf86-input-wacom
 tag_prefix: "^xf86-input-wacom-"
 separator: "."
 git_url: https://github.com/linuxwacom/xf86-input-wacom.git
+git_tag:
+- 2019-12-22 xf86-input-wacom-0.39.0
+- 2019-10-14 xf86-input-wacom-0.38.0
+- 2019-10-09 xf86-input-wacom-0.37.99.1
+- 2019-06-18 xf86-input-wacom-0.37.0
+- 2018-01-23 xf86-input-wacom-0.36.0
+- 2018-01-09 xf86-input-wacom-0.35.99.1
+- 2017-03-09 xf86-input-wacom-0.34.2
+- 2016-12-05 xf86-input-wacom-0.34.0
+- 2016-11-18 xf86-input-wacom-0.33.99.1
+- 2016-05-13 xf86-input-wacom-0.33.0
+- 2016-05-04 xf86-input-wacom-0.32.99.1
+- 2015-11-23 xf86-input-wacom-0.32.0
+- 2018-03-19 xf86-input-wacom-0.36.1

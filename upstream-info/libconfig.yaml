@@ -4,3 +4,9 @@ src_repo: hyperrealm/libconfig
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/hyperrealm/libconfig.git
+git_tag:
+- 2015-05-16 v1.5
+- 2018-01-05 v1.7.2
+- 2017-11-17 v1.7.1
+- 2017-10-29 v1.7
+- 2015-12-31 v1.6

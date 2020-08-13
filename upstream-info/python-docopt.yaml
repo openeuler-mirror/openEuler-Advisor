@@ -4,3 +4,10 @@ src_repo: docopt/docopt
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/docopt/docopt.git
+git_tag:
+- 2013-02-01 0.6.1
+- 2013-01-23 0.6.0
+- 2012-08-13 0.5.0
+- 2012-07-29 0.4.2
+- 2012-06-20 0.4.1
+- 2012-06-14 0.4.0

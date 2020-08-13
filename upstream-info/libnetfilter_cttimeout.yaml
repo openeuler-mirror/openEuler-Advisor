@@ -4,3 +4,7 @@ src_repo: https://git.netfilter.org/libnetfilter_cttimeout
 tag_prefix: "^libnetfilter_cttimeout-"
 separator: "."
 git_url: https://github.com/Distrotech/libnetfilter_cttimeout.git
+git_tag:
+- 2012-05-26 libnetfilter_cttimeout-1.0.0
+- 2013-06-15 distrotech-libnetfilter_cttimeout-1.0.1
+- 2013-06-15 distrotech-libnetfilter_cttimeout-1.0.0

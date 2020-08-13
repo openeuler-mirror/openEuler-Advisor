@@ -4,3 +4,4 @@ src_repo: MirBSD/mksh
 tag_prefix: mksh-R
 separator: "."
 git_url: https://github.com/MirBSD/mksh.git
+git_tag:

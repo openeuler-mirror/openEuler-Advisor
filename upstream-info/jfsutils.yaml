@@ -4,3 +4,41 @@ src_repo: pld-linux/jfsutils
 tag_prefix: "^.*jfsutils-"
 separator: "."
 git_url: https://github.com/pld-linux/jfsutils.git
+git_tag:
+- 2012-06-24 jfsutils-1_1_2-2
+- 2012-06-24 jfsutils-1_0_9-1
+- 2012-06-24 jfsutils-1_0_8-2
+- 2012-06-24 jfsutils-1_0_8-1
+- 2012-06-24 jfsutils-1_0_7-1
+- 2012-06-24 jfsutils-1_0_6-1
+- 2012-06-24 jfsutils-1_0_5-1
+- 2012-06-24 jfsutils-1_0_4-1
+- 2012-06-24 jfsutils-1_0_20-1
+- 2012-06-24 jfsutils-1_0_17-2
+- 2012-06-24 jfsutils-1_0_11-2
+- 2012-06-24 jfsutils-1_0_11-1
+- 2012-06-24 jfsutils-1_0_10-1
+- 2012-06-24 auto/ti/jfsutils-1_1_15-1
+- 2012-06-24 auto/ti/jfsutils-1_1_14-1
+- 2012-06-24 auto/ti/jfsutils-1_1_13-1
+- 2012-06-24 auto/ti/jfsutils-1_1_12-1
+- 2013-06-29 auto/ti/jfsutils-1.1.15-2
+- 2012-06-24 auto/th/jfsutils-1_1_8-3
+- 2012-06-24 auto/th/jfsutils-1_1_8-2
+- 2012-06-24 auto/th/jfsutils-1_1_15-1
+- 2012-06-24 auto/th/jfsutils-1_1_14-1
+- 2012-06-24 auto/th/jfsutils-1_1_13-1
+- 2012-06-24 auto/th/jfsutils-1_1_12-1
+- 2012-06-24 auto/th/jfsutils-1_1_11-1
+- 2013-06-29 auto/th/jfsutils-1.1.15-2
+- 2012-06-24 auto/ac/jfsutils-1_1_9-1
+- 2012-06-24 auto/ac/jfsutils-1_1_8-3
+- 2012-06-24 auto/ac/jfsutils-1_1_7-1
+- 2012-06-24 auto/ac/jfsutils-1_1_5-1
+- 2012-06-24 auto/ac/jfsutils-1_1_4-1
+- 2012-06-24 auto/ac/jfsutils-1_1_13-1
+- 2012-06-24 auto/ac/jfsutils-1_1_12-1
+- 2012-06-24 auto/ac/jfsutils-1_1_10-1
+- 2012-06-24 STABLE
+- 2012-06-24 RA-1_0
+- 2012-06-24 AC-STABLE

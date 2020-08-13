@@ -4,3 +4,4 @@ src_repo: ivmai/libatomic_ops
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/ivmai/libatomic_ops.git
+git_tag:

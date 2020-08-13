@@ -4,3 +4,4 @@ src_repo: bottlepy/bottle
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/bottlepy/bottle.git
+git_tag:

@@ -477,3 +477,13 @@ last_query:
     vertical-branch-point
     vertical-branch-point^{}
 git_url: https://gitlab.gnome.org/GNOME/pango.git
+git_tag:
+- 2020-06-22 1.45.3
+- 2020-06-11 1.45.2
+- 2020-06-08 1.45.1
+- 2019-10-24 1.44.7
+- 2019-09-04 1.44.6-2
+- 2019-08-14 1.44.5
+- 2019-08-13 1.44.4
+- 2019-08-03 1.44.3
+- 2019-08-02 1.44.2

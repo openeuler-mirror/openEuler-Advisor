@@ -4,3 +4,13 @@ src_repo: rhinstaller/dasbus
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/rhinstaller/dasbus.git
+git_tag:
+- 2020-07-24 v1.4
+- 2020-06-17 v1.3
+- 2020-05-18 v1.2
+- 2020-05-14 v1.1
+- 2020-05-05 v1.0
+- 2020-04-08 v0.4
+- 2020-04-02 v0.3
+- 2020-01-13 v0.2
+- 2019-11-07 v0.1

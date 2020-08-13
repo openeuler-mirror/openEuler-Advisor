@@ -4,3 +4,13 @@ src_repo: https://gitlab.freedesktop.org/xorg/lib/libpciaccess.git
 tag_prefix: libpciaccess-
 separator: "."
 git_url: https://gitlab.freedesktop.org/xorg/lib/libpciaccess.git
+git_tag:
+- 2019-07-17 libpciaccess-0.16
+- 2019-07-11 libpciaccess-0.15
+- 2017-10-23 libpciaccess-0.14
+- 2017-04-04 libpciaccess-0.13.5
+- 2015-04-30 libpciaccess-0.13.4
+- 2015-02-03 libpciaccess-0.13.3
+- 2013-07-20 libpciaccess-0.13.2
+- 2012-04-09 libpciaccess-0.13.1
+- 2012-03-03 libpciaccess-0.13

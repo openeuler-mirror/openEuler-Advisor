@@ -4,3 +4,17 @@ src_repo: thkukuk/ypserv
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/thkukuk/ypserv.git
+git_tag:
+- 2001-11-26 ypserv_2_2
+- 2016-04-05 ypserv-4.0
+- 2015-04-14 ypserv-3_7
+- 2015-04-13 ypserv-3_6
+- 2015-03-31 ypserv-3_5
+- 2015-03-13 ypserv-3_3
+- 2014-12-08 ypserv-3_2
+- 2014-12-01 ypserv-3_1
+- 2014-11-05 ypserv-3_0
+- 2014-11-03 ypserv-2_99_3
+- 2002-05-27 ypserv-2_4
+- 2002-05-14 ypserv-2_3
+- 2019-03-12 v4.1

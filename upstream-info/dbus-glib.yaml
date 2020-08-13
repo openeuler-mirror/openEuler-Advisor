@@ -4,3 +4,10 @@ src_repo: https://gitlab.freedesktop.org/dbus/dbus-glib.git
 tag_prefix: "^dbus-glib-"
 separator: "."
 git_url: https://gitlab.freedesktop.org/dbus/dbus-glib.git
+git_tag:
+- 2018-01-29 dbus-glib-0.110
+- 2016-09-09 dbus-glib-0.108
+- 2016-01-14 dbus-glib-0.106
+- 2015-02-09 dbus-glib-0.104
+- 2014-02-12 dbus-glib_0.102
+- 2013-02-25 dbus-glib_0.100.2

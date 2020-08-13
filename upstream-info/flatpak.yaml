@@ -4,3 +4,6 @@ src_repo: flatpak/flatpak
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/flatpak/flatpak.git
+git_tag:
+- 2020-06-24 1.8.0
+- 2020-06-10 1.7.3

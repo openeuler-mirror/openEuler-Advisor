@@ -4,3 +4,7 @@ src_repo: https://salsa.debian.org/rousseau/CCID.git
 tag_prefix: "^ccid-"
 separator: "."
 git_url: https://salsa.debian.org/rousseau/CCID.git
+git_tag:
+- 2020-06-25 ccid-1.4.33
+- 2020-04-22 ccid-1.4.32
+- 2019-08-10 ccid-1.4.31

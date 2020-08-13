@@ -4,3 +4,6 @@ version_control: github
 src_repo: dogtagpki/ldap-sdk
 tag_prefix: "^v"
 separator: "."
+git_tag:
+- 2020-05-26 v4.22.0
+- 2019-06-03 v4.21.0

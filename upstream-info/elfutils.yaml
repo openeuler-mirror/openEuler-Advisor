@@ -4,3 +4,6 @@ src_repo: https://sourceware.org/git/elfutils.git
 tag_prefix: "^elfutils-"
 separator: "."
 git_url: https://sourceware.org/git/elfutils.git
+git_tag:
+- 2020-06-11 elfutils-0.180
+- 2020-03-30 elfutils-0.179

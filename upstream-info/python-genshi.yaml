@@ -4,3 +4,4 @@ src_repo: edgewall/genshi
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/edgewall/genshi.git
+git_tag:

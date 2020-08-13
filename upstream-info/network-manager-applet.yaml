@@ -375,3 +375,11 @@ last_query:
     NETWORK_MANAGER_APPLET_0_6_6_RELEASE
     NETWORK_MANAGER_APPLET_0_6_6_RELEASE^{}
 git_url: https://gitlab.gnome.org/GNOME/network-manager-applet.git
+git_tag:
+- 2020-06-22 1.19.0-dev
+- 2020-06-22 1.18.0
+- 2020-03-07 1.17.0-dev
+- 2020-03-07 1.16.0
+- 2020-03-05 1.15.0-dev
+- 2019-10-09 1.8.25-dev
+- 2019-10-09 1.8.24

@@ -4,3 +4,8 @@ src_repo: rhboot/efi-rpm-macros
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/rhboot/efi-rpm-macros.git
+git_tag:
+- 2018-09-26 4
+- 2018-05-04 3
+- 2018-05-01 2
+- 2018-04-30 1

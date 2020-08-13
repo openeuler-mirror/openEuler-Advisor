@@ -4,3 +4,10 @@ src_repo: https://gitlab.gnome.org/GNOME/gexiv2.git
 tag_prefix: "^gexiv2-"
 separator: "."
 git_url: https://gitlab.gnome.org/GNOME/gexiv2.git
+git_tag:
+- 2020-05-23 gexiv2-0.12.1
+- 2019-03-11 gexiv2-0.12.0
+- 2019-01-08 gexiv2-0.11.0
+- 2018-11-18 gexiv2-0.10.9
+- 2018-02-05 gexiv2-0.10.8
+- 2017-12-24 gexiv2-0.10.7

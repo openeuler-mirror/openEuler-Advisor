@@ -4,3 +4,4 @@ src_repo: silnrsi/font-scheherazade
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/silnrsi/font-scheherazade.git
+git_tag:

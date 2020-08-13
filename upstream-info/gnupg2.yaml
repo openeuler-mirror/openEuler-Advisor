@@ -4,3 +4,4 @@ src_repo: https://dev.gnupg.org/source/gnupg.git
 tag_prefix: "^gnupg-"
 separator: "."
 git_url: https://dev.gnupg.org/source/gnupg.git
+git_tag:

@@ -4,3 +4,4 @@ src_repo: openvswitch/ovs
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/openvswitch/ovs.git
+git_tag:

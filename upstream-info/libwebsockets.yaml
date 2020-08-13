@@ -4,3 +4,4 @@ src_repo: warmcat/libwebsockets
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/warmcat/libwebsockets.git
+git_tag:

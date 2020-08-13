@@ -4,3 +4,4 @@ src_repo: KhronosGroup/OpenGL-Refpages
 tag_prefix: "^"
 sepreator: "."
 git_url: https://github.com/KhronosGroup/OpenGL-Refpages.git
+git_tag:

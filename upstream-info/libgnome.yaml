@@ -599,3 +599,8 @@ last_query:
     nautilus_ms_may_31
     nautilus_ms_may_31^{}
 git_url: https://gitlab.gnome.org/GNOME/libgnome.git
+git_tag:
+- 2011-01-31 LIBGNOME_2_32_1
+- 2010-09-27 LIBGNOME_2_32_0
+- 2010-06-29 2.31.0
+- 2010-03-30 LIBGNOME_2_30_0

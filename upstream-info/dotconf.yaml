@@ -40,3 +40,7 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/williamh/dotconf.git
+git_tag:
+- 2010-06-21 v1.3
+- 2010-06-01 v1.2
+- 2010-02-09 v1.1.0

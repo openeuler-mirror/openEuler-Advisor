@@ -4,3 +4,5 @@ src_repo: dracutdevs/dracut
 tag_prefix: 
 separator: 
 git_url: https://github.com/dracutdevs/dracut.git
+git_tag:
+- 2020-03-04 050

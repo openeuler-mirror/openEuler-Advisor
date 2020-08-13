@@ -4,3 +4,13 @@ src_repo: chardet/chardet
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/chardet/chardet.git
+git_tag:
+- 2017-06-08 3.0.4
+- 2017-05-16 3.0.3
+- 2017-04-11 3.0.1
+- 2014-10-07 2.3.0
+- 2013-12-18 2.2.1
+- 2013-12-16 2.2.0
+- 2017-04-12 3.0.2
+- 2017-04-11 3.0.0
+- 2012-07-26 1.1

@@ -4,3 +4,4 @@ src_repo: d2g/dhcp4
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/d2g/dhcp4.git
+git_tag:

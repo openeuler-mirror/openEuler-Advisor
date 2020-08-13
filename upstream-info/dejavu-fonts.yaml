@@ -4,3 +4,6 @@ src_repo: dejavu-fonts/dejavu-fonts
 tag_prefix: "^version_"
 separator: _
 git_url: https://github.com/dejavu-fonts/dejavu-fonts.git
+git_tag:
+- 2016-07-30 version_2_37
+- 2016-07-14 version_2_36

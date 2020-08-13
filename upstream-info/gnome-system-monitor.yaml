@@ -487,3 +487,8 @@ last_query:
     gnome-3-8
     gnome-3-8^{}
 git_url: https://gitlab.gnome.org/GNOME/gnome-system-monitor.git
+git_tag:
+- 2020-03-08 3.36.0
+- 2020-02-29 3.35.92
+- 2020-02-01 3.35.90
+- 2019-03-11 3.32.0

@@ -4,3 +4,5 @@ src_repo: gtkmm
 tag_prefix: "^"
 separator: "."
 git_url: https://gitlab.gnome.org/GNOME/gtkmm.git
+git_tag:
+- 2020-02-13 3.97.1

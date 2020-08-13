@@ -4,3 +4,9 @@ src_repo: https://gitlab.com/psmisc/psmisc.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://gitlab.com/psmisc/psmisc.git
+git_tag:
+- 2019-11-12 v23.3
+- 2018-09-24 v23.2
+- 2017-06-16 v23.1
+- 2017-06-12 v23.0
+- 2016-12-03 v23.0rc1

@@ -4,3 +4,44 @@ src_repo: https://src.fedoraproject.org/rpms/rootfiles.git
 tag_prefix: "^rootfiles-"
 separator: _
 git_url: https://src.fedoraproject.org/rpms/rootfiles.git
+git_tag:
+- 2009-11-25 F-13-split
+- 2009-07-27 rootfiles-8_1-6_fc12
+- 2009-07-27 F-12-split
+- 2009-03-30 rootfiles-8_1-5_fc11
+- 2009-03-30 F-11-split
+- 2009-03-23 rootfiles-8_1-4_fc11
+- 2009-02-25 rootfiles-8_1-3_fc11
+- 2008-11-14 rootfiles-8_1-2_fc11
+- 2007-10-15 F-9-split
+- 2007-10-15 F-8-split
+- 2007-10-15 F-10-split
+- 2006-07-12 rootfiles-8_1-1_1_1
+- 2006-07-12 FC-6-split
+- 2006-07-12 F-7-start
+- 2006-07-12 F-7-split
+- 2005-12-09 rootfiles-8_1-1_1
+- 2005-12-09 FC-5-split
+- 2004-12-03 rootfiles-8_1-1
+- 2004-12-03 FC-4-split
+- 2004-09-23 rootfiles-8-1
+- 2004-09-23 RHEL-4-split
+- 2004-09-23 FC-3-split
+- 2004-09-09 rootfiles-7_2-7
+- 2004-09-09 present-on-devel
+- 2004-09-09 rootfiles-7_2-6
+- 2004-09-09 RHL-9-split
+- 2004-09-09 RHL-8-split
+- 2004-09-09 RHEL-3-split
+- 2004-09-09 FC-2-split
+- 2004-09-09 FC-1-split
+- 2004-09-09 rootfiles-7_2-4
+- 2004-09-09 rootfiles-7_2-3
+- 2004-09-09 rootfiles-7_2-1
+- 2004-09-09 RHL-7_3-split
+- 2004-09-09 RHL-7_2-split
+- 2004-09-09 RHEL-2_1-split
+- 2004-09-09 rootfiles-7_0-4p
+- 2004-09-09 RHL-7_1-split
+- 2004-09-09 rootfiles-7_0-4
+- 2004-09-09 RHL-7_0-split

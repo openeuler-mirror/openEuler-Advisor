@@ -4,3 +4,12 @@ src_repo: tcltk/tcllib
 tag_prefix: tcllib_
 separator: _
 git_url: https://github.com/tcltk/tcllib.git
+git_tag:
+- 2019-08-21 tcllib-1-20-rc-1
+- 2019-12-01 tcllib-1-20
+- 2018-02-17 tcllib-1-19-rc-2
+- 2018-02-14 tcllib-1-19-rc-1
+- 2018-02-13 tcllib-1-19-rc-0
+- 2018-02-17 tcllib-1-19
+- 2018-02-17 release
+- 2017-12-24 magicsplat-1.8.0

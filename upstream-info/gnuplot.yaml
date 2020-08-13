@@ -4,3 +4,4 @@ src_repo: gnuplot/gnuplot
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/gnuplot/gnuplot.git
+git_tag:

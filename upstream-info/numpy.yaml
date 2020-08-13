@@ -4,3 +4,4 @@ src_repo: numpy/numpy
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/numpy/numpy.git
+git_tag:

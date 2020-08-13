@@ -4,3 +4,4 @@ src_repo: erikd/libsndfile
 tag_prefix: 
 separator: "."
 git_url: https://github.com/erikd/libsndfile.git
+git_tag:

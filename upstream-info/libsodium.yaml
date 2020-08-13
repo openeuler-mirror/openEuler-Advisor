@@ -4,3 +4,4 @@ src_repo: jedisct1/libsodium
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/jedisct1/libsodium.git
+git_tag:

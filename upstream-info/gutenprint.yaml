@@ -4,3 +4,4 @@ version_control: github
 src_repo: echiu64/gutenprint
 tag_prefix: gutenprint-
 separator: _
+git_tag:

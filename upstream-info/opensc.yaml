@@ -4,3 +4,5 @@ src_repo: OpenSC/OpenSC
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/OpenSC/OpenSC.git
+git_tag:
+- 2019-12-29 0.20.0

@@ -4,3 +4,4 @@ src_repo: kcat/openal-soft
 tag_prefix: openal-soft-
 separator: "."
 git_url: https://github.com/kcat/openal-soft.git
+git_tag:

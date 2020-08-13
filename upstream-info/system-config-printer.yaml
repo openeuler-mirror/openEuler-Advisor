@@ -4,3 +4,9 @@ src_repo: zdohnal/system-config-printer
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/zdohnal/system-config-printer.git
+git_tag:
+- 2017-01-09 v1.5.9
+- 2016-10-24 v1.5.8
+- 2016-10-24 1.5.8
+- 2018-01-24 1.5.11
+- 2018-01-24 1.5.10

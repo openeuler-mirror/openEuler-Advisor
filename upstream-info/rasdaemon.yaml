@@ -4,3 +4,14 @@ src_repo: mchehab/rasdaemon
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/mchehab/rasdaemon.git
+git_tag:
+- 2016-02-05 v0.5.7
+- 2020-07-21 v0.6.6
+- 2019-11-20 v0.6.5
+- 2019-10-10 v0.6.4
+- 2019-08-23 v0.6.3
+- 2018-08-14 v0.6.2
+- 2018-04-25 v0.6.1
+- 2017-10-14 v0.6.0
+- 2017-06-08 v0.5.9
+- 2016-04-15 v0.5.8

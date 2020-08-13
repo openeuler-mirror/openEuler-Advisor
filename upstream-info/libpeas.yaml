@@ -107,3 +107,10 @@ last_query:
     libpeas-1.9.0
     libpeas-1.9.0^{}
 git_url: https://gitlab.gnome.org/GNOME/libpeas.git
+git_tag:
+- 2020-03-06 libpeas-1.26.0
+- 2020-01-16 libpeas-1.25.3
+- 2019-09-09 libpeas-1.24.0
+- 2019-09-04 libpeas-1.23.92
+- 2019-08-06 libpeas-1.23.90.1
+- 2019-08-05 libpeas-1.23.90

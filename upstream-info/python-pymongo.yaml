@@ -4,3 +4,7 @@ src_repo: mongodb/mongo-python-driver
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/mongodb/mongo-python-driver.git
+git_tag:
+- 2020-07-15 3.11.0rc0
+- 2020-06-09 3.11.0b1
+- 2020-04-10 3.11.0b0

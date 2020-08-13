@@ -4,3 +4,5 @@ src_repo: FreeRDP/FreeRDP
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/FreeRDP/FreeRDP.git
+git_tag:
+- 2020-04-09 2.0.0

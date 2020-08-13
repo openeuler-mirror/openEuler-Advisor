@@ -4,3 +4,9 @@ src_repo: https://git.kernel.org/pub/scm/libs/python/python-schedutils/python-sc
 tag_prefix: "^v"
 separator: "."
 git_url: https://git.kernel.org/pub/scm/libs/python/python-schedutils/python-schedutils.git
+git_tag:
+- 2017-11-21 v0.6
+- 2017-09-26 v0.5.1
+- 2016-12-22 v0.5
+- 2011-08-04 v0.4
+- 2008-08-27 v0.2

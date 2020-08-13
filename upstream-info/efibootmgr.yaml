@@ -4,3 +4,41 @@ src_repo: rhboot/efibootmgr
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/rhboot/efibootmgr.git
+git_tag:
+- 2018-06-10 17
+- 2018-04-09 16
+- 2017-03-07 15
+- 2016-09-27 14
+- 2016-08-17 13
+- 2015-05-28 efibootmgr-0.12
+- 2014-10-21 efibootmgr-0.11.0
+- 2014-10-20 efibootmgr-0.10.0
+- 2014-09-25 efibootmgr-0.9.0
+- 2013-01-29 Release_0_6_0
+- 2008-01-18 Release_0_5_4
+- 2014-09-09 rhel-7.3-branchpoint
+- 2001-05-15 release-tag
+- 2014-09-09 efibootmgr-0.8.0
+- 2014-04-01 efibootmgr-0.7.0
+- 2004-06-09 Revision_0_5_0-test4
+- 2005-08-11 Release_0_5_3
+- 2005-03-08 Release_0_5_2
+- 2004-02-05 Release_0_5_0_test2
+- 2004-04-24 Release_0_5_0-test3
+- 2003-09-09 Release_0_5_0-test1
+- 2004-08-26 Release_0_5_0
+- 2003-07-31 Release_0_4_2-test1
+- 2003-08-11 Release_0_4_2
+- 2002-10-25 Release_0_4_1
+- 2002-04-06 Release_0_4_0_test6
+- 2002-05-01 Release_0_4_0
+- 2001-08-10 Release_0_3_4_real
+- 2001-08-10 Release_0_3_4
+- 2001-07-30 Release_0_3_3-test5
+- 2001-07-30 Release_0_3_3-test4
+- 2001-07-27 Release_0_3_3-test3
+- 2001-07-26 Release_0_3_3-test2
+- 2001-07-25 Release_0_3_3-test1
+- 2001-08-03 Release_0_3_3
+- 2001-05-15 Release_0_2_0
+- 2014-01-13 0.6.1

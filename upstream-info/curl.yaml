@@ -4,3 +4,6 @@ src_repo: curl/curl
 tag_prefix: curl-
 separator: _
 git_url: https://github.com/curl/curl.git
+git_tag:
+- 2020-07-01 curl-7_71_1
+- 2020-06-24 curl-7_71_0

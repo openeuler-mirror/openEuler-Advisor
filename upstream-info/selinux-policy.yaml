@@ -4,3 +4,4 @@ src_repo: fedora-selinux/selinux-policy
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/fedora-selinux/selinux-policy.git
+git_tag:

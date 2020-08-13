@@ -4,3 +4,4 @@ src_repo: festvox/festival
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/festvox/festival.git
+git_tag:

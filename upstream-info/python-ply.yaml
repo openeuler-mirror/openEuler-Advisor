@@ -4,3 +4,7 @@ src_repo: dabeaz/ply
 tag_prefix: 
 separator: "."
 git_url: https://github.com/dabeaz/ply.git
+git_tag:
+- 2016-08-31 3.9
+- 2018-02-15 3.11
+- 2017-01-31 3.10

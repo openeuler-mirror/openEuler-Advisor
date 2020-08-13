@@ -4,3 +4,15 @@ src_repo: aperezdc/nss-altfiles
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/aperezdc/nss-altfiles.git
+git_tag:
+- 2016-10-06 v2.23.0
+- 2016-09-11 v2.19.4
+- 2016-09-03 v2.19.3
+- 2015-12-16 v2.19.2
+- 2014-05-21 v2.19.1
+- 2014-05-21 v2.19.0
+- 2013-10-14 v2.18.0
+- 2013-10-14 v2.13.3
+- 2012-09-05 v2.13.2
+- 2012-09-05 v2.13.1
+- 2012-08-29 v2.13.0

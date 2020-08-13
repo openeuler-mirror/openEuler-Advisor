@@ -109,3 +109,8 @@ last_query:
     3.5","size":416885,"upload_time":"2020-03-04T02:32:35","upload_time_iso_8601":"2020-03-04T02:32:35.559564Z","url":"https://files.pythonhosted.org/packages/30/38/91349845eea916575ddbe59a08866de3661b1e4564d42a845545066d51c4/tornado-6.0.4-cp38-cp38-win32.whl","yanked":false},{"comment_text":"","digests":{"md5":"8058233ac2a78e857bb8fefce69281e7","sha256":"c58d56003daf1b616336781b26d184023ea4af13ae143d9dda65e31e534940b9"},"downloads":-1,"filename":"tornado-6.0.4-cp38-cp38-win_amd64.whl","has_sig":false,"md5_digest":"8058233ac2a78e857bb8fefce69281e7","packagetype":"bdist_wheel","python_version":"cp38","requires_python":">=
     3.5","size":417502,"upload_time":"2020-03-04T02:32:37","upload_time_iso_8601":"2020-03-04T02:32:37.713574Z","url":"https://files.pythonhosted.org/packages/0c/04/48f7aca638106a57a94f9f3921fae27a9010076bccc9d31eef99c62ffaf5/tornado-6.0.4-cp38-cp38-win_amd64.whl","yanked":false},{"comment_text":"","digests":{"md5":"cf39425f3d7eba9a54287f3e795a2f23","sha256":"0fe2d45ba43b00a41cd73f8be321a44936dc1aba233dee979f17a042b83eb6dc"},"downloads":-1,"filename":"tornado-6.0.4.tar.gz","has_sig":false,"md5_digest":"cf39425f3d7eba9a54287f3e795a2f23","packagetype":"sdist","python_version":"source","requires_python":">=
     3.5","size":496204,"upload_time":"2020-03-04T02:32:39","upload_time_iso_8601":"2020-03-04T02:32:39.825011Z","url":"https://files.pythonhosted.org/packages/95/84/119a46d494f008969bf0c775cb2c6b3579d3c4cc1bb1b41a022aa93ee242/tornado-6.0.4.tar.gz","yanked":false}]}'
+git_tag:
+- 2019-03-01 v6.0.0
+- 2018-07-11 v5.1.0
+- 2019-02-10 v6.0.0b1
+- 2018-06-10 v5.1.0b1

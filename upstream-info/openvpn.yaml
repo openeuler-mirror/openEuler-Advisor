@@ -4,3 +4,4 @@ src_repo: OpenVPN/openvpn
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/OpenVPN/openvpn.git
+git_tag:

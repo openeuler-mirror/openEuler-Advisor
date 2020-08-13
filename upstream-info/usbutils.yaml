@@ -4,3 +4,7 @@ src_repo: gregkh/usbutils
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/gregkh/usbutils.git
+git_tag:
+- 2019-05-07 v012
+- 2019-05-06 v011
+- 2018-05-15 v010

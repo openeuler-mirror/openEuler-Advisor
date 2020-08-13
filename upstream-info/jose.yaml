@@ -4,3 +4,10 @@ src_repo: latchset/jose
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/latchset/jose.git
+git_tag:
+- 2017-06-16 v9
+- 2017-06-14 v8
+- 2017-03-17 v7
+- 2016-10-25 v6
+- 2016-10-14 v5
+- 2017-09-29 v10

@@ -4,3 +4,9 @@ src_repo: intel/dleyna-connector-dbus
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/intel/dleyna-connector-dbus.git
+git_tag:
+- 2013-08-22 v0.2.0
+- 2013-06-03 v0.1.0
+- 2013-05-31 v0.0.2
+- 2017-03-04 v0.3.0
+- 2017-03-04 0.3.0

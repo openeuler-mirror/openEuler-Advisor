@@ -4,3 +4,6 @@ src_repo: InfrastructureServices/authd
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/InfrastructureServices/authd.git
+git_tag:
+- 2019-02-12 authd-1.4.4
+- 2019-02-12 v1.4.4

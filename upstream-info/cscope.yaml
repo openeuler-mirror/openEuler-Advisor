@@ -4,3 +4,5 @@ src_repo: https://git.code.sf.net/p/cscope/cscope
 tag_prefix: "^v"
 separator: "."
 git_url: https://git.code.sf.net/p/cscope/cscope
+git_tag:
+- 2018-07-24 v15.9

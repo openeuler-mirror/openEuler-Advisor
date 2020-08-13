@@ -4,3 +4,5 @@ src_repo: https://code.qt.io/qt/qt.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://code.qt.io/qt/qt.git
+git_tag:
+- 2015-05-26 v4.8.7

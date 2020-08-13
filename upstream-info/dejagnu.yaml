@@ -4,3 +4,4 @@ src_repo: https://git.savannah.gnu.org/git/dejagnu.git
 tag_prefix: "^dejagnu-"
 separator: "."
 git_url: https://git.savannah.gnu.org/git/dejagnu.git
+git_tag:

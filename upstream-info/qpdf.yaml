@@ -4,3 +4,7 @@ src_repo: qpdf/qpdf
 tag_prefix: "^release-qpdf-"
 separator: "."
 git_url: https://github.com/qpdf/qpdf.git
+git_tag:
+- 2020-04-09 release-qpdf-10.0.1
+- 2020-04-06 release-qpdf-10.0.0
+- 2020-01-26 release-qpdf-9.1.1

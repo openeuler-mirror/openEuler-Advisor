@@ -4,3 +4,4 @@ src_repo: stedolan/jq
 tag_prefix: jq-
 separator: "."
 git_url: https://github.com/stedolan/jq.git
+git_tag:

@@ -4,3 +4,14 @@ src_repo: libfuse/libfuse
 tag_prefix: fuse-
 separator: "."
 git_url: https://github.com/libfuse/libfuse.git
+git_tag:
+- 2020-06-12 fuse-3.9.2
+- 2020-03-19 fuse-3.9.1
+- 2019-12-14 fuse-3.9.0
+- 2019-11-03 fuse-3.8.0
+- 2019-09-27 fuse-3.7.0
+- 2019-07-09 fuse-3.6.2
+- 2019-06-13 fuse-3.6.1
+- 2019-06-13 fuse-3.6.0
+- 2019-04-16 fuse-3.5.0
+- 2019-03-09 fuse-3.4.2

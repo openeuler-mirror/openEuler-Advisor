@@ -4,3 +4,4 @@ src_repo: vishvananda/netns
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/vishvananda/netns.git
+git_tag:

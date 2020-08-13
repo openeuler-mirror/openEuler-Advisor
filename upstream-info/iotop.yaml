@@ -4,3 +4,10 @@ src_repo: git://repo.or.cz/iotop.git
 tag_prefix: iotop-
 separator: "."
 git_url: git://repo.or.cz/iotop.git
+git_tag:
+- 2013-05-27 iotop-0.6
+- 2013-02-03 iotop-0.5
+- 2011-10-30 iotop-0.4.4
+- 2011-03-28 iotop-0.4.3
+- 2010-12-14 iotop-0.4.2
+- 2010-06-27 iotop-0.4.1

@@ -4,3 +4,8 @@ src_repo: https://git.savannah.gnu.org/git/sed.git
 tag_prefix: "^v"
 separator: 
 git_url: https://git.savannah.gnu.org/git/sed.git
+git_tag:
+- 2020-01-14 v4.8
+- 2018-12-20 v4.7
+- 2018-12-19 v4.6
+- 2018-03-31 v4.5

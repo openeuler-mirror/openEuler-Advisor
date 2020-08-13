@@ -4,3 +4,4 @@ src_repo: qtwebkit/qtwebkit
 tag_prefix: "^qtwebkit-"
 separator: "."
 git_url: https://github.com/annulen/webkit.git
+git_tag:

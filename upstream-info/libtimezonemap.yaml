@@ -4,3 +4,5 @@ src_repo: dashea/timezonemap
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/dashea/timezonemap.git
+git_tag:
+- 2017-10-20 0.4.5.1

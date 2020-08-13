@@ -4,3 +4,7 @@ src_repo: lavv17/lftp
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/lavv17/lftp.git
+git_tag:
+- 2020-01-15 v4.9.1
+- 2019-12-21 v4.9.0
+- 2018-08-01 v4.8.4

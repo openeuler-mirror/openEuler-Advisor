@@ -4,3 +4,8 @@ src_repo: https://pagure.io/libuser.git
 tag_prefix: "^libuser-"
 separator: "."
 git_url: https://pagure.io/libuser.git
+git_tag:
+- 2015-07-23 libuser-0.62
+- 2015-03-24 libuser-0.61
+- 2013-10-12 libuser-0.60
+- 2013-03-29 libuser-0.59

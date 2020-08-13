@@ -4,3 +4,8 @@ src_repo: brailcom/speechd
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/brailcom/speechd.git
+git_tag:
+- 2020-07-05 0.10.0-rc4
+- 2020-04-26 0.10.0-rc3
+- 2019-12-17 0.10.0-rc2
+- 2019-11-29 0.10.0-rc1

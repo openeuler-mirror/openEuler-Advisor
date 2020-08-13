@@ -4,3 +4,7 @@ src_repo: redlab-i/pps-tools
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/redlab-i/pps-tools.git
+git_tag:
+- 2017-08-30 v1.0.1
+- 2017-08-29 v1.0.0
+- 2018-02-03 v1.0.2

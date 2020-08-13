@@ -33,3 +33,7 @@ last_query:
     v0.3.7
     v0.3.7^{}
 git_url: https://gitlab.gnome.org/GNOME/libgovirt.git
+git_tag:
+- 2020-01-27 v0.3.7
+- 2019-05-27 v0.3.6
+- 2019-03-29 v0.3.5

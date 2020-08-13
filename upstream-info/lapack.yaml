@@ -4,3 +4,8 @@ src_repo: Reference-LAPACK/lapack
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/Reference-LAPACK/lapack.git
+git_tag:
+- 2016-12-23 v3.7.0
+- 2019-11-21 v3.9.0
+- 2017-11-12 v3.8.0
+- 2017-06-17 v3.7.1

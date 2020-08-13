@@ -4,3 +4,4 @@ src_repo: fwupd/fwupd
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/fwupd/fwupd.git
+git_tag:

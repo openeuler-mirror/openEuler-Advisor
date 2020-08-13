@@ -4,3 +4,7 @@ src_repo: voikko/corevoikko
 tag_prefix: rel-libvoikko-
 separator: "."
 git_url: https://github.com/voikko/corevoikko.git
+git_tag:
+- 2019-10-22 rel-libvoikko-4.3
+- 2019-03-09 rel-voikko-fi-2.3
+- 2018-10-17 rel-libvoikko-4.2

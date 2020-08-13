@@ -4,3 +4,5 @@ src_repo: xiph/libao
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/xiph/libao.git
+git_tag:
+- 2016-11-14 1.2.2

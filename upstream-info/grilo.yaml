@@ -4,3 +4,9 @@ src_repo: grilofw/grilo
 tag_prefix: "^grilo-"
 separator: "."
 git_url: https://github.com/grilofw/grilo.git
+git_tag:
+- 2019-07-17 grilo-0.3.9
+- 2019-07-15 grilo-0.3.8
+- 2018-11-19 grilo-0.3.7
+- 2018-07-27 grilo-0.3.6
+- 2018-07-17 grilo-0.3.5

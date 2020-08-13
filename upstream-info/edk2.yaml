@@ -536,3 +536,14 @@ last_query:
       }
     ]
 git_url: https://github.com/tianocore/edk2.git
+git_tag:
+- 2019-03-09 edk2-stable201903
+- 2018-03-30 vUDK2018
+- 2017-06-23 vUDK2017
+- 2020-06-02 edk2-stable202005
+- 2020-03-02 edk2-stable202002
+- 2019-11-25 edk2-stable201911
+- 2019-08-29 edk2-stable201908
+- 2019-06-06 edk2-stable201905
+- 2018-11-14 edk2-stable201811
+- 2018-08-15 edk2-stable201808

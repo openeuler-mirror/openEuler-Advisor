@@ -4,3 +4,7 @@ src_repo: https://git.savannah.gnu.org/git/readline.git
 tag_prefix: "^readline-"
 separator: 
 git_url: https://git.savannah.gnu.org/git/readline.git
+git_tag:
+- 2019-01-07 readline-8.0
+- 2016-09-15 readline-7.0
+- 2014-02-26 readline-6.3

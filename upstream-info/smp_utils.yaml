@@ -4,3 +4,4 @@ src_repo: doug-gilbert/smp_utils
 tag_prefix: release-
 separator: "."
 git_url: https://github.com/doug-gilbert/smp_utils.git
+git_tag:

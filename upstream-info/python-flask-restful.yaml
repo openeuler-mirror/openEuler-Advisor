@@ -4,3 +4,9 @@ src_repo: flask-restful/flask-restful
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/flask-restful/flask-restful.git
+git_tag:
+- 2020-02-06 0.3.8
+- 2018-12-18 0.3.7
+- 2017-05-31 0.3.6
+- 2015-12-09 0.3.5
+- 2015-07-20 0.3.4

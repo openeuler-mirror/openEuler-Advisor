@@ -4,3 +4,7 @@ src_repo: https://git.cryptomilk.org/projects/cmocka.git
 tag_prefix: "^cmocka-"
 separator: "."
 git_url: https://git.cryptomilk.org/projects/cmocka.git
+git_tag:
+- 2019-03-28 cmocka-1.1.5
+- 2019-03-28 cmocka-1.1.4
+- 2018-09-27 cmocka-1.1.3

@@ -4,3 +4,14 @@ src_repo: libesmtp/libESMTP
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/libesmtp/libESMTP.git
+git_tag:
+- 2014-08-29 debian/1.0.6-4
+- 2014-07-01 debian/1.0.6-3
+- 2014-06-23 debian/1.0.6-2
+- 2010-08-15 debian/1.0.6-1
+- 2010-08-15 upstream/1.0.6
+- 2010-07-21 debian/1.0.4-5
+- 2009-12-13 debian/1.0.4-4
+- 2009-11-28 debian/1.0.4-3
+- 2009-11-27 debian/1.0.4-2
+- 2009-11-27 upstream/1.0.4

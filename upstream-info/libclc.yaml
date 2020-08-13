@@ -4,3 +4,4 @@ src_repo: llvm-mirror/libclc
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/llvm-mirror/libclc.git
+git_tag:

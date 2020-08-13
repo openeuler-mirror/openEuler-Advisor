@@ -4,3 +4,10 @@ src_repo: adobe-type-tools/mapping-resources-pdf
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/adobe-type-tools/mapping-resources-pdf.git
+git_tag:
+- 2019-04-01 20190401
+- 2019-01-19 20190119
+- 2018-12-12 20181212
+- 2018-07-30 20180730
+- 2018-04-07 20180407
+- 2017-09-01 20170901

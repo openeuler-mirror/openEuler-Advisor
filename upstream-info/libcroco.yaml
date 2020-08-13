@@ -4,3 +4,14 @@ src_repo: https://gitlab.gnome.org/Archive/libcroco.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/GNOME/libcroco.git
+git_tag:
+- 2019-04-06 0.6.13
+- 2017-04-06 0.6.12
+- 2015-12-17 0.6.11
+- 2015-12-13 0.6.10
+- 2015-10-31 0.6.9
+- 2012-10-25 0.6.8
+- 2012-10-16 0.6.7
+- 2012-09-16 0.6.6
+- 2012-03-26 0.6.5
+- 2012-02-06 0.6.4

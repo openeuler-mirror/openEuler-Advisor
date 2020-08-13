@@ -4,3 +4,6 @@ src_repo: https://pagure.io/sanlock.git
 tag_prefix: sanlock-
 separator: "."
 git_url: https://pagure.io/sanlock.git
+git_tag:
+- 2020-05-02 sanlock-3.8.1
+- 2019-06-12 sanlock-3.8.0

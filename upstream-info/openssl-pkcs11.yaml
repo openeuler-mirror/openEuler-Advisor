@@ -4,3 +4,7 @@ src_repo: OpenSC/libp11
 tag_prefix: "^libp11-"
 separator: "."
 git_url: https://github.com/OpenSC/libp11.git
+git_tag:
+- 2019-04-03 libp11-0.4.10
+- 2018-09-03 libp11-0.4.9
+- 2018-08-05 libp11-0.4.8

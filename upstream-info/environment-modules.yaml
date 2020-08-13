@@ -4,3 +4,5 @@ src_repo: cea-hpc/modules
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/cea-hpc/modules.git
+git_tag:
+- 2020-06-01 v4.5.1

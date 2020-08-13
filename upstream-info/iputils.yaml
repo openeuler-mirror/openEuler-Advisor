@@ -4,3 +4,5 @@ src_repo: iputils/iputils
 tag_prefix: "^s"
 separator: "."
 git_url: https://github.com/iputils/iputils.git
+git_tag:
+- 2019-07-09 s20190709

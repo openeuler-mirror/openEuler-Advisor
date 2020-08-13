@@ -4,3 +4,4 @@ src_repo: https://git.savannah.gnu.org/git/groff.git
 tag_prefix: 
 separator: "."
 git_url: https://git.savannah.gnu.org/git/groff.git
+git_tag:

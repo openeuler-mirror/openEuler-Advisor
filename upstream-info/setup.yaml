@@ -4,3 +4,25 @@ src_repo: https://pagure.io/setup.git
 tag_prefix: "^setup-"
 separator: 
 git_url: https://pagure.io/setup.git
+git_tag:
+- 2019-10-09 setup-2.13.6
+- 2019-10-08 setup-2.13.5
+- 2019-10-03 setup-2.13.4
+- 2019-04-09 setup-2.13.3
+- 2019-03-11 setup-2.13.2
+- 2019-02-20 setup-2.13.1
+- 2018-12-14 setup-2.12.6
+- 2018-12-12 setup-2.12.5
+- 2018-10-26 setup-2.12.3
+- 2018-09-10 setup-2.12.2
+- 2018-07-13 setup-2.12.1
+- 2018-06-01 setup-2.12.0
+- 2018-04-16 setup-2.11.4
+- 2018-02-22 setup-2.11.3
+- 2017-11-22 setup-2.11.2
+- 2017-11-17 setup-2.11.1
+- 2017-09-04 setup-2.10.10
+- 2017-08-29 setup-2.10.9
+- 2017-08-28 setup-2.10.8
+- 2017-08-18 setup-2.10.7
+- 2020-06-23 setup-2.13.7

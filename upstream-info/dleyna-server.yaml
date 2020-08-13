@@ -4,3 +4,11 @@ src_repo: intel/dleyna-server
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/intel/dleyna-server.git
+git_tag:
+- 2013-10-03 v0.4.0
+- 2013-08-29 v0.2.1
+- 2013-06-03 v0.1.0
+- 2013-05-31 v0.0.2
+- 2017-03-04 v0.6.0
+- 2014-12-06 v0.5.0
+- 2017-03-04 0.6.0

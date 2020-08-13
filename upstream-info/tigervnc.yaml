@@ -4,3 +4,4 @@ src_repo: TigerVNC/tigervnc
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/TigerVNC/tigervnc.git
+git_tag:

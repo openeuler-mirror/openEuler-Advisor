@@ -90,3 +90,11 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/achernya/hesiod.git
+git_tag:
+- 2013-04-02 hesiod-3.2.1
+- 2013-03-25 hesiod-3.2.0
+- 2009-08-23 hesiod-3.1.1
+- 2006-03-27 hesiod-3.1.0
+- 1997-01-03 hesiod-3.0.2
+- 1996-12-16 hesiod-3.0.1
+- 1996-12-08 hesiod-3.0.0

@@ -4,3 +4,4 @@ src_repo: Jehan/mypaint-brushes
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/Jehan/mypaint-brushes.git
+git_tag:

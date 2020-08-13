@@ -4,3 +4,27 @@ src_repo: achernya/procmail
 tag_prefix: "^upstream/"
 separator: "."
 git_url: https://github.com/achernya/procmail.git
+git_tag:
+- 2013-01-08 upstream/3.22
+- 2013-01-08 upstream/3.21
+- 2013-01-08 upstream/3.20
+- 2013-01-08 upstream/3.15
+- 2013-01-08 upstream/3.14
+- 2013-01-08 upstream/3.13
+- 2013-01-08 upstream/3.12
+- 2013-01-08 upstream/3.10
+- 2013-01-08 upstream/3.06
+- 2013-01-08 upstream/3.03
+- 2013-01-08 upstream/2.90
+- 2013-01-08 upstream/2.81
+- 2013-01-08 upstream/2.80
+- 2013-01-08 upstream/2.71
+- 2013-01-08 upstream/2.70
+- 2013-01-08 upstream/2.61
+- 2013-01-08 upstream/2.31
+- 2013-01-08 upstream/2.11
+- 2013-01-08 upstream/2.10
+- 2013-01-08 upstream/2.03
+- 2013-01-08 upstream/2.02
+- 2013-01-08 upstream/1.30
+- 2013-01-08 upstream/1.10

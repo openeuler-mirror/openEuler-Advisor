@@ -4,3 +4,24 @@ src_repo: storaged-project/libblockdev
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/storaged-project/libblockdev.git
+git_tag:
+- 2019-09-09 2.23-1
+- 2019-06-12 2.22-1
+- 2019-02-21 2.21-1
+- 2018-09-26 2.20-1
+- 2017-04-26 2.7-1
+- 2017-04-26 libblockdev-2.7-1
+- 2017-03-15 2.6-1
+- 2017-03-15 libblockdev-2.6-1
+- 2017-03-06 2.5-1
+- 2017-03-06 libblockdev-2.5-1
+- 2017-02-21 2.4-1
+- 2017-02-21 libblockdev-2.4-1
+- 2017-02-14 libblockdev-2.3-1
+- 2017-02-14 2.3-1
+- 2017-01-11 2.2-1
+- 2017-01-11 libblockdev-2.2-1
+- 2016-11-10 2.1-1
+- 2016-11-10 libblockdev-2.1-1
+- 2016-11-02 2.0-1
+- 2016-11-02 libblockdev-2.0-1

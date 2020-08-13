@@ -4,3 +4,11 @@ src_repo: https://gitlab.freedesktop.org/realmd/realmd.git
 tag_prefix: 
 separator: 
 git_url: https://gitlab.freedesktop.org/realmd/realmd.git
+git_tag:
+- 2016-08-01 0.16.3
+- 2015-07-31 0.16.2
+- 2015-07-14 0.16.1
+- 2015-04-14 0.16.0
+- 2014-10-06 0.15.2
+- 2014-05-23 0.15.1
+- 2014-01-07 0.15.0

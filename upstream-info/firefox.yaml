@@ -4,3 +4,4 @@ src_repo: mozilla/gecko-dev
 tag_prefix: "^B2G_"
 separator: _
 git_url: https://github.com/mozilla/gecko-dev.git
+git_tag:

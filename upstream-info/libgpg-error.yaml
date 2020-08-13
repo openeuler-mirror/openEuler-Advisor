@@ -4,3 +4,14 @@ src_repo: https://dev.gnupg.org/source/libgpg-error.git
 tag_prefix: libgpg-error-
 separator: "."
 git_url: https://dev.gnupg.org/source/libgpg-error.git
+git_tag:
+- 2020-05-29 gpgrt-1.38
+- 2020-05-29 libgpg-error-1.38
+- 2020-02-07 libgpg-error-1.37
+- 2020-02-07 gpgrt-1.37
+- 2019-03-19 gpgrt-1.36
+- 2019-03-19 libgpg-error-1.36
+- 2019-01-28 gpgrt-1.35
+- 2019-01-28 libgpg-error-1.35
+- 2019-01-16 libgpg-error-1.34
+- 2019-01-16 gpgrt-1.34

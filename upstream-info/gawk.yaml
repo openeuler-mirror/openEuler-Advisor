@@ -4,3 +4,6 @@ src_repo: https://git.savannah.gnu.org/git/gawk.git
 tag_prefix: "^gawk-"
 separator: "."
 git_url: https://git.savannah.gnu.org/git/gawk.git
+git_tag:
+- 2020-05-15 gawk-5.1.0-docs
+- 2020-04-14 gawk-5.1.0

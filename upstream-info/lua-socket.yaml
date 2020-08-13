@@ -4,3 +4,5 @@ src_repo: diegonehab/luasocket
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/diegonehab/luasocket.git
+git_tag:
+- 2013-06-14 v3.0-rc1

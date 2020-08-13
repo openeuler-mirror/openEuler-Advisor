@@ -4,3 +4,4 @@ src_repo: antirez/redis
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/antirez/redis.git
+git_tag:

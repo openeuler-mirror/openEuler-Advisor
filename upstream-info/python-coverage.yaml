@@ -4,3 +4,13 @@ src_repo: nedbat/coveragepy
 tag_prefix: "^coverage-"
 separator: "."
 git_url: https://github.com/nedbat/coveragepy.git
+git_tag:
+- 2020-07-24 coverage-5.2.1
+- 2020-07-06 coverage-5.2
+- 2020-04-12 coverage-5.1
+- 2019-12-08 coverage-5.0b2
+- 2020-03-16 coverage-5.0.4
+- 2020-01-11 coverage-5.0.3
+- 2020-01-05 coverage-5.0.2
+- 2019-12-22 coverage-5.0.1
+- 2019-12-14 coverage-5.0

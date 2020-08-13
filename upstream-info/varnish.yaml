@@ -4,3 +4,4 @@ src_repo: varnishcache/varnish-cache
 tag_prefix: "^varnish-"
 separator: "."
 git_url: https://github.com/varnishcache/varnish-cache.git
+git_tag:

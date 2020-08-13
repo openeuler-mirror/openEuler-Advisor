@@ -4,3 +4,5 @@ src_repo: libffi/libffi
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/libffi/libffi.git
+git_tag:
+- 2019-11-23 v3.3

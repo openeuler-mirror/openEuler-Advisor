@@ -4,3 +4,7 @@ src_repo: sysstat/sysstat
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/sysstat/sysstat.git
+git_tag:
+- 2020-05-08 v12.3.3
+- 2020-04-10 v12.3.2
+- 2019-12-27 v12.3.1

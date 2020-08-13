@@ -4,3 +4,11 @@ src_repo: nhorman/rng-tools
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/nhorman/rng-tools.git
+git_tag:
+- 2020-03-27 v6.10
+- 2019-12-16 v6.9
+- 2019-11-07 v6.8
+- 2019-02-14 v6.7
+- 2018-10-20 v6.6
+- 2018-09-25 v6.5
+- 2018-08-30 v6.4

@@ -4,3 +4,19 @@ src_repo: google/keyczar
 tag_prefix: Python_release_
 separator: "."
 git_url: https://github.com/google/keyczar.git
+git_tag:
+- 2015-01-14 Python_release_0.715
+- 2013-09-10 Cpp_release_0.71a
+- 2013-09-06 Cpp_release_0.71
+- 2013-09-06 Python_release_0.71d
+- 2013-09-06 Java_release_0.71g
+- 2012-04-26 Java_release_0.71d
+- 2012-04-05 Java_release_0.71c
+- 2012-02-22 Python_release_0.71b
+- 2011-11-02 Java_release_0.71b
+- 2012-06-01 java_release_0.71f
+- 2012-05-22 java_release_0.71e
+- 2012-12-18 Python_release_0.71c
+- 2016-11-07 Java_release_0.71j
+- 2016-10-13 Java_release_0.71i
+- 2016-05-04 Java_release_0.71h

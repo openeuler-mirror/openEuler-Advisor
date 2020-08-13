@@ -4,3 +4,8 @@ src_repo: https://gitlab.com/dogtail/dogtail.git
 tag_prefix: "^DOGTAIL_"
 separator: _
 git_url: https://gitlab.com/dogtail/dogtail.git
+git_tag:
+- 2016-01-18 DOGTAIL_0_9_9
+- 2018-11-09 DOGTAIL_0_9_11
+- 2017-05-31 DOGTAIL_0_9_10
+- 2014-04-16 DOGTAIL_0_9_0

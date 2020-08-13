@@ -4,3 +4,7 @@ src_repo: linux-rdma/opensm
 tag_prefix: opensm-
 separator: "."
 git_url: https://github.com/linux-rdma/opensm.git
+git_tag:
+- 2020-03-16 3.3.23
+- 2019-04-17 3.3.22
+- 2018-09-24 3.3.21

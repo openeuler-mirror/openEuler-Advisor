@@ -4,3 +4,7 @@ src_repo: 01org/intel-cmt-cat
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/01org/intel-cmt-cat.git
+git_tag:
+- 2020-06-19 v4.0.0
+- 2020-06-19 v4.0
+- 2019-12-12 v3.2.0

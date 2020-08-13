@@ -4,3 +4,4 @@ src_repo: krb5/krb5
 tag_prefix: "^krb5-"
 separator: "."
 git_url: https://github.com/krb5/krb5.git
+git_tag:

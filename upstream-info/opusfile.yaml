@@ -4,3 +4,8 @@ src_repo: xiph/opusfile
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/xiph/opusfile.git
+git_tag:
+- 2020-06-26 v0.12
+- 2018-09-18 v0.11
+- 2017-11-14 v0.10
+- 2017-08-02 v0.9

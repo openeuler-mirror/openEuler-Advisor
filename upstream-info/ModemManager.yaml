@@ -4,3 +4,6 @@ src_repo: https://gitlab.freedesktop.org/mobile-broadband/ModemManager
 tag_prefix: ModemManager-
 separator: "."
 git_url: https://gitlab.freedesktop.org/mobile-broadband/ModemManager
+git_tag:
+- 2020-06-23 1.14.0
+- 2020-06-04 1.14-rc1

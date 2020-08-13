@@ -4,3 +4,6 @@ src_repo: gpg/pinentry
 tag_prefix: "^pinentry-"
 separator: "."
 git_url: https://github.com/gpg/pinentry.git
+git_tag:
+- 2017-12-03 pinentry-1.1.0
+- 2016-11-22 pinentry-1.0.0

@@ -4,3 +4,4 @@ src_repo: definite/ibus-table-array30
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/definite/ibus-table-array30.git
+git_tag:

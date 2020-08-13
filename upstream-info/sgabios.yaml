@@ -4,3 +4,4 @@ version_control: github
 src_repo: qemu/sgabios
 tag_prefix: NA
 separator: "."
+git_tag:

@@ -4,3 +4,4 @@ src_repo: hreinecke/lsscsi
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/hreinecke/lsscsi.git
+git_tag:

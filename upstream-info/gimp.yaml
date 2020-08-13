@@ -4,3 +4,4 @@ src_repo: GIMP
 tag_prefix: GIMP_
 separator: _
 git_url: https://gitlab.gnome.org/GNOME/GIMP.git
+git_tag:

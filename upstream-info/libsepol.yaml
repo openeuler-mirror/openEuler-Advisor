@@ -4,3 +4,33 @@ src_repo: SELinuxProject/selinux
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/SELinuxProject/selinux.git
+git_tag:
+- 2020-07-10 20200710
+- 2020-06-19 20200619
+- 2020-05-18 20200518
+- 2020-06-19 semodule-utils-3.1-rc2
+- 2020-07-10 semodule-utils-3.1
+- 2020-06-19 selinux-sandbox-3.1-rc2
+- 2020-07-10 selinux-sandbox-3.1
+- 2020-06-19 selinux-python-3.1-rc2
+- 2020-07-10 selinux-python-3.1
+- 2020-06-19 selinux-gui-3.1-rc2
+- 2020-07-10 selinux-gui-3.1
+- 2020-06-19 selinux-dbus-3.1-rc2
+- 2020-07-10 selinux-dbus-3.1
+- 2020-06-19 secilc-3.1-rc2
+- 2020-07-10 secilc-3.1
+- 2020-06-19 restorecond-3.1-rc2
+- 2020-07-10 restorecond-3.1
+- 2020-06-19 policycoreutils-3.1-rc2
+- 2020-07-10 policycoreutils-3.1
+- 2020-06-19 mcstrans-3.1-rc2
+- 2020-07-10 mcstrans-3.1
+- 2020-06-19 libsepol-3.1-rc2
+- 2020-07-10 libsepol-3.1
+- 2020-06-19 libsemanage-3.1-rc2
+- 2020-07-10 libsemanage-3.1
+- 2020-06-19 libselinux-3.1-rc2
+- 2020-07-10 libselinux-3.1
+- 2020-06-19 checkpolicy-3.1-rc2
+- 2020-07-10 checkpolicy-3.1

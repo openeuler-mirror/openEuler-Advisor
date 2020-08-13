@@ -4,3 +4,10 @@ src_repo: russross/blackfriday
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/russross/blackfriday.git
+git_tag:
+- 2015-11-10 v1.4
+- 2015-09-24 v1.3
+- 2014-08-04 v1.2
+- 2018-09-17 v1.5.2
+- 2018-02-18 v1.5.1
+- 2017-07-28 v1.5

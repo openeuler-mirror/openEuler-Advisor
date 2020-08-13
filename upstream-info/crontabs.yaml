@@ -3,3 +3,6 @@ version_control: github
 src_repo: cronie-crond/crontabs
 tag_prefix: crontabs-
 separator: "."
+git_tag:
+- 2019-06-03 crontabs-20190603
+- 2019-05-30 crontabs-20190530

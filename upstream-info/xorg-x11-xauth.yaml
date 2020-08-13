@@ -4,3 +4,14 @@ src_repo: https://gitlab.freedesktop.org/xorg/app/xauth.git
 tag_prefix: "^xauth-"
 separator: "."
 git_url: https://gitlab.freedesktop.org/xorg/app/xauth.git
+git_tag:
+- 2019-07-11 xauth-1.1
+- 2017-01-29 xauth-1.0.10
+- 2014-04-02 xauth-1.0.9
+- 2013-10-11 xauth-1.0.8
+- 2012-03-22 xauth-1.0.7
+- 2011-05-23 xauth-1.0.6
+- 2010-09-23 xauth-1.0.5
+- 2009-09-21 xauth-1.0.4
+- 2008-03-06 xauth-1.0.3
+- 2006-12-12 xauth-1.0.2

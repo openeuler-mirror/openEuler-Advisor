@@ -4,3 +4,4 @@ src_repo: scikit-learn/scikit-learn
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/scikit-learn/scikit-learn.git
+git_tag:

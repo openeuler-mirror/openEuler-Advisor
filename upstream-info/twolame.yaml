@@ -4,3 +4,6 @@ src_repo: njh/twolame
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/njh/twolame.git
+git_tag:
+- 2019-10-11 0.4.0
+- 2011-01-21 0.3.13

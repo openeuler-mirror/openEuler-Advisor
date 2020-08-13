@@ -4,3 +4,4 @@ src_repo: snowballstem/snowballstem.github.io
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/snowballstem/snowballstem.github.io.git
+git_tag:

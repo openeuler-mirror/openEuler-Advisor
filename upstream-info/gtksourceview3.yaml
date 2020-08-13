@@ -4,3 +4,4 @@ src_repo: gtksourceview
 tag_prefix: "^"
 separator: "."
 git_url: https://gitlab.gnome.org/GNOME/gtksourceview.git
+git_tag:

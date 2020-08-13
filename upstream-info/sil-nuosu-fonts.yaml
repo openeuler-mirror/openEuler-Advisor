@@ -4,3 +4,4 @@ src_repo: silnrsi/font-nuosu
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/silnrsi/font-nuosu.git
+git_tag:

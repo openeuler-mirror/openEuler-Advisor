@@ -4,3 +4,5 @@ src_repo: math-atlas/math-atlas
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/math-atlas/math-atlas.git
+git_tag:
+- 2018-10-02 v3.11.40

@@ -4,3 +4,5 @@ src_repo: llvm/llvm-project
 tag_prefix: "^llvmorg-"
 separator: "."
 git_url: https://github.com/llvm/llvm-project.git
+git_tag:
+- 2020-07-15 llvmorg-12-init

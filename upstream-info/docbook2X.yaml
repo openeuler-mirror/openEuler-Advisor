@@ -4,3 +4,4 @@ src_repo: Distrotech/docbook2X
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/Distrotech/docbook2X.git
+git_tag:

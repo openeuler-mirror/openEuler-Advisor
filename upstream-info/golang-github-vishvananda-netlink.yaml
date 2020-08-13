@@ -4,3 +4,5 @@ src_repo: vishvananda/netlink
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/vishvananda/netlink.git
+git_tag:
+- 2020-01-17 v1.1.0

@@ -902,3 +902,6 @@ last_query:
     ]
 query_type: api.github.releases
 git_url: https://github.com/libnet/libnet.git
+git_tag:
+- 2019-10-09 v1.2-rc4
+- 2019-10-16 v1.2

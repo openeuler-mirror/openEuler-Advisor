@@ -4,3 +4,5 @@ src_repo: strace/strace
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/strace/strace.git
+git_tag:
+- 2020-06-01 v5.7

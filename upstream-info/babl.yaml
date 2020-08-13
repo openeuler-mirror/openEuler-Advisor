@@ -4,3 +4,9 @@ src_repo: babl
 tag_prefix: "^BABL_"
 separator: _
 git_url: https://gitlab.gnome.org/GNOME/babl.git
+git_tag:
+- 2020-06-07 BABL_0_1_78
+- 2020-05-27 BABL_0_1_76
+- 2020-01-13 BABL_0_1_74
+- 2019-08-22 BABL_0_1_72
+- 2019-08-02 BABL_0_1_70

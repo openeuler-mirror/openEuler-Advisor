@@ -4,3 +4,7 @@ src_repo: https://gitlab.freedesktop.org/xorg/lib/libxcb-util.git
 tag_prefix: 
 separator: "."
 git_url: https://gitlab.freedesktop.org/xorg/lib/libxcb-util.git
+git_tag:
+- 2014-10-15 0.4.0
+- 2012-05-30 0.3.9
+- 2011-04-26 0.3.8

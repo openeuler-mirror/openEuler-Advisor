@@ -4,3 +4,4 @@ src_repo: gooselinux/libtevent
 tag_prefix: tevent-
 separator: "."
 git_url: https://github.com/gooselinux/libtevent.git
+git_tag:

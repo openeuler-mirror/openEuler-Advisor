@@ -4,3 +4,10 @@ src_repo: https://git.code.sf.net/p/sblim/sfcb
 tag_prefix: SFCB_
 separator: _
 git_url: https://git.code.sf.net/p/sblim/sfcb
+git_tag:
+- 2014-11-26 SFCB_1_4_9
+- 2014-03-26 SFCB_1_4_8
+- 2013-12-29 SFCB_1_4_7
+- 2013-10-02 SFCB_1_4_6
+- 2013-06-28 SFCB_1_4_5
+- 2013-03-28 SFCB_1_4_4

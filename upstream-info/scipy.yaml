@@ -4,3 +4,4 @@ src_repo: scipy/scipy
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/scipy/scipy.git
+git_tag:

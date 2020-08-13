@@ -575,3 +575,5 @@ last_query:
     ORCA_3_9_92
     ORCA_3_9_92^{}
 git_url: https://gitlab.gnome.org/GNOME/orca.git
+git_tag:
+- 2020-06-01 ORCA_3_37_2

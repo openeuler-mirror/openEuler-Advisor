@@ -215,3 +215,5 @@ last_query:
     3.9.92
     3.9.92^{}
 git_url: https://gitlab.gnome.org/GNOME/gnome-contacts.git
+git_tag:
+- 2020-03-10 3.36

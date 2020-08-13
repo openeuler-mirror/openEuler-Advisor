@@ -4,3 +4,8 @@ src_repo: hatukanezumi/sombok
 tag_prefix: "^sombok-"
 separator: "."
 git_url: https://github.com/hatukanezumi/sombok.git
+git_tag:
+- 2015-06-21 sombok-2.4.0
+- 2015-06-21 sombok-2.3.3
+- 2014-05-04 sombok-2.3.2beta1
+- 2014-06-20 sombok-2.3.2

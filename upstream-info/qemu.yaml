@@ -4,3 +4,12 @@ src_repo: https://git.qemu.org/git/qemu.git
 tag_prefix: v
 separator: "."
 git_url: https://git.qemu.org/git/qemu.git
+git_tag:
+- 2020-07-21 v5.1.0-rc1
+- 2020-07-15 v5.1.0-rc0
+- 2020-04-28 v5.0.0
+- 2020-04-22 v5.0.0-rc4
+- 2020-04-15 v5.0.0-rc3
+- 2020-04-07 v5.0.0-rc2
+- 2020-03-31 v5.0.0-rc1
+- 2020-03-24 v5.0.0-rc0

@@ -4,3 +4,6 @@ src_repo: vathpela/pesign
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/vathpela/pesign.git
+git_tag:
+- 2019-05-10 113
+- 2016-04-20 0.112

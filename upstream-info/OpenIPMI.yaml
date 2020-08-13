@@ -4,3 +4,9 @@ src_repo: https://git.code.sf.net/p/openipmi/code
 tag_prefix: v
 separator: "."
 git_url: https://git.code.sf.net/p/openipmi/code
+git_tag:
+- 2020-06-12 v2.0.29
+- 2019-12-12 v2.0.28
+- 2019-03-05 v2.0.27
+- 2018-12-13 v2.0.26
+- 2018-04-16 v2.0.25

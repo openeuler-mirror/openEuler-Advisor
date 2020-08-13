@@ -4,3 +4,5 @@ src_repo: https://git.code.sf.net/p/zsh/code
 tag_prefix: "^zsh-"
 separator: 
 git_url: https://git.code.sf.net/p/zsh/code
+git_tag:
+- 2020-07-05 show

@@ -4,3 +4,4 @@ src_repo: https://git.libssh.org/projects/libssh.git
 tag_prefix: libssh-
 separator: "."
 git_url: https://git.libssh.org/projects/libssh.git
+git_tag:

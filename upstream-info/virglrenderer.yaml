@@ -7,3 +7,4 @@ last_query:
   time_stamp: 2020-04-26 08:12:57.294914970 +00:00
   raw_data: "5bfba519086c58ade8128e4976594a8d1c77dde0\trefs/tags/virglrenderer-0.2.0\nbd459a9461f438250e6abb13090c2a41aab0afd3\trefs/tags/virglrenderer-0.4.0\n22903fd6d2e9404fb18521a0f778fc9892da02d6\trefs/tags/virglrenderer-0.5.0\n61846f92fe2d511d3a29438542f04c67d96fe2e9\trefs/tags/virglrenderer-0.5.0^{}\n3fe3195bcdc74f5c178b57bcab7a804fd2d557b8\trefs/tags/virglrenderer-0.6.0\n76b3da97b5fd98b1669147db585bed7ccfaf11a7\trefs/tags/virglrenderer-0.6.0^{}\n291de9142dcff2766aa9185c7e1c32eef03491df\trefs/tags/virglrenderer-0.7.0\n402c228861c9893f64cffbbcb4cb23044b8c721c\trefs/tags/virglrenderer-0.7.0^{}\n48cc96c9aebb9d0164830a157efc8916f08f00c0\trefs/tags/virglrenderer-0.8.0\n66c57963aaf09a1c41056bd2a001da1d51957a14\trefs/tags/virglrenderer-0.8.1\n7d204f3927be65fb3365dce01dbcd04d447a4985\trefs/tags/virglrenderer-0.8.2\n"
 git_url: https://gitlab.freedesktop.org/virgl/virglrenderer.git
+git_tag:

@@ -4,3 +4,13 @@ src_repo: https://gitlab.com/graphviz/graphviz.git
 tag_prefix: "^stable_release_"
 separator: "."
 git_url: https://gitlab.com/graphviz/graphviz.git
+git_tag:
+- 2020-06-29 2.44.1
+- 2020-04-08 2.44.0
+- 2020-04-08 stable_release_2.44.0
+- 2020-04-06 2.42.4
+- 2020-04-06 stable_release_2.42.4
+- 2020-04-06 stable_release_2.42.3
+- 2020-04-06 2.42.3
+- 2019-09-17 stable_release_2.42.2
+- 2019-09-17 2.42.2

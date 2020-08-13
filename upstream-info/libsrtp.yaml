@@ -4,3 +4,7 @@ src_repo: cisco/libsrtp
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/cisco/libsrtp.git
+git_tag:
+- 2019-12-23 v2.3.0
+- 2019-12-23 v2.3
+- 2019-12-23 v2

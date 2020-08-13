@@ -4,3 +4,4 @@ src_repo: gcc-mirror/gcc
 tag_prefix: "^.*gcc-"
 separator: "."
 git_url: https://github.com/gcc-mirror/gcc.git
+git_tag:

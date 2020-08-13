@@ -233,3 +233,6 @@ last_query:
     initial-tag
     initial-tag^{}
 git_url: https://gitlab.gnome.org/GNOME/glade.git
+git_tag:
+- 2020-07-13 GLADE_3_37_0
+- 2020-05-06 GLADE_3_36_0

@@ -4,3 +4,4 @@ src_repo: https://git.savannah.gnu.org/git/grub.git
 tag_prefix: grub-
 separator: "."
 git_url: https://git.savannah.gnu.org/git/grub.git
+git_tag:

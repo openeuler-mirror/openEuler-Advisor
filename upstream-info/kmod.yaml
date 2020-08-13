@@ -4,3 +4,8 @@ src_repo: https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git
 tag_prefix: "^v"
 separator: 
 git_url: https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git
+git_tag:
+- 2020-02-18 v27
+- 2019-02-07 v26
+- 2018-01-08 v25
+- 2017-02-23 v24

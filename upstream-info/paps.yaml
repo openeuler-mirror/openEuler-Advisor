@@ -4,3 +4,7 @@ src_repo: dov/paps
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/dov/paps.git
+git_tag:
+- 2015-08-17 0.7.0
+- 2019-10-27 v0.7.1
+- 2013-01-14 0.6.8

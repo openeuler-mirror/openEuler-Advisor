@@ -4,3 +4,9 @@ src_repo: libhugetlbfs/libhugetlbfs
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/libhugetlbfs/libhugetlbfs.git
+git_tag:
+- 2019-09-06 2.22
+- 2015-12-03 2.20
+- 2015-04-10 2.19
+- 2018-09-17 2.21
+- 2014-04-06 2.18

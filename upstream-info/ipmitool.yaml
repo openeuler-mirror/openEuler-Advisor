@@ -4,3 +4,4 @@ src_repo: ipmitool/ipmitool
 tag_prefix: IPMITOOL_
 separator: _
 git_url: https://github.com/ipmitool/ipmitool.git
+git_tag:

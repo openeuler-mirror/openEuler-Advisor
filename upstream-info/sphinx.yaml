@@ -4,3 +4,7 @@ src_repo: sphinxsearch/sphinx
 tag_prefix: 
 separator: "."
 git_url: https://github.com/sphinxsearch/sphinx.git
+git_tag:
+- 2015-09-07 2.2.10-release
+- 2016-09-08 2.3.2-beta
+- 2016-07-19 2.2.11-release

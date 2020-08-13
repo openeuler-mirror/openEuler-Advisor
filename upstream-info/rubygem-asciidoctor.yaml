@@ -4,3 +4,4 @@ src_repo: asciidoctor/asciidoctor
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/asciidoctor/asciidoctor.git
+git_tag:

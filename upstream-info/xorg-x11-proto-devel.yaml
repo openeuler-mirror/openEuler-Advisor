@@ -4,3 +4,11 @@ src_repo: https://gitlab.freedesktop.org/xorg/proto/xorgproto.git
 tag_prefix: xorgproto-
 separator: "."
 git_url: https://gitlab.freedesktop.org/xorg/proto/xorgproto.git
+git_tag:
+- 2020-04-14 xorgproto-2020.1
+- 2019-10-17 xorgproto-2019.2
+- 2019-06-20 xorgproto-2019.1
+- 2018-02-28 xorgproto-2018.4
+- 2018-02-20 xorgproto-2018.3
+- 2018-02-12 xorgproto-2018.2
+- 2018-02-05 xorgproto-2018.1

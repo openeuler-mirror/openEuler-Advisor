@@ -29,3 +29,8 @@ last_query:
     v2.4
     v2.4^{}
 git_url: https://gitlab.gnome.org/GNOME/phodav.git
+git_tag:
+- 2020-03-05 v2.4
+- 2019-02-26 v2.3
+- 2017-02-16 v2.2
+- 2016-12-20 v2.1

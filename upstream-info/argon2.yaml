@@ -256,3 +256,10 @@ last_query:
     ]
 query_type: api.github.releases
 git_url: https://github.com/P-H-C/phc-winner-argon2.git
+git_tag:
+- 2019-05-20 20190702
+- 2017-12-27 20171227
+- 2016-10-29 20161029
+- 2016-08-21 20160821
+- 2016-04-06 20160406
+- 2015-12-06 20151206

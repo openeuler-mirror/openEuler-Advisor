@@ -4,3 +4,10 @@ src_repo: doxygen/doxygen
 tag_prefix: "^Release_"
 separator: _
 git_url: https://github.com/doxygen/doxygen.git
+git_tag:
+- 2020-04-13 Release_1_8_18
+- 2019-12-27 Release_1_8_17
+- 2019-08-08 Release_1_8_16
+- 2018-12-27 Release_1_8_15
+- 2017-12-25 Release_1_8_14
+- 2016-12-29 Release_1_8_13

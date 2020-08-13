@@ -4,3 +4,4 @@ src_repo: mozeq/fros
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/mozeq/fros.git
+git_tag:

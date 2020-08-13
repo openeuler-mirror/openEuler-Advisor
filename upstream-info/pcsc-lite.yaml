@@ -4,3 +4,9 @@ src_repo: LudovicRousseau/PCSC
 tag_prefix: pcsc-
 separator: "."
 git_url: https://github.com/LudovicRousseau/PCSC.git
+git_tag:
+- 2020-06-14 pcsc-1.9.0
+- 2020-01-03 pcsc-1.8.26
+- 2019-03-25 pcsc-1.8.25
+- 2018-10-12 pcsc-1.8.24
+- 2017-12-18 pcsc-1.8.23

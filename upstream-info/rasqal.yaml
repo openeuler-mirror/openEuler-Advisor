@@ -4,3 +4,5 @@ src_repo: dajobe/rasqal
 tag_prefix: "^rasqal_"
 separator: _
 git_url: https://github.com/dajobe/rasqal.git
+git_tag:
+- 2014-12-15 rasqal_0_9_33

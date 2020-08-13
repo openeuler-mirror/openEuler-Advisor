@@ -1476,3 +1476,5 @@ last_query:
     ]
 query_type: api.github.releases
 git_url: https://github.com/libgd/libgd.git
+git_tag:
+- 2020-03-22 gd-2.3.0

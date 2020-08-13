@@ -4,3 +4,6 @@ src_repo: git://git.code.sf.net/p/watchdog/code
 tag_prefix: "^"
 separator: "."
 git_url: git://git.code.sf.net/p/watchdog/code
+git_tag:
+- 2020-04-24 5.16
+- 2016-02-26 5.15

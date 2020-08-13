@@ -4,3 +4,9 @@ src_repo: aide/aide
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/aide/aide.git
+git_tag:
+- 2019-05-19 v0.16.2
+- 2019-02-25 v0.16.1
+- 2016-07-25 v0.16
+- 2016-07-11 v0.16rc1
+- 2016-04-15 v0.16b1

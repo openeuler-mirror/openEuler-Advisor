@@ -4,3 +4,4 @@ src_repo: open-mpi/hwloc
 tag_prefix: hwloc-
 separator: "."
 git_url: https://github.com/open-mpi/hwloc.git
+git_tag:

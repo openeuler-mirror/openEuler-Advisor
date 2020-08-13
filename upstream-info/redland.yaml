@@ -4,3 +4,7 @@ src_repo: dajobe/redland-bindings
 tag_prefix: redland-bindings_
 separator: _
 git_url: https://github.com/dajobe/redland-bindings.git
+git_tag:
+- 2014-05-10 redland-bindings_1_0_17_1
+- 2013-01-13 redland-bindings_1_0_16_1
+- 2011-11-13 redland-bindings_1_0_14_1

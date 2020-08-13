@@ -4,3 +4,4 @@ src_repo: openSUSE/apache2-mod_xforward
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/openSUSE/apache2-mod_xforward.git
+git_tag:

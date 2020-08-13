@@ -4,3 +4,17 @@ src_repo: FFTW/fftw3
 tag_prefix: "^fftw-"
 separator: "."
 git_url: https://github.com/FFTW/fftw3.git
+git_tag:
+- 2018-05-24 fftw-3.3.8
+- 2017-10-29 fftw-3.3.7-rc2
+- 2017-10-29 fftw-3.3.7-rc1
+- 2017-10-29 fftw-3.3.7
+- 2017-01-15 fftw-3.3.6-rc2
+- 2017-01-15 fftw-3.3.6-rc1
+- 2017-01-27 fftw-3.3.6-pl2
+- 2017-01-16 fftw-3.3.6-pl1
+- 2017-01-15 fftw-3.3.6
+- 2016-07-30 fftw-3.3.5-rc2
+- 2016-07-29 fftw-3.3.5-rc1
+- 2016-07-30 fftw-3.3.5
+- 2016-07-30 dont-use-me

@@ -25,3 +25,6 @@ last_query:
     XDG_USER_DIRS_GTK_0_8
     XDG_USER_DIRS_GTK_0_8^{}
 git_url: https://gitlab.gnome.org/GNOME/xdg-user-dirs-gtk.git
+git_tag:
+- 2013-01-21 0.10
+- 2012-04-03 0.9

@@ -4,3 +4,4 @@ src_repo: ocaml/ocaml
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/ocaml/ocaml.git
+git_tag:

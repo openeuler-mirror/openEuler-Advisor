@@ -240,3 +240,6 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/gdraheim/zziplib.git
+git_tag:
+- 2020-04-16 v0.13.71
+- 2020-04-13 v0.13.70

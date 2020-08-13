@@ -4,3 +4,8 @@ src_repo: https://git.lysator.liu.se/nettle/nettle.git
 tag_prefix: nettle_
 separator: "."
 git_url: https://git.lysator.liu.se/nettle/nettle.git
+git_tag:
+- 2020-04-29 nettle_3.6_release_20200429
+- 2020-04-28 nettle_3.6rc3
+- 2020-04-25 nettle_3.6rc2
+- 2020-04-10 nettle_3.6rc1

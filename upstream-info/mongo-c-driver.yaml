@@ -4,3 +4,4 @@ src_repo: mongodb/mongo-c-driver
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/mongodb/mongo-c-driver.git
+git_tag:

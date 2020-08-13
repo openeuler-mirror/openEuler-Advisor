@@ -4,3 +4,7 @@ src_repo: libimobiledevice/libusbmuxd
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/libimobiledevice/libusbmuxd.git
+git_tag:
+- 2019-11-26 2.0.1
+- 2019-11-16 2.0.0
+- 2020-06-15 2.0.2

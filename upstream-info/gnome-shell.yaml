@@ -4,3 +4,5 @@ src_repo: gnome-shell
 tag_prefix: "^"
 separator: "."
 git_url: https://gitlab.gnome.org/GNOME/gnome-shell.git
+git_tag:
+- 2020-07-07 3.37.3

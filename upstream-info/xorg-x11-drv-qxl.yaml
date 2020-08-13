@@ -4,3 +4,7 @@ src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-video-qxl.git
 tag_prefix: xf86-video-qxl-
 separator: "."
 git_url: https://gitlab.freedesktop.org/xorg/driver/xf86-video-qxl.git
+git_tag:
+- 2016-12-19 xf86-video-qxl-0.1.5
+- 2015-04-02 xf86-video-qxl-0.1.4
+- 2014-10-30 xf86-video-qxl-0.1.3

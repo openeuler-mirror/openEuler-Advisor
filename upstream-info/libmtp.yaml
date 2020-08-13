@@ -4,3 +4,6 @@ version_control: github
 src_repo: libmtp/libmtp
 tag_prefix: libmtp-
 separator: "-"
+git_tag:
+- 2020-02-02 libmtp-1-1-17
+- 2018-12-21 libmt

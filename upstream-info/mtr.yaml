@@ -310,3 +310,12 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/traviscross/mtr.git
+git_tag:
+- 2019-08-03 v0.93
+- 2017-06-02 v0.92
+- 2017-06-02 v0.91
+- 2017-06-02 v0.90
+- 2017-06-02 v0.89
+- 2016-08-03 v0.87
+- 2014-12-09 v0.86
+- 2013-06-26 v0.85

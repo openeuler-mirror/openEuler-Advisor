@@ -4,3 +4,8 @@ src_repo: openSUSE/obs-service-download_files
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/openSUSE/obs-service-download_files.git
+git_tag:
+- 2018-08-30 0.6.2
+- 2018-06-29 0.6.1
+- 2015-03-18 0.5.1
+- 2014-02-05 0.5

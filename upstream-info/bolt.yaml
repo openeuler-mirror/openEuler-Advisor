@@ -4,3 +4,5 @@ src_repo: https://gitlab.freedesktop.org/bolt/bolt.git
 tag_prefix: "^"
 separator: "."
 git_url: https://gitlab.freedesktop.org/bolt/bolt.git
+git_tag:
+- 2020-06-15 0.9

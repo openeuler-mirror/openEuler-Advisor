@@ -4,3 +4,4 @@ src_repo: ninja-build/ninja
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/ninja-build/ninja.git
+git_tag:

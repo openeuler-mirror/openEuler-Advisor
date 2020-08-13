@@ -4,3 +4,26 @@ src_repo: Distrotech/djvulibre
 tag_prefix: "^release."
 separator: "."
 git_url: https://github.com/Distrotech/djvulibre.git
+git_tag:
+- 2012-08-24 debian/3.5.25.3-2
+- 2012-06-17 debian/3.5.25.3-1
+- 2012-04-09 debian/3.5.25.2-4
+- 2012-04-07 debian/3.5.25.2-3
+- 2012-04-01 debian/3.5.25.2-2
+- 2012-03-18 debian/3.5.25.2-1
+- 2012-03-18 debian/3.5.25-1
+- 2011-09-28 debian/3.5.24-9
+- 2011-06-22 debian/3.5.24-8
+- 2011-06-09 debian/3.5.24-7
+- 2011-06-05 debian/3.5.24-6
+- 2011-06-02 debian/3.5.24-5
+- 2012-05-07 upstream/3.5.25.3
+- 2012-03-17 upstream/3.5.25.2
+- 2012-03-17 upstream/3.5.25.1
+- 2012-03-15 upstream/3.5.25
+- 2013-06-02 release.3.5.25.4
+- 2012-05-07 release.3.5.25.3
+- 2012-03-17 release.3.5.25.2
+- 2012-03-17 release.3.5.25.1
+- 2012-03-15 release.3.5.25
+- 2014-02-24 distrotech-djvulibre-3.5.25.4

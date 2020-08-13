@@ -4,3 +4,13 @@ src_repo: memcached/memcached
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/memcached/memcached.git
+git_tag:
+- 2020-05-12 1.6.6
+- 2020-04-13 1.6.5
+- 2020-04-12 1.6.4
+- 2020-03-28 1.6.3
+- 2020-03-23 1.6.2
+- 2020-03-16 1.6.1
+- 2020-03-08 1.6.0
+- 2020-02-01 1.5.22
+- 2020-01-21 1.5.21

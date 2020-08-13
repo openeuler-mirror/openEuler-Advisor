@@ -310,3 +310,6 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/eggert/tz.git
+git_tag:
+- 2020-04-23 2020a
+- 2019-09-11 2019c

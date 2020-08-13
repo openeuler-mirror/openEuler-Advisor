@@ -4,3 +4,5 @@ src_repo: https://dev.lovelyhq.com/libburnia/libisoburn.git
 tag_prefix: "^release-"
 separator: "."
 git_url: git@dev.lovelyhq.com:libburnia/libisoburn.git
+git_tag:
+- 2019-10-26 release-1.5.2

@@ -17,3 +17,9 @@ last_query:
     233
     233^{}
 git_url: https://gitlab.gnome.org/GNOME/libgudev.git
+git_tag:
+- 2019-08-03 233
+- 2017-09-01 232
+- 2017-02-13 231
+- 2015-06-02 230
+- 2015-05-18 219

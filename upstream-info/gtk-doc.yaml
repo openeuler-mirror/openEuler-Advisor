@@ -69,3 +69,7 @@ last_query:
     start
     start^{}
 git_url: https://gitlab.gnome.org/GNOME/gtk-doc.git
+git_tag:
+- 2019-08-15 GTK_DOC_1_32
+- 2019-08-05 GTK_DOC_1_31
+- 2019-05-08 GTK_DOC_1_30

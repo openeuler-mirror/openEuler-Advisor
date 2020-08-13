@@ -4,3 +4,17 @@ src_repo: rbarrois/python-semanticversion
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/rbarrois/python-semanticversion.git
+git_tag:
+- 2020-04-29 2.8.5
+- 2019-12-21 2.8.4
+- 2019-11-21 2.8.3
+- 2019-09-06 2.8.2
+- 2019-08-29 2.8.1
+- 2019-08-29 2.8.0
+- 2019-08-28 2.7.1
+- 2019-08-28 2.7.0
+- 2016-09-25 v2.6.0
+- 2016-02-12 v2.5.0
+- 2015-07-02 v2.4.2
+- 2015-04-01 v2.4.1
+- 2015-04-01 v2.4.0

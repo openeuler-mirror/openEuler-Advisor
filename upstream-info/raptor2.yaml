@@ -4,3 +4,5 @@ src_repo: dajobe/raptor
 tag_prefix: raptor2_
 separator: _
 git_url: https://github.com/dajobe/raptor.git
+git_tag:
+- 2014-11-01 raptor2_2_0_15

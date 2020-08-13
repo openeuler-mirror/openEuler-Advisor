@@ -4,3 +4,9 @@ version_control: github
 src_repo: linux-rdma/infiniband-diags
 tag_prefix: infiniband-diags-
 separator: "."
+git_tag:
+- 2018-08-02 ls
+- 2019-05-12 2.2.0
+- 2018-08-02 2.1.0
+- 2017-05-24 2.0.0
+- 2016-07-27 1.6.7

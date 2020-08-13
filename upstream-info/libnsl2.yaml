@@ -4,3 +4,13 @@ src_repo: thkukuk/libnsl
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/thkukuk/libnsl.git
+git_tag:
+- 2020-07-06 v1.3.0
+- 2017-11-11 v1.2.0
+- 2017-08-18 libnsl-1.1.0
+- 2017-02-23 libnsl-1.0.5
+- 2016-03-08 libnsl-1.0.4
+- 2016-02-17 libnsl-1.0.3
+- 2016-02-15 libnsl-1.0.2
+- 2016-01-20 libnsl-1.0.1
+- 2017-08-18 1.1.0

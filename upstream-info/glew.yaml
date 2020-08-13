@@ -4,3 +4,5 @@ src_repo: nigels-com/glew
 tag_prefix: glew-
 separator: "."
 git_url: https://github.com/nigels-com/glew.git
+git_tag:
+- 2017-07-31 glew-2.1.0

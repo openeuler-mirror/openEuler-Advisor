@@ -4,3 +4,4 @@ src_repo: mirror/wget
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/mirror/wget.git
+git_tag:

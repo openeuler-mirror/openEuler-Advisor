@@ -4,3 +4,9 @@ src_repo: google/snappy
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/google/snappy.git
+git_tag:
+- 2020-01-14 1.1.8
+- 2017-08-24 1.1.7
+- 2017-07-13 1.1.6
+- 2017-06-28 1.1.5
+- 2017-01-27 1.1.4

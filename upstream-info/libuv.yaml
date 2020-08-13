@@ -4,3 +4,8 @@ src_repo: libuv/libuv
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/libuv/libuv.git
+git_tag:
+- 2020-07-03 v1.38.1
+- 2020-05-17 v1.38.0
+- 2020-04-19 v1.37.0
+- 2020-04-15 v1.36.0

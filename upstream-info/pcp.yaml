@@ -4,3 +4,6 @@ src_repo: performancecopilot/pcp
 tag_prefix: "^"
 separator: "."
 git_url: https://github.com/performancecopilot/pcp.git
+git_tag:
+- 2020-05-29 5.1.1
+- 2020-04-24 5.1.0

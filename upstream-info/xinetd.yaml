@@ -80,3 +80,8 @@ last_query:
     ]
 query_type: api.github.tags
 git_url: https://github.com/xinetd-org/xinetd.git
+git_tag:
+- 2012-05-09 xinetd-2-3-15
+- 2005-10-20 xinetd-2-3-14
+- 2004-01-24 xinetd-2-3-13
+- 2003-08-06 xinetd-2-3-12

@@ -4,3 +4,5 @@ src_repo: gegl
 tag_prefix: GEGL_
 separator: _
 git_url: https://gitlab.gnome.org/GNOME/gegl.git
+git_tag:
+- 2020-06-07 GEGL_0_4_24

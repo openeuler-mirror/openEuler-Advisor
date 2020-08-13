@@ -4,3 +4,4 @@ src_repo: rpm-software-management/rpm
 tag_prefix: "^rpm-"
 separator: _
 git_url: https://github.com/rpm-software-management/rpm.git
+git_tag:

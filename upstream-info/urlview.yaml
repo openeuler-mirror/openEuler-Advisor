@@ -4,3 +4,4 @@ src_repo: sigpipe/urlview
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/sigpipe/urlview.git
+git_tag:

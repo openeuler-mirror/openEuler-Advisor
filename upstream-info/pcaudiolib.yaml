@@ -4,3 +4,6 @@ src_repo: rhdunn/pcaudiolib
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/rhdunn/pcaudiolib.git
+git_tag:
+- 2018-02-27 1.1
+- 2016-09-10 1.0

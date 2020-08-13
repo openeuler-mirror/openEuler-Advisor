@@ -4,3 +4,12 @@ src_repo: https://gitlab.com/gnutls/gnutls.git
 tag_prefix: 
 separator: 
 git_url: https://gitlab.com/gnutls/gnutls.git
+git_tag:
+- 2020-06-03 3.6.14
+- 2020-03-31 3.6.13
+- 2020-02-01 gnutls_3_6_12
+- 2020-02-01 3.6.12
+- 2019-12-02 gnutls_3_6_11
+- 2019-12-02 gnutls_3_6_11_1
+- 2019-09-29 gnutls_3_6_10
+- 2019-07-25 gnutls_3_6_9

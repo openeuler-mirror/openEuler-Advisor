@@ -4,3 +4,13 @@ src_repo: git://git.samba.org/uid_wrapper.git
 tag_prefix: "^uid_wrapper-"
 separator: "."
 git_url: git://git.samba.org/uid_wrapper.git
+git_tag:
+- 2020-03-05 uid_wrapper-1.2.8
+- 2019-07-16 uid_wrapper-1.2.7
+- 2019-07-15 uid_wrapper-1.2.6
+- 2019-07-15 uid_wrapper-1.2.5
+- 2017-07-24 uid_wrapper-1.2.4
+- 2017-07-14 uid_wrapper-1.2.3
+- 2017-07-13 uid_wrapper-1.2.2
+- 2016-03-16 uid_wrapper-1.2.1
+- 2015-10-29 uid_wrapper-1.2.0

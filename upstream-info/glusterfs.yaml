@@ -4,3 +4,5 @@ src_repo: gluster/glusterfs
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/gluster/glusterfs.git
+git_tag:
+- 2020-04-17 v9dev

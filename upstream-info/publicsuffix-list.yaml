@@ -4,3 +4,4 @@ src_repo: publicsuffix/list
 tag_prefix: 
 separator: 
 git_url: https://github.com/publicsuffix/list.git
+git_tag:

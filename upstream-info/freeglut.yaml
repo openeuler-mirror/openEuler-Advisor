@@ -4,3 +4,4 @@ src_repo: dcnieho/FreeGLUT
 tag_prefix: "^FG_"
 separator: _
 git_url: https://github.com/dcnieho/FreeGLUT.git
+git_tag:

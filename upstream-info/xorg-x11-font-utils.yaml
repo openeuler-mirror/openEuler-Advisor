@@ -4,3 +4,4 @@ src_repo: eurolinux-enterprise-linux-sources/xorg-x11-font-utils
 tag_prefix: 
 separator: "."
 git_url: https://github.com/eurolinux-enterprise-linux-sources/xorg-x11-font-utils.git
+git_tag:

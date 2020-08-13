@@ -4,3 +4,6 @@ src_repo: git://git.sv.gnu.org/autoconf-archive.git
 tag_prefix: "^v"
 separator: "."
 git_url: git://git.sv.gnu.org/autoconf-archive.git
+git_tag:
+- 2019-01-06 v2019.01.06
+- 2018-03-13 v2018.03.13

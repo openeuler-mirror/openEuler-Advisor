@@ -4,3 +4,4 @@ src_repo: Libvisual/libvisual
 tag_prefix: "^libvisual-"
 separator: "."
 git_url: https://github.com/Libvisual/libvisual.git
+git_tag:

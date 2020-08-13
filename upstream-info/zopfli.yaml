@@ -4,3 +4,8 @@ src_repo: google/zopfli
 tag_prefix: zopfli-
 separator: "."
 git_url: https://github.com/google/zopfli.git
+git_tag:
+- 2013-04-25 zopfli-1.0.0
+- 2019-11-27 zopfli-1.0.3
+- 2018-05-18 zopfli-1.0.2
+- 2015-08-22 zopfli-1.0.1

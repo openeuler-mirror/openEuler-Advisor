@@ -4,3 +4,12 @@ src_repo: https://pagure.io/copy_jdk_configs.git
 tag_prefix: "^copy_jdk_configs-"
 separator: "."
 git_url: https://pagure.io/copy_jdk_configs.git
+git_tag:
+- 2018-06-20 copy_jdk_configs-3.7
+- 2017-02-16 copy_jdk_configs-2.2
+- 2017-02-03 copy_jdk_configs-2.1
+- 2017-01-19 copy_jdk_configs-2.0
+- 2016-12-01 copy_jdk_configs-1.3
+- 2016-08-05 copy_jdk_configs-1.2
+- 2015-12-04 copy_jdk_configs-1.1
+- 2015-12-03 copy_jdk_configs-1.0

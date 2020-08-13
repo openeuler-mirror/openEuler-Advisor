@@ -4,3 +4,4 @@ src_repo: BrianGladman/aes
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/BrianGladman/aes.git
+git_tag:

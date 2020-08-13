@@ -4,3 +4,34 @@ src_repo: git://linux-nfs.org/~steved/rpcbind
 tag_prefix: rpcbind-
 separator: _
 git_url: git://linux-nfs.org/~steved/rpcbind
+git_tag:
+- 2020-06-09 rpcbind-1_2_6-rc6
+- 2020-06-04 rpcbind-1_2_6-rc5
+- 2020-02-06 rpcbind-1_2_6-rc4
+- 2020-01-21 rpcbind-1_2_6-rc3
+- 2020-01-17 rpcbind-1_2_6-rc2
+- 2019-11-11 rpcbind-1_2_6-rc1
+- 2018-08-15 rpcbind-1_2_5
+- 2017-12-16 rpcbind-0_2_5-rc3
+- 2017-05-30 rpcbind-0_2_5-rc2
+- 2017-05-11 rpcbind-0_2_5-rc1
+- 2016-11-28 rpcbind-0_2_4-rc3
+- 2016-11-07 rpcbind-0_2_4-rc2
+- 2016-02-20 rpcbind-0_2_4-rc1
+- 2016-11-28 rpcbind-0_2_4
+- 2015-04-27 rpcbind-0_2_3-rc3
+- 2015-02-04 rpcbind-0_2_3-rc2
+- 2014-12-16 rpcbind-0_2_3-rc1
+- 2015-04-27 rpcbind-0_2_3
+- 2014-11-25 rpcbind-0_2_2-rc4
+- 2014-11-10 rpcbind-0_2_2-rc3
+- 2014-10-27 rpcbind-0_2_2-rc2
+- 2014-08-18 rpcbind-0_2_2-rc1
+- 2012-10-23 rpcbind-0_2_1-rc4
+- 2011-03-17 rpcbind-0_2_1-rc3
+- 2010-11-30 rpcbind-0_2_1-rc2
+- 2010-07-13 rpcbind-0_2_1-rc1
+- 2014-08-18 rpcbind-0_2_1
+- 2009-05-29 rpcbind-0_2_0
+- 2008-11-19 rpcbind-0_1_7
+- 2018-08-15 pcbind-0_2_5-rc4

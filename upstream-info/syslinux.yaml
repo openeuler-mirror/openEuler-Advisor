@@ -4,3 +4,7 @@ src_repo: https://repo.or.cz/syslinux.git
 tag_prefix: syslinux-
 separator: "."
 git_url: https://repo.or.cz/syslinux.git
+git_tag:
+- 2019-02-07 syslinux-6.04-pre3
+- 2019-02-05 syslinux-6.04-pre2
+- 2016-03-03 syslinux-6.04-pre1

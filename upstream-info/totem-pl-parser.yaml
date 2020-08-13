@@ -161,3 +161,12 @@ last_query:
     git-migration-tagsV_2_24_2
     git-migration-tagsV_2_24_2^{}
 git_url: https://gitlab.gnome.org/GNOME/totem-pl-parser.git
+git_tag:
+- 2020-02-28 V_3_26_5
+- 2019-11-12 V_3_26_4
+- 2019-03-05 V_3_26_3
+- 2019-01-16 V_3_26_2
+- 2018-06-14 V_3_26_1
+- 2017-09-14 V_3_26_0
+- 2017-08-10 V_3_25_90
+- 2017-06-21 V_3_25_3

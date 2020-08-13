@@ -4,3 +4,7 @@ src_repo: linux-nvme/nvme-cli
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/linux-nvme/nvme-cli.git
+git_tag:
+- 2020-06-16 v1.12
+- 2020-04-24 v1.11.1
+- 2020-04-24 v1.11

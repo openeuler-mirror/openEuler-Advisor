@@ -4,3 +4,20 @@ src_repo: https://fedorapeople.org/cgit/adelton/public_git/mod_intercept_form_su
 tag_prefix: mod_intercept_form_submit-
 separator: "."
 git_url: https://fedorapeople.org/cgit/adelton/public_git/mod_intercept_form_submit.git
+git_tag:
+- 2016-11-23 mod_intercept_form_submit-1.1.0
+- 2016-05-06 mod_intercept_form_submit-1.0.1
+- 2016-03-21 mod_intercept_form_submit-1.0.0
+- 2014-06-30 mod_intercept_form_submit-0.9.8
+- 2014-05-13 mod_intercept_form_submit-0.9.7
+- 2014-04-15 mod_intercept_form_submit-0.9.6
+- 2014-01-30 mod_intercept_form_submit-0.9.5
+- 2014-01-16 mod_intercept_form_submit-0.9.4
+- 2014-01-15 mod_intercept_form_submit-0.9.3
+- 2014-01-09 mod_intercept_form_submit-0.9.2
+- 2014-01-09 mod_intercept_form_submit-0.9.1
+- 2013-12-05 mod_intercept_form_submit-0.9
+- 2013-11-19 mod_intercept_form_submit-0.8
+- 2013-11-07 mod_intercept_form_submit-0.7
+- 2013-11-04 mod_intercept_form_submit-0.6
+- 2013-10-31 mod_intercept_form_submit-0.5

@@ -4,3 +4,4 @@ src_repo: https://pagure.io/portreserve.git
 tag_prefix: "^"
 separator: "."
 git_url: https://pagure.io/portreserve.git
+git_tag:

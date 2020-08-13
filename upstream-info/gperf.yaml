@@ -4,3 +4,6 @@ src_repo: https://git.savannah.gnu.org/git/gperf.git
 tag_prefix: "^v"
 separator: "."
 git_url: https://git.savannah.gnu.org/git/gperf.git
+git_tag:
+- 2017-01-02 v3.1
+- 2009-02-02 v3.0.4

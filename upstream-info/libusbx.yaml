@@ -4,3 +4,4 @@ src_repo: libusb/libusb
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/libusb/libusb.git
+git_tag:

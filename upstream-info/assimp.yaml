@@ -4,3 +4,13 @@ src_repo: assimp/assimp
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/assimp/assimp.git
+git_tag:
+- 2019-09-24 v5.0.0
+- 2017-12-11 v4.1.0
+- 2017-07-28 v4.0.1
+- 2017-07-15 v4.0.0.rc1
+- 2017-07-18 v4.0.0
+- 2016-07-08 v3.3.1
+- 2016-07-05 v3.3
+- 2019-08-26 v.5.0.0.rc2
+- 2019-03-10 v.5.0.0.rc1

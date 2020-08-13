@@ -4,3 +4,6 @@ src_repo: https://gitlab.gnome.org/Archive/pygtk.git
 tag_prefix: PYGTK_
 separator: _
 git_url: https://gitlab.gnome.org/Archive/pygtk.git
+git_tag:
+- 2011-04-02 PYGTK_2_24_0
+- 2011-03-12 PYGTK_2_23_1

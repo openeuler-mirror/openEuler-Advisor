@@ -4,3 +4,4 @@ src_repo: luaposix/luaposix
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/luaposix/luaposix.git
+git_tag:

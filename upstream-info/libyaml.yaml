@@ -4,3 +4,12 @@ src_repo: yaml/libyaml
 tag_prefix: 
 separator: 
 git_url: https://github.com/yaml/libyaml.git
+git_tag:
+- 2020-06-01 0.2.5
+- 2020-04-19 0.2.4
+- 2020-04-11 0.2.3
+- 2019-03-12 0.2.2
+- 2019-03-04 0.2.2-pre3
+- 2019-02-28 0.2.2-pre2
+- 2018-06-30 0.2.2-pre1
+- 2018-06-26 0.2.1

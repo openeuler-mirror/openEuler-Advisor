@@ -4,3 +4,6 @@ src_repo: librest
 tag_prefix: librest-
 separator: "."
 git_url: https://gitlab.gnome.org/GNOME/librest.git
+git_tag:
+- 2015-03-17 0.7.93
+- 2014-09-03 0.7.92

@@ -4,3 +4,6 @@ src_repo: systemd/systemd
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/systemd/systemd.git
+git_tag:
+- 2020-07-24 v246-rc2
+- 2020-07-09 v246-rc1

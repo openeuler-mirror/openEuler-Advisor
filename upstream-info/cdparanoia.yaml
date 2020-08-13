@@ -4,3 +4,11 @@ src_repo: rocky/libcdio-paranoia
 tag_prefix: "^release-"
 separator: "."
 git_url: https://github.com/rocky/libcdio-paranoia.git
+git_tag:
+- 2019-09-16 release-10.2+2.0.1
+- 2019-01-26 release-10.2+2.0.0
+- 2017-08-22 release-10.2+0.94+2
+- 2017-03-25 release-10.2+0.94+1
+- 2014-09-29 release-10.2+0.93+1
+- 2012-12-24 release-10.2+0.90+1
+- 2012-10-27 release-10.2+0.90

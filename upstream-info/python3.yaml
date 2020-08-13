@@ -4,3 +4,4 @@ src_repo: python/cpython
 tag_prefix: "^v"
 separator: "."
 url: https://github.com/python/cpython.git
+git_tag:

@@ -4,3 +4,7 @@ src_repo: mafintosh/wpa_supplicant
 tag_prefix: "^v"
 separator: "."
 git_url: https://github.com/mafintosh/wpa_supplicant.git
+git_tag:
+- 2017-10-04 v1.0.2
+- 2017-09-25 v1.0.1
+- 2017-09-25 v1.0.0

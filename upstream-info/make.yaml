@@ -4,3 +4,8 @@ src_repo: https://git.savannah.gnu.org/git/make.git
 tag_prefix: 
 separator: 
 git_url: https://git.savannah.gnu.org/git/make.git
+git_tag:
+- 2020-01-19 4.3
+- 2020-01-04 4.2.93
+- 2019-10-08 4.2.92
+- 2019-09-21 4.2.91

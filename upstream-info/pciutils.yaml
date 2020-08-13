@@ -4,3 +4,10 @@ src_repo: git://git.kernel.org/pub/scm/utils/pciutils/pciutils.git
 tag_prefix: "^v"
 separator: "."
 git_url: git://git.kernel.org/pub/scm/utils/pciutils/pciutils.git
+git_tag:
+- 2020-05-31 v3.7.0
+- 2020-01-25 v3.6.4
+- 2020-01-22 v3.6.3
+- 2018-08-12 v3.6.2
+- 2018-07-12 v3.6.1
+- 2018-06-30 v3.6.0

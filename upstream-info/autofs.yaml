@@ -4,3 +4,6 @@ src_repo: git://git.kernel.org/pub/scm/linux/storage/autofs/autofs.git
 tag_prefix: release_
 separator: _
 git_url: git://git.kernel.org/pub/scm/linux/storage/autofs/autofs.git
+git_tag:
+- 2019-10-07 release_5_1_6
+- 2018-10-30 release_5_1_5
