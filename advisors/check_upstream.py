@@ -305,7 +305,8 @@ def check_gitee(info):
 
 def check_svn(info):
     resp = load_last_query_result(info)
-    repo_url = info["src_repo"] + "/tags"
+    tag_dir = info.get("tag_dir", "tags")
+    repo_url = info["src_repo"] + "/" + tag_dir
     if resp == "":
         resp = __check_svn_helper(repo_url)
         last_query = {}
