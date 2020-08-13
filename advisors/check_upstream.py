@@ -84,8 +84,40 @@ def dirty_redirect_tricks(url, resp):
     if "" in cookie: cookie.remove("") 
     return need_trick, new_url, list(cookie)
 
+def check_hg_raw(info):
+    eprint("{repo} > Using hg raw-tags".format(repo=info["src_repo"]+"/raw-tags"))
+    resp = load_last_query_result(info)
+    if resp == "":
+        headers = {
+                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+                }
+        url = urljoin(info["src_repo"] + "/", "raw-tags")
+        resp = requests.get(url, headers=headers)
+        resp = resp.text
+        need_trick, url, cookie = dirty_redirect_tricks(url, resp)
+        if need_trick:
+            # I dont want to introduce another dependency on requests
+            # but urllib handling cookie is outragely complex
+            c_dict = {}
+            for c in cookie:
+                k, v = c.split('=')
+                c_dict[k] = v
+            resp = requests.get(url, headers=headers, cookies=c_dict)
+            resp = resp.text
+
+    last_query = {}
+    last_query["time_stamp"] = datetime.now()
+    last_query["raw_data"] = resp
+    info["last_query"] = last_query
+    tags = []
+    for l in resp.splitlines():
+        tags.append(l.split()[0])
+    result_list = clean_tags(tags, info)
+    return result_list
+
 
 def check_hg(info):
+    eprint("{repo} > Using hg json-tags".format(repo=info["src_repo"]+"/json-tags"))
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
@@ -116,6 +148,7 @@ def check_hg(info):
     result_list = [tag['tag'] for tag in sort_tags]
     result_list = clean_tags(result_list, info)
     return result_list
+
 
 def check_metacpan(info):
     resp = load_last_query_result(info)
