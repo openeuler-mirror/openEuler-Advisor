@@ -236,7 +236,11 @@ def check_github(info):
 
 def check_gnome(info):
     resp = load_last_query_result(info)
-    repo_url = "https://gitlab.gnome.org/GNOME/"+info["src_repo"]+".git"
+    src_repos = info["src_repo"].split("/")
+    if len(src_repos) == 1:
+        repo_url = "https://gitlab.gnome.org/GNOME/" + info["src_repo"] + ".git"
+    else:
+        repo_url = "https://gitlab.gnome.org/" + info["src_repo"] + ".git"
 
     if resp == "":
         resp = __check_git_helper(repo_url)
