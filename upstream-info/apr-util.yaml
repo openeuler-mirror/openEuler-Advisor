@@ -1,4 +1,4 @@
 version_control: svn
-src_repo: https://svn.apache.org/viewvc/apr/apr-util
+src_repo: https://svn.apache.org/repos/asf/apr/apr-util
 tag_prefix: ^
 separator: .
