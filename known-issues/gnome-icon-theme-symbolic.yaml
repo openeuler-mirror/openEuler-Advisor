@@ -1,6 +1,6 @@
 ---
 version_control: gitlab.gnome
-src_repo: gnome-icon-theme-symbolic
+src_repo: Archive/gnome-icon-theme-symbolic
 tag_prefix: "^v"
 separator: "."
 last_query:
