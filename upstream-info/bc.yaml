@@ -1,0 +1,4 @@
+version_control: gnu-ftp
+src_repo: bc
+tag_pattern: bc-(.*).tar.gz(.sig)?
+seperator: "."

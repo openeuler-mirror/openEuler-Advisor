@@ -270,6 +270,24 @@ def check_github(info):
     tags = clean_tags(tags, info)
     return tags
 
+def check_gnu_ftp(info):
+    headers = {
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
+    url = urljoin("https://ftp.gnu.org/gnu/", info["src_repo"] + "/")
+    eprint("{repo} > List ftp directory".format(repo=url))
+    resp = requests.get(url, headers=headers)
+    resp = resp.text
+    re_pattern = re.compile("href=\"(.*)\">(\\1)</a>")
+    tags = []
+    for l in resp.splitlines():
+        m = re_pattern.search(l)
+        if m:
+            tags.append(m[1])
+    tags = clean_tags(tags, info)
+    return tags
+
+
 def check_gnome(info):
     resp = load_last_query_result(info)
     src_repos = info["src_repo"].split("/")
