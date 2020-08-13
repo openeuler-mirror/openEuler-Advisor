@@ -41,6 +41,9 @@ def clean_tags(tags, info):
     if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
         result_list = [pattern_regex.sub("\\1", x) for x in tags]
+    elif info.get("tag_reorder", "") != "" and info.get("tag_reorder", "") is not None:
+        pattern_regex = re.compile(info["tag_reorder"])
+        result_list = [pattern_regex.sub(info["tag_neworder"], x) for x in tags]
     elif info.get("tag_prefix", "") != "" and info.get("tag_prefix", "") is not None:
         prefix_regex = re.compile(info["tag_prefix"])
         result_list = [prefix_regex.sub("", x) for x in tags]
