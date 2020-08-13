@@ -1,4 +1,4 @@
 version_control: git 
-src_repo: git://gnu.org.ua/gdbm.git
-tag_prefix: gdbm-
+src_repo: https://git.savannah.gnu.org/git/gdbm.git
+tag_prefix: ^v
 separator: .
