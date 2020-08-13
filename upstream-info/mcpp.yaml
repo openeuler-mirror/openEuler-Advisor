@@ -1,4 +1,4 @@
-version_control: svn
-src_repo: https://svn.code.sf.net/p/mcpp/code/trunk/src
-tag_prefix: ^V
+version_control: github
+src_repo: zeroc-ice/mcpp
+tag_prefix: ^v
 separator: .

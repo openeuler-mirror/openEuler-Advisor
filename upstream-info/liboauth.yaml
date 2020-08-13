@@ -1,4 +1,4 @@
-version_control: svn
-src_repo: https://svn.code.sf.net/p/liboauth/code/trunk
-tag_prefix: liboauth-code
-separator: ^liboauth-
+version_control: github
+src_repo: x42/liboauth
+tag_prefix: "^v"
+separator: "."
