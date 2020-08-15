@@ -1,0 +1,5 @@
+---
+version_control: git
+src_repo: https://fedorapeople.org/cgit/jolsa/public_git/latrace.git
+tag_prefix: "^latrace-"
+seperator: "."

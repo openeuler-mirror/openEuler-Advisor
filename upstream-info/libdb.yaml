@@ -1,5 +1,5 @@
 ---
 version_control: github
-src_repo: pyudev/pyudev
+src_repo: berkeleydb/libdb
 tag_prefix: "^v"
-separator: "."
+seperator: "."

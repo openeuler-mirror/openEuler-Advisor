@@ -1,4 +1,4 @@
 version_control: git
-src_repo: https://aur.archlinux.org/gamin.git
-tag_prefix: 
+src_repo: https://salsa.debian.org/gnome-team/gamin.git
+tag_prefix: "^upstream/"
 separator: . 

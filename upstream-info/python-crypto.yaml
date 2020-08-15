@@ -1,5 +1,5 @@
 ---
 version_control: github
-src_repo: pyudev/pyudev
+src_repo: pycrypto/pycrypto
 tag_prefix: "^v"
-separator: "."
+seperator: "."

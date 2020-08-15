@@ -1,5 +1,5 @@
 ---
 version_control: pypi 
-src_repo: cffi
+src_repo: backports
 tag_prefix: "^v"
-separator: "."
+seperator: "."

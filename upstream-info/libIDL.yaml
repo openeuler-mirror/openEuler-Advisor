@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: Distrotech/libIDL
+tag_prefix: "^LIBIDL_"
+seperator: "_"
