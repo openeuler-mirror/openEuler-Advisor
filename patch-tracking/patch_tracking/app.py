@@ -2,6 +2,7 @@
 flask app
 """
 import logging.config
+import os
 import sys
 from flask import Flask
 from patch_tracking.api.issue import issue
@@ -33,7 +34,8 @@ def check_settings_conf():
         sys.exit()
 
 
-app.config.from_pyfile("settings.conf")
+settings_file = os.path.join(os.path.abspath(os.curdir), "settings.conf")
+app.config.from_pyfile(settings_file)
 check_settings_conf()
 
 GITHUB_ACCESS_TOKEN = app.config['GITHUB_ACCESS_TOKEN']

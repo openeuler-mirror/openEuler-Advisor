@@ -247,6 +247,20 @@ def check_gnome(info):
     tags = clean_tags(tags, info)
     return tags
 
+def check_gitee(info):
+    resp = load_last_query_result(info)
+    repo_url = "https://gitee.com/" + info["src_repo"]
+    if resp == "":
+        resp = __check_git_helper(repo_url)
+        last_query = {}
+        last_query["time_stamp"] = datetime.now()
+        last_query["raw_data"] = resp
+        info["last_query"] = last_query
+
+    tags = __git_resp_to_tags(resp)
+    tags = clean_tags(tags, info)
+    return tags
+
 def check_svn(info):
     resp = load_last_query_result(info)
     repo_url = info["src_repo"] + "/tags"

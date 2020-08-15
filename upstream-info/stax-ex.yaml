@@ -1,0 +1,4 @@
+version_control: github
+src_repo: javaee/metro-stax-ex
+tag_prefix: ^stax-ex-
+separator: .

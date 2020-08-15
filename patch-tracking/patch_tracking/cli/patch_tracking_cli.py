@@ -21,10 +21,7 @@ def query_table(args):
 
     if args.table == "tracking":
         url = '/'.join(['https:/', server, 'tracking'])
-        if args.branch and args.repo:
-            params = {'repo': args.repo, 'branch': args.branch}
-        else:
-            params = {'repo': args.repo}
+        params = {'repo': args.repo, 'branch': args.branch}
         try:
             ret = requests.get(url, params=params, verify=False)
             if ret.status_code == 200 and ret.json()['code'] == '2001':
@@ -119,6 +116,9 @@ def params_input_track(params, file_path=None):
     """
     load tracking from command line arguments
     """
+    if not check_add_param(params):
+        return 'error', 'Check input params error'
+
     if add_param_check_url(params, file_path) == 'error':
         return 'error', 'Check input params error.'
 
@@ -154,6 +154,19 @@ def params_input_track(params, file_path=None):
 
     print("status_code: {}, return text: {}".format(ret.status_code, ret.text))
     return 'error', 'Unexpected Error.'
+
+
+def check_add_param(params):
+    success = True
+    required_params = ["repo", "branch", "scm_repo", "scm_branch", "version_control", "enabled"]
+    miss_params = list()
+    for param in required_params:
+        if param not in params or not params[param]:
+            miss_params.append(param)
+            success = False
+    if not success:
+        print("patch_tracking_cli add: error: the following arguments are required:  --{}".format(", --".join(miss_params)))
+    return success
 
 
 def add(args):
@@ -212,20 +225,19 @@ def delete(args):
         if ret.status_code == 200 and ret.json()['code'] == '2001':
             print('Tracking delete successfully.')
             return
+        elif ret.status_code == 200 and ret.json()['code'] == '6005':
+            print('Delete Nothing. Tracking not exist.')
+            return
 
-        print("Tracking delete failed. Error: %s", ret)
+        print("Tracking delete failed. Error: {}".format(ret.text))
     except Exception as exception:
-        print('Error: Connect server error: %s', str(exception))
+        print('Connect server error: ' + str(exception))
 
 
 def query(args):
     """
-        query table data
-        """
-    if args.branch and not args.repo:
-        print(query_usage)
-        return
-
+    query table data
+    """
     status, ret = query_table(args)
     if status == "success":
         df = pandas.DataFrame.from_dict(ret.json()["data"], orient="columns")
@@ -266,16 +278,16 @@ def dir_input_track(dir_path, args):
     load tracking from dir
     """
     if os.path.exists(dir_path) and os.path.isdir(dir_path):
-        for root, _, files in os.walk(dir_path):
-            if not files:
-                print('error: dir path empty')
-                return
-            for file in files:
-                if os.path.splitext(file)[-1] == ".yaml":
-                    file_path = os.path.join(root, file)
-                    file_input_track(file_path, args)
-                else:
-                    print('Please input yaml file. Error in {}'.format(file))
+        dir_files = os.listdir(dir_path)
+        if not dir_files:
+            print('error: dir path empty')
+            return
+        for file in dir_files:
+            if os.path.isfile(os.path.join(dir_path, file)) and os.path.splitext(file)[-1] == ".yaml":
+                file_path = os.path.join(dir_path, file)
+                file_input_track(file_path, args)
+            else:
+                print('Please input yaml file. Error in {}'.format(file))
     else:
         print('error: dir path error. Params error in {}'.format(dir_path))
 
@@ -304,7 +316,7 @@ add_usage = """
     %(prog)s --server SERVER --user USER --password PASSWORD --file FILE
     %(prog)s --server SERVER --user USER --password PASSWORD --dir DIR"""
 parser_add = subparsers.add_parser(
-    'add', parents=[common_parser, authentication_parser], help="add tracking", usage=add_usage
+    'add', parents=[common_parser, authentication_parser], help="add tracking", usage=add_usage, allow_abbrev=False
 )
 parser_add.set_defaults(func=add)
 parser_add.add_argument("--version_control", choices=['github'], help="upstream version control system")
@@ -319,7 +331,7 @@ parser_add.add_argument('--dir', help='import patch tracking from files in direc
 # delete
 del_usage = """
     %(prog)s --server SERVER --table TABLE --repo REPO [--branch BRANCH]"""
-parser_delete = subparsers.add_parser('delete', parents=[common_parser, authentication_parser], help="delete tracking")
+parser_delete = subparsers.add_parser('delete', parents=[common_parser, authentication_parser], help="delete tracking", allow_abbrev=False)
 parser_delete.set_defaults(func=delete)
 parser_delete.add_argument("--repo", required=True, help="source package repository")
 parser_delete.add_argument("--branch", help="source package branch")
@@ -327,7 +339,7 @@ parser_delete.add_argument("--branch", help="source package branch")
 # query
 query_usage = """
     %(prog)s --server SERVER --table {tracking,issue} [--repo REPO] [--branch BRANCH]"""
-parser_query = subparsers.add_parser('query', parents=[common_parser], help="query tracking/issue")
+parser_query = subparsers.add_parser('query', parents=[common_parser], help="query tracking/issue", allow_abbrev=False)
 parser_query.set_defaults(func=query)
 parser_query.add_argument("--table", required=True, choices=["tracking", "issue"], help="query tracking or issue")
 parser_query.add_argument("--repo", help="source package repository")

@@ -30,14 +30,23 @@ def delete():
 
     try:
         if "branch" in keys:
-            if Tracking.query.filter(Tracking.repo == input_params['repo'], Tracking.branch == input_params['branch']):
+            if Tracking.query.filter(Tracking.repo == input_params['repo'],
+                                     Tracking.branch == input_params['branch']).first():
                 delete_tracking(input_params['repo'], input_params['branch'])
                 logger.info('Delete tracking repo: %s, branch: %s', input_params['repo'], input_params['branch'])
+                return ResponseCode.ret_message(code=ResponseCode.SUCCESS)
+            else:
+                logger.info('Delete tracking repo: %s, branch: %s not found.', input_params['repo'],
+                            input_params['branch'])
+                return ResponseCode.ret_message(code=ResponseCode.DELETE_DB_NOT_FOUND)
         else:
-            if Tracking.query.filter(Tracking.repo == input_params['repo']):
+            if Tracking.query.filter(Tracking.repo == input_params['repo']).first():
                 delete_tracking(input_params['repo'])
                 logger.info('Delete tracking repo: %s', input_params['repo'])
-        return ResponseCode.ret_message(code=ResponseCode.SUCCESS)
+                return ResponseCode.ret_message(code=ResponseCode.SUCCESS)
+            else:
+                logger.info('Delete tracking repo: %s not found.', input_params['repo'])
+                return ResponseCode.ret_message(code=ResponseCode.DELETE_DB_NOT_FOUND)
     except SQLAlchemyError as err:
         return ResponseCode.ret_message(code=ResponseCode.DELETE_DB_ERROR, data=err)
 

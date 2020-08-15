@@ -42,6 +42,7 @@ class ResponseCode():
     FILE_NOT_FOUND = "4006"
     # Database operation module error status code
     DELETE_DB_ERROR = "40051"
+    SERVICE_ERROR = "50000"
     CONFIGFILE_PATH_EMPTY = "50001"
     FAILED_CREATE_DATABASE_TABLE = "50002"
     TYPE_ERROR = "50003"
@@ -64,7 +65,8 @@ class ResponseCode():
         TYPE_ERROR: "The source code and binary path types in the initialization file are abnormal",
         DATA_MERGE_ERROR: "abnormal multi-file database integration",
         FILE_NOT_FIND_ERROR: "system initialization configuration file does not exist",
-        DIS_CONNECTION_DB: "Unable to connect to the database, check the database configuration"}
+        DIS_CONNECTION_DB: "Unable to connect to the database, check the database configuration",
+        SERVICE_ERROR: "An exception occurred in the system, please try again later"}
 
     @classmethod
     def response_json(cls, code, data=None):

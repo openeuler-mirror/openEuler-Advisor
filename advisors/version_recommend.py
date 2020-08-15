@@ -214,6 +214,9 @@ class VersionTypeXYZW(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
+            if int(version[0]) > 1000: # consider it an useless exception
+                continue
+
             if self._compare(x, version[0]) < 0:
                 x = version[0]
 
@@ -361,6 +364,8 @@ class VersionTypeXYZ(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
+            if int(version[0]) > 1000: # consider it an useless exception
+                continue
             if self._compare(x, version[0]) < 0:
                 x = version[0]
 
@@ -464,6 +469,9 @@ class VersionTypeXY(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
+            if int(version[0]) > 1000: # consider it an useless exception
+                continue
+
             if self._compare(x, version[0]) < 0:
                 x = version[0]
 
@@ -576,6 +584,9 @@ class VersionTypeX(VersionType):
             version_list.append(re.split(r'[._-]', version))  # 将 version 拆分为列表,方便后续比较
         x = '0'
         for version in version_list:  # 第一轮比较取出最大的第一位
+            if int(version[0]) > 1000: # consider it an useless exception
+                continue
+
             if self._compare(x, version[0]) < 0:
                 x = version[0]
 
@@ -941,7 +952,7 @@ class VersionTypeXYymmZ(VersionType):
             return False
         year = str(digital_list[1][:2])
         month = str(digital_list[1][-2:])
-        if year > datetime.datetime.now().year[-2:]:  # 年份不能大于当前年份，不用考虑20000 年前的情况
+        if year > str(datetime.datetime.now().year)[-2:]:  # 年份不能大于当前年份，不用考虑2000 年前的情况
             return False
         if month > '12' or month == '0':
             return False
