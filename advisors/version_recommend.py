@@ -538,16 +538,41 @@ class VersionTypeXY(VersionType):
         if len(version_candidate) == 1:
             return '.'.join(version_candidate[0])
 
+        version_entry = version_candidate[:]
+
         y = '0'
-        for version in version_candidate[0:]:
-            if len(version) <= 1:
+        version_candidate.clear()
+        for version in version_entry:  # x.y 版本类型中会小概率出现三位版本号,需要将第二位最大的列入候选列表,准备第三位比较
+            if len(version) <= 1:  # 过滤仅一位的版本号
                 continue
-
-            if self._compare(version[1], y) > 0:
+            if self._compare(y, version[1]) < 0:
                 y = version[1]
-        x.append(y)
-        return '.'.join(x)
 
+        for version in version_entry:  # x.y 版本类型中会小概率出现三位版本号,需要将第二位最大的列入候选列表,准备第三位比较
+            if len(version) <= 1:  # 过滤仅一位的版本号
+                continue
+            if y == version[1]:
+                version_candidate.append(version)
+
+        if len(version_candidate) == 1:  # 仅一个版本,候选即为最新版本
+            return '.'.join(version_candidate[0])
+
+        version_entry = version_candidate[:]
+
+        z = '0'
+        for version in version_entry:  # 第三轮比较取出最大的第三位
+            if len(version) <= 2:  # 过滤仅二位的版本号
+                continue
+            if self._compare(z, version[2]) < 0:
+                z = version[2]
+
+        for version in version_entry:  # 最后一位最大版本必须惟一,直接返回结果
+            if len(version) <= 2:  # 过滤仅二位的版本号
+                continue
+            if z == version[2]:
+                return '.'.join(version)
+
+        return ''
 
 class VersionTypeX(VersionType):
     """Version type Class for x"""
