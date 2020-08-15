@@ -150,7 +150,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     os.chdir(os.pardir)
 
 
-def auto_update_pkg(gt, u_branch, u_pkg):
+def auto_update_pkg(gt, u_pkg, u_branch):
     """
     Auto upgrade based on given branch for single package
     """
@@ -183,7 +183,7 @@ def auto_update_pkg(gt, u_branch, u_pkg):
         sys.exit(1)
 
 
-def auto_update_repo(gt, u_branch, u_repo):
+def auto_update_repo(gt, u_repo, u_branch):
     """
     Auto upgrade based on given branch for packages in given repository
     """
@@ -249,9 +249,9 @@ if __name__ == "__main__":
                 pkg=args.repo_pkg, br=args.branch))
             sys.exit(1)
         if args.update == "repo":
-            auto_update_repo(user_gitee, args.branch, args.repo_pkg)
+            auto_update_repo(user_gitee, args.repo_pkg, args.branch)
         else:
-            auto_update_pkg(user_gitee, args.branch, args.repo_pkg)
+            auto_update_pkg(user_gitee, args.repo_pkg, args.branch)
     else:
         spec_string = user_gitee.get_spec(args.repo_pkg, args.branch)
         if not spec_string:

@@ -1,6 +1,6 @@
-## openEuler-Advisor
+# openEuler-Advisor
 
-### Description
+## Description
 Collection of automation tools for easily maintaining openEuler
 
 | Pharse           | Rules           | Requires  | Automatic  | Data & Tool   |
@@ -17,8 +17,8 @@ Collection of automation tools for easily maintaining openEuler
 | 5.Release        | TODO       |   |   |   
 
 
-### Software Metadata
-#### Configs
+## Software Metadata
+### Configs
 ```
 version_control: git
 src_repo: xxxx
@@ -40,7 +40,7 @@ For example, if a software version is 1.0.0, the tag might be v1.0.0. `v` here i
 **separator**
 The separator of a software's version name. For example, if a software version is 1.0.0, the separator is `.`.
 
-#### How to add a software metadata file
+### How to add a software metadata file
 0. Please check if the metafile is already exist
 1. Copy the [Template](./template.yaml) to [Database Dir](./upstream-info)
 2. Rename the file name, it is suggested that the file name SHOULD be same with the repo name in `src-openeuler`.
@@ -50,10 +50,10 @@ The separator of a software's version name. For example, if a software version i
 
 DONE! than you can create a Pull Request.
 
-#### Metadata Database
+### Metadata Database
 [Database](./upstream-info)  
 	
-	
+### Introduction of advisors 	
 #### Enviroment Setting
 ##### 1. necessary packages install
 	pip3 install python-rpm-spec (ver:0.9)
@@ -80,11 +80,11 @@ DONE! than you can create a Pull Request.
 	display all tags of target package: python3 oa_upgradable.py pkg_name
 	ep: python3 oa_upgradable.py glibc
 	
-#### Consultation for advisor:
+#### Consultation for advisors:
 	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
 	
 	
-### Contribution
+## Contribution
 
 1.  Fork the repository
 2.  Create Feat_xxx branch

@@ -169,7 +169,7 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	display all tags of target package: python3 oa_upgradable.py pkg_name
 	ep: python3 oa_upgradable.py glibc
 
-#### 3.2.3 Consultation for advisor:
+#### 3.2.3 Consultation for advisors:
 	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
 	
 	
