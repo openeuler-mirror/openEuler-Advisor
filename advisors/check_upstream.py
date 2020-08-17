@@ -41,6 +41,9 @@ def clean_tags(tags, info):
     if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
         result_list = [pattern_regex.sub("\\1", x) for x in tags]
+    elif info.get("tag_reorder", "") != "" and info.get("tag_reorder", "") is not None:
+        pattern_regex = re.compile(info["tag_reorder"])
+        result_list = [pattern_regex.sub(info["tag_neworder"], x) for x in tags]
     elif info.get("tag_prefix", "") != "" and info.get("tag_prefix", "") is not None:
         prefix_regex = re.compile(info["tag_prefix"])
         result_list = [prefix_regex.sub("", x) for x in tags]
@@ -81,8 +84,40 @@ def dirty_redirect_tricks(url, resp):
     if "" in cookie: cookie.remove("") 
     return need_trick, new_url, list(cookie)
 
+def check_hg_raw(info):
+    eprint("{repo} > Using hg raw-tags".format(repo=info["src_repo"]+"/raw-tags"))
+    resp = load_last_query_result(info)
+    if resp == "":
+        headers = {
+                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+                }
+        url = urljoin(info["src_repo"] + "/", "raw-tags")
+        resp = requests.get(url, headers=headers)
+        resp = resp.text
+        need_trick, url, cookie = dirty_redirect_tricks(url, resp)
+        if need_trick:
+            # I dont want to introduce another dependency on requests
+            # but urllib handling cookie is outragely complex
+            c_dict = {}
+            for c in cookie:
+                k, v = c.split('=')
+                c_dict[k] = v
+            resp = requests.get(url, headers=headers, cookies=c_dict)
+            resp = resp.text
+
+    last_query = {}
+    last_query["time_stamp"] = datetime.now()
+    last_query["raw_data"] = resp
+    info["last_query"] = last_query
+    tags = []
+    for l in resp.splitlines():
+        tags.append(l.split()[0])
+    result_list = clean_tags(tags, info)
+    return result_list
+
 
 def check_hg(info):
+    eprint("{repo} > Using hg json-tags".format(repo=info["src_repo"]+"/json-tags"))
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
@@ -114,6 +149,7 @@ def check_hg(info):
     result_list = clean_tags(result_list, info)
     return result_list
 
+
 def check_metacpan(info):
     resp = load_last_query_result(info)
     if resp == "":
@@ -140,6 +176,7 @@ def check_metacpan(info):
     last_query["time_stamp"] = datetime.now()
     last_query["raw_data"] = resp
     info["last_query"] = last_query
+    tags = clean_tags(tags, info)
     return tags
 
 def check_pypi(info):
@@ -233,9 +270,31 @@ def check_github(info):
     tags = clean_tags(tags, info)
     return tags
 
+def check_gnu_ftp(info):
+    headers = {
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
+    url = urljoin("https://ftp.gnu.org/gnu/", info["src_repo"] + "/")
+    eprint("{repo} > List ftp directory".format(repo=url))
+    resp = requests.get(url, headers=headers)
+    resp = resp.text
+    re_pattern = re.compile("href=\"(.*)\">(\\1)</a>")
+    tags = []
+    for l in resp.splitlines():
+        m = re_pattern.search(l)
+        if m:
+            tags.append(m[1])
+    tags = clean_tags(tags, info)
+    return tags
+
+
 def check_gnome(info):
     resp = load_last_query_result(info)
-    repo_url = "https://gitlab.gnome.org/GNOME/"+info["src_repo"]+".git"
+    src_repos = info["src_repo"].split("/")
+    if len(src_repos) == 1:
+        repo_url = "https://gitlab.gnome.org/GNOME/" + info["src_repo"] + ".git"
+    else:
+        repo_url = "https://gitlab.gnome.org/" + info["src_repo"] + ".git"
 
     if resp == "":
         resp = __check_git_helper(repo_url)
@@ -264,7 +323,8 @@ def check_gitee(info):
 
 def check_svn(info):
     resp = load_last_query_result(info)
-    repo_url = info["src_repo"] + "/tags"
+    tag_dir = info.get("tag_dir", "tags")
+    repo_url = info["src_repo"] + "/" + tag_dir
     if resp == "":
         resp = __check_svn_helper(repo_url)
         last_query = {}

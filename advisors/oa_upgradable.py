@@ -60,6 +60,8 @@ def get_ver_tags(gt, repo, cwd_path=None):
         return None
     if vc_type == "hg":
         tags = check_upstream.check_hg(pkg_info)
+    elif vc_type == "hg-raw":
+        tags = check_upstream.check_hg_raw(pkg_info)
     elif vc_type == "github":
         tags = check_upstream.check_github(pkg_info)
     elif vc_type == "git":
@@ -74,6 +76,8 @@ def get_ver_tags(gt, repo, cwd_path=None):
         tags = check_upstream.check_pypi(pkg_info)
     elif vc_type == "gitee":
         tags = check_upstream.check_gitee(pkg_info)
+    elif vc_type == "gnu-ftp":
+        tags = check_upstream.check_gnu_ftp(pkg_info)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None

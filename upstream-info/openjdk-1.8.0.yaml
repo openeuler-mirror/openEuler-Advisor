@@ -1,5 +1,5 @@
 ---
-version_control: hg
+version_control: hg-raw
 src_repo: http://hg.openjdk.java.net/aarch64-port/jdk8u-shenandoah
 tag_prefix: jdk8u
 separator: "-"

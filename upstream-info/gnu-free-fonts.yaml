@@ -1,4 +1,4 @@
 version_control: svn
-src_repo: https://svn.savannah.gnu.org/viewvc/freefont
-tag_repo: RELEASE_
+src_repo: svn://svn.savannah.gnu.org/freefont
+tag_prefix: "^RELEASE_"
 separator: .

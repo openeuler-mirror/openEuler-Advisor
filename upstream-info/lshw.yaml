@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://ezix.org/src/pkg/lshw.git 
+tag_prefix: "B."
+seperator: "."

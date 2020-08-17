@@ -1,0 +1,4 @@
+version_control: NA
+rpm_repo: https://git.centos.org/rpms/celt051.git
+tag_prefix: "^celt051-"
+seperator: "."

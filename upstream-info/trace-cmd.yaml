@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/trace-cmd.git
+tag_prefix: trace-cmd-v
+seperator: .

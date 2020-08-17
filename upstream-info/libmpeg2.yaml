@@ -1,0 +1,4 @@
+version_control: CVS
+src_repo: libmpeg2.cvs.sourceforge.net:/cvsroot/libmpeg2
+tag_prefix: NA
+seperator: NA
