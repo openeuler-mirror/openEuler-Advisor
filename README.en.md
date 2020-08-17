@@ -52,8 +52,38 @@ DONE! than you can create a Pull Request.
 
 ### Metadata Database
 [Database](./upstream-info)  
+	
+### Introduction of advisors 	
+#### Enviroment Setting
+##### 1. necessary packages install
+	pip3 install python-rpm-spec (ver:0.9)
+	pip3 install PyYAML (ver:5.3.1)
+	
+##### 2. json file config
+	~/.gitee_personal_token.json
+	content format: {"user":"user_name","access_token":"token_passwd"}
+	
+	setting personal access token: https://gitee.com/profile/personal_access_tokens
+	
+#### Use Instructions
+##### 1. simple-update-root.py
+	single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
+	ep: python3 simple-update-root.py -u pkg snappy master
 
-
+	single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
+	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+	
+	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
+	ep: python3 simple-update-root.py -u repo src-openeuler master
+	
+##### 2. oa_upgradable.py 
+	display all tags of target package: python3 oa_upgradable.py pkg_name
+	ep: python3 oa_upgradable.py glibc
+	
+#### Consultation for advisors:
+	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
+	
+	
 ## Contribution
 
 1.  Fork the repository

@@ -30,12 +30,12 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 4、完善 oa_upgradable.py 支持的上游社区代码管理协议，当前发现还需要增加 fossil 的支持。
 
+
 ## 3、小工具使用说明：
 
 ###  3.1、yaml 文件规范
 
 src-openEuler 仓库中的yaml 文件名称与仓库名称应该保持一致，例如glibc 仓库中存放的yaml 文件名称为"glibc.yaml"，文件放在仓库根目录下
-
 yaml 文件中需要人工填写的字段有 version_control、src_repo、tag_prefix、separator，其他内容为自动生成的，不需要填写。
 
 #### 3.1.1、yaml字段介绍
@@ -142,16 +142,47 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 
   如果软件tag分域本来就是"."，这个时候设置separator是不影响结果的。
 
-### 3.2、checkabi 功能介绍
+### 3.2、Introduction of advisors
+#### 3.2.1 Enviroment Setting
+##### a. necessary packages install
+	pip3 install python-rpm-spec (ver:0.9)
+	pip3 install PyYAML (ver:5.3.1)
+	
+##### b. json file config
+	~/.gitee_personal_token.json
+	content format: {"user":"user_name","access_token":"token_passwd"}
+	
+	setting personal access token: https://gitee.com/profile/personal_access_tokens
+	
+#### 3.2.2 Use Instructions
+##### a. simple-update-root.py
+	single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
+	ep: python3 simple-update-root.py -u pkg snappy master
+	
+	single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
+	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+	
+	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
+	ep: python3 simple-update-root.py -u repo src-openeuler master
+
+##### b. oa_upgradable.py 
+	display all tags of target package: python3 oa_upgradable.py pkg_name
+	ep: python3 oa_upgradable.py glibc
+
+#### 3.2.3 Consultation for advisors:
+	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
+	
+	
+### 3.3、checkabi 功能介绍
 
 checkabi 功能依赖libabigail 软件包，使用checkabi 功能前需要安装libabigail ，checkabi  提供了2个功能，下面分别介绍。
 
-#### 3.2.1 比较rpm ABI 差异
+#### 3.3.1 比较rpm ABI 差异
 
 命令行：./check_abi.py compare_rpm -r  **old.rpm new.rpm** -d **old-debuginfo.rpm new-debuginfo.rpm** 
 
 生成的结果存放到 /var/tmp/ 下 文件名为：xx_all_abidiff.out
 
-#### 3.2.2 比较动态库ABI差异
+#### 3.3.2 比较动态库ABI差异
 
 命令行：./check_abi.py compare_so -s ./old/usr/lib64/libssl.so.1.1.1  ./new/usr/lib64/libssl.so.1.1.1f

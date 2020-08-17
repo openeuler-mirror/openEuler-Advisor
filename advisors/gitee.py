@@ -138,6 +138,7 @@ Yours openEuler-Advisor.
             resp = self.get_gitee(yamlurl)
         except urllib.error.HTTPError:
             resp = "Not found"
+            print("WARNING: {repo}.yaml can't be found in upstream-info.".format(repo=pkg))
         if re.match("Not found", resp):
             yamlurl = self.yamlfile_url_template.format(branch=br, package=pkg)
             try:
@@ -145,7 +146,7 @@ Yours openEuler-Advisor.
             except urllib.error.HTTPError:
                 resp = "Not found"
             if re.match("Not found", resp):
-                print("Cann't find yaml metadata for {package} from upstream-info.".format(package=pkg))
+                print("WARNING: {repo}.yaml can't be found in repo on {branch} too".format(repo=pkg, branch=br))
                 return False
             else:
                 return resp

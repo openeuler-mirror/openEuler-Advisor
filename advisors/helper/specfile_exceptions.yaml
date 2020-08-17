@@ -2,9 +2,6 @@
 libnetwork:
   dir: script
   file: docker-proxy.spec
-authz:
-  dir: hack
-  file: authz.spec
 lxcfs-tools:
   dir: hack
   file: lxcfs-tools.spec
