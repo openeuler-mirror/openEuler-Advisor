@@ -71,7 +71,7 @@ class TestDeleteRepodatas(OperateTestBase):
         try:
             shutil.copyfile(system_config.DATABASE_FILE_INFO, system_config.DATABASE_FILE_INFO + '.bak')
             shutil.copytree(system_config.DATABASE_FOLDER_PATH, system_config.DATABASE_FOLDER_PATH + '.bak')
-            resp = self.client.delete("/repodatas?dbName=openEuler-20.04-LTS")
+            resp = self.client.delete("/repodatas?dbName=fedora30")
             resp_dict = json.loads(resp.data)
 
             self.assertIn("code", resp_dict, msg="Error in data format return")

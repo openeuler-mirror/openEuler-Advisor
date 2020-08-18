@@ -1,15 +1,30 @@
-[{
-	"buildDep": ["B1", "C1"],
-	"dbname": "openEuler-20.03-LTS",
-	"downloadURL": null,
-	"license": "GPLv2+ and BSD and MIT and IBM",
-	"maintainer": null,
-	"maintainlevel": null,
-	"sourceName": "A",
-	"sourceURL": "http://play0ad.com",
-	"subpack": {
-		"A1": ["A2"],
-		"A2": ["C1", "D1"]
-	},
-	"version": "0.0.23b"
-}]
+[
+	{
+		"url": "/packages/packageInfo?sourceName=A&dbName=mainline",
+		"data": [
+			{
+				"buildDep": [
+					"B1",
+					"C1"
+				],
+				"dbname": "mainline",
+				"license": "GPLv2+ and BSD and MIT and IBM",
+				"maintainer": null,
+				"maintainlevel": null,
+				"rpm_packager": "Fedora Project",
+				"sourceName": "A",
+				"sourceURL": "http://play0ad.com",
+				"subpack": {
+					"A1": [
+						"A2"
+					],
+					"A2": [
+						"C1",
+						"D1"
+					]
+				},
+				"version": "0.0.23b"
+			}
+		]
+	}
+]

@@ -64,7 +64,7 @@ class Log():
         if path:
             self.__path = os.path.join(LOG_FOLDER_PATH, path)
         else:
-            self.__path = READCONFIG.get_system('log_path')
+            self.__path = READCONFIG.get_config('LOG', 'log_path')
             if not self.__path:
                 self.__path = os.path.join(LOG_FOLDER_PATH, log_name)
             else:

@@ -34,8 +34,8 @@ class InitConf:
                                         "data_{}_src.sqlite".format(str(index)))
                 bin_path = os.path.join(base_path, "db_origin",
                                         "data_{}_bin.sqlite".format(str(index)))
-                obj["src_db_file"] = [src_path]
-                obj["bin_db_file"] = [bin_path]
+                obj["src_db_file"] = src_path
+                obj["bin_db_file"] = bin_path
             with open(conf_path, 'w', encoding='utf-8') as w_f:
                 yaml.dump(origin_yaml, w_f)
 

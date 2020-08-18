@@ -1,6 +1,6 @@
-- database_name: openEuler-20.03-LTS
+- database_name: mainline
   priority: 1
   status: enable
-- database_name: openEuler-20.04-LTS
+- database_name: fedora30
   priority: 2
   status: enable
