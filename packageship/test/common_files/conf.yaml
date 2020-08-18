@@ -1,10 +1,10 @@
-- bin_db_file: C:\Users\TAO\Desktop\yiru-euler\openEuler-Advisor\packageship\test\common_files\db_origin\data_1_bin.sqlite
+- bin_db_file: 
   dbname: mainline
   priority: 1
-  src_db_file: C:\Users\TAO\Desktop\yiru-euler\openEuler-Advisor\packageship\test\common_files\db_origin\data_1_src.sqlite
+  src_db_file: 
   status: enable
-- bin_db_file: C:\Users\TAO\Desktop\yiru-euler\openEuler-Advisor\packageship\test\common_files\db_origin\data_2_bin.sqlite
+- bin_db_file: 
   dbname: fedora30
   priority: 2
-  src_db_file: C:\Users\TAO\Desktop\yiru-euler\openEuler-Advisor\packageship\test\common_files\db_origin\data_2_src.sqlite
+  src_db_file: 
   status: enable
