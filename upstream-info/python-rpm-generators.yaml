@@ -1,4 +1,4 @@
-version_control: github
-src_repo:  https:/
-tag_prefix: ^v
-separator: .
+version_control: git
+src_repo:  https://src.fedoraproject.org/rpms/python-rpm-generators.git
+tag_prefix: 
+separator: 

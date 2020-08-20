@@ -1,0 +1,4 @@
+version_control: github
+src_repo: dogtagpki/jss
+tag_prefix: ^v
+seperator: .

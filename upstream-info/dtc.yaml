@@ -1,4 +1,4 @@
 version_control: github
-src_repo: dgibson/dtc
+src_repo: devicetree-org/devicetree-specification
 tag_prefix: "^v"
 separator: . 

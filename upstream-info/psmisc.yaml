@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.com/psmisc/psmisc.git
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: strace/strace
+tag_prefix: ^v 
+seperator: . 

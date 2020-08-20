@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://salsa.debian.org/fonts-team/fonts-wqy-zenhei.git
+tag_prefix: ^debian/
+seperator: .

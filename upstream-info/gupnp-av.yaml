@@ -1,4 +1,4 @@
-version_control: git
-src_repo:  gupng-av
-tag_prefix: ^gupng-av-
+version_control: gitlab.gnome
+src_repo:  gupnp-av
+tag_prefix: ^gupnp-av-
 separator: .

@@ -1,4 +1,6 @@
 version_control: svn
-src_repo: https://svn.code.sf.net/p/netpbm/code
+src_repo: http://svn.code.sf.net/p/netpbm/code/release_number
+tag_dir: release_number
 tag_prefix: ^v
 separator: .
+    

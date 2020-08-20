@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/xserver.git
+tag_prefix: ^xorg-server-
+seperator: .

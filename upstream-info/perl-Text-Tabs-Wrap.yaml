@@ -1,0 +1,124 @@
+---
+version_control: metacpan
+src_repo: Text-Tabs+Wrap
+tag_prefix: "^v"
+separator: "."
+last_query:
+  time_stamp: 2020-04-26 07:39:38.239780930 +00:00
+  raw_data: |
+    {
+       "main_module" : "Text::Wrap",
+       "status" : "latest",
+       "version" : "2013.0523",
+       "abstract" : "Expand tabs and do simple line wrapping",
+       "changes_file" : "CHANGELOG",
+       "name" : "Text-Tabs+Wrap-2013.0523",
+       "provides" : [
+          "Text::Tabs",
+          "Text::Tabs",
+          "Text::Wrap",
+          "Text::Wrap"
+       ],
+       "first" : false,
+       "date" : "2013-05-23T15:46:09",
+       "dependency" : [
+          {
+             "phase" : "configure",
+             "module" : "ExtUtils::MakeMaker",
+             "version" : "0",
+             "relationship" : "requires"
+          },
+          {
+             "version" : "0",
+             "module" : "ExtUtils::MakeMaker",
+             "phase" : "build",
+             "relationship" : "requires"
+          }
+       ],
+       "authorized" : true,
+       "checksum_sha256" : "b9cb056fffb737b9c12862099b952bf4ab4b1f599fd34935356ae57dab6f655f",
+       "metadata" : {
+          "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150, CPAN::Meta::Converter version 2.150005",
+          "abstract" : "Expand tabs and do simple line wrapping",
+          "dynamic_config" : 1,
+          "author" : [
+             "David Muir Sharnoff <muir@idiom.org>"
+          ],
+          "version" : "2013.0523",
+          "no_index" : {
+             "directory" : [
+                "t",
+                "inc",
+                "t",
+                "xt",
+                "inc",
+                "local",
+                "perl5",
+                "fatlib",
+                "example",
+                "blib",
+                "examples",
+                "eg"
+             ]
+          },
+          "prereqs" : {
+             "runtime" : {
+                "requires" : {}
+             },
+             "build" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             },
+             "configure" : {
+                "requires" : {
+                   "ExtUtils::MakeMaker" : "0"
+                }
+             }
+          },
+          "release_status" : "stable",
+          "meta-spec" : {
+             "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+             "version" : "2"
+          },
+          "license" : [
+             "unknown"
+          ],
+          "name" : "Text-Tabs+Wrap",
+          "resources" : {
+             "repository" : {
+                "url" : "http://github.com/muir/Text-Tabs-Wrap"
+             }
+          }
+       },
+       "maturity" : "released",
+       "deprecated" : "false",
+       "stat" : {
+          "mtime" : 1369323969,
+          "uid" : 1009,
+          "mode" : 33204,
+          "size" : 18239,
+          "gid" : 1009
+       },
+       "download_url" : "https://cpan.metacpan.org/authors/id/M/MU/MUIR/modules/Text-Tabs+Wrap-2013.0523.tar.gz",
+       "author" : "MUIR",
+       "license" : [
+          "unknown"
+       ],
+       "checksum_md5" : "3e421ed3810803512af8d13bad548993",
+       "resources" : {
+          "repository" : {
+             "url" : "http://github.com/muir/Text-Tabs-Wrap"
+          }
+       },
+       "archive" : "modules/Text-Tabs+Wrap-2013.0523.tar.gz",
+       "version_numified" : 2013.0523,
+       "tests" : {
+          "unknown" : 2,
+          "pass" : 4588,
+          "fail" : 43,
+          "na" : 0
+       },
+       "distribution" : "Text-Tabs+Wrap",
+       "id" : "yu9pfa9G1_pzkQPggMZywht2rcI"
+    }

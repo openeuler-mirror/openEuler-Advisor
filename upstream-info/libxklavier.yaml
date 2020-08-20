@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://anongit.freedesktop.org/git/libxklavier
+tag_prefix: ^libxklavier-
+seperator: .

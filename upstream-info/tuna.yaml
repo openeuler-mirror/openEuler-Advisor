@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.kernel.org/pub/scm/utils/tuna/tuna.git
+tag_prefix: ^v
+seperator: .

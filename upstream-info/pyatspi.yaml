@@ -1,0 +1,4 @@
+version_control: gnome
+src_repo: pyatspi
+tag_prefix: ^
+seperator: .

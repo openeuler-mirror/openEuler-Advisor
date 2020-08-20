@@ -1,6 +1,6 @@
 ---
 version_control: git
-src_repo: git://git.savannah.gnu.org/nano.git
+src_repo: https://git.savannah.gnu.org/git/nano.git
 tag_prefix: "^v"
 separator: "."
 last_query:

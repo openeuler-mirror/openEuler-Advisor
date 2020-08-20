@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/upower/upower.git
+tag_prefix: ^UPOWER_
+seperator: _

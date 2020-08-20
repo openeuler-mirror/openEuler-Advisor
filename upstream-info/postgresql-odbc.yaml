@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.postgresql.org/gitweb/?p=psqlodbc.git
+tag_prefix: "^v"
+seperator: "."

@@ -1,0 +1,4 @@
+version_control: git
+src_repo:  https://sourceware.org/git/valgrind.git
+tag_prefix: "^VALGRIND_"
+seperator: _

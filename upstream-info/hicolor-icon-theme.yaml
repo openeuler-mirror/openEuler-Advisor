@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xdg/default-icon-theme.git
+tag_prefix: "^" 
+seperator: "."

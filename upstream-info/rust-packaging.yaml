@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://pagure.io/fedora-rust/rust2rpm.git
+tag_prefix: ^v
+seperator: .

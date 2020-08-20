@@ -1,4 +1,4 @@
-version_control: gnu-ftp
-src_repo: ed
-tag_pattern: ed-(.*).(tar.*)
-seperator: "."
+version_control: NA
+src_repo: "https://download.savannah.gnu.org/releases/ed/"
+tag_prefix: NA 
+seperator: NA 

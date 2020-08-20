@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.ozlabs.org/~paulus/ppp.git
+tag_prefix: ppp-
+seperator: .

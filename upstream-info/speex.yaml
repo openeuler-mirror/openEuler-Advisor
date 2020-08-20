@@ -1,4 +1,3 @@
----
 version_control: github
 src_repo: xiph/speex
 tag_prefix: "^Speex-"

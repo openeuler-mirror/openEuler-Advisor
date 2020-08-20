@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: svn://vcs.pcre.org/pcre/code/trunk
+tag_prefix: pcre-
+seperator: .

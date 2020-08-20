@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://repo.or.cz/socat.git
+tag_prefix: tag-
+seperator: .

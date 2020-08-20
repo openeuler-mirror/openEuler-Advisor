@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/spice/linux/vd_agent.git
+tag_prefix: ^spice-vdagent-
+seperator: .

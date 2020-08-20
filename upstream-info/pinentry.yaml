@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  gpg/pinentry
-tag_prefix: ^v
+tag_prefix: "^pinentry-"
 separator: .

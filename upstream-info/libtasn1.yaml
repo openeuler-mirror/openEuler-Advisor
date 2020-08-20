@@ -1,5 +1,4 @@
----
-version_control: github
-src_repo: gnutls/libtasn1
-tag_prefix: "^libtasn1_"
-seperator: "_"
+version_control: git
+src_repo: https://gitlab.com/gnutls/libtasn1.git
+tag_prefix: ^libtasn1
+seperator: _

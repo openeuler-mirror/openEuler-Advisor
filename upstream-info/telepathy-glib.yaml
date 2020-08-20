@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/telepathy/telepathy-glib.git
+tag_prefix: ^telepathy-glib-
+seperator: .

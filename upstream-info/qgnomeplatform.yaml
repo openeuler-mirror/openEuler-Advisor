@@ -1,0 +1,4 @@
+version-control: github
+src_repo: FedoraQt/QGnomePlatform
+tag_prefix: QGnomePlatform
+seperator: .

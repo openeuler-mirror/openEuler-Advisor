@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  OpenSC/libp11
-tag_prefix: ^libp11-
+tag_prefix: "^libp11-"
 separator: .

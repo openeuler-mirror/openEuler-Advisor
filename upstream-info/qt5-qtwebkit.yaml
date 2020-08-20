@@ -1,4 +1,4 @@
 version_control: github
-src_repo:  annulen/webkit
-tag_prefix: ^v
+src_repo:  qtwebkit/qtwebkit
+tag_prefix: "^qtwebkit-"
 separator: .

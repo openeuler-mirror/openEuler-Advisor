@@ -1,4 +1,4 @@
 version_control: github
-src_repo:  htacg/%{upname}
-tag_prefix: ^v
+src_repo:  htacg/tidy-html5
+tag_prefix: 
 separator: .
