@@ -1,4 +1,4 @@
-version_control: git
-src_repo: "https://pagure.io/setroubleshoot.git"
+version_control: github
+src_repo:  fedora-selinux/setroubleshoot
 tag_prefix: "^setroubleshoot-plugins-"
 separator: .

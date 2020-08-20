@@ -1,0 +1,4 @@
+version_control: github
+src_repo: rubygems/rubygems
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: njh/rdate
+tag_prefix: ^
+seperator: .

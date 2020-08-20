@@ -1,0 +1,4 @@
+version_control: github
+src_repo: linuxdeepin/deepin-wallpapers
+tag_prefix: ^v
+seperator: .

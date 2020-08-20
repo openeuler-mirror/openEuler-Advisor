@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.tuxfamily.org/chrony/chrony.git
+tag_prefix: chrony-
+seperator: .

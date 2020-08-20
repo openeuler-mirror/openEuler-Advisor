@@ -1,0 +1,4 @@
+version_control: gitlab.gnome
+src_repo:  Seahorse
+tag_prefix: ^
+seperator: .

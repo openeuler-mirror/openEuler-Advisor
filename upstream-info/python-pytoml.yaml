@@ -1,4 +1,4 @@
 version_control: github
-src_repo:  avakar/%{github_name}
+src_repo: avakar/pytoml
 tag_prefix: ^v
 separator: .

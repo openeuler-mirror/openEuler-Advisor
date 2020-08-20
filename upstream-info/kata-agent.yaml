@@ -1,0 +1,4 @@
+version_control: github
+src_repo: kata-containers/agent
+tag_prefix:
+seperator: "."

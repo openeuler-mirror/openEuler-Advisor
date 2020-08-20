@@ -1,0 +1,5 @@
+git_url: https://github.com/kscanne/gaelspell.git 
+version_control: github
+src_repo:  kscanne/gaelspell
+tag_prefix: "v"
+seperator: "."

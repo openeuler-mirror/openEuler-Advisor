@@ -1,4 +1,4 @@
-version_control: git
-src_repo: https://git.0pointer.net/libdaemon.git
-tag_prefix: "^v"
+version_control: github
+src_repo: Distrotech/libdaemon
+tag_prefix: ^distrotech-libdaemon-
 separator: .

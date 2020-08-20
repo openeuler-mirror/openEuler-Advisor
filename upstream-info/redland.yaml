@@ -1,0 +1,4 @@
+version_control: github
+src_repo: dajobe/redland-bindings
+tag_prefix: redland-bindings_
+seperator: _

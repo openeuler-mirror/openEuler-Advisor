@@ -1,0 +1,5 @@
+version_control: github
+src_repo: vadz/libtiff
+tag_prefix: ^Release-v
+seperator: "."
+

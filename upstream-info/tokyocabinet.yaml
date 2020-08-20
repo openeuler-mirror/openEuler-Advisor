@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ehiggs/tokyocabinet
+tag_prefix: 
+seperator: .

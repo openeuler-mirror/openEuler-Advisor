@@ -1,0 +1,4 @@
+version_control: github
+src_repo: legionus/kbd
+tag_prefix: ^v
+seperator: .

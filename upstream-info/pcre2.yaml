@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: svn://vcs.pcre.org/pcre2/code
+tag_prefix: pcre2-
+seperator: .

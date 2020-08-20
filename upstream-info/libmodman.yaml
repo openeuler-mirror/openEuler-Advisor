@@ -1,4 +1,5 @@
 version_control: NA
-svn_url: https://code.google.com/archive/p/libmodman/source/default/source
-tag_prefix: ^libmodman-
-separator: .
+src_repo: NA
+tag_prefix: NA
+separator: NA
+downlad: http://libmodman.googlecode.com/files/libmodman-2.0.1.tar.gz

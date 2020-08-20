@@ -1,4 +1,4 @@
 version_control: github
-src_repo:  dashea/%{_name}
-tag_prefix: ^v
+src_repo: dashea/requests-file
+tag_prefix: 
 separator: .

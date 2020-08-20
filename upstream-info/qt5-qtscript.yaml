@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://code.qt.io/qt/qtscript.git
+tag_prefix: ^v
+seperator: .

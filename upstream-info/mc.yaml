@@ -1,0 +1,4 @@
+version_control: github
+src_repo: MidnightCommander/mc
+tag_prefix: ^v
+seperator: .

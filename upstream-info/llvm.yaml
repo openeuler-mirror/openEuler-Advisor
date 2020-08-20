@@ -1,0 +1,4 @@
+version_control: github
+src_repo: llvm/llvm-project
+tag_prefix: ^llvmorg-
+seperator: .

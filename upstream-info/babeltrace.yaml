@@ -1,4 +1,4 @@
 version_control: git
-src_repo: https:git.efficios.com/babeltrace.git/
+src_repo: https://git.efficios.com/babeltrace.git
 tag_prefix: ^v 
 separator: . 

@@ -1,4 +1,5 @@
-version_control: github
-src_repo: eurolinux-enterprise-linux-sources/docbook-utils
-tag_prefix: ^docbook-utils-
-separator: .
+version_control: NA
+src_repo: NA
+tag_prefix: NA
+separator: NA
+download: https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz

@@ -1,0 +1,4 @@
+version_control: github                                                                                              
+src_repo: canonical/cloud-init                                                                                              
+tag_prefix:                                                                                              
+seperator: "."
