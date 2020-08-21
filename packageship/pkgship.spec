@@ -1,24 +1,24 @@
-Name: pkgship
-Version: 1.0.0
-Release: 7
-Summary: Pkgship implements rpm package dependence, maintainer, patch query and so no.
-License: Mulan 2.0
-URL: https: // gitee.com / openeuler / openEuler - Advisor
-Source0: https: // gitee.com / openeuler / openEuler - Advisor / pkgship - %{version}.tar.gz
+Name:           pkgship
+Version:        1.0.0
+Release:        7
+Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
+License:        Mulan 2.0
+URL:            https://gitee.com/openeuler/openEuler-Advisor
+Source0:        https://gitee.com/openeuler/openEuler-Advisor/pkgship-%{version}.tar.gz
 
-BuildArch: noarch
+BuildArch:      noarch
 
-BuildRequires: python3 - flask - restful python3 - flask python3 python3 - pyyaml python3 - sqlalchemy
-BuildRequires: python3 - prettytable python3 - requests python3 - flask - session python3 - flask - script python3 - marshmallow
-Requires: python3 - pip python3 - flask - restful python3 - flask python3 python3 - pyyaml
-Requires: python3 - sqlalchemy python3 - prettytable python3 - requests
-Requires: python3 - pyinstaller python3 - flask - session python3 - flask - script python3 - marshmallow python3 - uWSGI
+BuildRequires: python3-flask-restful python3-flask python3 python3-pyyaml python3-sqlalchemy
+BuildRequires: python3-prettytable python3-requests python3-flask-session python3-flask-script python3-marshmallow
+Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
+Requires: python3-sqlalchemy python3-prettytable python3-requests
+Requires: python3-pyinstaller python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
 
 %description
-Pkgship implements rpm package dependence, maintainer, patch query and so no.
+Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 %prep
-%autosetup - n pkgship - %{version}
+%autosetup -n pkgship-%{version}
 
 %build
 %py3_build
@@ -29,72 +29,68 @@ Pkgship implements rpm package dependence, maintainer, patch query and so no.
 
 %check
 # change log_path to solve default log_path permission denied problem
-log_path =`pwd`/ tmp/
-sed - i r"/\[LOG\]/a\log_path=$log_path" test / common_files / package.ini
-%{__python3} - m unittest test / run_tests.py
-rm - rf $log_path
+log_path=`pwd`/tmp/
+sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
+%{__python3} -m unittest test/run_tests.py
+rm -rf $log_path
 
 %post
-# build cli bin
-if [-f "/usr/bin/pkgship"]
-then
-rm - rf / usr / bin / pkgship
+#build cli bin
+if [ -f "/usr/bin/pkgship" ]; then
+    rm -rf /usr/bin/pkgship
 fi
 
 
-cd % {python3_sitelib} / packageship/
-if [-f "/usr/bin/pyinstaller"]
-then
-/usr / bin / pyinstaller - F pkgship.py
-elif [-f "/usr/local/bin/pyinstaller"]
-then
-/usr / local / bin / pyinstaller - F pkgship.py
+cd %{python3_sitelib}/packageship/
+if [ -f "/usr/bin/pyinstaller" ]; then
+    /usr/bin/pyinstaller -F pkgship.py
+elif [ -f "/usr/local/bin/pyinstaller" ]; then
+    /usr/local/bin/pyinstaller -F pkgship.py
 else
-echo "pkship install fail,there is no pyinstaller!"
-exit
+    echo "pkship install fail,there is no pyinstaller!"
+    exit
 fi
 
-sed - i r"s/hiddenimports\=\[\]/hiddenimports\=\['pkg_resources.py2_warn'\]/g" pkgship.spec
-/usr / local / bin / pyinstaller pkgship.spec
-cp dist / pkgship / usr / bin/
-rm - rf % {python3_sitelib} / packageship / \
-    build % {python3_sitelib} / packageship / dist
+sed -i "s/hiddenimports\=\[\]/hiddenimports\=\['pkg_resources.py2_warn'\]/g" pkgship.spec
+/usr/local/bin/pyinstaller pkgship.spec
+cp dist/pkgship /usr/bin/
+rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 %postun
 
 
 %files
 %doc README.md
-%{python3_sitelib} / *
-%config % {_sysconfdir} / pkgship / *
-%attr(0755, root, root) % {_bindir} / pkgshipd
+%{python3_sitelib}/*
+%config %{_sysconfdir}/pkgship/*
+%attr(0755,root,root) %{_bindir}/pkgshipd
 
 
 %changelog
 
-* Fri Aug 21 2020 Chengqiang Bao < baochengqiang1@huawei.com > - 1.0.0 - 7
+* Fri Aug 21 2020 Chengqiang Bao < baochengqiang1@huawei.com > - 1.0.0-7
 - Fixed a problem with command line initialization of the Filepath parameter where relative paths are not supported and paths are too long
 
-* Wed Aug 12 2020 Zhang Tao < zhangtao306@huawei.com > - 1.0.0 - 6
-- Fix the test content to adapt to the new data structure, add BuildRequires for running % check
+* Wed Aug 12 2020 Zhang Tao <zhangtao306@huawei.com> - 1.0.0-6
+- Fix the test content to adapt to the new data structure, add BuildRequires for running %check
 
-* Mon Aug 10 2020 Zhengtang Gong < gongzhengtang@huawei.com > - 1.0 - 5
+* Mon Aug 10 2020 Zhengtang Gong <gongzhengtang@huawei.com> - 1.0-5
 - Command line supports calling remote services
 
-* Wed Aug 5 2020 Yiru Wang < wangyiru1@huawei.com > - 1.0 - 4
+* Wed Aug 5 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-4
 - change Requires rpm pakcages' name to latest one
 
-* Mon Jul 13 2020 Yiru Wang < wangyiru1@huawei.com > - 1.0 - 3
+* Mon Jul 13 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-3
 - run test cases while building
 
-* Sat Jul 4 2020 Yiru Wang < wangyiru1@huawei.com > - 1.0 - 2
-- cheange requires python3.7 to python3, add check pyinstaller file.
+* Sat Jul 4 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-2
+- cheange requires python3.7 to python3,add check pyinstaller file.
 
-* Tue Jun 30 2020 Yiru Wang < wangyiru1@huawei.com > - 1.0 - 1
+* Tue Jun 30 2020 Yiru Wang <wangyiru1@huawei.com> - 1.0-1
 - add pkgshipd file
 
-* Thu Jun 11 2020 Feng Hu < solar.hu@foxmail.com > - 1.0 - 0
+* Thu Jun 11 2020 Feng Hu <solar.hu@foxmail.com> - 1.0-0
 - add macro to build cli bin when rpm install
 
-* Sat Jun 6 2020 Feng Hu < solar.hu@foxmail.com > - 1.0 - 0
+* Sat Jun 6 2020 Feng Hu  <solar.hu@foxmail.com> - 1.0-0
 - init package
