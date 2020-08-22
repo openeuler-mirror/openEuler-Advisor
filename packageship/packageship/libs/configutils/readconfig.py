@@ -7,8 +7,7 @@
 """
 import configparser
 from configparser import NoSectionError
-from configparser import NoOptionError
-from packageship.system_config import SYS_CONFIG_PATH
+from configparser import NoOptionError, Error
 
 
 class ReadConfig():
@@ -19,9 +18,12 @@ class ReadConfig():
         conf.read:Read the system configuration file
     """
 
-    def __init__(self):
+    def __init__(self, conf_path):
         self.conf = configparser.ConfigParser()
-        self.conf.read(SYS_CONFIG_PATH)
+        if conf_path is None:
+            raise Error('The path of the configuration file does not exist:%s' %
+                        conf_path if conf_path else '')
+        self.conf.read(conf_path)
 
     def get_system(self, param):
         """
