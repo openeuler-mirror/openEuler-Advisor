@@ -19,7 +19,7 @@ from packageship.application.models.package import bin_pack
 from packageship.application.models.package import bin_requires
 from packageship.application.models.package import src_requires
 from packageship.application.models.package import bin_provides
-from packageship.application.models.package import maintenance_info
+from packageship.application.models.package import packages
 from packageship import system_config
 
 LOGGER = Log(__name__)
@@ -48,21 +48,24 @@ class InitDataBase():
         if self.config_file_path:
             # yaml configuration file content
             self.config_file_datas = self.__read_config_file()
-        self._read_config = ReadConfig()
-
-        self.db_type = self._read_config.get_database('dbtype')
+        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
+        self.db_type = 'sqlite'
         self.sql = None
         self._database = None
-        self.mainter_infos = dict()
-        if self.db_type is None:
-            self.db_type = 'mysql'
-
-        if self.db_type not in ['mysql', 'sqlite']:
-            _msg = "The database type is incorrectly configured.\
-                The system temporarily supports only sqlite and mysql databases"
-            LOGGER.logger.error(_msg)
-            raise Error(_msg)
         self._sqlite_db = None
+        self._database_engine = {
+            'sqlite': SqliteDatabaseOperations,
+            'mysql': MysqlDatabaseOperations
+        }
+        self.database_name = None
+        self._tables = ['src_pack', 'bin_pack',
+                        'bin_requires', 'src_requires', 'bin_provides']
+        # Create life cycle related databases and tables
+        if not self.create_database(db_name='lifecycle',
+                                    tables=['packages_issue'],
+                                    storage=True):
+            raise SQLAlchemyError(
+                'Failed to create the specified database and table：lifecycle')
 
     def __read_config_file(self):
         """
@@ -82,16 +85,25 @@ class InitDataBase():
                     does not exist: %s' % self.config_file_path)
         # load yaml configuration file
         with open(self.config_file_path, 'r', encoding='utf-8') as file_context:
-            init_database_config = yaml.load(
-                file_context.read(), Loader=yaml.FullLoader)
+            try:
+                init_database_config = yaml.load(
+                    file_context.read(), Loader=yaml.FullLoader)
+            except yaml.YAMLError as yaml_error:
+                raise Error(
+                    'The format of the yaml configuration file is wrong, please check and try again\
+                    :%s' % yaml_error)
+
             if init_database_config is None:
                 raise ContentNoneException(
                     'The content of the database initialization configuration file cannot be empty')
             if not isinstance(init_database_config, list):
-                raise TypeError('wrong type of configuration file')
+                raise TypeError(
+                    'The format of the initial database configuration file is incorrect:%s'
+                    % self.config_file_path)
             for config_item in init_database_config:
                 if not isinstance(config_item, dict):
-                    raise TypeError('wrong type of configuration file')
+                    raise TypeError('The format of the initial database configuration file is \
+                    incorrect:%s' % self.config_file_path)
             return init_database_config
 
     def init_data(self):
@@ -113,68 +125,40 @@ class InitDataBase():
             raise IOError(
                 'An error occurred while deleting the database configuration file')
 
-        # Create a database maintained by benchmark information
-        if self.db_type == 'mysql':
-            MysqlDatabaseOperations(
-                db_name='maintenance.information',
-                tables=['maintenance_info'],
-                is_datum=True).create_database()
-        else:
-            SqliteDatabaseOperations(
-                db_name='maintenance.information',
-                tables=['maintenance_info'],
-                is_datum=True).create_database()
-        # Obtain the maintenance information of the previous data of the system
-        self._get_maintenance_info()
-
-        for database in self.config_file_datas:
-            if not database.get('dbname'):
+        for database_config in self.config_file_datas:
+            if not database_config.get('dbname'):
                 LOGGER.logger.error(
                     'The database name in the database initialization configuration file is empty')
                 continue
-            priority = database.get('priority')
+            priority = database_config.get('priority')
             if not isinstance(priority, int) or priority < 0 or priority > 100:
                 LOGGER.logger.error('The priority value type in the database initialization \
                     configuration file is incorrect')
                 continue
-            if database.get('status') not in ['enable', 'disable']:
-                LOGGER.logger.error('The database status value in the database \
-                    initialization configuration file is incorrect')
-                continue
             # Initialization data
-            self._init_data(database)
+            self._init_data(database_config)
 
-    def _create_database(self, database):
+    def _create_database(self, db_name, tables, storage=False):
         """
         create related databases
 
         Args:
-            database: Initialize the configuration content of the database
+            database_config: Initialize the configuration content of the database_config
         Returns:
             The generated mysql database or sqlite database
         Raises:
             SQLAlchemyError: Abnormal database operation
         """
+        _database_engine = self._database_engine.get(self.db_type)
+        if not _database_engine:
+            raise Error('The database engine is set incorrectly, \
+            currently only the following engines are supported: %s '
+                        % '、'.join(self._database_engine.keys()))
+        _create_table_result = _database_engine(
+            db_name=db_name, tables=tables, storage=storage).create_database(self)
+        return _create_table_result
 
-        db_name = database.get('dbname')
-        tables = ['src_pack', 'bin_pack',
-                  'bin_requires', 'src_requires', 'bin_provides']
-        if self.db_type == 'mysql':
-            creatadatabase = MysqlDatabaseOperations(
-                db_name=db_name, tables=tables)
-            if not creatadatabase.create_database():
-                raise SQLAlchemyError("failed to create database or table")
-            return db_name
-        self._sqlite_db = SqliteDatabaseOperations(
-            db_name=db_name, tables=tables)
-
-        sqltedb_file = self._sqlite_db.create_database()
-        if sqltedb_file is None:
-            raise SQLAlchemyError(
-                "failed to create database or table")
-        return sqltedb_file
-
-    def _init_data(self, database):
+    def _init_data(self, database_config):
         """
         data initialization operation
 
@@ -191,10 +175,16 @@ class InitDataBase():
 
         try:
             # 1. create a database and related tables in the database
-            db_name = self._create_database(database)
+            _db_name = database_config.get('dbname')
+            _create_database_result = self._create_database(
+                _db_name, self._tables)
+            if not _create_database_result:
+                raise SQLAlchemyError(
+                    'Failed to create the specified database and table：%s'
+                    % database_config['dbname'])
             # 2. get the data of binary packages and source packages
-            src_db_file = database.get('src_db_file')
-            bin_db_file = database.get('bin_db_file')
+            src_db_file = database_config.get('src_db_file')
+            bin_db_file = database_config.get('bin_db_file')
 
             if src_db_file is None or bin_db_file is None:
                 raise ContentNoneException(
@@ -204,12 +194,11 @@ class InitDataBase():
                 raise FileNotFoundError("sqlite file {src} or {bin} does not exist, please \
                     check and try again".format(src=src_db_file, bin=bin_db_file))
             # 3. Obtain temporary source package files and binary package files
-            if self.__save_data(src_db_file, bin_db_file, db_name):
+            if self.__save_data(src_db_file, bin_db_file, self.database_name, _db_name):
                 # Update the configuration file of the database
                 database_content = {
-                    'database_name': database.get('dbname'),
-                    'priority': database.get('priority'),
-                    'status': database.get('status')
+                    'database_name': _db_name,
+                    'priority': database_config.get('priority'),
                 }
                 InitDataBase.__updata_settings_file(
                     database_content=database_content)
@@ -218,16 +207,17 @@ class InitDataBase():
                 Error, FileNotFoundError) as error_msg:
             LOGGER.logger.error(error_msg)
             # Delete the specified database
-            self.__del_fail_database(database.get('dbname'))
+            self.__del_database(_db_name)
+            # Delete tables created in the life cycle
 
-    def __del_fail_database(self, db_name):
+    def __del_database(self, db_name):
         try:
-            if self.db_type == 'mysql':
-                MysqlDatabaseOperations.drop_database(db_name)
-            else:
-                self._sqlite_db.drop_database()
+            _database_engine = self._database_engine.get(self.db_type)
+            del_result = _database_engine(db_name=db_name).drop_database()
+            return del_result
         except (IOError, Error) as exception_msg:
             LOGGER.logger.error(exception_msg)
+            return False
 
     @staticmethod
     def __columns(cursor):
@@ -266,7 +256,7 @@ class InitDataBase():
             LOGGER.logger.error(sql_error)
             return None
 
-    def __save_data(self, src_db_file, bin_db_file, db_name):
+    def __save_data(self, src_db_file, bin_db_file, db_name, table_name):
         """
         integration of multiple data files
 
@@ -279,14 +269,14 @@ class InitDataBase():
 
         """
         try:
-            with DBHelper(db_name=src_db_file, db_type='sqlite:///', import_database=True) \
+            with DBHelper(db_name=src_db_file, db_type='sqlite:///', complete_route_db=True) \
                     as database:
                 self._database = database
                 # Save data related to source package
-                self._save_src_packages(db_name)
+                self._save_src_packages(db_name, table_name)
                 self._save_src_requires(db_name)
 
-            with DBHelper(db_name=bin_db_file, db_type='sqlite:///', import_database=True)\
+            with DBHelper(db_name=bin_db_file, db_type='sqlite:///', complete_route_db=True)\
                     as database:
                 self._database = database
                 # Save binary package related data
@@ -295,12 +285,12 @@ class InitDataBase():
                 self._save_bin_provides(db_name)
         except (SQLAlchemyError, ContentNoneException) as sql_error:
             LOGGER.logger.error(sql_error)
-            self.__del_fail_database(db_name)
+            self.__del_database(db_name)
             return False
         else:
             return True
 
-    def _save_src_packages(self, db_name):
+    def _save_src_packages(self, db_name, table_name):
         """
         Save the source package data
 
@@ -318,14 +308,51 @@ class InitDataBase():
             raise ContentNoneException(
                 '{db_name}:There is no relevant data in the source \
                     package provided '.format(db_name=db_name))
-        for index, src_package_item in enumerate(packages_datas):
-            maintaniner, maintainlevel = self._get_mainter_info(
-                src_package_item.get('name'), src_package_item.get('version'))
-            packages_datas[index]['maintaniner'] = maintaniner
-            packages_datas[index]['maintainlevel'] = maintainlevel
-
         with DBHelper(db_name=db_name) as database:
             database.batch_add(packages_datas, src_pack)
+
+        self._storage_packages(table_name, packages_datas)
+
+    @staticmethod
+    def __meta_model(table_name):
+        """
+            The mapping relationship of the orm model
+        """
+        model = type("packages", (packages, DBHelper.BASE), {
+            '__tablename__': table_name})
+        return model
+
+    def _storage_packages(self, table_name, package_data):
+        """
+            Bulk storage of source code package data
+        """
+        add_packages = []
+        cls_model = InitDataBase.__meta_model(table_name)
+        pkg_keys = ('name', 'url', 'rpm_license', 'version',
+                    'release', 'summary', 'description')
+        with DBHelper(db_name="lifecycle") as database:
+            if table_name not in database.engine.table_names():
+                database.create_table([table_name])
+            # Query data that already exists in the database
+            exist_packages_dict = dict()
+            for pkg in database.session.query(cls_model).all():
+                exist_packages_dict[pkg.name] = pkg
+            _packages = []
+            for pkg in package_data:
+                _package_dict = {key: pkg[key] for key in pkg_keys}
+                _packages.append(_package_dict)
+
+            # Combine all package data, save or update
+            for package_item in _packages:
+                package_model = exist_packages_dict.get(package_item['name'])
+                if package_model:
+                    for key, val in package_item.items():
+                        setattr(package_model, key, val)
+                else:
+                    add_packages.append(package_item)
+
+            if add_packages:
+                database.batch_add(add_packages, cls_model)
 
     def _save_src_requires(self, db_name):
         """
@@ -418,52 +445,6 @@ class InitDataBase():
 
         with DBHelper(db_name=db_name) as database:
             database.batch_add(provides_datas, bin_provides)
-
-    def _get_maintenance_info(self):
-        """
-        Description: Obtain the information of the maintainer
-
-        Returns:
-            Maintainer related information
-        Raises:
-            SQLAlchemyError: An error occurred while executing the sql statement
-        """
-        try:
-            with DBHelper(db_name='maintenance.information') as database:
-                for info in database.session.query(maintenance_info).all():
-                    if info.name not in self.mainter_infos.keys():
-                        self.mainter_infos[info.name] = []
-                    self.mainter_infos[info.name].append({
-                        'version': info.version,
-                        'maintaniner': info.maintaniner,
-                        'maintainlevel': info.maintainlevel
-                    })
-        except SQLAlchemyError as sql_error:
-            LOGGER.logger.error(sql_error)
-
-    def _get_mainter_info(self, src_package_name, version):
-        '''
-            Get the maintainer information of the source package
-
-        Args:
-            src_package_name: Source package name
-            version: Source package version number
-        Returns:
-            Maintainer's name
-        Raises:
-
-        '''
-        maintenance_infos = self.mainter_infos.get(src_package_name)
-        maintaniner = None
-        if maintenance_infos:
-            for maintenance_item in maintenance_infos:
-                if maintenance_item.get('version') == version:
-                    maintaniner = (maintenance_item.get(
-                        'maintaniner'), maintenance_item.get('maintainlevel'))
-                    break
-        if maintaniner is None:
-            maintaniner = (None, None)
-        return maintaniner
 
     def __exists_repeat_database(self):
         """
@@ -564,14 +545,21 @@ class InitDataBase():
             file_read.close()
 
         if del_result:
-            if self.db_type == 'mysql':
-                del_result = MysqlDatabaseOperations.drop_database(db_name)
-            else:
-                if not hasattr(self, '_sqlite_db') or getattr(self, '_sqlite_db') is None:
-                    self._sqlite_db = SqliteDatabaseOperations(db_name=db_name)
-                del_result = self._sqlite_db.drop_database()
+            del_result = self.__del_database(db_name)
 
         return del_result
+
+    def create_database(self, db_name, tables=None, storage=True):
+        """
+            Create databases and tables related to the package life cycle
+
+            Args:
+                db_name: The name of the database
+                tables: Table to be created
+        """
+        _create_database_result = self._create_database(
+            db_name, tables, storage)
+        return _create_database_result
 
 
 class MysqlDatabaseOperations():
@@ -584,7 +572,7 @@ class MysqlDatabaseOperations():
         drop_database_sql: Delete the SQL statement of the database
     """
 
-    def __init__(self, db_name, tables=None, is_datum=False):
+    def __init__(self, db_name, tables=None, storage=False):
         """
         Class instance initialization
 
@@ -597,9 +585,9 @@ class MysqlDatabaseOperations():
         self.drop_database_sql = '''drop DATABASE if exists `{db_name}` '''.format(
             db_name=self.db_name)
         self.tables = tables
-        self.is_datum = is_datum
+        self.storage = storage
 
-    def create_database(self):
+    def create_database(self, init_db):
         """
         create a mysql database
 
@@ -608,23 +596,26 @@ class MysqlDatabaseOperations():
         Raises:
             SQLAlchemyError: An exception occurred while creating the database
         """
-
+        _create_success = True
+        if isinstance(init_db, InitDataBase):
+            init_db.database_name = self.db_name
         with DBHelper(db_name='mysql') as data_base:
 
             try:
                 # create database
-                if not self.is_datum:
+                if not self.storage:
                     data_base.session.execute(self.drop_database_sql)
                 data_base.session.execute(self.create_database_sql)
-            except (SQLAlchemyError, InternalError) as exception_msg:
+            except InternalError as internal_error:
+                LOGGER.logger.info(internal_error)
+            except SQLAlchemyError as exception_msg:
                 LOGGER.logger.error(exception_msg)
                 return False
-            else:
-                # create  tables
-                return self.__create_tables()
+        if self.tables:
+            _create_success = self.__create_tables()
+        return _create_success
 
-    @classmethod
-    def drop_database(cls, db_name):
+    def drop_database(self):
         """
         Delete the database according to the specified name
 
@@ -635,12 +626,12 @@ class MysqlDatabaseOperations():
         Raises:
             SQLAlchemyError: An exception occurred while creating the database
         """
-        if db_name is None:
+        if self.db_name is None:
             raise IOError(
                 "The name of the database to be deleted cannot be empty")
         with DBHelper(db_name='mysql') as data_base:
             drop_database = '''  drop DATABASE if exists `{db_name}` '''.format(
-                db_name=db_name)
+                db_name=self.db_name)
             try:
                 data_base.session.execute(drop_database)
             except SQLAlchemyError as exception_msg:
@@ -661,7 +652,9 @@ class MysqlDatabaseOperations():
         try:
             with DBHelper(db_name=self.db_name) as database:
                 if self.tables:
-                    database.create_table(self.tables)
+                    _tables = list(set(self.tables).difference(
+                        set(database.engine.table_names())))
+                    database.create_table(_tables)
 
         except SQLAlchemyError as exception_msg:
             LOGGER.logger.error(exception_msg)
@@ -679,7 +672,7 @@ class SqliteDatabaseOperations():
         database_file_folder: Database folder path
     """
 
-    def __init__(self, db_name, tables=None, is_datum=False, ** kwargs):
+    def __init__(self, db_name, tables=None, storage=False, ** kwargs):
         """
         Class instance initialization
 
@@ -688,13 +681,13 @@ class SqliteDatabaseOperations():
             kwargs: data related to configuration file nodes
         """
         self.db_name = db_name
-        self._read_config = ReadConfig()
+        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
         if getattr(kwargs, 'database_path', None) is None:
             self._database_file_path()
         else:
             self.database_file_folder = kwargs.get('database_path')
         self.tables = tables
-        self.is_datum = is_datum
+        self.storage = storage
 
     def _database_file_path(self):
         """
@@ -717,7 +710,7 @@ class SqliteDatabaseOperations():
                 LOGGER.logger.error(makedirs_error)
                 self.database_file_folder = None
 
-    def create_database(self):
+    def create_database(self, init_db):
         """
         create sqlite database and table
 
@@ -728,25 +721,31 @@ class SqliteDatabaseOperations():
             FileNotFoundError: The specified folder path does not exist
             SQLAlchemyError: An error occurred while generating the database
         """
+        _create_success = False
         if self.database_file_folder is None:
             raise FileNotFoundError('Database folder does not exist')
 
         _db_file = os.path.join(
             self.database_file_folder, self.db_name)
 
-        if os.path.exists(_db_file + '.db'):
+        if not self.storage and os.path.exists(_db_file + '.db'):
             os.remove(_db_file + '.db')
 
         # create a  sqlite database
-        if (self.is_datum and not os.path.exists(_db_file + '.db')) or not self.is_datum:
-            with DBHelper(db_name=_db_file) as database:
-                try:
-                    database.create_table(self.tables)
-                except (SQLAlchemyError, InternalError) as create_table_err:
-                    LOGGER.logger.error(create_table_err)
-                    return None
-
-        return _db_file
+        # if (self.is_datum and not os.path.exists(_db_file + '.db')) or not self.is_datum:
+        with DBHelper(db_name=_db_file) as database:
+            try:
+                if self.tables:
+                    _tables = list(set(self.tables).difference(
+                        set(database.engine.table_names())))
+                    database.create_table(_tables)
+            except (SQLAlchemyError, InternalError) as create_table_err:
+                LOGGER.logger.error(create_table_err)
+                return _create_success
+        if isinstance(init_db, InitDataBase):
+            init_db.database_name = _db_file
+            _create_success = True
+        return _create_success
 
     def drop_database(self):
         """
