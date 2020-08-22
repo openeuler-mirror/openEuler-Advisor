@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+# ******************************************************************************/
+
+import argparse
+import subprocess
+import os
+
+if __name__ == "__main__":
+    pars = argparse.ArgumentParser()
+    pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request", required=True)
+    pars.add_argument("repo", help="Repository to be reviewed")
+    pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
+
+    args = pars.parse_args()
+
+    gitee_url_prefix = "git@gitee.com:src-openeuler/"
+
+    if not args.reuse:
+        subprocess.call(["git", "clone", gitee_url_prefix + args.repo])
+        rs = args.repo.split('/')
+        os.chdir(rs[1])
+        
+    subprocess.call(["git", "fetch", gitee_url_prefix + args.repo, "pull/{n}/head:pr_{n}".format(n=args.pull)])
+
+    print("You are reviewing {repo} pull {n}".format(repo=args.repo, n=args.pull))
+    print("Don't forget to try to merge master branch")
+
