@@ -16,23 +16,23 @@
 
 import yaml, argparse, re, os
 
-def list_packages(sigs, sig_name):
-    for sig in sigs:
+def list_packages(s, sig_name):
+    for sig in s:
         if sig['name'].lower() == sig_name.lower():
             return sig['repositories']
 
 
-def list_sigs(sigs):
+def list_sigs(s):
     result = []
-    for sig in sigs:
+    for sig in s:
         result.append(sig['name'])
     return result
 
 
-def package_to_sigs(sigs, pkg_names):
+def package_to_sigs(s, pkg_names):
     result = {}
     for pkg in pkg_names:
-        for sig in sigs:
+        for sig in s:
             repos = sig['repositories']
             for repo in repos:
                 searchObj = re.search(pkg.lower(), repo.lower(), 0)
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     try:
         with open(args.yaml, 'r') as f:
             sigs = yaml.load(f, Loader=yaml.Loader)['sigs']
-    except:
+    except IOError:
         print("Failed to load information from %s" % args.yaml)
         parser.print_help()
         exit(1)
