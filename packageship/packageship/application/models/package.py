@@ -156,7 +156,7 @@ class packages():  # pylint: disable=C0103,R0903
     @classmethod
     def package_meta(cls, table_name):
         """
-
+            Dynamically generate different classes through metaclasses
         """
         _uuid = str(uuid.uuid1())
         model = type(_uuid, (cls, DBHelper.BASE), {
