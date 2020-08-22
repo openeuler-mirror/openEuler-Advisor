@@ -465,6 +465,7 @@ class InitDatabaseCommand(PkgshipCommand):
         """
         file_path = params.filepath
         try:
+            file_path = os.path.abspath(file_path)
             response = requests.post(self.write_host +
                                      '/initsystem', data=json.dumps({'configfile': file_path}),
                                      headers=self.headers)

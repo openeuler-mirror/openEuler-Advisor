@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.0.0
-Release:        6
+Release:        7
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -28,7 +28,7 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
-# change log_path to solve default log_path permission denied problem 
+# change log_path to solve default log_path permission denied problem
 log_path=`pwd`/tmp/
 sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
 %{__python3} -m unittest test/run_tests.py
@@ -60,13 +60,16 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %files
-%doc README.md 
+%doc README.md
 %{python3_sitelib}/*
 %config %{_sysconfdir}/pkgship/*
 %attr(0755,root,root) %{_bindir}/pkgshipd
 
 
 %changelog
+
+* Fri Aug 21 2020 Chengqiang Bao < baochengqiang1@huawei.com > - 1.0.0-7
+- Fixed a problem with command line initialization of the Filepath parameter where relative paths are not supported and paths are too long
 
 * Wed Aug 12 2020 Zhang Tao <zhangtao306@huawei.com> - 1.0.0-6
 - Fix the test content to adapt to the new data structure, add BuildRequires for running %check
