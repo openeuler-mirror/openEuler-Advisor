@@ -5,8 +5,8 @@ Description: Entry for project initialization and service startupc
 import os
 from packageship.libs.exception import Error
 try:
-    from packageship.system_config import SYS_CONFIG_PATH
-    if not os.path.exists(SYS_CONFIG_PATH):
+    from packageship import system_config
+    if not os.path.exists(system_config.SYS_CONFIG_PATH):
         raise FileNotFoundError(
             'the system configuration file does not exist and the log cannot be started')
 except FileNotFoundError as file_not_found:
@@ -36,7 +36,7 @@ def before_request():
 
 
 if __name__ == "__main__":
-    _readconfig = ReadConfig()
+    _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
     port = _readconfig.get_system('write_port')
     addr = _readconfig.get_system('write_ip_addr')
     app.run(port=port, host=addr)

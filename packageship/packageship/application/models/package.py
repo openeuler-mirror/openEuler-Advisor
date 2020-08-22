@@ -2,7 +2,8 @@
 """
 Description: Database entity model mapping
 """
-from sqlalchemy import Column, Integer, String
+import uuid
+from sqlalchemy import Column, Integer, String, Text
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
@@ -126,18 +127,66 @@ class bin_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pkgKey = Column(Integer, nullable=True)
 
 
-class maintenance_info(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class packages():  # pylint: disable=C0103,R0903
     """
-        Maintain data related to person information
+    Source code package version, issuer and other information
     """
-    __tablename__ = 'maintenance_info'
-
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
-
     name = Column(String(500), nullable=True)
+    url = Column(String(500), nullable=True)
+    rpm_license = Column(String(500), nullable=True)
+    version = Column(String(200), nullable=True)
+    release = Column(String(200), nullable=True)
+    release_time = Column(String(50), nullable=True)
+    used_time = Column(Integer, default=0)
+    latest_version = Column(String(200), nullable=True)
+    latest_version_time = Column(String(50), nullable=True)
+    feature = Column(Integer, default=0)
+    cve = Column(Integer, default=0)
+    defect = Column(Integer, default=0)
+    maintainer = Column(String(200), nullable=True)
+    maintainlevel = Column(Integer, nullable=True)
+    version_control = Column(String(50), nullable=True)
+    src_repo = Column(String(500), nullable=True)
+    tag_prefix = Column(String(20), nullable=True)
+    summary = Column(String(500), nullable=True)
+    description = Column(String(500), nullable=True)
 
-    version = Column(String(500), nullable=True)
+    @classmethod
+    def package_meta(cls, table_name):
+        """
 
-    maintaniner = Column(String(100), nullable=True)
+        """
+        _uuid = str(uuid.uuid1())
+        model = type(_uuid, (cls, DBHelper.BASE), {
+            '__tablename__': table_name})
+        return model
 
-    maintainlevel = Column(String(100), nullable=True)
+
+class packages_issue(DBHelper.BASE):  # pylint: disable=C0103,R0903
+    """
+        Source package issue
+    """
+    __tablename__ = "packages_issue"
+    id = Column(Integer, primary_key=True)
+    issue_id = Column(String(50), nullable=True)
+    issue_url = Column(String(500), nullable=True)
+    issue_content = Column(Text, nullable=True)
+    issue_title = Column(String(1000), nullable=True)
+    issue_status = Column(String(20), nullable=True)
+    pkg_name = Column(String(500), nullable=False)
+    issue_download = Column(String(500), nullable=False)
+    issue_type = Column(String(50), nullable=True)
+    related_release = Column(String(500), nullable=True)
+
+
+class packages_maintainer(DBHelper.BASE):  # pylint: disable=C0103,R0903
+    """
+        Correspondence between source code package and maintainer
+    """
+    __tablename__ = 'packages_maintainer'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=True)
+    maintainer = Column(String(200), nullable=True)
+    maintainlevel = Column(Integer, nullable=True)

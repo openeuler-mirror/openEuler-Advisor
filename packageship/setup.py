@@ -4,13 +4,9 @@ Package management program installation configuration
 file for software packaging
 """
 from distutils.core import setup
-import os
 
-BASE_PATH = os.path.dirname(__file__)
 
-path = os.path.join(BASE_PATH, 'Lib', 'site-packages', 'package')
-
-configpath = "/etc/pkgship/"
+config_path = "/etc/pkgship/"  # pylint: disable=invalid-name
 
 setup(
     name='packageship',
@@ -29,6 +25,12 @@ setup(
         'packageship.application.apps.package.function.packages',
         'packageship.application.apps.package.function.searchdb',
         'packageship.application.apps.package.function.self_depend',
+        'packageship.application.apps.lifecycle.function.base',
+        'packageship.application.apps.lifecycle.function.download_yaml',
+        'packageship.application.apps.lifecycle.function.gitee',
+        'packageship.application.apps.lifecycle.serialize',
+        'packageship.application.apps.lifecycle.url',
+        'packageship.application.apps.lifecycle.view',
         'packageship.application.initsystem.data_import',
         'packageship.application.models.package',
         'packageship.application.settings',
@@ -56,6 +58,6 @@ setup(
     long_description=open('README.md', encoding='utf-8').read(),
     author='gongzt',
     data_files=[
-        (configpath, ['packageship/package.ini']),
+        (config_path, ['packageship/package.ini']),
         ('/usr/bin', ['packageship/pkgshipd'])]
 )

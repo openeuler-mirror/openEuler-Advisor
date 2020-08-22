@@ -19,8 +19,8 @@ def identity_verification():
     """
     if request.url_rule:
         url_rule = request.url_rule.rule
-        for view, url, authentication in urls:
-            if url == url_rule and application.OPERATION in authentication.keys():
+        for _view, url, authentication in urls:
+            if url.lower() == url_rule.lower() and application.OPERATION in authentication.keys():
                 if request.method not in authentication.get(application.OPERATION):
                     return False
                 break
