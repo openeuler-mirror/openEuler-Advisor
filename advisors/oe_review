@@ -10,12 +10,17 @@
 # PURPOSE.
 # See the Mulan PSL v2 for more details.
 # ******************************************************************************/
-
+"""
+Review tool for openEuler submission
+"""
+import os
 import argparse
 import subprocess
-import os
 
-if __name__ == "__main__":
+def main():
+    """
+    Main entrance of the functionality
+    """
     pars = argparse.ArgumentParser()
     pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request", required=True)
     pars.add_argument("repo", help="Repository to be reviewed")
@@ -27,11 +32,14 @@ if __name__ == "__main__":
 
     if not args.reuse:
         subprocess.call(["git", "clone", gitee_url_prefix + args.repo])
-        rs = args.repo.split('/')
-        os.chdir(rs[1])
-        
-    subprocess.call(["git", "fetch", gitee_url_prefix + args.repo, "pull/{n}/head:pr_{n}".format(n=args.pull)])
+        os.chdir(args.repo.split('/')[1])
+
+    subprocess.call(["git", "fetch",
+                     gitee_url_prefix + args.repo,
+                     "pull/{n}/head:pr_{n}".format(n=args.pull)])
 
     print("You are reviewing {repo} pull {n}".format(repo=args.repo, n=args.pull))
     print("Don't forget to try to merge master branch")
 
+if __name__ == "__main__":
+    main()
