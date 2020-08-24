@@ -14,9 +14,10 @@
 # ******************************************************************************/
 
 """
-(1) This script is used to check the ABI changes between the old 
+(1) This script is used to check the ABI changes between the old
     and new versions of dynamic libraries.
-    The merged result on difference is saved in the xxx_all_abidiff.out file in the working directory
+    The merged result on difference is saved in the xxx_all_abidiff.out file in the working
+    directory.
     default path: /var/tmp/xxx_all_abidiff.out
 
 (2) This script depends on abidiff from libabigail package.
@@ -31,7 +32,6 @@ import subprocess
 import sys
 import os
 import logging
-import io
 import shutil
 import tempfile
 
@@ -42,41 +42,44 @@ def parse_command_line():
     parser.add_argument("-d", "--work_path", default="/var/tmp", nargs="?",
                         help="The work path to put rpm2cpio files and results"
                         " (e.g. /home/tmp_abidiff default: /var/tmp/)")
-    parser.add_argument("-a", "--show_all_info", action="store_true", default=False, 
+    parser.add_argument("-a", "--show_all_info", action="store_true", default=False,
                         help="show all infos includ changes in member name")
     parser.add_argument("-v", "--verbose", action="store_true", default=False,
-            help="Show additional information")
+                        help="Show additional information")
 
     subparser = parser.add_subparsers(dest='command_name',
-            help="Compare between two RPMs or two .so files")
+                                      help="Compare between two RPMs or two .so files")
 
     rpm_parser = subparser.add_parser('compare_rpm', help="Compare between two RPMs")
     rpm_parser.add_argument("-r", "--rpms", required=True, nargs=2,
-            metavar=('old_rpm', 'new_rpm'),
-            help="Path or URL of both the old and new RPMs")
-    rpm_parser.add_argument("-d", "--debuginfo_rpm", nargs=2, 
-            metavar=('old_debuginfo_rpm', 'new_debuginfo_rpm'), required=False,
-            help = "Path or URL of both the old and new debuginfo RPMs, corresponding to compared RPMs.")
+                            metavar=('old_rpm', 'new_rpm'),
+                            help="Path or URL of both the old and new RPMs")
+    rpm_parser.add_argument("-d", "--debuginfo_rpm", nargs=2,
+                            metavar=('old_debuginfo_rpm', 'new_debuginfo_rpm'),
+                            required=False,
+                            help="Path or URL of both the old and new debuginfo RPMs,"
+                            "corresponding to compared RPMs.")
     rpm_parser.set_defaults(func=process_with_rpm)
 
     so_parser = subparser.add_parser('compare_so', help="Compare between two .so files")
     so_parser.add_argument("-s", "--sos", required=True, nargs=2,
-            metavar=('old_so', 'new_so'),
-            help="Path or URL of both the old and new .so files")
+                           metavar=('old_so', 'new_so'),
+                           help="Path or URL of both the old and new .so files")
     so_parser.add_argument("-f", "--debuginfo_path", nargs=2, required=False,
-            metavar=('old_debuginfo_path', 'new_debuginfo_path'),
-            help = "Path or URL of both the old and new debuginfo files, corresponding to compared .so files.")
+                           metavar=('old_debuginfo_path', 'new_debuginfo_path'),
+                           help="Path or URL of both the old and new debuginfo files,"
+                           "corresponding to compared .so files.")
     so_parser.set_defaults(func=process_with_so)
-    
+
     config = parser.parse_args()
 
-    if config.command_name == None:
+    if config.command_name is None:
         parser.print_help()
         sys.exit(0)
     else:
         return config
 
-			
+
 def list_so_files(path):
     """
     Generate a list of all .so files in the directory.
@@ -85,8 +88,8 @@ def list_so_files(path):
     # we cannot rely on number suffix for some .so files use complex version scheme.
     exception_list = ["hmac"]
     so_files = set()
-    for dirpath, dirnames, files in os.walk(path):
-        for filename in files:       
+    for dirpath, _, files in os.walk(path):
+        for filename in files:
             fp = os.path.join(dirpath, filename)
             if os.path.islink(fp):
                 continue
@@ -124,18 +127,19 @@ def find_all_so_file(path1, path2):
     prev_left = previous_sos - prev_matched
     curr_left = current_sos - curr_matched
 
-    if len(prev_left) != 0:
+    if prev_left:
         logging.info("Unmatched .so file in previous version")
         logging.info("Usually means deleted .so in current version")
         logging.info("%s\n", prev_left)
-    if len(curr_left) != 0:
+    if curr_left:
         logging.info("Unmatched .so file in current version")
         logging.info("Usually means newly added .so in current version")
         logging.info("%s\n", curr_left)
 
     logging.debug("mapping of .so files:%s\n", all_so_pair)
     return all_so_pair
-	
+
+
 def make_abi_path(work_path, abipath):
     """
     Get the path to put so file from rpm
@@ -149,20 +153,20 @@ def make_abi_path(work_path, abipath):
 
 
 def get_rpm_path(rpm_url, dest):
-    """Get the path of rpm package""" 
+    """Get the path of rpm package"""
+    rpm_path = ""
     if os.path.isfile(rpm_url):
-        abs_rpmpath = os.path.abspath(rpm_url)
-        logging.debug("rpm exists:%s", abs_rpmpath)
-        return abs_rpmpath
+        rpm_path = os.path.abspath(rpm_url)
+        logging.debug("rpm exists:%s", rpm_path)
     else:
         rpm_name = os.path.basename(rpm_url)
         rpm_path = os.path.join(dest, rpm_name)
         logging.debug("downloading %s......", rpm_name)
-        subprocess.call(["curl", rpm_url, "-L", 
-            "--connect-timeout", "10", 
-            "--max-time", "600", 
-            "-sS", "-o", rpm_path])        
-        return rpm_path
+        subprocess.call(["curl", rpm_url, "-L",
+                         "--connect-timeout", "10",
+                         "--max-time", "600",
+                         "-sS", "-o", rpm_path])
+    return rpm_path
 
 def do_rpm2cpio(rpm2cpio_path, rpm_file):
     """
@@ -184,7 +188,7 @@ def merge_all_abidiff_files(all_abidiff_files, work_path, rpm_base_name):
     if os.path.exists(merged_file):
         subprocess.run("rm -rf {}".format(merged_file), shell=True)
 
-    ofile = open(merged_file, "a+") 
+    ofile = open(merged_file, "a+")
     for diff_file in all_abidiff_files:
         diff_file_name = os.path.basename(diff_file)
         ofile.write("---------------diffs in {}:----------------\n".format(diff_file_name))
@@ -197,14 +201,14 @@ def do_abidiff(config, all_so_pair, work_path, base_name, debuginfo_path):
     """
     Exec the abidiff and write result to files.
     return the abidiff returncode.
-    """					
-    if len(all_so_pair) == 0:
+    """
+    if not all_so_pair:
         logging.info("There are no .so files to compare")
         sys.exit(0)
 
     if debuginfo_path:
-        logging.debug("old_debuginfo_path:%s\nnew_debuginfo_path:%s", 
-                debuginfo_path[0], debuginfo_path[1])
+        logging.debug("old_debuginfo_path:%s\nnew_debuginfo_path:%s",
+                      debuginfo_path[0], debuginfo_path[1])
         with_debuginfo = True
     else:
         with_debuginfo = False
@@ -215,8 +219,9 @@ def do_abidiff(config, all_so_pair, work_path, base_name, debuginfo_path):
         new_so_file = all_so_pair[old_so_file]
         logging.debug("begin abidiff between %s and %s", old_so_file, new_so_file)
 
-        abidiff_file = os.path.join(work_path, 
-                "{}_{}_abidiff.out".format(base_name, os.path.basename(new_so_file)))
+        abidiff_file = os.path.join(work_path,
+                                    "{}_{}_abidiff.out".format(base_name,
+                                                               os.path.basename(new_so_file)))
 
         so_options = "{} {}".format(old_so_file, new_so_file)
 
@@ -230,43 +235,43 @@ def do_abidiff(config, all_so_pair, work_path, base_name, debuginfo_path):
         else:
             debug_options = ""
 
-        abidiff_cmd = "abidiff {so_options} {debug_options} {additional_options} > {difffile}".format(
-                so_options=so_options,
-                debug_options=debug_options,
-                additional_options=additional_options,
-                difffile=abidiff_file)
+        abidiff_template = "abidiff {so_options} {debug_options} {additional_options} > {difffile}"
+        abidiff_cmd = abidiff_template.format(so_options=so_options,
+                                              debug_options=debug_options,
+                                              additional_options=additional_options,
+                                              difffile=abidiff_file)
 
         ret = subprocess.run(abidiff_cmd, shell=True)
-                                     
+
         all_abidiff_files.append(abidiff_file)
         logging.info("result write in: %s", abidiff_file)
         return_code |= ret.returncode
 
     merged_file = merge_all_abidiff_files(all_abidiff_files, work_path, base_name)
     logging.info("all results writed in: %s", merged_file)
-    return return_code 
+    return return_code
 
-        
+
 def validate_sos(config):
     """
     Validate the command arguments
-    """	
+    """
     for so in config.sos:
         if not os.path.isfile(so) or ".so" not in so:
             logging.error(f"{so} not exists or not a .so file")
-            sys.exit(0)       
+            sys.exit(0)
 
     if config.debuginfo_path:
         for d in config.debuginfo_path:
             if not os.path.exists(d):
                 logging.error(f"{d} not exists")
-                sys.exit(0) 
-              
+                sys.exit(0)
+
 
 def check_result(returncode):
     """
     Check the result of abidiff
-    """	
+    """
     ABIDIFF_ERROR_BIT = 1
     if returncode == 0:
         logging.info("No ABI differences found.")
@@ -275,11 +280,11 @@ def check_result(returncode):
     else:
         logging.info("ABI differences found.")
 
-        
+
 def process_with_rpm(config):
     """
     Process the file with type of rpm.
-    """	
+    """
     work_path = config.work_path
     temp_path = os.path.abspath(tempfile.mkdtemp(dir=work_path))
 
@@ -289,23 +294,24 @@ def process_with_rpm(config):
     rpm_path = [get_rpm_path(x[0], x[1]) for x in zip(config.rpms, abi_paths)]
     logging.debug("rpm_path:%s\n", rpm_path)
 
-    [do_rpm2cpio(x[0], x[1]) for x in zip(abi_paths, rpm_path)]
+    _ = [do_rpm2cpio(x[0], x[1]) for x in zip(abi_paths, rpm_path)]
 
     if config.debuginfo_rpm:
-        debuginfo_rpm_path = [get_rpm_path(x[0], x[1]) for x in zip(config.debuginfo_rpm, abi_paths)]
+        debuginfo_rpm_path = [get_rpm_path(x[0], x[1])
+                              for x in zip(config.debuginfo_rpm, abi_paths)]
 
         logging.debug("debuginfo_rpm_path:%s\n", debuginfo_rpm_path)
-	
-        [do_rpm2cpio(x[0], x[1]) for x in zip(abi_paths, debuginfo_rpm_path)]
-   
+
+        _ = [do_rpm2cpio(x[0], x[1]) for x in zip(abi_paths, debuginfo_rpm_path)]
+
     os.chdir(temp_path)
     logging.debug("\n----begin abidiff working in path:%s----", os.getcwd())
-    
-    so_paths = [ os.path.join(x, "usr/lib64") for x in abi_paths ]
+
+    so_paths = [os.path.join(x, "usr/lib64") for x in abi_paths]
 
     all_so_pairs = find_all_so_file(so_paths[0], so_paths[1])
 
-    debuginfo_paths = [ os.path.join(x, "usr/lib/debug") for x in abi_paths ]
+    debuginfo_paths = [os.path.join(x, "usr/lib/debug") for x in abi_paths]
 
     rpm_base_name = os.path.basename(rpm_path[0]).split('.')[0]
 
@@ -316,10 +322,10 @@ def process_with_rpm(config):
     return returncode
 
 
-def process_with_so(config):    
+def process_with_so(config):
     """
     Process the file with type of .so.
-    """	
+    """
     validate_sos(config)
     work_path = config.work_path
     all_so_pair = {}
@@ -327,7 +333,7 @@ def process_with_so(config):
     all_so_pair[so_path[0]] = so_path[1]
     os.chdir(work_path)
     logging.debug("\n----begin abidiff with .so working in path:%s----", os.getcwd())
-    
+
     so_base_name = os.path.basename(so_path[0]).split('.')[0]
     if config.debuginfo_path:
         debuginfo_path = list(map(os.path.abspath, config.debuginfo_path))
@@ -338,7 +344,7 @@ def process_with_so(config):
     check_result(returncode)
     return returncode
 
-	
+
 def main():
     """Entry point for check_abi"""
     config = parse_command_line()
@@ -349,6 +355,6 @@ def main():
     ret = config.func(config)
     sys.exit(ret)
 
-	
+
 if __name__ == "__main__":
     main()
