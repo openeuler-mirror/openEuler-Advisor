@@ -238,8 +238,8 @@ patch-tracking-cli add --server 127.0.0.1:5001 --user admin --password Test@123 
 参数含义：
 >--server ：必选参数，启动Patch Tracking服务的URL，例如：127.0.0.1:5001 \
 --table ：必选参数，需要查询的表 \
---repo ：可选参数，需要查询的repo；如果没有该参数查询表中所有内容 \
---branch ：可选参数，需要查询的branch，必须和--repo同时查询，没有--repo不允许单独查询该参数
+--repo ：可选参数，需要查询的repo \
+--branch ：可选参数，需要查询的branch
 
 #### 4.2.1 查询tracking表
 
