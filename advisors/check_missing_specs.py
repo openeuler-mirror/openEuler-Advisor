@@ -48,12 +48,9 @@ if __name__ == "__main__":
     args = pars.parse_args()
 
     my_gitee = gitee.Gitee()
-    try:
-        spec_string = my_gitee.get_spec(args.repo)
-    except urllib.error.HTTPError:
-        spec_string = ""
+    spec_string = my_gitee.get_spec(args.repo)
 
-    if spec_string == "":
+    if not spec_string:
         print("no spec file found for {repo} project".format(repo=args.repo))
         if args.push:
             issues = my_gitee.get_issues(args.repo)

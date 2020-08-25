@@ -10,6 +10,7 @@ import urllib.error
 import argparse
 import yaml
 import re
+import sys
 import os.path
 import json
 import pprint
@@ -35,6 +36,7 @@ class Gitee(object):
         self.community_url_template = self.gitee_url + "openeuler/community/raw/master/repository/{repository}.yaml"
         #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
         self.specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
+        self.version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
     def post_gitee(self, url, values, headers=None):
@@ -60,28 +62,51 @@ class Gitee(object):
         url = "https://gitee.com/api/v5/repos/src-openeuler/{repo}/forks".format(repo=repo)
         values = {}
         values["access_token"] = self.token["access_token"]
-       # headers["User-Agent"] = "curl/7.66.0"
+        #headers["User-Agent"] = "curl/7.66.0"
         #headers["Content-Type"] = "application/json;charset=UTF-8"
         #headers["HOST"] = "gitee.com"
         #headers["Accept"] = "*/*"
         return self.post_gitee(url, values)
 
-    def create_pr(self, head, repo):
+    def create_issue(self, repo, version, branch):
+        """
+        Create issue in gitee
+        """
+        title = "Upgrade {pkg} to {ver} in {br}".format(pkg=repo, ver=version, br=branch)
+        body = """This issue is automatically created by openEuler-Advisor.
+               Please check the correspond PR is accepted before close it.
+               Thanks.
+               Yours openEuler-Advisor."""
+        self.post_issue(repo, title, body)
+
+    def get_reviewers(self, repo):
+        """
+        Get reviewers of pkg
+        """
+        url = "https://gitee.com/api/v5/repos/src-openeuler/{pkg}/collaborators".format(pkg=repo)
+        return self.get_gitee(url)
+
+    def create_pr(self, head, repo, version, branch):
         """
         Create PR in gitee
         """
-        url = "https://gitee.com/api/v5/repos/src-openeuler/{repo}/pulls".format(repo=repo)
+        assignees = ""
+        reviewer_info = self.get_reviewers(repo)
+        if reviewer_info:
+            reviewer_list = json.loads(reviewer_info)
+            assignees = ",".join(reviewer["login"] for reviewer in reviewer_list)
+        url = "https://gitee.com/api/v5/repos/src-openeuler/{pkg}/pulls".format(pkg=repo)
         values = {}
         values["access_token"] = self.token["access_token"]
-        values["title"] = "Upgrade to latest version of {repo}".format(repo=repo)
-        values["head"] = "{head}:master".format(head=head)
-        values["base"] = "master"
-        values["body"] = """This is a (mostly) automatically created PR by openEuler-Advisor.
-Please be noted that it's not throughly tested.
-Review carefully before accept this PR.
-Thanks.
-Yours openEuler-Advisor.
-"""
+        values["title"] = "Upgrade {pkg} to {ver}".format(pkg=repo, ver=version)
+        values["head"] = "{hd}:{br}".format(hd=head, br=branch)
+        values["base"] = branch
+        values["assignees"] = assignees
+        values["body"] = """This is a automatically created PR by openEuler-Advisor.
+                         Please be noted that it's not throughly tested.
+                         Review carefully before accept this PR.
+                         Thanks.
+                         Yours openEuler-Advisor."""
         return self.post_gitee(url, values)
 
     def get_gitee(self, url, headers=None):
@@ -92,8 +117,11 @@ Yours openEuler-Advisor.
             req = urllib.request.Request(url=url, headers=self.headers)
         else:
             req = urllib.request.Request(url=url, headers=headers)
-        u = urllib.request.urlopen(req)
-        return u.read().decode("utf-8")
+        try:
+            u = urllib.request.urlopen(req)
+            return u.read().decode("utf-8")
+        except urllib.error.HTTPError:
+            return None
 
     def get_gitee_json(self, url):
         """
@@ -110,58 +138,55 @@ Yours openEuler-Advisor.
         Get well known spec file exceptions
         """
         resp = self.get_gitee(self.specfile_exception_url)
-        exps = yaml.load(resp, Loader=yaml.Loader)
-        return exps
+        if not resp:
+            print("ERROR: specfile_exceptions.yaml may not exist.")
+            sys.exit(1)
+        excpt = yaml.load(resp, Loader=yaml.Loader)
+        return excpt
+
+    def get_version_exception(self):
+        """
+        Get vertion recommend exceptions
+        """
+        resp = self.get_gitee(self.version_exception_url)
+        if not resp:
+            print("ERROR: version_exceptions.yaml may not exist.")
+            sys.exit(1)
+        excpt = yaml.load(resp, Loader=yaml.Loader)
+        return excpt
 
     def get_spec(self, pkg, br="master"):
         """
         Get openeuler spec file for specific package
         """
         specurl = self.specfile_url_template.format(branch=br, package=pkg, specfile=pkg + ".spec")
-        exp = self.get_spec_exception()
-        if pkg in exp:
-            dir_name = exp[pkg]["dir"]
-            file_name = exp[pkg]["file"]
+        excpt_list = self.get_spec_exception()
+        if pkg in excpt_list:
+            dir_name = excpt_list[pkg]["dir"]
+            file_name = excpt_list[pkg]["file"]
             specurl = urllib.parse.urljoin(specurl, os.path.join(dir_name, file_name))
-        try:
-            resp = self.get_gitee(specurl)
-        except urllib.error.HTTPError:
-            resp = ""
+        resp = self.get_gitee(specurl)
         return resp
 
-    def get_yaml(self, pkg, br="master"):
+    def get_yaml(self, pkg):
         """
         Get upstream yaml metadata for specific package
         """
         yamlurl = self.advisor_url_template.format(package=pkg)
-        try:
+        resp = self.get_gitee(yamlurl)
+        if not resp:
+            yamlurl = self.yamlfile_url_template.format(branch="master", package=pkg)
             resp = self.get_gitee(yamlurl)
-        except urllib.error.HTTPError:
-            resp = "Not found"
-            print("WARNING: {repo}.yaml can't be found in upstream-info.".format(repo=pkg))
-        if re.match("Not found", resp):
-            yamlurl = self.yamlfile_url_template.format(branch=br, package=pkg)
-            try:
-                resp = self.get_gitee(yamlurl)
-            except urllib.error.HTTPError:
-                resp = "Not found"
-            if re.match("Not found", resp):
-                print("WARNING: {repo}.yaml can't be found in repo on {branch} too".format(repo=pkg, branch=br))
-                return False
-            else:
-                return resp
-        else:
-            return resp
+            if not resp:
+                print("WARNING: {repo}.yaml can't be found in upstream-info and repo.".format(repo=pkg))
+        return resp
 
     def get_community(self, repo):
         """
         Get yaml data from community repo
         """
         yamlurl = self.community_url_template.format(repository=repo)
-        try:
-            resp = self.get_gitee(yamlurl)
-        except urllib.error.HTTPError:
-            resp = ""
+        resp = self.get_gitee(yamlurl)
         return resp
 
     def get_issues(self, pkg, prj="src-openeuler"):
