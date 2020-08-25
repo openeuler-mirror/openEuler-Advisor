@@ -1,4 +1,4 @@
 version_control: svn
-src_repo: https://svn.code.sf.net/p/unixodbc/code/
-tag_prefix: 2.3.0
+src_repo: https://svn.code.sf.net/p/unixodbc/code
+tag_prefix: ""
 seperator: .
