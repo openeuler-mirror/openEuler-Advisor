@@ -37,7 +37,9 @@ def download_source_url(spec, o_ver, n_ver):
         return False
     elif source.startswith("http") or source.startswith("ftp"):
         fn = os.path.basename(source)
-        for time in range(2):
+        n = 0
+        while n < 2:
+            n += 1
             if subprocess.call(["curl", "-m", "600", "-L", source, "-o", fn]):
                 continue
             else:
@@ -60,7 +62,9 @@ def download_upstream_url(gt, repo, n_ver):
     if rp_yaml["version_control"] == "github":
         url = "https://github.com/{rp}/archive/{nv}.tar.gz".format(rp=rp_yaml["src_repo"], nv=n_ver)     
         fn = "{rp}.{nv}.tar.gz".format(rp=repo, nv=n_ver)
-        for time in range(2):
+        n = 0
+        while n < 2:
+            n += 1
             if subprocess.call(["curl", "-m", "600", "-L", url, "-o", fn]):
                 continue
             else:
@@ -319,7 +323,8 @@ if __name__ == "__main__":
     pars.add_argument("-fc", "--fork_then_clone", help="Fork src-openeuler repo into users, then clone to local",
             action="store_true")
     pars.add_argument("-b", "--build_pkg", help="Build package in local", action="store_true")
-    pars.add_argument("-pcpi", "--push_create_pr_issue", help="Push update repo, create PR and issue", action="store_true")
+    pars.add_argument("-pcpi", "--push_create_pr_issue", help="Push update repo, create PR and issue", 
+            action="store_true")
     args = pars.parse_args()
     
     user_gitee = gitee.Gitee()
