@@ -1,0 +1,4 @@
+version_control: git
+src_repo: "https://pagure.io/setroubleshoot.git"
+tag_prefix: "^setroubleshoot-"
+seperator:

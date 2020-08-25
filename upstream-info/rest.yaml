@@ -1,0 +1,4 @@
+version_control: gitlab.gnome
+src_repo: librest
+tag_prefix: librest-
+seperator: .

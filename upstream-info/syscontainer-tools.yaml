@@ -1,5 +1,3 @@
-git_url: https:/gitee.com/openeuler/syscontainer-tools
-version_control: NA
-src_repo: openeuler/syscontainer-tools
-tag_prefix: "^v"
-separator: "."
+---
+version_control: gitee
+src_repo: openEuler/syscontainer-tools

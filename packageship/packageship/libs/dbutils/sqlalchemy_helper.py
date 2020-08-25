@@ -18,68 +18,40 @@ from packageship.libs.configutils.readconfig import ReadConfig
 from packageship import system_config
 
 
-class DBHelper():
+class BaseHelper():
     """
-    Description: Database connection, operation public class
+    Description: Base class for data manipulation
+    """
+
+    def __init__(self):
+        self.readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
+        self.engine = None
+
+
+class MysqlHelper(BaseHelper):
+    """
+    Description: mysql database connection related operations
     Attributes:
-        user_name: Username
-        password: Password
-        ip_address: Ip address
+        user_name: Database connection username
+        password: Database connection password
+        host: Remote server address
         port: Port
-        db_name: Database name
-        db_type: Database type
-        session: Session
+        database: Operational database name
+        connection_type: Database connection type
     """
-    # The base class inherited by the data model
-    BASE = declarative_base()
 
-    def __init__(self, user_name=None, password=None, ip_address=None,  # pylint: disable=R0913
-                 port=None, db_name=None, db_type=None, **kwargs):
-        """
-        Description: Class instance initialization
+    def __init__(self, user_name=None, password=None, host=None,  # pylint: disable=unused-argument
+                 port=None, database=None, **kwargs):
+        super(MysqlHelper, self).__init__()
+        self.user_name = user_name or self.readconfig.get_database(
+            'user_name')
+        self.password = password or self.readconfig.get_database('password')
+        self.host = host or self.readconfig.get_database('host')
+        self.port = port or self.readconfig.get_database('port')
+        self.database = database or self.readconfig.get_database('database')
+        self.connection_type = 'mysql+pymysql'
 
-        """
-        self.user_name = user_name
-        self._readconfig = ReadConfig()
-        if self.user_name is None:
-            self.user_name = self._readconfig.get_database('user_name')
-
-        self.password = password
-        if self.password is None:
-            self.password = self._readconfig.get_database('password')
-
-        self.ip_address = ip_address
-
-        if self.ip_address is None:
-            self.ip_address = self._readconfig.get_database('host')
-
-        self.port = port
-
-        if self.port is None:
-            self.port = self._readconfig.get_database('port')
-
-        self.db_name = db_name
-
-        if self.db_name is None:
-            self.db_name = self._readconfig.get_database('database')
-
-        self.db_type = db_type
-
-        if self.db_type is None:
-            # read the contents of the configuration file
-            _db_type = self._readconfig.get_database('dbtype')
-            if _db_type is None or _db_type == 'mysql':
-                self.db_type = 'mysql+pymysql'
-            else:
-                self.db_type = 'sqlite:///'
-                if 'import_database' not in kwargs.keys():
-                    self._db_file_path()
-                    self.db_name = os.path.join(
-                        self.database_file_path, self.db_name + '.db')
-        self._create_engine()
-        self.session = None
-
-    def _create_engine(self):
+    def create_database_engine(self):
         """
         Description: Create a database connection object
         Args:
@@ -89,29 +61,37 @@ class DBHelper():
             DisconnectionError: A disconnect is detected on a raw DB-API connection.
 
         """
-        if self.db_type.startswith('sqlite'):
-            if not self.db_name:
-                raise DbnameNoneException(
-                    'The connected database name is empty')
-            self.engine = create_engine(
-                self.db_type + self.db_name, encoding='utf-8', convert_unicode=True,
-                connect_args={'check_same_thread': False})
-        else:
-            if all([self.user_name, self.password, self.ip_address, self.port, self.db_name]):
-                # create connection object
-                self.engine = create_engine(URL(**{'database': self.db_name,
-                                                   'username': self.user_name,
-                                                   'password': self.password,
-                                                   'host': self.ip_address,
-                                                   'port': self.port,
-                                                   'drivername': self.db_type}),
-                                            encoding='utf-8',
-                                            convert_unicode=True)
-            else:
-                raise DisconnectionError(
-                    'A disconnect is detected on a raw DB-API connection')
+        if not all([self.user_name, self.password, self.host, self.port, self.database]):
+            raise DisconnectionError(
+                'A disconnect is detected on a raw DB-API connection')
+        # create connection object
+        self.engine = create_engine(URL(**{'database': self.database,
+                                           'username': self.user_name,
+                                           'password': self.password,
+                                           'host': self.host,
+                                           'port': self.port,
+                                           'drivername': self.connection_type}),
+                                    encoding='utf-8',
+                                    convert_unicode=True)
 
-    def _db_file_path(self):
+
+class SqliteHlper(BaseHelper):
+    """
+    Description: sqlite database connection related operations
+    Attributes:
+        connection_type: Database connection type
+        database: Operational database name
+    """
+
+    def __init__(self, database, **kwargs):
+        super(SqliteHlper, self).__init__()
+        self.connection_type = 'sqlite:///'
+        if 'complete_route_db' in kwargs.keys():
+            self.database = database
+        else:
+            self.database = self._database_file_path(database)
+
+    def _database_file_path(self, database):
         """
         Description: load the path stored in the sqlite database
         Args:
@@ -120,12 +100,72 @@ class DBHelper():
         Raises:
 
         """
-        self.database_file_path = self._readconfig.get_system(
+        _database_folder_path = self.readconfig.get_system(
             'data_base_path')
-        if not self.database_file_path:
-            self.database_file_path = system_config.DATABASE_FOLDER_PATH
-        if not os.path.exists(self.database_file_path):
-            os.makedirs(self.database_file_path)
+        if not _database_folder_path:
+            _database_folder_path = system_config.DATABASE_FOLDER_PATH
+        try:
+            if not os.path.exists(_database_folder_path):
+                os.makedirs(_database_folder_path)
+        except IOError:
+            pass
+        return os.path.join(_database_folder_path, database + '.db')
+
+    def create_database_engine(self):
+        """
+        Description: Create a database connection object
+        Args:
+
+        Returns:
+        Raises:
+            DisconnectionError: A disconnect is detected on a raw DB-API connection
+
+        """
+        if not self.database:
+            raise DbnameNoneException(
+                'The connected database name is empty')
+        self.engine = create_engine(
+            self.connection_type + self.database, encoding='utf-8', convert_unicode=True,
+            connect_args={'check_same_thread': False})
+
+
+class DBHelper(BaseHelper):
+    """
+    Description: Database connection, operation public class
+    Attributes:
+        user_name: Username
+        password: Password
+        host: Remote server address
+        port: Port
+        db_name: Database name
+        connection_type: Database type
+        session: Session
+    """
+    # The base class inherited by the data model
+    BASE = declarative_base()
+
+    def __init__(self, user_name=None, password=None, host=None,  # pylint: disable=R0913
+                 port=None, db_name=None, connection_type=None, **kwargs):
+        """
+        Description: Class instance initialization
+
+        """
+        super(DBHelper, self).__init__()
+        self._database_engine = {
+            'mysql': MysqlHelper,
+            'sqlite': SqliteHlper
+        }
+        if connection_type is None:
+            connection_type = self.readconfig.get_database(
+                'dbtype') or 'sqlite'
+        _database_engine = self._database_engine.get(connection_type)
+        if _database_engine is None:
+            raise DisconnectionError('')
+        _engine = _database_engine(user_name=user_name, password=password,
+                                   host=host, port=port, database=db_name, **kwargs)
+        _engine.create_database_engine()
+        self.engine = _engine.engine
+        self.session = None
 
     def __enter__(self):
         """
@@ -233,7 +273,7 @@ class DBHelper():
         if model is None:
             raise ContentNoneException('solid model must be specified')
 
-        if dicts is None:
+        if not dicts:
             raise ContentNoneException(
                 'The inserted data content cannot be empty')
 

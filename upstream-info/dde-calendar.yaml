@@ -1,0 +1,4 @@
+version_control: github
+src_repo: linuxdeepin/dde-calendar
+tag_prefix: ^v
+seperator: .

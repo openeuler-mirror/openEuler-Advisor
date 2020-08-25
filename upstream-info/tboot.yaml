@@ -1,0 +1,4 @@
+version_control: hg
+src_repo: http://hg.code.sf.net/p/tboot/code
+tag_prefix: ^v
+seperator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: kata-containers/shim
+tag_prefix:
+seperator: "."

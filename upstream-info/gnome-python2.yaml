@@ -1,4 +1,4 @@
-version_control: gitlab.gnome
-src_repo: gnome-python
-tag_prefix: GNOME_PYTHON_
+version_control: git
+src_repo: https://gitlab.gnome.org/Archive/gnome-python.git
+tag_prefix: "^GNOME_PYTHON_"
 separator: _

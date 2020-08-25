@@ -75,7 +75,7 @@ class InstallDepend():
             response_code: response code
         Raises:
         """
-        result_list = self.__search_db.get_install_depend(self.__search_list)
+        result_list = set(self.__search_db.get_install_depend(self.__search_list))
         for search in self.__search_list:
             if search not in self.binary_dict.dictionary:
                 self.binary_dict.init_key(key=search, parent_node=[])

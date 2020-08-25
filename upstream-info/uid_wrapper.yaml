@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.samba.org/uid_wrapper.git
+tag_prefix: ^uid_wrapper-
+seperator: .

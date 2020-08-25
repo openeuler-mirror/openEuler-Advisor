@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/lib/libxkbfile.git
+tag_prefix: "^libxkbfile-"
+seperator: "."
+

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: "fenrus75/powertop"
+tag_prefix: "^v"
+seperator:

@@ -1,5 +1,5 @@
  [{
-		"dbname": "openEuler-20.03-LTS",
+		"dbname": "mainline",
 		"downloadURL": null,
 		"license": "GPLv2+ and BSD and MIT and IBM",
 		"maintainer": null,
@@ -8,7 +8,7 @@
 		"sourceURL": "http://play0ad.com",
 		"version": "0.0.23b"
 	}, {
-		"dbname": "openEuler-20.03-LTS",
+		"dbname": "mainline",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -17,7 +17,7 @@
 		"sourceURL": null,
 		"version": "0.0.2"
 	}, {
-		"dbname": "openEuler-20.03-LTS",
+		"dbname": "mainline",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -26,7 +26,7 @@
 		"sourceURL": null,
 		"version": "0.1"
 	}, {
-		"dbname": "openEuler-20.03-LTS",
+		"dbname": "mainline",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -35,7 +35,7 @@
 		"sourceURL": null,
 		"version": "0.11"
 	}, {
-		"dbname": "openEuler-20.04-LTS",
+		"dbname": "fedora30",
 		"downloadURL": null,
 		"license": "GPLv2+ and BSD and MIT and IBM",
 		"maintainer": null,
@@ -44,7 +44,7 @@
 		"sourceURL": "http://play0ad.com",
 		"version": "0.0.23b"
 	}, {
-		"dbname": "openEuler-20.04-LTS",
+		"dbname": "fedora30",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -53,7 +53,7 @@
 		"sourceURL": null,
 		"version": "0.0.3"
 	}, {
-		"dbname": "openEuler-20.04-LTS",
+		"dbname": "fedora30",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -62,7 +62,7 @@
 		"sourceURL": null,
 		"version": "0.1"
 	}, {
-		"dbname": "openEuler-20.04-LTS",
+		"dbname": "fedora30",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -71,7 +71,7 @@
 		"sourceURL": null,
 		"version": "0.12"
 	}, {
-		"dbname": "openEuler-20.04-LTS",
+		"dbname": "fedora30",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,
@@ -80,7 +80,7 @@
 		"sourceURL": null,
 		"version": "0.4"
 	}, {
-		"dbname": "openEuler-20.04-LTS",
+		"dbname": "fedora30",
 		"downloadURL": null,
 		"license": null,
 		"maintainer": null,

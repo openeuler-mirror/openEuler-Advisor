@@ -1,0 +1,4 @@
+version_control: github
+src_repo: linuxdeepin/dde-file-manager
+tag_prefix: ^v
+seperator: .

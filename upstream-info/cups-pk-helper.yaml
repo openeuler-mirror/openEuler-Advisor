@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/cups-pk-helper/cups-pk-helper.git
+tag_prefix: "^" 
+seperator: "."

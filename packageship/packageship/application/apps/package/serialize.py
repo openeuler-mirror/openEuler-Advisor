@@ -186,4 +186,4 @@ class InitSystemSchema(Schema):
     """
     configfile = fields.Str(
         validate=validate.Length(
-            max=50), required=False, allow_none=True)
+            max=500), required=False, allow_none=True)

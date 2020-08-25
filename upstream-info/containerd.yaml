@@ -1,0 +1,4 @@
+version_control: github
+src_repo: containerd/containerd
+tag_prefix: ^v 
+seperator: . 

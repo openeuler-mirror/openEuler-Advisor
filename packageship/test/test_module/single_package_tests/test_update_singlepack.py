@@ -6,15 +6,15 @@ import unittest
 import json
 
 from packageship.application.apps.package.function.constants import ResponseCode
-
+from packageship.application.apps.package.function.searchdb import db_priority
 
 class TestUpdatePackage(OperateTestBase):
     """TestUpdatePackage"""
-
+    db_name = db_priority()[0]
     def test_empty_dbname(self):
         """Parameter error"""
 
-        resp = self.client.put("/packages/findByPackName",
+        resp = self.client.put("/packages/packageInfo",
                                data=json.dumps({"dbName": "",
                                                 "sourceName": "xx",
                                                 "maintainer": "",
@@ -41,8 +41,8 @@ class TestUpdatePackage(OperateTestBase):
             msg="Error in data information return")
 
         # wrong dbname
-        resp = self.client.put("/packages/findByPackName",
-                               data=json.dumps({"dbName": "xx",
+        resp = self.client.put("/packages/packageInfo",
+                               data=json.dumps({"dbName": "xhhz",
                                                 "sourceName": "xx",
                                                 "maintainer": "",
                                                 "maintainlevel": "1"}),
@@ -70,8 +70,8 @@ class TestUpdatePackage(OperateTestBase):
     def test_empty_sourcename(self):
         """Parameter error"""
 
-        resp = self.client.put("/packages/findByPackName",
-                               data=json.dumps({"dbName": "openEuler-20.04-LTS",
+        resp = self.client.put("/packages/packageInfo",
+                               data=json.dumps({"dbName": f"{self.db_name}",
                                                 "sourceName": "xx",
                                                 "maintainer": "1"}),
                                content_type="application/json")
@@ -95,8 +95,8 @@ class TestUpdatePackage(OperateTestBase):
             resp_dict.get("data"),
             msg="Error in data information return")
         #  miss maintainer maintainlevel
-        resp = self.client.put("/packages/findByPackName",
-                               data=json.dumps({"dbName": "openEuler-20.04-LTS",
+        resp = self.client.put("/packages/packageInfo",
+                               data=json.dumps({"dbName": f"{self.db_name}",
                                                 "sourceName": "xx"}),
                                content_type="application/json")
         resp_dict = json.loads(resp.data)
@@ -123,8 +123,8 @@ class TestUpdatePackage(OperateTestBase):
         """
         Returns:
         """
-        resp = self.client.put("/packages/findByPackName",
-                               data=json.dumps({"dbName": "openEuler-20.04-LTS",
+        resp = self.client.put("/packages/packageInfo",
+                               data=json.dumps({"dbName": f"{self.db_name}",
                                                 "sourceName": "A",
                                                 "maintainer": "x",
                                                 "maintainlevel": "1"}),

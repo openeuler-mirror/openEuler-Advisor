@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.kernel.org/pub/scm/network/tftp/tftp-hpa.git
+tag_prefix: tftp-hpa-
+seperator: .

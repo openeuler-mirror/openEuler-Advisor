@@ -1,0 +1,5 @@
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxcomposite.git
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/lib/libxcomposite.git
+tag_prefix: "^libXcomposite-"
+seperator: "."

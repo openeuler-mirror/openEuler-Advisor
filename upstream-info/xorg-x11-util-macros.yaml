@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/util/macros.git
+tag_prefix: util-macros-
+seperator: .

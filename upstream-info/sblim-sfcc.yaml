@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.code.sf.net/p/sblim/sfcc
+tag_prefix: SFCC_
+seperator: _

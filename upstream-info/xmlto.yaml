@@ -1,0 +1,4 @@
+version_control: git
+asrc_repo: https://pagure.io/xmlto.git
+tag_prefix:
+seperator:

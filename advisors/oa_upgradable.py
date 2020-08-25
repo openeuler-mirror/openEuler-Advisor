@@ -2,16 +2,13 @@
 """
 This is a script to check upgradable information against upstream
 """
+import os
+import sys
+import argparse
+
 from pyrpm.spec import Spec, replace_macros
 
 import yaml
-import json
-import datetime
-import sys
-import os
-import argparse
-
-import urllib.error
 
 import gitee
 import check_upstream
@@ -22,10 +19,10 @@ def _filter_except(excpts, sources):
     """
     Filter except case in sources
     """
-    for e in excpts:
-        sources = [s for s in sources if e not in s]
+    for exp in excpts:
+        sources = [s for s in sources if exp not in s]
     return sources
-    
+
 
 def get_ver_tags(gt, repo, cwd_path=None):
     """
@@ -75,18 +72,21 @@ def get_ver_tags(gt, repo, cwd_path=None):
 
     excpt_list = gt.get_version_exception()
     if repo in excpt_list:
-        tags = _filter_except(excpt_list[repo], tags) 
+        tags = _filter_except(excpt_list[repo], tags)
     return tags
 
 
-if __name__ == "__main__":
+def main():
+    """
+    Main entrance of the functionality
+    """
     parameters = argparse.ArgumentParser()
     parameters.add_argument("-p", "--push", action="store_true",
-            help="Push the version bump as an issue to src-openeuler repository") 
+                            help="Push the version bump as an issue to src-openeuler repository")
     parameters.add_argument("-d", "--default", type=str, default=os.getcwd(),
-            help="The fallback place to look for YAML information")
+                            help="The fallback place to look for YAML information")
     parameters.add_argument("repo", type=str,
-            help="Repository to be checked for upstream version info") 
+                            help="Repository to be checked for upstream version info")
 
     args = parameters.parse_args()
 
@@ -131,4 +131,10 @@ Please consider upgrading.
 Yours openEuler Advisor.
 
 If you think this is not proper issue, Please visit https://gitee.com/openeuler/openEuler-Advisor.
-Issues and feedbacks are welcome.""".format(repo=args.repo, ver=ver_rec.latest_version, cur_ver=cur_version))
+Issues and feedbacks are welcome.""".format(repo=args.repo,
+                                            ver=ver_rec.latest_version,
+                                            cur_ver=cur_version))
+
+
+if __name__ == "__main__":
+    main()

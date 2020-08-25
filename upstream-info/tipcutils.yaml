@@ -1,0 +1,4 @@
+version_control: git
+src_repo: git://git.code.sf.net/p/tipc/tipcutils
+tag_prefix: v
+seperator: .

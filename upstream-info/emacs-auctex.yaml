@@ -1,4 +1,4 @@
 version_control: git
-src_repo: https://git.savannah.org/git/auctex.git
-tag_prefix: ^release_
+src_repo: https://git.savannah.gnu.org/git/auctex.git
+tag_prefix: "^release_"
 separator: _

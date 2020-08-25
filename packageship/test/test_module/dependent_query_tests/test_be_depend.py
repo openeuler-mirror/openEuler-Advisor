@@ -8,13 +8,13 @@ import json
 from test.base_code.read_data_base import ReadTestBase
 from test.base_code.common_test_code import compare_two_values, get_correct_json_by_filename
 from packageship.application.apps.package.function.constants import ResponseCode
-
+from packageship.application.apps.package.function.searchdb import db_priority
 
 class TestBeDepend(ReadTestBase):
     """
     The dependencies of the package are tested
     """
-
+    db_name = db_priority()[0]
     def test_lack_parameter(self):
         """
         Less transmission is always parameter transmission
@@ -98,7 +98,7 @@ class TestBeDepend(ReadTestBase):
         # Only the dbname
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
-                                    "dbname": "openEuler-20.03-LTS",
+                                    "dbname": f"{self.db_name}",
                                 }),
                                 content_type="application/json")
 
@@ -125,7 +125,7 @@ class TestBeDepend(ReadTestBase):
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
                                     "packagename": "A",
-                                    "dbname": "openEuler-20.03-LTS"
+                                    "dbname": f"{self.db_name}"
                                 }),
                                 content_type="application/json")
 
@@ -176,7 +176,7 @@ class TestBeDepend(ReadTestBase):
         # Don't preach packagename
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
-                                    "dbname": "openEuler-20.03-LTS",
+                                    "dbname": f"{self.db_name}",
                                     "withsubpack": "0"
                                 }),
                                 content_type="application/json")
@@ -204,7 +204,7 @@ class TestBeDepend(ReadTestBase):
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
                                     "packagename": "A",
-                                    "dbname": "openEuler-20.03-LTS",
+                                    "dbname": f"{self.db_name}",
                                     "withsubpack": "0"
                                 }),
                                 content_type="application/json")
@@ -230,7 +230,7 @@ class TestBeDepend(ReadTestBase):
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
                                     "packagename": "A",
-                                    "dbname": "openEuler-20.03-LTS",
+                                    "dbname": f"{self.db_name}",
                                     "withsubpack": "1"
                                 }),
                                 content_type="application/json")
@@ -261,7 +261,7 @@ class TestBeDepend(ReadTestBase):
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
                                     "packagename": "詹姆斯",
-                                    "dbname": "openEuler-20.03-LTS",
+                                    "dbname": f"{self.db_name}",
                                     "withsubpack": "0"
                                 }),
                                 content_type="application/json")
@@ -316,7 +316,7 @@ class TestBeDepend(ReadTestBase):
         resp = self.client.post("/packages/findBeDepend",
                                 data=json.dumps({
                                     "packagename": "CUnit",
-                                    "dbname": "openEuler-20.03-LTS",
+                                    "dbname": f"{self.db_name}",
                                     "withsubpack": "3"
                                 }),
                                 content_type="application/json")

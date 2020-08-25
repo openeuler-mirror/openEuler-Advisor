@@ -1,0 +1,4 @@
+version_control: github
+src_repo: OSGeo/PROJ
+tag_prefix: ^
+seperator: .

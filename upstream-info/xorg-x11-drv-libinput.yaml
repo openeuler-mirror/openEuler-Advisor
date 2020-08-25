@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-input-libinput.git
+tag_prefix: "^xf86-input-libinput-" 
+seperator: .

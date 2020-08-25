@@ -1,0 +1,4 @@
+version-ctrl: git
+src_repo: https://gitlab.gnome.org/GNOME/grilo-plugins.gi
+tag_prefix: ^
+seperator: "."

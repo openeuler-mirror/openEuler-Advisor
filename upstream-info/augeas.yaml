@@ -1,0 +1,4 @@
+version_control: github
+src_repo: hercules-team/augeas
+tag_prefix: ^release-
+seperator: "."

@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/plymouth/plymouth.git
+tag_prefix: plymouth-
+seperator: .
