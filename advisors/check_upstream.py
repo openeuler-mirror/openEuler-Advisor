@@ -60,7 +60,7 @@ def clean_tags(tags, info):
         separator_regex = re.compile(info["seperator"])
         result_list = [separator_regex.sub(".", x) for x in result_list]
 
-    result_list = [x for x in result_list if len(x) > 0 and x[0].isdigit()]
+    result_list = [x for x in result_list if x and x[0].isdigit()]
     
     return result_list
 
