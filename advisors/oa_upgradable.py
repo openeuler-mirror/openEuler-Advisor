@@ -18,15 +18,6 @@ import check_upstream
 import version_recommend
 
 
-def _get_rec_excpt():
-    """
-    Get except case of version recommend
-    """
-    y_file = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "helper/ver_rec_excpt.yaml"))
-    excpt = yaml.load(y_file, Loader=yaml.Loader)
-    return excpt
-
-
 def _filter_except(excpts, sources):
     """
     Filter except case in sources
@@ -42,7 +33,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
     """
     if cwd_path:
         try:
-            repo_yaml = open(os.path.join(cwd_path, repo + ".yaml")).read()
+            repo_yaml = open(os.path.join(cwd_path, "{pkg}.yaml".format(pkg=repo)))
         except FileNotFoundError:
             print("WARNING: {pkg}.yaml can't be found in local path: {path}.".format(pkg=repo, path=cwd_path))
             repo_yaml = gt.get_yaml(repo)
@@ -82,7 +73,7 @@ def get_ver_tags(gt, repo, cwd_path=None):
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None
 
-    excpt_list = _get_rec_excpt()
+    excpt_list = gt.get_version_exception()
     if repo in excpt_list:
         tags = _filter_except(excpt_list[repo], tags) 
     return tags

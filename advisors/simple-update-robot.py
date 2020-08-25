@@ -37,7 +37,11 @@ def download_source_url(spec, o_ver, n_ver):
         return False
     elif source.startswith("http") or source.startswith("ftp"):
         fn = os.path.basename(source)
-        subprocess.call(["curl", "-L", source, "-o", fn])
+        for time in range(2):
+            if subprocess.call(["curl", "-m", "600", "-L", source, "-o", fn]):
+                continue
+            else:
+                break
         return fn
     else:
         print("WARNING: Not valid URL for Source code")
@@ -56,7 +60,11 @@ def download_upstream_url(gt, repo, n_ver):
     if rp_yaml["version_control"] == "github":
         url = "https://github.com/{rp}/archive/{nv}.tar.gz".format(rp=rp_yaml["src_repo"], nv=n_ver)     
         fn = "{rp}.{nv}.tar.gz".format(rp=repo, nv=n_ver)
-        subprocess.call(["curl", "-L", url, "-o", fn])
+        for time in range(2):
+            if subprocess.call(["curl", "-m", "600", "-L", url, "-o", fn]):
+                continue
+            else:
+                break
         return fn
     else:
         print("Handling {vc} is still under developing".format(vc=rp_yaml["version_control"]))
@@ -89,6 +97,7 @@ def fork_clone_repo(gt, repo, br):
         subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name, pkg=repo)])
         os.chdir(repo)
         if subprocess.call(["git", "checkout", "{branch}".format(branch=br)]):
+            os.chdir(os.pardir)
             time.sleep(1)
         else:
             os.chdir(os.pardir)
@@ -126,7 +135,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     in_changelog = False
     for l in spec_str.splitlines():
         if l.startswith("Release:"):
-            fn.write(re.sub(r"\d", "1", l) + "\n")
+            fn.write(re.sub(r"\d+", "1", l) + "\n")
             continue
         if l.startswith("Source:") or l.startswith("Source0:"):
             if src_fn:
@@ -150,7 +159,48 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     os.chdir(os.pardir)
 
 
-def auto_update_pkg(gt, u_pkg, u_branch):
+def build_pkg(u_pkg, u_branch):
+    """
+    Auto build upgrade pkg on obs
+    """
+    build_result = True
+    if (u_branch == "master"):
+        project = "openEuler:Mainline"
+    elif (u_branch == "openEuler-20.03-LTS"):
+        project = "openEuler:20.03:LTS"
+    else:
+        print("WARNING: Please check branch to be upgrade.")
+        sys.exit(1)
+
+    subprocess.call(["osc", "branch", "{prj}".format(prj=project), "{pkg}".format(pkg=u_pkg)])
+    user_info = subprocess.getoutput(["osc user"])
+    user = user_info.split(':')[0]
+    subprocess.call(["osc", "co", "home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg)])
+    os.chdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg))
+    subprocess.call(["rm * -rf"], shell=True)
+    subprocess.call(["cp ../../{pkg}/* .".format(pkg=u_pkg)], shell=True)
+    if subprocess.call(["osc", "build", "standard_aarch64"]):
+        build_result = False
+    os.chdir("../../")
+    return build_result
+
+
+def push_create_pr_issue(gt, u_pkg, o_ver, u_ver, u_branch):
+    """
+    Auto push update repo, create upgrade PR and issue.
+    """
+    os.chdir(u_pkg)
+    subprocess.call(["git rm *{old_ver}.* -rf".format(old_ver=o_ver)], shell=True)
+    subprocess.call(["rm *_old.spec -f"], shell=True)
+    subprocess.call(["git add *"], shell=True)
+    subprocess.call(["git commit -m \"upgrade {pkg} to {ver}\"".format(pkg=u_pkg, ver=u_ver)], shell=True)
+    subprocess.call(["git push origin"], shell=True)
+    gt.create_pr(gt.token["user"], u_pkg, u_ver, u_branch)
+    gt.create_issue(u_pkg, u_ver, u_branch)
+    os.chdir(os.pardir)
+
+
+def auto_update_pkg(gt, u_pkg, u_branch, u_ver=None):
     """
     Auto upgrade based on given branch for single package
     """
@@ -161,36 +211,60 @@ def auto_update_pkg(gt, u_pkg, u_branch):
         sys.exit(1)
     pkg_spec = Spec.from_string(spec_str)
     pkg_ver = replace_macros(pkg_spec.version, pkg_spec)
-
-    pkg_tags = oa_upgradable.get_ver_tags(gt, u_pkg)
-    if pkg_tags is None:
+    
+    if (u_branch == "master"):
+        pkg_tags = oa_upgradable.get_ver_tags(gt, u_pkg)
+        if pkg_tags is None:
+            sys.exit(1)
+        ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
+        u_ver = ver_rec.latest_version
+    elif re.search(r"LTS", u_branch):
+        if not u_ver:
+            print("WARNING: Please specify upgrade version in LTS upgrade.")
+            sys.exit(1)
+    else:
+        print("WARNING: Please check branch to upgrade.")
         sys.exit(1)
-    ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
-    rec_up_ver = ver_rec.latest_version
-
+    
     fork_clone_repo(gt, u_pkg, u_branch)
 
-    if not update_ver_check(u_pkg, pkg_ver, rec_up_ver):
+    if not update_ver_check(u_pkg, pkg_ver, u_ver):
         sys.exit(1)
 
-    if not download_src(gt, pkg_spec, pkg_ver, rec_up_ver):
+    if not download_src(gt, pkg_spec, pkg_ver, u_ver):
         sys.exit(1)
 
-    create_spec(u_pkg, spec_str, pkg_ver, rec_up_ver)
+    create_spec(u_pkg, spec_str, pkg_ver, u_ver)
     
     if len(pkg_spec.patches) >= 1:
         print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=u_pkg))
         sys.exit(1)
+    
+    if not build_pkg(u_pkg, u_branch):
+        sys.exit(1)
+
+    push_create_pr_issue(gt, u_pkg, pkg_ver, u_ver, u_branch)
 
 
 def auto_update_repo(gt, u_repo, u_branch):
     """
     Auto upgrade based on given branch for packages in given repository
     """
-    repo_yaml = gt.get_community(u_repo)
-    if not repo_yaml:
-        print("WARNING: {repo}.yaml in community is empty.".format(repo=u_repo))
+    if (u_branch == "master"):
+        repo_yaml = gt.get_community(u_repo)
+        if not repo_yaml:
+            print("WARNING: {repo}.yaml in community is empty.".format(repo=u_repo))
+            sys.exit(1)
+    elif re.search(r"LTS", u_branch):
+        try:
+            repo_yaml = open(os.path.join(os.getcwd(), "{repo}.yaml".format(repo=u_repo)))
+        except FileNotFoundError:
+            print("WARNING: {repo}.yaml can't be found in current working directory.".format(repo=u_repo))
+            sys.exit(1)
+    else:
+        print("WARNING: Please check branch to upgrade.")
         sys.exit(1)
+
     pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
     pkg_list = pkg_info.get("repositories")
     for pkg in pkg_list:
@@ -203,26 +277,34 @@ def auto_update_repo(gt, u_repo, u_branch):
             continue
         pkg_spec = Spec.from_string(spec_str)
         pkg_ver = replace_macros(pkg_spec.version, pkg_spec)
-
-        pkg_tags = oa_upgradable.get_ver_tags(gt, pkg_name)
-        if pkg_tags is None:
-            continue
-        ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
-        rec_up_ver = ver_rec.latest_version
+        
+        if (u_branch == "master"):
+            pkg_tags = oa_upgradable.get_ver_tags(gt, pkg_name)
+            if pkg_tags is None:
+                continue
+            ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
+            u_ver = ver_rec.latest_version
+        else:
+            u_ver = pkg.get("u_ver")
 
         fork_clone_repo(gt, pkg_name, u_branch)
 
-        if not update_ver_check(pkg_name, pkg_ver, rec_up_ver):
+        if not update_ver_check(pkg_name, pkg_ver, u_ver):
             continue
 
-        if not download_src(gt, pkg_spec, pkg_ver, rec_up_ver):
+        if not download_src(gt, pkg_spec, pkg_ver, u_ver):
             continue
 
-        create_spec(pkg_name, spec_str, pkg_ver, rec_up_ver)
+        create_spec(pkg_name, spec_str, pkg_ver, u_ver)
         
         if len(pkg_spec.patches) >= 1:
             print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=pkg_name))
             continue
+        
+        if not build_pkg(pkg_name, u_branch):
+            continue
+        
+        push_create_pr_issue(gt, pkg_name, pkg_ver, u_ver, u_branch)
 
 
 if __name__ == "__main__":
@@ -232,26 +314,21 @@ if __name__ == "__main__":
     pars.add_argument("-u", "--update", type=str, help="Auto upgrade for packages in repository or single package",
             choices=["repo", "pkg"])
     pars.add_argument("-n", "--new_version", type=str, help="New upstream version of package will be upgrade to")
-    pars.add_argument("-s", "--create_spec", help="Create spec file", action="store_true")
     pars.add_argument("-d", "--download", help="Download upstream source code", action="store_true")
+    pars.add_argument("-s", "--create_spec", help="Create spec file", action="store_true")
     pars.add_argument("-fc", "--fork_then_clone", help="Fork src-openeuler repo into users, then clone to local",
             action="store_true")
-    pars.add_argument("-p", "--PR", help="Create upgrade PR", action="store_true")
+    pars.add_argument("-b", "--build_pkg", help="Build package in local", action="store_true")
+    pars.add_argument("-pcpi", "--push_create_pr_issue", help="Push update repo, create PR and issue", action="store_true")
     args = pars.parse_args()
     
     user_gitee = gitee.Gitee()
 
     if args.update:
-        if not args.branch == "master":
-            print("WARNING: Now only support master version auto-upgrade.")
-            print("WARNING: You can try manually upgrade with specified version, command as follow:")
-            print("python3 simple-update-robot.py {pkg} {br} -fc -d -s -n upgrade_ver".format(
-                pkg=args.repo_pkg, br=args.branch))
-            sys.exit(1)
         if args.update == "repo":
             auto_update_repo(user_gitee, args.repo_pkg, args.branch)
         else:
-            auto_update_pkg(user_gitee, args.repo_pkg, args.branch)
+            auto_update_pkg(user_gitee, args.repo_pkg, args.branch, args.new_version)
     else:
         spec_string = user_gitee.get_spec(args.repo_pkg, args.branch)
         if not spec_string:
@@ -263,7 +340,7 @@ if __name__ == "__main__":
         if args.fork_then_clone:
             fork_clone_repo(user_gitee, args.repo_pkg, args.branch)
 
-        if args.download or args.create_spec:
+        if args.download or args.create_spec or args.push_create_pr_issue:
             if not args.new_version:
                 print("Please specify the upgraded version of the {repo}".format(repo=args.repo_pkg))
                 sys.exit(1)
@@ -280,6 +357,10 @@ if __name__ == "__main__":
         if len(spec_file.patches) >= 1:
             print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=args.repo_pkg))
             sys.exit(1)
+        
+        if args.build_pkg:
+            if not build_pkg(args.repo_pkg, args.branch):
+                sys.exit(1)
 
-        if args.PR:
-            user_gitee.create_pr(user_gitee.token["user"], args.repo_pkg)
+        if args.push_create_pr_issue:
+            push_create_pr_issue(user_gitee, args.repo_pkg, cur_version, args.new_version, args.branch)
