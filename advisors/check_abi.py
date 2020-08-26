@@ -49,9 +49,12 @@ def parse_command_line():
                         help="show all infos includ changes in member name")
     parser.add_argument("-v", "--verbose", action="store_true", default=False,
                         help="Show additional information")
+    parser.add_argument("-i", "--input_rpms_path", default="", nargs="?",
+                        help="Find the rpm packages in this path that calls this change interfaces"
+                        " (e.g. /home/rpms)")
 
     subparser = parser.add_subparsers(dest='command_name',
-                                      help="Compare between two RPMs or two .so files")
+                                      help="Compare between two RPMs or two .so files or two RPMs paths")
 
     rpm_parser = subparser.add_parser('compare_rpm', help="Compare between two RPMs")
     rpm_parser.add_argument("-r", "--rpms", required=True, nargs=2,
@@ -95,7 +98,7 @@ def list_so_files(path, add_global):
     """
     # known suffix of exception
     # we cannot rely on number suffix for some .so files use complex version scheme.
-    exception_list = ["hmac", "debug"]
+    exception_list = ["hmac", "debug", "socket"]
     so_files = set()
     for dirpath, _, files in os.walk(path):
         for filename in files:
