@@ -24,7 +24,9 @@ from .gitee import Gitee
 
 class ParseYaml():
     """
-    Description: Download the contents of the yaml file
+    Description: Analyze the downloaded remote yaml file, obtain the tags
+    and maintainer information in the yaml file, and save the obtained
+    relevant information into the database
 
     Attributes:
         base: base class instance
@@ -66,9 +68,11 @@ class ParseYaml():
             _remote_url = 'https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/'
         return _remote_url + '{pkg_name}.yaml'.format(pkg_name=pkg_name)
 
-    def update_pkg_info(self):
+    def update_database(self):
         """
-            Download the contents of the yaml file
+            For the current package, determine whether the specific yaml file exists, parse
+            the data in it and save it in the database if it exists, and record the relevant
+            log if it does not exist
 
         """
         if self._openeuler_advisor_exists_yaml():
@@ -78,7 +82,7 @@ class ParseYaml():
                 obtained yet" % self.pkg.name
             self.base.log.logger.warning(msg)
 
-    def _read_yaml_content(self, url):
+    def _get_yaml_content(self, url):
         """
 
         """
@@ -97,7 +101,7 @@ class ParseYaml():
                 package name under the openeuler-advisor project
 
         """
-        self._read_yaml_content(self.openeuler_advisor_url)
+        self._get_yaml_content(self.openeuler_advisor_url)
         if self._yaml_content:
             return True
         return False
@@ -201,7 +205,7 @@ def update_pkg_info(pkg_info_update=True):
                             pkg_info=copy.deepcopy(package_item),
                             base=base_control,
                             table_name=table_name)
-                        pool.submit(parse_yaml.update_pkg_info)
+                        pool.submit(parse_yaml.update_database)
                     else:
                         # Get the issue of each warehouse and save it
                         gitee_issue = Gitee(
