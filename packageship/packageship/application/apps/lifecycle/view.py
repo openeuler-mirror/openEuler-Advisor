@@ -155,8 +155,8 @@ class MaintainerView(Resource):
             with DBHelper(db_name='lifecycle') as database:
                 maintainers = database.session.query(
                     PackagesMaintainer.maintainer).group_by(PackagesMaintainer.maintainer).all()
-                return [maintainer_item[0]
-                        for maintainer_item in maintainers if maintainer_item[0]]
+                return [maintainer_item[0] for maintainer_item in maintainers
+                        if maintainer_item[0]]
         except (SQLAlchemyError, DisconnectionError) as error:
             current_app.logger.error(error)
             return []
