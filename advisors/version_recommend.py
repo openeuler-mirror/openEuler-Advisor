@@ -329,6 +329,8 @@ class VersionTypeXYZ(VersionType):
 
         version_candidate = []
         version_digital = re.split(r'[._-]', current_version)  # 将版本号做拆分
+        if len(version_entry) <= 1:  # 如果当前版本号仅一位，不能判断维护版本号
+            return '.'.join(version_digital)
         xy = version_digital[0:2]
         for version in version_entry:
             version_temp = re.split(r'[._-]', version)
@@ -387,6 +389,8 @@ class VersionTypeXYZ(VersionType):
 
         version_candidate.clear()
         for version in version_list:  # 将第二位最大的列入候选列表,准备第三位比较
+            if len(version) <= 1:  # 过滤仅一位的版本号
+                continue
             if y == version[1]:
                 version_candidate.append(version)
 

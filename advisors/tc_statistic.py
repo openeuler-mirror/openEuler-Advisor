@@ -76,7 +76,7 @@ class Advisor(object):
 
         if num <= 100:
             list_all_url = list_all_url + "per_page={num}&page=1".format(num=num)
-            return self.get_json(url)
+            return self.get_json(list_all_url)
         
 
         list_all_url = list_all_url + "per_page=100&page="
@@ -128,7 +128,8 @@ if __name__ == "__main__":
     for t in tc_members:
         tc_statistic[t] = 0
     PRs = adv.get_recent_prs(int(args.number))
-    print("Statistic of recent {num} PRs".format(len(PRs))
+    print("Statistic of recent {num} PRs".format(num=len(PRs)))
+
     for pr in PRs:
         commenter = pr["user"]["login"]
         if commenter in tc_members:
@@ -140,5 +141,5 @@ if __name__ == "__main__":
                 tc_statistic[commenter] += 1
             
     for tc in tc_statistic.keys():
-        print("{tc} mades {num} comments".format(tc=tc, num=tc_statistic[tc]))
+        print("{tc} made {num} comments".format(tc=tc, num=tc_statistic[tc]))
 
