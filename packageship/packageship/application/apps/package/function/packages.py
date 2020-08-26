@@ -12,12 +12,12 @@ from packageship.application.apps.package.function.constants import ResponseCode
 from packageship.application.apps.package.function.searchdb import db_priority
 
 from packageship.libs.dbutils import DBHelper
-from packageship.application.models.package import src_pack
-from packageship.application.models.package import src_requires
-from packageship.application.models.package import bin_pack
+from packageship.application.models.package import SrcPack
+from packageship.application.models.package import SrcRequires
+from packageship.application.models.package import BinPack
 from packageship.application.models.package import maintenance_info
-from packageship.application.models.package import bin_requires
-from packageship.application.models.package import bin_provides
+from packageship.application.models.package import BinRequires
+from packageship.application.models.package import BinProvides
 from packageship.libs.exception import Error
 
 
@@ -34,7 +34,7 @@ def get_packages(dbname):
         Error: Abnormal error
     """
     with DBHelper(db_name=dbname) as db_name:
-        src_pack_queryset = db_name.session.query(src_pack).all()
+        src_pack_queryset = db_name.session.query(SrcPack).all()
         if src_pack_queryset is None:
             return None
         resp_list = list()
@@ -108,20 +108,20 @@ def buildep_packages(dbname, src_pack_pkgkey):
     with DBHelper(db_name=dbname) as db_name:
         # srcpack's pkgkey to src_requires find pkgkey
         s_pack_requires_set = db_name.session.query(
-            src_requires).filter_by(pkgKey=src_pack_pkgkey).all()
+            SrcRequires).filter_by(pkgKey=src_pack_pkgkey).all()
         # src_requires pkykey to find the name of the dependent component
         s_pack_requires_names = [
             s_pack_requires_obj.name for s_pack_requires_obj in s_pack_requires_set]
 
         # Find pkgkey in bin_provides by the name of the dependent component
-        b_pack_provides_set = db_name.session.query(bin_provides).filter(
-            bin_provides.name.in_(s_pack_requires_names)).all()
+        b_pack_provides_set = db_name.session.query(BinProvides).filter(
+            BinProvides.name.in_(s_pack_requires_names)).all()
         b_pack_provides_pkg_list = [
             b_pack_provides_obj.pkgKey for b_pack_provides_obj in b_pack_provides_set]
 
         # Go to bin_pack to find the name by pkgkey of bin_provides
-        b_bin_pack_set = db_name.session.query(bin_pack).filter(
-            bin_pack.pkgKey.in_(b_pack_provides_pkg_list)).all()
+        b_bin_pack_set = db_name.session.query(BinPack).filter(
+            BinPack.pkgKey.in_(b_pack_provides_pkg_list)).all()
         builddep = [b_bin_pack_obj.name for b_bin_pack_obj in b_bin_pack_set]
         return builddep
 
@@ -143,7 +143,7 @@ def sub_packages(dbname, sourcename):
         subpack = dict()
         # The name of src_pack finds the sub-package bin_pack query set
         i_bin_pack_set = db_name.session.query(
-            bin_pack).filter_by(src_name=sourcename).all()
+            BinPack).filter_by(src_name=sourcename).all()
         if i_bin_pack_set is None:
             return subpack
         # Find the objects of each sub-package
@@ -153,18 +153,18 @@ def sub_packages(dbname, sourcename):
             # Find the names of the components required to install bin_requires
             # dependencies
             i_bin_requires_set = db_name.session.query(
-                bin_requires).filter_by(pkgKey=i_bin_pack_pkgkey).all()
+                BinRequires).filter_by(pkgKey=i_bin_pack_pkgkey).all()
             i_bin_requires_names = [
                 b_bin_requires_obj.name for b_bin_requires_obj in i_bin_requires_set]
             # Find pkykey in bin_provides by the name of the dependent
             # component
-            i_bin_provides_set = db_name.session.query(bin_provides).filter(
-                bin_provides.name.in_(i_bin_requires_names))
+            i_bin_provides_set = db_name.session.query(BinProvides).filter(
+                BinProvides.name.in_(i_bin_requires_names))
             i_bin_provides_pkg_list = [
                 i_bin_provides_obj.pkgKey for i_bin_provides_obj in i_bin_provides_set]
             # Find the name in bin_pack by pkgkey
-            i_bin_pack_set = db_name.session.query(bin_pack).filter(
-                bin_pack.pkgKey.in_(i_bin_provides_pkg_list))
+            i_bin_pack_set = db_name.session.query(BinPack).filter(
+                BinPack.pkgKey.in_(i_bin_provides_pkg_list))
             i_bin_pack_names = [
                 in_bin_pack_obj.name for in_bin_pack_obj in i_bin_pack_set]
             subpack[i_bin_pack_name] = i_bin_pack_names
@@ -185,7 +185,7 @@ def get_single_package(dbname, sourcename):
     """
     with DBHelper(db_name=dbname) as db_name:
         package = dict()
-        src_pack_obj = db_name.session.query(src_pack).filter_by(
+        src_pack_obj = db_name.session.query(SrcPack).filter_by(
             name=sourcename).first()
         if src_pack_obj is None:
             return None
@@ -273,7 +273,7 @@ def _update_package_info(
         result_data = True
         with DBHelper(db_name=dbname) as data_name:
             update_obj = data_name.session.query(
-                src_pack).filter_by(name=package_name).first()
+                SrcPack).filter_by(name=package_name).first()
             if update_obj is None:
                 return False
             update_obj.maintaniner = maintainer

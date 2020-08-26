@@ -10,11 +10,13 @@ from test.base_code.common_test_code import compare_two_values, get_correct_json
 from packageship.application.apps.package.function.constants import ResponseCode
 from packageship.application.apps.package.function.searchdb import db_priority
 
+
 class TestBeDepend(ReadTestBase):
     """
     The dependencies of the package are tested
     """
     db_name = db_priority()[0]
+
     def test_lack_parameter(self):
         """
         Less transmission is always parameter transmission

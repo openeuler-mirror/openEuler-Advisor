@@ -12,8 +12,8 @@ import yaml
 from sqlalchemy.exc import SQLAlchemyError
 from requests.exceptions import HTTPError
 from packageship import system_config
-from packageship.application.models.package import packages
-from packageship.application.models.package import packages_maintainer
+from packageship.application.models.package import Packages
+from packageship.application.models.package import PackagesMaintainer
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error, ContentNoneException
 from packageship.libs.configutils.readconfig import ReadConfig
@@ -124,14 +124,14 @@ class ParseYaml():
                 database.add(self.pkg)
                 if self.timed_task_open and self.pkg.maintainer:
                     _packages_maintainer = database.session.query(
-                        packages_maintainer).filter(
-                        packages_maintainer.name == self.pkg.name).first()
+                        PackagesMaintainer).filter(
+                        PackagesMaintainer.name == self.pkg.name).first()
                     if _packages_maintainer:
                         _packages_maintainer.name = self.pkg.name
                         _packages_maintainer.maintainer = self.pkg.maintainer
                         _packages_maintainer.maintainlevel = self.pkg.maintainlevel
                     else:
-                        database.add(packages_maintainer(
+                        database.add(PackagesMaintainer(
                             name=self.pkg.name, maintainer=self.pkg.maintainer,
                             maintainlevel=self.pkg.maintainlevel))
                 database.session.commit()
@@ -190,10 +190,10 @@ def update_pkg_info(pkg_info_update=True):
         # Open thread pool
         pool = ThreadPoolExecutor(max_workers=pool_workers)
         with DBHelper(db_name="lifecycle") as database:
-            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer'],
+            for table_name in filter(lambda x: x not in ['packages_issue', 'PackagesMaintainer'],
                                      database.engine.table_names()):
 
-                cls_model = packages.package_meta(table_name)
+                cls_model = Packages.package_meta(table_name)
                 # Query a specific table
                 for package_item in database.session.query(cls_model).all():
                     if pkg_info_update:

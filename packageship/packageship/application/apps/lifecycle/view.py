@@ -23,9 +23,9 @@ from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error
 from packageship.application.apps.package.function.constants import ResponseCode
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
-from packageship.application.models.package import packages_issue
-from packageship.application.models.package import packages
-from packageship.application.models.package import packages_maintainer
+from packageship.application.models.package import PackagesIssue
+from packageship.application.models.package import Packages
+from packageship.application.models.package import PackagesMaintainer
 from packageship.libs.log import Log
 from .serialize import IssueDownloadSchema, PackagesDownloadSchema
 from .function.gitee import Gitee as gitee
@@ -96,7 +96,7 @@ class DownloadFile(Resource):
         try:
             with DBHelper(db_name='lifecycle') as database:
                 # Query all package data in the specified table
-                _model = packages.package_meta(table_name)
+                _model = Packages.package_meta(table_name)
                 _packageinfos = database.session.query(_model).all()
                 packages_dicts = PackagesDownloadSchema(
                     many=True).dump(_packageinfos)
@@ -112,7 +112,7 @@ class DownloadFile(Resource):
         """
         try:
             with DBHelper(db_name='lifecycle') as database:
-                _issues = database.session.query(packages_issue).all()
+                _issues = database.session.query(PackagesIssue).all()
                 issues_dicts = IssueDownloadSchema(many=True).dump(_issues)
                 return issues_dicts
         except (SQLAlchemyError, DisconnectionError) as error:
@@ -154,7 +154,7 @@ class MaintainerView(Resource):
         try:
             with DBHelper(db_name='lifecycle') as database:
                 maintainers = database.session.query(
-                    packages_maintainer.maintainer).group_by(packages_maintainer.maintainer).all()
+                    PackagesMaintainer.maintainer).group_by(PackagesMaintainer.maintainer).all()
                 return [maintainer_item[0]
                         for maintainer_item in maintainers if maintainer_item[0]]
         except (SQLAlchemyError, DisconnectionError) as error:

@@ -15,7 +15,7 @@ from sqlalchemy import exists
 
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.log import Log
-from packageship.application.models.package import bin_pack
+from packageship.application.models.package import BinPack
 from packageship.libs.exception import ContentNoneException, Error
 from packageship.system_config import DATABASE_FILE_INFO
 from .constants import ResponseCode
@@ -106,9 +106,11 @@ class SearchDB():
                         get_list.append(result.search_name)
                         if not result.depend_name and result.req_name:
                             if result.req_name in provides_not_found:
-                                provides_not_found[result.req_name].append([result.search_name, result.search_src_name, result.search_version, db_name])
+                                provides_not_found[result.req_name].append(
+                                    [result.search_name, result.search_src_name, result.search_version, db_name])
                             else:
-                                provides_not_found[result.req_name] = [[result.search_name, result.search_src_name, result.search_version, db_name]]
+                                provides_not_found[result.req_name] = [
+                                    [result.search_name, result.search_src_name, result.search_version, db_name]]
                         else:
                             obj = return_tuple(
                                 result.depend_name,
@@ -123,7 +125,8 @@ class SearchDB():
                     get_list.clear()
                     search_set.symmetric_difference_update(get_set)
                     if not search_set:
-                        install_result = self._get_install_pro_in_other_database(provides_not_found)
+                        install_result = self._get_install_pro_in_other_database(
+                            provides_not_found)
                         result_list.extend(install_result)
                         return result_list
                 else:
@@ -132,7 +135,8 @@ class SearchDB():
                 LOGGER.logger.error(error_msg)
             except SQLAlchemyError as error_msg:
                 LOGGER.logger.error(error_msg)
-        install_result = self._get_install_pro_in_other_database(provides_not_found)
+        install_result = self._get_install_pro_in_other_database(
+            provides_not_found)
         result_list.extend(install_result)
         for binary_name in search_set:
             result_list.append((return_tuple(None, None, None,
@@ -155,14 +159,14 @@ class SearchDB():
         """
         for db_name, data_base in self.db_object_dict.items():
             try:
-                bin_obj = data_base.session.query(bin_pack).filter_by(
+                bin_obj = data_base.session.query(BinPack).filter_by(
                     name=binary_name
                 ).first()
                 source_name = bin_obj.src_name
                 source_version = bin_obj.version
                 if source_name is not None:
                     return ResponseCode.SUCCESS, db_name, \
-                           source_name, source_version
+                        source_name, source_version
             except AttributeError as error_msg:
                 LOGGER.logger.error(error_msg)
             except SQLAlchemyError as error_msg:
@@ -283,7 +287,8 @@ class SearchDB():
                 if bin_set:
                     for result in bin_set:
                         if result.req_name not in not_found_binary:
-                            LOGGER.logger.warning(result.req_name + " contains in two rpm packages!!!")
+                            LOGGER.logger.warning(
+                                result.req_name + " contains in two rpm packages!!!")
                         else:
                             for source_info in not_found_binary[result.req_name]:
                                 obj = return_tuple(
@@ -305,7 +310,8 @@ class SearchDB():
 
         if not_found_binary:
             for key, values in not_found_binary.items():
-                LOGGER.logger.warning("CANNOT FOUND THE component" + key + " in all database")
+                LOGGER.logger.warning(
+                    "CANNOT FOUND THE component" + key + " in all database")
         return result_list
 
     def _get_install_pro_in_other_database(self, not_found_binary):
@@ -317,7 +323,7 @@ class SearchDB():
         search_list = []
         result_list = []
         for db_name, data_base in self.db_object_dict.items():
-            for key,values in not_found_binary.items():
+            for key, values in not_found_binary.items():
                 search_list.append(key)
             search_set = set(search_list)
             search_list.clear()
@@ -336,11 +342,12 @@ class SearchDB():
                 """.format(literal_column('name').in_(search_set)))
             bin_set = data_base.session. \
                 execute(sql_string, {'name_{}'.format(i): v
-                                        for i, v in enumerate(search_set, 1)}).fetchall()
+                                     for i, v in enumerate(search_set, 1)}).fetchall()
             if bin_set:
                 for result in bin_set:
                     if result.req_name not in not_found_binary:
-                        LOGGER.logger.warning(result.req_name + " contains in two rpm packages!!!")
+                        LOGGER.logger.warning(
+                            result.req_name + " contains in two rpm packages!!!")
                     else:
                         for binary_info in not_found_binary[result.req_name]:
                             obj = return_tuple(
@@ -455,15 +462,18 @@ class SearchDB():
             get_list.clear()
             s_name_set.symmetric_difference_update(get_set)
             if not s_name_set:
-                build_result = self._get_binary_in_other_database(provides_not_found)
+                build_result = self._get_binary_in_other_database(
+                    provides_not_found)
                 build_list.extend(build_result)
                 return ResponseCode.SUCCESS, build_list
 
         if s_name_set:
-            build_result = self._get_binary_in_other_database(provides_not_found)
+            build_result = self._get_binary_in_other_database(
+                provides_not_found)
             build_list.extend(build_result)
             for source in s_name_set:
-                LOGGER.logger.warning("CANNOT FOUND THE source " + source + " in all database")
+                LOGGER.logger.warning(
+                    "CANNOT FOUND THE source " + source + " in all database")
         return ResponseCode.SUCCESS, build_list
 
     def binary_search_database_for_first_time(self, binary_name):
@@ -480,7 +490,7 @@ class SearchDB():
         try:
             for db_name, data_base in self.db_object_dict.items():
                 if data_base.session.query(
-                        exists().where(bin_pack.name == binary_name)
+                        exists().where(BinPack.name == binary_name)
                 ).scalar():
                     return db_name
         except AttributeError as attr_err:

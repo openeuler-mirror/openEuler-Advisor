@@ -10,7 +10,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql import literal_column
 from flask import current_app
 from packageship.libs.dbutils import DBHelper
-from packageship.application.models.package import src_pack
+from packageship.application.models.package import SrcPack
 from packageship.application.apps.package.function.constants import ResponseCode
 
 
@@ -59,7 +59,7 @@ class BeDepend():
         """
         with DBHelper(db_name=self.db_name) as data_base:
             src_obj = data_base.session.query(
-                src_pack).filter_by(name=self.source_name).first()
+                SrcPack).filter_by(name=self.source_name).first()
             if src_obj:
                 # spell dictionary
                 self.result_dict[self.source_name + "_src"] = [

@@ -7,7 +7,7 @@ from sqlalchemy import Column, Integer, String, Text
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
-class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class SrcPack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
         Source package model
     """
@@ -44,7 +44,7 @@ class src_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     maintainlevel = Column(String(100), nullable=True)
 
 
-class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class BinPack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
     Description: functional description:Binary package data
     """
@@ -79,7 +79,7 @@ class bin_pack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     src_name = Column(String(500), nullable=True)
 
 
-class bin_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class BinRequires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
         Binary package dependent package entity model
     """
@@ -96,7 +96,7 @@ class bin_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pre = Column(String(20), nullable=True)
 
 
-class src_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class SrcRequires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
         Source entity package dependent package entity model
     """
@@ -112,7 +112,7 @@ class src_requires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pre = Column(String(20), nullable=True)
 
 
-class bin_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class BinProvides(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
         Component entity model provided by binary package
     """
@@ -127,7 +127,7 @@ class bin_provides(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pkgKey = Column(Integer, nullable=True)
 
 
-class packages():  # pylint: disable=C0103,R0903
+class Packages():  # pylint: disable=C0103,R0903
     """
     Source code package version, issuer and other information
     """
@@ -164,7 +164,7 @@ class packages():  # pylint: disable=C0103,R0903
         return model
 
 
-class packages_issue(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class PackagesIssue(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
         Source package issue
     """
@@ -181,7 +181,7 @@ class packages_issue(DBHelper.BASE):  # pylint: disable=C0103,R0903
     related_release = Column(String(500), nullable=True)
 
 
-class packages_maintainer(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class PackagesMaintainer(DBHelper.BASE):  # pylint: disable=C0103,R0903
     """
         Correspondence between source code package and maintainer
     """
