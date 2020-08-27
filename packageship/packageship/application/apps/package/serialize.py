@@ -253,9 +253,7 @@ class AllPackInfoSchema(Schema):  # pylint: disable= too-few-public-methods
         Field serialization for package file download
     """
     class Meta:  # pylint: disable=missing-class-docstring
-        """
-          Model mapping serialized fields
-        """
+        """Model mapping serialized fields"""
         model = Packages
         fields = (
             'id',
@@ -281,9 +279,7 @@ class SinglePackInfoSchema(Schema):
     """
 
     class Meta:  # pylint: disable=missing-class-docstring
-        """
-        Model mapping serialized fields
-        """
+        """Model mapping serialized fields"""
         model = Packages
         fields = (
             'name',
