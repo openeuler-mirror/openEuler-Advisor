@@ -3,6 +3,7 @@
 Description: Basic configuration of flask framework
 """
 import random
+from packageship import system_config
 from packageship.libs.configutils.readconfig import ReadConfig
 
 
@@ -19,9 +20,11 @@ class Config():
 
     LOG_LEVEL = 'INFO'
 
+    SCHEDULER_API_ENABLED = True
+
     def __init__(self):
 
-        self._read_config = ReadConfig()
+        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
 
         self.set_config_val()
 
@@ -32,14 +35,6 @@ class Config():
         """
         cls.SECRET_KEY = ''.join(
             [random.choice('abcdefghijklmnopqrstuvwxyz!@#$%^&*()') for index in range(random_len)])
-
-    @classmethod
-    def _set_debug(cls, debug):
-        """
-        Description: Set the debugging mode
-        """
-        if debug == 'true':
-            cls.DEBUG = True
 
     @classmethod
     def _set_log_level(cls, log_level):
@@ -56,11 +51,6 @@ class Config():
         Raises:
         """
         Config._random_secret_key()
-
-        debug = self._read_config.get_system('debug')
-
-        if debug:
-            Config._set_debug(debug)
 
         log_level = self._read_config.get_config('LOG', 'log_level')
 

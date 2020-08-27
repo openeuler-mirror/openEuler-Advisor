@@ -14,12 +14,12 @@ from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.exception import Error
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.log import Log
-from packageship.application.models.package import src_pack
-from packageship.application.models.package import bin_pack
-from packageship.application.models.package import bin_requires
-from packageship.application.models.package import src_requires
-from packageship.application.models.package import bin_provides
-from packageship.application.models.package import packages
+from packageship.application.models.package import SrcPack
+from packageship.application.models.package import BinPack
+from packageship.application.models.package import BinRequires
+from packageship.application.models.package import SrcRequires
+from packageship.application.models.package import BinProvides
+from packageship.application.models.package import Packages
 from packageship import system_config
 
 LOGGER = Log(__name__)
@@ -58,11 +58,11 @@ class InitDataBase():
             'mysql': MysqlDatabaseOperations
         }
         self.database_name = None
-        self._tables = ['src_pack', 'bin_pack',
-                        'bin_requires', 'src_requires', 'bin_provides']
+        self._tables = ['SrcPack', 'BinPack',
+                        'BinRequires', 'SrcRequires', 'BinProvides']
         # Create life cycle related databases and tables
         if not self.create_database(db_name='lifecycle',
-                                    tables=['packages_issue'],
+                                    tables=['PackagesIssue'],
                                     storage=True):
             raise SQLAlchemyError(
                 'Failed to create the specified database and table：lifecycle')
@@ -309,7 +309,7 @@ class InitDataBase():
                 '{db_name}:There is no relevant data in the source \
                     package provided '.format(db_name=db_name))
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(packages_datas, src_pack)
+            database.batch_add(packages_datas, SrcPack)
 
         self._storage_packages(table_name, packages_datas)
 
@@ -318,7 +318,7 @@ class InitDataBase():
         """
             The mapping relationship of the orm model
         """
-        model = type("packages", (packages, DBHelper.BASE), {
+        model = type("packages", (Packages, DBHelper.BASE), {
             '__tablename__': table_name})
         return model
 
@@ -372,7 +372,7 @@ class InitDataBase():
             raise ContentNoneException('{db_name}: The package data that the source package \
                 depends on is empty'.format(db_name=db_name))
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(requires_datas, src_requires)
+            database.batch_add(requires_datas, SrcRequires)
 
     def _save_bin_packages(self, db_name):
         """
@@ -402,7 +402,7 @@ class InitDataBase():
                 bin_packaegs[index]['src_name'] = src_package_name
 
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(bin_packaegs, bin_pack)
+            database.batch_add(bin_packaegs, BinPack)
 
     def _save_bin_requires(self, db_name):
         """
@@ -423,7 +423,7 @@ class InitDataBase():
                     dependency package'.format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(requires_datas, bin_requires)
+            database.batch_add(requires_datas, BinRequires)
 
     def _save_bin_provides(self, db_name):
         """
@@ -444,7 +444,7 @@ class InitDataBase():
                     binary component '.format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(provides_datas, bin_provides)
+            database.batch_add(provides_datas, BinProvides)
 
     def __exists_repeat_database(self):
         """
