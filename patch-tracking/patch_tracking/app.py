@@ -27,6 +27,13 @@ def check_settings_conf():
             if not app.config[setting]:
                 logger.error('%s is empty in settings.conf.', setting)
                 setting_error = True
+            else:
+                if setting == "LISTEN" and int(app.config[setting].split(":")[1]) > 65535:
+                    logger.error('LISTEN value error:  illegal port number in /etc/patch-tracking/settings.conf.')
+                    setting_error = True
+                if setting == "SCAN_DB_INTERVAL" and int(app.config[setting]) <= 0:
+                    logger.error('SCAN_DB_INTERVAL value error: must be greater than zero in /etc/patch-tracking/settings.conf.')
+                    setting_error = True
         else:
             logger.error('%s not configured in settings.conf.', setting)
             setting_error = True
