@@ -11,4 +11,8 @@ urls = [  # pylint: disable=invalid-name
     (view.MaintainerView, '/lifeCycle/maintainer', {'query': ('GET')}),
     # Get the columns that need to be displayed by default in the package
     (view.TableColView, '/packages/tablecol', {'query': ('GET')}),
+    # View all table names in the package-info database
+    (view.LifeTables, '/lifeCycle/tables', {'query': ('GET')}),
+# update a package info
+    (view.UpdatePackages, '/lifeCycle/updatePkgInfo', {'write': ('PUT')})
 ]

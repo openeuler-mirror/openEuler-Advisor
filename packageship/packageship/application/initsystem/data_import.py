@@ -58,11 +58,12 @@ class InitDataBase():
             'mysql': MysqlDatabaseOperations
         }
         self.database_name = None
-        self._tables = ['SrcPack', 'BinPack',
-                        'BinRequires', 'SrcRequires', 'BinProvides']
+        self._tables = ['src_pack', 'bin_pack',
+                        'bin_requires', 'src_requires', 'bin_provides']
         # Create life cycle related databases and tables
         if not self.create_database(db_name='lifecycle',
-                                    tables=['PackagesIssue'],
+                                    tables=['packages_issue',
+                                            'packages_maintainer'],
                                     storage=True):
             raise SQLAlchemyError(
                 'Failed to create the specified database and table：lifecycle')

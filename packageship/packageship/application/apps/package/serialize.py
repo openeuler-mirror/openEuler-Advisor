@@ -7,28 +7,35 @@ from marshmallow import fields
 from marshmallow import ValidationError
 from marshmallow import validate
 
-
-class PackagesSchema(Schema):
-    """
-    Description: PackagesSchema serialize
-    """
-    dbName = fields.Str(validate=validate.Length(
-        max=50), required=False, allow_none=True)
+from packageship.application.models.package import Packages
 
 
-class GetpackSchema(Schema):
+def validate_pagenum(pagenum):
     """
-    Description: GetpackSchema serialize
+    Description: Method test
+    Args：
+        pagenum: pagenum
+    Returns:
+        True or failure
+    Raises:
+        ValidationError: Test failed
     """
-    sourceName = fields.Str(
-        required=True,
-        validate=validate.Length(min=1,
-                                 max=200))
+    if pagenum <= 0 or pagenum >= 65535:
+        raise ValidationError("pagenum is illegal data ")
 
-    dbName = fields.Str(validate=validate.Length(
-        max=30), required=False, allow_none=True)
-    version = fields.Str(validate=validate.Length(
-        max=200), required=False, allow_none=True)
+
+def validate_pagesize(pagesize):
+    """
+    Description: Method test
+    Args：
+        pagesize: pagesize
+    Returns:
+        True or failure
+    Raises:
+        ValidationError: Test failed
+    """
+    if pagesize <= 0 or pagesize >= 65535:
+        raise ValidationError("pagesize is illegal data ")
 
 
 def validate_maintainlevel(maintainlevel):
@@ -41,30 +48,82 @@ def validate_maintainlevel(maintainlevel):
     Raises:
         ValidationError: Test failed
     """
-    if maintainlevel not in ['1', '2', '3', '4']:
+    if maintainlevel not in [1, 2, 3, 4, '']:
         raise ValidationError("maintainLevel is illegal data ")
 
 
-class PutpackSchema(Schema):
+def validate_maintainlevels(maintainlevel):
     """
-    Description: PutpackSchema serialize
+    Description: Method test
+    Args：
+        maintainlevel: maintainlevel
+    Returns:
+        True or failure
+    Raises:
+        ValidationError: Test failed
     """
-    sourceName = fields.Str(
+    if maintainlevel not in ['1', '2', '3', '4', '']:
+        raise ValidationError("maintainLevel is illegal data ")
+
+
+class AllPackagesSchema(Schema):
+    """
+    Description: AllPackagesSchema serialize
+    """
+    table_name = fields.Str(
         required=True,
+        validate=validate.Length(min=1,
+                                 max=200))
+    page_num = fields.Integer(
+        required=True,
+        validate=validate_pagenum
+    )
+    page_size = fields.Integer(
+        required=True,
+        validate=validate_pagesize
+    )
+    query_pkg_name = fields.Str(validate=validate.Length(
+        max=200), required=False, allow_none=True)
+    maintainner = fields.Str(validate=validate.Length(
+        max=200), required=False, allow_none=True)
+    maintainlevel = fields.Str(
+        validate=validate_maintainlevels,
+        required=False,
+        allow_none=True)
+
+
+class SinglepackSchema(Schema):
+    """
+    Description: GetpackSchema serialize
+    """
+    pkg_name = fields.Str(
+        required=True,
+        validate=validate.Length(min=1,
+                                 max=200))
+
+    table_name = fields.Str(required=True,
+                            validate=validate.Length(min=1,
+                                                     max=200))
+
+
+class UpdatePackagesSchema(Schema):
+    """
+    Description: UpdatePackagesSchema serialize
+    """
+    pkg_name = fields.Str(
+        required=False,
         validate=validate.Length(
-            min=1,
             max=200))
-    dbName = fields.Str(
-        required=True,
-        validate=validate.Length(
-            min=1,
-            max=50))
     maintainer = fields.Str(validate=validate.Length(
         max=50), required=False, allow_none=True)
-    maintainlevel = fields.Str(
+    maintainlevel = fields.Integer(
         validate=validate_maintainlevel,
         required=False,
         allow_none=True)
+    batch = fields.Boolean(
+        required=True)
+    filepath = fields.Str(validate=validate.Length(
+        max=200), required=False, allow_none=True)
 
 
 class InstallDependSchema(Schema):
@@ -187,3 +246,68 @@ class InitSystemSchema(Schema):
     configfile = fields.Str(
         validate=validate.Length(
             max=500), required=False, allow_none=True)
+
+
+class AllPackInfoSchema(Schema):  # pylint: disable= too-few-public-methods
+    """
+        Field serialization for package file download
+    """
+    class Meta:  # pylint: disable=missing-class-docstring
+        """
+          Model mapping serialized fields
+        """
+        model = Packages
+        fields = (
+            'id',
+            'name',
+            'url',
+            'version',
+            'release',
+            'release_time',
+            'rpm_license',
+            'maintainer',
+            'maintainlevel',
+            'feature',
+            'release_time',
+            'used_time',
+            'maintainer_status',
+            'latest_version',
+            'latest_version_time')
+
+
+class SinglePackInfoSchema(Schema):
+    """
+        Field serialization for package file download
+    """
+
+    class Meta:  # pylint: disable=missing-class-docstring
+        """
+        Model mapping serialized fields
+        """
+        model = Packages
+        fields = (
+            'name',
+            'version',
+            'release',
+            'url',
+            'maintainer',
+            'feature',
+            'rpm_license',
+            'maintainlevel',
+            'summary',
+            'description')
+
+
+class DataFormatVerfi(Schema):
+    """
+    Verify the data in yaml
+    """
+
+    maintainer = fields.Str(validate=validate.Length(
+        max=50), required=False, allow_none=True)
+    maintainlevel = fields.Int(
+        validate=validate_maintainlevel,
+        required=False,
+        allow_none=True)
+    name = fields.Str(validate=validate.Length(min=1,
+                                               max=50), required=True)

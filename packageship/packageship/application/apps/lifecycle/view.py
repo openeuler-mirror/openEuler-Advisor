@@ -3,22 +3,21 @@
 Life cycle related api interface
 """
 import io
-import json
-import math
 import os
 from concurrent.futures import ThreadPoolExecutor
 
 import pandas as pd
 import yaml
+
 from flask import request
 from flask import jsonify, make_response
 from flask import current_app
 from flask_restful import Resource
 from marshmallow import ValidationError
+
 from sqlalchemy.exc import DisconnectionError, SQLAlchemyError
 
 from packageship import system_config
-from packageship.application.apps.package.serialize import DataFormatVerfi, UpdatePackagesSchema
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error
 from packageship.application.apps.package.function.constants import ResponseCode
@@ -28,7 +27,8 @@ from packageship.application.models.package import Packages
 from packageship.application.models.package import PackagesMaintainer
 from packageship.libs.log import Log
 from .serialize import IssueDownloadSchema, PackagesDownloadSchema
-from .function.gitee import Gitee as gitee
+from ..package.serialize import DataFormatVerfi, UpdatePackagesSchema
+
 
 LOGGER = Log(__name__)
 
@@ -221,3 +221,322 @@ class TableColView(Resource):
             ResponseCode.response_json(
                 ResponseCode.SUCCESS,
                 table_mapping_columns))
+
+
+class LifeTables(Resource):
+    """
+    description: LifeTables
+    Restful API: get
+    ChangeLog:
+    """
+
+    def get(self):
+        """
+        return all table names in the database
+
+        Returns:
+            Return the table names in the database as a list
+        """
+        try:
+            with DBHelper(db_name="lifecycle") as database_name:
+                # View all table names in the package-info database
+                all_table_names = database_name.engine.table_names()
+                all_table_names.remove("packages_issue")
+                all_table_names.remove("packages_maintainer")
+                return jsonify(
+                    ResponseCode.response_json(
+                        ResponseCode.SUCCESS, data=all_table_names)
+                )
+        except (SQLAlchemyError, DisconnectionError, Error, ValueError) as sql_error:
+            LOGGER.logger.error(sql_error)
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.DATABASE_NOT_FOUND)
+            )
+
+
+class UpdatePackages(Resource):
+    """
+    description:Life cycle update information of a single package
+    Restful API: post
+    ChangeLog:
+    """
+
+    def _get_all_yaml_name(self, filepath):
+        """
+        List of all yaml file names in the folder
+
+        Args:
+            filepath: file path
+
+        Returns:
+            yaml_file_list：List of all yaml file names in the folder
+
+        Attributes：
+            Error：Error
+            NotADirectoryError：Invalid directory name
+            FileNotFoundError：File not found error
+
+        """
+        try:
+            yaml_file_list = os.listdir(filepath)
+            return yaml_file_list
+        except (Error, NotADirectoryError, FileNotFoundError) as error:
+            current_app.logger.error(error)
+            return None
+
+    def _get_yaml_content(self, yaml_file, filepath):
+        """
+        Read the content of the yaml file
+
+        Args:
+            yaml_file: yaml file
+            filepath: file path
+
+        Returns:
+            Return a dictionary containing name, maintainer and maintainlevel
+        """
+        yaml_data_dict = dict()
+        if not yaml_file.endswith(".yaml"):
+            return None
+        pkg_name = yaml_file.rsplit('.yaml')[0]
+        single_yaml_path = os.path.join(filepath, yaml_file)
+        with open(single_yaml_path, 'r', encoding='utf-8') as file_context:
+            yaml_flie_data = yaml.load(
+                file_context.read(), Loader=yaml.FullLoader)
+            if yaml_flie_data is None or not isinstance(yaml_flie_data, dict):
+                return None
+            maintainer = yaml_flie_data.get("maintainer")
+            maintainlevel = yaml_flie_data.get("maintainlevel")
+        yaml_data_dict['name'] = pkg_name
+        if maintainer:
+            yaml_data_dict['maintainer'] = maintainer
+        if maintainlevel:
+            yaml_data_dict['maintainlevel'] = maintainlevel
+        return yaml_data_dict
+
+    def _read_yaml_file(self, filepath):
+        """
+        Read the yaml file and combine the data of the nested dictionary of the list
+
+        Args:
+            filepath: file path
+
+        Returns:
+            yaml.YAMLError：yaml file error
+            SQLAlchemyError：SQLAlchemy Error
+            DisconnectionError：Connect to database error
+            Error：Error
+        """
+        yaml_file_list = self._get_all_yaml_name(filepath)
+        if not yaml_file_list:
+            return None
+        try:
+            yaml_data_list = list()
+            _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
+            pool_workers = _readconfig.get_config('LIFECYCLE', 'pool_workers')
+            if not isinstance(pool_workers, int):
+                pool_workers = 10
+            with ThreadPoolExecutor(max_workers=pool_workers) as pool:
+                for yaml_file in yaml_file_list:
+                    pool_result = pool.submit(
+                        self._get_yaml_content, yaml_file, filepath)
+                    yaml_data_dict = pool_result.result()
+                    yaml_data_list.append(yaml_data_dict)
+            return yaml_data_list
+        except (yaml.YAMLError, SQLAlchemyError, DisconnectionError, Error) as error:
+            current_app.logger.error(error)
+            return None
+
+    def _verification_yaml_data_list(self, yaml_data_list):
+        """
+        Verify the data obtained in the yaml file
+
+        Args:
+            yaml_data_list: yaml data list
+
+        Returns:
+            yaml_data_list: After verification yaml data list
+
+        Attributes:
+            ValidationError: Validation error
+
+        """
+        try:
+            DataFormatVerfi(many=True).load(yaml_data_list)
+            return yaml_data_list
+        except ValidationError as e:
+            print(e.messages)
+            return None
+
+    def _save_in_database(self, yaml_data_list):
+        """
+        Save the data to the database
+
+        Args:
+            tbname: Table Name
+            name_separate_list: Split name list
+            _update_pack_data: Split new list of combined data
+
+        Returns:
+           SUCCESS or UPDATA_DATA_FAILED
+
+        Attributes
+            DisconnectionError: Connect to database error
+            SQLAlchemyError: SQLAlchemy Error
+            Error: Error
+
+        """
+        try:
+            with DBHelper(db_name="lifecycle") as database_name:
+                if 'packages_maintainer' not in database_name.engine.table_names():
+                    return jsonify(ResponseCode.response_json(
+                        ResponseCode.TABLE_NAME_NOT_EXIST))
+                database_name.session.begin(subtransactions=True)
+                for yaml_data in yaml_data_list:
+                    name = yaml_data.get("name")
+                    maintainer = yaml_data.get("maintainer")
+                    maintainlevel = yaml_data.get("maintainlevel")
+                    packages_maintainer_obj = database_name.session.query(
+                        PackagesMaintainer).filter_by(name=name).first()
+                    if packages_maintainer_obj:
+                        if maintainer:
+                            packages_maintainer_obj.maintainer = maintainer
+                        if maintainlevel:
+                            packages_maintainer_obj.maintainlevel = maintainlevel
+                    else:
+                        database_name.add(PackagesMaintainer(
+                            name=name, maintainer=maintainer, maintainlevel=maintainlevel
+                        ))
+                    database_name.session.commit()
+                return jsonify(ResponseCode.response_json(
+                    ResponseCode.SUCCESS))
+        except (DisconnectionError, SQLAlchemyError, Error, AttributeError) as error:
+            current_app.logger.error(error)
+            return jsonify(ResponseCode.response_json(
+                ResponseCode.UPDATA_DATA_FAILED))
+
+    def _overall_process(
+            self,
+            filepath):
+        """
+        Call each method to complete the entire function
+
+        Args:
+            filepath: file path
+            tbname: table name
+
+        Returns:
+            SUCCESS or UPDATA_DATA_FAILED
+
+        Attributes
+            DisconnectionError: Connect to database error
+            SQLAlchemyError: SQLAlchemy Error
+            Error: Error
+        """
+        try:
+            if filepath is None or not os.path.exists(filepath):
+                return jsonify(ResponseCode.response_json(
+                    ResponseCode.SPECIFIED_FILE_NOT_EXIST))
+            yaml_file_list = self._get_all_yaml_name(filepath)
+            if not yaml_file_list:
+                return jsonify(ResponseCode.response_json(
+                    ResponseCode.EMPTY_FOLDER))
+            yaml_data_list_result = self._read_yaml_file(filepath)
+            yaml_data_list = self._verification_yaml_data_list(
+                yaml_data_list_result)
+            if yaml_data_list is None:
+                return jsonify(ResponseCode.response_json(
+                    ResponseCode.YAML_FILE_ERROR))
+            result = self._save_in_database(
+                yaml_data_list)
+            return result
+        except (DisconnectionError, SQLAlchemyError, Error) as error:
+            current_app.logger.error(error)
+            return jsonify(ResponseCode.response_json(
+                ResponseCode.UPDATA_DATA_FAILED))
+
+    def _update_single_package_info(
+            self, srcname, maintainer, maintainlevel):
+        """
+            Update the maintainer field and maintainlevel
+            field of a single package
+
+           Args:
+               srcname: The name of the source package
+               maintainer: Package maintainer
+               maintainlevel: Package maintenance level
+
+           Returns:
+               success or failed
+
+           Attributes
+               SQLAlchemyError: sqlalchemy error
+               DisconnectionError: Cannot connect to database error
+               Error: Error
+           """
+        if not srcname:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
+            )
+        if not maintainer and not maintainlevel:
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+        try:
+            with DBHelper(db_name='lifecycle') as database_name:
+                if 'packages_maintainer' not in database_name.engine.table_names():
+                    return jsonify(ResponseCode.response_json(
+                        ResponseCode.TABLE_NAME_NOT_EXIST))
+                update_obj = database_name.session.query(
+                    PackagesMaintainer).filter_by(name=srcname).first()
+                if update_obj:
+                    if maintainer:
+                        update_obj.maintainer = maintainer
+                    if maintainlevel:
+                        update_obj.maintainlevel = maintainlevel
+                else:
+                    database_name.add(PackagesMaintainer(
+                        name=srcname, maintainer=maintainer, maintainlevel=maintainlevel
+                    ))
+                database_name.session.commit()
+                return jsonify(
+                    ResponseCode.response_json(
+                        ResponseCode.SUCCESS))
+        except (SQLAlchemyError, DisconnectionError, Error) as sql_error:
+            current_app.logger.error(sql_error)
+            database_name.session.rollback()
+            return jsonify(ResponseCode.response_json(
+                ResponseCode.UPDATA_DATA_FAILED
+            ))
+
+    def put(self):
+        """
+        Life cycle update information of a single package or
+        All packages
+
+        Returns:
+            for example::
+            {
+                "code": "",
+                "data": "",
+                "msg": ""
+            }
+        """
+        schema = UpdatePackagesSchema()
+        data = request.get_json()
+        if schema.validate(data):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+        srcname = data.get('pkg_name', None)
+        maintainer = data.get('maintainer', None)
+        maintainlevel = data.get('maintainlevel', None)
+        batch = data.get('batch')
+        filepath = data.get('filepath', None)
+
+        if batch:
+            result = self._overall_process(filepath)
+        else:
+            result = self._update_single_package_info(
+                srcname, maintainer, maintainlevel)
+        return result

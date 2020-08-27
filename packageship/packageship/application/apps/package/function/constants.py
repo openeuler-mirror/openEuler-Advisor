@@ -40,6 +40,10 @@ class ResponseCode():
     CONNECT_DB_ERROR = "4004"
     INPUT_NONE = "4005"
     FILE_NOT_FOUND = "4006"
+    SPECIFIED_FILE_NOT_EXIST = "4007"
+    UPDATA_OR_ADD_DATA_FAILED = "4008"
+    TABLE_NAME_NOT_EXIST = "4009"
+    UPDATA_DATA_FAILED = "4010"
     # Database operation module error status code
     DELETE_DB_ERROR = "40051"
     SERVICE_ERROR = "50000"
@@ -49,6 +53,11 @@ class ResponseCode():
     DATA_MERGE_ERROR = "50004"
     FILE_NOT_FIND_ERROR = "50005"
     DIS_CONNECTION_DB = "50006"
+    NO_PACKAGES_TABLE = "60001"
+    DATABASE_NOT_FOUND = "60002"
+    TABLE_NAME_NOT_EXIST_IN_DATABASE = "60003"
+    YAML_FILE_ERROR = " 70001"
+    EMPTY_FOLDER = "70002"
 
     CODE_MSG_MAP = {
         SUCCESS: "Successful Operation!",
@@ -66,7 +75,17 @@ class ResponseCode():
         DATA_MERGE_ERROR: "abnormal multi-file database integration",
         FILE_NOT_FIND_ERROR: "system initialization configuration file does not exist",
         DIS_CONNECTION_DB: "Unable to connect to the database, check the database configuration",
-        SERVICE_ERROR: "An exception occurred in the system, please try again later"}
+        SERVICE_ERROR: "An exception occurred in the system, please try again later",
+        SPECIFIED_FILE_NOT_EXIST: "The specified file does not exist",
+        NO_PACKAGES_TABLE: "There is no packages table in the database",
+        UPDATA_OR_ADD_DATA_FAILED: "Failed to update or add data",
+        DATABASE_NOT_FOUND: "There is no such database in the system",
+        TABLE_NAME_NOT_EXIST: "There is no such table in the database",
+        UPDATA_DATA_FAILED: "Failed to update data",
+        TABLE_NAME_NOT_EXIST_IN_DATABASE: "the table name dose not match the existed database",
+        YAML_FILE_ERROR: "Data error in yaml file",
+        EMPTY_FOLDER: "This is an empty folder, no yaml file"
+        }
 
     @classmethod
     def response_json(cls, code, data=None):

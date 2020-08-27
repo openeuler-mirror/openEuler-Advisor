@@ -11,6 +11,7 @@ from flask import current_app
 from flask_restful import Resource
 from sqlalchemy.exc import DisconnectionError
 
+from packageship import system_config
 from packageship.application.initsystem.data_import import InitDataBase
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error
@@ -19,13 +20,11 @@ from packageship.libs.exception import DataMergeException
 from packageship.libs.log import Log
 from packageship.system_config import DATABASE_FILE_INFO
 from .function.constants import ResponseCode
-from .function.packages import get_all_packages
-from .function.packages import _update_package_info
-from .function.packages import get_single
+from .function.packages import get_all_package_info
+from .function.packages import sing_pack
 from .function.searchdb import db_priority
-from .serialize import PackagesSchema
-from .serialize import GetpackSchema
-from .serialize import PutpackSchema
+from .serialize import AllPackagesSchema, SinglepackSchema
+
 from .serialize import DeletedbSchema
 from .serialize import InitSystemSchema
 from .serialize import BeDependSchema
@@ -78,34 +77,33 @@ class Packages(Resource):
             Error: Abnormal error
         """
         # Get verification parameters
-        schema = PackagesSchema()
-        data = schema.dump(request.args)
+        schema = AllPackagesSchema()
+        data = request.args
         if schema.validate(data):
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
-            )
-        dbname = data.get("dbName", None)
-        # Call method to query
-        try:
-            response = get_all_packages(dbname)
-            return response
-        # Database queries data and catches exceptions
-        except DisconnectionError as dis_connection_error:
-            current_app.logger.error(dis_connection_error)
-            return jsonify(
-                ResponseCode.response_json(
-                    ResponseCode.DIS_CONNECTION_DB))
-        except (AttributeError, TypeError, Error) as attribute_error:
-            current_app.logger.error(attribute_error)
-            return jsonify(
-                ResponseCode.response_json(
-                    ResponseCode.PACK_NAME_NOT_FOUND))
+            response = ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            response['total_count'] = None
+            response['total_page'] = None
+            return jsonify(response)
+        table_name = data.get("table_name")
+        page_num = data.get("page_num")
+        page_size = data.get("page_size")
+        src_name = data.get("query_pkg_name", None)
+        maintainner = data.get("maintainner", None)
+        maintainlevel = data.get("maintainlevel", None)
+        result = get_all_package_info(
+            table_name,
+            page_num,
+            page_size,
+            src_name,
+            maintainner,
+            maintainlevel)
+        return result
 
 
 class SinglePack(Resource):
     """
     description: single package management
-    Restful API: get, put
+    Restful API: get
     ChangeLog:
     """
 
@@ -141,93 +139,16 @@ class SinglePack(Resource):
             Error: Abnormal error
         """
         # Get verification parameters
-        schema = GetpackSchema()
-        data = schema.dump(request.args)
+        schema = SinglepackSchema()
+        data = request.args
         if schema.validate(data):
             return jsonify(
                 ResponseCode.response_json(ResponseCode.PARAM_ERROR)
             )
-        dbname = data.get("dbName", None)
-        sourcename = data.get("sourceName")
-
-        # Call method to query
-        try:
-            response = get_single(dbname, sourcename)
-            return response
-        except DisconnectionError as dis_connection_error:
-            current_app.logger.error(dis_connection_error)
-            abnormal = ResponseCode.DIS_CONNECTION_DB
-
-        except (AttributeError, TypeError, Error) as attribute_error:
-            current_app.logger.error(attribute_error)
-            abnormal = ResponseCode.PACK_NAME_NOT_FOUND
-        if abnormal is not None:
-            return jsonify(ResponseCode.response_json(abnormal))
-
-    def put(self):
-        """
-        update a package info,
-
-        Args:
-            dbName: Database name,Parameters are required
-            sourceName: The name of the source code package. Parameters are required
-            maintainer: Maintainer, parameter not required
-            maintainlevel: Maintenance level, parameter not required
-        Returns:
-            for
-            example::
-                {
-                  "code": "",
-                  "data": "",
-                  "msg": ""
-                }
-        Raises:
-            DisconnectionError: Unable to connect to database exception
-            AttributeError: Object does not have this property
-            TypeError: Exception of type
-            Error: Abnormal error
-        """
-        # Get verification parameters
-        schema = PutpackSchema()
-        data = schema.dump(request.get_json())
-        if schema.validate(data):
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
-            )
-        dbname = data.get('dbName')
-        sourcename = data.get('sourceName')
-        maintainer = data.get('maintainer', None)
-        maintain_level = data.get('maintainlevel', None)
-
-        # Call method to query
-        if not maintainer and not maintain_level:
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
-            )
-
-        if dbname not in db_priority():
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
-            )
-        # Database queries data and catches exceptions
-
-        try:
-            result_data = _update_package_info(
-                sourcename, dbname, maintainer, maintain_level)
-            if result_data is False:
-                return jsonify(
-                    ResponseCode.response_json(
-                        ResponseCode.PACK_NAME_NOT_FOUND))
-            return jsonify(
-                ResponseCode.response_json(ResponseCode.SUCCESS))
-        except DisconnectionError as dis_connection_error:
-            current_app.logger.error(dis_connection_error)
-            abnormal = ResponseCode.DIS_CONNECTION_DB
-        except (AttributeError, TypeError, Error) as attri_error:
-            current_app.logger.error(attri_error)
-            abnormal = ResponseCode.CONNECT_DB_ERROR
-        if abnormal is not None:
-            return jsonify(ResponseCode.response_json(abnormal))
+        srcname = data.get("pkg_name")
+        tablename = data.get("table_name")
+        result = sing_pack(srcname, tablename)
+        return result
 
 
 class InstallDepend(Resource):
@@ -576,7 +497,7 @@ class Repodatas(Resource):
             Error: Abnormal error
         """
         schema = DeletedbSchema()
-        data = schema.dump(request.args)
+        data = request.args
         if schema.validate(data):
             return jsonify(
                 ResponseCode.response_json(ResponseCode.PARAM_ERROR)
@@ -646,7 +567,8 @@ class InitSystem(Resource):
         try:
             abnormal = None
             if not configfile:
-                _config_path = ReadConfig().get_system('init_conf_path')
+                _config_path = ReadConfig(
+                    system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
                 InitDataBase(config_file_path=_config_path).init_data()
             else:
                 InitDataBase(config_file_path=configfile).init_data()
