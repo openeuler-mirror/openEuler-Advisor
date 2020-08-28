@@ -8,6 +8,7 @@ from queue import Queue
 from sqlalchemy.exc import SQLAlchemyError
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error, ContentNoneException
+from packageship.libs.log import Log
 
 
 class ProducerConsumer():
@@ -18,10 +19,12 @@ class ProducerConsumer():
     """
     _queue = Queue(maxsize=0)
     _instance_lock = threading.Lock()
+    _log = Log(__name__)
 
     def __init__(self):
         self.thread_queue = threading.Thread(target=self.__queue_process)
-        self.thread_queue.start()
+        if not self.thread_queue.isAlive():
+            self.thread_queue.start()
 
     def start_thread(self):
         """
@@ -51,7 +54,7 @@ class ProducerConsumer():
                 with DBHelper(db_name="lifecycle") as database:
                     database.add(_queue_value)
             except (Error, ContentNoneException, SQLAlchemyError) as error:
-                print(error)
+                self._log.logger.error(error)
 
     def put(self, pending_content):
         """
