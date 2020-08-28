@@ -364,8 +364,7 @@ class UpdatePackages(Resource):
         try:
             DataFormatVerfi(many=True).load(yaml_data_list)
             return yaml_data_list
-        except ValidationError as e:
-            print(e.messages)
+        except ValidationError:
             return None
 
     def _save_in_database(self, yaml_data_list):
