@@ -275,8 +275,9 @@ class IssueView(Resource):
                                                       PackagesIssue.issue_status,
                                                       PackagesIssue.pkg_name,
                                                       PackagesIssue.issue_type,
-                                                      PackagesMaintainer.maintainer).outerjoin(PackagesMaintainer,
-                                                                                               PackagesMaintainer.name == PackagesIssue.pkg_name)
+                                                      PackagesMaintainer.maintainer). \
+                    outerjoin(PackagesMaintainer,
+                              PackagesMaintainer.name == PackagesIssue.pkg_name)
                 if request_data.get("pkg_name"):
                     issues_query = issues_query.filter(
                         PackagesIssue.pkg_name == request_data.get("pkg_name"))
