@@ -1291,7 +1291,7 @@ class SingleCommand(PkgshipCommand):
             Data analysis of binary package
         """
         for subpack_item in subpacks:
-            print('-'*50)
+            print('-' * 50)
             self.print_(subpack_item['name'])
 
             self.__parse_provides(subpack_item['provides'])
