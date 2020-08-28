@@ -55,7 +55,7 @@ class IssuePageSchema(Schema):
     """
     maintainer = fields.Str()
 
-    class Meta:  # pylint: disable=missing-class-docstring
+    class Meta:
         """Model mapping serialized fields"""
         model = PackagesIssue
         fields = ('issue_id', 'issue_url',
