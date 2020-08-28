@@ -13,6 +13,10 @@ urls = [  # pylint: disable=invalid-name
     (view.TableColView, '/packages/tablecol', {'query': ('GET')}),
     # View all table names in the package-info database
     (view.LifeTables, '/lifeCycle/tables', {'query': ('GET')}),
+    (view.IssueView, '/lifeCycle/issuetrace', {'query': ('GET')}),
+    (view.IssueType, '/lifeCycle/issuetype', {'query': ('GET')}),
+    (view.IssueStatus, '/lifeCycle/issuestatus', {'query': ('GET')}),
+    (view.IssueCatch, '/lifeCycle/issuecatch', {'write': ('POST')}),
 # update a package info
     (view.UpdatePackages, '/lifeCycle/updatePkgInfo', {'write': ('PUT')})
 ]
