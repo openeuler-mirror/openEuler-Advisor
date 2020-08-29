@@ -5,13 +5,13 @@ Description:The dependencies of the query package
     This includes both install and build dependencies
 Class: BeDepend
 """
+from flask import current_app
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql import literal_column
-from flask import current_app
-from packageship.libs.dbutils import DBHelper
-from packageship.application.models.package import SrcPack
 from packageship.application.apps.package.function.constants import ResponseCode
+from packageship.application.models.package import SrcPack
+from packageship.libs.dbutils import DBHelper
 
 
 class BeDepend():
@@ -68,9 +68,9 @@ class BeDepend():
                     self.db_name,
                     [["root", None]]
                 ]
-                self.source_name_set.add(self.source_name)
-                self.package_bedepend(
-                    [self.source_name], data_base, package_type='src')
+            self.source_name_set.add(self.source_name)
+            self.package_bedepend(
+                [self.source_name], data_base, package_type='src')
 
         return self.result_dict
 
@@ -85,45 +85,50 @@ class BeDepend():
             Raises:
                 SQLAlchemyError: Database connection exception
         """
-        search_set = set(pkg_name_list)
-        # package_type
-        if package_type == 'src':
-            name_in = literal_column('src_name').in_(search_set)
-        if package_type == 'bin':
-            name_in = literal_column('name').in_(search_set)
 
-        sql_str = text("""
-            SELECT b1.name AS search_bin_name,
-            b1.version AS search_bin_version,
-            b1.src_name AS source_name,
-            b2.name AS bin_name,
-            s1.name AS bebuild_src_name,
-            b2.src_name AS install_depend_src_name
-            FROM ( SELECT pkgKey,src_name,name,version FROM bin_pack WHERE {} ) b1
-            LEFT JOIN bin_provides ON bin_provides.pkgKey = b1.pkgKey
-            LEFT JOIN bin_requires br ON br.name = bin_provides.name
-            LEFT JOIN src_requires sr ON sr.name = bin_provides.name
-            LEFT JOIN src_pack s1 ON s1.pkgKey = sr.pkgKey
-            LEFT JOIN bin_pack b2 ON b2.pkgKey = br.pkgKey;""".format(name_in))
+        sql_com = """
+            SELECT DISTINCT b1.name AS search_bin_name,
+                b1.version AS search_bin_version,
+                b1.src_name AS source_name,
+                b2.name AS bin_name,
+                s1.name AS bebuild_src_name,
+                b2.src_name AS install_depend_src_name
+                FROM ( SELECT pkgKey,src_name,name,version FROM bin_pack WHERE {} ) b1
+                LEFT JOIN bin_provides ON bin_provides.pkgKey = b1.pkgKey
+                LEFT JOIN bin_requires br ON br.name = bin_provides.name
+                LEFT JOIN src_requires sr ON sr.name = bin_provides.name
+                LEFT JOIN src_pack s1 ON s1.pkgKey = sr.pkgKey
+                LEFT JOIN bin_pack b2 ON b2.pkgKey = br.pkgKey
+                """
+
+        if package_type == 'src':
+            literal_name = 'src_name'
+
+        elif package_type == 'bin':
+            literal_name = 'name'
+
+        else:
+            return
 
         try:
-            if package_type == 'src':
-                result = data_base.session.execute(
-                    sql_str, {
-                        'src_name_{}'.format(i): v for i, v in enumerate(
-                            search_set, 1)}).fetchall()
-            if package_type == 'bin':
-                result = data_base.session.execute(
-                    sql_str, {
-                        'name_{}'.format(i): v for i, v in enumerate(
-                            search_set, 1)}).fetchall()
-
+            result = []
+            for input_name in (pkg_name_list[i:i+900] for i in range(0, len(pkg_name_list), 900)):
+                name_in = literal_column(literal_name).in_(input_name)
+                sql_str = text(sql_com.format(name_in))
+                result.extend(data_base.session.execute(
+                    sql_str,
+                    {
+                        literal_name + '_{}'.format(i): v
+                        for i, v in enumerate(input_name, 1)
+                    }
+                ).fetchall())
         except SQLAlchemyError as sql_err:
             current_app.logger.error(sql_err)
             return ResponseCode.response_json(ResponseCode.CONNECT_DB_ERROR)
 
-        if result is None:
+        if not result:
             return
+
         # Source and binary packages that were found to be dependent
         source_name_list = []
         bin_name_list = []
@@ -172,24 +177,21 @@ class BeDepend():
                             source_name_list.append(
                                 obj.install_depend_src_name)
 
-        # Sqlite older versions default to a single query with a maximum of 999
-        # parameters
-        if 0 < len(source_name_list) < 999:
+            if obj.bebuild_src_name is None and obj.bin_name is None:
+                parent_node = None
+                be_type = None
+                self.make_dicts(
+                    obj.search_bin_name,
+                    source_name,
+                    obj.search_bin_version,
+                    parent_node,
+                    be_type)
+
+        if len(source_name_list) != 0:
             self.package_bedepend(
                 source_name_list, data_base, package_type="src")
-        elif len(source_name_list) >= 999:
-            count = len(source_name_list) // 999
-            for i in range(count + 1):
-                self.package_bedepend(
-                    source_name_list[999 * i:999 * (i + 1)], data_base, package_type="src")
-
-        if 0 < len(bin_name_list) < 999:
+        if len(bin_name_list) != 0:
             self.package_bedepend(bin_name_list, data_base, package_type="bin")
-        elif len(bin_name_list) >= 999:
-            count = len(bin_name_list) // 999
-            for i in range(count + 1):
-                self.package_bedepend(
-                    bin_name_list[999 * i:999 * (i + 1)], data_base, package_type="bin")
 
     def make_dicts(self, key, source_name, version, parent_node, be_type):
         """
@@ -215,8 +217,22 @@ class BeDepend():
                 ]
             ]
         else:
-            if [parent_node, be_type] not in self.result_dict[key][-1]:
-                self.result_dict[key][-1].append([
-                    parent_node,
-                    be_type
-                ])
+            if be_type and parent_node:
+                if [None, None] in self.result_dict[key][-1]:
+                    self.result_dict.pop(key)
+                    self.result_dict[key] = [
+                        source_name,
+                        version,
+                        self.db_name,
+                        [
+                            [parent_node,
+                             be_type
+                             ]
+                        ]
+                    ]
+
+                elif [parent_node, be_type] not in self.result_dict[key][-1]:
+                    self.result_dict[key][-1].append([
+                        parent_node,
+                        be_type
+                    ])
