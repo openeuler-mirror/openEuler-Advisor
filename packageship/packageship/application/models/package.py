@@ -7,7 +7,7 @@ from sqlalchemy import Column, Integer, String, Text
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 
 
-class SrcPack(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class SrcPack(DBHelper.BASE):
     """
         Source package model
     """
@@ -44,7 +44,7 @@ class SrcPack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     maintainlevel = Column(String(100), nullable=True)
 
 
-class BinPack(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class BinPack(DBHelper.BASE):
     """
     Description: functional description:Binary package data
     """
@@ -79,7 +79,7 @@ class BinPack(DBHelper.BASE):  # pylint: disable=C0103,R0903
     src_name = Column(String(500), nullable=True)
 
 
-class BinRequires(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class BinRequires(DBHelper.BASE):
     """
         Binary package dependent package entity model
     """
@@ -96,7 +96,7 @@ class BinRequires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pre = Column(String(20), nullable=True)
 
 
-class SrcRequires(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class SrcRequires(DBHelper.BASE):
     """
         Source entity package dependent package entity model
     """
@@ -112,7 +112,7 @@ class SrcRequires(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pre = Column(String(20), nullable=True)
 
 
-class BinProvides(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class BinProvides(DBHelper.BASE):
     """
         Component entity model provided by binary package
     """
@@ -127,7 +127,7 @@ class BinProvides(DBHelper.BASE):  # pylint: disable=C0103,R0903
     pkgKey = Column(Integer, nullable=True)
 
 
-class Packages():  # pylint: disable=C0103,R0903
+class Packages():
     """
     Source code package version, issuer and other information
     """
@@ -164,7 +164,7 @@ class Packages():  # pylint: disable=C0103,R0903
         return model
 
 
-class PackagesIssue(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class PackagesIssue(DBHelper.BASE):
     """
         Source package issue
     """
@@ -181,7 +181,7 @@ class PackagesIssue(DBHelper.BASE):  # pylint: disable=C0103,R0903
     related_release = Column(String(500), nullable=True)
 
 
-class PackagesMaintainer(DBHelper.BASE):  # pylint: disable=C0103,R0903
+class PackagesMaintainer(DBHelper.BASE):
     """
         Correspondence between source code package and maintainer
     """

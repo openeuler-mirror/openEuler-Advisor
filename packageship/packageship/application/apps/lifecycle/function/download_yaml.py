@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 import datetime as date
 import requests
 import yaml
+from retrying import retry
 from sqlalchemy.exc import SQLAlchemyError
 from requests.exceptions import HTTPError
 from packageship import system_config
@@ -17,9 +18,9 @@ from packageship.application.models.package import PackagesMaintainer
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error, ContentNoneException
 from packageship.libs.configutils.readconfig import ReadConfig
-
 from .base import Base
 from .gitee import Gitee
+from .concurrent import ProducerConsumer
 
 
 class ParseYaml():
@@ -43,6 +44,7 @@ class ParseYaml():
         self.openeuler_advisor_url = self._path_stitching(pkg_info.name)
         self._yaml_content = None
         self.timed_task_open = self._timed_task_status()
+        self.producer_consumer = ProducerConsumer()
 
     def _timed_task_status(self):
         """
@@ -123,22 +125,25 @@ class ParseYaml():
                 self.pkg.maintainer = _maintainer[0]
             self.pkg.maintainlevel = self._yaml_content.get('maintainlevel')
         try:
-            with DBHelper(db_name="lifecycle") as database:
-                database.session.begin(subtransactions=True)
-                database.add(self.pkg)
-                if self.timed_task_open and self.pkg.maintainer:
-                    _packages_maintainer = database.session.query(
-                        PackagesMaintainer).filter(
-                        PackagesMaintainer.name == self.pkg.name).first()
-                    if _packages_maintainer:
-                        _packages_maintainer.name = self.pkg.name
-                        _packages_maintainer.maintainer = self.pkg.maintainer
-                        _packages_maintainer.maintainlevel = self.pkg.maintainlevel
-                    else:
-                        database.add(PackagesMaintainer(
-                            name=self.pkg.name, maintainer=self.pkg.maintainer,
-                            maintainlevel=self.pkg.maintainlevel))
-                database.session.commit()
+            self.producer_consumer.put(copy.deepcopy(self.pkg))
+            if self.timed_task_open and self.pkg.maintainer:
+                @retry(stop_max_attempt_number=3, stop_max_delay=500)
+                def _save_maintainer_info():
+                    with DBHelper(db_name="lifecycle") as database:
+                        _packages_maintainer = database.session.query(
+                            PackagesMaintainer).filter(
+                                PackagesMaintainer.name == self.pkg.name).first()
+                        if _packages_maintainer:
+                            _packages_maintainer.name = self.pkg.name
+                            _packages_maintainer.maintainer = self.pkg.maintainer
+                            _packages_maintainer.maintainlevel = self.pkg.maintainlevel
+                        else:
+                            _packages_maintainer = PackagesMaintainer(
+                                name=self.pkg.name, maintainer=self.pkg.maintainer,
+                                maintainlevel=self.pkg.maintainlevel)
+                        self.producer_consumer.put(
+                            copy.deepcopy(_packages_maintainer))
+                _save_maintainer_info()
         except (Error, ContentNoneException, SQLAlchemyError) as error:
             self.base.log.logger.error(error)
 
