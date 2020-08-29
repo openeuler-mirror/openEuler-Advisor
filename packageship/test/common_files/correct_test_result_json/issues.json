@@ -1,0 +1,152 @@
+[
+  {
+    "issue_type": [
+      "需求",
+      "CVE和安全问题",
+      "缺陷"
+    ]
+  },
+  {
+    "issue_status": [
+      "open",
+      "progressing",
+      "closed",
+      "rejected"
+    ]
+  },
+  {
+    "input": {
+    "hook_name": "issue_hooks",
+    "password": "pwd",
+    "hook_id": 1,
+    "hook_url": "http://gitee.com/liwen/gitos/hooks/1/edit",
+    "timestamp": "1576754827988",
+    "sign": "rLEHLuZRIQHuTPeXMib9Czoq9dVXO4TsQcmQQHtjXHA=",
+    "issue": {
+        "html_url": "https://gitee.com/oschina/gitee/issues/IG6E9",
+        "id": 295024870,
+        "number": "IG8E1",
+        "title": "IE fault",
+        "body": "js fault",
+        "issue_type": "缺陷",
+        "state": "open",
+        "comments": 0,
+        "created_at": "2018-02-07T23:46:46+08:00",
+        "updated_at": "2018-02-07T23:46:46+08:00",
+        "user": {
+            "id": 1,
+            "login": "robot",
+            "avatar_url": "https://gitee.com/assets/favicon.ico",
+            "html_url": "https://gitee.com/robot",
+            "type": "User",
+            "site_admin": false,
+            "name": "robot",
+            "email": "robot@gitee.com",
+            "username": "robot",
+            "user_name": "robot",
+            "url": "https://gitee.com/robot"
+        },
+        "labels": [
+            {
+                "id": 827033694,
+                "name": "bug",
+                "color": "d73a4a"
+            }
+        ],
+        "assignee": {
+            "id": 1,
+            "login": "robot",
+            "avatar_url": "https://gitee.com/assets/favicon.ico",
+            "html_url": "https://gitee.com/robot",
+            "type": "User",
+            "site_admin": false,
+            "name": "robot",
+            "email": "robot@gitee.com",
+            "username": "robot",
+            "user_name": "robot",
+            "url": "https://gitee.com/robot"
+        },
+        "milestone": {
+            "html_url": "https://gitee.com/oschina/gitee/milestones/1",
+            "id": 3096855,
+            "number": 1,
+            "title": "problem",
+            "description": null,
+            "open_issues": 13,
+            "started_issues": 6,
+            "closed_issues": 31,
+            "approved_issues": 42,
+            "state": "open",
+            "created_at": "2018-02-01T23:46:46+08:00",
+            "updated_at": "2018-02-02T23:46:46+08:00",
+            "due_on": null
+        }
+    },
+    "repository": {
+        "id": 120249025,
+        "name": "Gitee",
+        "path": "Cython",
+        "full_name": "China/Gitee",
+        "owner": {
+            "id": 1,
+            "login": "robot",
+            "avatar_url": "https://gitee.com/assets/favicon.ico",
+            "html_url": "https://gitee.com/robot",
+            "type": "User",
+            "site_admin": false,
+            "name": "robot",
+            "email": "robot@gitee.com",
+            "username": "robot",
+            "user_name": "robot",
+            "url": "https://gitee.com/robot"
+        },
+        "private": false,
+        "html_url": "https://gitee.com/oschina/gitee",
+        "url": "https://gitee.com/oschina/gitee",
+        "description": "",
+        "fork": false,
+        "created_at": "2018-02-05T23:46:46+08:00",
+        "updated_at": "2018-02-05T23:46:46+08:00",
+        "pushed_at": "2018-02-05T23:46:46+08:00",
+        "git_url": "git://gitee.com:oschina/gitee.git",
+        "ssh_url": "git@gitee.com:oschina/gitee.git",
+        "clone_url": "https://gitee.com/oschina/gitee.git",
+        "svn_url": "svn://gitee.com/oschina/gitee",
+        "git_http_url": "https://gitee.com/oschina/gitee.git",
+        "git_ssh_url": "git@gitee.com:oschina/gitee.git",
+        "git_svn_url": "svn://gitee.com/oschina/gitee",
+        "homepage": null,
+        "stargazers_count": 11,
+        "watchers_count": 12,
+        "forks_count": 0,
+        "language": "ruby",
+        "has_issues": true,
+        "has_wiki": true,
+        "has_pages": false,
+        "license": null,
+        "open_issues_count": 0,
+        "default_branch": "master",
+        "namespace": "oschina",
+        "name_with_namespace": "China/Gitee",
+        "path_with_namespace": "oschina/gitee"
+    },
+    "sender": {
+        "id": 1,
+        "login": "robot",
+        "avatar_url": "https://gitee.com/assets/favicon.ico",
+        "html_url": "https://gitee.com/robot",
+        "type": "User",
+        "site_admin": false,
+        "name": "robot",
+        "email": "robot@gitee.com",
+        "username": "robot",
+        "user_name": "robot",
+        "url": "https://gitee.com/robot"
+    },
+    "enterprise": {
+        "name": "oschina",
+        "url": "https://gitee.com/oschina"
+    }
+}
+    }
+]

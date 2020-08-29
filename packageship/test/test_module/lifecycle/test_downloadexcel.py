@@ -55,7 +55,7 @@ class TestDownloadExcelFile(ReadTestBase):
             'issue_content': 'def get_yaml(self, pkg):',
             'issue_title': '【CI加固】对识别修改对周边组件和升级影响',
             'issue_status': 'open',
-            'name': 'dnf',
+            'pkg_name': 'dnf',
             'issue_type': 'defect',
             'related_release': 'hahaxx'
         }

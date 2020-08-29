@@ -1,131 +1,153 @@
 [
-    {
-        "input": {
-            "packagename": "A",
-            "dbname": "mainline"
-        },
-        "output": {
-            "code": "2001",
-            "data": {
-                "A1": [
-                    "A",
-                    "0.0.23b",
-                    "mainline",
-                    [
-                        [
-                            "B",
-                            "build"
-                        ],
-                        [
-                            "D",
-                            "build"
-                        ],
-                        [
-                            "D1",
-                            "install"
-                        ],
-                        [
-                            "B1",
-                            "install"
-                        ]
-                    ]
-                ],
-                "A2": [
-                    "A",
-                    "0.0.23b",
-                    "mainline",
-                    [
-                        [
-                            "C",
-                            "build"
-                        ],
-                        [
-                            "C1",
-                            "install"
-                        ],
-                        [
-                            "A1",
-                            "install"
-                        ]
-                    ]
-                ],
-                "A_src": [
-                    "source",
-                    "0.0.23b",
-                    "mainline",
-                    [
-                        [
-                            "root",
-                            null
-                        ]
-                    ]
-                ],
-                "B1": [
-                    "B",
-                    "0.0.2",
-                    "mainline",
-                    [
-                        [
-                            "A",
-                            "build"
-                        ],
-                        [
-                            "D",
-                            "build"
-                        ]
-                    ]
-                ],
-                "B2": [
-                    "B",
-                    "0.0.2",
-                    "mainline",
-                    [
-                        [
-                            "C",
-                            "build"
-                        ]
-                    ]
-                ],
-                "C1": [
-                    "C",
-                    "0.1",
-                    "mainline",
-                    [
-                        [
-                            "A",
-                            "build"
-                        ],
-                        [
-                            "B",
-                            "build"
-                        ],
-                        [
-                            "A2",
-                            "install"
-                        ],
-                        [
-                            "B2",
-                            "install"
-                        ]
-                    ]
-                ],
-                "D1": [
-                    "D",
-                    "0.11",
-                    "mainline",
-                    [
-                        [
-                            "D2",
-                            "install"
-                        ],
-                        [
-                            "A2",
-                            "install"
-                        ]
-                    ]
-                ]
-            },
-            "msg": "Successful Operation!"
-        }
+  {
+    "input": {
+      "packagename": "A",
+      "dbname": "mainline"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "A1": [
+          "A",
+          "0.0.23b",
+          "mainline",
+          [
+            [
+              "B",
+              "build"
+            ],
+            [
+              "B1",
+              "install"
+            ],
+            [
+              "D",
+              "build"
+            ],
+            [
+              "D1",
+              "install"
+            ]
+          ]
+        ],
+        "A2": [
+          "A",
+          "0.0.23b",
+          "mainline",
+          [
+            [
+              "A1",
+              "install"
+            ],
+            [
+              "C",
+              "build"
+            ],
+            [
+              "C1",
+              "install"
+            ]
+          ]
+        ],
+        "A_src": [
+          "source",
+          "0.0.23b",
+          "mainline",
+          [
+            [
+              "root",
+              null
+            ]
+          ]
+        ],
+        "B1": [
+          "B",
+          "0.0.2",
+          "mainline",
+          [
+            [
+              "A",
+              "build"
+            ],
+            [
+              "D",
+              "build"
+            ]
+          ]
+        ],
+        "B2": [
+          "B",
+          "0.0.2",
+          "mainline",
+          [
+            [
+              "C",
+              "build"
+            ]
+          ]
+        ],
+        "C1": [
+          "C",
+          "0.1",
+          "mainline",
+          [
+            [
+              "A",
+              "build"
+            ],
+            [
+              "A2",
+              "install"
+            ],
+            [
+              "B",
+              "build"
+            ],
+            [
+              "B2",
+              "install"
+            ]
+          ]
+        ],
+        "C2": [
+          "C",
+          "0.1",
+          "mainline",
+          [
+            [
+              null,
+              null
+            ]
+          ]
+        ],
+        "D1": [
+          "D",
+          "0.11",
+          "mainline",
+          [
+            [
+              "A2",
+              "install"
+            ],
+            [
+              "D2",
+              "install"
+            ]
+          ]
+        ],
+        "D2": [
+          "D",
+          "0.11",
+          "mainline",
+          [
+            [
+              null,
+              null
+            ]
+          ]
+        ]
+      },
+      "msg": "Successful Operation!"
     }
+  }
 ]

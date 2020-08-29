@@ -7,6 +7,7 @@ import os
 import unittest
 
 from packageship.libs.exception import Error
+
 try:
     from packageship import system_config
 
