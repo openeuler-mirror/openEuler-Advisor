@@ -182,11 +182,11 @@ def sing_pack(srcname, tablename):
 
 def parsing_maintainner(srcname,pack_info_dict):
     """
-
+    Single package query maintainer and maintainlevel
     Args:
-        srcname:
+        srcname: Source package name
         pack_info_dict:
-    Returns:
+    Returns: Dictionary of package information
 
     """
     with DBHelper(db_name="lifecycle") as database_name:
