@@ -55,7 +55,7 @@ def init_app(operation):
     app.config.from_object(Config)
 
     # Register a scheduled task
-    scheduler = APScheduler(scheduler=BackgroundScheduler(timezone='Asia/Shanghai')
+    scheduler = APScheduler(scheduler=BackgroundScheduler(timezone='Asia/Shanghai'))
     scheduler.init_app(app)
     scheduler.start()
 
