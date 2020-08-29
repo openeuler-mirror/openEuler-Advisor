@@ -10,9 +10,11 @@ BuildArch:      noarch
 
 BuildRequires: python3-flask-restful python3-flask python3 python3-pyyaml python3-sqlalchemy
 BuildRequires: python3-prettytable python3-requests python3-flask-session python3-flask-script python3-marshmallow
+BuildRequires: python3-Flask-APScheduler python3-retrying
 Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
 Requires: python3-pyinstaller python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
+Requires: python3-pandas python3-dateutil python3-XlsxWriter python3-xlrd python3-Flask-APScheduler python3-retrying
 
 %description
 Pkgship implements rpm package dependence ,maintainer, patch query and so no.
