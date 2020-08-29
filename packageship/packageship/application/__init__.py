@@ -7,7 +7,7 @@ import threading
 from flask import Flask
 from flask_session import Session
 from flask_apscheduler import APScheduler
-from apscheduler.schedulers.blocking import BlockingScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 from packageship import system_config
 from packageship.application.settings import Config
 from packageship.libs.log import setup_log
@@ -55,7 +55,7 @@ def init_app(operation):
     app.config.from_object(Config)
 
     # Register a scheduled task
-    scheduler = APScheduler(scheduler=BlockingScheduler(timezone='UTC'))
+    scheduler = APScheduler(scheduler=BackgroundScheduler(timezone='Asia/Shanghai')
     scheduler.init_app(app)
     scheduler.start()
 
