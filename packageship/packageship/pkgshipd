@@ -45,6 +45,7 @@ buffer-size=$buffer_size
 pidfile=$OUT_PATH/manage.pid
 http-timeout=$http_timeout
 harakiri=$harakiri
+enable-threads=true
 daemonize=$daemonize" > $OUT_PATH/manage.ini
     fi
     
@@ -72,6 +73,7 @@ buffer-size=$buffer_size
 pidfile=$OUT_PATH/selfpkg.pid
 http-timeout=$http_timeout
 harakiri=$harakiri
+enable-threads=true
 daemonize=$daemonize" > $OUT_PATH/selfpkg.ini
 
     fi

@@ -1,6 +1,6 @@
 Name:           pkgship
-Version:        1.0.0
-Release:        7
+Version:        1.1.0
+Release:        0
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -13,6 +13,7 @@ BuildRequires: python3-prettytable python3-requests python3-flask-session python
 Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
 Requires: python3-pyinstaller python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
+Requires: python3-pandas python3-dateutil python3-XlsxWriter python3-xlrd python3-Flask-APScheduler python3-retrying
 
 %description
 Pkgship implements rpm package dependence ,maintainer, patch query and so no.
@@ -67,6 +68,8 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 
 %changelog
+* Sat Aug 29 2020 Yiru Wang <wangyiru1@huawei.com> - 1.1.0-0
+- Add the RPM package life cycle and issue summary features, adding the requires
 
 * Fri Aug 21 2020 Chengqiang Bao < baochengqiang1@huawei.com > - 1.0.0-7
 - Fixed a problem with command line initialization of the Filepath parameter where relative paths are not supported and paths are too long

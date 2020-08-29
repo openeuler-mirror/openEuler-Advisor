@@ -28,6 +28,7 @@ setup(
         'packageship.application.apps.lifecycle.function.base',
         'packageship.application.apps.lifecycle.function.download_yaml',
         'packageship.application.apps.lifecycle.function.gitee',
+        'packageship.application.apps.lifecycle.function.concurrent',
         'packageship.application.apps.lifecycle.serialize',
         'packageship.application.apps.lifecycle.url',
         'packageship.application.apps.lifecycle.view',
