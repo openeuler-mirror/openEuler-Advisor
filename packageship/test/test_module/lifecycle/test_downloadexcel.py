@@ -70,7 +70,7 @@ class TestDownloadExcelFile(ReadTestBase):
             "/lifeCycle/download/packages?table_name=mainline")
 
         data_frame = pd.read_excel(
-            response.data, sheet_name='Summary')
+            response.data, sheet_name='Summary',engine='xlrd')
         datas = data_frame.values.tolist()
         self.assertEqual(
             5, len(datas), msg="An error occurred in the downloaded data")
