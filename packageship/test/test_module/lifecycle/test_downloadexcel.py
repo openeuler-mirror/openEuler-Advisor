@@ -3,6 +3,7 @@
 """
 test_get_single_packages
 """
+from io import BytesIO
 import os
 import unittest
 import pandas as pd
@@ -44,7 +45,7 @@ class TestDownloadExcelFile(ReadTestBase):
         """
         response = self.client.get("/lifeCycle/download/issues")
         data_frame = pd.read_excel(
-            response.data, sheet_name='Summary',engine='xlrd')
+            BytesIO(response.data), sheet_name='Summary',engine='xlrd')
         datas = data_frame.values.tolist()
         self.assertEqual(
             14, len(datas), msg="An error occurred in the downloaded data")
@@ -70,7 +71,7 @@ class TestDownloadExcelFile(ReadTestBase):
             "/lifeCycle/download/packages?table_name=mainline")
 
         data_frame = pd.read_excel(
-            response.data, sheet_name='Summary',engine='xlrd')
+            BytesIO(response.data), sheet_name='Summary',engine='xlrd')
         datas = data_frame.values.tolist()
         self.assertEqual(
             5, len(datas), msg="An error occurred in the downloaded data")
