@@ -44,7 +44,7 @@ class TestDownloadExcelFile(ReadTestBase):
         """
         response = self.client.get("/lifeCycle/download/issues")
         data_frame = pd.read_excel(
-            response.data, sheet_name='Summary')
+            response.data, sheet_name='Summary',engine='xlrd')
         datas = data_frame.values.tolist()
         self.assertEqual(
             14, len(datas), msg="An error occurred in the downloaded data")
