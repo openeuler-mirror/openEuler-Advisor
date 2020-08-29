@@ -30,6 +30,7 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
+export TZ=Asia/Shanghai
 # change log_path to solve default log_path permission denied problem
 log_path=`pwd`/tmp/
 sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
