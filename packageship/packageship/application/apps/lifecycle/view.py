@@ -3,6 +3,8 @@
 Life cycle related api interface
 """
 import io
+import json
+import math
 import os
 from concurrent.futures import ThreadPoolExecutor
 
@@ -26,9 +28,9 @@ from packageship.application.models.package import PackagesIssue
 from packageship.application.models.package import Packages
 from packageship.application.models.package import PackagesMaintainer
 from packageship.libs.log import Log
-from .serialize import IssueDownloadSchema, PackagesDownloadSchema
+from .serialize import IssueDownloadSchema, PackagesDownloadSchema, IssuePageSchema, IssueSchema
 from ..package.serialize import DataFormatVerfi, UpdatePackagesSchema
-
+from .function.gitee import Gitee as gitee
 
 LOGGER = Log(__name__)
 
@@ -252,6 +254,222 @@ class LifeTables(Resource):
             return jsonify(
                 ResponseCode.response_json(ResponseCode.DATABASE_NOT_FOUND)
             )
+
+
+class IssueView(Resource):
+    """
+        Issue content collection
+    """
+
+    def _query_issues(self, request_data):
+        """
+        Args:
+            request_data:
+        Returns:
+        """
+        try:
+            with DBHelper(db_name='lifecycle') as database:
+                issues_query = database.session.query(PackagesIssue.issue_id,
+                                                      PackagesIssue.issue_url,
+                                                      PackagesIssue.issue_title,
+                                                      PackagesIssue.issue_status,
+                                                      PackagesIssue.pkg_name,
+                                                      PackagesIssue.issue_type,
+                                                      PackagesMaintainer.maintainer). \
+                    outerjoin(PackagesMaintainer,
+                              PackagesMaintainer.name == PackagesIssue.pkg_name)
+                if request_data.get("pkg_name"):
+                    issues_query = issues_query.filter(
+                        PackagesIssue.pkg_name == request_data.get("pkg_name"))
+                if request_data.get("issue_type"):
+                    issues_query = issues_query.filter(
+                        PackagesIssue.issue_type == request_data.get("issue_type"))
+                if request_data.get("issue_status"):
+                    issues_query = issues_query.filter(
+                        PackagesIssue.issue_status == request_data.get("issue_status"))
+                if request_data.get("maintainer"):
+                    issues_query = issues_query.filter(
+                        PackagesMaintainer.maintainer == request_data.get("maintainer"))
+                total_count = issues_query.count()
+                total_page = math.ceil(
+                    total_count / int(request_data.get("page_size")))
+                issues_query = issues_query.limit(request_data.get("page_size")).offset(
+                    (int(request_data.get("page_num")) - 1) * int(request_data.get("page_size")))
+                issue_dicts = IssuePageSchema(
+                    many=True).dump(issues_query.all())
+                issue_data = ResponseCode.response_json(
+                    ResponseCode.SUCCESS, issue_dicts)
+                issue_data['total_count'] = total_count
+                issue_data['total_page'] = total_page
+                return issue_data
+        except (SQLAlchemyError, DisconnectionError) as error:
+            current_app.logger.error(error)
+            return []
+
+    def get(self):
+        """
+        Description: Get all issues info or one specific issue
+        Args:
+        Returns:
+            [
+            {
+            "issue_id": "",
+            "issue_url": "",
+            "issue_title": "",
+            "issue_content": "",
+            "issue_status": "",
+            "issue_type": ""
+            },
+            ]
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            TypeError: Exception of type
+            Error: Abnormal error
+        """
+        schema = IssueSchema()
+        if schema.validate(request.args):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR)
+            )
+        issue_dict = self._query_issues(request.args)
+        return issue_dict
+
+
+class IssueType(Resource):
+    """
+        Issue type collection
+    """
+
+    def _get_issue_type(self):
+        """
+        Description: Query issue type
+        Returns:
+        """
+        try:
+            with DBHelper(db_name='lifecycle') as database:
+                issues_query = database.session.query(PackagesIssue.issue_type).group_by(
+                    PackagesIssue.issue_type).all()
+                return [issue_query[0] for issue_query in issues_query]
+        except (SQLAlchemyError, DisconnectionError) as error:
+            current_app.logger.error(error)
+            return []
+
+    def get(self):
+        """
+        Description: Get all issues info or one specific issue
+        Args:
+        Returns:
+            [
+            "issue_type",
+            "issue_type"
+            ]
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            TypeError: Exception of type
+            Error: Abnormal error
+        """
+        issue_dict = self._get_issue_type()
+        return jsonify(ResponseCode.response_json(
+            ResponseCode.SUCCESS, issue_dict))
+
+
+class IssueStatus(Resource):
+    """
+        Issue status collection
+    """
+
+    def _get_issue_status(self):
+        """
+        Description: Query issue status
+        Returns:
+        """
+        try:
+            with DBHelper(db_name='lifecycle') as database:
+                issues_query = database.session.query(PackagesIssue.issue_status).group_by(
+                    PackagesIssue.issue_status).all()
+                return [issue_query[0] for issue_query in issues_query]
+        except (SQLAlchemyError, DisconnectionError) as error:
+            current_app.logger.error(error)
+            return []
+
+    def get(self):
+        """
+        Description: Get all issues info or one specific issue
+        Args:
+        Returns:
+            [
+            "issue_status",
+            "issue_status"
+            ]
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            TypeError: Exception of type
+            Error: Abnormal error
+        """
+        issue_dict = self._get_issue_status()
+        return jsonify(ResponseCode.response_json(
+            ResponseCode.SUCCESS, issue_dict))
+
+
+class IssueCatch(Resource):
+    """
+    description: Catch issue content
+    Restful API: put
+    ChangeLog:
+    """
+
+    def post(self):
+        """
+        Searching issue content
+        Args:
+        Returns:
+            for examples:
+                [
+            {
+            "issue_id": "",
+            "issue_url": "",
+            "issue_title": "",
+            "issue_content": "",
+            "issue_status": "",
+            "issue_type": ""
+            },
+            ]
+        Raises:
+            DisconnectionError: Unable to connect to database exception
+            AttributeError: Object does not have this property
+            TypeError: Exception of type
+            Error: Abnormal error
+        """
+        data = json.loads(request.get_data())
+        if not isinstance(data, dict):
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PARAM_ERROR))
+        pkg_name = data["repository"]["path"]
+        try:
+            _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
+            pool_workers = _readconfig.get_config('LIFECYCLE', 'pool_workers')
+            _warehouse = _readconfig.get_config('LIFECYCLE', 'warehouse')
+            if _warehouse is None:
+                _warehouse = 'src-openeuler'
+            if not isinstance(pool_workers, int):
+                pool_workers = 10
+            pool = ThreadPoolExecutor(max_workers=pool_workers)
+            with DBHelper(db_name="lifecycle") as database:
+                for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer'],
+                                         database.engine.table_names()):
+                    cls_model = Packages.package_meta(table_name)
+                    for package_item in database.session.query(cls_model).filter(
+                            cls_model.name == pkg_name).all():
+                        gitee_issue = gitee(
+                            package_item, _warehouse, package_item.name, table_name)
+                        pool.submit(gitee_issue.issue_hooks, data)
+            pool.shutdown()
+            return jsonify(ResponseCode.response_json(ResponseCode.SUCCESS))
+        except SQLAlchemyError as error_msg:
+            current_app.logger.error(error_msg)
 
 
 class UpdatePackages(Resource):
