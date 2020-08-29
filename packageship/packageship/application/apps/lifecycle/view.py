@@ -67,8 +67,8 @@ class DownloadFile(Resource):
         """
         try:
             bytes_io = io.BytesIO()
-            writer = pd.ExcelFile(  # pylint: disable=abstract-class-instantiated
-                bytes_io, engine='xlsxwriter')
+            writer = pd.ExcelWriter(  # pylint: disable=abstract-class-instantiated
+                bytes_io, engine='xlsxwrite')
             data_frame.to_excel(writer, sheet_name='Summary', index=False)
             writer.save()
             writer.close()
