@@ -30,7 +30,6 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
-echo "Asia/Shanghai" > /etc/timezone
 # change log_path to solve default log_path permission denied problem
 log_path=`pwd`/tmp/
 sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
@@ -38,7 +37,6 @@ sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
 %{__python3} -m unittest test/read_test.py
 %{__python3} -m unittest test/write_test.py
 rm -rf $log_path
-rm -f /etc/timezone
 
 %post
 #build cli bin
