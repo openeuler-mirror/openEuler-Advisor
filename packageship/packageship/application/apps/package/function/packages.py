@@ -158,6 +158,7 @@ def sing_pack(srcname, tablename):
                         ResponseCode.PACK_NAME_NOT_FOUND))
             pack_info_dict = SinglePackInfoSchema(
                 many=False).dump(package_info_obj)
+            pack_info_dict = parsing_maintainner(srcname, pack_info_dict)
             issue_count = database_name.session.query(
                 PackagesIssue).filter_by(pkg_name=package_info_obj.name).count()
             pack_info_dict["issue"] = issue_count
@@ -178,6 +179,26 @@ def sing_pack(srcname, tablename):
         return jsonify(
             ResponseCode.response_json(
                 ResponseCode.DIS_CONNECTION_DB))
+
+def parsing_maintainner(srcname,pack_info_dict):
+    """
+
+    Args:
+        srcname:
+        pack_info_dict:
+    Returns:
+
+    """
+    with DBHelper(db_name="lifecycle") as database_name:
+        maintainer_obj = database_name.session.query(PackagesMaintainer).filter_by(
+            name=srcname).first()
+        if maintainer_obj is None:
+            pack_info_dict["maintainer"] = None
+            pack_info_dict["maintainlevel"] = None
+        else:
+            pack_info_dict["maintainer"] = maintainer_obj.maintainer
+            pack_info_dict["maintainlevel"] = maintainer_obj.maintainlevel
+        return pack_info_dict
 
 
 def buildrequired_search(srcname, tablename):
