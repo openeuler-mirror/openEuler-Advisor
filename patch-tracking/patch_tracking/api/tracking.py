@@ -7,7 +7,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from patch_tracking.database.models import Tracking
 from patch_tracking.api.business import create_tracking, update_tracking, delete_tracking
 from patch_tracking.api.constant import ResponseCode
-from patch_tracking.util.auth import auth
+from patch_tracking.api.auth import auth
 
 logger = logging.getLogger(__name__)
 tracking = Blueprint('tracking', __name__)
@@ -36,8 +36,9 @@ def delete():
                 logger.info('Delete tracking repo: %s, branch: %s', input_params['repo'], input_params['branch'])
                 return ResponseCode.ret_message(code=ResponseCode.SUCCESS)
             else:
-                logger.info('Delete tracking repo: %s, branch: %s not found.', input_params['repo'],
-                            input_params['branch'])
+                logger.info(
+                    'Delete tracking repo: %s, branch: %s not found.', input_params['repo'], input_params['branch']
+                )
                 return ResponseCode.ret_message(code=ResponseCode.DELETE_DB_NOT_FOUND)
         else:
             if Tracking.query.filter(Tracking.repo == input_params['repo']).first():
