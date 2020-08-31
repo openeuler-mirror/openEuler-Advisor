@@ -5,7 +5,7 @@ Logging related
 import os
 import pathlib
 import logging
-from logging.handlers import RotatingFileHandler
+from concurrent_log_handler import ConcurrentRotatingFileHandler
 from packageship import system_config
 from packageship.libs.configutils.readconfig import ReadConfig
 
@@ -44,7 +44,7 @@ def setup_log(config=None):
         except FileExistsError:
             pathlib.Path(path).touch()
 
-    file_log_handler = RotatingFileHandler(
+    file_log_handler = ConcurrentRotatingFileHandler(
         path, maxBytes=max_bytes, backupCount=backup_count)
 
     formatter = logging.Formatter(
@@ -96,7 +96,7 @@ class Log():
             self.max_bytes = 314572800
 
     def __init_handler(self):
-        self.__file_handler = RotatingFileHandler(
+        self.__file_handler = ConcurrentRotatingFileHandler(
             self.__path, maxBytes=self.max_bytes, backupCount=self.backup_count, encoding="utf-8")
 
     def __set_handler(self):
