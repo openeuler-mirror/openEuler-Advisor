@@ -296,7 +296,7 @@ def provide_(tablename, bin_provides_set):
             bin_provides_dict['id'] = bin_provides_obj.id
             bin_provides_dict['name'] = bin_provides_obj.name
             reqired_set = data_name.session.query(
-                BinProvides).filter_by(name=bin_provides_obj.name).all()
+                BinRequires).filter_by(name=bin_provides_obj.name).all()
             required_pkgkey_list = [
                 reqired_obj.pkgKey for reqired_obj in reqired_set]
             required_bin_set = data_name.session.query(BinPack).filter(

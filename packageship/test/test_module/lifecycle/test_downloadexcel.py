@@ -3,6 +3,7 @@
 """
 test_get_single_packages
 """
+from io import BytesIO
 import os
 import unittest
 import pandas as pd
@@ -44,7 +45,7 @@ class TestDownloadExcelFile(ReadTestBase):
         """
         response = self.client.get("/lifeCycle/download/issues")
         data_frame = pd.read_excel(
-            response.data, sheet_name='Summary')
+            BytesIO(response.data), sheet_name='Summary',engine='xlrd')
         datas = data_frame.values.tolist()
         self.assertEqual(
             14, len(datas), msg="An error occurred in the downloaded data")
@@ -55,7 +56,7 @@ class TestDownloadExcelFile(ReadTestBase):
             'issue_content': 'def get_yaml(self, pkg):',
             'issue_title': '【CI加固】对识别修改对周边组件和升级影响',
             'issue_status': 'open',
-            'name': 'dnf',
+            'pkg_name': 'dnf',
             'issue_type': 'defect',
             'related_release': 'hahaxx'
         }
@@ -70,7 +71,7 @@ class TestDownloadExcelFile(ReadTestBase):
             "/lifeCycle/download/packages?table_name=mainline")
 
         data_frame = pd.read_excel(
-            response.data, sheet_name='Summary')
+            BytesIO(response.data), sheet_name='Summary',engine='xlrd')
         datas = data_frame.values.tolist()
         self.assertEqual(
             5, len(datas), msg="An error occurred in the downloaded data")

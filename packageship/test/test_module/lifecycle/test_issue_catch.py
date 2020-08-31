@@ -26,7 +26,6 @@ class TestIssueCatch(OperateTestBase):
                                 json='')
         resp_dict = json.loads(resp.data)
 
-
         self.assertIn("code", resp_dict, msg="Wrong return format!")
         self.assertEqual(ResponseCode.PARAM_ERROR,
                          resp_dict.get("code"),
@@ -61,3 +60,7 @@ class TestIssueCatch(OperateTestBase):
             resp_dict.get("msg"),
             msg="Error in status prompt return")
         self.assertIn("data", resp_dict, msg="Error in data format return")
+
+
+if __name__ == '__main__':
+    unittest.main()
