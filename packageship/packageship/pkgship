@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import sys
+import signal
+try:
+    def sig_handler(signum, frame):
+        print('Exit command mode')
+        sys.exit(0)
+    signal.signal(signal.SIGINT, sig_handler)
+except:
+    pass
+
+from packageship.pkgship import main
+
+
+if __name__ == '__main__':
+    main()
