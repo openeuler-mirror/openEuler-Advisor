@@ -45,6 +45,7 @@ buffer-size=$buffer_size
 pidfile=$OUT_PATH/manage.pid
 http-timeout=$http_timeout
 harakiri=$harakiri
+enable-threads=true
 daemonize=$daemonize" > $OUT_PATH/manage.ini
     fi
     
@@ -72,6 +73,7 @@ buffer-size=$buffer_size
 pidfile=$OUT_PATH/selfpkg.pid
 http-timeout=$http_timeout
 harakiri=$harakiri
+enable-threads=true
 daemonize=$daemonize" > $OUT_PATH/selfpkg.ini
 
     fi
@@ -107,8 +109,8 @@ function stop_service(){
 
 if [ ! -n "$1" ]
 then
-	echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
-	exit 0
+    echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
+    exit 0
 fi
 
 if [ X$2 = X ];then
@@ -154,6 +156,6 @@ elif [ $1 = restart ];then
     echo "===The run log is saved into: $daemonize==="
 
 else
-	echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
+    echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
 fi
 
