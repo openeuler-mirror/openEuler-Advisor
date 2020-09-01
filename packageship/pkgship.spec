@@ -13,7 +13,7 @@ BuildRequires: python3-prettytable python3-requests python3-flask-session python
 BuildRequires: python3-Flask-APScheduler python3-pandas python3-retrying python3-xlrd python3-XlsxWriter
 Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
-Requires: python3-pyinstaller python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
+Requires: python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
 Requires: python3-pandas python3-dateutil python3-XlsxWriter python3-xlrd python3-Flask-APScheduler python3-retrying
 
 %description
