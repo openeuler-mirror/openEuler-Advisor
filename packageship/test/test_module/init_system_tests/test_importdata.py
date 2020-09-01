@@ -64,7 +64,7 @@ class ImportData(unittest.TestCase):
         # Yaml file exists but the content is empty
 
         try:
-            _config_path = ReadConfig().get_system('init_conf_path')
+            _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
 
             with open(_config_path, 'w', encoding='utf-8') as w_f:
@@ -83,7 +83,7 @@ class ImportData(unittest.TestCase):
 
         # Yaml file exists but DB exists_ The same with name
         try:
-            _config_path = ReadConfig().get_system('init_conf_path')
+            _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
             with open(_config_path, 'r', encoding='utf-8') as file:
                 origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
@@ -118,7 +118,7 @@ class ImportData(unittest.TestCase):
             config.set("SYSTEM", "init_conf_path", "D:\\Users\\conf.yaml")
             config.write(open(system_config.SYS_CONFIG_PATH, "w"))
 
-            _config_path = ReadConfig().get_system('init_conf_path')
+            _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
             InitDataBase(config_file_path=_config_path).init_data()
         except FileNotFoundError as error:
             self.assertEqual(
@@ -132,36 +132,10 @@ class ImportData(unittest.TestCase):
                 system_config.SYS_CONFIG_PATH + ".bak",
                 system_config.SYS_CONFIG_PATH)
 
-        # Dbtype error
-        try:
-            # Back up source files
-            shutil.copyfile(
-                system_config.SYS_CONFIG_PATH,
-                system_config.SYS_CONFIG_PATH + ".bak")
-            # Modify dbtype to "test"_ dbtype"
-            config = ConfigParser()
-            config.read(system_config.SYS_CONFIG_PATH)
-            config.set("DATABASE", "dbtype", "test_dbtype")
-            config.write(open(system_config.SYS_CONFIG_PATH, "w"))
-
-            _config_path = ReadConfig().get_system('init_conf_path')
-            InitDataBase(config_file_path=None).init_data()
-        except Error as error:
-            self.assertEqual(
-                error.__class__,
-                Error,
-                msg="Wrong exception type thrown when dbtype is wrong")
-        finally:
-            # To restore a file, delete the file first and then rename it back
-            os.remove(system_config.SYS_CONFIG_PATH)
-            os.rename(
-                system_config.SYS_CONFIG_PATH + ".bak",
-                system_config.SYS_CONFIG_PATH)
-
     def test_dbname(self):
         """test dbname"""
         try:
-            _config_path = ReadConfig().get_system('init_conf_path')
+            _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
             with open(_config_path, 'r', encoding='utf-8') as file:
                 origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
@@ -185,7 +159,7 @@ class ImportData(unittest.TestCase):
     def test_src_db_file(self):
         """test src db file"""
         try:
-            _config_path = ReadConfig().get_system('init_conf_path')
+            _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
             with open(_config_path, 'r', encoding='utf-8') as file:
                 origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
@@ -209,7 +183,7 @@ class ImportData(unittest.TestCase):
     def test_priority(self):
         """test priority"""
         try:
-            _config_path = ReadConfig().get_system('init_conf_path')
+            _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
             shutil.copyfile(_config_path, _config_path + '.bak')
             with open(_config_path, 'r', encoding='utf-8') as file:
                 origin_yaml = yaml.load(file.read(), Loader=yaml.FullLoader)
@@ -237,7 +211,7 @@ class ImportData(unittest.TestCase):
             Initialization of system data
         """
         # Normal configuration
-        _config_path = ReadConfig().get_system('init_conf_path')
+        _config_path = ReadConfig(system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
         InitDataBase(config_file_path=_config_path).init_data()
 
         # In the correct case, an import will be generated under the initsystem

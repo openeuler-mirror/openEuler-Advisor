@@ -286,10 +286,8 @@ class SinglePackInfoSchema(Schema):
             'version',
             'release',
             'url',
-            'maintainer',
             'feature',
             'rpm_license',
-            'maintainlevel',
             'summary',
             'description')
 

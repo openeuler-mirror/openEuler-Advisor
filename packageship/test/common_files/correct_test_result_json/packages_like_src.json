@@ -1,0 +1,18 @@
+[
+        {
+            "id": 1,
+            "name": "A",
+            "maintainer": null,
+            "maintainlevel": null,
+            "release": "1.fc29",
+            "rpm_version": "0.0.23b",
+            "used_time": 0,
+            "release_time": null,
+            "latest_version_time": null,
+            "latest_version": null,
+            "feature": 0,
+            "url": "http://play0ad.com",
+            "license": "GPLv2+ and BSD and MIT and IBM",
+            "issue": 0
+        }
+    ]

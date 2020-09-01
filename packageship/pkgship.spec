@@ -30,7 +30,10 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
+<<<<<<< HEAD
 # The apscheduler cannot catch the local time, so a time zone must be assigned before running the test case.
+=======
+>>>>>>> 491d55f9fb04db28ea3ec2a21193e4ba5fb2217b
 export TZ=Asia/Shanghai
 # change log_path to solve default log_path permission denied problem
 log_path=`pwd`/tmp/

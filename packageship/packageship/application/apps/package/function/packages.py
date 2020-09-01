@@ -158,6 +158,7 @@ def sing_pack(srcname, tablename):
                         ResponseCode.PACK_NAME_NOT_FOUND))
             pack_info_dict = SinglePackInfoSchema(
                 many=False).dump(package_info_obj)
+            pack_info_dict = parsing_maintainner(srcname, pack_info_dict)
             issue_count = database_name.session.query(
                 PackagesIssue).filter_by(pkg_name=package_info_obj.name).count()
             pack_info_dict["issue"] = issue_count
@@ -178,6 +179,26 @@ def sing_pack(srcname, tablename):
         return jsonify(
             ResponseCode.response_json(
                 ResponseCode.DIS_CONNECTION_DB))
+
+def parsing_maintainner(srcname,pack_info_dict):
+    """
+    Single package query maintainer and maintainlevel
+    Args:
+        srcname: Source package name
+        pack_info_dict:
+    Returns: Dictionary of package information
+
+    """
+    with DBHelper(db_name="lifecycle") as database_name:
+        maintainer_obj = database_name.session.query(PackagesMaintainer).filter_by(
+            name=srcname).first()
+        if maintainer_obj is None:
+            pack_info_dict["maintainer"] = None
+            pack_info_dict["maintainlevel"] = None
+        else:
+            pack_info_dict["maintainer"] = maintainer_obj.maintainer
+            pack_info_dict["maintainlevel"] = maintainer_obj.maintainlevel
+        return pack_info_dict
 
 
 def buildrequired_search(srcname, tablename):
@@ -275,7 +296,7 @@ def provide_(tablename, bin_provides_set):
             bin_provides_dict['id'] = bin_provides_obj.id
             bin_provides_dict['name'] = bin_provides_obj.name
             reqired_set = data_name.session.query(
-                BinProvides).filter_by(name=bin_provides_obj.name).all()
+                BinRequires).filter_by(name=bin_provides_obj.name).all()
             required_pkgkey_list = [
                 reqired_obj.pkgKey for reqired_obj in reqired_set]
             required_bin_set = data_name.session.query(BinPack).filter(

@@ -12,13 +12,14 @@ import json
 from packageship import system_config
 from packageship.libs.exception import Error
 from packageship.application.apps.package.function.constants import ResponseCode
+from packageship.application.apps.package.function.searchdb import db_priority
 
 
 class TestDeleteRepodatas(OperateTestBase):
     """
     test delete repodata
     """
-
+    
     def test_wrong_dbname(self):
         """Test simulation scenario, dbname is not transmitted"""
 
@@ -73,7 +74,6 @@ class TestDeleteRepodatas(OperateTestBase):
             shutil.copytree(system_config.DATABASE_FOLDER_PATH, system_config.DATABASE_FOLDER_PATH + '.bak')
             resp = self.client.delete("/repodatas?dbName=fedora30")
             resp_dict = json.loads(resp.data)
-
             self.assertIn("code", resp_dict, msg="Error in data format return")
             self.assertEqual(ResponseCode.SUCCESS,
                              resp_dict.get("code"),
