@@ -14,12 +14,12 @@ from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.exception import Error
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.log import Log
-from packageship.application.models.package import SrcPack
-from packageship.application.models.package import BinPack
-from packageship.application.models.package import BinRequires
-from packageship.application.models.package import SrcRequires
-from packageship.application.models.package import BinProvides
-from packageship.application.models.package import Packages
+from packageship.application.models.package import src_pack
+from packageship.application.models.package import bin_pack
+from packageship.application.models.package import bin_requires
+from packageship.application.models.package import src_requires
+from packageship.application.models.package import bin_provides
+from packageship.application.models.package import packages
 from packageship import system_config
 
 LOGGER = Log(__name__)
@@ -136,6 +136,11 @@ class InitDataBase():
                 LOGGER.logger.error('The priority value type in the database initialization \
                     configuration file is incorrect')
                 continue
+            lifecycle_status_val = database_config.get('lifecycle')
+            if lifecycle_status_val not in ('enable', 'disable'):
+                LOGGER.logger.error('The status value of the life cycle in the initialization\
+                    configuration file can only be enable or disable')
+                continue
             # Initialization data
             self._init_data(database_config)
 
@@ -195,7 +200,12 @@ class InitDataBase():
                 raise FileNotFoundError("sqlite file {src} or {bin} does not exist, please \
                     check and try again".format(src=src_db_file, bin=bin_db_file))
             # 3. Obtain temporary source package files and binary package files
-            if self.__save_data(src_db_file, bin_db_file, self.database_name, _db_name):
+            _lifecycle_status_val = database_config.get('lifecycle')
+            if self.__save_data(src_db_file,
+                                bin_db_file,
+                                self.database_name,
+                                _db_name,
+                                _lifecycle_status_val):
                 # Update the configuration file of the database
                 database_content = {
                     'database_name': _db_name,
@@ -209,7 +219,6 @@ class InitDataBase():
             LOGGER.logger.error(error_msg)
             # Delete the specified database
             self.__del_database(_db_name)
-            # Delete tables created in the life cycle
 
     def __del_database(self, db_name):
         try:
@@ -257,7 +266,7 @@ class InitDataBase():
             LOGGER.logger.error(sql_error)
             return None
 
-    def __save_data(self, src_db_file, bin_db_file, db_name, table_name):
+    def __save_data(self, src_db_file, bin_db_file, db_name, table_name, lifecycle_status_val):
         """
         integration of multiple data files
 
@@ -274,7 +283,8 @@ class InitDataBase():
                     as database:
                 self._database = database
                 # Save data related to source package
-                self._save_src_packages(db_name, table_name)
+                self._save_src_packages(
+                    db_name, table_name, lifecycle_status_val)
                 self._save_src_requires(db_name)
 
             with DBHelper(db_name=bin_db_file, db_type='sqlite:///', complete_route_db=True)\
@@ -291,7 +301,7 @@ class InitDataBase():
         else:
             return True
 
-    def _save_src_packages(self, db_name, table_name):
+    def _save_src_packages(self, db_name, table_name, lifecycle_status_val):
         """
         Save the source package data
 
@@ -310,25 +320,26 @@ class InitDataBase():
                 '{db_name}:There is no relevant data in the source \
                     package provided '.format(db_name=db_name))
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(packages_datas, SrcPack)
-
-        self._storage_packages(table_name, packages_datas)
+            database.batch_add(packages_datas, src_pack)
+        if lifecycle_status_val == 'enable':
+            InitDataBase._storage_packages(table_name, packages_datas)
 
     @staticmethod
     def __meta_model(table_name):
         """
             The mapping relationship of the orm model
         """
-        model = type("packages", (Packages, DBHelper.BASE), {
+        model = type("packages", (packages, DBHelper.BASE), {
             '__tablename__': table_name})
         return model
 
-    def _storage_packages(self, table_name, package_data):
+    @staticmethod
+    def _storage_packages(table_name, package_data):
         """
             Bulk storage of source code package data
         """
         add_packages = []
-        cls_model = InitDataBase.__meta_model(table_name)
+        cls_model = packages.package_meta(table_name)
         pkg_keys = ('name', 'url', 'rpm_license', 'version',
                     'release', 'summary', 'description')
         with DBHelper(db_name="lifecycle") as database:
@@ -354,6 +365,7 @@ class InitDataBase():
 
             if add_packages:
                 database.batch_add(add_packages, cls_model)
+            database.session.commit()
 
     def _save_src_requires(self, db_name):
         """
@@ -373,7 +385,7 @@ class InitDataBase():
             raise ContentNoneException('{db_name}: The package data that the source package \
                 depends on is empty'.format(db_name=db_name))
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(requires_datas, SrcRequires)
+            database.batch_add(requires_datas, src_requires)
 
     def _save_bin_packages(self, db_name):
         """
@@ -403,7 +415,7 @@ class InitDataBase():
                 bin_packaegs[index]['src_name'] = src_package_name
 
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(bin_packaegs, BinPack)
+            database.batch_add(bin_packaegs, bin_pack)
 
     def _save_bin_requires(self, db_name):
         """
@@ -424,7 +436,7 @@ class InitDataBase():
                     dependency package'.format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(requires_datas, BinRequires)
+            database.batch_add(requires_datas, bin_requires)
 
     def _save_bin_provides(self, db_name):
         """
@@ -445,7 +457,7 @@ class InitDataBase():
                     binary component '.format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
-            database.batch_add(provides_datas, BinProvides)
+            database.batch_add(provides_datas, bin_provides)
 
     def __exists_repeat_database(self):
         """
