@@ -266,7 +266,7 @@ class InitDataBase():
             LOGGER.logger.error(sql_error)
             return None
 
-        def __save_data(self, src_db_file, bin_db_file, db_name, table_name, lifecycle_status_val):
+    def __save_data(self, src_db_file, bin_db_file, db_name, table_name, lifecycle_status_val):
         """
         integration of multiple data files
 
@@ -301,7 +301,7 @@ class InitDataBase():
         else:
             return True
 
-        def _save_src_packages(self, db_name, table_name, lifecycle_status_val):
+    def _save_src_packages(self, db_name, table_name, lifecycle_status_val):
         """
         Save the source package data
 
