@@ -112,6 +112,15 @@ def repo_branch_check(url):
     return 'error', ret.text
 
 
+def latin1_encode(text):
+    """ latin1 encode """
+    try:
+        text.encode("latin1")
+    except UnicodeEncodeError as err:
+        return str(err)
+    return None
+
+
 def params_input_track(params, file_path=None):
     """
     load tracking from command line arguments
@@ -131,6 +140,13 @@ def params_input_track(params, file_path=None):
     server = params['server']
     user = params['user']
     password = params['password']
+
+    err = latin1_encode(user)
+    if err:
+        return "error", "user: outside the 'latin-1' character set range"
+    err = latin1_encode(password)
+    if err:
+        return "error", "password: outside the 'latin-1' character set range"
 
     enabled = bool(enabled == 'true')
 
@@ -165,7 +181,11 @@ def check_add_param(params):
             miss_params.append(param)
             success = False
     if not success:
-        print("patch_tracking_cli add: error: the following arguments are required:  --{}".format(", --".join(miss_params)))
+        print(
+            "patch_tracking_cli add: error: the following arguments are required:  --{}".format(
+                ", --".join(miss_params)
+            )
+        )
     return success
 
 
@@ -214,6 +234,13 @@ def delete(args):
     server = args.server
     user = args.user
     password = args.password
+
+    err = latin1_encode(user)
+    if err:
+        return "error", "user: outside the 'latin-1' character set range"
+    err = latin1_encode(password)
+    if err:
+        return "error", "password: outside the 'latin-1' character set range"
 
     url = '/'.join(['https:/', server, 'tracking'])
     if args.branch:
@@ -329,16 +356,14 @@ parser_add.add_argument('--file', help='import patch tracking from file')
 parser_add.add_argument('--dir', help='import patch tracking from files in directory')
 
 # delete
-del_usage = """
-    %(prog)s --server SERVER --table TABLE --repo REPO [--branch BRANCH]"""
-parser_delete = subparsers.add_parser('delete', parents=[common_parser, authentication_parser], help="delete tracking", allow_abbrev=False)
+parser_delete = subparsers.add_parser(
+    'delete', parents=[common_parser, authentication_parser], help="delete tracking", allow_abbrev=False
+)
 parser_delete.set_defaults(func=delete)
 parser_delete.add_argument("--repo", required=True, help="source package repository")
 parser_delete.add_argument("--branch", help="source package branch")
 
 # query
-query_usage = """
-    %(prog)s --server SERVER --table {tracking,issue} [--repo REPO] [--branch BRANCH]"""
 parser_query = subparsers.add_parser('query', parents=[common_parser], help="query tracking/issue", allow_abbrev=False)
 parser_query.set_defaults(func=query)
 parser_query.add_argument("--table", required=True, choices=["tracking", "issue"], help="query tracking or issue")
