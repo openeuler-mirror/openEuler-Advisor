@@ -78,8 +78,8 @@ class BuildDepend():
              ResponseCode: response code
         Raises:
         """
-        res_status, build_list, not_fd_build = self.search_db.get_build_depend(pkg_list)
-        self.not_found_components.update(not_fd_build)
+        res_status, build_list, not_fd_com_build = self.search_db.get_build_depend(pkg_list)
+        self.not_found_components.update(not_fd_com_build)
         if not build_list:
             return res_status if res_status == ResponseCode.DIS_CONNECTION_DB else \
                 ResponseCode.PACK_NAME_NOT_FOUND
@@ -87,10 +87,10 @@ class BuildDepend():
         # create root node and get next search list
         search_list = self._create_node_and_get_search_list(build_list, pkg_list)
 
-        code, res_dict, not_fd_install = \
+        code, res_dict, not_fd_com_install = \
             InstallDepend(self.db_list).query_install_depend(search_list,
                                                              self.history_dicts)
-        self.not_found_components.update(not_fd_install)
+        self.not_found_components.update(not_fd_com_install)
         if not res_dict:
             return code
 
