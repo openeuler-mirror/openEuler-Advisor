@@ -10,6 +10,7 @@ import os
 import json
 import threading
 from json.decoder import JSONDecodeError
+
 try:
     import argparse
     import requests
@@ -209,7 +210,7 @@ class PkgshipCommand(BaseCommand):
         except Error:
             print('command error')
 
-    def parse_depend_package(self, response_data):
+    def parse_depend_package(self, response_data, params=None):
         """
         Description: Parsing package data with dependencies
         Args:
@@ -224,6 +225,12 @@ class PkgshipCommand(BaseCommand):
         if response_data.get('code') == ResponseCode.SUCCESS:
             package_all = response_data.get('data')
             if isinstance(package_all, dict):
+                if params:
+                    if package_all.get("not_found_components"):
+                        print("Problem: Not Found Components")
+                        for not_found_com in package_all.get("not_found_components"):
+                            print("  - nothing provides {} needed by {} ".format(not_found_com, params.packagename))
+                    package_all = package_all.get("build_dict")
 
                 for bin_package, package_depend in package_all.items():
                     # distinguish whether the current data is the data of the root node
@@ -753,7 +760,7 @@ class BuildDepCommand(PkgshipCommand):
             if response.status_code == 200:
                 try:
                     statistics_table = self.parse_depend_package(
-                        json.loads(response.text))
+                        json.loads(response.text), params)
                 except JSONDecodeError as json_error:
                     LOGGER.logger.error(json_error)
                     print(response.text)
@@ -813,7 +820,7 @@ class InstallDepCommand(PkgshipCommand):
                 cmd_params[0], nargs='*', default=None, help=cmd_params[1])
         self.parse.set_defaults(func=self.do_command)
 
-    def __parse_package(self, response_data):
+    def __parse_package(self, response_data, params):
         """
         Description: Parse the corresponding data of the package
         Args:
@@ -832,7 +839,11 @@ class InstallDepCommand(PkgshipCommand):
         if response_data.get('code') == ResponseCode.SUCCESS:
             package_all = response_data.get('data')
             if isinstance(package_all, dict):
-                for bin_package, package_depend in package_all.items():
+                if package_all.get("not_found_components"):
+                    print("Problem: Not Found Components")
+                    for not_found_com in package_all.get("not_found_components"):
+                        print("  - nothing provides {} needed by {} ".format(not_found_com, params.packagename))
+                for bin_package, package_depend in package_all.get("install_dict").items():
                     # distinguish whether the current data is the data of the root node
                     if isinstance(package_depend, list) and package_depend[-1][0][0] != 'root':
 
@@ -895,13 +906,13 @@ class InstallDepCommand(PkgshipCommand):
             if response.status_code == 200:
                 try:
                     statistics_table = self.__parse_package(
-                        json.loads(response.text))
+                        json.loads(response.text), params)
                 except JSONDecodeError as json_error:
                     LOGGER.logger.error(json_error)
                     print(response.text)
                 else:
                     if getattr(self.table, 'rowcount'):
-                        self.print_('query{} InstallDepend result display:'.format(
+                        self.print_('query {} InstallDepend result display:'.format(
                             params.packagename))
                         print(self.table)
                         self.print_('statistics')
@@ -1034,7 +1045,7 @@ class SelfBuildCommand(PkgshipCommand):
 
         return src_package_count
 
-    def __parse_package(self, response_data):
+    def __parse_package(self, response_data, params):
         """
         Description: Parse the corresponding data of the package
         Args:
@@ -1053,6 +1064,10 @@ class SelfBuildCommand(PkgshipCommand):
             package_all = response_data.get('data')
             if isinstance(package_all, dict):
                 # Parsing binary result data
+                if package_all.get("not_found_components"):
+                    print("Problem: Not Found Components")
+                    for not_found_com in package_all.get("not_found_components"):
+                        print("  - nothing provides {} needed by {} ".format(not_found_com, params.packagename))
                 bin_package_count = self._parse_bin_package(
                     package_all.get('binary_dicts'))
 
@@ -1096,7 +1111,7 @@ class SelfBuildCommand(PkgshipCommand):
             if response.status_code == 200:
                 try:
                     statistics_table = self.__parse_package(
-                        json.loads(response.text))
+                        json.loads(response.text), params)
                 except JSONDecodeError as json_error:
                     LOGGER.logger.error(json_error)
                     print(response.text)

@@ -6,84 +6,87 @@
     "output": {
       "code": "2001",
       "data": {
-        "A_src": [
-          "source",
-          "0.0.23b",
-          "mainline",
-          [
+        "build_dict": {
+          "A_src": [
+            "source",
+            "0.0.23b",
+            "mainline",
             [
-              "root",
-              null
+              [
+                "root",
+                null
+              ]
+            ]
+          ],
+          "B1": [
+            "B",
+            "0.0.2",
+            "mainline",
+            [
+              [
+                "A",
+                "build"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "mainline",
+            [
+              [
+                "A",
+                "build"
+              ],
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ],
+          "A1": [
+            "A",
+            "0.0.23b",
+            "mainline",
+            [
+              [
+                "B1",
+                "install"
+              ],
+              [
+                "D1",
+                "install"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "mainline",
+            [
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C1",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "mainline",
+            [
+              [
+                "A2",
+                "install"
+              ]
             ]
           ]
-        ],
-        "B1": [
-          "B",
-          "0.0.2",
-          "mainline",
-          [
-            [
-              "A",
-              "build"
-            ]
-          ]
-        ],
-        "C1": [
-          "C",
-          "0.1",
-          "mainline",
-          [
-            [
-              "A",
-              "build"
-            ],
-            [
-              "A2",
-              "install"
-            ]
-          ]
-        ],
-        "A1": [
-          "A",
-          "0.0.23b",
-          "mainline",
-          [
-            [
-              "B1",
-              "install"
-            ],
-            [
-              "D1",
-              "install"
-            ]
-          ]
-        ],
-        "A2": [
-          "A",
-          "0.0.23b",
-          "mainline",
-          [
-            [
-              "A1",
-              "install"
-            ],
-            [
-              "C1",
-              "install"
-            ]
-          ]
-        ],
-        "D1": [
-          "D",
-          "0.11",
-          "mainline",
-          [
-            [
-              "A2",
-              "install"
-            ]
-          ]
-        ]
+        },
+        "not_found_components": []
       },
       "msg": "Successful Operation!"
     }

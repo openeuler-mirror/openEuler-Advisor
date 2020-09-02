@@ -35,6 +35,7 @@ class BuildDepend():
         self.source_dict = dict()
 
         self.history_dicts = history_dict if history_dict else {}
+        self.not_found_components = set()
 
     def build_depend_main(self):
         """
@@ -47,13 +48,13 @@ class BuildDepend():
         Raises:
         """
         if not self.search_db.db_object_dict:
-            return ResponseCode.DIS_CONNECTION_DB, None, None
+            return ResponseCode.DIS_CONNECTION_DB, None, None, set()
 
         if self._self_build == 0:
             code = self.build_depend(self.pkg_name_list)
             if None in self.result_dict:
                 del self.result_dict[None]
-            return code, self.result_dict, None
+            return code, self.result_dict, None, self.not_found_components
 
         if self._self_build == 1:
             self.self_build(self.pkg_name_list)
@@ -64,9 +65,9 @@ class BuildDepend():
             #    Here, a place holder is needed to prevent unpacking errors during call
             # 2, This function is an auxiliary function of other modules.
             #    The status code is not the final display status code
-            return ResponseCode.SUCCESS, self.result_dict, self.source_dict
+            return ResponseCode.SUCCESS, self.result_dict, self.source_dict, self.not_found_components
 
-        return ResponseCode.PARAM_ERROR, None, None
+        return ResponseCode.PARAM_ERROR, None, None,set()
 
     def build_depend(self, pkg_list):
         """
@@ -77,8 +78,8 @@ class BuildDepend():
              ResponseCode: response code
         Raises:
         """
-        res_status, build_list = self.search_db.get_build_depend(pkg_list)
-
+        res_status, build_list, not_fd_build = self.search_db.get_build_depend(pkg_list)
+        self.not_found_components.update(not_fd_build)
         if not build_list:
             return res_status if res_status == ResponseCode.DIS_CONNECTION_DB else \
                 ResponseCode.PACK_NAME_NOT_FOUND
@@ -86,9 +87,10 @@ class BuildDepend():
         # create root node and get next search list
         search_list = self._create_node_and_get_search_list(build_list, pkg_list)
 
-        code, res_dict = \
+        code, res_dict, not_fd_install = \
             InstallDepend(self.db_list).query_install_depend(search_list,
                                                              self.history_dicts)
+        self.not_found_components.update(not_fd_install)
         if not res_dict:
             return code
 
@@ -185,8 +187,8 @@ class BuildDepend():
             return
 
         next_src_set = set()
-        _, bin_info_lis = self.search_db.get_build_depend(pkg_name_li)
-
+        _, bin_info_lis, not_fd_com = self.search_db.get_build_depend(pkg_name_li)
+        self.not_found_components.update(not_fd_com)
         if not bin_info_lis:
             return
 

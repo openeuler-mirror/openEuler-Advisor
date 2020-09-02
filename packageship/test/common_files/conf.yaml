@@ -2,9 +2,9 @@
   dbname: mainline
   priority: 1
   src_db_file: 
-  status: enable
+  lifecycle: enable
 - bin_db_file: 
   dbname: fedora30
   priority: 2
   src_db_file: 
-  status: enable
+  lifecycle: enable

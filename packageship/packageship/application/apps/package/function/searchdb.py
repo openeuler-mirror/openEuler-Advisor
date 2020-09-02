@@ -128,7 +128,7 @@ class SearchDB():
                         install_result = self._get_install_pro_in_other_database(
                             provides_not_found)
                         result_list.extend(install_result)
-                        return result_list
+                        return result_list, set(provides_not_found.keys())
                 else:
                     continue
             except AttributeError as error_msg:
@@ -141,7 +141,7 @@ class SearchDB():
         for binary_name in search_set:
             result_list.append((return_tuple(None, None, None,
                                              binary_name, None, None), 'NOT FOUND'))
-        return result_list
+        return result_list, set(provides_not_found.keys())
 
     def get_src_name(self, binary_name):
         """
@@ -196,18 +196,17 @@ class SearchDB():
             return ResponseCode.INPUT_NONE, None
         for db_name, data_base in self.db_object_dict.items():
             try:
-                name_in = literal_column('src_name').in_(search_set)
-                sql_com = text('''SELECT
-                                NAME AS subpack_name,
-                                src_name AS search_name,
-                                version AS search_version
+                name_in = literal_column('name').in_(search_set)
+                sql_com = text('''
+                            SELECT
+                                bin_pack.name AS subpack_name,
+                                src.name AS search_name,
+                                src.version AS search_version
                             FROM
-                                bin_pack 
-                            WHERE
-                                {}
-                                '''.format(name_in))
+                                (SELECT name,version FROM src_pack WHERE {}) src
+                                LEFT JOIN bin_pack on src.name = bin_pack.src_name'''.format(name_in))
                 subpack_tuple = data_base.session. \
-                    execute(sql_com, {'src_name_{}'.format(i): v
+                    execute(sql_com, {'name_{}'.format(i): v
                                       for i, v in enumerate(search_set, 1)}).fetchall()
                 if subpack_tuple:
                     for result in subpack_tuple:
@@ -310,8 +309,18 @@ class SearchDB():
 
         if not_found_binary:
             for key, values in not_found_binary.items():
-                LOGGER.logger.warning(
-                    "CANNOT FOUND THE component" + key + " in all database")
+                # LOGGER.logger.warning(
+                #     "CANNOT FOUND THE component" + key + " in all database")
+                for info in values:
+                    obj = return_tuple(
+                        info[0],
+                        None,
+                        None,
+                        None,
+                        'NOT FOUND',
+                        info[2]
+                    )
+                    result_list.append(obj)
         return result_list
 
     def _get_install_pro_in_other_database(self, not_found_binary):
@@ -362,9 +371,20 @@ class SearchDB():
                         del not_found_binary[result.req_name]
                 if not not_found_binary:
                     return result_list
-        # if not_found_binary:
+        if not_found_binary:
             # for key, values in not_found_binary.items():
-                # LOGGER.logger.warning("CANNOT FOUND THE component" + key + " in all database")
+            # LOGGER.logger.warning("CANNOT FOUND THE component" + key + " in all database")
+            for key, values in not_found_binary.items():
+                for info in values:
+                    obj = return_tuple(
+                        None,
+                        None,
+                        None,
+                        info[0],
+                        info[1],
+                        info[2]
+                    )
+                    result_list.append((obj, info[3]))
         return result_list
 
     def get_build_depend(self, source_name_li):
@@ -393,7 +413,7 @@ class SearchDB():
 
         s_name_set = set(source_name_li)
         if not s_name_set:
-            return ResponseCode.PARAM_ERROR, None
+            return ResponseCode.PARAM_ERROR, set()
 
         provides_not_found = dict()
         build_list = []
@@ -465,7 +485,7 @@ class SearchDB():
                 build_result = self._get_binary_in_other_database(
                     provides_not_found)
                 build_list.extend(build_result)
-                return ResponseCode.SUCCESS, build_list
+                return ResponseCode.SUCCESS, build_list, set(provides_not_found.keys())
 
         if s_name_set:
             build_result = self._get_binary_in_other_database(
@@ -474,7 +494,7 @@ class SearchDB():
             for source in s_name_set:
                 LOGGER.logger.warning(
                     "CANNOT FOUND THE source " + source + " in all database")
-        return ResponseCode.SUCCESS, build_list
+        return ResponseCode.SUCCESS, build_list, set(provides_not_found.keys())
 
     def binary_search_database_for_first_time(self, binary_name):
         """
