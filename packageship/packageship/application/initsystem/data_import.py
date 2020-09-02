@@ -200,12 +200,8 @@ class InitDataBase():
                 raise FileNotFoundError("sqlite file {src} or {bin} does not exist, please \
                     check and try again".format(src=src_db_file, bin=bin_db_file))
             # 3. Obtain temporary source package files and binary package files
-            _lifecycle_status_val = database_config.get('lifecycle')
-            if self.__save_data(src_db_file,
-                                bin_db_file,
-                                self.database_name,
-                                _db_name,
-                                _lifecycle_status_val):
+            if self.__save_data(database_config,
+                                self.database_name):
                 # Update the configuration file of the database
                 database_content = {
                     'database_name': _db_name,
@@ -266,7 +262,7 @@ class InitDataBase():
             LOGGER.logger.error(sql_error)
             return None
 
-    def __save_data(self, src_db_file, bin_db_file, db_name, table_name, lifecycle_status_val):
+    def __save_data(self, database_config, db_name):
         """
         integration of multiple data files
 
@@ -278,6 +274,10 @@ class InitDataBase():
         Raises:
 
         """
+        src_db_file = database_config.get('src_db_file')
+        bin_db_file = database_config.get('bin_db_file')
+        table_name = database_config.get('dbname')
+        lifecycle_status_val = database_config.get('lifecycle')
         try:
             with DBHelper(db_name=src_db_file, db_type='sqlite:///', complete_route_db=True) \
                     as database:
@@ -323,15 +323,6 @@ class InitDataBase():
             database.batch_add(packages_datas, SrcPack)
         if lifecycle_status_val == 'enable':
             InitDataBase._storage_packages(table_name, packages_datas)
-
-    @staticmethod
-    def __meta_model(table_name):
-        """
-            The mapping relationship of the orm model
-        """
-        model = type("packages", (Packages, DBHelper.BASE), {
-            '__tablename__': table_name})
-        return model
 
     @staticmethod
     def _storage_packages(table_name, package_data):
@@ -744,8 +735,7 @@ class SqliteDatabaseOperations():
         if not self.storage and os.path.exists(_db_file + '.db'):
             os.remove(_db_file + '.db')
 
-        # create a  sqlite database
-        # if (self.is_datum and not os.path.exists(_db_file + '.db')) or not self.is_datum:
+        # create a sqlite database
         with DBHelper(db_name=_db_file) as database:
             try:
                 if self.tables:
