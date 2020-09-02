@@ -109,8 +109,8 @@ function stop_service(){
 
 if [ ! -n "$1" ]
 then
-	echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
-	exit 0
+    echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
+    exit 0
 fi
 
 if [ X$2 = X ];then
@@ -156,6 +156,6 @@ elif [ $1 = restart ];then
     echo "===The run log is saved into: $daemonize==="
 
 else
-	echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
+    echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
 fi
 

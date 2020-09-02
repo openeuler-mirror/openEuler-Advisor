@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 import os
 import unittest
+import json
+from .basetest import TestBase
 
 from packageship.libs.exception import Error
 try:
@@ -28,6 +30,15 @@ except Error:
     raise
 
 
-class ReadTestBase(unittest.TestCase):
+class ReadTestBase(TestBase):
+
+    def client_request(self, url):
+        """
+            Simulate client sending request
+        """
+        response = self.client.get(url)
+        response_content = json.loads(response.data)
+        return response_content
+
     def setUp(self):
         self.client = app.test_client()

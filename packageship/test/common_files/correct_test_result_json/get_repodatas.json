@@ -1,12 +1,10 @@
 [
 	{
 		"database_name": "mainline",
-		"priority": 1,
-		"status": "enable"
+		"priority": 1
 	},
 	{
 		"database_name": "fedora30",
-		"priority": 2,
-		"status": "enable"
+		"priority": 2
 	}
 ]

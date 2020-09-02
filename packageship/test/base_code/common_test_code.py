@@ -41,7 +41,7 @@ def get_correct_json_by_filename(filename):
                              "correct_test_result_json",
                              "{}.json".format(filename))
     try:
-        with open(json_path, "r") as json_fp:
+        with open(json_path, "r", encoding='utf-8') as json_fp:
             correct_list = json.loads(json_fp.read())
     except FileNotFoundError:
         return []

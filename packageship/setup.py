@@ -5,8 +5,7 @@ file for software packaging
 """
 from distutils.core import setup
 
-
-config_path = "/etc/pkgship/"  # pylint: disable=invalid-name
+_CONFIG_PATH = "/etc/pkgship/"
 
 setup(
     name='packageship',
@@ -59,6 +58,6 @@ setup(
     long_description=open('README.md', encoding='utf-8').read(),
     author='gongzt',
     data_files=[
-        (config_path, ['packageship/package.ini']),
-        ('/usr/bin', ['packageship/pkgshipd'])]
+        (_CONFIG_PATH, ['packageship/package.ini']),
+        ('/usr/bin', ['packageship/pkgshipd', 'packageship/pkgship'])]
 )

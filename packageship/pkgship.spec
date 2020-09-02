@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.1.0
-Release:        0
+Release:        2
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -10,10 +10,10 @@ BuildArch:      noarch
 
 BuildRequires: python3-flask-restful python3-flask python3 python3-pyyaml python3-sqlalchemy
 BuildRequires: python3-prettytable python3-requests python3-flask-session python3-flask-script python3-marshmallow
-BuildRequires: python3-pandas python3-dateutil python3-XlsxWriter python3-xlrd python3-Flask-APScheduler python3-retrying
+BuildRequires: python3-Flask-APScheduler python3-pandas python3-retrying python3-xlrd python3-XlsxWriter
 Requires: python3-pip python3-flask-restful python3-flask python3 python3-pyyaml
 Requires: python3-sqlalchemy python3-prettytable python3-requests
-Requires: python3-pyinstaller python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
+Requires: python3-flask-session python3-flask-script python3-marshmallow python3-uWSGI
 Requires: python3-pandas python3-dateutil python3-XlsxWriter python3-xlrd python3-Flask-APScheduler python3-retrying
 
 %description
@@ -30,33 +30,17 @@ Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 
 
 %check
+# The apscheduler cannot catch the local time, so a time zone must be assigned before running the test case.
+export TZ=Asia/Shanghai
 # change log_path to solve default log_path permission denied problem
 log_path=`pwd`/tmp/
 sed -i "/\[LOG\]/a\log_path=$log_path" test/common_files/package.ini
-%{__python3} -m unittest test/run_tests.py
+%{__python3} -m unittest test/init_test.py
+%{__python3} -m unittest test/read_test.py
+%{__python3} -m unittest test/write_test.py
 rm -rf $log_path
 
 %post
-#build cli bin
-if [ -f "/usr/bin/pkgship" ]; then
-    rm -rf /usr/bin/pkgship
-fi
-
-
-cd %{python3_sitelib}/packageship/
-if [ -f "/usr/bin/pyinstaller" ]; then
-    /usr/bin/pyinstaller -F pkgship.py
-elif [ -f "/usr/local/bin/pyinstaller" ]; then
-    /usr/local/bin/pyinstaller -F pkgship.py
-else
-    echo "pkship install fail,there is no pyinstaller!"
-    exit
-fi
-
-sed -i "s/hiddenimports\=\[\]/hiddenimports\=\['pkg_resources.py2_warn'\]/g" pkgship.spec
-/usr/local/bin/pyinstaller pkgship.spec
-cp dist/pkgship /usr/bin/
-rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 
 %postun
 
@@ -66,11 +50,18 @@ rm -rf %{python3_sitelib}/packageship/build %{python3_sitelib}/packageship/dist
 %{python3_sitelib}/*
 %config %{_sysconfdir}/pkgship/*
 %attr(0755,root,root) %{_bindir}/pkgshipd
-
+%attr(0755,root,root) %{_bindir}/pkgship
 
 %changelog
-* Sat Aug 29 2020 Yiru Wang <wangyiru1@huawei.com> - 1.1.0-0
-- Add the RPM package life cycle and issue summary features, adding the requires
+* Tue Sep 1 2020 Zhengtang Gong <gongzhengtang@huawei.com> - 1.1.0-2
+- Delete the packaged form of pyinstaller and change the execution
+  of the command in the form of a single file as the input
+
+* Sat Aug 29 2020 Yiru Wang <wangyiru1@huawei.com> - 1.1.0-1
+- Add package management features:
+  RPM packages statically displayed in the version repository
+  RPM packages used time displayed for current version in the version repository
+  Issue management of packages in a version-management repository
 
 * Fri Aug 21 2020 Chengqiang Bao < baochengqiang1@huawei.com > - 1.0.0-7
 - Fixed a problem with command line initialization of the Filepath parameter where relative paths are not supported and paths are too long

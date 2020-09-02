@@ -21,28 +21,7 @@ class TestGetIssue(ReadTestBase):
         Less transmission is always parameter transmission
         """
         # No arguments passed
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=&page_num=&page_size=")
-        resp_dict = json.loads(resp.data)
-
-        self.assertIn("code", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.PARAM_ERROR,
-                         resp_dict.get("code"),
-                         msg="Error in status code return")
-
-        self.assertIn("msg", resp_dict, msg="Error in data format return")
-        self.assertEqual(
-            ResponseCode.CODE_MSG_MAP.get(
-                ResponseCode.PARAM_ERROR),
-            resp_dict.get("msg"),
-            msg="Error in status prompt return")
-
-        self.assertIn("data", resp_dict, msg="Error in data format return")
-        self.assertIsNone(
-            resp_dict.get("data"),
-            msg="Error in data information return")
-
-        # Only the table_name
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=mainline&page_num=&page_size=")
+        resp = self.client.get("/lifeCycle/issuetrace?page_num=&page_size=")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -63,7 +42,7 @@ class TestGetIssue(ReadTestBase):
             msg="Error in data information return")
 
         # Only the page_num
-        resp = self.client.get("/lifeCycle/issuetrace?table_name+&page_num=1&page_size=")
+        resp = self.client.get("/lifeCycle/issuetrace?page_num=1&page_size=")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -84,28 +63,7 @@ class TestGetIssue(ReadTestBase):
             msg="Error in data information return")
 
         # Only the page_size
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=&page_num=&page_size=5")
-        resp_dict = json.loads(resp.data)
-
-        self.assertIn("code", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.PARAM_ERROR,
-                         resp_dict.get("code"),
-                         msg="Error in status code return")
-
-        self.assertIn("msg", resp_dict, msg="Error in data format return")
-        self.assertEqual(
-            ResponseCode.CODE_MSG_MAP.get(
-                ResponseCode.PARAM_ERROR),
-            resp_dict.get("msg"),
-            msg="Error in status prompt return")
-
-        self.assertIn("data", resp_dict, msg="Error in data format return")
-        self.assertIsNone(
-            resp_dict.get("data"),
-            msg="Error in data information return")
-
-        # Without table_name
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=&page_num=1&page_size=5")
+        resp = self.client.get("/lifeCycle/issuetrace?page_num=&page_size=5")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -126,7 +84,7 @@ class TestGetIssue(ReadTestBase):
             msg="Error in data information return")
 
         # Without page_num
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=mainline&page_num=&page_size=5")
+        resp = self.client.get("/lifeCycle/issuetrace?page_num=&page_size=5")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -147,7 +105,7 @@ class TestGetIssue(ReadTestBase):
             msg="Error in data information return")
 
         # Without page_size
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=mainline&page_num=1&page_size=")
+        resp = self.client.get("/lifeCycle/issuetrace?page_num=1&page_size=")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -172,7 +130,7 @@ class TestGetIssue(ReadTestBase):
         Results contrast
         """
         # All incoming
-        resp = self.client.get("/lifeCycle/issuetrace?table_name=mainline&page_num=1&page_size=5")
+        resp = self.client.get("/lifeCycle/issuetrace?page_num=1&page_size=5")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -195,7 +153,7 @@ class TestGetIssue(ReadTestBase):
         """
         # pkg_name Parameter error
         resp = self.client.get(
-            "/lifeCycle/issuetrace?table_name=mainline&pkg_name=hhh")
+            "/lifeCycle/issuetrace?pkg_name=hhh")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -214,7 +172,7 @@ class TestGetIssue(ReadTestBase):
 
         # page_num Parameter error
         resp = self.client.get(
-            "/lifeCycle/issuetrace?table_name=mainline&pkg_name=dnf&page_num=x")
+            "/lifeCycle/issuetrace?pkg_name=dnf&page_num=x")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -236,26 +194,7 @@ class TestGetIssue(ReadTestBase):
 
         # page_size Parameter error
         resp = self.client.get(
-            "/lifeCycle/issuetrace?table_name=mainline&pkg_name=dnf&page_num=1&page_size=x")
-        resp_dict = json.loads(resp.data)
-
-        self.assertIn("code", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.PARAM_ERROR,
-                         resp_dict.get("code"),
-                         msg="Error in status code return")
-
-        self.assertIn("msg", resp_dict, msg="Error in data format return")
-        self.assertEqual(
-            ResponseCode.CODE_MSG_MAP.get(
-                ResponseCode.PARAM_ERROR),
-            resp_dict.get("msg"),
-            msg="Error in status prompt return")
-
-        self.assertIn("data", resp_dict, msg="Error in data format return")
-
-        # table_name Parameter error
-        resp = self.client.get(
-            "/lifeCycle/issuetrace?table_name=xer&pkg_name=dnf")
+            "/lifeCycle/issuetrace?pkg_name=dnf&page_num=1&page_size=x")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")

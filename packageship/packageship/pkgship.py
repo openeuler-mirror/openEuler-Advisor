@@ -144,9 +144,7 @@ class PkgshipCommand(BaseCommand):
         super(PkgshipCommand, self).__init__()
         self.statistics = dict()
         self.table = PkgshipCommand.create_table()
-
         # Calculate the total width of the current terminal
-        # self.columns = int(os.popen('stty size', 'r').read().split()[1])
         self.columns = 100
         self.params = []
 
