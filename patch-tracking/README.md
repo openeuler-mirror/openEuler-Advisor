@@ -77,7 +77,7 @@ rpm包获取地址：https://117.78.1.88/package/show/openEuler:Mainline/patch-t
 
 ```shell script
 yum install -y gcc gcc-c++ python3-devel openssl-devel
-pip3 install flask flask-sqlalchemy flask-apscheduler requests flask_httpauth pandas
+pip3 install flask flask-sqlalchemy flask-apscheduler requests flask_httpauth pandas numpy==1.16.5
 pip3 install -I uwsgi
 ```
 
