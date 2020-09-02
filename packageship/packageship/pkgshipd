@@ -150,9 +150,13 @@ elif [ $1 = restart ];then
     if [ $service = "all" ];then
         stop_service "manage" "reload"
         stop_service "selfpkg" "reload"
+        start_service "manage"
+        start_service "selfpkg"
     else
         stop_service $service "reload"
+        start_service $service
     fi
+
     echo "===The run log is saved into: $daemonize==="
 
 else
