@@ -225,8 +225,6 @@ class SearchDB():
         return_tuple = namedtuple(
             'return_tuple', 'subpack_name search_version search_name')
         for search_name in search_set:
-            # LOGGER.logger.warning("Can't not find " +
-            #                       search_name + " subpack in all database")
             result_list.append(
                 (return_tuple(None, None, search_name), 'NOT_FOUND'))
         return ResponseCode.SUCCESS, result_list
@@ -309,8 +307,6 @@ class SearchDB():
 
         if not_found_binary:
             for key, values in not_found_binary.items():
-                # LOGGER.logger.warning(
-                #     "CANNOT FOUND THE component" + key + " in all database")
                 for info in values:
                     obj = return_tuple(
                         info[0],
@@ -372,8 +368,6 @@ class SearchDB():
                 if not not_found_binary:
                     return result_list
         if not_found_binary:
-            # for key, values in not_found_binary.items():
-            # LOGGER.logger.warning("CANNOT FOUND THE component" + key + " in all database")
             for key, values in not_found_binary.items():
                 for info in values:
                     obj = return_tuple(

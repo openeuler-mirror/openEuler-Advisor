@@ -131,10 +131,10 @@ class SelfDepend():
         Raises:
         """
         self.result_tmp.clear()
-        _, self.result_tmp, not_fd_install = \
+        _, self.result_tmp, not_fd_com = \
             install_depend(self.db_list).query_install_depend(self.search_install_list,
                                                               self.binary_dict.dictionary)
-        self.not_found_components.update(not_fd_install)
+        self.not_found_components.update(not_fd_com)
         self.search_install_list.clear()
         for key, values in self.result_tmp.items():
             if key in self.binary_dict.dictionary:
@@ -201,13 +201,13 @@ class SelfDepend():
         Returns:
         Raises:
         """
-        _, self.result_tmp, _, not_fd_build = build_depend(
+        _, self.result_tmp, _, not_fd_com = build_depend(
             self.search_build_list,
             self.db_list,
             self_build=0,
             history_dict=self.binary_dict.dictionary
         ).build_depend_main()
-        self.not_found_components.update(not_fd_build)
+        self.not_found_components.update(not_fd_com)
         self.search_build_list.clear()
         for key, values in self.result_tmp.items():
             if not key:
@@ -233,13 +233,13 @@ class SelfDepend():
         Args:
         Returns:
         """
-        _, self.result_tmp, source_dicts_tmp, not_fd_build = build_depend(
+        _, self.result_tmp, source_dicts_tmp, not_fd_com = build_depend(
             self.search_build_list,
             self.db_list,
             self_build=1,
             history_dict=self.source_dicts.dictionary
         ).build_depend_main()
-        self.not_found_components.update(not_fd_build)
+        self.not_found_components.update(not_fd_com)
         for key, values in self.result_tmp.items():
             if not key:
                 LOGGER.logger.warning("key is NONE for value = " + str(values))
