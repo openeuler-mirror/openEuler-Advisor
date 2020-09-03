@@ -20,6 +20,7 @@ class InstallDepend():
         __search_list: Contain the binary packages searched in the next loop
         binary_dict: Contain all the binary packages info and operation
         __search_db: A object of database which would be connected
+        not_found_components: Contain the package not found components
     changeLog:
     """
     #pylint: disable = too-few-public-methods
@@ -32,6 +33,7 @@ class InstallDepend():
 
         self.db_list = db_list
         self.__search_db = SearchDB(db_list)
+        self.not_found_components = set()
 
     def query_install_depend(self, binary_list, history_dicts=None):
         """
@@ -51,12 +53,13 @@ class InstallDepend():
                             'install'
                         ]
                     ]}
+            not_found_components:Set of package not found components
         Raises:
         """
         if not self.__search_db.db_object_dict:
-            return ResponseCode.DIS_CONNECTION_DB, None
+            return ResponseCode.DIS_CONNECTION_DB, None, set()
         if not binary_list:
-            return ResponseCode.INPUT_NONE, None
+            return ResponseCode.INPUT_NONE, None, set()
         for binary in binary_list:
             if binary:
                 self.__search_list.append(binary)
@@ -64,7 +67,7 @@ class InstallDepend():
                 LOGGER.logger.warning("There is a  NONE in input value:" + str(binary_list))
         while self.__search_list:
             self.__query_single_install_dep(history_dicts)
-        return  ResponseCode.SUCCESS, self.binary_dict.dictionary
+        return ResponseCode.SUCCESS, self.binary_dict.dictionary, self.not_found_components
 
     def __query_single_install_dep(self, history_dicts):
         """
@@ -75,7 +78,8 @@ class InstallDepend():
             response_code: response code
         Raises:
         """
-        result_list = set(self.__search_db.get_install_depend(self.__search_list))
+        result_list, not_found_components = map(set, self.__search_db.get_install_depend(self.__search_list))
+        self.not_found_components.update(not_found_components)
         for search in self.__search_list:
             if search not in self.binary_dict.dictionary:
                 self.binary_dict.init_key(key=search, parent_node=[])

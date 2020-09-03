@@ -6,58 +6,61 @@
     "output": {
       "code": "2001",
       "data": {
-        "A1": [
-          "A",
-          "0.0.23b",
-          "mainline",
-          [
+        "install_dict": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "mainline",
             [
-              "root",
-              null
-            ],
+              [
+                "root",
+                null
+              ],
+              [
+                "D1",
+                "install"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "mainline",
             [
-              "D1",
-              "install"
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C1",
+                "install"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "mainline",
+            [
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "mainline",
+            [
+              [
+                "A2",
+                "install"
+              ]
             ]
           ]
-        ],
-        "A2": [
-          "A",
-          "0.0.23b",
-          "mainline",
-          [
-            [
-              "A1",
-              "install"
-            ],
-            [
-              "C1",
-              "install"
-            ]
-          ]
-        ],
-        "C1": [
-          "C",
-          "0.1",
-          "mainline",
-          [
-            [
-              "A2",
-              "install"
-            ]
-          ]
-        ],
-        "D1": [
-          "D",
-          "0.11",
-          "mainline",
-          [
-            [
-              "A2",
-              "install"
-            ]
-          ]
-        ]
+        },
+        "not_found_components": []
       },
       "msg": "Successful Operation!"
     }
@@ -69,69 +72,72 @@
     "output": {
       "code": "2001",
       "data": {
-        "A1": [
-          "A",
-          "0.0.23b",
-          "mainline",
-          [
+        "install_dict": {
+          "A1": [
+            "A",
+            "0.0.23b",
+            "mainline",
             [
-              "D1",
-              "install"
+              [
+                "D1",
+                "install"
+              ]
+            ]
+          ],
+          "A2": [
+            "A",
+            "0.0.23b",
+            "mainline",
+            [
+              [
+                "A1",
+                "install"
+              ],
+              [
+                "C1",
+                "install"
+              ]
+            ]
+          ],
+          "C1": [
+            "C",
+            "0.1",
+            "mainline",
+            [
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ],
+          "D1": [
+            "D",
+            "0.11",
+            "mainline",
+            [
+              [
+                "D2",
+                "install"
+              ],
+              [
+                "A2",
+                "install"
+              ]
+            ]
+          ],
+          "D2": [
+            "D",
+            "0.11",
+            "mainline",
+            [
+              [
+                "root",
+                null
+              ]
             ]
           ]
-        ],
-        "A2": [
-          "A",
-          "0.0.23b",
-          "mainline",
-          [
-            [
-              "A1",
-              "install"
-            ],
-            [
-              "C1",
-              "install"
-            ]
-          ]
-        ],
-        "C1": [
-          "C",
-          "0.1",
-          "mainline",
-          [
-            [
-              "A2",
-              "install"
-            ]
-          ]
-        ],
-        "D1": [
-          "D",
-          "0.11",
-          "mainline",
-          [
-            [
-              "D2",
-              "install"
-            ],
-            [
-              "A2",
-              "install"
-            ]
-          ]
-        ],
-        "D2": [
-          "D",
-          "0.11",
-          "mainline",
-          [
-            [
-              "root",
-              null
-            ]
-          ]
-        ]
+        },
+        "not_found_components": []
       },
       "msg": "Successful Operation!"
     }
@@ -143,17 +149,20 @@
     "output": {
       "code": "2001",
       "data": {
-        "C2": [
-          "C",
-          "0.1",
-          "mainline",
-          [
+        "install_dict": {
+          "C2": [
+            "C",
+            "0.1",
+            "mainline",
             [
-              "root",
-              null
+              [
+                "root",
+                null
+              ]
             ]
           ]
-        ]
+        },
+        "not_found_components": []
       },
       "msg": "Successful Operation!"
     }

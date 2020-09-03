@@ -19,8 +19,8 @@ def write_data_tests():
     suite = unittest.TestSuite()
 
     classes = [
-        # TestDeleteRepodatas,
-        # TestBatchUpdatePackage,
+        TestDeleteRepodatas,
+        TestBatchUpdatePackage,
         TestIssueCatch
     ]
     for cls in classes:
