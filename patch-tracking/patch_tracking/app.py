@@ -9,11 +9,31 @@ from patch_tracking.api.issue import issue
 from patch_tracking.api.tracking import tracking
 from patch_tracking.database import db
 from patch_tracking.task import task
+from patch_tracking.util import github_api, gitee_api
 
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 
 app = Flask(__name__)
 logger = logging.getLogger(__name__)
+
+
+def check_token():
+    """ check gitee/github token """
+    gitee_token = app.config['GITEE_ACCESS_TOKEN']
+    github_token = app.config['GITHUB_ACCESS_TOKEN']
+    token_error = False
+    github_ret = github_api.get_user_info(github_token)
+    if github_ret[0] != "success":
+        logger.error('github token is bad credentials.')
+        token_error = True
+
+    gitee_ret = gitee_api.get_user_info(gitee_token)
+    if gitee_ret[0] != "success":
+        logger.error('gitee token is bad credentials.')
+        token_error = True
+
+    if token_error:
+        sys.exit()
 
 
 def check_listen(listen_param):
@@ -67,6 +87,7 @@ def check_settings_conf():
 settings_file = os.path.join(os.path.abspath(os.curdir), "settings.conf")
 app.config.from_pyfile(settings_file)
 check_settings_conf()
+check_token()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite?check_same_thread=False'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
