@@ -134,7 +134,6 @@ class TestGetSinglePack(ReadTestBase):
         self.assertEqual(ResponseCode.CODE_MSG_MAP.get(ResponseCode.SUCCESS),
                          resp_dict.get("msg"),
                          msg="Error in status prompt return")
-
         self.assertIn("data", resp_dict, msg="Error in data format return")
         self.assertTrue(
             compare_two_values(

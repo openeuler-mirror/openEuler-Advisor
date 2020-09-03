@@ -172,7 +172,7 @@ class TestPackages(ReadTestBase):
 
         # test wrong page_num
         resp = self.client.get(
-            "/packages?table_name=mainline&page_num=65535&page_size=1")
+            "/packages?table_name=mainline&page_num=65536&page_size=1")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")
@@ -216,7 +216,7 @@ class TestPackages(ReadTestBase):
 
         # test wrong page_size
         resp = self.client.get(
-            "/packages?table_name=mainline&page_num=1&page_size=65535")
+            "/packages?table_name=mainline&page_num=1&page_size=65536")
         resp_dict = json.loads(resp.data)
 
         self.assertIn("code", resp_dict, msg="Error in data format return")

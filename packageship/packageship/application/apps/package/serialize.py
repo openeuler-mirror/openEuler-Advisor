@@ -20,7 +20,7 @@ def validate_pagenum(pagenum):
     Raises:
         ValidationError: Test failed
     """
-    if pagenum <= 0 or pagenum >= 65535:
+    if pagenum <= 0 or pagenum > 65535:
         raise ValidationError("pagenum is illegal data ")
 
 
@@ -34,7 +34,7 @@ def validate_pagesize(pagesize):
     Raises:
         ValidationError: Test failed
     """
-    if pagesize <= 0 or pagesize >= 65535:
+    if pagesize <= 0 or pagesize > 65535:
         raise ValidationError("pagesize is illegal data ")
 
 
