@@ -38,7 +38,6 @@
                         "id": 1,
                         "name": "Ac",
                         "providedby": [
-                            "C1",
                             "C1"
                         ]
                     }
@@ -59,7 +58,6 @@
                         "id": 2,
                         "name": "Ac",
                         "providedby": [
-                            "C1",
                             "C1"
                         ]
                     },
