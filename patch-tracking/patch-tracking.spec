@@ -1,6 +1,6 @@
 %define name patch-tracking
 %define version 1.0.0
-%define release 1
+%define release 2
 
 Summary: This is a tool for automatically tracking upstream repository code patches
 Name: %{name}
