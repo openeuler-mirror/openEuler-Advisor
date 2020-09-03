@@ -33,6 +33,7 @@ class SelfDepend():
         search_subpack_list: Contain the source packages searched subpack in the next loop
         withsubpack: withsubpack
         search_db: A object of database which would be connected
+        not_found_components: Contain the package not found components
     """
     def __init__(self, db_list):
         """
@@ -47,6 +48,7 @@ class SelfDepend():
         self.withsubpack = 0
         self.db_list = db_list
         self.search_db = SearchDB(db_list)
+        self.not_found_components = set()
 
     def query_depend(self, packname, selfbuild, withsubpack, packtype='binary'):
         """
@@ -59,17 +61,18 @@ class SelfDepend():
         Returns:
              binary_dict.dictionary: Contain all the binary packages info after searching
              source_dicts.dictionary: Contain all the source packages info after searching
+             not_found_components :Set of package not found components
         Raises:
         """
         if not self.search_db.db_object_dict:
-            return ResponseCode.DIS_CONNECTION_DB, None, None
+            return ResponseCode.DIS_CONNECTION_DB, None, None, set()
         if not packname:
             return ResponseCode.INPUT_NONE
 
         self.withsubpack = withsubpack
         response_code = self.init_dict(packname, packtype)
         if response_code != ResponseCode.SUCCESS:
-            return response_code, self.binary_dict.dictionary, self.source_dicts.dictionary
+            return response_code, self.binary_dict.dictionary, self.source_dicts.dictionary, self.not_found_components
 
         for key, _ in self.binary_dict.dictionary.items():
             self.search_install_list.append(key)
@@ -85,7 +88,7 @@ class SelfDepend():
                 self.with_subpack()
             if self.search_build_list:
                 self.query_build(selfbuild)
-        return response_code, self.binary_dict.dictionary, self.source_dicts.dictionary
+        return response_code, self.binary_dict.dictionary, self.source_dicts.dictionary, self.not_found_components
 
     def init_dict(self, packname, packtype):
         """
@@ -130,9 +133,10 @@ class SelfDepend():
         Raises:
         """
         self.result_tmp.clear()
-        _, self.result_tmp = \
+        _, self.result_tmp, not_fd_com = \
             install_depend(self.db_list).query_install_depend(self.search_install_list,
                                                               self.binary_dict.dictionary)
+        self.not_found_components.update(not_fd_com)
         self.search_install_list.clear()
         for key, values in self.result_tmp.items():
             if key in self.binary_dict.dictionary:
@@ -199,13 +203,13 @@ class SelfDepend():
         Returns:
         Raises:
         """
-        _, self.result_tmp, _ = build_depend(
+        _, self.result_tmp, _, not_fd_com = build_depend(
             self.search_build_list,
             self.db_list,
             self_build=0,
             history_dict=self.binary_dict.dictionary
         ).build_depend_main()
-
+        self.not_found_components.update(not_fd_com)
         self.search_build_list.clear()
         for key, values in self.result_tmp.items():
             if not key:
@@ -231,13 +235,13 @@ class SelfDepend():
         Args:
         Returns:
         """
-        _, self.result_tmp, source_dicts_tmp = build_depend(
+        _, self.result_tmp, source_dicts_tmp, not_fd_com = build_depend(
             self.search_build_list,
             self.db_list,
             self_build=1,
             history_dict=self.source_dicts.dictionary
         ).build_depend_main()
-
+        self.not_found_components.update(not_fd_com)
         for key, values in self.result_tmp.items():
             if not key:
                 LOGGER.logger.warning("key is NONE for value = " + str(values))

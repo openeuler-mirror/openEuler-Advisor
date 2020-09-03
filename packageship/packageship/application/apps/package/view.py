@@ -38,7 +38,9 @@ from .serialize import SelfDependSchema
 from .serialize import have_err_db_name
 
 LOGGER = Log(__name__)
-#pylint: disable = no-self-use
+
+
+# pylint: disable = no-self-use
 
 
 class Packages(Resource):
@@ -215,16 +217,22 @@ class InstallDepend(Resource):
                 ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
             )
 
-        response_code, install_dict = \
+        response_code, install_dict, not_found_components = \
             installdepend(db_list).query_install_depend([pkg_name])
 
         if not install_dict:
             return jsonify(
                 ResponseCode.response_json(response_code)
             )
-
+        elif len(install_dict) == 1 and install_dict.get(pkg_name)[2] == 'NOT FOUND':
+            return jsonify(
+                ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
+            )
         return jsonify(
-            ResponseCode.response_json(ResponseCode.SUCCESS, data=install_dict)
+            ResponseCode.response_json(ResponseCode.SUCCESS, data={
+                "install_dict": install_dict,
+                'not_found_components': list(not_found_components)
+            })
         )
 
 
@@ -282,12 +290,23 @@ class BuildDepend(Resource):
 
         build_ins = builddepend([pkg_name], db_list)
 
-        res_code, res_dict, _ = build_ins.build_depend_main()
+        res_code, res_dict, _, not_found_com = build_ins.build_depend_main()
+        if res_dict:
+            res_code = ResponseCode.SUCCESS
+        else:
+            return jsonify(
+                ResponseCode.response_json(
+                    res_code
+                )
+            )
 
         return jsonify(
             ResponseCode.response_json(
                 res_code,
-                data=res_dict if res_dict else None
+                data={
+                    'build_dict': res_dict,
+                    'not_found_components': list(not_found_com)
+                }
             )
         )
 
@@ -350,7 +369,7 @@ class SelfDepend(Resource):
             return jsonify(
                 ResponseCode.response_json(ResponseCode.DB_NAME_ERROR)
             )
-        response_code, binary_dicts, source_dicts = \
+        response_code, binary_dicts, source_dicts, not_fd_components = \
             self_depend(db_list).query_depend(pkg_name, int(self_build),
                                               int(with_sub_pack), pack_type)
 
@@ -362,7 +381,8 @@ class SelfDepend(Resource):
         return jsonify(
             ResponseCode.response_json(ResponseCode.SUCCESS, data={
                 "binary_dicts": binary_dicts,
-                "source_dicts": source_dicts
+                "source_dicts": source_dicts,
+                "not_found_components": list(not_fd_components)
             })
         )
 

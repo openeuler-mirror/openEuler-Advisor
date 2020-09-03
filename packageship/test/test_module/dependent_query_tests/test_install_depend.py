@@ -89,17 +89,17 @@ class TestInstallDepend(ReadTestBase):
 
         resp_dict = json.loads(resp.data)
         self.assertIn("code", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.SUCCESS,
+        self.assertEqual(ResponseCode.PACK_NAME_NOT_FOUND,
                          resp_dict.get("code"),
                          msg="Error in status code return")
 
         self.assertIn("msg", resp_dict, msg="Error in data format return")
-        self.assertEqual(ResponseCode.CODE_MSG_MAP.get(ResponseCode.SUCCESS),
+        self.assertEqual(ResponseCode.CODE_MSG_MAP.get(ResponseCode.PACK_NAME_NOT_FOUND),
                          resp_dict.get("msg"),
                          msg="Error in status prompt return")
 
         self.assertIn("data", resp_dict, msg="Error in data format return")
-        self.assertIsNotNone(resp_dict.get("data"), msg="Error in data information return")
+        self.assertIsNone(resp_dict.get("data"), msg="Error in data information return")
 
         resp = self.client.post("/packages/findInstallDepend",
                                 data=json.dumps({"binaryName": "A1",
