@@ -10,6 +10,34 @@ from flask import current_app
 logger = logging.getLogger(__name__)
 
 
+def get_user_info(token):
+    url = "https://api.github.com/user"
+    count = 30
+    token = 'token ' + token
+    headers = {
+        'User-Agent': 'Mozilla/5.0',
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        'Connection': 'close',
+        'method': 'GET',
+        'Accept': 'application/json'
+    }
+    while count > 0:
+        try:
+            ret = requests.get(url, headers=headers)
+            if ret.status_code == 200:
+                return 'success', ret.text
+            return 'error', ret.json()
+        except requests_connectionError as err:
+            logger.warning(err)
+            time.sleep(10)
+            count -= 1
+            continue
+    if count == 0:
+        logger.error('Fail to connnect to github: %s after retry 30 times.', url)
+        return 'connect error'
+
+
 class GitHubApi:
     """
     Encapsulates GitHub functionality
