@@ -511,15 +511,9 @@ class AllPackageCommand(PkgshipCommand):
         self.params = [('tablename', 'str', 'name of the database operated', '', 'store'),
                        ('-remote', 'str', 'The address of the remote service',
                         False, 'store_true'),
-                       ('-pkgname', 'str',
+                       ('-packagename', 'str',
                         'Package name that needs fuzzy matching', '', 'store'),
-                       ('-maintainner', 'str', 'Maintainer\'s name', '', 'store'),
-                       ('-maintainlevel', 'str',
-                        'Maintain the level of data', '', 'store'),
-                       ('-page', 'int',
-                        'Need to query the data on the first few pages', 1, 'store'),
-                       ('-pagesize', 'int',
-                        'The size of the data displayed on each page', 10, 'store')
+                       ('-maintainer', 'str', 'Maintainer\'s name', '', 'store')
                        ]
 
     def register(self):
@@ -577,14 +571,14 @@ class AllPackageCommand(PkgshipCommand):
         self._set_read_host(params.remote)
         _url = self.read_host + \
             '/packages?table_name={table_name}&query_pkg_name={pkg_name}&\
-            maintainner={maintainner}&maintainlevel={maintainlevel}&\
+            maintainner={maintainer}&maintainlevel={maintainlevel}&\
             page_num={page}&page_size={pagesize}'.format(
                 table_name=params.tablename,
-                pkg_name=params.pkgname,
-                maintainner=params.maintainner,
-                maintainlevel=params.maintainlevel,
-                page=params.page,
-                pagesize=params.pagesize).replace(' ', '')
+                pkg_name=params.packagename,
+                maintainer=params.maintainer,
+                maintainlevel='',
+                page=1,
+                pagesize=65535).replace(' ', '')
         try:
             response = requests.get(_url)
         except ConnErr as conn_error:
@@ -600,9 +594,6 @@ class AllPackageCommand(PkgshipCommand):
                     print(response.text)
 
                 if getattr(self.table, 'rowcount'):
-                    print('total count : %d' % response_data['total_count'])
-                    print('total page : %d' % response_data['total_page'])
-                    print('current page : %s ' % params.page)
                     print(self.table)
                 else:
                     print('Sorry, no relevant information has been found yet')
@@ -1382,7 +1373,7 @@ class IssueCommand(PkgshipCommand):
         self.parse = PkgshipCommand.subparsers.add_parser(
             'issue', help='Query the issue list of the specified package')
         self.params = [
-            ('-pkg_name', 'str', 'Query source package name', '', 'store'),
+            ('-packagename', 'str', 'Query source package name', '', 'store'),
 
             ('-issue_type', 'str', 'Type of issue', '', 'store'),
             ('-issue_status', 'str', 'the status of the issue', '', 'store'),
@@ -1390,7 +1381,7 @@ class IssueCommand(PkgshipCommand):
             ('-page', 'int',
              'Need to query the data on the first few pages', 1, 'store'),
             ('-pagesize', 'int',
-             'The size of the data displayed on each page', 100, 'store'),
+             'The size of the data displayed on each page', 65535, 'store'),
             ('-remote', 'str', 'The address of the remote service', False, 'store_true')
         ]
         self.table = self.create_table(
@@ -1448,7 +1439,7 @@ class IssueCommand(PkgshipCommand):
             &issue_status={issue_status}&maintainer={maintainer}'\
                 .format(page_num=params.page,
                         page_size=params.pagesize,
-                        pkg_name=params.pkg_name,
+                        pkg_name=params.packagename,
                         issue_type=params.issue_type,
                         issue_status=params.issue_status,
                         maintainer=params.maintainer).replace(' ', '')
