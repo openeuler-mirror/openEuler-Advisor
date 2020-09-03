@@ -7,7 +7,7 @@ from packageship.libs.exception.ext import DatabaseRepeatException
 from packageship.libs.exception.ext import DataMergeException
 from packageship.libs.exception.ext import Error
 from packageship.libs.exception.ext import DbnameNoneException
-from .ext import ConfigurationException
+from packageship.libs.exception.ext import ConfigurationException
 
 __all__ = ['ContentNoneException',
            'DatabaseRepeatException',
