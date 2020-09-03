@@ -19,6 +19,7 @@ class BuildDepend():
         search_db:Query an instance of a database class
         result_dict:A dictionary to store the data that needs to be echoed
         source_dict:A dictionary to store the searched source code package name
+        not_found_components: Contain the package not found components
     """
 
     def __init__(self, pkg_name_list, db_list, self_build=0, history_dict=None):
@@ -45,6 +46,7 @@ class BuildDepend():
             ResponseCode: response code
             result_dict: Dictionary of query results
             source_dict: Dictionary of source code package
+            not_found_components: Set of package not found components
         Raises:
         """
         if not self.search_db.db_object_dict:
@@ -67,7 +69,7 @@ class BuildDepend():
             #    The status code is not the final display status code
             return ResponseCode.SUCCESS, self.result_dict, self.source_dict, self.not_found_components
 
-        return ResponseCode.PARAM_ERROR, None, None,set()
+        return ResponseCode.PARAM_ERROR, None, None, set()
 
     def build_depend(self, pkg_list):
         """

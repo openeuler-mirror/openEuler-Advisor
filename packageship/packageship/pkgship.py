@@ -215,6 +215,7 @@ class PkgshipCommand(BaseCommand):
         Description: Parsing package data with dependencies
         Args:
             response_data: http request response content
+            params: Parameters passed in on the command line
         Returns:
             Summarized data table
         Raises:
@@ -825,6 +826,7 @@ class InstallDepCommand(PkgshipCommand):
         Description: Parse the corresponding data of the package
         Args:
             response_data: http response data
+            params: Parameters passed in on the command line
         Returns:
 
         Raises:
@@ -1050,6 +1052,7 @@ class SelfBuildCommand(PkgshipCommand):
         Description: Parse the corresponding data of the package
         Args:
             response_data: http response data
+            params: Parameters passed in on the command line
         Returns:
             Summarized data table
         Raises:

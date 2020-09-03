@@ -33,6 +33,7 @@ class SelfDepend():
         search_subpack_list: Contain the source packages searched subpack in the next loop
         withsubpack: withsubpack
         search_db: A object of database which would be connected
+        not_found_components: Contain the package not found components
     """
     def __init__(self, db_list):
         """
@@ -60,6 +61,7 @@ class SelfDepend():
         Returns:
              binary_dict.dictionary: Contain all the binary packages info after searching
              source_dicts.dictionary: Contain all the source packages info after searching
+             not_found_components :Set of package not found components
         Raises:
         """
         if not self.search_db.db_object_dict:

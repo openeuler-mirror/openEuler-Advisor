@@ -20,6 +20,7 @@ class InstallDepend():
         __search_list: Contain the binary packages searched in the next loop
         binary_dict: Contain all the binary packages info and operation
         __search_db: A object of database which would be connected
+        not_found_components: Contain the package not found components
     changeLog:
     """
     #pylint: disable = too-few-public-methods
@@ -52,6 +53,7 @@ class InstallDepend():
                             'install'
                         ]
                     ]}
+            not_found_components:Set of package not found components
         Raises:
         """
         if not self.__search_db.db_object_dict:

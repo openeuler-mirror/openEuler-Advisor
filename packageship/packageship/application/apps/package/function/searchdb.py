@@ -58,7 +58,8 @@ class SearchDB():
         Args:
              binary_list: a list of binary package name
         Returns:
-             install depend list
+             list:install depend list
+             set:package not found components
         Raises:
         """
         result_list = []
@@ -181,6 +182,7 @@ class SearchDB():
         Args:
              source_name_list: search package's name, database preority list
         Returns:
+             response code
              result_list: subpack tuple
         Raises:
             AttributeError: The object does not have this property
@@ -390,7 +392,7 @@ class SearchDB():
              all source pkg build depend list
              structure :[(search_name,source_name,bin_name,bin_version,db_name,search_version),
                             (search_name,source_name,bin_name,bin_version,db_name,search_version),]
-
+             set: package not found components name set
         Raises:
             AttributeError: The object does not have this property
             SQLAlchemyError: sqlalchemy error
