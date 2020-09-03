@@ -11,6 +11,9 @@ logger = logging.getLogger(__name__)
 
 
 def get_user_info(token):
+    """
+    get user info
+    """
     url = "https://api.github.com/user"
     count = 30
     token = 'token ' + token

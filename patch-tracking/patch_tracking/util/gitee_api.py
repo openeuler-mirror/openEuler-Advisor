@@ -13,6 +13,9 @@ REPO_URL = "https://gitee.com/api/v5/repos"
 
 
 def get_user_info(token):
+    """
+    get user info
+    """
     url = "https://gitee.com/api/v5/user"
     gitee_token = token
     param = {'access_token': gitee_token}
