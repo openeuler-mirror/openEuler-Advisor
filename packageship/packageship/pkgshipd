@@ -10,6 +10,91 @@ if [ ! -f "$SYS_PATH/package.ini" ]; then
     exit 0
 fi
 
+function check_config_file(){
+    echo "[INFO] Check validation of config file."
+    check_null
+    
+    echo "[INFO] Check validation of ip addresses."
+    write_port=$(get_config "$service" "write_port")
+    query_port=$(get_config "$service" "query_port")
+    write_ip_addr=$(get_config "$service" "write_ip_addr")
+    query_ip_addr=$(get_config "$service" "query_ip_addr")
+    check_addr $write_ip_addr $write_port
+    check_addr $query_ip_addr $query_port
+    echo "[INFO] IP addresses are all valid."
+
+    echo "[INFO] Check validation of numbers."
+    hour=$(get_config "$service" "hour")
+    minute=$(get_config "$service" "minute")
+    backup_count=$(get_config "$service" "backup_count")
+    max_bytes=$(get_config "$service" "max_bytes")
+    check_num $hour "hour"
+    check_num $backup_count "backup_count"
+    check_num $max_bytes "max_bytes"
+    echo "[INFO] All numbers are valid."
+
+    echo "[INFO] Check validation of words."
+    log_level=$(get_config "$service" "log_level")
+    open=$(get_config "$service" "open")
+    check_word $log_level "INFO|DEBUG|WARNING|ERROR|CRITICAL" "log_level"
+    check_word $open "True|False" "open"
+    echo "[INFO] All words are valid."
+
+    echo "[INFO] Config file checked valid."
+
+}
+
+function check_addr(){
+    ip=$1
+    ret=1
+    if [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+        ip=(${ip//\./ })
+        [[ ${ip[0]} -le 255 && ${ip[1]} -le 255 && ${ip[2]} -le 255 && ${ip[3]} -le 255 ]]
+        ret=$?
+    fi
+    if [ $ret -ne 0 ]; then
+        echo "[ERROR] Invaild ip of $1"
+        exit 1
+    fi
+    if [[ $2 -gt 65534 || $2 -lt 1025 ]]; then
+        echo "[ERROR] Invalid port of $2"
+        exit 1
+    fi
+}
+
+function check_null(){
+    list=`cat $SYS_PATH/package.ini | grep -E ^[a-z_-]+= | awk -F '=' '{if($2 == "")print $1}'`
+    num=0
+    for val in $list
+    do
+        num=$[$num+1]
+    done
+    if [ $num -gt 1 ]; then
+        echo "[ERROR] CAN NOT find all config name in: $SYS_PATH/package.ini, Please check the file:"
+        for val in $list
+        do
+            echo $val
+        done
+        exit 1
+    fi
+}
+
+function check_num(){
+    result=`echo $1 | grep '^[[:digit:]]*$'`
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] $2 should be a number."
+        exit 1
+    fi
+}
+
+function check_word(){
+    result=`echo $1 | grep -E "$2"`
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] $3 should be $2."
+        exit 1
+    fi
+}
+
 function get_config(){
     cat $SYS_PATH/package.ini | grep -E ^$2 | sed s/[[:space:]]//g | awk 'BEGIN{FS="="}{print $2}'
 }
@@ -109,7 +194,7 @@ function stop_service(){
 
 if [ ! -n "$1" ]
 then
-    echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
+    echo "Usages: sh pkgshipd.sh start|stop [manage|selfpkg]"
     exit 0
 fi
 
@@ -120,6 +205,11 @@ elif [ $2 = "manage" -o $2 = "selfpkg" ];then
 else
     echo "[ERROR] Can not phase the input of $2!!!"
     exit 0
+fi
+
+if [ $1 = "start" ]
+then
+    check_config_file
 fi
 
 create_config_file $service
@@ -146,20 +236,7 @@ elif [ $1 = stop ];then
     fi
     echo "===The run log is saved into: $daemonize==="
 
-elif [ $1 = restart ];then
-    if [ $service = "all" ];then
-        stop_service "manage" "reload"
-        stop_service "selfpkg" "reload"
-        start_service "manage"
-        start_service "selfpkg"
-    else
-        stop_service $service "reload"
-        start_service $service
-    fi
-
-    echo "===The run log is saved into: $daemonize==="
-
 else
-    echo "Usages: sh pkgshipd.sh start|stop|restart [manage|selfpkg]"
+    echo "Usages: sh pkgshipd.sh start|stop [manage|selfpkg]"
 fi
 
