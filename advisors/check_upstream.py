@@ -191,7 +191,7 @@ def check_pypi(info):
     
     data = resp.json()
     for key in data["releases"].keys():
-         tags.append(key)
+        tags.append(key)
     if len(tags) == 0:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
         sys.exit(1)
