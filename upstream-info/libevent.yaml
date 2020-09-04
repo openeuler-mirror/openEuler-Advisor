@@ -1,4 +1,4 @@
 version_control: github
 src_repo:  libevent/libevent
-tag_prefix: ^release-
+tag_pattern: release-(.*)-stable
 separator: .
