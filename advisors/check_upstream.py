@@ -188,12 +188,11 @@ def check_pypi(info):
                 }
         url = urljoin("https://pypi.org/pypi/", info["src_repo"] + "/json")
         resp = requests.get(url, headers=headers)
-        resp = resp.text
-
-    result_json = json.loads(resp)
-    if result_json != {}:
-        tags.append(result_json["info"]["version"])
-    else:
+    
+    data = resp.json()
+    for key in data["releases"].keys():
+         tags.append(key)
+    if len(tags) == 0:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
         sys.exit(1)
     return tags
