@@ -143,10 +143,10 @@ def params_input_track(params, file_path=None):
 
     err = latin1_encode(user)
     if err:
-        return "error", "user: outside the 'latin-1' character set range"
+        return "error", "ERROR: user: only latin1 character set are allowed."
     err = latin1_encode(password)
     if err:
-        return "error", "password: outside the 'latin-1' character set range"
+        return "error", "ERROR: user: only latin1 character set are allowed."
 
     enabled = bool(enabled == 'true')
 
@@ -237,10 +237,12 @@ def delete(args):
 
     err = latin1_encode(user)
     if err:
-        return "error", "user: outside the 'latin-1' character set range"
+        print("ERROR: user: only latin1 character set are allowed.")
+        return
     err = latin1_encode(password)
     if err:
-        return "error", "password: outside the 'latin-1' character set range"
+        print("ERROR: password: Only latin1 character set are allowed.")
+        return
 
     url = '/'.join(['https:/', server, 'tracking'])
     if args.branch:
