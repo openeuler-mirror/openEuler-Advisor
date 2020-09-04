@@ -304,7 +304,7 @@ class IssueView(Resource):
                 return issue_data
         except (SQLAlchemyError, DisconnectionError) as error:
             current_app.logger.error(error)
-            return []
+            return ResponseCode.response_json(ResponseCode.DATABASE_NOT_FOUND)
 
     def get(self):
         """
@@ -350,10 +350,12 @@ class IssueType(Resource):
             with DBHelper(db_name='lifecycle') as database:
                 issues_query = database.session.query(PackagesIssue.issue_type).group_by(
                     PackagesIssue.issue_type).all()
-                return [issue_query[0] for issue_query in issues_query]
+                return jsonify(ResponseCode.response_json(
+                    ResponseCode.SUCCESS, [issue_query[0] for issue_query in issues_query]))
         except (SQLAlchemyError, DisconnectionError) as error:
             current_app.logger.error(error)
-            return []
+            return jsonify(ResponseCode.response_json(
+                ResponseCode.PARAM_ERROR))
 
     def get(self):
         """
@@ -370,9 +372,7 @@ class IssueType(Resource):
             TypeError: Exception of type
             Error: Abnormal error
         """
-        issue_dict = self._get_issue_type()
-        return jsonify(ResponseCode.response_json(
-            ResponseCode.SUCCESS, issue_dict))
+        return self._get_issue_type()        
 
 
 class IssueStatus(Resource):
@@ -389,10 +389,12 @@ class IssueStatus(Resource):
             with DBHelper(db_name='lifecycle') as database:
                 issues_query = database.session.query(PackagesIssue.issue_status).group_by(
                     PackagesIssue.issue_status).all()
-                return [issue_query[0] for issue_query in issues_query]
+                return jsonify(ResponseCode.response_json(
+                    ResponseCode.SUCCESS, [issue_query[0] for issue_query in issues_query]))
         except (SQLAlchemyError, DisconnectionError) as error:
             current_app.logger.error(error)
-            return []
+            return jsonify(ResponseCode.response_json(
+                ResponseCode.PARAM_ERROR))
 
     def get(self):
         """
@@ -409,10 +411,8 @@ class IssueStatus(Resource):
             TypeError: Exception of type
             Error: Abnormal error
         """
-        issue_dict = self._get_issue_status()
-        return jsonify(ResponseCode.response_json(
-            ResponseCode.SUCCESS, issue_dict))
-
+        return self._get_issue_status()
+        
 
 class IssueCatch(Resource):
     """
