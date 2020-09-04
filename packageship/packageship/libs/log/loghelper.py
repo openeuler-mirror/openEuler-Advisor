@@ -52,8 +52,8 @@ def setup_log(config=None):
 
     file_log_handler.setFormatter(formatter)
 
-    logging.getLogger().addHandler(file_log_handler)
-
+    return file_log_handler
+    
 
 class Log():
     """
