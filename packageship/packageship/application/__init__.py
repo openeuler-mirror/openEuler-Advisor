@@ -47,11 +47,11 @@ def init_app(operation):
     app = Flask(__name__)
 
     # log configuration
-    setup_log(Config)
+    app.logger.addHandler(setup_log(Config))
 
     # Load configuration items
 
-    app.config.from_object(Config)
+    app.config.from_object(Config())
 
     # Register a scheduled task
     scheduler = APScheduler()
