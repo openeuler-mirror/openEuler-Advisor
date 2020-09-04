@@ -199,7 +199,7 @@ def update_pkg_info(pkg_info_update=True):
         # Open thread pool
         pool = ThreadPoolExecutor(max_workers=pool_workers)
         with DBHelper(db_name="lifecycle") as database:
-            for table_name in filter(lambda x: x not in ['packages_issue', 'PackagesMaintainer'],
+            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer'],
                                      database.engine.table_names()):
 
                 cls_model = Packages.package_meta(table_name)
