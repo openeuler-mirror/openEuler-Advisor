@@ -100,12 +100,16 @@ class InitDataBase():
                     'The content of the database initialization configuration file cannot be empty')
             if not isinstance(init_database_config, list):
                 raise ConfigurationException(
-                    ' '.join('The format of the initial database configuration\
-                        file is incorrect:{}'.format(self.config_file_path).split()))
+                    ' '.join('The format of the initial database configuration file\
+                        is incorrect.When multiple databases need to be initialized, \
+                        it needs to be configured in the form of multiple \
+                        nodes:{}'.format(self.config_file_path).split()))
             for config_item in init_database_config:
                 if not isinstance(config_item, dict):
-                    raise ConfigurationException(' '.join('The format of the initial database \
-                        configuration file is incorrect:{}'.format(self.config_file_path).split()))
+                    raise ConfigurationException(' '.join('The format of the initial database\
+                        configuration file is incorrect, and the value in a single node should\
+                        be presented in the form of key - val pairs: \
+                        {}'.format(self.config_file_path).split()))
             return init_database_config
 
     def init_data(self):
