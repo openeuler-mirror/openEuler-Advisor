@@ -85,16 +85,20 @@ class ResponseCode():
         TABLE_NAME_NOT_EXIST_IN_DATABASE: "the table name dose not match the existed database",
         YAML_FILE_ERROR: "Data error in yaml file",
         EMPTY_FOLDER: "This is an empty folder, no yaml file"
-        }
+    }
 
     @classmethod
-    def response_json(cls, code, data=None):
+    def response_json(cls, code, data=None, msg=None):
         """
         Description: classmethod
         """
+        try:
+            _msg = cls.CODE_MSG_MAP[code]
+        except KeyError:
+            _msg = msg
         return {
             "code": code,
-            "msg": cls.CODE_MSG_MAP[code],
+            "msg": _msg,
             "data": data
         }
 

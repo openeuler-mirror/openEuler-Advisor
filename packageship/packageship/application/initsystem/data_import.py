@@ -12,6 +12,7 @@ from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.exception import Error
+from packageship.libs.exception import ConfigurationException
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.log import Log
 from packageship.application.models.package import SrcPack
@@ -90,21 +91,25 @@ class InitDataBase():
                 init_database_config = yaml.load(
                     file_context.read(), Loader=yaml.FullLoader)
             except yaml.YAMLError as yaml_error:
-                raise Error(
-                    'The format of the yaml configuration file is wrong, please check and try again\
-                    :%s' % yaml_error)
+
+                raise ConfigurationException(' '.join("The format of the yaml configuration\
+                     file is wrong please check and try again:{0}".format(yaml_error).split()))
 
             if init_database_config is None:
-                raise ContentNoneException(
+                raise ConfigurationException(
                     'The content of the database initialization configuration file cannot be empty')
             if not isinstance(init_database_config, list):
-                raise TypeError(
-                    'The format of the initial database configuration file is incorrect:%s'
-                    % self.config_file_path)
+                raise ConfigurationException(
+                    ' '.join('The format of the initial database configuration file\
+                        is incorrect.When multiple databases need to be initialized, \
+                        it needs to be configured in the form of multiple \
+                        nodes:{}'.format(self.config_file_path).split()))
             for config_item in init_database_config:
                 if not isinstance(config_item, dict):
-                    raise TypeError('The format of the initial database configuration file is \
-                    incorrect:%s' % self.config_file_path)
+                    raise ConfigurationException(' '.join('The format of the initial database\
+                        configuration file is incorrect, and the value in a single node should\
+                        be presented in the form of key - val pairs: \
+                        {}'.format(self.config_file_path).split()))
             return init_database_config
 
     def init_data(self):

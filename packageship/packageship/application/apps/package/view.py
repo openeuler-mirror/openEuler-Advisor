@@ -17,6 +17,7 @@ from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error
 from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DataMergeException
+from packageship.libs.exception import ConfigurationException
 from packageship.libs.log import Log
 from packageship.system_config import DATABASE_FILE_INFO
 from .function.constants import ResponseCode
@@ -601,6 +602,10 @@ class InitSystem(Resource):
         except TypeError as type_error:
             LOGGER.logger.error(type_error)
             abnormal = ResponseCode.TYPE_ERROR
+        except ConfigurationException as error:
+            LOGGER.logger.error(error)
+            abnormal = error
+            return jsonify(ResponseCode.response_json('5000', msg=abnormal.message))
         except DataMergeException as data_merge_error:
             LOGGER.logger.error(data_merge_error)
             abnormal = ResponseCode.DATA_MERGE_ERROR

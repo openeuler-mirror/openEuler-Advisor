@@ -62,3 +62,12 @@ class DataMergeException(Error):
 
     def __init__(self, message):
         Error.__init__(self, 'DataMerge exception: %r' % (message,))
+
+
+class ConfigurationException(Error):
+    """
+    Description: Configuration file exception information
+    """
+
+    def __init__(self, message):
+        Error.__init__(self, 'Configuration exception : %r' % (message,))
