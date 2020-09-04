@@ -62,7 +62,7 @@ def check_settings_conf():
     required_settings = ['LISTEN', 'GITHUB_ACCESS_TOKEN', 'GITEE_ACCESS_TOKEN', 'SCAN_DB_INTERVAL', 'USER', 'PASSWORD']
     for setting in required_settings:
         if setting in app.config:
-            if not app.config[setting]:
+            if app.config[setting] == "":
                 logger.error('%s is empty in settings.conf.', setting)
                 setting_error = True
             else:
