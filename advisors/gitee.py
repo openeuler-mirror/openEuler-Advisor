@@ -13,6 +13,7 @@ import re
 import sys
 import os.path
 import json
+import base64
 import pprint
 from datetime import datetime
 
@@ -33,7 +34,6 @@ class Gitee(object):
         self.yamlfile_url_template = self.src_openeuler_url + "{package}.yaml"
         #self.advisor_url_template = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/{package}.yaml"
         self.advisor_url_template = self.advisor_url + "upstream-info/{package}.yaml"
-        self.community_url_template = self.gitee_url + "openeuler/community/raw/master/repository/{repository}.yaml"
         #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
         self.specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
         self.version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
@@ -127,11 +127,13 @@ class Gitee(object):
         """
         Get and load gitee json response
         """
+        json_resp = []
         headers = self.headers.copy()
-        #headers = {}
         headers["Content-Type"] = "application/json;charset=UTF-8"
         resp = self.get_gitee(url, headers)
-        return json.loads(resp)
+        if resp:
+            json_resp = json.loads(resp)
+        return json_resp
 
     def get_spec_exception(self):
         """
@@ -185,9 +187,11 @@ class Gitee(object):
         """
         Get yaml data from community repo
         """
-        yamlurl = self.community_url_template.format(repository=repo)
-        resp = self.get_gitee(yamlurl)
-        return resp
+        yamlurl = "https://gitee.com/api/v5/repos/openeuler/community/contents/"\
+				  "repository/{repo}.yaml".format(repo=repo)
+        resp = self.get_gitee_json(yamlurl)
+        resp_str = base64.b64decode(resp["content"])
+        return resp_str
 
     def get_issues(self, pkg, prj="src-openeuler"):
         """

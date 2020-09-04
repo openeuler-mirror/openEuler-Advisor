@@ -31,7 +31,7 @@ def download_source_url(spec, o_ver, n_ver):
     """
     Download source file from Source or Source0 URL
     """
-    source = replace_macros(spec.sources[0], spec).replace(o_ver, n_ver) 
+    source = replace_macros(spec.sources[0], spec).replace(o_ver, n_ver)
     if re.match(r"%{.*?}", source):
         print("WARNING: Extra macros in URL which failed to be expanded")
         return False
@@ -268,7 +268,7 @@ def auto_update_repo(gt, u_repo, u_branch):
     else:
         print("WARNING: Please check branch to upgrade.")
         sys.exit(1)
-
+    
     pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
     pkg_list = pkg_info.get("repositories")
     for pkg in pkg_list:
