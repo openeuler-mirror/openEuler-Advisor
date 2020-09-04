@@ -200,8 +200,8 @@ def add(args):
     style3 = bool(args.dir)
 
     if str([style1, style2, style3]).count('True') >= 2:
-        print("mix different usage style")
-        print(add_usage)
+        print("usage:" + add_usage)
+        print("patch_tracking_cli add: error: mix different usage style")
         return
 
     if style2:
@@ -337,11 +337,11 @@ authentication_parser.add_argument('--password', required=True, help='authentica
 
 # add
 add_usage = """
-    %(prog)s --server SERVER --user USER --password PASSWORD
+    patch_tracking_cli add --server SERVER --user USER --password PASSWORD
                            --version_control github --scm_repo SCM_REPO --scm_branch SCM_BRANCH
                            --repo REPO --branch BRANCH --enabled True
-    %(prog)s --server SERVER --user USER --password PASSWORD --file FILE
-    %(prog)s --server SERVER --user USER --password PASSWORD --dir DIR"""
+    patch_tracking_cli add --server SERVER --user USER --password PASSWORD --file FILE
+    patch_tracking_cli add --server SERVER --user USER --password PASSWORD --dir DIR"""
 parser_add = subparsers.add_parser(
     'add', parents=[common_parser, authentication_parser], help="add tracking", usage=add_usage, allow_abbrev=False
 )
