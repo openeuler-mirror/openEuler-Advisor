@@ -1,0 +1,91 @@
+#!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+# ******************************************************************************/
+"""
+Review tool for openEuler submission
+"""
+import os
+import argparse
+import subprocess
+
+import gitee
+
+def check_repository_changes():
+    lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
+    for item in lst_files.splitlines():
+        if item.startswith("sig/sigs.yaml"):
+            return True
+    else:
+        return False
+
+def check_maintainer_changes():
+    """
+    return a list of SIGs with changed maintainer
+    """
+    sigs = []
+    lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
+    for item in lst_files.splitlines():
+        if item.startswith("sig") and item.endswith("OWNERS"):
+            sigs.append(item.split("/")[1])
+    return sigs
+    
+
+def review(pr):
+    review_body = ""
+    review_body += "[ ] Is the Title of this PR self-explain ?\n"
+    review_body += "[ ] Is the description of this PR detailed ?\n"
+    review_body += "[ ] Does the PR match the code changes ?\n"
+    sigs = check_maintainer_changes()
+    if sigs:
+        review_body += "Changes in maintainship detected: \n"
+        review_body += "[ ] If new maintainer added, are there any assertion on his/her capability on maintainship ?\n"
+    for sig in sigs:
+        review_body += "[ ] Do other maintainers of {sig} also agree to add/remove his/her as a maintainer ?\n".format(sig=sig)
+    if check_repository_changes():
+        review_body += "Changes in sigs.yaml detected: \n"
+        review_body += "[ ] Are all changed repositories managed by proper SIG ?\n"
+        review_body += "[ ] Do all affected SIG maintainers agree the change ?\n"
+    return review_body
+
+def main():
+    """
+    Main entrance of the functionality
+    """
+    pars = argparse.ArgumentParser()
+    pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request", required=True)
+    pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
+
+    args = pars.parse_args()
+
+    user_gitee = gitee.Gitee()
+
+    gitee_url = "git@gitee.com:openeuler/community"
+
+    if not args.reuse:
+        subprocess.call(["git", "clone", gitee_url])
+        os.chdir(args.repo.split('/')[1])
+
+    subprocess.call(["git", "fetch", gitee_url,
+                     "pull/{n}/head:pr_{n}".format(n=args.pull)])
+
+    print("You are reviewing pull {n}".format(n=args.pull))
+
+    subprocess.call(["git", "checkout", "pr_{n}".format(n=args.pull)])
+    subprocess.call(["git", "merge", "--no-edit", "master"])
+
+    pr = user_gitee.get_pr("community", args.pull, "openeuler")
+    review_comment = review(pr)
+
+    user_gitee.create_pr_comment("community", args.pull, review_comment, "openeuler")
+
+if __name__ == "__main__":
+    main()
