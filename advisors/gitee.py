@@ -148,7 +148,7 @@ class Gitee(object):
 
     def get_version_exception(self):
         """
-        Get vertion recommend exceptions
+        Get version recommend exceptions
         """
         resp = self.get_gitee(self.version_exception_url)
         if not resp:
