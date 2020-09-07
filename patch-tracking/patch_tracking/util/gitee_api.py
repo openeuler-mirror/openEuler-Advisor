@@ -12,6 +12,19 @@ ORG_URL = "https://gitee.com/api/v5/orgs"
 REPO_URL = "https://gitee.com/api/v5/repos"
 
 
+def get_user_info(token):
+    """
+    get user info
+    """
+    url = "https://gitee.com/api/v5/user"
+    gitee_token = token
+    param = {'access_token': gitee_token}
+    ret = requests.get(url, params=param)
+    if ret.status_code == 200:
+        return "success", ret.text
+    return "error", ret.json()
+
+
 def get_path_content(repo, branch, path):
     """
     get file content
