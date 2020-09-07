@@ -42,18 +42,27 @@ def check_maintainer_changes():
 def review(pr):
     review_body = ""
     review_body += "[ ] Is the Title of this PR self-explain ?\n"
+    review_body += "    PR的标题是否清晰易懂 ?\n"
     review_body += "[ ] Is the description of this PR detailed ?\n"
+    review_body += "    PR的内容描述是否详细具体 ?\n"
     review_body += "[ ] Does the PR match the code changes ?\n"
+    review_body += "    PR和实际代码修改是否一致 ?\n"
     sigs = check_maintainer_changes()
     if sigs:
         review_body += "Changes in maintainship detected: \n"
+        review_body += "发现维护者变更: \n"
         review_body += "[ ] If new maintainer added, are there any assertion on his/her capability on maintainship ?\n"
+        review_body += "    如果新增维护者，有没有对他/她能力的客观说明 ?\n"
     for sig in sigs:
         review_body += "[ ] Do other maintainers of {sig} also agree to add/remove his/her as a maintainer ?\n".format(sig=sig)
+        review_body += "    {sig} 中的其他维护者是否同意 增加/删除 维护者 ?\n".format(sig=sig)
     if check_repository_changes():
         review_body += "Changes in sigs.yaml detected: \n"
+        review_body += "发现 sigs.yaml 变更: \n"
         review_body += "[ ] Are all changed repositories managed by proper SIG ?\n"
+        review_body += "    是否所有变更的代码仓都被恰当的 SIG 管理 ?\n"
         review_body += "[ ] Do all affected SIG maintainers agree the change ?\n"
+        review_body += "    是否所有受影响的 SIG 的维护者都同意这个变更 ?\n"
     return review_body
 
 def main():
