@@ -1,4 +1,11 @@
+---
 version_control: git
 src_repo: git://git.samba.org/cifs-utils.git
 tag_prefix: cifs-utils-
 separator: "."
+git_url: git://git.samba.org/cifs-utils.git
+git_tag:
+- 2019-12-16 cifs-utils-6.10
+- 2019-04-05 cifs-utils-6.9
+- 2018-03-09 cifs-utils-6.8
+- 2017-03-02 cifs-utils-6.7

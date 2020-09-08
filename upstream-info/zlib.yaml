@@ -1,4 +1,10 @@
+---
 version_control: github
 src_repo: madler/zlib
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/madler/zlib.git
+git_tag:
+- 2017-01-15 v1.2.11
+- 2017-01-02 v1.2.10
+- 2017-01-01 v1.2.9

@@ -1,0 +1,5 @@
+---
+version_control: metacpan
+src_repo: MIME-Charset
+tag_prefix: "^"
+separator: "."

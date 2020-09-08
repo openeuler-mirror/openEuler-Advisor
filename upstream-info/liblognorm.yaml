@@ -1,4 +1,15 @@
+---
 version_control: github
-src_repo:  rsyslog/liblognorm
-tag_prefix: ^v
-separator: .
+src_repo: rsyslog/liblognorm
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/rsyslog/liblognorm.git
+git_tag:
+- 2018-11-06 v2.0.6
+- 2018-04-26 v2.0.5
+- 2017-10-04 v2.0.4
+- 2017-03-22 v2.0.3
+- 2016-11-15 v2.0.2
+- 2016-08-01 v2.0.1
+- 2016-07-22 v2.0.0
+- 2015-07-20 v1.1.2

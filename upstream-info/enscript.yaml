@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: git://git.savannah.gnu.org/enscript.git
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
+git_url: git://git.savannah.org/enscript.git

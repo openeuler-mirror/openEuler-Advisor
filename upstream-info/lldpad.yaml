@@ -1,4 +1,9 @@
+---
 version_control: github
-src_repo:  openSUSE/lldpad
-tag_prefix: ^v
-separator: .
+src_repo: openSUSE/lldpad
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/openSUSE/lldpad.git
+git_tag:
+- 2019-01-10 v1.0.1
+- 2014-05-14 sles11-sp4-ga

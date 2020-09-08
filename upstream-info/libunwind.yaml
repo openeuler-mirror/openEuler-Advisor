@@ -1,4 +1,9 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/libunwind.git
-tag_prefix: ^v 
-separator: . 
+tag_prefix: "^v"
+separator: "."
+git_url: https://git.savannah.gnu.org/git/libunwind.git
+git_tag:
+- 2020-03-31 v1.5-rc1
+- 2019-01-07 v1.4-rc1

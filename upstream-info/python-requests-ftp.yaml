@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  Lukasa/requests-ftp
-tag_prefix: ^v
-separator: .
+src_repo: Lukasa/requests-ftp
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/Lukasa/requests-ftp.git
+git_tag:
+- 2015-08-13 v0.3.1
+- 2015-04-04 v0.3.0
+- 2014-05-07 v0.2.0

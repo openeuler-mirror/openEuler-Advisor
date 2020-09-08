@@ -1,5 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxrender.git
 tag_prefix: libXrender-
-seperator: "."
-
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxrender.git

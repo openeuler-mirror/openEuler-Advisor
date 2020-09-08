@@ -1,4 +1,5 @@
+---
 version_control: metacpan
 src_repo: Class-ISA
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."

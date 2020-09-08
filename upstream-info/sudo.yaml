@@ -1,4 +1,8 @@
+---
 version_control: github
-src_repo: "sudo-project/sudo"
+src_repo: sudo-project/sudo
 tag_prefix: "^SUDO_"
-seperator: _
+separator: _
+git_url: https://github.com/sudo-project/sudo.git
+git_tag:
+- 2020-05-11 SUDO_1_9_0

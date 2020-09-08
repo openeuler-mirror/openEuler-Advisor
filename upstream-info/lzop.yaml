@@ -1,4 +1,5 @@
+---
 version_control: NA
-src_repo: "https://www.lzop.org/download/"
-tag_prefix: NA 
-seperator: NA 
+src_repo: https://www.lzop.org/download/
+tag_prefix: NA
+separator: NA

@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://dev.lovelyhq.com/libburnia/libisofs.git
 tag_prefix: release-
-separator: .
+separator: "."
+git_url: https://dev.lovelyhq.com/libburnia

@@ -1,4 +1,11 @@
+---
 version_control: github
 src_repo: lxde/lxsession
 tag_prefix: v
-separator: .
+separator: "."
+git_url: https://github.com/lxde/lxsession.git
+git_tag:
+- 2020-02-29 0.5.5
+- 2019-02-28 0.5.4
+- 2016-12-10 0.5.3
+- 2014-11-29 0.5.2

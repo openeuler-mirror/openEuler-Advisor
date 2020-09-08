@@ -1,4 +1,6 @@
+---
 version_control: git
-src_repo:  https://dev.gnupg.org/source/npth.git
-tag_prefix: ^npth-
-separator: .
+src_repo: https://dev.gnupg.org/source/npth.git
+tag_prefix: "^npth-"
+separator: "."
+git_url: http://git.gnupg.org/cgi-bin/gitweb.cgi?p=npth.git

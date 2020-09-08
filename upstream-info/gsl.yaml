@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/gsl.git
-tag_prefix: "release-"
-seperator: "-"
+tag_prefix: release-
+separator: "-"
+git_url: https://git.savannah.gnu.org/git/gsl.git

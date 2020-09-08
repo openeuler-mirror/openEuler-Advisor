@@ -1,4 +1,18 @@
+---
 version_control: github
-src_repo:  python-greenlet/greenlet
-tag_prefix: ^v
-separator: .
+src_repo: python-greenlet/greenlet
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/python-greenlet/greenlet.git
+git_tag:
+- 2015-08-30 0.4.9
+- 2015-05-16 0.4.7
+- 2015-05-03 0.4.6
+- 2014-10-18 0.4.5
+- 2020-06-05 0.4.16
+- 2018-09-08 0.4.15
+- 2018-07-17 0.4.14
+- 2018-02-01 0.4.13
+- 2017-02-01 0.4.12
+- 2016-12-11 0.4.11
+- 2016-06-11 0.4.10

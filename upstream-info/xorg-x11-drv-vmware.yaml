@@ -1,4 +1,9 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-video-vmware.git
 tag_prefix: xf86-video-vmware-
-seperator: .
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/driver/xf86-video-vmware.git
+git_tag:
+- 2018-05-17 xf86-video-vmware-13.3.0
+- 2014-03-26 xf86-video-vmware-13.0.2

@@ -1,4 +1,6 @@
+---
 version_control: NA
 src_repo: https://chromium.googlesource.com/chromiumos/platform/vboot_reference
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://chromium.googlesource.com/chromiumos/platform/vboot_reference

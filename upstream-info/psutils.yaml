@@ -601,3 +601,13 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/rrthomas/psutils.git
+git_tag:
+- 2020-04-13 v2.03
+- 2020-04-08 v2.02
+- 2020-04-07 v2.0
+- 2020-01-04 v1.93
+- 2019-12-29 v1.92
+- 2019-12-16 v1.91
+- 2019-03-07 v1.90
+- 2020-04-07 v2.01

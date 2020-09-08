@@ -1,4 +1,12 @@
+---
 version_control: github
 src_repo: NLnetLabs/dnssec-trigger
-tag_prefix: ^dnssec-trigger-
-separator: .
+tag_prefix: "^dnssec-trigger-"
+separator: "."
+git_url: https://github.com/NLnetLabs/dnssec-trigger.git
+git_tag:
+- 2018-06-25 dnssec-trigger-0.17
+- 2018-06-21 dnssec-trigger-0.16
+- 2017-12-06 dnssec-trigger-0.15
+- 2017-10-10 dnssec-trigger-0.14
+- 2017-06-13 dnssec-trigger-0.13

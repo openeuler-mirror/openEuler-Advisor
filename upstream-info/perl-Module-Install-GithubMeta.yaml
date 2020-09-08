@@ -1,0 +1,5 @@
+---
+version_control: metacpan
+src_repo: Module-Install-GithubMeta
+tag_prefix: "^v"
+separator: "."

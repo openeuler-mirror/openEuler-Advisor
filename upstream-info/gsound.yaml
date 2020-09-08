@@ -14,3 +14,9 @@ last_query:
     1.0.2^{}
     GSOUND_1_15_2
     GSOUND_1_15_2^{}
+git_url: https://gitlab.gnome.org/GNOME/gsound.git
+git_tag:
+- 2015-11-02 1.0.2
+- 2014-12-01 1.0.1
+- 2014-11-27 1.0.0
+- 2014-11-27 GSOUND_1_15_2

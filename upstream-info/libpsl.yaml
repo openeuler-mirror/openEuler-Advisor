@@ -1,4 +1,12 @@
+---
 version_control: github
-src_repo:  rockdaboot/libpsl
-tag_prefix: ^v
-separator: .
+src_repo: rockdaboot/libpsl
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/rockdaboot/libpsl.git
+git_tag:
+- 2020-07-18 0.21.1
+- 2019-04-16 libpsl-0.21.0
+- 2018-04-26 libpsl-0.20.2
+- 2018-02-26 libpsl-0.20.1
+- 2018-02-22 libpsl-0.20.0

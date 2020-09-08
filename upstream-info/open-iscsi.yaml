@@ -1,4 +1,15 @@
+---
 version_control: github
-src_repo:  open-iscsi/open-iscsi
-tag_prefix: ^v
-separator: .
+src_repo: open-iscsi/open-iscsi
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/open-iscsi/open-iscsi.git
+git_tag:
+- 2020-07-24 2.1.2
+- 2020-02-26 2.1.1
+- 2019-11-14 2.1.0
+- 2019-09-12 2.0.878
+- 2018-10-17 2.0.877
+- 2018-01-22 2.0.876
+- 2017-09-01 2.0.875
+- 2016-09-29 2.0.874

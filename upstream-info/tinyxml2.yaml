@@ -159,3 +159,14 @@ last_query:
         "node_id": "MDM6UmVmMzU0MjYwNzpyZWZzL3RhZ3MvMi4wLjE="
       }
     ]
+git_url: https://github.com/leethomason/tinyxml2.git
+git_tag:
+- 2020-03-01 8.0.0
+- 2019-08-10 7.1.0
+- 2018-11-17 7.0.1
+- 2018-11-06 7.0.0
+- 2018-04-05 6.2.0
+- 2017-12-10 6.0.0
+- 2017-06-26 5.0.1
+- 2016-07-17 4.0.1
+- 2016-07-17 4.0.0

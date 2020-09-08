@@ -1,0 +1,7 @@
+---
+version_control: github
+src_repo: sleinen/snmp-session
+tag_prefix: "^"
+separator: "."
+git_url: https://github.com/sleinen/snmp-session.git
+git_tag:

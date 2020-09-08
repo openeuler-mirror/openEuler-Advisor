@@ -1,4 +1,7 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel.git
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel.git
+git_tag:

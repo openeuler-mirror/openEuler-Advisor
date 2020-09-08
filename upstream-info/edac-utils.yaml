@@ -1,4 +1,5 @@
-version_control: svn                                                                                              
+---
+version_control: svn
 src_repo: https://svn.code.sf.net/p/edac-utils/code
-tag_prefix:                                                                                              
+tag_prefix: 
 separator: "."

@@ -1,4 +1,6 @@
+---
 version_control: github
 src_repo: Distrotech/gnome-vfs
-tag_prefixi: "^" 
-seperator: "."
+tag_prefixi: "^"
+separator: "."
+git_url: https://github.com/Distrotech/gnome-vfs.git

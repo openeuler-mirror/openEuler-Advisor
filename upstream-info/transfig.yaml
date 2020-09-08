@@ -1,4 +1,6 @@
+---
 version_control: git
-src_repo:  https://git.code.sf.net/p/mcj/fig2dev 
-tag_prefix: ^
-seperator: .
+src_repo: https://git.code.sf.net/p/mcj/fig2dev
+tag_prefix: "^"
+separator: "."
+git_url: https://sourceforge.net/p/mcj/fig2dev/ci/master/tree/

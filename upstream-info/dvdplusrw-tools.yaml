@@ -1,5 +1,6 @@
+---
 version_control: NA
 src_repo: NA
 tag_prefix: NA
-separator:  NA
-download:  http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz
+separator: NA
+download: http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz

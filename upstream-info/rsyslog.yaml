@@ -1,4 +1,17 @@
+---
 version_control: github
 src_repo: rsyslog/rsyslog
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/rsyslog/rsyslog.git
+git_tag:
+- 2020-06-24 v8.2006.0
+- 2020-04-28 v8.2004.0
+- 2020-02-25 v8.2002.0
+- 2020-01-14 v8.2001.0
+- 2019-11-12 v8.1911.0
+- 2019-10-01 v8.1910.0
+- 2019-08-19 v8.1908.0
+- 2019-07-09 v8.1907.0
+- 2019-05-17 v8.1905.0
+- 2019-04-16 v8.1904.0

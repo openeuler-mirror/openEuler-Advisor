@@ -1,4 +1,16 @@
+---
 version_control: git
 src_repo: https://pagure.io/mlocate.git
-tag_prefix: ^mlocate- 
-separator: . 
+tag_prefix: "^mlocate-"
+separator: "."
+git_url: https://pagure.io/mlocate.git
+git_tag:
+- 2012-09-22 mlocate-0.26
+- 2012-03-03 mlocate-0.25
+- 2011-03-31 mlocate-0.24
+- 2010-09-14 mlocate-0.23.1
+- 2010-08-26 mlocate-0.23
+- 2010-03-26 mlocate-0.22.4
+- 2010-03-04 mlocate-0.22.3
+- 2009-10-02 mlocate-0.22.2
+- 2009-09-15 mlocate-0.22.1

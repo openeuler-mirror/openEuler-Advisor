@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: SCons/scons
+tag_pattern: "^v"
+separator: "."
+git_url: https://github.com/SCons/scons.git

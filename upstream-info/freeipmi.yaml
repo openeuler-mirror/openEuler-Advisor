@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/freeipmi.git
-tag_prefix: ^freeipmi-
-seperator: "-"
+tag_prefix: "^freeipmi-"
+separator: "-"
+git_url: https://git.savannah.gnu.org/git/freeipmi.git

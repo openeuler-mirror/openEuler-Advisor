@@ -1,3 +1,4 @@
+---
 version_control: git
 src_repo: http://cygwin.com/git/cygwin-packages/libpaper.git
 tag_prefix: "^v"

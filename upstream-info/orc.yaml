@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/gstreamer/orc.git
 tag_prefix: 
-seperator: 
+separator: 
+git_url: https://gitlab.freedesktop.org/gstreamer/orc.git

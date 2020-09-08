@@ -1,4 +1,22 @@
+---
 version_control: github
 src_repo: opendnssec/SoftHSMv2
-tag_prefix:
-seperator: "."
+tag_prefix: 
+separator: "."
+git_url: https://github.com/opendnssec/SoftHSMv2.git
+git_tag:
+- 2020-04-30 2.6.1
+- 2020-03-17 2.6.0-rc1
+- 2020-03-17 2.6.0
+- 2017-07-03 2.3.0
+- 2017-06-26 2.3.0rc1
+- 2016-12-05 2.2.0
+- 2016-11-14 2.2.0rc2
+- 2016-11-01 2.2.0rc1
+- 2016-03-14 2.1.0
+- 2015-07-17 2.0.0
+- 2014-12-29 2.0.0b2
+- 2014-03-25 2.0.0a2
+- 2014-02-10 2.0.0a1
+- 2015-06-01 2.0.0rc1
+- 2014-09-10 2.0.0b1

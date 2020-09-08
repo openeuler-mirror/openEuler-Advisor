@@ -1,4 +1,16 @@
+---
 version_control: github
 src_repo: OpenSCAP/oscap-anaconda-addon
 tag_prefix: "^r"
 separator: "."
+git_url: https://github.com/OpenSCAP/oscap-anaconda-addon.git
+git_tag:
+- 2018-06-04 r0.9
+- 2015-02-25 r0.7
+- 2014-02-28 r0.6
+- 2014-02-28 r0.5
+- 2020-06-02 r1.1.1
+- 2020-06-01 r1.1
+- 2018-07-02 r1.0
+- 2017-11-14 r0.8
+- 2014-01-14 r0.4

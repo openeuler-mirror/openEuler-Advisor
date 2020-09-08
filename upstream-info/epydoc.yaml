@@ -1,4 +1,5 @@
+---
 version_control: NA
 src_repo: https://epydoc.svn.sourceforge.net/svnroot/epydoc/trunk/epydoc
-tag_prefix: ^epydoc-
-separator: .
+tag_prefix: "^epydoc-"
+separator: "."

@@ -1,4 +1,11 @@
+---
 version_control: github
-src_repo:  hunspell/hunspell
-tag_prefix: ^v
-separator: .
+src_repo: hunspell/hunspell
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/hunspell/hunspell.git
+git_tag:
+- 2018-11-12 v1.7.0
+- 2017-03-25 v1.6.1
+- 2016-04-16 v1.4.0
+- 2016-04-16 hunspell-1.4.0

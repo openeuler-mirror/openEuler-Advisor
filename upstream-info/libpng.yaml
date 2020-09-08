@@ -1,5 +1,7 @@
+---
 git_url: https://git.code.sf.net/p/libpng/code
 version_control: git
 src_repo: https://git.code.sf.net/p/libpng/code
 tag_prefix: "^v"
-seperator: "."
+separator: "."
+git_url: https://git.code.sf.net/p/libpng/code libpng-code

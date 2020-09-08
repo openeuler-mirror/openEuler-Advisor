@@ -1,5 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxdmcp
 tag_prefix: libXdmcp-
-seperator: "."
-
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxdmcp

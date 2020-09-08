@@ -1,4 +1,10 @@
+---
 version_control: github
 src_repo: Distrotech/libdaemon
-tag_prefix: ^distrotech-libdaemon-
-separator: .
+tag_prefix: "^distrotech-libdaemon-"
+separator: "."
+git_url: https://github.com/Distrotech/libdaemon.git
+git_tag:
+- 2009-10-18 v0.14
+- 2008-07-29 v0.13
+- 2013-06-12 distrotech-libdaemon-0.14

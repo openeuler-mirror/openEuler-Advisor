@@ -1,0 +1,5 @@
+---
+n_control: metacpan
+src_repo: IO-String
+tag_prefix: "^v"
+separator: "."

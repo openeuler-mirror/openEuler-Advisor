@@ -1,4 +1,7 @@
+---
 version_control: git
 src_repo: https://git.openldap.org/openldap/openldap.git
 tag_prefix: "^LMDB_"
-separator: .
+separator: "."
+git_url: https://github.com/LMDB/lmdb.git
+git_tag:

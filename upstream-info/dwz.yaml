@@ -1,4 +1,6 @@
+---
 version_control: git
-src_repo:  git://sourceware.org/git/dwz.git
+src_repo: git://sourceware.org/git/dwz.git
 tag_prefix: "^dwz-"
-separator: . 
+separator: "."
+git_url: git://sourceware/git/dwz.git

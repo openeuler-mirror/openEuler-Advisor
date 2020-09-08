@@ -150,3 +150,9 @@ last_query:
     FOLKS_0_9_8^{}
     folks-for-tp-spec-0.99.2
     folks-for-tp-spec-0.99.2^{}
+git_url: https://gitlab.gnome.org/GNOME/folks.git
+git_tag:
+- 2020-03-11 0.14
+- 2020-02-04 0.13.2
+- 2019-06-20 0.13.1
+- 2019-04-24 0.12.1

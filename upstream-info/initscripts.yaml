@@ -1,4 +1,16 @@
+---
 version_control: github
-src_repo:  fedora-sysv/initscripts
-tag_prefix: ^v
-separator: .
+src_repo: fedora-sysv/initscripts
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/fedora-sysv/initscripts.git
+git_tag:
+- 2020-07-14 10.04
+- 2020-03-24 10.03
+- 2019-06-28 10.02
+- 2018-08-06 10.01
+- 2018-06-21 10.00
+- 2018-06-15 9.83
+- 2018-06-04 9.82
+- 2018-06-01 9.81
+- 2018-05-25 9.80

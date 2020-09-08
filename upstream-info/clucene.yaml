@@ -1,4 +1,8 @@
+---
 version_control: git
 src_repo: https://git.code.sf.net/p/clucene/code
-tag_prefix: ^clucene-src-
-separator: .
+tag_prefix: "^clucene-src-"
+separator: "."
+git_url: https://git.code.sf.net/p/clucene/code
+git_tag:
+- 2011-03-17 clucene-src-2.3.3.4

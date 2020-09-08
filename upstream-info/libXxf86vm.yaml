@@ -1,4 +1,9 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxxf86vm.git
-tag_prefix: ^libXxf86vm-
+tag_prefix: "^libXxf86vm-"
 separator: "."
+git_url: https://gitee.com/tong_1001/libXxf86vm.git/
+git_tag:
+- 2020-06-09 openEuler-20.03-LTS-20200606
+- 2020-05-07 openEuler-20.03-LTS-tag

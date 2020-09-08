@@ -1,4 +1,5 @@
+---
 version_control: metacpan
 src_repo: Devel-GlobalDestruction
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."

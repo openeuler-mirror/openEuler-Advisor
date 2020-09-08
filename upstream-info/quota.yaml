@@ -1,4 +1,7 @@
+---
 version_control: git
-src_repo: https://git.code.sf.net/p/linuxquota/code 
-tag_prefix: "quota-"
-seperator: "."
+src_repo: https://git.code.sf.net/p/linuxquota/code
+tag_prefix: quota-
+separator: "."
+git_url: https://git.code.sf.net/p/linuxquota/code
+git_tag:

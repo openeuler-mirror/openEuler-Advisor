@@ -1,4 +1,14 @@
+---
 version_control: github
-src_repo:  kdudka/nss-pem
+src_repo: kdudka/nss-pem
 tag_prefix: "^nss-pem-"
-separator: .
+separator: "."
+git_url: https://github.com/kdudka/nss-pem.git
+git_tag:
+- 2020-02-13 nss-pem-1.0.6
+- 2019-02-07 nss-pem-1.0.5
+- 2018-08-09 nss-pem-1.0.4
+- 2017-03-01 nss-pem-1.0.3
+- 2016-06-16 nss-pem-1.0.2
+- 2016-06-15 nss-pem-1.0.1
+- 2016-06-13 nss-pem-1.0.0

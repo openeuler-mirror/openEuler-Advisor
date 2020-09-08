@@ -1,4 +1,14 @@
+---
 version_control: git
 src_repo: git://git.samba.org/nss_wrapper.git
 tag_prefix: nss_wrapper-
-separator: .
+separator: "."
+git_url: git://git.samba.org/nss_wrapper.git
+git_tag:
+- 2020-04-02 nss_wrapper-1.1.11
+- 2020-03-19 nss_wrapper-1.1.10
+- 2020-03-16 nss_wrapper-1.1.9
+- 2020-02-17 nss_wrapper-1.1.8
+- 2019-05-17 nss_wrapper-1.1.6
+- 2018-10-31 nss_wrapper-1.1.5
+- 2018-10-31 nss_wrapper-1.1.4

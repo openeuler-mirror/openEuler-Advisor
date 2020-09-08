@@ -92,3 +92,9 @@ last_query:
     3.8.0^{}
     3.9.90
     3.9.90^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-font-viewer.git
+git_tag:
+- 2019-09-14 3.34.0
+- 2019-08-06 3.33.90
+- 2019-07-16 3.33.4
+- 2019-03-15 3.32.0

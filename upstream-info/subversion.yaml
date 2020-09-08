@@ -1,4 +1,5 @@
+---
 version_control: svn
-src_repo: "https://svn.apache.org/repos/asf/subversion/"
+src_repo: https://svn.apache.org/repos/asf/subversion/
 tag_prefix: 
-seperator:
+separator: 

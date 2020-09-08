@@ -1,4 +1,17 @@
+---
 version_control: github
 src_repo: swig/swig
 tag_prefix: rel-
-seperator: .
+separator: "."
+git_url: https://github.com/swig/swig.git
+git_tag:
+- 2020-06-08 v4.0.2
+- 2020-06-08 rel-4.0.2
+- 2019-08-21 v4.0.1
+- 2019-08-21 rel-4.0.1
+- 2019-04-28 v4.0.0
+- 2019-04-28 rel-4.0.0
+- 2019-04-16 v4.0.0-beta1
+- 2019-04-16 rel-4.0.0-beta1
+- 2017-01-27 v3.0.12
+- 2017-01-27 rel-3.0.12

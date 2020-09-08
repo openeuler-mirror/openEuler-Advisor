@@ -1,4 +1,13 @@
+---
 version_control: github
 src_repo: ClusterLabs/pacemaker
-tag_prefix: ^Pacemaker-
-separator: .
+tag_prefix: "^Pacemaker-"
+separator: "."
+git_url: https://github.com/ClusterLabs/pacemaker.git
+git_tag:
+- 2019-11-13 Pacemaker-2.0.3-rc3
+- 2019-10-31 Pacemaker-2.0.3-rc2
+- 2019-10-18 Pacemaker-2.0.3-rc1
+- 2019-11-25 Pacemaker-2.0.3
+- 2019-05-30 Pacemaker-2.0.2-rc3
+- 2019-06-06 Pacemaker-2.0.2

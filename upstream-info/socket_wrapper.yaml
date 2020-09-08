@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://git.samba.org/socket_wrapper.git
 tag_prefix: "^socket_wrapper-"
-seperator: .
+separator: "."
+git_url: https://git.samba.org/socket_wrapper.git/?p=socket_wrapper.git

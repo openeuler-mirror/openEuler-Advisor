@@ -1,4 +1,12 @@
+---
 version_control: git
 src_repo: https://repo.or.cz/socat.git
 tag_prefix: tag-
-seperator: .
+separator: "."
+git_url: https://repo.or.cz/socat.git
+git_tag:
+- 2020-01-05 tag-1.7.3.4
+- 2019-04-05 tag-1.7.3.3
+- 2017-01-23 tag-1.7.3.2
+- 2016-01-29 tag-1.7.3.1
+- 2015-01-24 tag-1.7.3.0

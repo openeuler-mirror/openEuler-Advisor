@@ -1,4 +1,7 @@
+---
 version_control: github
-src_repo:  golang/sys
-tag_prefix: ^v
-separator: .
+src_repo: golang/sys
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/golang/sys.git
+git_tag:

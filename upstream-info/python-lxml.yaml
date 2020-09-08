@@ -2,4 +2,4 @@
 version_control: github
 src_repo: lxml/lxml
 tag_prefix: "^lxml-"
-seperator: "."
+separator: "."

@@ -1,4 +1,6 @@
+---
 version_control: git
-src_repo: "https://pagure.io/setroubleshoot.git"
+src_repo: https://pagure.io/setroubleshoot.git
 tag_prefix: "^setroubleshoot-"
-seperator:
+separator: 
+git_url: https://pagure.io/setroubleshoot.git

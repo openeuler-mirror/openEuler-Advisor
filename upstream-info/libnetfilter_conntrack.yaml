@@ -1,4 +1,14 @@
+---
 version_control: git
 src_repo: git://git.netfilter.org/libnetfilter_conntrack
 tag_prefix: libnetfilter_conntrack-
-separator: .
+separator: "."
+git_url: git://git.netfilter.org/libnetfilter_conntrack
+git_tag:
+- 2020-04-01 libnetfilter_conntrack-1.0.8
+- 2018-05-01 libnetfilter_conntrack-1.0.7
+- 2016-08-22 libnetfilter_conntrack-1.0.6
+- 2015-09-08 libnetfilter_conntrack-1.0.5
+- 2013-08-06 libnetfilter_conntrack-1.0.4
+- 2013-03-04 libnetfilter_conntrack-1.0.3
+- 2012-10-08 libnetfilter_conntrack-1.0.2

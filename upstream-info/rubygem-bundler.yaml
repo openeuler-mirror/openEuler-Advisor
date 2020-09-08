@@ -1,4 +1,8 @@
+---
 version_control: github
 src_repo: rubygems/rubygems
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/rubygems/rubygems.git
+git_tag:
+- 2020-07-01 bundler-v2.2.0.rc.1

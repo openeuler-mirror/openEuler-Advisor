@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/driver/xf86-video-nouveau.git
-tag_prefix: ^xf86-video-nouveau-
-seperator: .
+tag_prefix: "^xf86-video-nouveau-"
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/driver/xf86-video-nouveau.git

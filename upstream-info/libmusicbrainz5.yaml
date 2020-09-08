@@ -1,4 +1,12 @@
+---
 version_control: github
 src_repo: metabrainz/libmusicbrainz
 tag_prefix: release-
-separator: .
+separator: "."
+git_url: https://github.com/metabrainz/libmusicbrainz.git
+git_tag:
+- 2014-11-13 release-5.1.0
+- 2012-05-16 release-5.0.1
+- 2012-05-15 release-5.0.0
+- 2012-05-15 release-4.0.2
+- 2012-04-19 release-4.0.1

@@ -1,4 +1,10 @@
+---
 version_control: github
 src_repo: xiph/speexdsp
-tag_prefix: ^SpeexDSP-
-seperator: .
+tag_prefix: "^SpeexDSP-"
+separator: "."
+git_url: https://github.com/xiph/speexdsp.git
+git_tag:
+- 2019-05-28 SpeexDSP-1.2.0
+- 2014-12-15 SpeexDSP-1.2rc3
+- 2014-12-06 Speex-1.2rc2

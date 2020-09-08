@@ -5,37 +5,31 @@ tag_prefix: "^v"
 separator: "."
 last_query:
   time_stamp: 2020-07-01 17:57:03.951067211 +08:00
-  raw_data: 
-    {
-        "assets" : [
-            {
-                "browser_download_url" : "https://gitee.com/openeuler/clibcni/repository/archive/v2.0.2"
-            }
-        ],
-        "author" : {
-            "avatar_url" : "https://gitee.com/assets/no_portrait.png",
-            "events_url" : "https://gitee.com/api/v5/users/duguhaotian/events{/privacy}",
-            "followers_url" : "https://gitee.com/api/v5/users/duguhaotian/followers",
-            "following_url" : "https://gitee.com/api/v5/users/duguhaotian/following_url{/other_user}",
-            "gists_url" : "https://gitee.com/api/v5/users/duguhaotian/gists{/gist_id}",
-            "html_url" : "https://gitee.com/duguhaotian",
-            "id" : 5595769,
-            "login" : "duguhaotian",
-            "name" : "haozi007",
-            "organizations_url" : "https://gitee.com/api/v5/users/duguhaotian/orgs",
-            "received_events_url" : "https://gitee.com/api/v5/users/duguhaotian/received_events",
-            "repos_url" : "https://gitee.com/api/v5/users/duguhaotian/repos",
-            "site_admin" : false,
-            "starred_url" : "https://gitee.com/api/v5/users/duguhaotian/starred{/owner}{/repo}",
-            "subscriptions_url" : "https://gitee.com/api/v5/users/duguhaotian/subscriptions",
-            "type" : "User",
-            "url" : "https://gitee.com/api/v5/users/duguhaotian"
-        },
-        "body" : "- adapt merge iSula-libutils into lcr",
-        "created_at" : "2020-05-26T17:23:41+08:00",
-        "id" : 70690,
-        "name" : "v2.0.2",
-        "prerelease" : false,
-        "tag_name" : "v2.0.2",
-        "target_commitish" : "e2c2dcba4529eaeaabfa71d56b0832015b1f7978"
-    }
+  raw_data:
+    assets:
+    - browser_download_url: https://gitee.com/openeuler/clibcni/repository/archive/v2.0.2
+    author:
+      avatar_url: https://gitee.com/assets/no_portrait.png
+      events_url: https://gitee.com/api/v5/users/duguhaotian/events{/privacy}
+      followers_url: https://gitee.com/api/v5/users/duguhaotian/followers
+      following_url: https://gitee.com/api/v5/users/duguhaotian/following_url{/other_user}
+      gists_url: https://gitee.com/api/v5/users/duguhaotian/gists{/gist_id}
+      html_url: https://gitee.com/duguhaotian
+      id: 5595769
+      login: duguhaotian
+      name: haozi007
+      organizations_url: https://gitee.com/api/v5/users/duguhaotian/orgs
+      received_events_url: https://gitee.com/api/v5/users/duguhaotian/received_events
+      repos_url: https://gitee.com/api/v5/users/duguhaotian/repos
+      site_admin: false
+      starred_url: https://gitee.com/api/v5/users/duguhaotian/starred{/owner}{/repo}
+      subscriptions_url: https://gitee.com/api/v5/users/duguhaotian/subscriptions
+      type: User
+      url: https://gitee.com/api/v5/users/duguhaotian
+    body: "- adapt merge iSula-libutils into lcr"
+    created_at: '2020-05-26T17:23:41+08:00'
+    id: 70690
+    name: v2.0.2
+    prerelease: false
+    tag_name: v2.0.2
+    target_commitish: e2c2dcba4529eaeaabfa71d56b0832015b1f7978

@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://salsa.debian.org/installer-team/os-prober.git
 tag_prefix: 
-seperator: 
+separator: 
+git_url: https://salsa.debian.org/installer-team/os-prober.git

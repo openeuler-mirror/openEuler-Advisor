@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://src.fedoraproject.org/rpms/google-droid-fonts.git
-tag_prefix: ^google-droid-fonts-
-seperator: "-" 
+tag_prefix: "^google-droid-fonts-"
+separator: "-"
+git_url: https://src.fedoraproject.org/rpms/google-droid-fonts.git

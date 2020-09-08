@@ -1,4 +1,9 @@
+---
 version_control: github
 src_repo: mpruett/audiofile
-tag_prefix: ^audiofile- 
-separator: . 
+tag_prefix: "^audiofile-"
+separator: "."
+git_url: https://github.com/mpruett/audiofile.git
+git_tag:
+- 2013-03-06 audiofile-0.3.6
+- 2013-02-05 audiofile-0.3.5

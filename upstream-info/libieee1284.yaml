@@ -1,4 +1,21 @@
+---
 version_control: github
 src_repo: twaugh/libieee1284
-tag_prefix: ^V
+tag_prefix: "^V"
 separator: _
+git_url: https://github.com/twaugh/libieee1284.git
+git_tag:
+- 2004-03-25 V0_2_9pre2
+- 2004-02-03 V0_2_9pre1
+- 2005-01-20 V0_2_9
+- 2003-05-30 V0_2_8
+- 2003-02-26 V0_2_7
+- 2002-12-25 V0_2_6
+- 2002-11-04 V0_2_5
+- 2002-10-12 V0_2_4
+- 2002-09-19 V0_2_3
+- 2002-09-07 V0_2_2
+- 2007-09-18 V0_2_11
+- 2005-03-11 V0_2_10pre2
+- 2005-01-21 V0_2_10pre1
+- 2005-03-22 V0_2_10

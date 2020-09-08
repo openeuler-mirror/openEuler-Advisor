@@ -1,5 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/spice/usbredir.git
 tag_prefix: usbredir-
-seperator: "."
-
+separator: "."
+git_url: git@gitlab.freedesktop.org:spice/usbredir.git

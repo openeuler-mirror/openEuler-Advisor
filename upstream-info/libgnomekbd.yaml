@@ -126,3 +126,14 @@ last_query:
     start^{}
     v_0_1
     v_0_1^{}
+git_url: https://gitlab.gnome.org/GNOME/libgnomekbd.git
+git_tag:
+- 2019-02-06 3.26.1
+- 2017-09-12 3.26.0
+- 2016-09-20 3.22.0.1
+- 2016-09-20 3.22.0
+- 2016-09-14 3.21.92
+- 2012-09-25 3.6.0
+- 2012-08-25 libgnomekbd-3.5.90
+- 2012-06-06 libgnomekbd-3.5.2
+- 2012-03-26 libgnomekbd-3.4.0.2

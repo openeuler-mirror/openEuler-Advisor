@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  mesonbuild/meson
-tag_prefix: ^v
-separator: .
+src_repo: mesonbuild/meson
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/mesonbuild/meson.git
+git_tag:
+- 2020-07-12 0.55.0
+- 2020-07-05 0.55.0.rc2
+- 2020-07-02 0.55.0.rc1

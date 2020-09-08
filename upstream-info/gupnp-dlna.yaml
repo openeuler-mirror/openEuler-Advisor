@@ -1,4 +1,15 @@
+---
 version_control: gitlab.gnome
 src_repo: gupnp-dlna
 tag_prefix: "^gupnp-dlna-"
 separator: "."
+git_url: https://gitlab.gnome.org/GNOME/gupnp-dlna.git
+git_tag:
+- 2016-06-20 gupnp-dlna-0.10.5
+- 2016-02-08 gupnp-dlna-0.10.4
+- 2015-07-01 gupnp-dlna-0.10.3
+- 2013-05-30 gupnp-dlna-0.10.2
+- 2013-04-09 gupnp-dlna-0.10.1
+- 2013-02-20 gupnp-dlna-0.10.0
+- 2013-02-12 gupnp-dlna-0.9.5
+- 2013-01-22 gupnp-dlna-0.9.4

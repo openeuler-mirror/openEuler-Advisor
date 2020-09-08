@@ -692,3 +692,6 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/westes/flex.git
+git_tag:
+- 2017-05-06 v2.6.4

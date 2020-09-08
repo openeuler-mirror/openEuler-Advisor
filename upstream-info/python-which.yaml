@@ -1,5 +1,8 @@
+---
 git_url: https://github.com/trentm/which.git
 version_control: NA
 src_repo: trentm/which
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://github.com/trentm/which.git
+git_tag:

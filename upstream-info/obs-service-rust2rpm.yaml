@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://pagure.io/fedora-rust/obs-service-rust2rpm.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."
+git_url: https://pagure.io/fedora-rust/obs-service-rust2rpm.git

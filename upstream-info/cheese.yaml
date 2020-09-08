@@ -1,4 +1,10 @@
+---
 version_control: git
 src_repo: https://gitlab.gnome.org/GNOME/cheese.git
-tag_prefix: ^cheese 
-separator: .
+tag_prefix: "^cheese"
+separator: "."
+git_url: https://gitlab.gnome.org/GNOME/cheese.git
+git_tag:
+- 2019-09-12 3.34.0
+- 2019-08-05 3.33.90.1
+- 2019-08-05 3.33.90

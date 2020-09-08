@@ -1,4 +1,6 @@
+---
 version_control: github
 src_repo: OSGeo/PROJ
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://github.com/OSGeo/PROJ.git

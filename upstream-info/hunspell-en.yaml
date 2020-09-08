@@ -1,4 +1,12 @@
+---
 version_control: github
-src_repo:  en-wl/wordlist
+src_repo: en-wl/wordlist
 tag_prefix: "^rel-"
-separator: .
+separator: "."
+git_url: https://github.com/en-wl/wordlist.git
+git_tag:
+- 2019-10-06 rel-2019.10.06
+- 2018-04-16 rel-2018.04.16
+- 2017-08-24 rel-2017.08.24
+- 2017-01-22 rel-2017.01.22
+- 2016-11-20 rel-2016.11.20

@@ -132,3 +132,8 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/google/woff2.git
+git_tag:
+- 2017-11-13 v1.0.2
+- 2017-10-06 v1.0.1
+- 2017-10-05 v1.0.0

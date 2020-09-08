@@ -1,4 +1,15 @@
-version_control: git 
+---
+version_control: git
 src_repo: http://git.gnu.org.ua/repo/gdbm.git
 tag_prefix: "^v"
-separator: .
+separator: "."
+git_url: git://gnu.org.ua/gdbm.git
+git_tag:
+- 2018-10-27 v1.18.1
+- 2018-08-21 v1.18
+- 2018-07-30 v1.17
+- 2018-06-27 v1.16
+- 2018-06-16 v1.15
+- 2018-01-03 v1.14.1
+- 2018-01-01 v1.14
+- 2017-03-11 v1.13

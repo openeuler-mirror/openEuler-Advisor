@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/texinfo.git
-tag_prefix: ^texinfo-
-seperator: .
+tag_prefix: "^texinfo-"
+separator: "."
+git_url: https://git.savannah.gnu.org/git/texinfo.git

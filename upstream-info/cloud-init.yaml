@@ -1,4 +1,6 @@
-version_control: github                                                                                              
-src_repo: canonical/cloud-init                                                                                              
-tag_prefix:                                                                                              
-seperator: "."
+---
+version_control: github
+src_repo: canonical/cloud-init
+tag_prefix: 
+separator: "."
+git_url: https://github.com/canonical/cloud-init.git

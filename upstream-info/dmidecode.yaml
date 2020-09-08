@@ -1,4 +1,9 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/dmidecode.git
-tag_prefix: ^dmidecode-
-seperator: "-"
+tag_prefix: "^dmidecode-"
+separator: "-"
+git_url: https://git.savannah.gnu.org/git/dmidecode.git
+git_tag:
+- 2018-09-14 dmidecode-3-2
+- 2017-05-23 dmidecode-3-1

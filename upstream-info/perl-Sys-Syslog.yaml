@@ -1,0 +1,15 @@
+---
+version_control: github
+src_repo: maddingue/Sys-Syslog
+tag_prefix: "^Sys-Syslog-"
+separator: "."
+git_url: https://github.com/maddingue/Sys-Syslog.git
+git_tag:
+- 2019-10-22 Sys-Syslog-0.36
+- 2016-09-01 Sys-Syslog-0.35
+- 2016-05-06 Sys-Syslog-0.34
+- 2013-05-24 Sys-Syslog-0.33
+- 2012-09-14 Sys-Syslog-0.32
+- 2012-08-18 Sys-Syslog-0.31
+- 2012-08-15 Sys-Syslog-0.30
+- 2011-04-18 Sys-Syslog-0.29

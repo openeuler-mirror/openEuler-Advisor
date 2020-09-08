@@ -1,4 +1,19 @@
+---
 version_control: github
-src_repo:  latchset/libverto
-tag_prefix: ^v
-separator: .
+src_repo: latchset/libverto
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/latchset/libverto.git
+git_tag:
+- 2014-03-12 v0.2.6
+- 2019-02-26 0.3.1
+- 2017-08-31 0.3.0
+- 2017-08-29 0.2.7
+- 2014-03-12 0.2.6
+- 2012-08-25 0.2.5
+- 2012-02-09 0.2.4
+- 2012-02-08 0.2.3
+- 2011-11-11 0.2.2
+- 2011-11-10 0.2.1
+- 2011-11-10 0.2
+- 2011-09-30 0.1

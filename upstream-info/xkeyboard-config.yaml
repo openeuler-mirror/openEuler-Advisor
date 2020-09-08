@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/vimperator/xkeyboard-config.git
-tag_prefix: ^xkeyboard-config-
-seperator: .
+tag_prefix: "^xkeyboard-config-"
+separator: "."
+git_url: https://gitlab.freedesktop.org/vimperator/xkeyboard-config.git

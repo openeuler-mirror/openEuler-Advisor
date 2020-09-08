@@ -1,4 +1,9 @@
+---
 version_control: github
-src_repo:  alanxz/rabbitmq-c
-tag_prefix: ^v
-separator: .
+src_repo: alanxz/rabbitmq-c
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/alanxz/rabbitmq-c.git
+git_tag:
+- 2019-12-01 v0.10.0
+- 2018-09-08 v0.9.0-master

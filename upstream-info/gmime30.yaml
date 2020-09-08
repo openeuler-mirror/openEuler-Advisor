@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.gnome.org/GNOME/gmime.git
 tag_prefix: 
-seperator: 
+separator: 
+git_url: https://gitlab.gnome.org/GNOME/gmime.git

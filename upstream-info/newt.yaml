@@ -1,4 +1,16 @@
+---
 version_control: git
 src_repo: https://pagure.io/newt.git
 tag_prefix: r
-separator: '-'
+separator: "-"
+git_url: https://pagure.io/newt.git
+git_tag:
+- 2019-05-27 r0-52-21
+- 2017-03-17 r0-52-20
+- 2016-03-23 r0-52-19
+- 2014-10-23 r0-52-18
+- 2014-02-19 r0-52-17
+- 2013-08-06 r0-52-16
+- 2013-03-25 r0-52-15
+- 2011-11-11 r0-52-14
+- 2011-06-27 r0-52-13

@@ -1,4 +1,9 @@
+---
 version_control: github
-src_repo:  htacg/tidy-html5
+src_repo: htacg/tidy-html5
 tag_prefix: 
-separator: .
+separator: "."
+git_url: https://github.com/htacg/%{upname}.git
+git_tag:
+- 2019-07-08 5.7.28
+- 2017-11-25 5.6.0

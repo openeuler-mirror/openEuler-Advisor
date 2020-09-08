@@ -92,3 +92,7 @@ last_query:
     3.9.4^{}
     3.9.90
     3.9.90^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-screenshot.git
+git_tag:
+- 2020-04-26 3.37.1
+- 2019-10-14 3.34.0

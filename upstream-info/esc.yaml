@@ -1,5 +1,9 @@
 ---
 version_control: github
 src_repo: mjibson/esc
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/mjibson/esc.git
+git_tag:
+- 2019-02-11 v0.2.0
+- 2017-09-07 v0.1.0

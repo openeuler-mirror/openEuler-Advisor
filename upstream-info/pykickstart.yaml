@@ -1,4 +1,16 @@
+---
 version_control: github
-src_repo: "pykickstart/pykickstart"
+src_repo: pykickstart/pykickstart
 tag_prefix: "^r"
-seperator:
+separator: 
+git_url: https://github.com/pykickstart/pykickstart.git
+git_tag:
+- 2020-07-07 r3.27
+- 2020-06-01 r3.26
+- 2020-04-07 r3.25
+- 2020-04-06 r3.24
+- 2020-01-14 r3.23
+- 2019-11-06 r3.22
+- 2019-08-14 r3.21
+- 2019-01-29 r3.20
+- 2019-01-28 r3.19

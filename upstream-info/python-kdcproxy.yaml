@@ -1,0 +1,18 @@
+---
+git_url: https://github.com/latchset/kdcproxy
+version_control: github
+src_repo: latchset/kdcproxy
+tag_prefix: "^v"
+separator: "."
+git_tag:
+- 2017-01-19 v0.3.3
+- 2019-08-29 v0.4.2
+- 2019-02-11 v0.4.1
+- 2018-08-08 v0.4
+- 2015-08-03 v0.3.2
+- 2015-07-07 v0.3.1
+- 2015-06-10 v0.3
+- 2014-10-24 v0.2.1
+- 2014-10-16 v0.2
+- 2014-01-21 v0.1.1
+- 2014-01-21 v0.1

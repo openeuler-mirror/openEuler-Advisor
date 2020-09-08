@@ -116,3 +116,9 @@ last_query:
     LIBGDATA_0_9_0^{}
     LIBGDATA_0_9_1
     LIBGDATA_0_9_1^{}
+git_url: https://gitlab.gnome.org/GNOME/libgdata.git
+git_tag:
+- 2020-02-27 0.17.12
+- 2019-08-21 0.17.11
+- 2019-06-25 0.17.10
+- 2017-08-23 0.17.9

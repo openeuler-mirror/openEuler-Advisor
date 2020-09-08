@@ -309,3 +309,10 @@ last_query:
       }
     ]
 query_type: api.github.tags
+git_url: https://github.com/GNOME/librsvg.git
+git_tag:
+- 2020-07-03 2.49.3
+- 2020-06-04 2.49.2
+- 2020-06-02 2.49.1
+- 2020-05-29 2.49.0
+- 2020-02-06 2.47.3

@@ -1,4 +1,10 @@
+---
 version_control: git
 src_repo: https://dev.lovelyhq.com/libburnia/libburn
-tag_prefix: "release-"
+tag_prefix: release-
 separator: "."
+git_url: https://dev.lovelyhq.com/libburnia/libburn
+git_tag:
+- 2019-10-26 release-1.5.2
+- 2018-09-15 release-1.5.0
+- 2017-09-12 release-1.4.8

@@ -574,3 +574,14 @@ last_query:
     libsoup-hacking-branch-base^{}
     libsoup-pre214-branch-base
     libsoup-pre214-branch-base^{}
+git_url: https://gitlab.gnome.org/GNOME/libsoup.git
+git_tag:
+- 2020-03-06 2.70.0
+- 2020-02-03 2.69.90
+- 2019-12-04 2.68.3
+- 2019-10-09 2.68.2
+- 2019-09-11 2.68.1
+- 2019-09-11 2.68.0
+- 2019-09-02 2.67.93
+- 2019-08-20 2.67.92
+- 2020-07-07 2.71.0

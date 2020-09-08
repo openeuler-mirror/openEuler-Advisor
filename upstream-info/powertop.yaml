@@ -1,4 +1,16 @@
+---
 version_control: github
-src_repo: "fenrus75/powertop"
+src_repo: fenrus75/powertop
 tag_prefix: "^v"
-seperator:
+separator: 
+git_url: https://github.com/fenrus75/powertop.git
+git_tag:
+- 2020-06-11 v2.13
+- 2020-06-03 v2.13-rc1
+- 2019-09-26 v2.11
+- 2019-01-04 v2.10
+- 2017-03-10 v2.9
+- 2017-01-25 v2.9-rc1
+- 2016-08-03 v2.9-pre
+- 2020-04-02 v2.12-rc1
+- 2020-04-20 v2.12

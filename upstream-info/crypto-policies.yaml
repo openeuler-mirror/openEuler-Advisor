@@ -1,4 +1,8 @@
+---
 version_control: git
 src_repo: https://gitlab.com/redhat-crypto/fedora-crypto-policies.git
 tag_prefix: "^f"
-separator:
+separator: 
+git_url: https://gitlab.com/redhat-crypto/fedora-crypto-policies.git
+git_tag:
+- 2020-06-19 f32-updates

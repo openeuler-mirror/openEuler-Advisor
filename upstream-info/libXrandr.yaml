@@ -1,6 +1,7 @@
+---
 git_url: https://gitlab.freedesktop.org/xorg/lib/libxrandr.git
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxrandr.git
 tag_prefix: "^libXrandr-"
-seperator: "."
-
+separator: "."
+git_url: git@gitlab.freedesktop.org:xorg/lib/libxrandr.git

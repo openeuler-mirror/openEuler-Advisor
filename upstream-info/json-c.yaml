@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo:  json-c/json-c
+src_repo: json-c/json-c
 tag_prefix: "^json-c-"
 separator: "-"

@@ -1,4 +1,8 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/spice/spice-gtk.git
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://gitlab.freedesktop.org/spice/spice-gtk.git
+git_tag:
+- 2020-03-16 v0.38

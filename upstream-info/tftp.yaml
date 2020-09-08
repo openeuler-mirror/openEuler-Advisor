@@ -1,4 +1,18 @@
+---
 version_control: git
 src_repo: git://git.kernel.org/pub/scm/network/tftp/tftp-hpa.git
 tag_prefix: tftp-hpa-
-seperator: .
+separator: "."
+git_url: git://git.kernel.org/pub/scm/network/tftp/tftp-hpa.git
+git_tag:
+- 2011-12-11 tftp-hpa-5.2
+- 2011-06-22 tftp-hpa-5.1
+- 2009-02-16 tftp-hpa-5.0
+- 2008-10-20 tftp-hpa-0.49
+- 2007-01-30 tftp-hpa-0.48
+- 2007-01-27 tftp-hpa-0.47
+- 2007-01-08 tftp-hpa-0.46
+- 2006-12-12 tftp-hpa-0.45
+- 2006-12-05 tftp-hpa-0.44
+- 2006-10-05 tftp-hpa-0.43
+- 2006-02-16 tftp-hpa-0.42

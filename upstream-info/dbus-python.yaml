@@ -1,4 +1,13 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/dbus/dbus-python.git
 tag_prefix: "^dbus-python-"
 separator: "."
+git_url: https://gitlab.freedesktop.org/dbus/dbus-python.git
+git_tag:
+- 2020-01-14 dbus-python-1.2.16
+- 2019-11-25 dbus-python-1.2.14
+- 2019-09-12 dbus-python-1.2.12
+- 2019-09-02 dbus-python-1.2.10
+- 2018-05-04 dbus-python-1.2.8
+- 2018-01-29 dbus-python-1.2.6

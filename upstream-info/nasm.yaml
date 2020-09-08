@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://github.com/netwide-assembler/nasm.git
 tag_prefix: "^nasm-"
-separator: .
+separator: "."
+git_url: https://repo.or.cz/w/nasm.git

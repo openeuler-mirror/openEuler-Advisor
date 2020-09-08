@@ -1,4 +1,8 @@
+---
 version_control: git
 src_repo: https://pagure.io/gfs2-utils.git
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://pagure.io/gfs2-utils.git
+git_tag:
+- 2018-05-23 3.2.0

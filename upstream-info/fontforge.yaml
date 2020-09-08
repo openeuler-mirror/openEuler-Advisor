@@ -3145,3 +3145,6 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/fontforge/fontforge.git
+git_tag:
+- 2020-03-14 20200314

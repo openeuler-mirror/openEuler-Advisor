@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  jmmv/kyua
+src_repo: jmmv/kyua
 tag_prefix: kyua-
-separator: .
+separator: "."
+git_url: https://github.com/jmmv/kyua.git
+git_tag:
+- 2016-08-26 kyua-0.13
+- 2015-11-22 kyua-0.12
+- 2014-10-23 kyua-0.11

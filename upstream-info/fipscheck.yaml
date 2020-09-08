@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://pagure.io/fipscheck.git
 tag_prefix: "^fipscheck-"
-seperator: .
+separator: "."
+git_url: https://pagure.io/fipscheck.git

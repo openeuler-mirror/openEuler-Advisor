@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: dogtagpki/tomcatjss
 tag_prefix: "^v"
-seperator: "."
+separator: "."

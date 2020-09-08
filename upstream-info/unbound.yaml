@@ -1,4 +1,22 @@
+---
 version_control: github
 src_repo: NLnetLabs/unbound
 tag_prefix: release-
-seperator: .
+separator: "."
+git_url: https://github.com/NLnetLabs/unbound.git
+git_tag:
+- 2020-07-20 1.11.0rc1
+- 2020-02-17 release-1.10.0rc2
+- 2020-02-13 release-1.10.0rc1
+- 2019-12-12 release-1.9.6
+- 2019-12-05 release-1.9.6rc1
+- 2019-10-03 release-1.9.4
+- 2019-08-27 release-1.9.3
+- 2019-08-22 release-1.9.3rc2
+- 2019-08-15 release-1.9.3rc1
+- 2019-06-17 release-1.9.2
+- 2019-06-14 release-1.9.2rc3
+- 2019-06-11 release-1.9.2rc2
+- 2019-05-01 final-svn-state
+- 2019-01-29 release-1.9.0rc1
+- 2019-06-06 release-1.9.2rc1

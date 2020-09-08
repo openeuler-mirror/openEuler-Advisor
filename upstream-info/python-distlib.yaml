@@ -1,0 +1,5 @@
+---
+version_control: pypi
+src_repo: distlib
+tag_prefix: "^"
+separator: "."

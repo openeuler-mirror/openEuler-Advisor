@@ -1,4 +1,7 @@
+---
 version_control: git
 src_repo: https://pagure.io/portreserve.git
 tag_prefix: "^"
-seperator: "."
+separator: "."
+git_url: https://pagure.io/portreserve.git
+git_tag:

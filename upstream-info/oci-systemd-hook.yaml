@@ -1,4 +1,11 @@
+---
 version_control: github
-src_repo:  projectatomic/oci-systemd-hook
-tag_prefix: ^v
-separator: .
+src_repo: projectatomic/oci-systemd-hook
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/projectatomic/oci-systemd-hook.git
+git_tag:
+- 2019-03-06 v0.2.0
+- 2017-02-07 v0.1.5
+- 2019-03-06 v0.1.18
+- 2016-03-02 0.1.4

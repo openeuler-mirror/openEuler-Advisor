@@ -1,4 +1,5 @@
+---
 version_control: hg
 src_repo: https://www.riverbankcomputing.com/hg/sip
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+separator: "."

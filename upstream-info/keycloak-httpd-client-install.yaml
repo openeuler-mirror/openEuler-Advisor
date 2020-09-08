@@ -1,4 +1,17 @@
+---
 version_control: github
 src_repo: jdennis/keycloak-httpd-client-install
 tag_prefix: RELEASE_
 separator: _
+git_url: https://github.com/jdennis/keycloak-httpd-client-install.git
+git_tag:
+- 2019-07-03 RELEASE_1_1
+- 2019-06-14 RELEASE_1_0
+- 2018-01-09 RELEASE_0_8
+- 2017-11-02 RELEASE_0_7
+- 2017-02-28 RELEASE_0_6
+- 2017-01-06 RELEASE_0_5
+- 2016-06-08 RELEASE_0_4
+- 2016-05-27 RELEASE_0_3
+- 2016-05-17 RELEASE_0_2
+- 2016-05-15 RELEASE_0_1

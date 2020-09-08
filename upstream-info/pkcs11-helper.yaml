@@ -1,5 +1,17 @@
 ---
 version_control: github
 src_repo: OpenSC/pkcs11-helper
-tag_prefix: ^pkcs11-helper-
-separator: .
+tag_prefix: "^pkcs11-helper-"
+separator: "."
+git_url: https://github.com/OpenSC/pkcs11-helper.git
+git_tag:
+- 2020-01-21 pkcs11-helper-1.26
+- 2018-08-16 pkcs11-helper-1.25.1
+- 2018-08-04 pkcs11-helper-1.25
+- 2018-06-15 pkcs11-helper-1.24
+- 2018-06-02 pkcs11-helper-1.23
+- 2017-02-12 pkcs11-helper-1.22
+- 2017-01-05 pkcs11-helper-1.21
+- 2016-12-08 pkcs11-helper-1.20
+- 2013-11-10 pkcs11-helper-1.11
+- 2012-02-29 pkcs11-helper-1.10

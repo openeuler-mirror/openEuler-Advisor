@@ -1,5 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxcb.git
 tag_prefix: libxcb-
-seperator: "."
-
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxcb.git

@@ -1,4 +1,15 @@
+---
 version_control: git
 src_repo: https://gitlab.com/sane-project/frontends.git
 tag_prefix: RELEASE_
-seperator: _
+separator: _
+git_url: https://gitlab.com/sane-project/frontends.git
+git_tag:
+- 2017-07-03 1.0.14
+- 2009-05-04 gitconversion
+- 2008-04-30 DEVEL_1_0_TRUNK
+- 2005-09-18 RELEASE_1_0_14
+- 2004-10-17 RELEASE_1_0_13
+- 2004-10-10 BETA_1_0_13_1
+- 2004-04-17 RELEASE_1_0_12
+- 2003-04-20 RELEASE_1_0_11

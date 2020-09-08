@@ -1,4 +1,7 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/aspell.git
-tag_prefix: "rel-"
+tag_prefix: rel-
 separator: "."
+git_url: https://git.savannah.gnu.org/git/aspell.git
+git_tag:

@@ -1,4 +1,13 @@
+---
 version_control: github
-src_repo:  requests/requests
-tag_prefix: ^v
-separator: .
+src_repo: requests/requests
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/requests/requests.git
+git_tag:
+- 2020-06-17 v2.24.0
+- 2019-05-15 v2.22.0
+- 2018-12-09 v2.21.0
+- 2018-11-08 v2.20.1
+- 2018-10-17 v2.20.0
+- 2017-08-02 v2.18.3

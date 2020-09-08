@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://pagure.io/fontpackages.git
 tag_prefix: "^"
-seperator: "."
+separator: "."
+git_url: https://pagure.io/fontpackages.git

@@ -1,4 +1,6 @@
+---
 version_control: git
-src_repo:  https://sourceware.org/git/valgrind.git
+src_repo: https://sourceware.org/git/valgrind.git
 tag_prefix: "^VALGRIND_"
-seperator: _
+separator: _
+git_url: https://sourceware.org/git/?p=valgrind.git

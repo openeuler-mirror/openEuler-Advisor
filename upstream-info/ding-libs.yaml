@@ -1,4 +1,11 @@
+---
 version_control: git
 src_repo: https://pagure.io/SSSD/ding-libs.git
-tag_prefix: ^ding_libs-
+tag_prefix: "^ding_libs-"
 separator: _
+git_url: https://pagure.io/SSSD/ding-libs.git
+git_tag:
+- 2017-09-22 ding_libs-0_6_1
+- 2016-06-22 ding_libs-0_6_0
+- 2015-06-23 ding_libs-0_5_0
+- 2014-05-28 ding_libs-0_4_0

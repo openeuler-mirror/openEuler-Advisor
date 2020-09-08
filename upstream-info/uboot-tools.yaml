@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.denx.de/u-boot/u-boot.git
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://gitlab.denx.de/u-boot/u-boot.git

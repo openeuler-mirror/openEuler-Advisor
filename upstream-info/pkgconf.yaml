@@ -1,4 +1,19 @@
+---
 version_control: git
 src_repo: https://git.sr.ht/~kaniini/pkgconf
-tag_prefix: ^pkgconf-
-seperator: .
+tag_prefix: "^pkgconf-"
+separator: "."
+git_url: https://git.sr.ht/~kaniini/pkgconf
+git_tag:
+- 2020-05-30 pkgconf-1.7.3
+- 2020-05-26 pkgconf-1.7.2
+- 2020-05-26 pkgconf-1.7.1
+- 2020-05-24 pkgconf-1.7.0
+- 2019-07-12 pkgconf-1.6.3
+- 2019-07-11 pkgconf-1.6.2
+- 2019-03-23 pkgconf-1.6.1
+- 2019-01-14 pkgconf-1.6.0
+- 2018-10-15 pkgconf-1.5.4
+- 2018-07-28 pkgconf-1.5.3
+- 2018-07-19 pkgconf-1.5.2
+- 2018-06-16 pkgconf-1.5.1

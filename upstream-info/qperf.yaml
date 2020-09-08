@@ -1,4 +1,9 @@
+---
 version_control: github
 src_repo: linux-rdma/qperf
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/linux-rdma/qperf.git
+git_tag:
+- 2018-04-03 v0.4.11
+- 2017-07-19 v0.4.10

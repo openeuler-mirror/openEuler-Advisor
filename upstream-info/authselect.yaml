@@ -1,4 +1,20 @@
+---
 version_control: github
-src_repo:  pbrezina/authselect
-tag_prefix: ^v
-separator: .
+src_repo: pbrezina/authselect
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/pbrezina/authselect.git
+git_tag:
+- 2019-06-13 1.1
+- 2019-06-13 1.0.4
+- 2019-03-05 1.0.3
+- 2018-11-24 1.0.2
+- 2018-09-27 1.0.1
+- 2018-08-13 1.0
+- 2018-04-09 0.4
+- 2018-03-06 0.3.2
+- 2018-03-05 0.3.1
+- 2018-02-20 0.3
+- 2018-02-20 0.2
+- 2017-08-01 0.1-alpha
+- 2017-09-14 0.1

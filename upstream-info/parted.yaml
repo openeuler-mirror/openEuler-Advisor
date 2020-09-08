@@ -1,5 +1,9 @@
+---
 version_control: git
 src_repo: git://git.savannah.gnu.org/parted.git
 tag_prefix: "^v"
 separator: "."
-
+git_url: git://git.savannah.gnu.org/parted.git
+git_tag:
+- 2019-10-10 v3.3
+- 2019-08-12 v3.2.153

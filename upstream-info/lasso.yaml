@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://repos.entrouvert.org/lasso.git
 tag_prefix: "^v"
 separator: "."
+git_url: https://repos.entrouvert.org/lasso.git

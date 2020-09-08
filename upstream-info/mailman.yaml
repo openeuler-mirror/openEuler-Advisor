@@ -1,5 +1,6 @@
+---
 version_control: NA
 src_repo: NA
 tag_prefix: NA
-seperator: NA
+separator: NA
 download: ftp://ftp.gnu.org/pub/gnu/mailman/mailman-2.1.29.tar.gz

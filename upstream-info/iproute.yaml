@@ -1,4 +1,11 @@
+---
 version_control: git
 src_repo: https://git.kernel.org/pub/scm/network/iproute2/iproute2.git
 tag_prefix: "^v"
-seperator: .
+separator: "."
+git_url: https://git.kernel.org/pub/scm/network/iproute2/iproute2.git
+git_tag:
+- 2020-06-02 v5.7.0
+- 2020-03-30 v5.6.0
+- 2020-01-27 v5.5.0
+- 2019-11-25 v5.4.0

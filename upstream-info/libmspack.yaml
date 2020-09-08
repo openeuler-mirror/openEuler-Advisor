@@ -1,4 +1,15 @@
+---
 version_control: github
-src_repo:  kyz/libmspack
-tag_prefix: ^v
-separator: .
+src_repo: kyz/libmspack
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/kyz/libmspack.git
+git_tag:
+- 2019-03-04 v0.10.1alpha
+- 2019-03-04 v1.9.1
+- 2019-03-04 v0.10alpha
+- 2018-11-06 v0.9.1alpha
+- 2018-11-06 v1.9
+- 2018-11-06 v0.9alpha
+- 2018-10-21 v1.8
+- 2018-10-21 v0.8alpha

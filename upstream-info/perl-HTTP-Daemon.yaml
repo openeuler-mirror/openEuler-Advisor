@@ -1,0 +1,5 @@
+---
+version_control: metacpan
+src_repo: HTTP-Daemon
+tag_prefix: "^v"
+separator: "."

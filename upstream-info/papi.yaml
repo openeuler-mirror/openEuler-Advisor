@@ -1,4 +1,8 @@
+---
 version_control: git
 src_repo: https://bitbucket.org/icl/papi.git
 tag_prefix: papi-
 separator: "-"
+git_url: https://bitbucket.org/icl/papi.git
+git_tag:
+- 2020-03-04 papi-6-0-0-t

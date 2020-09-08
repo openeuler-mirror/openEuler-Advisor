@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: concurrencykit/ck
-tag_prefix:
+tag_prefix: 
 separator: "."

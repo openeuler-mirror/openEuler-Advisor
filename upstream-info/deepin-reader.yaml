@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: linuxdeepin/deepin-reader
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."

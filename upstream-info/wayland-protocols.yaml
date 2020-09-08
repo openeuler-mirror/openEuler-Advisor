@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/wayland/wayland-protocols.git
 tag_prefix: 
-seperator: .
+separator: "."
+git_url: https://cgit.freedesktop.org/wayland/wayland-protocols/

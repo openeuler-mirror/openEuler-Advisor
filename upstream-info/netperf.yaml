@@ -1,5 +1,8 @@
+---
 version_control: github
 src_repo: HewlettPackard/netperf
 tag_prefix: netperf-
-separator: .
+separator: "."
 download_url: http://prdownloads.sourceforge.net/amanda/amanda
+git_url: https://github.com/HewlettPackard/netperf.git
+git_tag:

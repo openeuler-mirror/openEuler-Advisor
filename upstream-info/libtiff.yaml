@@ -1,5 +1,6 @@
+---
 version_control: github
 src_repo: vadz/libtiff
-tag_prefix: ^Release-v
-seperator: "."
-
+tag_prefix: "^Release-v"
+separator: "."
+git_url: https://github.com/vadz/libtiff.git

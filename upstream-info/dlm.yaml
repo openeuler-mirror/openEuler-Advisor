@@ -1,4 +1,20 @@
+---
 version_control: git
 src_repo: https://pagure.io/dlm.git
 tag_prefix: dlm-
-separator: .
+separator: "."
+git_url: https://pagure.io/dlm.git
+git_tag:
+- 2019-06-11 dlm-4.0.9
+- 2019-01-08 dlm-4.0.8
+- 2016-12-19 dlm-4.0.7
+- 2016-06-10 dlm-4.0.6
+- 2016-04-26 dlm-4.0.5
+- 2016-01-05 dlm-4.0.4
+- 2016-01-05 dlm-4.0.3
+- 2013-07-31 dlm-4.0.2
+- 2013-03-06 dlm-4.0.1
+- 2012-11-06 dlm-4.0.0
+- 2012-06-21 dlm-3.99.5
+- 2012-05-14 dlm-3.99.3
+- 2012-05-21 3.99.4

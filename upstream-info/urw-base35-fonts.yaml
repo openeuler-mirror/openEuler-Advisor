@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  ArtifexSoftware/urw-base35-fonts
-tag_prefix: ^v
-separator: .
+src_repo: ArtifexSoftware/urw-base35-fonts
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/ArtifexSoftware/urw-base35-fonts.git
+git_tag:
+- 2017-08-17 20170801_test
+- 2018-05-24 20170801.1
+- 2017-09-22 20170801

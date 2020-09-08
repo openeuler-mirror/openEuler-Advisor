@@ -1,4 +1,15 @@
+---
 version_control: git
 src_repo: git://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."
+git_url: git://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git
+git_tag:
+- 2020-07-24 v5.7.0
+- 2020-07-15 v5.7.0-rc1
+- 2020-05-07 v5.7.0-rc0
+- 2020-04-14 v5.6.0
+- 2020-04-08 v5.6.0-rc1
+- 2020-03-18 v5.6.0-rc0
+- 2020-03-13 v5.5.0
+- 2020-03-02 v5.5.0-rc1

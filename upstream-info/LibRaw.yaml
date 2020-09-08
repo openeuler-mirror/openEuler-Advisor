@@ -1,4 +1,12 @@
+---
 version_control: github
 src_repo: LibRaw/LibRaw
 tag_prefix: "^"
 separator: "."
+git_url: https://github.com/LibRaw/LibRaw.git
+git_tag:
+- 2020-07-23 0.20.0
+- 2020-06-29 0.20-RC1
+- 2020-06-18 0.20-Beta3
+- 2020-05-29 0.20-Beta2
+- 2020-05-07 0.20-Beta1

@@ -1,4 +1,19 @@
+---
 version_control: git
 src_repo: https://anongit.kde.org/breeze-icons.git
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://anongit.kde.org/breeze-icons.git
+git_tag:
+- 2020-07-11 v5.72.0
+- 2020-07-04 v5.72.0-rc1
+- 2020-06-13 v5.71.0
+- 2020-06-07 v5.71.0-rc3
+- 2020-06-06 v5.71.0-rc2
+- 2020-06-06 v5.71.0-rc1
+- 2020-05-09 v5.70.0
+- 2020-05-02 v5.70.0-rc1
+- 2020-04-11 v5.69.0
+- 2020-04-04 v5.69.0-rc1
+- 2020-03-15 v5.68.0
+- 2020-03-07 v5.68.0-rc1

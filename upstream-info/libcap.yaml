@@ -1,4 +1,51 @@
+---
 version_control: git
 src_repo: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/
-tag_prefix: ^libcap-
+tag_prefix: "^libcap-"
 separator: 
+git_url: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/
+git_tag:
+- 2020-07-24 v0.2.41
+- 2020-07-24 psx/v0.2.41
+- 2020-07-24 libcap-korg-2.41
+- 2020-07-24 cap/v0.2.41
+- 2020-07-24 libcap-2.41
+- 2020-07-19 cap/v0.2.40
+- 2020-07-19 v0.2.40
+- 2020-07-19 psx/v0.2.40
+- 2020-07-19 libcap-korg-2.40
+- 2020-07-19 libcap-2.40
+- 2020-07-11 v0.2.39
+- 2020-07-11 psx/v0.2.39
+- 2020-07-11 libcap-korg-2.39
+- 2020-07-11 cap/v0.2.39
+- 2020-07-11 libcap-2.39
+- 2020-07-05 psx/v0.2.38
+- 2020-07-05 cap/v0.2.38
+- 2020-07-05 libcap-korg-2.38
+- 2020-07-05 libcap-2.38
+- 2020-07-03 v0.2.37
+- 2020-07-03 libcap-korg-2.37
+- 2020-07-03 libcap-2.37
+- 2020-06-02 libcap-korg-2.36
+- 2020-06-02 libcap-2.36
+- 2020-06-02 libcap-korg-2.35
+- 2020-06-02 libcap-2.35
+- 2020-05-03 libcap-korg-2.34
+- 2020-05-03 libcap-2.34
+- 2020-03-01 libcap-korg-2.33
+- 2020-03-01 libcap-2.33
+- 2020-02-15 libcap-korg-2.32
+- 2020-02-15 libcap-2.32
+- 2020-01-13 libcap-korg-2.31
+- 2020-01-13 libcap-2.31
+- 2020-01-04 libcap-korg-2.30
+- 2020-01-04 libcap-2.30
+- 2019-12-25 libcap-korg-2.29
+- 2019-12-25 libcap-2.29
+- 2019-12-07 libcap-korg-2.28
+- 2019-12-07 libcap-2.28
+- 2020-07-26 psx/v0.2.42-rc1
+- 2020-07-03 psx/v0.2.37
+- 2020-07-26 cap/v0.2.42-rc1
+- 2020-07-03 cap/v0.2.37

@@ -1,4 +1,5 @@
+---
 version_control: github
-src_repo: ndevilla/iniparser 
+src_repo: ndevilla/iniparser
 tag_prefix: "^v"
 separator: "."

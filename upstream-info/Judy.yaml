@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_repo: https://svn.code.sf.net/p/judy/code
-tag_prefix: "Judy-"
+tag_prefix: Judy-
 separator: "."

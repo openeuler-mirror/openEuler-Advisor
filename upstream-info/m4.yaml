@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/m4.git
-tag_prefix: ^v 
-separator: . 
+tag_prefix: "^v"
+separator: "."
+git_url: https://git.savannah.nongnu.org/cgit/m4.git

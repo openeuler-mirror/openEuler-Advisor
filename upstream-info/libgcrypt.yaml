@@ -1,4 +1,7 @@
+---
 version_control: git
 src_repo: https://dev.gnupg.org/source/libgcrypt.git
 tag_prefix: libgcrypt-
-separator: .
+separator: "."
+git_url: https://dev.gnupg.org/source/libgcrypt.git
+git_tag:

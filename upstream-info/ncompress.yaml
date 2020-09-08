@@ -1,4 +1,22 @@
+---
 version_control: github
-src_repo:  vapier/ncompress
-tag_prefix: ^v
-separator: .
+src_repo: vapier/ncompress
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/vapier/ncompress.git
+git_tag:
+- 2019-12-30 v4.2.4.6
+- 2019-01-04 v4.2.4.5
+- 2010-09-09 v4.2.4.4
+- 2010-01-29 v4.2.4.3
+- 2007-09-07 v4.2.4.2
+- 2006-09-29 v4.2.4.1
+- 1992-10-05 v4.2.4
+- 1992-08-28 v4.2.3
+- 1991-06-29 v4.1p1
+- 1991-06-25 v4.1
+- 1985-08-01 v4.0
+- 1985-01-03 v3.0
+- 1984-08-30 v2.0
+- 1984-08-05 v1.6
+- 1984-07-05 v1.4

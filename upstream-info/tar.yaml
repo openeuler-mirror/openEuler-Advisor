@@ -1,4 +1,10 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/tar.git
-tag_prefix: "release_"
-separator: "_"
+tag_prefix: release_
+separator: _
+git_url: https://git.savannah.gnu.org/git/tar.git
+git_tag:
+- 2019-02-23 release_1_32
+- 2019-01-02 release_1_31
+- 2017-12-17 release_1_30

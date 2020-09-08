@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxvmc.git
-tag_prefix: ^libXvMC-
-seperator: .
+tag_prefix: "^libXvMC-"
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxvmc.git

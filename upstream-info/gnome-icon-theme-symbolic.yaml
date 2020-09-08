@@ -1,4 +1,5 @@
+---
 version_control: git
 src_repo: https://gitlab.gnome.org/Archive/gnome-icon-theme-symbolic.git
-tag_prefix: ""
+tag_prefix: ''
 separator: "."

@@ -2094,3 +2094,7 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/uclouvain/openjpeg.git
+git_tag:
+- 2019-04-02 v2.3.1
+- 2017-10-04 v2.3.0

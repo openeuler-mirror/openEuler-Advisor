@@ -1,4 +1,9 @@
+---
 version_control: github
-src_repo:  SELinuxProject/setools
-tag_prefix: ^v
-separator: .
+src_repo: SELinuxProject/setools
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/SELinuxProject/setools.git
+git_tag:
+- 2018-09-29 4.2.0-rc
+- 2018-11-10 4.2.0

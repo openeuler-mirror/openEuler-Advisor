@@ -1,4 +1,21 @@
+---
 version_control: github
-src_repo:  rhinstaller/isomd5sum
-tag_prefix: ^v
-separator: .
+src_repo: rhinstaller/isomd5sum
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/rhinstaller/isomd5sum.git
+git_tag:
+- 2018-04-10 1.2.3
+- 2017-10-03 1.2.2
+- 2017-06-09 1.2.1
+- 2017-06-08 1.2.0
+- 2015-12-04 1.1.0
+- 2014-01-10 1.0.12
+- 2013-07-17 1.0.11
+- 2013-02-26 1.0.10
+- 2012-03-09 1.0.9
+- 2012-03-09 1.0.8
+- 2009-01-08 1.0.5
+- 2008-02-07 1.0.3-1
+- 2008-02-07 1.0.2-1
+- 2007-12-10 1.0.1-1

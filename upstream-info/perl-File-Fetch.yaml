@@ -1,4 +1,19 @@
+---
 version_control: github
 src_repo: PERL-Toolchain-Gang/File-Fetch
 tag_prefix: 
-separator: . 
+separator: "."
+git_url: https://github.com/PERL-Toolchain-Gang/File-Fetch.git
+git_tag:
+- 2017-11-30 0.56
+- 2017-09-24 0.54
+- 2016-08-12 0.52
+- 2016-08-08 0.50
+- 2014-01-24 0.48
+- 2013-11-26 0.46
+- 2013-09-28 0.44
+- 2013-04-12 0.42
+- 2013-04-12 0.40
+- 2013-01-10 0.38
+- 2012-06-28 0.36
+- 2012-04-12 0.34

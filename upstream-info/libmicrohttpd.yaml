@@ -1,4 +1,12 @@
+---
 version_control: github
-src_repo:  Karlson2k/libmicrohttpd
-tag_prefix: ^v
-separator: .
+src_repo: Karlson2k/libmicrohttpd
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/Karlson2k/libmicrohttpd.git
+git_tag:
+- 2019-12-15 v0.9.69
+- 2019-10-26 v0.9.68
+- 2019-10-17 v0.9.67
+- 2019-08-01 v0.9.66
+- 2019-07-05 v0.9.65

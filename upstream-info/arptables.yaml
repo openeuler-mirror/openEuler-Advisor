@@ -6,3 +6,7 @@ separator: "."
 last_query:
   time_stamp: 2020-06-02 05:33:16.015357390 +00:00
   raw_data: "6db62a995e5ff6905e6b1e47e07d4411af0546f7\trefs/tags/arptables-0.0.4\n9f4f6be880eaae9323c3ca65f3fcd22d36501ad2\trefs/tags/arptables-0.0.4^{}\nefae8949e31f8b2eb6290f377a28384cecaf105a\trefs/tags/arptables-0.0.5\n"
+git_url: git://git.netfilter.org/arptables
+git_tag:
+- 2015-05-20 arptables-0.0.4
+- 2019-12-02 arptables-0.0.5

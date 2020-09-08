@@ -1,4 +1,17 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/media-player-info/media-player-info.git
-tag_prefix: ^
-separator:
+tag_prefix: "^"
+separator: 
+git_url: https://gitlab.freedesktop.org/media-player-info/media-player-info.git
+git_tag:
+- 2018-08-21 24
+- 2017-09-15 23
+- 2017-09-15 22
+- 2013-07-24 21
+- 2013-07-24 20
+- 2013-07-23 19
+- 2013-07-05 18
+- 2012-05-30 17
+- 2012-01-24 16
+- 2011-10-04 15

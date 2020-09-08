@@ -1,4 +1,10 @@
+---
 version_control: git
 src_repo: https://git.code.sf.net/p/pptpclient/git
 tag_prefix: "^"
-seperator: "."
+separator: "."
+git_url: https://git.code.sf.net/p/pptpclient/git
+git_tag:
+- 2016-11-29 1.9.0
+- 2013-10-23 1.8.0
+- 2018-01-18 1.10.0

@@ -1,4 +1,5 @@
+---
 version_control: gnu-ftp
 src_repo: sharutils
 tag_pattern: sharutils-(.*).tar.gz(.sig)?
-seperator: "."
+separator: "."

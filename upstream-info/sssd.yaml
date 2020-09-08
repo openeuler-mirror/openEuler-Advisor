@@ -1,4 +1,9 @@
+---
 version_control: github
 src_repo: SSSD/sssd
-tag_prefix: ^sssd-
-seperator: "_"
+tag_prefix: "^sssd-"
+separator: _
+git_url: https://github.com/SSSD/sssd.git
+git_tag:
+- 2020-07-24 sssd-2_3_1
+- 2020-05-19 sssd-2_3_0

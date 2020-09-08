@@ -746,3 +746,6 @@ last_query:
     release-2.25.144_0.6^{}
     release-2.25.55-0.1
     release-2.25.55-0.1^{}
+git_url: https://gitlab.gnome.org/GNOME/mutter.git
+git_tag:
+- 2020-07-07 3.37.3

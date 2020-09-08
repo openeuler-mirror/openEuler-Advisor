@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://git.savannah.gnu.org/git/src-highlite.git
-tag_prefix: ^rel_
-seperator: "_"
+tag_prefix: "^rel_"
+separator: _
+git_url: https://git.savannah.gnu.org/git/src-highlite.git

@@ -4410,3 +4410,13 @@ last_query:
         "body": "fixed : ZSTD_decompressBlock() using multiple consecutive blocks. Reported by @GregSlazinski\nfixed : potential segfault on very large files (many gigabytes). Reported by @chipturner \nfixed : CLI displays system error message when destination file cannot be created (#231). Reported by @chipturner \nfixed : leak in some fail scenario in dictionary builder, reported by @nemequ\n"
       }
     ]
+git_url: https://github.com/facebook/zstd.git
+git_tag:
+- 2020-05-21 v1.4.5
+- 2019-11-04 v1.4.4
+- 2019-08-19 v1.4.3
+- 2019-07-25 v1.4.2
+- 2019-07-19 v1.4.1
+- 2019-04-16 v1.4.0
+- 2018-12-27 v1.3.8
+- 2018-10-16 v1.3.7

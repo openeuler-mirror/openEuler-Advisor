@@ -1,4 +1,23 @@
+---
 version_control: github
-src_repo:  sgallagher/sscg
+src_repo: sgallagher/sscg
 tag_prefix: "^sscg-"
-separator: .
+separator: "."
+git_url: https://github.com/sgallagher/sscg.git
+git_tag:
+- 2020-06-23 sscg-2.6.2
+- 2020-01-09 sscg-2.6.1
+- 2019-12-13 sscg-2.6.0
+- 2018-11-28 sscg-2.5.1
+- 2018-11-28 sscg-2.5.0
+- 2018-11-27 sscg-2.4.0
+- 2018-02-02 sscg-2.3.3
+- 2018-01-25 sscg-2.3.2
+- 2018-01-02 sscg-2.3.1
+- 2017-12-18 sscg-2.3.0
+- 2017-09-21 sscg-2.2.0
+- 2017-09-20 sscg-2.1.0
+- 2017-03-21 sscg-2.0.4
+- 2017-03-08 sscg-2.0.3
+- 2017-03-03 sscg-2.0.2
+- 2017-03-03 sscg-2.0.1

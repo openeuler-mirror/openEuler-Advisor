@@ -1,4 +1,6 @@
+---
 version_control: git
-src_repo: "http://git.yoctoproject.org/cgit/cgit.cgi/libmatchbox"
+src_repo: http://git.yoctoproject.org/cgit/cgit.cgi/libmatchbox
 tag_prefix: "^"
 separator: "."
+git_url: http://git.yoctoproject.org/cgit/cgit.cgi/libmatchbox

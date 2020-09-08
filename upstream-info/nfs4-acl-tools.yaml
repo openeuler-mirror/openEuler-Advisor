@@ -1,4 +1,12 @@
+---
 version_control: git
-src_repo: git://git.linux-nfs.org/projects/bfields/nfs4-acl-tools.git 
-tag_prefix: "nfs4-acl-tools-"
+src_repo: git://git.linux-nfs.org/projects/bfields/nfs4-acl-tools.git
+tag_prefix: nfs4-acl-tools-
 separator: "."
+git_url: git://git.linux-nfs.org/projects/bfields/nfs4-acl-tools.git
+git_tag:
+- 2020-06-04 nfs4-acl-tools-0.3.7
+- 2020-05-20 nfs4-acl-tools-0.3.6
+- 2018-08-21 nfs4-acl-tools-0.3.5
+- 2018-08-03 nfs4-acl-tools-0.3.4
+- 2008-12-03 nfs4-acl-tools-0.3.3

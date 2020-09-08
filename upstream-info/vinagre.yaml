@@ -236,3 +236,5 @@ last_query:
     VINAGRE_2_31_4^{}
     VINAGRE_2_31_5
     VINAGRE_2_31_5^{}
+git_url: https://gitlab.gnome.org/GNOME/vinagre.git
+git_tag:

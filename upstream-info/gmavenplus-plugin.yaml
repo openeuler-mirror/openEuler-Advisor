@@ -1,4 +1,17 @@
+---
 version_control: github
-src_repo:  groovy/GMavenPlus
-tag_prefix: ^v
-separator: .
+src_repo: groovy/GMavenPlus
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/groovy/GMavenPlus.git
+git_tag:
+- 2020-07-26 1.9.1
+- 2020-04-04 1.9.0
+- 2019-11-11 1.8.1
+- 2019-09-22 1.8.0
+- 2019-06-02 1.7.1
+- 2019-05-05 1.7.0
+- 2019-03-24 1.6.3
+- 2018-10-14 1.6.2
+- 2018-05-06 1.6.1
+- 2017-09-11 1.6

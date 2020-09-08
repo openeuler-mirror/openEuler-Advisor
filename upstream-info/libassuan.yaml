@@ -1,4 +1,18 @@
+---
 version_control: git
 src_repo: https://dev.gnupg.org/source/libassuan.git
 tag_prefix: libassuan-
-separator: .
+separator: "."
+git_url: https://dev.gnupg.org/source/libassuan.git
+git_tag:
+- 2019-02-11 libassuan-2.5.3
+- 2018-12-13 libassuan-2.5.2
+- 2017-12-07 libassuan-2.5.1
+- 2017-12-07 libassuan-2.5.0
+- 2017-12-01 libassuan-2.4.5
+- 2017-11-16 libassuan-2.4.4
+- 2016-07-14 libassuan-2.4.3
+- 2015-12-02 libassuan-2.4.2
+- 2015-11-23 libassuan-2.4.1
+- 2015-11-03 libassuan-2.4.0
+- 2015-08-28 libassuan-2.3.0

@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  abrt/container-exception-logger
+src_repo: abrt/container-exception-logger
 tag_prefix: "^container-exception-logger-"
-separator: .
+separator: "."
+git_url: https://github.com/abrt/container-exception-logger.git
+git_tag:
+- 2019-06-05 container-exception-logger-1.0.3-1
+- 2018-03-26 container-exception-logger-1.0.2-1
+- 2018-03-23 container-exception-logger-1.0.1-1

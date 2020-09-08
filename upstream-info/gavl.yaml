@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_repo: https://svn.code.sf.net/p/gmerlin/code
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."

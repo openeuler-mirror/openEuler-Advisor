@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: golang/go
-tag_prefix: ^go
-seperator: .
+tag_prefix: "^go"
+separator: "."

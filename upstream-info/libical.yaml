@@ -1,4 +1,18 @@
+---
 version_control: github
-src_repo:  libical/libical
-tag_prefix: ^v
-separator: .
+src_repo: libical/libical
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/libical/libical.git
+git_tag:
+- 2020-03-07 v3.0.8
+- 2019-12-15 v3.0.7
+- 2019-09-14 v3.0.6
+- 2019-05-16 v3.0.5
+- 2018-08-14 v3.0.4
+- 2018-02-27 v3.0.3
+- 2018-02-17 v3.0.2
+- 2017-11-19 v3.0.1
+- 2017-10-28 v3.0.0
+- 2015-12-28 v2.0.0
+- 2014-10-11 v1.0.1

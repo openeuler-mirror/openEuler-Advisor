@@ -1,4 +1,12 @@
+---
 version_control: github
-src_repo:  esnet/iperf
-tag_prefix: ^v
-separator: .
+src_repo: esnet/iperf
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/esnet/iperf.git
+git_tag:
+- 2020-06-10 3.8.1
+- 2020-06-08 3.8
+- 2019-06-20 3.7
+- 2018-06-22 3.6
+- 2018-02-28 3.5

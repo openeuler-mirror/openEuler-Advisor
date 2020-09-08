@@ -1,4 +1,22 @@
+---
 version_control: github
-src_repo:  fedora-selinux/setroubleshoot
+src_repo: fedora-selinux/setroubleshoot
 tag_prefix: "^setroubleshoot-plugins-"
-separator: .
+separator: "."
+git_url: https://github.com/fedora-selinux/setroubleshoot.git
+git_tag:
+- 2020-04-17 setroubleshoot-plugins-3.3.12
+- 2020-04-17 setroubleshoot-3.3.23
+- 2019-12-11 setroubleshoot-3.3.21
+- 2019-11-20 setroubleshoot-plugins-3.3.11
+- 2019-11-18 setroubleshoot-plugins-3.3.10
+- 2017-11-18 setroubleshoot-plugins-3.3.9
+- 2018-12-07 setroubleshoot-plugin-3.3.10
+- 2020-01-02 setroubleshoot-3.3.22
+- 2019-07-16 setroubleshoot-3.3.20
+- 2018-12-08 setroubleshoot-3.3.19
+- 2018-07-18 setroubleshoot-3.3.18
+- 2018-02-26 setroubleshoot-3.3.17
+- 2018-02-20 setroubleshoot-3.3.16
+- 2018-01-19 setroubleshoot-3.3.15
+- 2017-11-18 setroubleshoot-3.3.14

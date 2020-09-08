@@ -1,4 +1,5 @@
+---
 version_control: gitee
-src_repo:  openeuler/kernel
-tag_prefix: ^v
-separator: .
+src_repo: openeuler/kernel
+tag_prefix: "^v"
+separator: "."

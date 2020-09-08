@@ -1,4 +1,8 @@
+---
 version_control: github
 src_repo: danmar/cppcheck
-tag_prefix: ^
-separator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://github.com/danmar/cppcheck.git
+git_tag:
+- 2020-06-13 2.1

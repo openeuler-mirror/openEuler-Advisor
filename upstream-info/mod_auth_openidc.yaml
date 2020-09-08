@@ -1,4 +1,5 @@
+---
 version_control: github
 src_repo: zmartzone/mod_auth_openidc
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."

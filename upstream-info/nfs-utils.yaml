@@ -1,4 +1,28 @@
+---
 version_control: git
-src_repo: git://git.linux-nfs.org/projects/steved/nfs-utils.git 
-tag_prefix: "nfs-utils-"
+src_repo: git://git.linux-nfs.org/projects/steved/nfs-utils.git
+tag_prefix: nfs-utils-
 separator: "-"
+git_url: git://git.linux-nfs.org/projects/steved/nfs-utils.git
+git_tag:
+- 2020-07-17 nfs-utils-2-5-2-rc2
+- 2020-07-14 nfs-utils-2-5-2-rc1
+- 2020-06-18 nfs-utils-2-5-1
+- 2020-06-10 nfs-utils-2-4-4-rc7
+- 2020-05-26 nfs-utils-2-4-4-rc6
+- 2020-05-18 nfs-utils-2-4-4-rc5
+- 2020-05-08 nfs-utils-2-4-4-rc4
+- 2020-04-13 nfs-utils-2-4-4-rc3
+- 2020-03-27 nfs-utils-2-4-4-rc2
+- 2020-02-27 nfs-utils-2-4-4-rc1
+- 2020-02-07 nfs-utils-2-4-3-rc7
+- 2020-01-22 nfs-utils-2-4-3-rc6
+- 2020-01-16 nfs-utils-2-4-3-rc5
+- 2020-01-03 nfs-utils-2-4-3-rc4
+- 2019-12-18 nfs-utils-2-4-3-rc3
+- 2019-11-22 nfs-utils-2-4-3-rc2
+- 2019-11-18 nfs-utils-2-4-3-rc1
+- 2020-02-09 nfs-utils-2-4-3
+- 2019-11-13 nfs-utils-2-4-2-rc2
+- 2019-08-26 nfs-utils-2-4-2-rc1
+- 2019-11-15 nfs-utils-2-4-2

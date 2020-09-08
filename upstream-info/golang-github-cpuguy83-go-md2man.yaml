@@ -1,4 +1,17 @@
+---
 version_control: github
-src_repo:  cpuguy83/go-md2man
-tag_prefix: ^v
-separator: .
+src_repo: cpuguy83/go-md2man
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/cpuguy83/go-md2man.git
+git_tag:
+- 2014-08-04 v1
+- 2019-03-14 v2.0.0
+- 2018-01-19 v1.0.8
+- 2017-08-27 v1.0.7
+- 2016-09-04 v1.0.6
+- 2016-01-04 v1.0.5
+- 2015-08-03 v1.0.4
+- 2015-06-17 v1.0.3
+- 2015-01-27 v1.0.2
+- 2015-01-27 v1.0.1

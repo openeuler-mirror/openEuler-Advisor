@@ -1,5 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxpm.git
 tag_prefix: libXpm-
-seperator: "."
-
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxpm.git

@@ -1,4 +1,33 @@
+---
 version_control: git
 src_repo: git://git.linux-nfs.org/projects/steved/libtirpc.git
 tag_prefix: libtirpc-
-separator: '-'
+separator: "-"
+git_url: git://git.linux-nfs.org/projects/steved/libtirpc.git
+git_tag:
+- 2020-06-25 libtirpc-1-2-7-rc4
+- 2020-06-17 libtirpc-1-2-7-rc3
+- 2020-05-28 libtirpc-1-2-7-rc2
+- 2020-04-27 libtirpc-1-2-7-rc1
+- 2020-01-21 libtirpc-1-2-6-rc2
+- 2020-01-03 libtirpc-1-2-6-rc1
+- 2020-04-07 libtirpc-1-2-6
+- 2019-12-19 libtirpc-1-2-5
+- 2019-12-19 libtirpc-1-1-5-rc4
+- 2019-09-03 libtirpc-1-1-5-rc3
+- 2018-11-08 libtirpc-1-1-5-rc2
+- 2018-09-13 libtirpc-1-1-5-rc1
+- 2018-08-27 libtirpc-1-1-4
+- 2018-07-20 libtirpc-1-0-4-rc2
+- 2018-04-18 libtirpc-1-0-4-rc1
+- 2018-03-14 libtirpc-1-0-3-rc3
+- 2018-03-02 libtirpc-1-0-3-rc2
+- 2017-11-14 libtirpc-1-0-3-rc1
+- 2018-03-14 libtirpc-1-0-3
+- 2017-07-05 libtirpc-1-0-2-rc4
+- 2016-04-04 libtirpc-1-0-2-rc3
+- 2016-03-03 libtirpc-1-0-2-rc2
+- 2015-11-16 libtirpc-1-0-2-rc1
+- 2017-07-05 libtirpc-1-0-2
+- 2015-10-30 libtirpc-1-0-1
+- 2015-08-28 libtirpc-0-3-3-rc3

@@ -6,3 +6,11 @@ separator: "."
 last_query:
   time_stamp: 2020-06-02 13:43:22.567974230 +00:00
   raw_data: "545b91ea3954f6947f249d123654f24bec91c960\trefs/tags/v2.2.48\nfbda9a016a9e2d9391ae8a23d344b688ce7b1b8e\trefs/tags/v2.2.48^{}\n9071990b42461746e484e6a9d290af06a193defa\trefs/tags/v2.2.49\n05c5bdcb4dc865c5822d7da7d0043daf2076ed46\trefs/tags/v2.2.49^{}\n3fd085b41cba7826c2190964f8d5570a0cd1c7c8\trefs/tags/v2.2.50\nb1f432b59b658069187c2af913729c9b9be06f5a\trefs/tags/v2.2.50^{}\n3be4b7c5eb811829305242a7bc1e943a5949a1dc\trefs/tags/v2.2.51\n088bcbb414116ba7e0432e4cb90a8102ea14a959\trefs/tags/v2.2.51^{}\nf13e09bd54fd4a501c4952f002ed2752bdd9f93b\trefs/tags/v2.2.52\n80a5dd99233d69f18c6a6ec78aebc35652dd84f2\trefs/tags/v2.2.53\n65ff056ac4c25141cc06e484bce040635e4abd3d\trefs/tags/v2.2.53^{}\n"
+git_url: https://git.savannah.nongnu.org/git/acl.git
+git_tag:
+- 2018-06-18 v2.2.53
+- 2011-04-19 v2.2.51
+- 2011-04-15 v2.2.50
+- 2009-11-19 v2.2.49
+- 2009-07-31 v2.2.48
+- 2013-05-18 v2.2.52

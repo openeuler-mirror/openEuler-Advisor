@@ -1,4 +1,9 @@
+---
 version_control: github
 src_repo: notroj/neon
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/notroj/neon.git
+git_tag:
+- 2020-03-11 0.31.0-rc1
+- 2020-03-11 0.31.0

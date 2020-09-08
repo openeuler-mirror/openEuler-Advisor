@@ -1,4 +1,13 @@
+---
 version_control: github
-src_repo:  adrianlopezroche/fdupes
-tag_prefix: ^v
-separator: .
+src_repo: adrianlopezroche/fdupes
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/adrianlopezroche/fdupes.git
+git_tag:
+- 2020-07-02 v2.1.1
+- 2020-06-30 v2.1.0
+- 2016-08-21 v1.6.1
+- 2016-08-20 v1.6.0
+- 2013-04-20 fdupes-1.51
+- 2019-12-30 2.0.0

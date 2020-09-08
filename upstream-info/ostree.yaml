@@ -1,4 +1,15 @@
+---
 version_control: github
-src_repo:  ostreedev/ostree
-tag_prefix: ^v
-separator: .
+src_repo: ostreedev/ostree
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/ostreedev/ostree.git
+git_tag:
+- 2020-07-22 v2020.4
+- 2020-03-14 v2020.3
+- 2020-02-21 v2020.2
+- 2020-02-20 v2020.1
+- 2019-12-10 v2019.6
+- 2019-10-30 v2019.5
+- 2019-09-25 v2019.4
+- 2019-08-22 v2019.3

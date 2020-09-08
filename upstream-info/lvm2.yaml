@@ -1,4 +1,8 @@
+---
 version_control: git
-src_repo: git://sourceware.org/git/lvm2.git 
+src_repo: git://sourceware.org/git/lvm2.git
 tag_prefix: "^v"
-separator: "_"
+separator: _
+git_url: git://sourceware.org/git/lvm2.git
+git_tag:
+- 2020-03-26 v2_03_09

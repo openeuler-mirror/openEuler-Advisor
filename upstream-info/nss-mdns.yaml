@@ -1,4 +1,14 @@
+---
 version_control: github
-src_repo:  lathiat/nss-mdns
-tag_prefix: ^v
-separator: .
+src_repo: lathiat/nss-mdns
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/lathiat/nss-mdns.git
+git_tag:
+- 2018-03-18 v0.14.1
+- 2018-03-18 v0.14
+- 2018-02-20 v0.13.2
+- 2018-02-18 v0.13.1
+- 2018-02-12 v0.13
+- 2018-02-10 v0.12
+- 2018-01-22 v0.11

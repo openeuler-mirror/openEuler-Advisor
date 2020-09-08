@@ -1,5 +1,15 @@
+---
 version_control: github
 src_repo: linux-ras/sysfsutils
 tag_prefix: "^sysfsutils-"
-seperator: "_"
-
+separator: _
+git_url: https://github.com/linux-ras/sysfsutils.git
+git_tag:
+- 2020-02-26 sysfsutils_0_5
+- 2020-02-26 sysfsutils_0_4_0
+- 2020-02-26 sysfsutils_0_3_0
+- 2020-02-26 sysfsutils-2_1_0
+- 2020-02-26 sysfsutils-2_0_0
+- 2020-02-26 sysfsutils-1_3_0
+- 2020-02-26 sysfsutils-1_2_0
+- 2020-02-26 sysfsutils-1_1_0

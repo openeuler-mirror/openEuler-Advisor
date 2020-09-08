@@ -1,4 +1,13 @@
+---
 version_control: github
-src_repo:  obriencj/meanwhile
-tag_prefix: ^v
-separator: .
+src_repo: obriencj/meanwhile
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/obriencj/meanwhile.git
+git_tag:
+- 2018-11-13 v1.1.1
+- 2008-01-03 v1.1.0
+- 2005-12-30 v1.0.2
+- 2005-12-16 v1.0.1
+- 2005-12-13 v1.0.0
+- 2005-10-29 meanwhile_v0_5_0

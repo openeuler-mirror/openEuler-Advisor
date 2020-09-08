@@ -2,4 +2,20 @@
 version_control: github
 src_repo: xsuchy/python-hwdata
 tag_prefix: python-hwdata-
-separator: .
+separator: "."
+git_url: https://github.com/xsuchy/python-hwdata.git
+git_tag:
+- 2018-03-23 python-hwdata-2.3.7-1
+- 2018-02-12 python-hwdata-2.3.6-1
+- 2017-08-09 python-hwdata-2.3.5-1
+- 2016-09-22 python-hwdata-2.3.4-1
+- 2015-01-28 python-hwdata-2.3.3-1
+- 2013-12-04 python-hwdata-1.10.1-1
+- 2012-03-02 python-hwdata-1.7.3-1
+- 2012-03-02 python-hwdata-1.7.2-1
+- 2012-03-02 python-hwdata-1.7.1-1
+- 2011-10-31 python-hwdata-1.6.2-1
+- 2011-07-22 python-hwdata-1.6.1-1
+- 2010-04-26 python-hwdata-1.2-1
+- 2010-04-23 python-hwdata-1.1-1
+- 2010-04-23 python-hwdata-1.0-1

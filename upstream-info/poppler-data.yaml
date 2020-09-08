@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/poppler/poppler-data.git
-tag_prefix: ^POPPLER_DATA_
-seperator: "_"
+tag_prefix: "^POPPLER_DATA_"
+separator: _
+git_url: https://gitlab.freedesktop.org/poppler/poppler-data.git

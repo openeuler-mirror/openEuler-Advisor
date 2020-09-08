@@ -1,4 +1,11 @@
+---
 version_control: github
-src_repo:  lcp/mokutil
-tag_prefix: ^v
-separator: .
+src_repo: lcp/mokutil
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/lcp/mokutil.git
+git_tag:
+- 2014-10-31 0.3.0
+- 2019-05-28 0.4.0
+- 2013-07-25 0.2.0
+- 2012-11-07 0.1.0

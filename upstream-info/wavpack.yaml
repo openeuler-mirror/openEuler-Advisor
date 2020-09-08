@@ -1,4 +1,10 @@
+---
 version_control: github
 src_repo: dbry/WavPack
-tag_prefix: ^
-seperator: .
+tag_prefix: "^"
+separator: "."
+git_url: https://github.com/dbry/WavPack.git
+git_tag:
+- 2017-01-19 5.1.0
+- 2020-04-16 5.3.0
+- 2019-12-16 5.2.0

@@ -1,4 +1,8 @@
+---
 version_control: git
 src_repo: https://git.code.sf.net/p/libdbi/libdbi
-tag_prefix: ^libdbi-
-separator: .
+tag_prefix: "^libdbi-"
+separator: "."
+git_url: https://git.code.sf.net/p/libdbi/libdbi
+git_tag:
+- 2013-03-12 libdbi-0.9.0

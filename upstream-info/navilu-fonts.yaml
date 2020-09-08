@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  aravindavk/Navilu
-tag_prefix: ^v
-separator: .
+src_repo: aravindavk/Navilu
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/aravindavk/Navilu.git
+git_tag:
+- 2012-08-11 v1.2
+- 2011-12-12 v1.1
+- 2011-12-12 v1.0

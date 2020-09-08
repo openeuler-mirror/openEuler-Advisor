@@ -309,3 +309,11 @@ last_query:
         "node_id": "MDM6UmVmMjYzMDk3OTk6cmVmcy90YWdzLzAuMjEuMC1yYzE="
       }
     ]
+git_url: https://github.com/apache/qpid-proton.git
+git_tag:
+- 2020-05-12 0.31.0
+- 2020-05-07 0.31.0-rc3
+- 2020-05-01 0.31.0-rc2
+- 2020-04-28 0.31.0-rc1
+- 2019-12-13 0.30.0
+- 2019-12-09 0.30.0-rc1

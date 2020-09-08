@@ -248,3 +248,12 @@ last_query:
     LAYOUT_SUPPORT_BRANCHPOINT^{}
     init
     init^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-menus.git
+git_tag:
+- 2020-03-10 3.36.0
+- 2020-01-04 3.35.3
+- 2019-03-11 3.32.0
+- 2019-03-04 3.31.92
+- 2019-02-04 3.31.90
+- 2019-01-21 3.31.4
+- 2018-12-10 3.31.3

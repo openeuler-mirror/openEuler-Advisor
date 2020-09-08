@@ -304,3 +304,5 @@ last_query:
     libgweather_2_29_90^{}
     libgweather_2_29_92
     libgweather_2_29_92^{}
+git_url: https://gitlab.gnome.org/GNOME/libgweather.git
+git_tag:

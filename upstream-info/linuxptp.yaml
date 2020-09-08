@@ -1,4 +1,8 @@
+---
 version_control: git
-src_repo:  https://git.code.sf.net/p/linuxptp/code
-tag_prefix: ^v
-separator: .
+src_repo: https://git.code.sf.net/p/linuxptp/code
+tag_prefix: "^v"
+separator: "."
+git_url: https://git.code.sf.net/p/linuxptp/code
+git_tag:
+- 2020-07-22 v3.0

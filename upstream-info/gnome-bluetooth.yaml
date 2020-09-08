@@ -216,3 +216,15 @@ last_query:
     init^{}
     meego-2.30.0.20110630
     meego-2.30.0.20110630^{}
+git_url: https://gitlab.gnome.org/GNOME/gnome-bluetooth.git
+git_tag:
+- 2020-03-09 GNOMEBT_V_3_34_1
+- 2019-09-06 GNOMEBT_V_3_34_0
+- 2019-08-02 GNOMEBT_V_3_33_90
+- 2019-03-26 GNOMEBT_V_3_32_1
+- 2019-03-11 GNOMEBT_V_3_32_0
+- 2019-02-06 GNOMEBT_V_3_31_1
+- 2018-08-01 GNOMEBT_V_3_28_2
+- 2018-07-19 GNOMEBT_V_3_28_1_fixed
+- 2018-03-12 GNOMEBT_V_3_28_0
+- 2018-03-05 GNOMEBT_V_3_27_92

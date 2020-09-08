@@ -387,3 +387,44 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/thkukuk/ypbind-mt.git
+git_tag:
+- 2004-02-14 ypserv-1_17_2
+- 2016-02-15 ypbind-mt-2_3
+- 2014-12-04 ypbind-mt-2_2
+- 2014-12-01 ypbind-mt-2_1
+- 2014-11-03 ypbind-mt-2_0
+- 2016-03-02 ypbind-mt-2.4
+- 2014-10-24 ypbind-mt-1_99_3
+- 2014-10-20 ypbind-mt-1_38
+- 2013-04-09 ypbind-mt-1_37
+- 2012-07-11 ypbind-mt-1_36
+- 2012-03-23 ypbind-mt-1_35
+- 2011-05-02 ypbind-mt-1_33
+- 2009-11-30 ypbind-mt-1_31
+- 2009-11-19 ypbind-mt-1_30
+- 2009-06-19 ypbind-mt-1_29_91
+- 2009-05-20 ypbind-mt-1_29_90
+- 2009-04-28 ypbind-mt-1_23_1
+- 2009-03-30 ypbind-mt-1_23
+- 2008-08-28 ypbind-mt-1_22
+- 2008-04-15 ypbind-mt-1_21
+- 2007-03-01 ypbind-mt-1_20_5
+- 2007-02-19 ypbind-mt-1_20_4
+- 2006-10-19 ypbind-mt-1_20_3
+- 2006-10-04 ypbind-mt-1_20_2
+- 2006-09-15 ypbind-mt-1_20_1
+- 2006-09-13 ypbind-mt-1_20
+- 2005-07-03 ypbind-mt-1_19_1
+- 2005-07-01 ypbind-mt-1_19
+- 2004-04-29 ypbind-mt-1_17_3
+- 2014-10-28 ypbind-1_99_4
+- 2014-03-06 ypbind-1_37_2
+- 2013-04-10 ypbind-1_37_1
+- 2004-10-15 ypbind-1_18
+- 2020-01-31 v2.7.2
+- 2020-01-29 v2.7.1
+- 2020-01-29 v2.7.0
+- 2019-07-30 v2.6.1
+- 2019-01-22 v2.6
+- 2018-06-04 v2.5

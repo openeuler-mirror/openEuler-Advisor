@@ -1,4 +1,13 @@
+---
 version_control: github
-src_repo:  linuxwacom/libwacom
+src_repo: linuxwacom/libwacom
 tag_prefix: "^libwacom-"
-separator: .
+separator: "."
+git_url: https://github.com/linuxwacom/libwacom.git
+git_tag:
+- 2020-06-30 libwacom-1.4.1
+- 2020-06-24 libwacom-1.4
+- 2020-03-25 libwacom-1.3
+- 2019-12-23 libwacom-1.2
+- 2019-09-16 libwacom-1.1
+- 2019-08-26 libwacom-1.0

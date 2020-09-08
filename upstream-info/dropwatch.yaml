@@ -1,4 +1,14 @@
+---
 version_control: github
-src_repo:  nhorman/dropwatch
-tag_prefix: ^v
-separator: .
+src_repo: nhorman/dropwatch
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/nhorman/dropwatch.git
+git_tag:
+- 2020-03-19 v1.5.3
+- 2020-03-12 v1.5.2
+- 2019-07-18 v1.5.1
+- 2018-05-15 dropwatch-1.5
+- 2018-04-27 dropwatch-1.4
+- 2018-05-15 1.5
+- 2018-04-27 1.4

@@ -1,4 +1,14 @@
+---
 version_control: git
 src_repo: https://git.code.sf.net/p/sblim/sfcc
 tag_prefix: SFCC_
-seperator: _
+separator: _
+git_url: https://git.code.sf.net/p/sblim/sfcc
+git_tag:
+- 2014-11-26 SFCC_2_2_8
+- 2014-03-27 SFCC_2_2_7
+- 2013-09-18 SFCC_2_2_6
+- 2012-12-20 SFCC_2_2_5
+- 2012-06-12 SFCC_2_2_4
+- 2011-05-27 SFCC_2_2_3
+- 2011-03-30 SFCC_2_2_2

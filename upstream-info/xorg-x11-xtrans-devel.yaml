@@ -1,4 +1,15 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/lib/libxtrans.git
 tag_prefix: xtrans-
-seperator: .
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/lib/libxtrans.git
+git_tag:
+- 2019-03-16 xtrans-1.4.0
+- 2014-09-22 xtrans-1.3.5
+- 2014-03-31 xtrans-1.3.4
+- 2014-01-27 xtrans-1.3.3
+- 2013-11-07 xtrans-1.3.2
+- 2013-11-06 xtrans-1.3.1
+- 2013-10-31 xtrans-1.3.0
+- 2012-03-22 xtrans-1.2.7

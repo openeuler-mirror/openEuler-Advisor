@@ -1,4 +1,10 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/xorg/app/xrestop.git
 tag_prefix: xrestop-
-seperator: .
+separator: "."
+git_url: https://gitlab.freedesktop.org/xorg/app/xrestop.git
+git_tag:
+- 2010-10-06 xrestop-0.4
+- 2003-12-24 RELEASE_0_2
+- 2003-12-21 RELEASE_0_1

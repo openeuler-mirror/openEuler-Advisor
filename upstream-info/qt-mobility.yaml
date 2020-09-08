@@ -1,4 +1,7 @@
+---
 version_control: git
 src_repo: https://code.qt.io/qt-mobility/qt-mobility.git
 tag_prefix: "^v"
-seperator: "."
+separator: "."
+git_url: https://code.qt.io/qt-mobility/qt-mobility.git
+git_tag:

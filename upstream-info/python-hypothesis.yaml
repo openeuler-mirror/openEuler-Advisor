@@ -2,4 +2,86 @@
 version_control: github
 src_repo: HypothesisWorks/hypothesis-python
 tag_prefix: hypothesis-python-
-separator: .
+separator: "."
+git_url: https://github.com/HypothesisWorks/hypothesis.git
+git_tag:
+- 2020-04-16 hypothesis-python-5.9.1
+- 2020-04-15 hypothesis-python-5.9.0
+- 2020-04-15 hypothesis-python-5.8.6
+- 2020-04-15 hypothesis-python-5.8.5
+- 2020-04-14 hypothesis-python-5.8.4
+- 2020-04-12 hypothesis-python-5.8.3
+- 2020-04-12 hypothesis-python-5.8.2
+- 2020-04-12 hypothesis-python-5.8.1
+- 2020-03-24 hypothesis-python-5.8.0
+- 2020-03-24 hypothesis-python-5.7.2
+- 2020-03-23 hypothesis-python-5.7.1
+- 2020-03-19 hypothesis-python-5.7.0
+- 2020-03-18 hypothesis-python-5.6.1
+- 2020-02-29 hypothesis-python-5.6.0
+- 2020-02-29 hypothesis-python-5.5.5
+- 2020-02-16 hypothesis-python-5.5.4
+- 2020-02-14 hypothesis-python-5.5.3
+- 2020-02-13 hypothesis-python-5.5.2
+- 2020-02-07 hypothesis-python-5.5.1
+- 2020-02-07 hypothesis-python-5.5.0
+- 2020-02-06 hypothesis-python-5.4.2
+- 2020-02-01 hypothesis-python-5.4.1
+- 2020-01-30 hypothesis-python-5.4.0
+- 2020-01-26 hypothesis-python-5.3.1
+- 2020-01-21 hypothesis-python-5.3.0
+- 2020-07-26 hypothesis-python-5.23.1
+- 2020-07-26 hypothesis-python-5.23.0
+- 2020-07-25 hypothesis-python-5.22.0
+- 2020-07-23 hypothesis-python-5.21.0
+- 2020-07-23 hypothesis-python-5.20.4
+- 2020-07-21 hypothesis-python-5.20.3
+- 2020-07-18 hypothesis-python-5.20.2
+- 2020-07-17 hypothesis-python-5.20.1
+- 2020-07-17 hypothesis-python-5.20.0
+- 2020-01-21 hypothesis-python-5.2.1
+- 2020-01-19 hypothesis-python-5.2.0
+- 2020-07-15 hypothesis-python-5.19.3
+- 2020-07-13 hypothesis-python-5.19.2
+- 2020-07-12 hypothesis-python-5.19.1
+- 2020-06-30 hypothesis-python-5.19.0
+- 2020-06-27 hypothesis-python-5.18.3
+- 2020-06-26 hypothesis-python-5.18.2
+- 2020-06-25 hypothesis-python-5.18.1
+- 2020-06-22 hypothesis-python-5.18.0
+- 2020-06-22 hypothesis-python-5.17.0
+- 2020-06-21 hypothesis-python-5.16.3
+- 2020-06-19 hypothesis-python-5.16.2
+- 2020-06-10 hypothesis-python-5.16.1
+- 2020-05-27 hypothesis-python-5.16.0
+- 2020-05-21 hypothesis-python-5.15.1
+- 2020-05-19 hypothesis-python-5.15.0
+- 2020-05-13 hypothesis-python-5.14.0
+- 2020-05-13 hypothesis-python-5.13.1
+- 2020-05-12 hypothesis-python-5.13.0
+- 2020-05-12 hypothesis-python-5.12.2
+- 2020-05-12 hypothesis-python-5.12.1
+- 2020-05-10 hypothesis-python-5.12.0
+- 2020-05-07 hypothesis-python-5.11.0
+- 2020-05-04 hypothesis-python-5.10.5
+- 2020-04-24 hypothesis-python-5.10.4
+- 2020-04-22 hypothesis-python-5.10.3
+- 2020-04-22 hypothesis-python-5.10.2
+- 2020-04-19 hypothesis-python-5.10.1
+- 2020-04-18 hypothesis-python-5.10.0
+- 2020-01-19 hypothesis-python-5.1.6
+- 2020-01-12 hypothesis-python-5.1.5
+- 2020-01-11 hypothesis-python-5.1.4
+- 2020-01-11 hypothesis-python-5.1.3
+- 2020-01-09 hypothesis-python-5.1.2
+- 2020-01-06 hypothesis-python-5.1.1
+- 2020-01-03 hypothesis-python-5.1.0
+- 2020-01-01 hypothesis-python-5.0.1
+- 2020-01-01 hypothesis-python-5.0.0
+- 2019-12-29 hypothesis-python-4.57.1
+- 2019-12-28 hypothesis-python-4.57.0
+- 2019-12-22 hypothesis-python-4.56.3
+- 2019-12-21 hypothesis-python-4.56.2
+- 2019-12-19 hypothesis-python-4.56.1
+- 2019-12-18 hypothesis-python-4.55.4
+- 2019-12-18 hypothesis-python-4.55.3

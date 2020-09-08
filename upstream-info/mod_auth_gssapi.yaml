@@ -1,4 +1,12 @@
+---
 version_control: github
-src_repo:  modauthgssapi/mod_auth_gssapi
-tag_prefix: ^v
-separator: .
+src_repo: modauthgssapi/mod_auth_gssapi
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/modauthgssapi/mod_auth_gssapi.git
+git_tag:
+- 2020-04-26 v1.6.2
+- 2018-04-20 v1.6.1
+- 2017-11-05 v1.6.0
+- 2017-03-09 v1.5.1
+- 2017-01-16 v1.5.0

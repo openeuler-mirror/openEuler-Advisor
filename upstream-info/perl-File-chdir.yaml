@@ -1,0 +1,5 @@
+---
+version_control: metacpan
+src_repo: File-chdir
+tag_prefix: "^"
+separator: "."

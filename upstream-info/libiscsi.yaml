@@ -1,4 +1,8 @@
+---
 version_control: github
-src_repo:  sahlberg/libiscsi
-tag_prefix: ^v
-separator: .
+src_repo: sahlberg/libiscsi
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/sahlberg/libiscsi.git
+git_tag:
+- 2019-07-14 1.19.0

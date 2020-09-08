@@ -1,4 +1,9 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/uchardet/uchardet.git
-tag_prefix: ^v
-seperator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://gitlab.freedesktop.org/uchardet/uchardet.git
+git_tag:
+- 2020-04-23 v0.0.7
+- 2016-07-20 v0.0.6

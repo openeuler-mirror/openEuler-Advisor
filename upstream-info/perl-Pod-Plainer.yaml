@@ -1,0 +1,5 @@
+---
+version_control: metacpan
+src_repo: Pod-Plainer
+tag_prefix: "^v"
+separator: "."

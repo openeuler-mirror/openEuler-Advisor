@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://anongit.freedesktop.org/git/poppler/poppler.git
-tag_prefix: ^poppler-
-seperator: .
+tag_prefix: "^poppler-"
+separator: "."
+git_url: https://anongit.freedesktop.org/git/poppler/poppler.git

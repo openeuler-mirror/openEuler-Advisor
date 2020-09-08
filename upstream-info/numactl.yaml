@@ -2263,3 +2263,10 @@ last_query:
         "body": ""
       }
     ]
+git_url: https://github.com/numactl/numactl.git
+git_tag:
+- 2019-08-30 v2.0.13
+- 2018-06-15 v2.0.12
+- 2015-12-10 v2.0.11
+- 2015-01-20 v2.0.11-rc1
+- 2015-01-20 v2.0.10

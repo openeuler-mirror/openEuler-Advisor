@@ -50,3 +50,6 @@ last_query:
       }
     ]
 query_type: api.github.releases
+git_url: https://github.com/ArtifexSoftware/ijs.git
+git_tag:
+- 2018-02-27 0.35

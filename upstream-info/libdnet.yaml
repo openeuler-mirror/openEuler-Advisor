@@ -1,4 +1,7 @@
+---
 version_control: github
-src_repo:  ofalk/libdnet
-tag_prefix: "libdnet-"
-separator: .
+src_repo: ofalk/libdnet
+tag_prefix: libdnet-
+separator: "."
+git_url: https://github.com/dugsong/libdnet.git
+git_tag:

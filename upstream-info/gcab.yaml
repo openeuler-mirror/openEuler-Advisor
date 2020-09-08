@@ -30,3 +30,10 @@ last_query:
     v1.3^{}
     v1.4
     v1.4^{}
+git_url: https://gitlab.gnome.org/GNOME/gcab.git
+git_tag:
+- 2020-01-06 v1.4
+- 2019-10-08 v1.3
+- 2018-12-09 v1.2
+- 2018-02-09 v1.1
+- 2018-01-23 v1.0

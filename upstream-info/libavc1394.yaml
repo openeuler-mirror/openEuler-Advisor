@@ -1,4 +1,5 @@
+---
 version_control: svn
 src_repo: http://svn.code.sf.net/p/libavc1394/code
 tag_prefix: "^V_"
-separator: "_"
+separator: _

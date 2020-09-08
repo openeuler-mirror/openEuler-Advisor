@@ -1,4 +1,14 @@
+---
 version_control: github
-src_repo:  kaio/ibus-table
-tag_prefix: ^v
-separator: .
+src_repo: kaio/ibus-table
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/kaio/ibus-table.git
+git_tag:
+- 2020-02-14 1.9.25
+- 2020-01-22 1.9.24
+- 2020-01-07 1.9.23
+- 2019-12-17 1.9.22
+- 2018-08-29 1.9.21
+- 2020-07-17 1.10.1
+- 2020-07-02 1.10.0

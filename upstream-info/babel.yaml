@@ -1,5 +1,5 @@
 ---
-version_control: github 
+version_control: github
 src_repo: python-babel/babel
 tag_prefix: "^v"
 separator: "."

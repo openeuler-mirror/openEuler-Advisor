@@ -1,4 +1,11 @@
+---
 version_control: github
 src_repo: Distrotech/libiec61883
-tag_prefix: ^v
-separator: .
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/Distrotech/libiec61883.git
+git_tag:
+- 2009-08-30 v1.2.0
+- 2009-08-30 v1.1.0
+- 2009-08-30 v1.0.0
+- 2014-02-24 distrotech-libiec61883-1.2.0

@@ -1,4 +1,10 @@
+---
 version_control: github
-src_repo:  fedora-ruby/gem2rpm
-tag_prefix: ^v
-separator: .
+src_repo: fedora-ruby/gem2rpm
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/fedora-ruby/gem2rpm.git
+git_tag:
+- 2018-06-01 v1.0.1
+- 2017-03-30 v1.0.0
+- 2016-04-26 v0.11.3

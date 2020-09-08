@@ -2,4 +2,4 @@
 version_control: git
 src_repo: https://git.code.sf.net/p/linux-ima/ima-evm-utils
 tag_prefix: "^v"
-seperator: "."
+separator: "."

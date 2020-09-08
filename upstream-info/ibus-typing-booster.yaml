@@ -1,4 +1,15 @@
+---
 version_control: github
-src_repo:  mike-fabian/ibus-typing-booster
-tag_prefix: ^v
-separator: .
+src_repo: mike-fabian/ibus-typing-booster
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/mike-fabian/ibus-typing-booster.git
+git_tag:
+- 2020-07-14 2.9.4
+- 2020-06-22 2.9.3
+- 2020-06-08 2.9.2
+- 2020-05-27 2.9.1
+- 2020-05-21 2.9.0
+- 2020-05-14 2.8.3
+- 2020-03-31 2.8.2
+- 2020-02-27 2.8.1

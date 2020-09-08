@@ -1,4 +1,14 @@
+---
 version_control: github
 src_repo: altlinux/libutempter
 tag_prefix: 
 separator: 
+git_url: https://github.com/altlinux/libutempter.git
+git_tag:
+- 2020-07-06 1.2.1-alt1
+- 2020-05-05 1.2.0-alt1
+- 2011-03-09 1.1.6-alt2
+- 2010-11-04 1.1.6-alt1
+- 2008-12-14 1.1.5-alt2
+- 2007-02-17 1.1.5-alt1
+- 2006-04-10 1.1.4-alt1

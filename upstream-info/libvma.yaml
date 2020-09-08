@@ -1,4 +1,15 @@
+---
 version_control: github
-src_repo:  Mellanox/libvma
-tag_prefix: ^v
-separator: .
+src_repo: Mellanox/libvma
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/Mellanox/libvma.git
+git_tag:
+- 2020-07-09 9.1.1
+- 2020-06-03 9.1.0
+- 2020-02-06 9.0.2
+- 2020-01-20 9.0.1
+- 2019-10-28 8.9.5
+- 2019-09-23 8.9.4
+- 2019-09-19 8.9.3
+- 2019-08-26 8.9.2

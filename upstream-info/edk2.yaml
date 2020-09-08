@@ -535,3 +535,15 @@ last_query:
         "body": "# UDK2017 Release Page\r\n## How to build \r\nSee wiki page [UDK2017 How to Build]( https://github.com/tianocore/tianocore.github.io/wiki/UDK2017#how-to-build-udk2017) on the UDK2017 Release wiki page\r\n\r\n\r\n## UDK2017 Features / Updates / Changes\r\nSee the wiki page [UDK2017 Features Updates Changes](https://github.com/tianocore/tianocore.github.io/wiki/UDK2017#udk2017-features--updates--changes)  for list of Features, Updates and Changes to the UDK2017 Release from the previous UDK release\r\n### UDK2017 Package Notes\r\nSee wiki page [UDK2017 Package notes]( https://github.com/tianocore/tianocore.github.io/wiki/UDK2017#udk2017-package-notes ) for list of Package's Notes details on changes & updates\r\n\r\n## Downloads - File Descriptions (Below files)\r\n### Source Code \r\nThese source code downloads are the from the tag  [vUDK2017](https://github.com/tianocore/edk2/releases/tag/vUDK2017) for the official UDK2017 release. <br>\r\nUDK2017 edk-vUDK2017 Workspace [Source code (zip file)](https://github.com/tianocore/edk2/archive/vUDK2017.zip ) \r\nUDK2017 edk-vUDK2017 Workspace [Source code (tar.gz file)](https://github.com/tianocore/edk2/archive/vUDK2017.tar.gz ) \r\n\r\n### Documentation\r\nThis download contains all .chm and .html documents for UDK2017. Each package includes details on the definitions (including PPIs/PROTOCOLs/GUIDs and library classes) and libraries instances associated with each package.<br>\r\n[UDK2017 Documents (ZIP File)]( https://github.com/tianocore/edk2/releases/download/vUDK2017/UDK2017.Documents.zip) \r\n\r\n**********\r\n## More Information about this release\r\n**Note:**  For a detailed list of Changes and updates \r\n See the [UDK2017 Release wiki]( https://github.com/tianocore/tianocore.github.io/wiki/UDK2017)  page\r\n\r\n**********\r\n"
       }
     ]
+git_url: https://github.com/tianocore/edk2.git
+git_tag:
+- 2019-03-09 edk2-stable201903
+- 2018-03-30 vUDK2018
+- 2017-06-23 vUDK2017
+- 2020-06-02 edk2-stable202005
+- 2020-03-02 edk2-stable202002
+- 2019-11-25 edk2-stable201911
+- 2019-08-29 edk2-stable201908
+- 2019-06-06 edk2-stable201905
+- 2018-11-14 edk2-stable201811
+- 2018-08-15 edk2-stable201808

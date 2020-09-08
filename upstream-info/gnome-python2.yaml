@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://gitlab.gnome.org/Archive/gnome-python.git
 tag_prefix: "^GNOME_PYTHON_"
 separator: _
+git_url: https://gitlab.gnome.org/GNOME/gnome-python.git

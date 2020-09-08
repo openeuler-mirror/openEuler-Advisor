@@ -1,4 +1,17 @@
+---
 version_control: github
-src_repo:  google/python-subprocess32
-tag_prefix: ^v
-separator: .
+src_repo: google/python-subprocess32
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/google/python-subprocess32.git
+git_tag:
+- 2019-05-13 3.5.4rc2
+- 2019-05-10 3.5.4rc1
+- 2019-05-20 3.5.4
+- 2018-10-09 3.5.3
+- 2018-06-07 3.5.2
+- 2018-05-21 3.5.1
+- 2018-05-09 3.5.0rc3
+- 2017-10-18 3.5.0rc1
+- 2018-05-13 3.5.0
+- 2015-11-15 3.2.7

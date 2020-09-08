@@ -1,4 +1,6 @@
+---
 version_control: github
 src_repo: Distrotech/libart
-tag_prefix: ^LIBART_LGPL_
-seperator: "_"
+tag_prefix: "^LIBART_LGPL_"
+separator: _
+git_url: https://github.com/Distrotech/libart.git

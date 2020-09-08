@@ -1,4 +1,13 @@
+---
 version_control: github
-src_repo:  cyrusimap/cyrus-sasl
+src_repo: cyrusimap/cyrus-sasl
 tag_prefix: "^cyrus-sasl-"
-separator: .
+separator: "."
+git_url: https://github.com/cyrusimap/cyrus-sasl.git
+git_tag:
+- 2018-11-26 cyrus-sasl-2.1.27
+- 2018-10-24 cyrus-sasl-2.1.23
+- 2018-10-24 cyrus-sasl-2.1.24
+- 2018-10-24 cyrus-sasl-2.1.25
+- 2018-10-24 cyrus-sasl-2.1.26
+- 2018-01-30 cyrus-sasl-2.1.27-rc7

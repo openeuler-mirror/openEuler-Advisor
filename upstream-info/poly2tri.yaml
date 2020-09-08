@@ -1,4 +1,7 @@
+---
 version_control: github
-src_repo:  greenm01/poly2tri
-tag_prefix: ^v
-separator: .
+src_repo: greenm01/poly2tri
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/greenm01/poly2tri.git
+git_tag:

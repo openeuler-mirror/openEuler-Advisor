@@ -1,4 +1,5 @@
 ---
 version_control: github
 src_repo: HypothesisWorks/hypothesis-python
-separator: .
+separator: "."
+git_url: https://github.com/HypothesisWorks/hypothesis-python.git

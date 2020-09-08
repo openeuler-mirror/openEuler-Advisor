@@ -1,4 +1,10 @@
+---
 version_control: git
 src_repo: https://gitlab.freedesktop.org/realmd/adcli.git
-tag_prefix: ^
+tag_prefix: "^"
 separator: "."
+git_url: https://gitlab.freedesktop.org/realmd/adcli.git
+git_tag:
+- 2016-08-01 0.8.2
+- 2016-01-19 0.8.1
+- 2019-09-03 0.9.0

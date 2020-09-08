@@ -1,4 +1,6 @@
+---
 version_control: git
 src_repo: https://salsa.debian.org/iso-codes-team/iso-codes.git
-tag_prefix: ^iso-codes- 
-separator: . 
+tag_prefix: "^iso-codes-"
+separator: "."
+git_url: https://salsa.debin.org/iso-codes-team/iso-codes.git
