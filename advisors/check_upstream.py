@@ -156,22 +156,25 @@ def check_metacpan(info):
         headers = {
                 'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
                 }
-        url = urljoin("https://fastapi.metacpan.org/release/", info["src_repo"])
+        url = urljoin("https://metacpan.org/release/", info["src_repo"])
         resp = requests.get(url, headers=headers)
         resp = resp.text
 
     tags = []
-    result_json = json.loads(resp)
-    if result_json != {}:
-        if "version" not in result_json.keys():
-            eprint("{repo} > ERROR FOUND".format(repo=info["src_repo"]))
-            sys.exit(1)
-        else:
-            tags.append(result_json["version"])
-    else:
+    tag_list = resp.splitlines()
+    condition = "value=\"/release"
+    for index in range(len(tag_list)):
+        if condition in tag_list[index]:
+            tag = tag_list[index + 1]
+            index = index + 1
+            if 'DEV' in tag:
+                continue
+            tag = tag.lstrip()
+            tag = tag.rstrip()
+            tags.append(tag)
+    if not len(tags):
         eprint("{repo} found unsorted on cpan.metacpan.org".format(repo=info["src_repo"]))
         sys.exit(1)
-
     last_query = {}
     last_query["time_stamp"] = datetime.now()
     last_query["raw_data"] = resp
