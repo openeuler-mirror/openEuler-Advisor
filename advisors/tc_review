@@ -1,0 +1,102 @@
+#!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+# ******************************************************************************/
+"""
+Review tool for openEuler submission
+"""
+import os
+import argparse
+import subprocess
+
+import gitee
+
+def check_repository_changes():
+    lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
+    for item in lst_files.splitlines():
+        if item.startswith("repository/src-openeuler.yaml"):
+            return True
+    else:
+        return False
+
+def check_repository_mgmt_changes():
+    lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
+    for item in lst_files.splitlines():
+        if item.startswith("sig/sigs.yaml"):
+            return True
+    else:
+        return False
+
+def check_maintainer_changes():
+    """
+    return a list of SIGs with changed maintainer
+    """
+    sigs = []
+    lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
+    for item in lst_files.splitlines():
+        if item.startswith("sig") and item.endswith("OWNERS"):
+            sigs.append(item.split("/")[1])
+    return sigs
+    
+
+def review(pr):
+    review_body = "**以下为 openEuler-Advisor 的 tc_review 生成审视要求清单**\n"
+    review_body += "[Y] 审视者确认符合要求 [N] 审视者认为不符合要求 [?] 审视者无法确认是否符合要求 [] 审视过程中\n"
+    review_body += "|审视情况|审视要求|审视要求说明|\n"
+    review_body += "|:--:|:--|:--|\n"
+    review_body += "|[ ]|PR的标题是否清晰易懂?|提交标题应该一句话说明本提交实现的内容。|\n"
+    review_body += "|[ ]|PR的内容描述是否详细具体?|提交的描述应该用一段话说明本提交的背景和实现原理。|\n"
+    review_body += "|[ ]|PR和实际代码修改是否一致?|提交的说明文字应该和实际代码修改内容保持一致。|\n"    
+    sigs = check_maintainer_changes()
+    if sigs:
+        review_body += "|[ ]|如果新增维护者，有没有对他/她能力的客观说明?|PR提交者需要提出相应的举证说明维护者候选人的技术能力与社区活跃程度。|\n"
+    for sig in sigs:
+        review_body += "|[ ]|{sig} 中的其他维护者是否同意增加/删除维护者?|{sig}当前维护者需要有代表确认是否同意接纳或者移除维护者。|\n".format(sig=sig)
+    if check_repository_mgmt_changes():
+        review_body += "|[ ]|是否所有变更的代码仓都被恰当的 SIG 管理?|代码仓应当由有能力且有意愿的SIG管理，同一类的软件尽量归属同一个SIG。|\n"
+        review_body += "|[ ]|是否所有受影响的 SIG 的维护者都同意这个变更?|每一个涉及的 SIG 都需要有维护者代表确认是否同意变更。|\n"
+    if check_repository_changes():
+        review_body += "|[ ]|新引入的代码仓的 license 授权是否都与 openEuler 兼容?|openEuler只能接纳可以被允许集成的软件|\n"
+    return review_body
+
+def main():
+    """
+    Main entrance of the functionality
+    """
+    pars = argparse.ArgumentParser()
+    pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request", required=True)
+    pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
+
+    args = pars.parse_args()
+
+    user_gitee = gitee.Gitee()
+
+    gitee_url = "git@gitee.com:openeuler/community"
+
+    if not args.reuse:
+        subprocess.call(["git", "clone", gitee_url])
+        os.chdir(args.repo.split('/')[1])
+
+    subprocess.call(["git", "fetch", gitee_url,
+                     "pull/{n}/head:pr_{n}".format(n=args.pull)])
+
+    print("You are reviewing pull {n}".format(n=args.pull))
+
+    subprocess.call(["git", "checkout", "pr_{n}".format(n=args.pull)])
+    subprocess.call(["git", "merge", "--no-edit", "master"])
+
+    pr = user_gitee.get_pr("community", args.pull, "openeuler")
+    review_comment = review(pr)
+
+    user_gitee.create_pr_comment("community", args.pull, review_comment, "openeuler")
+
+if __name__ == "__main__":
+    main()

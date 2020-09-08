@@ -55,11 +55,12 @@ class Gitee(object):
             print("WARNING:" + str(err.headers))
             return False
 
-    def fork_repo(self, repo):
+    def fork_repo(self, repo, owner="src-openeuler"):
         """
         Fork repository in gitee
         """
-        url = "https://gitee.com/api/v5/repos/src-openeuler/{repo}/forks".format(repo=repo)
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/forks"
+        url = url_template.format(owner=owner, repo=repo)
         values = {}
         values["access_token"] = self.token["access_token"]
         #headers["User-Agent"] = "curl/7.66.0"
@@ -79,14 +80,15 @@ class Gitee(object):
                Yours openEuler-Advisor."""
         self.post_issue(repo, title, body)
 
-    def get_reviewers(self, repo):
+    def get_reviewers(self, repo, owner="src-openeuler"):
         """
         Get reviewers of pkg
         """
-        url = "https://gitee.com/api/v5/repos/src-openeuler/{pkg}/collaborators".format(pkg=repo)
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{pkg}/collaborators"
+        url = url_template.format(owner=owner, pkg=repo)
         return self.get_gitee(url)
 
-    def create_pr(self, head, repo, version, branch):
+    def create_pr(self, head, repo, version, branch, owner="src-openeuler"):
         """
         Create PR in gitee
         """
@@ -95,7 +97,8 @@ class Gitee(object):
         if reviewer_info:
             reviewer_list = json.loads(reviewer_info)
             assignees = ",".join(reviewer["login"] for reviewer in reviewer_list)
-        url = "https://gitee.com/api/v5/repos/src-openeuler/{pkg}/pulls".format(pkg=repo)
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{pkg}/pulls"
+        url = url_template.format(owner=owner, pkg=repo)
         values = {}
         values["access_token"] = self.token["access_token"]
         values["title"] = "Upgrade {pkg} to {ver}".format(pkg=repo, ver=version)
@@ -107,6 +110,17 @@ class Gitee(object):
                          Review carefully before accept this PR.
                          Thanks.
                          Yours openEuler-Advisor."""
+        return self.post_gitee(url, values)
+
+    def create_pr_comment(self, repo, number, body, owner="src-openeuler"):
+        """
+        Post comment to the given specific PR
+        """
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/pulls/{number}/comments"
+        url = url_template.format(owner=owner, repo=repo, number=number)
+        values = {}
+        values["access_token"] = self.token["access_token"]
+        values["body"] = body
         return self.post_gitee(url, values)
 
     def get_gitee(self, url, headers=None):
@@ -122,6 +136,14 @@ class Gitee(object):
             return u.read().decode("utf-8")
         except urllib.error.HTTPError:
             return None
+
+    def get_pr(self, repo, num, owner="src-openeuler"):
+        """
+        Get detailed information of the given specific PR
+        """
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/pulls/{number}"
+        url = url_template.format(owner=owner, repo=repo, number=num)
+        return self.get_gitee_json(url)
 
     def get_gitee_json(self, url):
         """
