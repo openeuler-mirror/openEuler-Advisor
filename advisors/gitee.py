@@ -142,7 +142,7 @@ class Gitee(object):
         Get detailed information of the given specific PR
         """
         url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/pulls/{number}"
-        url = url_template.format(owner=owner,repo=repo,number=num)
+        url = url_template.format(owner=owner, repo=repo, number=num)
         return self.get_gitee_json(url)
 
     def get_gitee_json(self, url):
