@@ -193,6 +193,9 @@ def add(args):
     """
     add tracking
     """
+    if not check_password_length(args.password):
+        print('PASSWORD: Password length must be between 6 and 32')
+        return
     style1 = bool(args.version_control) or bool(args.repo) or bool(args.branch) or bool(args.scm_repo) or bool(
         args.scm_branch
     ) or bool(args.enabled)
@@ -234,6 +237,10 @@ def delete(args):
     server = args.server
     user = args.user
     password = args.password
+
+    if not check_password_length(password):
+        print('PASSWORD: Password length must be between 6 and 32')
+        return
 
     err = latin1_encode(user)
     if err:
@@ -319,6 +326,15 @@ def dir_input_track(dir_path, args):
                 print('Please input yaml file. Error in {}'.format(file))
     else:
         print('error: dir path error. Params error in {}'.format(dir_path))
+
+
+def check_password_length(password):
+    """
+    Password length must be between 6 and 32
+    """
+    if 6 <= len(password) <= 32:
+        return True
+    return False
 
 
 parser = argparse.ArgumentParser(
