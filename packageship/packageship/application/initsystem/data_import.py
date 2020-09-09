@@ -20,6 +20,7 @@ from packageship.application.models.package import BinPack
 from packageship.application.models.package import BinRequires
 from packageship.application.models.package import SrcRequires
 from packageship.application.models.package import BinProvides
+from packageship.application.models.package import BinFiles
 from packageship.application.models.package import Packages
 from packageship import system_config
 
@@ -60,7 +61,7 @@ class InitDataBase():
         }
         self.database_name = None
         self._tables = ['src_pack', 'bin_pack',
-                        'bin_requires', 'src_requires', 'bin_provides']
+                        'bin_requires', 'src_requires', 'bin_provides', 'bin_files']
         # Create life cycle related databases and tables
         if not self.create_database(db_name='lifecycle',
                                     tables=['packages_issue',
@@ -299,6 +300,7 @@ class InitDataBase():
                 self._save_bin_packages(db_name)
                 self._save_bin_requires(db_name)
                 self._save_bin_provides(db_name)
+                self._save_bin_files(db_name)
         except (SQLAlchemyError, ContentNoneException) as sql_error:
             LOGGER.logger.error(sql_error)
             self.__del_database(db_name)
@@ -454,6 +456,18 @@ class InitDataBase():
 
         with DBHelper(db_name=db_name) as database:
             database.batch_add(provides_datas, BinProvides)
+
+    def _save_bin_files(self, db_name):
+
+        self.sql = " select * from files "
+        files_datas = self.__get_data()
+        if files_datas is None:
+            raise ContentNoneException(
+                '{db_name}:There is no relevant binary file installation\
+                    path data in the provided database '.format(db_name=db_name))
+
+        with DBHelper(db_name=db_name) as database:
+            database.batch_add(files_datas, BinFiles)
 
     def __exists_repeat_database(self):
         """

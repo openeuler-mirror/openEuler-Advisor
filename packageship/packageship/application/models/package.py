@@ -127,6 +127,17 @@ class BinProvides(DBHelper.BASE):
     pkgKey = Column(Integer, nullable=True)
 
 
+class BinFiles(DBHelper.BASE):
+    """
+        Installation path of the binary package
+    """
+    __tablename__ = 'bin_files'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(500), nullable=True)
+    type = Column(String(50), nullable=True)
+    pkgKey = Column(Integer)
+
+
 class Packages():
     """
     Source code package version, issuer and other information
