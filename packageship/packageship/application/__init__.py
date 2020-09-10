@@ -22,13 +22,18 @@ def _timed_task(app):
     from .apps.lifecycle.function.download_yaml import update_pkg_info  # pylint: disable=import-outside-toplevel
 
     _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-
-    _hour = _readconfig.get_config('TIMEDTASK', 'hour')
-    if not _hour or not isinstance(_hour, int) or _hour < 0 or _hour > 23:
+    try:
+        _hour = int(_readconfig.get_config('TIMEDTASK', 'hour'))
+        _minute = int(_readconfig.get_config('TIMEDTASK', 'minute'))
+    except ValueError:
         _hour = 3
-    _minute = _readconfig.get_config('TIMEDTASK', 'minute')
-    if not _hour or not isinstance(_hour, int) or _hour < 0 or _hour > 59:
         _minute = 0
+    else:
+        if _hour < 0 or _hour > 23:
+            _hour = 3
+        if _minute < 0 or _minute > 59:
+            _minute = 0
+
     app.apscheduler.add_job(  # pylint: disable=no-member
         func=update_pkg_info, id="update_package_data", trigger="cron", hour=_hour, minute=_minute)
     app.apscheduler.add_job(  # pylint: disable=no-member
