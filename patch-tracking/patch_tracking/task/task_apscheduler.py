@@ -143,7 +143,6 @@ def create_patch_issue_pr(patch, cur_time):
     else:
         logger.error('[Patch Tracking %s] Fail to create branch: %s', cur_time, new_branch)
     patch_lst = list()
-    # 表格格式会导致 Gitee 敏感词，先去掉
     issue_table = ""
     for latest_commit in patch['commit_list']:
         scm_commit_url = '/'.join(['https://github.com', patch['scm_repo'], 'commit', latest_commit['commit_id']])
@@ -222,12 +221,9 @@ def upload_spec_to_repo(patch, patch_lst, cur_time):
         new_spec = modify_spec(log_title, log_content, patch_file_lst, spec_content)
         update_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec, spec_sha)
     else:
-        if 'message' in ret and 'File Not Found' in ret['message']:
-            spec_content = ''
-            new_spec = modify_spec(log_title, log_content, patch_file_lst, spec_content)
-            create_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec)
-        else:
-            logger.error('[Patch Tracking %s] Fail to update spec: %s. Result: %s', cur_time, spec_file, ret)
+        spec_content = ''
+        new_spec = modify_spec(log_title, log_content, patch_file_lst, spec_content)
+        create_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec)
 
 
 def modify_spec(log_title, log_content, patch_file_lst, spec_content):
