@@ -19,14 +19,6 @@
               [
                 "D1",
                 "install"
-              ],
-              [
-                "B1",
-                "install"
-              ],
-              [
-                "D",
-                "build"
               ]
             ]
           ],
@@ -42,10 +34,6 @@
               [
                 "C1",
                 "install"
-              ],
-              [
-                "C",
-                "build"
               ]
             ]
           ],
@@ -81,15 +69,7 @@
             "mainline",
             [
               [
-                "A",
-                "build"
-              ],
-              [
                 "A2",
-                "install"
-              ],
-              [
-                "B2",
                 "install"
               ]
             ]
@@ -146,14 +126,6 @@
               [
                 "D1",
                 "install"
-              ],
-              [
-                "B1",
-                "install"
-              ],
-              [
-                "D",
-                "build"
               ]
             ]
           ],
@@ -169,10 +141,6 @@
               [
                 "A1",
                 "install"
-              ],
-              [
-                "C",
-                "build"
               ]
             ]
           ],
@@ -212,15 +180,7 @@
                 null
               ],
               [
-                "A",
-                "build"
-              ],
-              [
                 "A2",
-                "install"
-              ],
-              [
-                "B2",
                 "install"
               ]
             ]
@@ -289,14 +249,6 @@
               [
                 "D1",
                 "install"
-              ],
-              [
-                "B1",
-                "install"
-              ],
-              [
-                "D",
-                "build"
               ]
             ]
           ],
@@ -316,10 +268,6 @@
               [
                 "A1",
                 "install"
-              ],
-              [
-                "C",
-                "build"
               ]
             ]
           ],
@@ -357,14 +305,6 @@
               [
                 "A2",
                 "install"
-              ],
-              [
-                "B2",
-                "install"
-              ],
-              [
-                "A",
-                "build"
               ]
             ]
           ],
@@ -452,14 +392,6 @@
               [
                 "D1",
                 "install"
-              ],
-              [
-                "B1",
-                "install"
-              ],
-              [
-                "D",
-                "build"
               ]
             ]
           ],
@@ -479,10 +411,6 @@
               [
                 "A1",
                 "install"
-              ],
-              [
-                "C",
-                "build"
               ]
             ]
           ],
@@ -519,186 +447,6 @@
             [
               [
                 "A2",
-                "install"
-              ],
-              [
-                "B2",
-                "install"
-              ],
-              [
-                "A",
-                "build"
-              ]
-            ]
-          ],
-          "D1": [
-            "D",
-            "0.11",
-            "mainline",
-            [
-              [
-                "A2",
-                "install"
-              ],
-              [
-                "D2",
-                "install"
-              ]
-            ]
-          ],
-          "C2": [
-            "C",
-            "0.1",
-            "mainline",
-            [
-              [
-                "C",
-                "Subpack"
-              ]
-            ]
-          ],
-          "D2": [
-            "D",
-            "0.11",
-            "mainline",
-            [
-              [
-                "D",
-                "Subpack"
-              ]
-            ]
-          ]
-        },
-        "source_dicts": {
-          "A": [
-            "mainline",
-            "0.0.23b"
-          ],
-          "B": [
-            "mainline",
-            "0.0.2"
-          ],
-          "C": [
-            "mainline",
-            "0.1"
-          ],
-          "D": [
-            "mainline",
-            "0.11"
-          ]
-        },
-
-        "not_found_components": []
-      },
-      "msg": "Successful Operation!"
-    }
-  },
-  {
-    "input": {
-      "packagename": "A",
-      "selfbuild": "1",
-      "withsubpack": "1",
-      "packtype": "source"
-    },
-    "output": {
-      "code": "2001",
-      "data": {
-        "binary_dicts": {
-          "A1": [
-            "A",
-            "0.0.23b",
-            "mainline",
-            [
-              [
-                "root",
-                null
-              ],
-              [
-                "D1",
-                "install"
-              ],
-              [
-                "B",
-                "build"
-              ],
-              [
-                "D",
-                "build"
-              ],
-              [
-                "B1",
-                "install"
-              ]
-            ]
-          ],
-          "A2": [
-            "A",
-            "0.0.23b",
-            "mainline",
-            [
-              [
-                "root",
-                null
-              ],
-              [
-                "A1",
-                "install"
-              ],
-              [
-                "C1",
-                "install"
-              ],
-              [
-                "C",
-                "build"
-              ]
-            ]
-          ],
-          "B1": [
-            "B",
-            "0.0.2",
-            "mainline",
-            [
-              [
-                "A",
-                "build"
-              ],
-              [
-                "D",
-                "build"
-              ]
-            ]
-          ],
-          "B2": [
-            "B",
-            "0.0.2",
-            "mainline",
-            [
-              [
-                "C",
-                "build"
-              ]
-            ]
-          ],
-          "C1": [
-            "C",
-            "0.1",
-            "mainline",
-            [
-              [
-                "A2",
-                "install"
-              ],
-              [
-                "B",
-                "build"
-              ],
-              [
-                "A",
-                "build"
-              ],
-              [
-                "B2",
                 "install"
               ]
             ]
@@ -759,294 +507,6 @@
             "0.11"
           ]
         },
-
-        "not_found_components": []
-      },
-      "msg": "Successful Operation!"
-    }
-  },
-  {
-    "input": {
-      "packagename": "A2",
-      "selfbuild": "1",
-      "withsubpack": "0"
-    },
-    "output": {
-      "code": "2001",
-      "data": {
-        "binary_dicts": {
-          "A1": [
-            "A",
-            "0.0.23b",
-            "mainline",
-            [
-              [
-                "D1",
-                "install"
-              ],
-              [
-                "B",
-                "build"
-              ],
-              [
-                "D",
-                "build"
-              ],
-              [
-                "B1",
-                "install"
-              ]
-            ]
-          ],
-          "A2": [
-            "A",
-            "0.0.23b",
-            "mainline",
-            [
-              [
-                "root",
-                null
-              ],
-              [
-                "C1",
-                "install"
-              ],
-              [
-                "A1",
-                "install"
-              ],
-              [
-                "C",
-                "build"
-              ]
-            ]
-          ],
-          "B1": [
-            "B",
-            "0.0.2",
-            "mainline",
-            [
-              [
-                "A",
-                "build"
-              ],
-              [
-                "D",
-                "build"
-              ]
-            ]
-          ],
-          "B2": [
-            "B",
-            "0.0.2",
-            "mainline",
-            [
-              [
-                "C",
-                "build"
-              ]
-            ]
-          ],
-          "C1": [
-            "C",
-            "0.1",
-            "mainline",
-            [
-              [
-                "A2",
-                "install"
-              ],
-              [
-                "B",
-                "build"
-              ],
-              [
-                "A",
-                "build"
-              ],
-              [
-                "B2",
-                "install"
-              ]
-            ]
-          ],
-          "D1": [
-            "D",
-            "0.11",
-            "mainline",
-            [
-              [
-                "A2",
-                "install"
-              ]
-            ]
-          ]
-        },
-        "source_dicts": {
-          "A": [
-            "mainline",
-            "0.0.23b"
-          ],
-          "B": [
-            "mainline",
-            "0.0.2"
-          ],
-          "C": [
-            "mainline",
-            "0.1"
-          ],
-          "D": [
-            "mainline",
-            "0.11"
-          ]
-        },
-
-        "not_found_components": []
-      },
-      "msg": "Successful Operation!"
-    }
-  },
-  {
-    "input": {
-      "packagename": "A",
-      "selfbuild": "1",
-      "withsubpack": "0",
-      "packtype": "source"
-    },
-    "output": {
-      "code": "2001",
-      "data": {
-        "binary_dicts": {
-          "A1": [
-            "A",
-            "0.0.23b",
-            "mainline",
-            [
-              [
-                "root",
-                null
-              ],
-              [
-                "D1",
-                "install"
-              ],
-              [
-                "B",
-                "build"
-              ],
-              [
-                "D",
-                "build"
-              ],
-              [
-                "B1",
-                "install"
-              ]
-            ]
-          ],
-          "A2": [
-            "A",
-            "0.0.23b",
-            "mainline",
-            [
-              [
-                "root",
-                null
-              ],
-              [
-                "A1",
-                "install"
-              ],
-              [
-                "C1",
-                "install"
-              ],
-              [
-                "C",
-                "build"
-              ]
-            ]
-          ],
-          "B1": [
-            "B",
-            "0.0.2",
-            "mainline",
-            [
-              [
-                "A",
-                "build"
-              ],
-              [
-                "D",
-                "build"
-              ]
-            ]
-          ],
-          "B2": [
-            "B",
-            "0.0.2",
-            "mainline",
-            [
-              [
-                "C",
-                "build"
-              ]
-            ]
-          ],
-          "C1": [
-            "C",
-            "0.1",
-            "mainline",
-            [
-              [
-                "A2",
-                "install"
-              ],
-              [
-                "B",
-                "build"
-              ],
-              [
-                "A",
-                "build"
-              ],
-              [
-                "B2",
-                "install"
-              ]
-            ]
-          ],
-          "D1": [
-            "D",
-            "0.11",
-            "mainline",
-            [
-              [
-                "A2",
-                "install"
-              ]
-            ]
-          ]
-        },
-        "source_dicts": {
-          "A": [
-            "mainline",
-            "0.0.23b"
-          ],
-          "B": [
-            "mainline",
-            "0.0.2"
-          ],
-          "C": [
-            "mainline",
-            "0.1"
-          ],
-          "D": [
-            "mainline",
-            "0.11"
-          ]
-        },
-
         "not_found_components": []
       },
       "msg": "Successful Operation!"

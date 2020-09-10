@@ -42,6 +42,7 @@ class SrcPack(DBHelper.BASE):
     checksum_type = Column(String(500), nullable=True)
     maintaniner = Column(String(100), nullable=True)
     maintainlevel = Column(String(100), nullable=True)
+    src_name = Column(String(100), nullable=True)
 
 
 class BinPack(DBHelper.BASE):

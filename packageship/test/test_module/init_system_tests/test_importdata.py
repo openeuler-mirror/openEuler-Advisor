@@ -10,7 +10,7 @@ import warnings
 from configparser import ConfigParser
 import yaml
 from packageship import system_config
-from packageship.libs.exception import Error
+from packageship.libs.exception import Error,ConfigurationException
 
 try:
 
@@ -71,10 +71,10 @@ class ImportData(unittest.TestCase):
                 w_f.write("")
 
             InitDataBase(config_file_path=_config_path).init_data()
-        except ContentNoneException as error:
+        except ConfigurationException as error:
             self.assertEqual(
                 error.__class__,
-                ContentNoneException,
+                ConfigurationException,
                 msg="Yaml file exists, but the content is empty. The exception type is wrong")
         finally:
             # Restore files

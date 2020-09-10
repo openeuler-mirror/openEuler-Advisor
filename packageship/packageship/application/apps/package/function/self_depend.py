@@ -152,9 +152,10 @@ class SelfDepend():
                 if not source_name:
                     LOGGER.logger.warning("source name is None")
                 if source_name and source_name not in self.source_dicts.dictionary:
+                    db_, src_version_ = self.search_db.get_version_and_db(source_name)
                     self.source_dicts.append_src(key=source_name,
-                                                 dbname=values[ListNode.DBNAME],
-                                                 version=values[ListNode.VERSION])
+                                                 dbname=db_ if db_ else values[ListNode.DBNAME],
+                                                 version=src_version_ if src_version_ else values[ListNode.VERSION])
                     self.search_build_list.append(source_name)
                     if self.withsubpack == 1:
                         self.search_subpack_list.append(source_name)
@@ -173,10 +174,10 @@ class SelfDepend():
         _, result_list = self.search_db.get_sub_pack(self.search_subpack_list)
         for subpack_tuple, dbname in result_list:
             if dbname != 'NOT_FOUND':
-                if subpack_tuple.subpack_name not in self.binary_dict.dictionary:
+                if subpack_tuple.subpack_name and subpack_tuple.subpack_name not in self.binary_dict.dictionary:
                     self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
                                                 src=subpack_tuple.search_name,
-                                                version=subpack_tuple.search_version,
+                                                version=subpack_tuple.sub_pack_version,
                                                 dbname=dbname,
                                                 parent_node=[subpack_tuple.search_name, 'Subpack'])
                     self.search_install_list.append(subpack_tuple.subpack_name)
@@ -221,13 +222,14 @@ class SelfDepend():
                 if not source_name:
                     LOGGER.logger.warning("source name is None")
                 if source_name and source_name not in self.source_dicts.dictionary:
+                    db_, src_version_ = self.search_db.get_version_and_db(source_name)
                     self.source_dicts.append_src(key=source_name,
-                                                    dbname=values[ListNode.DBNAME],
-                                                    version=values[ListNode.VERSION])
+                                                 dbname=db_ if db_ else values[ListNode.DBNAME],
+                                                 version=src_version_ if src_version_ else values[ListNode.VERSION])
                     if self.withsubpack == 1:
                         self.search_subpack_list.append(source_name)
-            elif key in self.binary_dict.dictionary:
-                self.binary_dict.update_value(key=key, parent_list=values[ListNode.PARENT_LIST])
+                    elif key in self.binary_dict.dictionary:
+                        self.binary_dict.update_value(key=key, parent_list=values[ListNode.PARENT_LIST])
 
     def query_selfbuild(self):
         """
@@ -312,6 +314,7 @@ class DictionaryOperations():
         Returns:
         Raises:
         """
-
         if parent_list:
-            self.dictionary[key][ListNode.PARENT_LIST].extend(parent_list)
+            for parent in parent_list:
+                if parent not in self.dictionary[key][ListNode.PARENT_LIST]:
+                    self.dictionary[key][ListNode.PARENT_LIST].append(parent)
