@@ -8,4 +8,4 @@ settings_file='/etc/patch-tracking/settings.conf'
 
 server=`grep 'LISTEN' $settings_file | awk -F'=' '{print $2}' | sed -e 's/^[ ]"//g' | sed -e 's/"$//g'`
 
-/usr/local/bin/uwsgi --master --https "${server},/etc/patch-tracking/self-signed.crt,/etc/patch-tracking/self-signed.key" --wsgi-file "${app_file}" --callable app --chdir "${chdir_path}" --threads 100 --lazy
+uwsgi --master --https "${server},/etc/patch-tracking/self-signed.crt,/etc/patch-tracking/self-signed.key" --wsgi-file "${app_file}" --callable app --chdir "${chdir_path}" --threads 100 --lazy
