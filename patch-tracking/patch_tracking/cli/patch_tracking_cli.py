@@ -141,6 +141,16 @@ def params_input_track(params, file_path=None):
     user = params['user']
     password = params['password']
 
+    if enabled not in ["True", "true", "False", "false"]:
+        print(add_usage)
+        return "error", "error: enabled: invalid value: '{}' (choose from 'True', 'true', 'False', 'false')".format(
+            enabled
+        )
+
+    if version_control not in ["github"]:
+        print(add_usage)
+        return "error", "error: version_control: invalid value: '{}' (choose from 'github')".format(version_control)
+
     err = latin1_encode(user)
     if err:
         return "error", "ERROR: user: only latin1 character set are allowed."
