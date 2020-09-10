@@ -326,6 +326,17 @@ class InitDataBase():
             raise ContentNoneException(
                 '{db_name}:There is no relevant data in the source \
                     package provided '.format(db_name=db_name))
+        for index, src_package_item in enumerate(packages_datas):
+            try:
+                src_package_name = '-'.join([src_package_item.get('name'),
+                                             src_package_item.get('version'),
+                                             src_package_item.get('release') + '.src.rpm'
+                                             ])
+            except AttributeError as exception_msg:
+                src_package_name = None
+                LOGGER.logger.warning(exception_msg)
+            finally:
+                packages_datas[index]['src_name'] = src_package_name
         with DBHelper(db_name=db_name) as database:
             database.batch_add(packages_datas, SrcPack)
         if lifecycle_status_val == 'enable':

@@ -15,7 +15,7 @@ from sqlalchemy import exists
 
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.log import Log
-from packageship.application.models.package import BinPack
+from packageship.application.models.package import BinPack,SrcPack
 from packageship.libs.exception import ContentNoneException, Error
 from packageship.system_config import DATABASE_FILE_INFO
 from .constants import ResponseCode
@@ -86,16 +86,18 @@ class SearchDB():
                 SELECT DISTINCT
                     bin_pack.NAME AS depend_name,
                     bin_pack.version AS depend_version,
-                    bin_pack.src_name AS depend_src_name,
+                    s2.name AS depend_src_name,
                     bin_requires.NAME AS req_name,
                     bin.NAME AS search_name,
-                    bin.src_name AS search_src_name,
+                    s1.name AS search_src_name,
                     bin.version AS search_version 
                 FROM
-                    ( SELECT pkgKey,NAME,version,src_name FROM bin_pack WHERE {} ) bin
+                    ( SELECT pkgKey, NAME, version, rpm_sourcerpm FROM bin_pack WHERE {} ) bin
+                    LEFT JOIN src_pack s1 ON bin.rpm_sourcerpm = s1.src_name
                     LEFT JOIN bin_requires ON bin.pkgKey = bin_requires.pkgKey
                     LEFT JOIN bin_provides ON bin_provides.name = bin_requires.name
-                    LEFT JOIN bin_pack ON bin_pack.pkgKey = bin_provides.pkgKey;
+                    LEFT JOIN bin_pack ON bin_pack.pkgKey = bin_provides.pkgKey
+                    LEFT JOIN src_pack s2 ON bin_pack.rpm_sourcerpm = s2.src_name;
                 """.format(name_in))
                 install_set = data_base.session. \
                     execute(sql_com, {'name_{}'.format(i): v
@@ -159,20 +161,29 @@ class SearchDB():
             SQLAlchemyError: sqlalchemy error
         """
         for db_name, data_base in self.db_object_dict.items():
+            sql_str = """
+            SELECT DISTINCT
+                src_pack.name AS source_name,
+                src_pack.version AS source_version 
+            FROM
+                bin_pack,
+                src_pack 
+            WHERE
+                src_pack.src_name = bin_pack.rpm_sourcerpm 
+                AND bin_pack.name = :binary_name;
+            """
             try:
-                bin_obj = data_base.session.query(BinPack).filter_by(
-                    name=binary_name
-                ).first()
-                source_name = bin_obj.src_name
-                source_version = bin_obj.version
+                bin_obj = data_base.session.execute(text(sql_str), {"binary_name": binary_name}).fetchone()
+                source_name = bin_obj.source_name
+                source_version = bin_obj.source_version
                 if source_name is not None:
                     return ResponseCode.SUCCESS, db_name, \
-                        source_name, source_version
+                           source_name, source_version
             except AttributeError as error_msg:
                 LOGGER.logger.error(error_msg)
             except SQLAlchemyError as error_msg:
                 LOGGER.logger.error(error_msg)
-                return ResponseCode.DIS_CONNECTION_DB, None
+                return ResponseCode.DIS_CONNECTION_DB, None, None, None
         return ResponseCode.PACK_NAME_NOT_FOUND, None, None, None
 
     def get_sub_pack(self, source_name_list):
@@ -202,11 +213,12 @@ class SearchDB():
                 sql_com = text('''
                             SELECT
                                 bin_pack.name AS subpack_name,
+                                bin_pack.version AS sub_pack_version,
                                 src.name AS search_name,
                                 src.version AS search_version
                             FROM
-                                (SELECT name,version FROM src_pack WHERE {}) src
-                                LEFT JOIN bin_pack on src.name = bin_pack.src_name'''.format(name_in))
+                                (SELECT name,version,src_name FROM src_pack WHERE {}) src
+                                LEFT JOIN bin_pack on src.src_name = bin_pack.rpm_sourcerpm'''.format(name_in))
                 subpack_tuple = data_base.session. \
                     execute(sql_com, {'name_{}'.format(i): v
                                       for i, v in enumerate(search_set, 1)}).fetchall()
@@ -225,10 +237,10 @@ class SearchDB():
             except SQLAlchemyError as sql_error:
                 current_app.logger.error(sql_error)
         return_tuple = namedtuple(
-            'return_tuple', 'subpack_name search_version search_name')
+            'return_tuple', 'subpack_name sub_pack_version search_version search_name')
         for search_name in search_set:
             result_list.append(
-                (return_tuple(None, None, search_name), 'NOT_FOUND'))
+                (return_tuple(None, None, None, search_name), 'NOT_FOUND'))
         return ResponseCode.SUCCESS, result_list
 
     def _get_binary_in_other_database(self, not_found_binary):
@@ -268,17 +280,19 @@ class SearchDB():
             search_list.clear()
             try:
                 sql_string = text("""
-                        SELECT DISTINCT
-                        t1.src_name AS source_name,
-                        t1.NAME AS bin_name,
-                        t1.version,
-                        t2.NAME AS req_name 
-                    FROM
-                        bin_pack t1,
-                        bin_provides t2
-                    WHERE
-                        t2.{}
-                        AND t1.pkgKey = t2.pkgKey;
+               SELECT DISTINCT
+                    s1.name AS source_name,
+                    t1.NAME AS bin_name,
+                    t1.version,
+                    t2.NAME AS req_name 
+                FROM
+                    src_pack s1,
+                    bin_pack t1,
+                    bin_provides t2 
+                WHERE
+                    t2.{}
+                    AND t1.pkgKey = t2.pkgKey
+                    AND t1.rpm_sourcerpm = s1.src_name;
                     """.format(literal_column('name').in_(search_set)))
                 bin_set = data_base.session. \
                     execute(sql_string, {'name_{}'.format(i): v
@@ -335,17 +349,19 @@ class SearchDB():
             search_set = set(search_list)
             search_list.clear()
             sql_string = text("""
-                    SELECT DISTINCT
-                    t1.src_name AS source_name,
+                 SELECT DISTINCT
+                    s1.name AS source_name,
                     t1.NAME AS bin_name,
                     t1.version,
                     t2.NAME AS req_name 
                 FROM
+                    src_pack s1,
                     bin_pack t1,
-                    bin_provides t2
+                    bin_provides t2 
                 WHERE
                     t2.{}
-                    AND t1.pkgKey = t2.pkgKey;
+                    AND t1.pkgKey = t2.pkgKey
+                    AND t1.rpm_sourcerpm = s1.src_name;
                 """.format(literal_column('name').in_(search_set)))
             bin_set = data_base.session. \
                 execute(sql_string, {'name_{}'.format(i): v
@@ -421,19 +437,20 @@ class SearchDB():
                 temp_list = list(s_name_set)
                 for input_name_li in [temp_list[i:i + 900] for i in range(0, len(temp_list), 900)]:
                     sql_com = text("""
-                        SELECT DISTINCT
+                    SELECT DISTINCT
                         src.NAME AS search_name,
                         src.version AS search_version,
-                        bin_pack.src_name AS source_name,
+                        s1.name AS source_name,
                         bin_provides.pkgKey AS bin_id,
                         src_requires.NAME AS req_name,
                         bin_pack.version AS version,
-                        bin_pack.NAME AS bin_name
+                        bin_pack.NAME AS bin_name 
                     FROM
-                        ( SELECT pkgKey, NAME, version FROM src_pack WHERE {} ) src
+                        ( SELECT pkgKey, NAME, version FROM src_pack WHERE {}) src
                         LEFT JOIN src_requires ON src.pkgKey = src_requires.pkgKey
                         LEFT JOIN bin_provides ON bin_provides.NAME = src_requires.NAME
-                        LEFT JOIN bin_pack ON bin_pack.pkgKey = bin_provides.pkgKey;
+                        LEFT JOIN bin_pack ON bin_pack.pkgKey = bin_provides.pkgKey
+                        LEFT JOIN src_pack s1 on bin_pack.rpm_sourcerpm=s1.src_name;
                     """.format(literal_column("name").in_(input_name_li)))
                     res = data_base.session.execute(
                         sql_com,
@@ -515,6 +532,26 @@ class SearchDB():
             current_app.logger.error(sql_err)
 
         return 'NOT FOUND'
+
+    def get_version_and_db(self, src_name):
+        """
+
+        Args:
+            src_name:the source package name
+        Returns:
+            this source package version and  db_name
+        """
+        try:
+            for db_name, data_base in self.db_object_dict.items():
+                res = data_base.session.query(SrcPack.version).filter_by(name=src_name).first()
+                if res:
+                    return db_name, res.version
+        except AttributeError as attr_err:
+            current_app.logger.error(attr_err)
+        except SQLAlchemyError as sql_err:
+            current_app.logger.error(sql_err)
+
+        return None, None
 
 
 def db_priority():
