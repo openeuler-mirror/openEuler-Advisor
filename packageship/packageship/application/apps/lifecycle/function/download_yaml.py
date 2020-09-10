@@ -80,8 +80,8 @@ class ParseYaml():
         if self._openeuler_advisor_exists_yaml():
             self._save_to_database()
         else:
-            msg = "The yaml information of the %s package has not been\
-                obtained yet" % self.pkg.name
+            msg = "The yaml information of the [%s] package has not been" \
+                "obtained yet" % self.pkg.name
             self.base.log.logger.warning(msg)
 
     def _get_yaml_content(self, url):
@@ -118,15 +118,16 @@ class ParseYaml():
         """
         self._parse_warehouse_info()
         tags = self._yaml_content.get('git_tag', None)
-        self._parse_tags_content(tags)
+        if tags:
+            self._parse_tags_content(tags)
+            self.producer_consumer.put(copy.deepcopy(self.pkg))
         if self.timed_task_open:
-            _maintainer = self._yaml_content.get('maintainer')
+            _maintainer = self._yaml_content.get('maintainers')
             if _maintainer and isinstance(_maintainer, list):
                 self.pkg.maintainer = _maintainer[0]
             self.pkg.maintainlevel = self._yaml_content.get('maintainlevel')
         try:
-            self.producer_consumer.put(copy.deepcopy(self.pkg))
-            if self.timed_task_open and self.pkg.maintainer:
+            if self.timed_task_open:
                 @retry(stop_max_attempt_number=3, stop_max_delay=500)
                 def _save_maintainer_info():
                     with DBHelper(db_name="lifecycle") as database:
