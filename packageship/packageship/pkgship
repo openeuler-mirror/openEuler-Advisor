@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 import sys
 import signal
+from signal import SIG_DFL
 try:
     def sig_handler(signum, frame):
         print('Exit command mode')
         sys.exit(0)
+
     signal.signal(signal.SIGINT, sig_handler)
+    signal.signal(signal.SIGPIPE, SIG_DFL)
 except:
     pass
 
@@ -13,4 +16,8 @@ from packageship.pkgship import main
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as error:
+        print('Command execution error please try again ')
+        print(e.message)
