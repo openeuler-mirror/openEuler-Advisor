@@ -1,22 +1,17 @@
-%define name patch-tracking
-%define version 1.0.0
-%define release 2
+Summary:    This is a tool for automatically tracking upstream repository code patches
+Name:       patch-tracking
+Version:    1.0.2
+Release:    2
+License:    Mulan PSL v2
+URL:        https://gitee.com/openeuler/openEuler-Advisor
+Source0:    patch-tracking-%{version}.tar
+BuildArch:  noarch
 
-Summary: This is a tool for automatically tracking upstream repository code patches
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar
-License: Mulan PSL v2
-Group: Development/Libraries
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Prefix: %{_prefix}
-BuildArch: noarch
-Vendor: ChenYanpan <chenyanpan@huawei.com>
-Url: https://openeuler.org/zh/
 
 BuildRequires: python3-setuptools
-# Requires: python3.7 python3-flask python3-sqlalchemy python3-requests
+Requires: python3-uWSGI python3-flask python3-Flask-SQLAlchemy python3-Flask-APScheduler python3-Flask-HTTPAuth
+Requires: python3-requests python3-pandas
+
 
 %description
 This is a tool for automatically tracking upstream repository code patches
@@ -54,3 +49,20 @@ rm -rf $RPM_BUILD_ROOT
 /var/patch-tracking/db.sqlite
 /usr/bin/generate_password
 /usr/lib/systemd/system/patch-tracking.service
+
+
+%changelog
+* Sat Sep 12 2020 chenyanpan <chenyanpan@huawei.com> - 1.0.2-2
+- Type: bugfix
+- DESC: fixed name of python3-Flask-HTTPAuth
+
+* Fri Sep 11 2020 chenyanpan <chenyanpan@huawei.com> - 1.0.2-1
+- Type: bugfix
+- DESC: fixed issues, specify Requires
+- https://gitee.com/src-openeuler/patch-tracking/issues: I1TXTA I1TWVU I1TSG7 I1TYJV I1UAMC I1TYNW
+- https://gitee.com/openeuler/docs/issues: I1U54H
+
+
+* Mon Sep 07 2020 chenyanpan <chenyanpan@huawei.com> - 1.0.1-1
+- Type: bugfix
+- DESC: fixed issues related to the validity of service configuration items and command line parameters
