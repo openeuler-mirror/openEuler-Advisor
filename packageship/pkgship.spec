@@ -1,6 +1,6 @@
 Name:           pkgship
 Version:        1.1.0
-Release:        2
+Release:        3
 Summary:        Pkgship implements rpm package dependence ,maintainer, patch query and so no.
 License:        Mulan 2.0
 URL:            https://gitee.com/openeuler/openEuler-Advisor
@@ -49,11 +49,16 @@ rm -rf $log_path
 %files
 %doc README.md
 %{python3_sitelib}/*
-%config %{_sysconfdir}/pkgship/*
+%attr(0755,root,root) %config %{_sysconfdir}/pkgship/*
 %attr(0755,root,root) %{_bindir}/pkgshipd
 %attr(0755,root,root) %{_bindir}/pkgship
 
 %changelog
+* Fri Sep 11 2020 Yiru Wang <wangyiru1@huawei.com> - 1.1.0-3
+- #I1UCM8, #I1UC8G: Modify some config files' permission issue;
+- #I1TIYQ: Add concurrent-log-handler module to fix log resource conflict issue
+- #I1TML0: Fix the matching relationship between source_rpm and src_name
+
 * Tue Sep 1 2020 Zhengtang Gong <gongzhengtang@huawei.com> - 1.1.0-2
 - Delete the packaged form of pyinstaller and change the execution
   of the command in the form of a single file as the input
