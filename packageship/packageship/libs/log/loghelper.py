@@ -3,9 +3,10 @@
 Logging related
 """
 import os
+import threading
 import pathlib
 import logging
-from logging.handlers import RotatingFileHandler
+from concurrent_log_handler import ConcurrentRotatingFileHandler
 from packageship import system_config
 from packageship.libs.configutils.readconfig import ReadConfig
 
@@ -44,7 +45,7 @@ def setup_log(config=None):
         except FileExistsError:
             pathlib.Path(path).touch()
 
-    file_log_handler = RotatingFileHandler(
+    file_log_handler = ConcurrentRotatingFileHandler(
         path, maxBytes=max_bytes, backupCount=backup_count)
 
     formatter = logging.Formatter(
@@ -53,12 +54,13 @@ def setup_log(config=None):
     file_log_handler.setFormatter(formatter)
 
     return file_log_handler
-    
+
 
 class Log():
     """
         General log operations
     """
+    _instance_lock = threading.Lock()
 
     def __init__(self, name=__name__, path=None):
         self.__name = name
@@ -88,15 +90,30 @@ class Log():
             self.__level = 'INFO'
         self.__logger = logging.getLogger(self.__name)
         self.__logger.setLevel(self.__level)
-        self.backup_count = READCONFIG.get_config('LOG', 'backup_count')
-        if not self.backup_count or not isinstance(self.backup_count, int):
+        self.backup_count = READCONFIG.get_config('LOG', 'backup_count') or 10
+        self.max_bytes = READCONFIG.get_config('LOG', 'max_bytes') or 314572800
+        try:
+            self.backup_count = int(self.backup_count)
+            self.max_bytes = int(self.max_bytes)
+        except ValueError:
             self.backup_count = 10
-        self.max_bytes = READCONFIG.get_config('LOG', 'max_bytes')
-        if not self.max_bytes or not isinstance(self.max_bytes, int):
             self.max_bytes = 314572800
+        self.__init_handler()
+        self.__set_handler()
+        self.__set_formatter()
+
+    def __new__(cls, *args, **kwargs):  # pylint: disable=unused-argument
+        """
+            Use the singleton pattern to create a thread-safe producer pattern
+        """
+        if not hasattr(cls, "_instance"):
+            with cls._instance_lock:
+                if not hasattr(cls, "_instance"):
+                    cls._instance = object.__new__(cls)
+        return cls._instance
 
     def __init_handler(self):
-        self.__file_handler = RotatingFileHandler(
+        self.__file_handler = ConcurrentRotatingFileHandler(
             self.__path, maxBytes=self.max_bytes, backupCount=self.backup_count, encoding="utf-8")
 
     def __set_handler(self):
@@ -109,19 +126,25 @@ class Log():
                                       datefmt='%a, %d %b %Y %H:%M:%S')
         self.__file_handler.setFormatter(formatter)
 
-    def close_handler(self):
-        """
-            Turn off log processing
-        """
-        self.__file_handler.close()
+    def info(self, message):
+        """General information printing of the log"""
+        self.__logger.info(message)
+
+    def debug(self, message):
+        """Log debugging information printing"""
+        self.__logger.debug(message)
+
+    def warning(self, message):
+        """Log warning message printing"""
+        self.__logger.warning(message)
+
+    def error(self, message):
+        """Log error message printing"""
+        self.__logger.error(message)
 
     @property
     def logger(self):
         """
             Get logs
         """
-        self.__init_handler()
-        self.__set_handler()
-        self.__set_formatter()
-        self.close_handler()
         return self.__logger

@@ -17,14 +17,14 @@ OPERATION = None
 
 def _timed_task(app):
     """
-
+    Timed task function
     """
     from .apps.lifecycle.function.download_yaml import update_pkg_info  # pylint: disable=import-outside-toplevel
 
     _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
     try:
-        _hour = int(_readconfig.get_config('TIMEDTASK', 'hour'))
-        _minute = int(_readconfig.get_config('TIMEDTASK', 'minute'))
+        _hour = int(_readconfig.get_config('TIMEDTASK', 'hour') or 3)
+        _minute = int(_readconfig.get_config('TIMEDTASK', 'minute') or 0)
     except ValueError:
         _hour = 3
         _minute = 0
