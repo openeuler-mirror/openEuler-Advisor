@@ -58,6 +58,6 @@ setup(
     long_description=open('README.md', encoding='utf-8').read(),
     author='gongzt',
     data_files=[
-        (_CONFIG_PATH, ['packageship/package.ini']),
+        (_CONFIG_PATH, ['packageship/package.ini', 'conf.yaml']),
         ('/usr/bin', ['packageship/pkgshipd', 'packageship/pkgship'])]
 )

@@ -1,0 +1,21 @@
+# During initialization, you can initialize multiple databases at once
+
+# dbname: The name of the database to be initialized
+# It is recommended to use the version number as the name of the database
+
+# src_db_file:SQLite files related to the source package provided in the repo source
+
+# bin_db_file:SQLite files related to the binary package provided in the repo source
+
+# lifecycle:Does the imported source package data need to be stored in the life cycle database
+# When you need to store in the life cycle, you need to set the value to enable
+# When you do not need to store in the life cycle, you need to set the value to disable
+
+# priority: The priority of the database,When querying dependencies, which library is 
+# the first to find data the value can only be 1、 2、 3、 4
+
+- dbname: $database_name
+  src_db_file: $path.sqlite
+  bin_db_file: $path.sqlite
+  lifecycle: enable/disable
+  priority: 1/2/3/4
