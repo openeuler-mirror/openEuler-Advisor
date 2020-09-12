@@ -14,57 +14,105 @@
 Review tool for openEuler submission
 """
 import os
+import re
 import argparse
 import subprocess
 
 import gitee
 
+BASIC_CHK = """
+**以下为 openEuler-Advisor 的 tc_review 生成审视要求清单**
+**[Y]** 审视者确认符合要求 | **[N]** 审视者认为不符合要求 | **[?]** 审视者无法确认是否符合要求 | **[ ]** 审视过程中
+|审视情况|审视要求|审视要求说明|
+|:--:|:--|:--|
+|[ ]|PR的标题是否清晰易懂?|提交标题应该一句话说明本提交实现的内容。|
+|[ ]|PR的内容描述是否详细具体?|提交的描述应该用一段话说明本提交的背景和实现原理。|
+|[ ]|PR和实际代码修改是否一致?|提交的说明文字应该和实际代码修改内容保持一致。|
+|[ ]|PR是否符合gitee的规范检查要求?|码云对提交的缺陷扫描、规范扫描告警每一条都需要确认。|
+|[ ]|PR中是否只有一次提交?|如果PR中包含多次提交，应当整合成一个，保持提交记录整洁。|
+"""
+
+OWNER_CHK = "|[ ]|如果新增维护者，有没有对他/她能力的客观说明?|PR提交者需要提出相应的举证说明维护者候选人的技术能力与社区活跃程度。|\n"
+OWNER_CHK_1 = "|[ ]|{sig} 中的其他维护者是否同意增加/删除维护者?|需要 {owners} 中至少两人代表确认是否同意接纳或者移除维护者。|\n"
+
+REPO_CHK = "|[ ]|是否所有变更的代码仓都被恰当的 SIG 管理?|代码仓应当由有能力且有意愿的SIG管理，同一类的软件尽量归属同一个SIG。|\n"
+REPO_CHK_1 = "|[ ]|{sig}的维护者是否同意变更|需要 {owners} 中至少一人在此确认。|\n"
+
+LICENSE_CHK = "|[ ]|新引入的代码仓的 license 授权是否都与 openEuler 兼容?|openEuler只能接纳可以被允许集成的软件|\n"
+
+SANITY_CHK_CMD = "python3 zh/technical-committee/governance/sanity_check.py ."
+
 def check_repository_changes():
+    """
+    check if src-openeuler.yaml has been changed
+    """
     lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
     for item in lst_files.splitlines():
         if item.startswith("repository/src-openeuler.yaml"):
             return True
-    else:
-        return False
+    return False
 
 def check_repository_mgmt_changes():
-    lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
+    """
+    Return additional checking item if management of repository has been changed
+    """
+    review_body = ""
+    need_additional_review = False
+    ret_code, lst_files = subprocess.getstatusoutput(SANITY_CHK_CMD)
+    if ret_code != 0:
+        return "|[ ]|PR必须通过CI检查|sanity_check.py 在这个 PR 中发现错误。|"
     for item in lst_files.splitlines():
-        if item.startswith("sig/sigs.yaml"):
-            return True
-    else:
-        return False
+        if item.startswith("SUGGESTION: This PR needs to be reviewed"):
+            need_additional_review = True
+            continue
+        if need_additional_review:
+            result = re.match("([^:]*): (.*)", item)
+            if result:
+                sig = result.group(1)
+                owners = result.group(2)
+                review_body += REPO_CHK_1.format(sig=sig, owners=owners)
+    return review_body
 
 def check_maintainer_changes():
     """
-    return a list of SIGs with changed maintainer
+    return all SIGs with changed maintainer
     """
-    sigs = []
+    sigs = {}
     lst_files = subprocess.getoutput("git diff --name-only remotes/origin/master..")
     for item in lst_files.splitlines():
         if item.startswith("sig") and item.endswith("OWNERS"):
-            sigs.append(item.split("/")[1])
+            sig = item.split("/")[1]
+            owners = []
+            with open(item, "r") as owner_file:
+                for line in owner_file:
+                    if line.strip().startswith("-"):
+                        owner = line.replace("- ", "@").strip()
+                        owners.append(owner)
+            sigs[sig] = " ".join(owners)
     return sigs
-    
 
-def review(pr):
-    review_body = "**以下为 openEuler-Advisor 的 tc_review 生成审视要求清单**\n"
-    review_body += "[Y] 审视者确认符合要求 [N] 审视者认为不符合要求 [?] 审视者无法确认是否符合要求 [] 审视过程中\n"
-    review_body += "|审视情况|审视要求|审视要求说明|\n"
-    review_body += "|:--:|:--|:--|\n"
-    review_body += "|[ ]|PR的标题是否清晰易懂?|提交标题应该一句话说明本提交实现的内容。|\n"
-    review_body += "|[ ]|PR的内容描述是否详细具体?|提交的描述应该用一段话说明本提交的背景和实现原理。|\n"
-    review_body += "|[ ]|PR和实际代码修改是否一致?|提交的说明文字应该和实际代码修改内容保持一致。|\n"    
+
+def review(pull_request):
+    """
+    Return check list of this PR
+    """
+
+    if pull_request["mergeable"] == False:
+        return "PR中存在冲突，无法自动合并。需要先解决冲突，才可以开展评审。"
+
+    review_body = BASIC_CHK
+    subprocess.call(["git", "merge", "--no-edit", "remotes/origin/master"])
     sigs = check_maintainer_changes()
     if sigs:
-        review_body += "|[ ]|如果新增维护者，有没有对他/她能力的客观说明?|PR提交者需要提出相应的举证说明维护者候选人的技术能力与社区活跃程度。|\n"
+        review_body += OWNER_CHK
     for sig in sigs:
-        review_body += "|[ ]|{sig} 中的其他维护者是否同意增加/删除维护者?|{sig}当前维护者需要有代表确认是否同意接纳或者移除维护者。|\n".format(sig=sig)
-    if check_repository_mgmt_changes():
-        review_body += "|[ ]|是否所有变更的代码仓都被恰当的 SIG 管理?|代码仓应当由有能力且有意愿的SIG管理，同一类的软件尽量归属同一个SIG。|\n"
-        review_body += "|[ ]|是否所有受影响的 SIG 的维护者都同意这个变更?|每一个涉及的 SIG 都需要有维护者代表确认是否同意变更。|\n"
+        review_body += OWNER_CHK_1.format(sig=sig, owners=sigs[sig])
+    additional = check_repository_mgmt_changes()
+    if additional:
+        review_body += REPO_CHK
+        review_body += additional
     if check_repository_changes():
-        review_body += "|[ ]|新引入的代码仓的 license 授权是否都与 openEuler 兼容?|openEuler只能接纳可以被允许集成的软件|\n"
+        review_body += LICENSE_CHK
     return review_body
 
 def main():
@@ -85,16 +133,28 @@ def main():
         subprocess.call(["git", "clone", gitee_url])
         os.chdir(args.repo.split('/')[1])
 
-    subprocess.call(["git", "fetch", gitee_url,
-                     "pull/{n}/head:pr_{n}".format(n=args.pull)])
+    ret_code = subprocess.call(["git", "checkout", "master"])
+    if ret_code != 0:
+        print("Failed to checkout master branch")
+        sys.exit(1)
+
+    ret_code = subprocess.call(["git", "pull"])
+    if ret_code != 0:
+        print("Failed to update to latest commit in master branch")
+        sys.exit(1)
+
+    ret_code = subprocess.call(["git", "fetch", gitee_url,
+                                "pull/{n}/head:pr_{n}".format(n=args.pull)])
+    if ret_code != 0:
+        print("Failed to fetch PR")
+        sys.exit(1)
 
     print("You are reviewing pull {n}".format(n=args.pull))
 
     subprocess.call(["git", "checkout", "pr_{n}".format(n=args.pull)])
-    subprocess.call(["git", "merge", "--no-edit", "master"])
 
-    pr = user_gitee.get_pr("community", args.pull, "openeuler")
-    review_comment = review(pr)
+    pull_request = user_gitee.get_pr("community", args.pull, "openeuler")
+    review_comment = review(pull_request)
 
     user_gitee.create_pr_comment("community", args.pull, review_comment, "openeuler")
 
