@@ -1,43 +1,54 @@
 #!/usr/bin/python3
-
-import http.cookiejar
-import urllib.request
+"""
+This modules containers methods to check upstream version info
+"""
 import re
-import yaml
-import json
 import sys
 import subprocess
-import requests
-
-from urllib.parse import urljoin
 from datetime import datetime
 
-time_format = "%Y-%m-%dT%H:%M:%S%z"
+#import http.cookiejar
+#import urllib.request
+#import yaml
+import json
+from urllib.parse import urljoin
+
+import requests
+
+
+TIME_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
 def eprint(*args, **kwargs):
+    """Helper for debug print"""
     print("DEBUG: ", *args, file=sys.stderr, **kwargs)
 
 def load_last_query_result(info, force_reload=False):
+    """
+    If there's last_query stored in yaml, load it
+    """
     if force_reload:
         last_query = info.pop("last_query")
         eprint("{repo} > Force reload".format(repo=info["src_repo"]))
         return ""
-    else:
-        if "last_query" in info.keys():
-            last_query = info.pop("last_query")
-            #age = datetime.now() - datetime.strptime(last_query["time_stamp"], time_format)
-            age = datetime.now() - last_query["time_stamp"].replace(tzinfo=None)
-            if age.days < 7:
-                eprint("{repo} > Reuse Last Query".format(repo=info["src_repo"]))
-                return last_query["raw_data"]
-            else:
-                eprint("{repo} > Last Query Too Old.".format(repo=info["src_repo"]))
-                return ""
-        else:
-            return ""
+
+    if "last_query" in info.keys():
+        last_query = info.pop("last_query")
+        #age = datetime.now() - datetime.strptime(last_query["time_stamp"], TIME_FORMAT)
+        age = datetime.now() - last_query["time_stamp"].replace(tzinfo=None)
+        if age.days < 7:
+            eprint("{repo} > Reuse Last Query".format(repo=info["src_repo"]))
+            return last_query["raw_data"]
+
+        eprint("{repo} > Last Query Too Old.".format(repo=info["src_repo"]))
+        return ""
+
+    return ""
 
 
 def clean_tags(tags, info):
+    """
+    Clean up tags according to setting
+    """
     if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
         result_list = [pattern_regex.sub("\\1", x) for x in tags]
@@ -53,19 +64,22 @@ def clean_tags(tags, info):
     if info.get("separator", ".") != "." and info.get("separator", ".") is not None:
         separator_regex = re.compile(info["separator"])
         result_list = [separator_regex.sub(".", x) for x in result_list]
-    
-    # Xinwei used to mis-spell 'separator'. 
+
+    # Xinwei used to mis-spell 'separator'.
     # Followings are kept for compatability until all yaml files are fixed.
     if info.get("seperator", ".") != "." and info.get("seperator", ".") is not None:
         separator_regex = re.compile(info["seperator"])
         result_list = [separator_regex.sub(".", x) for x in result_list]
 
     result_list = [x for x in result_list if x and x[0].isdigit()]
-    
+
     return result_list
 
 
 def dirty_redirect_tricks(url, resp):
+    """
+    Helper on redict tricks of some site
+    """
     cookie = set()
     href = ""
     need_trick = False
@@ -74,34 +88,38 @@ def dirty_redirect_tricks(url, resp):
         if line.startswith("Redirecting"):
             eprint("Redirecting with document.cookie")
             need_trick = True
-        m = re.search(r"document\.cookie=\"(.*)\";", line)
-        if m:
-            cookie = cookie | set(m.group(1).split(';'))
-        m = re.search(r"document\.location\.href=\"(.*)\";", line)
-        if m:
-            href = m.group(1)
+        search_result = re.search(r"document\.cookie=\"(.*)\";", line)
+        if search_result:
+            cookie = cookie | set(search_result.group(1).split(';'))
+        search_result = re.search(r"document\.location\.href=\"(.*)\";", line)
+        if search_result:
+            href = search_result.group(1)
     new_url = urljoin(url, href)
-    if "" in cookie: cookie.remove("") 
+    if "" in cookie:
+        cookie.remove("")
     return need_trick, new_url, list(cookie)
 
 def check_hg_raw(info):
+    """
+    Check hg version info via raw-tags
+    """
     eprint("{repo} > Using hg raw-tags".format(repo=info["src_repo"]+"/raw-tags"))
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
-                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-                }
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
         url = urljoin(info["src_repo"] + "/", "raw-tags")
         resp = requests.get(url, headers=headers)
         resp = resp.text
-        need_trick, url, cookie = dirty_redirect_tricks(url, resp)
+        need_trick, url, cookies = dirty_redirect_tricks(url, resp)
         if need_trick:
             # I dont want to introduce another dependency on requests
             # but urllib handling cookie is outragely complex
             c_dict = {}
-            for c in cookie:
-                k, v = c.split('=')
-                c_dict[k] = v
+            for cookie in cookies:
+                key, value = cookie.split('=')
+                c_dict[key] = value
             resp = requests.get(url, headers=headers, cookies=c_dict)
             resp = resp.text
 
@@ -110,30 +128,33 @@ def check_hg_raw(info):
     last_query["raw_data"] = resp
     info["last_query"] = last_query
     tags = []
-    for l in resp.splitlines():
-        tags.append(l.split()[0])
+    for line in resp.splitlines():
+        tags.append(line.split()[0])
     result_list = clean_tags(tags, info)
     return result_list
 
 
 def check_hg(info):
+    """
+    Check hg version info via json
+    """
     eprint("{repo} > Using hg json-tags".format(repo=info["src_repo"]+"/json-tags"))
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
-                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-                }
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
         url = urljoin(info["src_repo"] + "/", "json-tags")
         resp = requests.get(url, headers=headers)
         resp = resp.text
-        need_trick, url, cookie = dirty_redirect_tricks(url, resp)
+        need_trick, url, cookies = dirty_redirect_tricks(url, resp)
         if need_trick:
             # I dont want to introduce another dependency on requests
             # but urllib handling cookie is outragely complex
             c_dict = {}
-            for c in cookie:
-                k, v = c.split('=')
-                c_dict[k] = v
+            for cookie in cookies:
+                key, value = cookie.split('=')
+                c_dict[key] = value
             resp = requests.get(url, headers=headers, cookies=c_dict)
             resp = resp.text
 
@@ -151,11 +172,14 @@ def check_hg(info):
 
 
 def check_metacpan(info):
+    """
+    Check perl module version info via metacpan api
+    """
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
-                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-                }
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
         url = urljoin("https://metacpan.org/release/", info["src_repo"])
         resp = requests.get(url, headers=headers)
         resp = resp.text
@@ -163,7 +187,9 @@ def check_metacpan(info):
     tags = []
     tag_list = resp.splitlines()
     condition = "value=\"/release"
-    for index in range(len(tag_list)):
+
+    len_tag_list = len(tag_list) - 1
+    for index in range(len_tag_list):
         if condition in tag_list[index]:
             tag = tag_list[index + 1]
             index = index + 1
@@ -172,7 +198,8 @@ def check_metacpan(info):
             tag = tag.lstrip()
             tag = tag.rstrip()
             tags.append(tag)
-    if not len(tags):
+
+    if not tags:
         eprint("{repo} found unsorted on cpan.metacpan.org".format(repo=info["src_repo"]))
         sys.exit(1)
     last_query = {}
@@ -182,42 +209,83 @@ def check_metacpan(info):
     tags = clean_tags(tags, info)
     return tags
 
+
 def check_pypi(info):
+    """
+    Check python module version info via pypi api
+    """
     resp = load_last_query_result(info)
     tags = []
     if resp == "":
         headers = {
-                'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-                }
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
         url = urljoin("https://pypi.org/pypi/", info["src_repo"] + "/json")
         resp = requests.get(url, headers=headers)
-    
+
     data = resp.json()
     for key in data["releases"].keys():
         tags.append(key)
-    if len(tags) == 0:
+    if not tags:
+        eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
+        sys.exit(1)
+    return tags
+
+
+def check_rubygem(info):
+    """
+    Check ruby module version info via rubygem api
+    """
+    resp = load_last_query_result(info)
+    tags = []
+    if resp == "":
+        headers = {
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            }
+        url = urljoin("https://rubygems.org/api/v1/versions/", info["src_repo"] + ".json")
+        resp = requests.get(url, headers=headers)
+
+    data = resp.json()
+    for release in data:
+        tags.append(release["number"])
+    if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
         sys.exit(1)
     return tags
 
 def __check_subprocess(cmd_list):
+    """
+    Helper to start and check subprocess result
+    """
     subp = subprocess.Popen(cmd_list, stdout=subprocess.PIPE)
     resp = subp.stdout.read().decode("utf-8")
     if subp.wait() != 0:
         eprint("{cmd} > encount errors".format(cmd=" ".join(cmd_list)))
     return resp
 
+
 def __check_svn_helper(repo_url):
+    """
+    Helper to start svn command
+    """
     eprint("{repo} > Using svn ls".format(repo=repo_url))
     cmd_list = ["/usr/bin/svn", "ls", "-v", repo_url]
     return __check_subprocess(cmd_list)
 
+
 def __check_git_helper(repo_url):
+    """
+    Helper to start git command
+    """
     eprint("{repo} > Using git ls-remote".format(repo=repo_url))
     cmd_list = ["git", "ls-remote", "--tags", repo_url]
     return __check_subprocess(cmd_list)
 
+
 def __svn_resp_to_tags(resp):
+    """
+    Helper to convert svn response to tags
+    """
     tags = []
     for line in resp.splitlines():
         items = line.split()
@@ -228,21 +296,27 @@ def __svn_resp_to_tags(resp):
     return tags
 
 def __git_resp_to_tags(resp):
+    """
+    Helpers to convert git response to tags
+    """
     tags = []
     pattern = re.compile(r"^([^ \t]*)[ \t]*refs\/tags\/([^ \t]*)")
     for line in resp.splitlines():
-        m = pattern.match(line)
-        if m:
-            tag = m.group(2)
+        match_result = pattern.match(line)
+        if match_result:
+            tag = match_result.group(2)
             if not tag.endswith("^{}"):
                 tags.append(tag)
     return tags
 
-def check_git (info):
+def check_git(info):
+    """
+    Check version info via git command
+    """
     resp = load_last_query_result(info)
     if resp == "":
         resp = __check_git_helper(info["src_repo"])
-        last_query={}
+        last_query = {}
         last_query["time_stamp"] = datetime.now()
         last_query["raw_data"] = resp
         info["last_query"] = last_query
@@ -253,6 +327,9 @@ def check_git (info):
     return tags
 
 def check_github(info):
+    """
+    Check version info via github api
+    """
     resp = load_last_query_result(info)
     if info.get("query_type", "git-ls") != "git-ls":
         resp = ""
@@ -272,24 +349,30 @@ def check_github(info):
     return tags
 
 def check_gnu_ftp(info):
+    """
+    Check version info via compare ftp release tar file
+    """
     headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-            }
+        'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
     url = urljoin("https://ftp.gnu.org/gnu/", info["src_repo"] + "/")
     eprint("{repo} > List ftp directory".format(repo=url))
     resp = requests.get(url, headers=headers)
     resp = resp.text
     re_pattern = re.compile("href=\"(.*)\">(\\1)</a>")
     tags = []
-    for l in resp.splitlines():
-        m = re_pattern.search(l)
-        if m:
-            tags.append(m[1])
+    for line in resp.splitlines():
+        result = re_pattern.search(line)
+        if result:
+            tags.append(result[1])
     tags = clean_tags(tags, info)
     return tags
 
 
 def check_gnome(info):
+    """
+    Check version info via gitlab.gnome.org api
+    """
     resp = load_last_query_result(info)
     src_repos = info["src_repo"].split("/")
     if len(src_repos) == 1:
@@ -299,7 +382,7 @@ def check_gnome(info):
 
     if resp == "":
         resp = __check_git_helper(repo_url)
-        last_query={}
+        last_query = {}
         last_query["time_stamp"] = datetime.now()
         last_query["raw_data"] = resp
         info["last_query"] = last_query
@@ -309,6 +392,9 @@ def check_gnome(info):
     return tags
 
 def check_gitee(info):
+    """
+    Check version info via gitee
+    """
     resp = load_last_query_result(info)
     repo_url = "https://gitee.com/" + info["src_repo"]
     if resp == "":
@@ -323,6 +409,9 @@ def check_gitee(info):
     return tags
 
 def check_svn(info):
+    """
+    Check version info via svn
+    """
     resp = load_last_query_result(info)
     tag_dir = info.get("tag_dir", "tags")
     repo_url = info["src_repo"] + "/" + tag_dir
@@ -340,4 +429,3 @@ def check_svn(info):
 
 if __name__ == "__main__":
     pass
-
