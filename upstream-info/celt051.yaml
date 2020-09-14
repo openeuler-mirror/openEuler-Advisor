@@ -1,6 +1,6 @@
 ---
-version_control: NA
-src_repo: NA
-tag_prefix: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/xiph/releases/celt
+tag_pattern: celt-(.*).tar.gz
 separator: "."
 download: https://ftp.osuosl.org/pub/xiph/releases/celt/

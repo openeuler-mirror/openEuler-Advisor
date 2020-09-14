@@ -1,5 +1,5 @@
 ---
-version_control: NA
-src_repo: 
-tag_prefix: 
-separator: 
+version_control: gnu-ftp
+src_repo: mtools
+tag_pattern: mtools-(.*).tar.gz(sig)? 
+separator: "." 
