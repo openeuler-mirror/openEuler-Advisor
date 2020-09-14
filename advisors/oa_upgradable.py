@@ -24,7 +24,7 @@ def _filter_except(excpts, sources):
     return sources
 
 
-def get_ver_tags(gt, repo, cwd_path=None):
+def get_ver_tags(my_gitee, repo, cwd_path=None):
     """
     Get version tags of given package
     """
@@ -32,10 +32,11 @@ def get_ver_tags(gt, repo, cwd_path=None):
         try:
             repo_yaml = open(os.path.join(cwd_path, "{pkg}.yaml".format(pkg=repo)))
         except FileNotFoundError:
-            print("WARNING: {pkg}.yaml can't be found in local path: {path}.".format(pkg=repo, path=cwd_path))
-            repo_yaml = gt.get_yaml(repo)
+            print("WARNING: {pkg}.yaml can't be found in local path: {path}.".format(pkg=repo,
+                                                                                     path=cwd_path))
+            repo_yaml = my_gitee.get_yaml(repo)
     else:
-        repo_yaml = gt.get_yaml(repo)
+        repo_yaml = my_gitee.get_yaml(repo)
 
     if repo_yaml:
         pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
@@ -46,31 +47,29 @@ def get_ver_tags(gt, repo, cwd_path=None):
     if vc_type is None:
         print("Missing version_control in YAML file")
         return None
-    if vc_type == "hg":
-        tags = check_upstream.check_hg(pkg_info)
-    elif vc_type == "hg-raw":
-        tags = check_upstream.check_hg_raw(pkg_info)
-    elif vc_type == "github":
-        tags = check_upstream.check_github(pkg_info)
-    elif vc_type == "git":
-        tags = check_upstream.check_git(pkg_info)
-    elif vc_type == "gitlab.gnome":
-        tags = check_upstream.check_gnome(pkg_info)
-    elif vc_type == "svn":
-        tags = check_upstream.check_svn(pkg_info)
-    elif vc_type == "metacpan":
-        tags = check_upstream.check_metacpan(pkg_info)
-    elif vc_type == "pypi":
-        tags = check_upstream.check_pypi(pkg_info)
-    elif vc_type == "gitee":
-        tags = check_upstream.check_gitee(pkg_info)
-    elif vc_type == "gnu-ftp":
-        tags = check_upstream.check_gnu_ftp(pkg_info)
+
+    switcher = {
+        "hg":check_upstream.check_hg,
+        "hg-raw":check_upstream.check_hg_raw,
+        "github":check_upstream.check_github,
+        "git":check_upstream.check_git,
+        "gitlab.gnome":check_upstream.check_gnome,
+        "svn":check_upstream.check_svn,
+        "metacpan":check_upstream.check_metacpan,
+        "pypi":check_upstream.check_pypi,
+        "rubygem":check_upstream.check_rubygem,
+        "gitee":check_upstream.check_gitee,
+        "gnu-ftp":check_upstream.check_gnu_ftp
+        }
+
+    check_method = switcher.get(vc_type, None)
+    if check_method:
+        tags = check_method(pkg_info)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None
 
-    excpt_list = gt.get_version_exception()
+    excpt_list = my_gitee.get_version_exception()
     if repo in excpt_list:
         tags = _filter_except(excpt_list[repo], tags)
     return tags
@@ -105,7 +104,6 @@ def main():
         cur_version = cur_version[1:]
 
     print("Current version is", cur_version)
-
     pkg_tags = get_ver_tags(user_gitee, args.repo, args.default)
     print("known release tags:", pkg_tags)
 
@@ -113,7 +111,8 @@ def main():
         sys.exit(1)
 
     if cur_version not in pkg_tags:
-        print("WARNING: Current {ver} doesn't exist in upstream. Please double check.".format(ver=cur_version))
+        print("WARNING: Current {ver} doesn't exist in upstream."\
+              "Please double check.".format(ver=cur_version))
 
     ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
 
