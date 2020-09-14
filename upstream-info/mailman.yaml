@@ -1,6 +1,6 @@
 ---
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.gnu.org/pub/gnu/mailman
+tag_pattern: mailman-(.*).tgz(.sig)? 
+separator: "."
 download: ftp://ftp.gnu.org/pub/gnu/mailman/mailman-2.1.29.tar.gz

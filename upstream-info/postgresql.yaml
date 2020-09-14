@@ -1,5 +1,5 @@
 ---
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.postgresql.org/pub/source
+tag_pattern: v(.*)/
+separator: .

@@ -350,7 +350,7 @@ def check_github(info):
 
 def check_gnu_ftp(info):
     """
-    Check version info via compare ftp release tar file
+    Check version info via compare ftp release tar file for gnu
     """
     headers = {
         'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
@@ -368,6 +368,25 @@ def check_gnu_ftp(info):
     tags = clean_tags(tags, info)
     return tags
 
+def check_ftp(info):
+    """
+    Check version info via compare ftp release tar file
+    """
+    headers = {
+        'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
+    url = urljoin('ftp', info["src_repo"] + "/")
+    eprint("{repo} > List ftp directory".format(repo=url))
+    resp = requests.get(url, headers=headers)
+    resp = resp.text
+    re_pattern = re.compile("href=\"(.*)\">(.*)</a>")
+    tags = []
+    for line in resp.splitlines():
+        result = re_pattern.search(line)
+        if result:
+            tags.append(result[1])
+    tags = clean_tags(tags, info)
+    return tags
 
 def check_gnome(info):
     """

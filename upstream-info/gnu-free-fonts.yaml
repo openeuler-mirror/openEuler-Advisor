@@ -1,5 +1,5 @@
 ---
-version_control: NA
-src_repo: http://svn.savannah.gnu.org/svn/freefont
-tag_repo: RELEASE_
-separator: "."
+version_control: gnu-ftp
+src_repo: freefont
+tag_pattern: freefont-src-(.*).tar.gz(.sig)?
+separator: 
