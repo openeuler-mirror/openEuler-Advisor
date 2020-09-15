@@ -50,3 +50,15 @@ A-Tune:
 runc:
   dir: .
   file: runc-openeuler.spec
+libtcnative:
+  dir: .
+  file: libtcnative-1-0.spec
+three-eight-nine-ds-base:
+  dir: .
+  file: 389-ds-base.spec
+uwsgi:
+  dir: .
+  file: python-uwsgi.spec
+ndisc6:
+  dir: .
+  file: ndisc.spec
