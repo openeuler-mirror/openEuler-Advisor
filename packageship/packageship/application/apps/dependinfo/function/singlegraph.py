@@ -12,11 +12,14 @@
 # ******************************************************************************/
 """
 Data analysis of dependency graph
-
 """
 import random
-from ..serialize import BeDependSchema, BuildDependSchema, InstallDependSchema, SelfDependSchema
-
+from packageship.application.apps.package.function.searchdb import db_priority
+from packageship.application.apps.package.function.constants import ResponseCode
+from packageship.application.apps.package.serialize import BeDependSchema
+from packageship.application.apps.package.serialize import BuildDependSchema
+from packageship.application.apps.package.serialize import InstallDependSchema
+from packageship.application.apps.package.serialize import SelfDependSchema
 
 LEVEL = 2
 LEVEL_RADIUS = 120
@@ -37,6 +40,9 @@ class SelfBuildDep:
             'selfbuild': self.graph.selfbuild,
             'withsubpack': self.graph.withsubpack
         }
+        self.nodes = dict()
+        self.edges = dict()
+        self.depend_package = []
 
     def _validate(self):
         depend = SelfDependSchema().validate(self.query_parameter)
@@ -44,8 +50,42 @@ class SelfBuildDep:
             return False
         return True
 
-    def __call__(self):
+    def query_depend_relation(self):
+        """
+            Query dependency data
+        """
         pass
+
+    def _binary_packages(self):
+        """
+            Data analysis of binary package
+        """
+        pass
+
+    def _source_packages(self):
+        """
+            Data analysis of source code package
+        """
+        pass
+
+    def _parse_depend_graph(self):
+        """
+            Resolve the data in the dependency graph
+        """
+        if self.graph.packtype == 'binary':
+            self._binary_packages()
+        if self.graph.packtype == 'source':
+            self._source_packages()
+
+    def __call__(self):
+        if not self._validate():
+            return ResponseCode.PARAM_ERROR
+        database_error = self.graph._database_priority()
+        if database_error:
+            return database_error
+
+        self.query_depend_relation()
+        return None
 
 
 class InstallDep:
@@ -67,7 +107,12 @@ class InstallDep:
         return True
 
     def __call__(self):
-        pass
+        if not self._validate():
+            return ResponseCode.PARAM_ERROR
+        database_error = self.graph._database_priority()
+        if database_error:
+            return database_error
+        return None
 
 
 class BuildDep:
@@ -139,6 +184,12 @@ class BaseGraph:
                 'The query parameter type is wrong, and normal',
                 ' dependent data analysis cannot be completed')
         self.graph = depend_graph(self)
+        self._color = ['#4f19c7']
+
+    @property
+    def color(self):
+        """rgb random color value acquisition"""
+        return self._color[random.randint(0, len(self._color))]
 
     @staticmethod
     def dynamic_coordinate(level, upper_layer=True):
@@ -169,6 +220,26 @@ class BaseGraph:
         node_size = random.randint(
             min_value, max_value) * (1 - level / 6 * 1.0)
         return node_size
+
+    def _database_priority(self):
+
+        databases = db_priority()
+        if not databases:
+            return ResponseCode.FILE_NOT_FIND_ERROR
+        self.dbname = self.dbname if self.dbname else databases
+
+        if any(filter(lambda db_name: db_name not in databases, self.dbname)):
+            return ResponseCode.DB_NAME_ERROR
+        return None
+
+    @staticmethod
+    def create_dict(**kwargs):
+        """
+            Create dictionary data
+        """
+        if isinstance(kwargs, dict):
+            return kwargs
+        return dict()
 
     def parse_depend_graph(self):
         """Analyze the data that the graph depends on"""
