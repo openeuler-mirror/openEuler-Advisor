@@ -1,0 +1,4 @@
+version_control: github
+src_repo: TelepathyIM/telepathy-logger
+tag_prefix: telepathy-logger-
+separator: .

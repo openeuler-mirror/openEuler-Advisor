@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.com/virt-viewer/virt-viewer.git
+tag_prefix: ^v
+separator: .

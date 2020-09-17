@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/lib/libxcb-image.git
+tag_prefix: NA
+separator: .

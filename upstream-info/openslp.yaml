@@ -1,0 +1,4 @@
+version_control: github
+src_repo: openslp-org/openslp
+tag_prefix: openslp-
+separator: .
