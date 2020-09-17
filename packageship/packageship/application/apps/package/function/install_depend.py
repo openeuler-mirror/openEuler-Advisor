@@ -5,9 +5,8 @@ Description: Querying for install dependencies
 class: InstallDepend, DictionaryOperations
 """
 from packageship.libs.log import Log
-from .searchdb import SearchDB
-from .constants import ResponseCode
-from .constants import ListNode
+from packageship.application.apps.package.function.searchdb import SearchDB
+from packageship.application.apps.package.function.constants import ResponseCode, ListNode
 
 LOGGER = Log(__name__)
 
@@ -21,9 +20,11 @@ class InstallDepend():
         binary_dict: Contain all the binary packages info and operation
         __search_db: A object of database which would be connected
         not_found_components: Contain the package not found components
+        __already_pk_value: List of pkgKey found
     changeLog:
     """
-    #pylint: disable = too-few-public-methods
+
+    # pylint: disable = too-few-public-methods
     def __init__(self, db_list):
         """
         Initialization class
@@ -34,14 +35,16 @@ class InstallDepend():
         self.db_list = db_list
         self.__search_db = SearchDB(db_list)
         self.not_found_components = set()
+        self.__already_pk_value = []
 
-    def query_install_depend(self, binary_list, history_dicts=None):
+    def query_install_depend(self, binary_list, history_pk_val=None, history_dicts=None):
         """
         Description: init result dict and determint the loop end point
         Args:
             binary_list: A list of binary rpm package name
             history_dicts: record the searching install depend history,
                               defualt is None
+            history_pk_val:List of pkgKey found
         Returns:
              binary_dict.dictionary:
                     {binary_name: [
@@ -64,7 +67,8 @@ class InstallDepend():
             if binary:
                 self.__search_list.append(binary)
             else:
-                LOGGER.logger.warning("There is a  NONE in input value:" + str(binary_list))
+                LOGGER.logger.warning("There is a  NONE in input value: %s", str(binary_list))
+        self.__already_pk_value += history_pk_val if history_pk_val else []
         while self.__search_list:
             self.__query_single_install_dep(history_dicts)
         return ResponseCode.SUCCESS, self.binary_dict.dictionary, self.not_found_components
@@ -78,8 +82,14 @@ class InstallDepend():
             response_code: response code
         Raises:
         """
-        result_list, not_found_components = map(set, self.__search_db.get_install_depend(self.__search_list))
+        result_list, not_found_components, pk_val = map(
+            set,
+            self.__search_db.get_install_depend(self.__search_list,
+                                                self.__already_pk_value)
+        )
+
         self.not_found_components.update(not_found_components)
+        self.__already_pk_value += pk_val
         for search in self.__search_list:
             if search not in self.binary_dict.dictionary:
                 self.binary_dict.init_key(key=search, parent_node=[])
@@ -108,7 +118,7 @@ class InstallDepend():
                             version=history_dicts[result.depend_name][ListNode.VERSION],
                             dbname=None,
                             parent_node=[[result.search_name, 'install']]
-                            )
+                        )
                     else:
                         self.binary_dict.init_key(key=result.depend_name,
                                                   parent_node=[[result.search_name, 'install']])
@@ -129,6 +139,7 @@ class DictionaryOperations():
         """
         self.dictionary = dict()
 
+    # pylint: disable=R0913
     def init_key(self, key, src=None, version=None, dbname=None, parent_node=None):
         """
         Description: Creating dictionary
@@ -146,6 +157,7 @@ class DictionaryOperations():
         else:
             self.dictionary[key] = [src, version, dbname, parent_node]
 
+    # pylint: disable=R0913
     def update_value(self, key, src=None, version=None, dbname=None, parent_node=None):
         """
         Description: append dictionary

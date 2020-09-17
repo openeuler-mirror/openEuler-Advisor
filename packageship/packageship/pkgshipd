@@ -12,23 +12,35 @@ fi
 
 user=$(id | awk '{print $2}' | cut -d = -f 2)
 if [ "$user" == "0(root)" ]; then
-    echo "[INFO] Current user is root"
+    echo "[INFO] Current user is root."
 else
-    echo "[ERROR] Current user is not root, the service don't support common user."
+    echo "[ERROR] Current user is not root."
     exit 1
 fi
 
 function check_config_file(){
     echo "[INFO] Check validation of config file."
     check_null
-    
+
     echo "[INFO] Check validation of ip addresses."
     write_port=$(get_config "$service" "write_port")
     query_port=$(get_config "$service" "query_port")
     write_ip_addr=$(get_config "$service" "write_ip_addr")
     query_ip_addr=$(get_config "$service" "query_ip_addr")
-    check_addr $write_ip_addr $write_port
-    check_addr $query_ip_addr $query_port
+    if [[ -z $write_ip_addr ]]; then
+	    echo "[ERROR] The value of below config names is None in: $SYS_PATH/package.ini, Please check these parameters: write_ip_addr"
+	    exit 1
+    else
+	    check_addr $write_ip_addr $write_port
+    fi
+
+    if [[ -z $query_ip_addr ]]; then
+	    echo "[ERROR] The value of below config names is None in: $SYS_PATH/package.ini, Please check these parameters: query_ip_addr"
+	    exit 1
+    else
+	    check_addr $query_ip_addr $query_port
+    fi
+
     echo "[INFO] IP addresses are all valid."
 
     echo "[INFO] Check validation of numbers."
@@ -47,8 +59,8 @@ function check_config_file(){
     echo "[INFO] Check validation of words."
     log_level=$(get_config "$service" "log_level")
     open=$(get_config "$service" "open")
-    check_word $log_level "INFO|DEBUG|WARNING|ERROR|CRITICAL" "log_level"
-    check_word $open "True|False" "open"
+    check_word "log_level" "INFO|DEBUG|WARNING|ERROR|CRITICAL" $log_level
+    check_word "open" "True|False" $open
     echo "[INFO] All words are valid."
 
     echo "[INFO] Config file checked valid."
@@ -67,7 +79,7 @@ function check_addr(){
         echo "[ERROR] Invalid ip of $1"
         exit 1
     fi
-    check_num $2 "port"
+    check_num ${2-"port"} "port"
     if [[ $2 -gt 65534 || $2 -lt 1025 ]]; then
         echo "[ERROR] Invalid port of $2"
         exit 1
@@ -100,16 +112,21 @@ function check_num(){
 }
 
 function check_word(){
-    result=`echo $1 | grep -wE "$2"`
+    if [ -z $3 ]; then
+	echo "[ERROR] The value of below config names is None in: $SYS_PATH/package.ini, Please check these parameters: $1"
+	exit 1
+    fi
+
+    result=`echo $3 | grep -wE "$2"`
     if [ $? -ne 0 ]; then
-        echo "[ERROR] $3 should be $2."
+        echo "[ERROR] $1 should be $2."
         exit 1
     fi
 }
 
 
 function get_config(){
-    cat $SYS_PATH/package.ini | grep -E ^$2 | sed s/[[:space:]]//g | awk 'BEGIN{FS="="}{print $2}'
+    cat $SYS_PATH/package.ini | grep -E ^$2 | sed 's/[[:space:]]//g' | awk 'BEGIN{FS="="}{print $2}'
 }
 
 function create_config_file(){
@@ -120,12 +137,12 @@ function create_config_file(){
     harakiri=$(get_config "$service" "harakiri")
     uwsgi_file_path=$(find /usr/lib/ -name "packageship" | head -n 1)
     echo "[INFO] run packageship under path: $uwsgi_file_path"
-    if [ $service = "manage" -o $service = "all" ];then
+    if [ $service = "manage" -o $service = "all" ]; then
         write_port=$(get_config "$service" "write_port")
         write_ip_addr=$(get_config "$service" "write_ip_addr")
         if [[ -z "$daemonize" ]] || [[ -z "$buffer_size" ]] || [[ -z "$write_ip_addr" ]] || [[ -z "$http_timeout" ]] || [[ -z "$harakiri" ]] || [[ -z "$write_port" ]];
         then
-            echo "[ERROR] CAN NOT find  all config name in: $SYS_PATH/package.ini, Please check the file"
+            echo "[ERROR] CAN NOT find all config name in: $SYS_PATH/package.ini, Please check the file"
             echo "[ERROR] The following config name is needed: daemonize, buffer-size, write_port, write_ip_addr, harakiri and http-timeout"
             exit 1
         fi

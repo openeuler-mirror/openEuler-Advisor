@@ -1,10 +1,10 @@
-- bin_db_file: 
+- bin_db_file:
   dbname: mainline
   priority: 1
-  src_db_file: 
+  src_db_file:
   lifecycle: enable
-- bin_db_file: 
+- bin_db_file:
   dbname: fedora30
   priority: 2
-  src_db_file: 
+  src_db_file:
   lifecycle: enable

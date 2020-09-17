@@ -20,8 +20,10 @@ class BuildDepend():
         result_dict:A dictionary to store the data that needs to be echoed
         source_dict:A dictionary to store the searched source code package name
         not_found_components: Contain the package not found components
+        __already_pk_val:List of pkgKey found
     """
 
+    # pylint: disable = R0902
     def __init__(self, pkg_name_list, db_list, self_build=0, history_dict=None):
         """
         init class
@@ -37,6 +39,8 @@ class BuildDepend():
 
         self.history_dicts = history_dict if history_dict else {}
         self.not_found_components = set()
+
+        self.__already_pk_val = []
 
     def build_depend_main(self):
         """
@@ -67,7 +71,8 @@ class BuildDepend():
             #    Here, a place holder is needed to prevent unpacking errors during call
             # 2, This function is an auxiliary function of other modules.
             #    The status code is not the final display status code
-            return ResponseCode.SUCCESS, self.result_dict, self.source_dict, self.not_found_components
+            return (ResponseCode.SUCCESS, self.result_dict,
+                    self.source_dict, self.not_found_components)
 
         return ResponseCode.PARAM_ERROR, None, None, set()
 
@@ -80,7 +85,13 @@ class BuildDepend():
              ResponseCode: response code
         Raises:
         """
-        res_status, build_list, not_fd_com_build = self.search_db.get_build_depend(pkg_list)
+        (res_status,
+         build_list,
+         not_fd_com_build,
+         pk_v
+         ) = self.search_db.get_build_depend(pkg_list, self.__already_pk_val)
+
+        self.__already_pk_val += pk_v
         self.not_found_components.update(not_fd_com_build)
         if not build_list:
             return res_status if res_status == ResponseCode.DIS_CONNECTION_DB else \
@@ -91,7 +102,8 @@ class BuildDepend():
 
         code, res_dict, not_fd_com_install = \
             InstallDepend(self.db_list).query_install_depend(search_list,
-                                                             self.history_dicts)
+                                                             self.history_dicts,
+                                                             self.__already_pk_val)
         self.not_found_components.update(not_fd_com_install)
         if not res_dict:
             return code
@@ -189,7 +201,13 @@ class BuildDepend():
             return
 
         next_src_set = set()
-        _, bin_info_lis, not_fd_com = self.search_db.get_build_depend(pkg_name_li)
+        (_,
+         bin_info_lis,
+         not_fd_com,
+         pk_v
+         ) = self.search_db.get_build_depend(pkg_name_li,
+                                             self.__already_pk_val)
+        self.__already_pk_val += pk_v
         self.not_found_components.update(not_fd_com)
         if not bin_info_lis:
             return
