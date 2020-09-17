@@ -8,11 +8,11 @@ class: SelfDepend, DictionaryOperations
 
 import copy
 from packageship.libs.log import Log
-from .searchdb import SearchDB
-from .constants import ResponseCode
-from .constants import ListNode
-from .install_depend import InstallDepend as install_depend
-from .build_depend import BuildDepend as build_depend
+from packageship.application.apps.package.function.searchdb import SearchDB
+from packageship.application.apps.package.function.constants import ResponseCode, ListNode
+from packageship.application.apps.package.function.install_depend import InstallDepend \
+    as install_depend
+from packageship.application.apps.package.function.build_depend import BuildDepend as build_depend
 
 LOGGER = Log(__name__)
 
@@ -35,6 +35,8 @@ class SelfDepend():
         search_db: A object of database which would be connected
         not_found_components: Contain the package not found components
     """
+
+    # pylint: disable = R0902
     def __init__(self, db_list):
         """
         init class
@@ -72,7 +74,8 @@ class SelfDepend():
         self.withsubpack = withsubpack
         response_code = self.init_dict(packname, packtype)
         if response_code != ResponseCode.SUCCESS:
-            return response_code, self.binary_dict.dictionary, self.source_dicts.dictionary, self.not_found_components
+            return (response_code, self.binary_dict.dictionary,
+                    self.source_dicts.dictionary, self.not_found_components)
 
         for key, _ in self.binary_dict.dictionary.items():
             self.search_install_list.append(key)
@@ -88,7 +91,8 @@ class SelfDepend():
                 self.with_subpack()
             if self.search_build_list:
                 self.query_build(selfbuild)
-        return response_code, self.binary_dict.dictionary, self.source_dicts.dictionary, self.not_found_components
+        return (response_code, self.binary_dict.dictionary,
+                self.source_dicts.dictionary, self.not_found_components)
 
     def init_dict(self, packname, packtype):
         """
@@ -105,7 +109,7 @@ class SelfDepend():
             if subpack_list:
                 for subpack_tuple, dbname in subpack_list:
                     self.source_dicts.append_src(packname, dbname, subpack_tuple.search_version)
-                    if dbname != 'NOT_FOUND':
+                    if dbname != 'NOT FOUND':
                         self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
                                                     src=packname,
                                                     version=subpack_tuple.search_version,
@@ -155,7 +159,8 @@ class SelfDepend():
                     db_, src_version_ = self.search_db.get_version_and_db(source_name)
                     self.source_dicts.append_src(key=source_name,
                                                  dbname=db_ if db_ else values[ListNode.DBNAME],
-                                                 version=src_version_ if src_version_ else values[ListNode.VERSION])
+                                                 version=src_version_
+                                                 if src_version_ else values[ListNode.VERSION])
                     self.search_build_list.append(source_name)
                     if self.withsubpack == 1:
                         self.search_subpack_list.append(source_name)
@@ -168,13 +173,14 @@ class SelfDepend():
         Raises:
         """
         if None in self.search_subpack_list:
-            LOGGER.logger.warning("There is a  NONE in input value:" + \
-                str(self.search_subpack_list))
+            LOGGER.logger.warning("There is a  NONE in input value: %s",
+                                  str(self.search_subpack_list))
             self.search_subpack_list.remove(None)
         _, result_list = self.search_db.get_sub_pack(self.search_subpack_list)
         for subpack_tuple, dbname in result_list:
-            if dbname != 'NOT_FOUND':
-                if subpack_tuple.subpack_name and subpack_tuple.subpack_name not in self.binary_dict.dictionary:
+            if dbname != 'NOT FOUND':
+                if subpack_tuple.subpack_name and subpack_tuple.subpack_name \
+                        not in self.binary_dict.dictionary:
                     self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
                                                 src=subpack_tuple.search_name,
                                                 version=subpack_tuple.sub_pack_version,
@@ -214,7 +220,7 @@ class SelfDepend():
         self.search_build_list.clear()
         for key, values in self.result_tmp.items():
             if not key:
-                LOGGER.logger.warning("key is NONE for value = " + str(values))
+                LOGGER.logger.warning("key is NONE for value = %s", str(values))
                 continue
             if key not in self.binary_dict.dictionary and values[0] != 'source':
                 self.binary_dict.dictionary[key] = copy.deepcopy(values)
@@ -225,11 +231,13 @@ class SelfDepend():
                     db_, src_version_ = self.search_db.get_version_and_db(source_name)
                     self.source_dicts.append_src(key=source_name,
                                                  dbname=db_ if db_ else values[ListNode.DBNAME],
-                                                 version=src_version_ if src_version_ else values[ListNode.VERSION])
+                                                 version=src_version_
+                                                 if src_version_ else values[ListNode.VERSION])
                     if self.withsubpack == 1:
                         self.search_subpack_list.append(source_name)
                     elif key in self.binary_dict.dictionary:
-                        self.binary_dict.update_value(key=key, parent_list=values[ListNode.PARENT_LIST])
+                        self.binary_dict.update_value(key=key,
+                                                      parent_list=values[ListNode.PARENT_LIST])
 
     def query_selfbuild(self):
         """
@@ -246,7 +254,7 @@ class SelfDepend():
         self.not_found_components.update(not_fd_com)
         for key, values in self.result_tmp.items():
             if not key:
-                LOGGER.logger.warning("key is NONE for value = " + str(values))
+                LOGGER.logger.warning("key is NONE for value = %s", str(values))
                 continue
             if key in self.binary_dict.dictionary:
                 self.binary_dict.update_value(key=key, parent_list=values[ListNode.PARENT_LIST])
@@ -255,11 +263,11 @@ class SelfDepend():
                 self.search_install_list.append(key)
         for key, values in source_dicts_tmp.items():
             if not key:
-                LOGGER.logger.warning("key is NONE for value = " + str(values))
+                LOGGER.logger.warning("key is NONE for value = %s", str(values))
                 continue
             if key not in self.source_dicts.dictionary:
                 self.source_dicts.dictionary[key] = copy.deepcopy(values)
-                if self.with_subpack == 1:
+                if self.withsubpack == 1:
                     self.search_subpack_list.append(key)
         self.search_build_list.clear()
 
@@ -289,6 +297,7 @@ class DictionaryOperations():
         """
         self.dictionary[key] = [dbname, version]
 
+    # pylint: disable=R0913
     def append_bin(self, key, src=None, version=None, dbname=None, parent_node=None):
         """
         Description: Appending binary dictionary
