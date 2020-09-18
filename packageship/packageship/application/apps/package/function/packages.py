@@ -313,7 +313,8 @@ def _sub_pack(src_name, table_name):
                 pro_info = res[pro_obj.sub_name]["provides"]
                 if pro_obj.sub_pro_name in pro_info:
                     pro_info[pro_obj.sub_pro_name]["requiredby"].update(
-                        {pro_obj.sub_reqby_name: pro_obj.sub_reqby_name})
+                        {pro_obj.sub_reqby_name: pro_obj.sub_reqby_name}
+                        if pro_obj.sub_reqby_name else {})
                 else:
                     pro_info.update(
                         {
@@ -368,7 +369,8 @@ def _sub_pack(src_name, table_name):
                 req_info = sub_pkg_info["requires"]
                 if req_obj.sub_req_name in req_info:
                     req_info[req_obj.sub_req_name]["providedby"].update(
-                        {req_obj.sub_proby_name: req_obj.sub_proby_name})
+                        {req_obj.sub_proby_name: req_obj.sub_proby_name}
+                        if req_obj.sub_proby_name else {})
                 else:
                     req_info.update(
                         {
