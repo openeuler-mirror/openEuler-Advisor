@@ -84,8 +84,8 @@ class InitDataBase():
 
         if not os.path.exists(self.config_file_path):
             raise FileNotFoundError(
-                'system initialization configuration file \
-                    does not exist: %s' % self.config_file_path)
+                "system initialization configuration file"
+                "does not exist: %s" % self.config_file_path)
         # load yaml configuration file
         with open(self.config_file_path, 'r', encoding='utf-8') as file_context:
             try:
@@ -93,24 +93,25 @@ class InitDataBase():
                     file_context.read(), Loader=yaml.FullLoader)
             except yaml.YAMLError as yaml_error:
 
-                raise ConfigurationException(' '.join("The format of the yaml configuration\
-                     file is wrong please check and try again:{0}".format(yaml_error).split()))
+                raise ConfigurationException(
+                    "The format of the yaml configuration"
+                    "file is wrong please check and try again:{0}".format(yaml_error))
 
             if init_database_config is None:
                 raise ConfigurationException(
                     'The content of the database initialization configuration file cannot be empty')
             if not isinstance(init_database_config, list):
                 raise ConfigurationException(
-                    ' '.join('The format of the initial database configuration file\
-                        is incorrect.When multiple databases need to be initialized, \
-                        it needs to be configured in the form of multiple \
-                        nodes:{}'.format(self.config_file_path).split()))
+                    "The format of the initial database configuration file"
+                    "is incorrect.When multiple databases need to be initialized,"
+                    "it needs to be configured in the form of multiple"
+                    "nodes:{}".format(self.config_file_path))
             for config_item in init_database_config:
                 if not isinstance(config_item, dict):
-                    raise ConfigurationException(' '.join('The format of the initial database\
-                        configuration file is incorrect, and the value in a single node should\
-                        be presented in the form of key - val pairs: \
-                        {}'.format(self.config_file_path).split()))
+                    raise ConfigurationException(
+                        "The format of the initial database"
+                        "configuration file is incorrect, and the value in a single node should"
+                        "be presented in the form of key - val pairs:{}".format(self.config_file_path))
             return init_database_config
 
     def init_data(self):
@@ -122,8 +123,8 @@ class InitDataBase():
         """
         if getattr(self, 'config_file_datas', None) is None or \
                 self.config_file_datas is None:
-            raise ContentNoneException('The content of the database initialization \
-                configuration file is empty')
+            raise ContentNoneException("The content of the database initialization"
+                                       "configuration file is empty")
 
         if self.__exists_repeat_database():
             raise DatabaseRepeatException(
@@ -139,13 +140,13 @@ class InitDataBase():
                 continue
             priority = database_config.get('priority')
             if not isinstance(priority, int) or priority < 0 or priority > 100:
-                LOGGER.logger.error('The priority value type in the database initialization \
-                    configuration file is incorrect')
+                LOGGER.logger.error("The priority value type in the database initialization"
+                                    "configuration file is incorrect")
                 continue
             lifecycle_status_val = database_config.get('lifecycle')
             if lifecycle_status_val not in ('enable', 'disable'):
-                LOGGER.logger.error('The status value of the life cycle in the initialization\
-                    configuration file can only be enable or disable')
+                LOGGER.logger.error("The value of the life cycle in the initialization"
+                                    "configuration file can only be enable or disable")
                 continue
             # Initialization data
             self._init_data(database_config)
@@ -163,8 +164,8 @@ class InitDataBase():
         """
         _database_engine = self._database_engine.get(self.db_type)
         if not _database_engine:
-            raise Error('The database engine is set incorrectly, \
-            currently only the following engines are supported: %s '
+            raise Error("The database engine is set incorrectly,"
+                        "currently only the following engines are supported: %s "
                         % '、'.join(self._database_engine.keys()))
         _create_table_result = _database_engine(
             db_name=db_name, tables=tables, storage=storage).create_database(self)
@@ -200,11 +201,12 @@ class InitDataBase():
 
             if src_db_file is None or bin_db_file is None:
                 raise ContentNoneException(
-                    'The path to the sqlite file in the database initialization configuration \
-                    is incorrect ')
+                    "The path to the sqlite file in the database initialization"
+                    "configuration is incorrect ")
             if not os.path.exists(src_db_file) or not os.path.exists(bin_db_file):
-                raise FileNotFoundError("sqlite file {src} or {bin} does not exist, please \
-                    check and try again".format(src=src_db_file, bin=bin_db_file))
+                raise FileNotFoundError(
+                    "sqlite file {src} or {bin} does not exist, please"
+                    "check and try again".format(src=src_db_file, bin=bin_db_file))
             # 3. Obtain temporary source package files and binary package files
             if self.__save_data(database_config,
                                 self.database_name):
@@ -314,23 +316,20 @@ class InitDataBase():
 
         Args:
             db_name: Saved database name
-        Returns:
-
-        Raises:
-
         """
         # Query all source packages
         self.sql = " select * from packages "
         packages_datas = self.__get_data()
         if packages_datas is None:
             raise ContentNoneException(
-                '{db_name}:There is no relevant data in the source \
-                    package provided '.format(db_name=db_name))
+                "{db_name}:There is no relevant data in the source "
+                "package provided ".format(db_name=db_name))
         for index, src_package_item in enumerate(packages_datas):
             try:
                 src_package_name = '-'.join([src_package_item.get('name'),
                                              src_package_item.get('version'),
-                                             src_package_item.get('release') + '.src.rpm'
+                                             src_package_item.get(
+                                                 'release') + '.src.rpm'
                                              ])
             except AttributeError as exception_msg:
                 src_package_name = None
@@ -391,8 +390,9 @@ class InitDataBase():
         self.sql = " select * from requires "
         requires_datas = self.__get_data()
         if requires_datas is None:
-            raise ContentNoneException('{db_name}: The package data that the source package \
-                depends on is empty'.format(db_name=db_name))
+            raise ContentNoneException(
+                "{db_name}: The package data that the source package "
+                "depends on is empty".format(db_name=db_name))
         with DBHelper(db_name=db_name) as database:
             database.batch_add(requires_datas, SrcRequires)
 
@@ -411,8 +411,8 @@ class InitDataBase():
         bin_packaegs = self.__get_data()
         if bin_packaegs is None:
             raise ContentNoneException(
-                '{db_name}:There is no relevant data in the provided \
-                     binary package '.format(db_name=db_name))
+                "{db_name}:There is no relevant data in the provided "
+                "binary package ".format(db_name=db_name))
         for index, bin_package_item in enumerate(bin_packaegs):
             try:
                 src_package_name = bin_package_item.get('rpm_sourcerpm').split(
@@ -441,8 +441,8 @@ class InitDataBase():
         requires_datas = self.__get_data()
         if requires_datas is None:
             raise ContentNoneException(
-                '{db_name}:There is no relevant data in the provided binary \
-                    dependency package'.format(db_name=db_name))
+                "{db_name}:There is no relevant data in the provided binary "
+                "dependency package".format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
             database.batch_add(requires_datas, BinRequires)
@@ -462,8 +462,8 @@ class InitDataBase():
         provides_datas = self.__get_data()
         if provides_datas is None:
             raise ContentNoneException(
-                '{db_name}:There is no relevant data in the provided \
-                    binary component '.format(db_name=db_name))
+                "{db_name}:There is no relevant data in the provided "
+                "binary component ".format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
             database.batch_add(provides_datas, BinProvides)
@@ -474,8 +474,8 @@ class InitDataBase():
         files_datas = self.__get_data()
         if files_datas is None:
             raise ContentNoneException(
-                '{db_name}:There is no relevant binary file installation\
-                    path data in the provided database '.format(db_name=db_name))
+                "{db_name}:There is no relevant binary file installation "
+                "path data in the provided database ".format(db_name=db_name))
 
         with DBHelper(db_name=db_name) as database:
             database.batch_add(files_datas, BinFiles)

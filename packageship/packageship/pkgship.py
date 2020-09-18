@@ -25,8 +25,8 @@ try:
 
     LOGGER = Log(__name__)
 except ImportError as import_error:
-    print('Error importing related dependencies, \
-            please check if related dependencies are installed')
+    print("Error importing related dependencies,"
+          "please check if related dependencies are installed")
 else:
     from packageship.application.apps.package.function.constants import ResponseCode
     from packageship.application.apps.package.function.constants import ListNode
@@ -230,7 +230,9 @@ class PkgshipCommand(BaseCommand):
                     if package_all.get("not_found_components"):
                         print("Problem: Not Found Components")
                         for not_found_com in package_all.get("not_found_components"):
-                            print("  - nothing provides {} needed by {} ".format(not_found_com, params.packagename))
+                            print(
+                                "  - nothing provides {} needed by {} ".
+                                format(not_found_com, params.packagename))
                     package_all = package_all.get("build_dict")
 
                 for bin_package, package_depend in package_all.items():
@@ -835,7 +837,9 @@ class InstallDepCommand(PkgshipCommand):
                 if package_all.get("not_found_components"):
                     print("Problem: Not Found Components")
                     for not_found_com in package_all.get("not_found_components"):
-                        print("  - nothing provides {} needed by {} ".format(not_found_com, params.packagename))
+                        print(
+                            "  - nothing provides {} needed by {} ".
+                            format(not_found_com, params.packagename))
                 for bin_package, package_depend in package_all.get("install_dict").items():
                     # distinguish whether the current data is the data of the root node
                     if isinstance(package_depend, list) and package_depend[-1][0][0] != 'root':
@@ -1061,7 +1065,9 @@ class SelfBuildCommand(PkgshipCommand):
                 if package_all.get("not_found_components"):
                     print("Problem: Not Found Components")
                     for not_found_com in package_all.get("not_found_components"):
-                        print("  - nothing provides {} needed by {} ".format(not_found_com, params.packagename))
+                        print(
+                            "  - nothing provides {} needed by {} ".
+                            format(not_found_com, params.packagename))
                 bin_package_count = self._parse_bin_package(
                     package_all.get('binary_dicts'))
 

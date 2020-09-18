@@ -279,8 +279,8 @@ class DBHelper(BaseHelper):
 
         if not isinstance(dicts, list):
             raise TypeError(
-                'The input for bulk insertion must be a dictionary \
-                list with the same fields as the current entity')
+                "The input for bulk insertion must be a dictionary"
+                "list with the same fields as the current entity")
         try:
             self.session.execute(
                 model.__table__.insert(),
