@@ -22,8 +22,12 @@ def check_token():
     gitee_token = app.config['GITEE_ACCESS_TOKEN']
     github_token = app.config['GITHUB_ACCESS_TOKEN']
     token_error = False
-    github_ret = github_api.get_user_info(github_token)
-    if github_ret[0] != "success":
+    try:
+        github_ret = github_api.get_user_info(github_token)
+        if github_ret[0] != "success":
+            logger.error('github token is bad credentials.')
+            token_error = True
+    except UnicodeEncodeError:
         logger.error('github token is bad credentials.')
         token_error = True
 
@@ -33,7 +37,7 @@ def check_token():
         token_error = True
 
     if token_error:
-        sys.exit()
+        sys.exit(1)
 
 
 def check_listen(listen_param):
@@ -81,11 +85,21 @@ def check_settings_conf():
             logger.error('%s not configured in settings.conf.', setting)
             setting_error = True
     if setting_error:
-        sys.exit()
+        sys.exit(1)
 
 
 settings_file = os.path.join(os.path.abspath(os.curdir), "settings.conf")
-app.config.from_pyfile(settings_file)
+try:
+    app.config.from_pyfile(settings_file)
+    app.config["LISTEN"] = app.config["LISTEN"].strip()
+    app.config["GITHUB_ACCESS_TOKEN"] = app.config["GITHUB_ACCESS_TOKEN"].strip()
+    app.config["GITEE_ACCESS_TOKEN"] = app.config["GITEE_ACCESS_TOKEN"].strip()
+    app.config["USER"] = app.config["USER"].strip()
+    app.config["PASSWORD"] = app.config["PASSWORD"].strip()
+except (SyntaxError, NameError):
+    logger.error('settings.py content format error.')
+    sys.exit(1)
+
 check_settings_conf()
 check_token()
 
