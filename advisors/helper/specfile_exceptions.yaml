@@ -62,3 +62,6 @@ uwsgi:
 ndisc6:
   dir: .
   file: ndisc.spec
+liberation-sans-fonts
+  dir: .
+  file liberation-fonts.spec
