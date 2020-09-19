@@ -9,6 +9,7 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.exc import DisconnectionError
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.engine.url import URL
 from packageship.libs.exception.ext import Error
@@ -252,6 +253,8 @@ class DBHelper(BaseHelper):
 
         except SQLAlchemyError as sql_error:
             self.session.rollback()
+            if isinstance(sql_error, OperationalError):
+                raise OperationalError
             raise Error(sql_error)
         else:
             self.session.commit()

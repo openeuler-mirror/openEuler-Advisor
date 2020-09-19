@@ -372,7 +372,7 @@ class IssueType(Resource):
             TypeError: Exception of type
             Error: Abnormal error
         """
-        return self._get_issue_type()        
+        return self._get_issue_type()
 
 
 class IssueStatus(Resource):
@@ -412,7 +412,7 @@ class IssueStatus(Resource):
             Error: Abnormal error
         """
         return self._get_issue_status()
-        
+
 
 class IssueCatch(Resource):
     """
@@ -458,7 +458,7 @@ class IssueCatch(Resource):
                 pool_workers = 10
             pool = ThreadPoolExecutor(max_workers=pool_workers)
             with DBHelper(db_name="lifecycle") as database:
-                for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer'],
+                for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer', 'database_info'],
                                          database.engine.table_names()):
                     cls_model = Packages.package_meta(table_name)
                     for package_item in database.session.query(cls_model).filter(
