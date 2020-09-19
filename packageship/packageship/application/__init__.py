@@ -2,8 +2,6 @@
 """
    Initial operation and configuration of the flask project
 """
-import sys
-import threading
 from flask import Flask
 from flask_session import Session
 from flask_apscheduler import APScheduler
@@ -19,7 +17,9 @@ def _timed_task(app):
     """
     Timed task function
     """
-    from .apps.lifecycle.function.download_yaml import update_pkg_info  # pylint: disable=import-outside-toplevel
+    # disable=import-outside-toplevel Avoid circular import problems,so import inside the function
+    # pylint: disable=import-outside-toplevel
+    from packageship.application.apps.lifecycle.function.download_yaml import update_pkg_info
 
     _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
     try:
@@ -34,6 +34,7 @@ def _timed_task(app):
         if _minute < 0 or _minute > 59:
             _minute = 0
 
+    # disable=no-member Dynamic variable pylint is not recognized
     app.apscheduler.add_job(  # pylint: disable=no-member
         func=update_pkg_info, id="update_package_data", trigger="cron", hour=_hour, minute=_minute)
     app.apscheduler.add_job(  # pylint: disable=no-member
@@ -52,7 +53,8 @@ def init_app(operation):
     app = Flask(__name__)
 
     # log configuration
-    app.logger.addHandler(setup_log(Config))
+    # disable=no-member Dynamic variable pylint is not recognized
+    app.logger.addHandler(setup_log(Config()))  # pylint: disable=no-member
 
     # Load configuration items
 
@@ -66,10 +68,12 @@ def init_app(operation):
     # Open session function
     Session(app)
 
+    # Variables OPERATION need to be modified within the function and imported in other modules
     global OPERATION  # pylint: disable=global-statement
     OPERATION = operation
 
     # Register Blueprint
+    # disable=import-outside-toplevel Avoid circular import problems,so import inside the function
     from packageship.application import apps  # pylint: disable=import-outside-toplevel
     for blue, api in apps.blue_point:
         api.init_app(app)
