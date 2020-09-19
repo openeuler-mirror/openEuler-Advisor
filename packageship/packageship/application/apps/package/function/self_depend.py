@@ -106,16 +106,20 @@ class SelfDepend():
         """
         if packtype == 'source':
             response_code, subpack_list = self.search_db.get_sub_pack([packname])
-            if subpack_list:
-                for subpack_tuple, dbname in subpack_list:
-                    self.source_dicts.append_src(packname, dbname, subpack_tuple.search_version)
-                    if dbname != 'NOT FOUND':
-                        self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
-                                                    src=packname,
-                                                    version=subpack_tuple.search_version,
-                                                    dbname=dbname)
-                    else:
-                        return ResponseCode.PACK_NAME_NOT_FOUND
+            if not subpack_list:
+                return ResponseCode.PACK_NAME_NOT_FOUND
+
+            for subpack_tuple, dbname in subpack_list:
+                self.source_dicts.append_src(packname, dbname, subpack_tuple.search_version)
+                if dbname == 'NOT FOUND':
+                    continue
+
+                if subpack_tuple.subpack_name and subpack_tuple.subpack_name \
+                        not in self.binary_dict.dictionary:
+                    self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
+                                                src=packname,
+                                                version=subpack_tuple.search_version,
+                                                dbname=dbname)
 
         else:
             response_code, dbname, source_name, version = \
@@ -178,15 +182,17 @@ class SelfDepend():
             self.search_subpack_list.remove(None)
         _, result_list = self.search_db.get_sub_pack(self.search_subpack_list)
         for subpack_tuple, dbname in result_list:
-            if dbname != 'NOT FOUND':
-                if subpack_tuple.subpack_name and subpack_tuple.subpack_name \
-                        not in self.binary_dict.dictionary:
-                    self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
-                                                src=subpack_tuple.search_name,
-                                                version=subpack_tuple.sub_pack_version,
-                                                dbname=dbname,
-                                                parent_node=[subpack_tuple.search_name, 'Subpack'])
-                    self.search_install_list.append(subpack_tuple.subpack_name)
+            if dbname == 'NOT FOUND':
+                continue
+
+            if subpack_tuple.subpack_name and subpack_tuple.subpack_name \
+                    not in self.binary_dict.dictionary:
+                self.binary_dict.append_bin(key=subpack_tuple.subpack_name,
+                                            src=subpack_tuple.search_name,
+                                            version=subpack_tuple.sub_pack_version,
+                                            dbname=dbname,
+                                            parent_node=[subpack_tuple.search_name, 'Subpack'])
+                self.search_install_list.append(subpack_tuple.subpack_name)
         self.search_subpack_list.clear()
 
     def query_build(self, selfbuild):
