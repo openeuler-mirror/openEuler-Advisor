@@ -64,4 +64,4 @@ ndisc6:
   file: ndisc.spec
 liberation-sans-fonts
   dir: .
-  file liberation-fonts.spec
+  file: liberation-fonts.spec
