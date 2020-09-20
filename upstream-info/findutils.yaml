@@ -1,0 +1,5 @@
+---
+version_control: ftp
+src_repo: https://ftp.gnu.org/pub/gnu/findutils/
+tag_pattern: "findutils-(.*).tar.xz.(sig)?"
+separator: "."

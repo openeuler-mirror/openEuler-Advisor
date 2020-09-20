@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: AdoptOpenJDK/IcedTea-Web
+tag_prefix: "^icedtea-web-"
+separator: "."

@@ -1,0 +1,5 @@
+---
+version_control: ftp
+src_repo: http://www.e-cap.org/archive/
+tag_pattern: libecap-(.*).tar.gz
+separator: "."

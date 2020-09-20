@@ -1,0 +1,5 @@
+---
+version_control: gitlab.gnome
+src_repo: gnome-boxes
+tag_prefix: "^v"
+separator: "."

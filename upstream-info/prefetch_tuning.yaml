@@ -1,0 +1,5 @@
+---
+version_control: gitee
+src_repo: openEuler/prefetch_tuning 
+tag_prefix: "^v"
+separator: "."

@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: pmattes/x3270
+tag_pattern: (.*)ga*
+separator: "."
