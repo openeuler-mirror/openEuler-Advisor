@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.onelab.info/gl2ps/gl2ps
+tag_prefix: gl2ps_
+separator: _

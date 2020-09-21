@@ -1,0 +1,4 @@
+version_control: github
+src_repo: adrian-thurston/ragel
+tag_prefix: ragel-
+separator: .

@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/xfce/libxfce4ui
+tag_prefix: libxfce4ui-
+separator: .

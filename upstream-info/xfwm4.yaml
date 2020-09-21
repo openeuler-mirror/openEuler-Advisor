@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/xfce/xfwm4
+tag_prefix: xfwm4-
+separator: .

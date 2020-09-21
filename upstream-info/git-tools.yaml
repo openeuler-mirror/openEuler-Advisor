@@ -1,0 +1,4 @@
+version_control: github
+src_repo: MestreLion/git-tools
+tag_prefix: ^v
+separator: .

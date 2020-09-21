@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/thunar-plugins/thunar-media-tags-plugin
+tag_prefix: thunar-media-tags-plugin-
+separator: .

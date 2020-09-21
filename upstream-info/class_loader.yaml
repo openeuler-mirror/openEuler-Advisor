@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ros-gbp/class_loader-release
+tag_prefix: upstream/
+separator: .

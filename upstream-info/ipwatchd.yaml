@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jariq/IPwatchD
+tag_prefix: ^v
+separator: .

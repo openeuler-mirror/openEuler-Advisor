@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/xfce/thunar-volman
+tag_prefix: thunar-volman-
+separator: .

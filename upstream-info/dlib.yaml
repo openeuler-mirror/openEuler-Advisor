@@ -1,0 +1,4 @@
+version_control: github
+src_repo: davisking/dlib
+tag_prefix: ^v
+separator: .

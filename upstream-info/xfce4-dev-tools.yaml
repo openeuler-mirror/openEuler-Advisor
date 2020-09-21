@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/xfce/xfce4-dev-tools
+tag_prefix: xfce4-dev-tools-
+separator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: gottcode/xfce4-whiskermenu-plugin
+tag_prefix: ^v
+separator: .

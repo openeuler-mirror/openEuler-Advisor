@@ -1,0 +1,4 @@
+version_control: github
+src_repo: LINBIT/drbd
+tag_prefix: drbd-
+separator: .

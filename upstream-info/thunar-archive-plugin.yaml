@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/thunar-plugins/thunar-archive-plugin
+tag_prefix: thunar-archive-plugin-
+separator: .

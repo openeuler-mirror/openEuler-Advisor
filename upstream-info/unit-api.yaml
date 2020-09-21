@@ -1,0 +1,4 @@
+version_control: github
+src_repo: unitsofmeasurement/unit-api
+tag_prefix: NA
+separator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: openlink/iODBC
+tag_prefix: ^v
+separator: .

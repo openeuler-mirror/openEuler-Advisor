@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/thunar-plugins/thunar-vcs-plugin
+tag_prefix: thunar-vcs-plugin-
+separator: .

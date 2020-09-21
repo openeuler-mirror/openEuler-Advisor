@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/apps/xfce4-notifyd
+tag_prefix: xfce4-notifyd-
+separator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: emilengler/sysget
+tag_prefix: ^v
+separator: .

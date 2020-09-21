@@ -1,0 +1,4 @@
+version_control: github
+src_repo: mate-desktop/mate-desktop
+tag_prefix: ^v
+separator: .

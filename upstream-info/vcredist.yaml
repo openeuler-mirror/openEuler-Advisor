@@ -1,0 +1,4 @@
+version_control: github
+src_repo: abbodi1406/vcredist
+tag_prefix: ^v
+separator: .

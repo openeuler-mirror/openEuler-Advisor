@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/apps/xfce4-panel-profiles
+tag_prefix: xfce4-panel-profiles-
+separator: .

@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: https://svn.nmap.org/nmap/
+tag_prefix: NA
+separator: .

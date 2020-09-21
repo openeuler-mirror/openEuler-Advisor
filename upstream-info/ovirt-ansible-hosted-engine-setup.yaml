@@ -1,0 +1,4 @@
+version_control: github
+src_repo: oVirt/ovirt-ansible-hosted-engine-setup
+tag_prefix: NA
+separator: .

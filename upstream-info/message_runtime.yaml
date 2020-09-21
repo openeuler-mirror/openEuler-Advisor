@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ros/message_runtime
+tag_prefix: NA
+separator: .

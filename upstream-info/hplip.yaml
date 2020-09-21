@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://salsa.debian.org/printing-team/hplip
+tag_prefix: upstream/
+separator: .
