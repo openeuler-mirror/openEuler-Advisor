@@ -435,7 +435,7 @@ Mulan V2
               }
           ]
         }
-      ],
+      ]
     }
   }
   ```
@@ -489,52 +489,52 @@ Mulan V2
 
 - 返回体参数示例：
 
-```json
-{
-  "code":200,
-  "msg":'',
-  "data":[
+    ```json
     {
-      "total_count": 10309,
-      "total_page": 10,
-      "issue_id": "I1PGWQ",
-      "pkg_name": "PyYaml",
-      "table_name": "Mainline",
-      "issue_url": "https://gitee.com/openeuler/openEuler-Advisor/issues/I1PGWQ",
-      "issue_title":"get_yaml 接口的返回值类型有str和bool，对上层调用判断不太友好，建议修",
-      "issue_content":"def get_yaml(self, pkg): pass\n",
-      "issue_status": "open",
-      "issue_type": "demand",
-      "maintainer": "ruebb"
-    },
-    {
-      "issue_id": "I1OQW0",
-      "pkg_name": "PyYaml",
-      "table_name": "Mainline",
-      "issue_url": "https://gitee.com/openeuler/openEuler-Advisor/issues/I1OQW0",
-      "issue_title":"【CI加固】对识别修改对周边组件和升级影响，提交构建支持接口变更检查",
-      "issue_content": "1.支持C/C++接口变更检查\n2.支持/etc下的配置文件变化检查\n\n检查结果以提示信息反馈给提交人",
-      "issue_status": "open",
-      "issue_type": "bug",
-      "maintainer": "ruebb"
-
-    },
-    {
-      "issue_id": "I1O6OE",
-      "pkg_name": "PyYaml",
-      "table_name": "Mainline",
-      "issue_url": "https://gitee.com/openeuler/openEuler-Advisor/issues/I1O6OE",
-      "issue_title": "【pkgship】数据库结构变化，包依赖查询的sql语句需要整改。同时需要考虑provides和requires在同一个数据库中不一一对应的情况。",
-      "issue_content": "涉及到的包依赖查询逻辑有：\n1.包的安装依赖查询语句\n2.包的编译依赖查询语句\n3.包的被依赖查询语句\n4.包的信息查询语句",
-      "issue_status": "closed",
-      "issue_download": "",
-      "issue_type": "CVE",
-      "maintainer": "ruebb"
-
+      "code":200,
+      "msg":'',
+      "data":[
+        {
+          "total_count": 10309,
+          "total_page": 10,
+          "issue_id": "I1PGWQ",
+          "pkg_name": "PyYaml",
+          "table_name": "Mainline",
+          "issue_url": "https://gitee.com/openeuler/openEuler-Advisor/issues/I1PGWQ",
+          "issue_title":"get_yaml 接口的返回值类型有str和bool，对上层调用判断不太友好，建议修",
+          "issue_content":"def get_yaml(self, pkg): pass\n",
+          "issue_status": "open",
+          "issue_type": "demand",
+          "maintainer": "ruebb"
+        },
+        {
+          "issue_id": "I1OQW0",
+          "pkg_name": "PyYaml",
+          "table_name": "Mainline",
+          "issue_url": "https://gitee.com/openeuler/openEuler-Advisor/issues/I1OQW0",
+          "issue_title":"【CI加固】对识别修改对周边组件和升级影响，提交构建支持接口变更检查",
+          "issue_content": "1.支持C/C++接口变更检查\n2.支持/etc下的配置文件变化检查\n\n检查结果以提示信息反馈给提交人",
+          "issue_status": "open",
+          "issue_type": "bug",
+          "maintainer": "ruebb"
+    
+        },
+        {
+          "issue_id": "I1O6OE",
+          "pkg_name": "PyYaml",
+          "table_name": "Mainline",
+          "issue_url": "https://gitee.com/openeuler/openEuler-Advisor/issues/I1O6OE",
+          "issue_title": "【pkgship】数据库结构变化，包依赖查询的sql语句需要整改。同时需要考虑provides和requires在同一个数据库中不一一对应的情况。",
+          "issue_content": "涉及到的包依赖查询逻辑有：\n1.包的安装依赖查询语句\n2.包的编译依赖查询语句\n3.包的被依赖查询语句\n4.包的信息查询语句",
+          "issue_status": "closed",
+          "issue_download": "",
+          "issue_type": "CVE",
+          "maintainer": "ruebb"
+    
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 #### 9. issue type列表获取接口
 

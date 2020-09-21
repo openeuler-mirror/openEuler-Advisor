@@ -81,7 +81,7 @@ class ParseYaml():
             self._save_to_database()
         else:
             msg = "The yaml information of the [%s] package has not been" \
-                "obtained yet" % self.pkg.name
+                  "obtained yet" % self.pkg.name
             self.base.log.logger.warning(msg)
 
     def _get_yaml_content(self, url):
@@ -116,37 +116,39 @@ class ParseYaml():
                 ContentNoneException: The added entity content is empty
                 Error: An error occurred during data addition
         """
+
+        def _save_package(package_module):
+            with DBHelper(db_name="lifecycle") as database:
+                database.add(package_module)
+
+        def _save_maintainer_info(maintainer_module):
+            with DBHelper(db_name="lifecycle") as database:
+                _packages_maintainer = database.session.query(
+                    PackagesMaintainer).filter(
+                    PackagesMaintainer.name == maintainer_module['name']).first()
+                if _packages_maintainer:
+                    for key, val in maintainer_module.items():
+                        setattr(_packages_maintainer, key, val)
+                else:
+                    _packages_maintainer = PackagesMaintainer(
+                        **maintainer_module)
+                database.add(_packages_maintainer)
+
         self._parse_warehouse_info()
         tags = self._yaml_content.get('git_tag', None)
         if tags:
             self._parse_tags_content(tags)
-            self.producer_consumer.put(copy.deepcopy(self.pkg))
+            self.producer_consumer.put(
+                (copy.deepcopy(self.pkg), _save_package))
         if self.timed_task_open:
+            maintainer = {'name': self.pkg.name}
             _maintainer = self._yaml_content.get('maintainers')
             if _maintainer and isinstance(_maintainer, list):
-                self.pkg.maintainer = _maintainer[0]
-            self.pkg.maintainlevel = self._yaml_content.get('maintainlevel')
-        try:
-            if self.timed_task_open:
-                @retry(stop_max_attempt_number=3, stop_max_delay=500)
-                def _save_maintainer_info():
-                    with DBHelper(db_name="lifecycle") as database:
-                        _packages_maintainer = database.session.query(
-                            PackagesMaintainer).filter(
-                                PackagesMaintainer.name == self.pkg.name).first()
-                        if _packages_maintainer:
-                            _packages_maintainer.name = self.pkg.name
-                            _packages_maintainer.maintainer = self.pkg.maintainer
-                            _packages_maintainer.maintainlevel = self.pkg.maintainlevel
-                        else:
-                            _packages_maintainer = PackagesMaintainer(
-                                name=self.pkg.name, maintainer=self.pkg.maintainer,
-                                maintainlevel=self.pkg.maintainlevel)
-                        self.producer_consumer.put(
-                            copy.deepcopy(_packages_maintainer))
-                _save_maintainer_info()
-        except (Error, ContentNoneException, SQLAlchemyError) as error:
-            self.base.log.logger.error(error)
+                maintainer['maintainer'] = _maintainer[0]
+            maintainer['maintainlevel'] = self._yaml_content.get(
+                'maintainlevel')
+
+            self.producer_consumer.put((maintainer, _save_maintainer_info))
 
     def _parse_warehouse_info(self):
         """
@@ -200,7 +202,7 @@ def update_pkg_info(pkg_info_update=True):
         # Open thread pool
         pool = ThreadPoolExecutor(max_workers=pool_workers)
         with DBHelper(db_name="lifecycle") as database:
-            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer'],
+            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer', 'database_info'],
                                      database.engine.table_names()):
 
                 cls_model = Packages.package_meta(table_name)
@@ -215,7 +217,7 @@ def update_pkg_info(pkg_info_update=True):
                     else:
                         # Get the issue of each warehouse and save it
                         gitee_issue = Gitee(
-                            package_item, _warehouse, package_item.name, table_name)
+                            copy.deepcopy(package_item), _warehouse, package_item.name, table_name)
                         pool.submit(gitee_issue.query_issues_info)
         pool.shutdown()
     except SQLAlchemyError as error_msg:

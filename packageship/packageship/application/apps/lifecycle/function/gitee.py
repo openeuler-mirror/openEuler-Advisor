@@ -112,34 +112,33 @@ class Gitee():
 
         """
         try:
-            issue_ids = [issue['issue_id'] for issue in issue_list]
-            with DBHelper(db_name="lifecycle") as database:
+            def _save(issue_module):
+                with DBHelper(db_name='lifecycle') as database:
 
-                @retry(stop_max_attempt_number=3, stop_max_delay=500)
-                def _query_pkgissues():
                     exist_issues = database.session.query(PackagesIssue).filter(
-                        PackagesIssue.issue_id.in_(issue_ids)).all()  # pylint: disable=protected-access
-                    return exist_issues
+                        PackagesIssue.issue_id == issue_module['issue_id']).first()
+                    if exist_issues:
 
-                exist_issues = _query_pkgissues()
-                # Save the issue
-                for issue_item in issue_list:
-                    issue_model = [
-                        issue for issue in exist_issues if issue.issue_id == issue_item['issue_id']]
-                    if issue_model:
-                        for key, val in issue_item.items():
-                            setattr(issue_model[0], key, val)
-                        self.producer_consumer.put(
-                            copy.deepcopy(issue_model[0]))
+                        # Save the issue
+                        for key, val in issue_module.items():
+                            setattr(exist_issues, key, val)
                     else:
-                        self.producer_consumer.put(
-                            PackagesIssue(**issue_item))
+                        exist_issues = PackagesIssue(**issue_module)
+                    database.add(exist_issues)
+
+            def _save_package(package_module):
+                with DBHelper(db_name='lifecycle') as database:
+                    database.add(package_module)
+
+            for issue_item in issue_list:
+                self.producer_consumer.put(
+                    (copy.deepcopy(issue_item), _save))
 
                 # The number of various issues in the update package
-                self.pkg_info.defect = self.defect
-                self.pkg_info.feature = self.feature
-                self.pkg_info.cve = self.cve
-                self.producer_consumer.put(copy.deepcopy(self.pkg_info))
+            self.pkg_info.defect = self.defect
+            self.pkg_info.feature = self.feature
+            self.pkg_info.cve = self.cve
+            self.producer_consumer.put((copy.deepcopy(self.pkg_info), _save_package))
 
         except (Error, ContentNoneException, SQLAlchemyError) as error:
             LOGGER.logger.error(

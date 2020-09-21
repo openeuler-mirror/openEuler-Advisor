@@ -4,11 +4,14 @@ Use queues to implement the producer and consumer model
 to solve the database lock introduced by high concurrency issues
 """
 import threading
+import time
 from queue import Queue
 from sqlalchemy.exc import SQLAlchemyError
-from packageship.libs.dbutils import DBHelper
+from sqlalchemy.exc import OperationalError
 from packageship.libs.exception import Error, ContentNoneException
 from packageship.libs.log import Log
+from packageship.libs.configutils.readconfig import ReadConfig
+from packageship import system_config
 
 
 class ProducerConsumer():
@@ -17,22 +20,31 @@ class ProducerConsumer():
         concurrency queue, and the high concurrency is solved
         by the form of the queue
     """
-    _queue = Queue(maxsize=0)
+    _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
+    queue_maxsize = int(_readconfig.get_config('LIFECYCLE', 'queue_maxsize'))
+    if not isinstance(queue_maxsize, int):
+        queue_maxsize = 1000
+    _queue = Queue(maxsize=queue_maxsize)
     _instance_lock = threading.Lock()
     _log = Log(__name__)
 
     def __init__(self):
         self.thread_queue = threading.Thread(target=self.__queue_process)
+        self._instance_lock.acquire()
         if not self.thread_queue.isAlive():
+            self.thread_queue = threading.Thread(target=self.__queue_process)
             self.thread_queue.start()
+        self._instance_lock.release()
 
     def start_thread(self):
         """
             Judge a thread, if the thread is terminated, restart
         """
+        self._instance_lock.acquire()
         if not self.thread_queue.isAlive():
             self.thread_queue = threading.Thread(target=self.__queue_process)
             self.thread_queue.start()
+        self._instance_lock.release()
 
     def __new__(cls, *args, **kwargs):  # pylint: disable=unused-argument
         """
@@ -49,10 +61,13 @@ class ProducerConsumer():
             Read the content in the queue and save and update
         """
         while not self._queue.empty():
-            _queue_value = self._queue.get()
+            _queue_value, method = self._queue.get()
             try:
-                with DBHelper(db_name="lifecycle") as database:
-                    database.add(_queue_value)
+                method(_queue_value)
+            except OperationalError as error:
+                self._log.logger.warning(error)
+                time.sleep(0.2)
+                self._queue.put((_queue_value, method))
             except (Error, ContentNoneException, SQLAlchemyError) as error:
                 self._log.logger.error(error)
 
