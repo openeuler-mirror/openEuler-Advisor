@@ -1,0 +1,4 @@
+version_control: github
+src_repo: x-stream/xstream
+tag_prefix: ^XSTREAM_
+separator: _
