@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "HuaweiSans-Bold";
+    src: url(../fonts/HuaweiSans-Bold.ttf);
+}
+@font-face {
+    font-family: "HuaweiSans-Light";
+    src: url(../fonts/HuaweiSans-Light.ttf);
+}
+@font-face {
+    font-family: "HuaweiSans-Medium";
+    src: url(../fonts/HuaweiSans-Medium.ttf);
+}
+@font-face {
+    font-family: "HuaweiSans";
+    src: url(../fonts/HuaweiSans-Regular.ttf);
+}
+@font-face {
+    font-family: "Roboto-Black";
+    src: url(../fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: "Roboto-BlackItalic";
+    src: url(../fonts/Roboto-BlackItalic.ttf);
+}
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(../fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url(../fonts/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(../fonts/Roboto-Regular.ttf);
+}
