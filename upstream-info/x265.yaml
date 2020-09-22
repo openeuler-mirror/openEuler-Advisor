@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: videolan/x265
+tag_prefix: 
+separator: "."

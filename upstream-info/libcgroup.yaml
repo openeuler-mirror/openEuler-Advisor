@@ -1,0 +1,5 @@
+---
+version_control: git
+src_repo: https://git.code.sf.net/p/libcg/libcg
+tag_prefix: "^v"
+separator: "."

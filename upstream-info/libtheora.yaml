@@ -1,0 +1,5 @@
+---
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/xiph/releases/theora/
+tag_pattern: libtheora-(.*).tar.gz
+separator: "."

@@ -1,0 +1,5 @@
+---
+version_control: ftp
+src_repo: http://ibiblio.org/pub/Linux/utils/file/
+tag_pattern: "symlinks-(.*).tar.gz"
+separator: "." 
