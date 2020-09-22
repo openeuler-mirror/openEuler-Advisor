@@ -1,6 +1,18 @@
 #!/bin/bash
 SYS_PATH=/etc/pkgship
 OUT_PATH=/var/run/pkgship_uwsgi
+
+MEM_THRESHOLD='700'
+MEM_FREE=`free -m | grep "Mem" | awk '{print $7}'`
+
+if [ $1 = "start" ]
+then
+    if [ $MEM_FREE -lt $MEM_THRESHOLD ]; then
+    echo "[ERROR] pkgship tool does not support memory less than ${MEM_THRESHOLD} MB."
+    exit 0
+    fi
+fi
+
 if [ ! -d "$OUT_PATH" ]; then
         mkdir $OUT_PATH
 fi
