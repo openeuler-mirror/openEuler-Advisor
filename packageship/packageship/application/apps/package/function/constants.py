@@ -44,6 +44,7 @@ class ResponseCode():
     UPDATA_OR_ADD_DATA_FAILED = "4008"
     TABLE_NAME_NOT_EXIST = "4009"
     UPDATA_DATA_FAILED = "4010"
+    NOT_FOUND_DATABASE_INFO = "4011"
     # Database operation module error status code
     DELETE_DB_ERROR = "40051"
     SERVICE_ERROR = "50000"
@@ -83,6 +84,7 @@ class ResponseCode():
         TABLE_NAME_NOT_EXIST: "There is no such table in the database",
         UPDATA_DATA_FAILED: "Failed to update data",
         TABLE_NAME_NOT_EXIST_IN_DATABASE: "the table name dose not match the existed database",
+        NOT_FOUND_DATABASE_INFO: "Unable to get the generated database information",
         YAML_FILE_ERROR: "Data error in yaml file",
         EMPTY_FOLDER: "This is an empty folder, no yaml file"
     }

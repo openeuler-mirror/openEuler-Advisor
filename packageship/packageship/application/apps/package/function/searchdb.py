@@ -15,9 +15,9 @@ from sqlalchemy import exists
 
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.log import Log
-from packageship.application.models.package import BinPack, SrcPack
-from packageship.libs.exception import ContentNoneException, Error
-from packageship.system_config import DATABASE_FILE_INFO
+from packageship.application.models.package import BinPack
+from packageship.application.models.package import SrcPack
+from packageship.application.models.package import DatabaseInfo
 from packageship.application.apps.package.function.constants import ResponseCode
 
 LOGGER = Log(__name__)
@@ -928,17 +928,10 @@ def db_priority():
         Error: abnormal error
     """
     try:
-        with open(DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
-
-            init_database_date = yaml.load(
-                file_context.read(), Loader=yaml.FullLoader)
-            if init_database_date is None:
-                raise ContentNoneException(
-                    "The content of the database initialization configuration file cannot be empty")
-            init_database_date.sort(key=lambda x: x['priority'], reverse=False)
-            db_list = [item.get('database_name')
-                       for item in init_database_date]
-            return db_list
-    except (FileNotFoundError, Error) as file_not_found:
-        current_app.logger.error(file_not_found)
+        with DBHelper(db_name='lifecycle') as data_name:
+            name_list = data_name.session.query(
+                DatabaseInfo.name).order_by(DatabaseInfo.priority).all()
+            return [name[0] for name in name_list]
+    except SQLAlchemyError as error:
+        current_app.logger.error(error)
         return None

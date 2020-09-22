@@ -16,7 +16,6 @@ from flask import jsonify, make_response
 from flask import current_app
 from flask_restful import Resource
 from marshmallow import ValidationError
-
 from sqlalchemy.exc import DisconnectionError, SQLAlchemyError
 
 from packageship import system_config
@@ -245,6 +244,7 @@ class LifeTables(Resource):
                 all_table_names = database_name.engine.table_names()
                 all_table_names.remove("packages_issue")
                 all_table_names.remove("packages_maintainer")
+                all_table_names.remove("databases_info")
                 return jsonify(
                     ResponseCode.response_json(
                         ResponseCode.SUCCESS, data=all_table_names)
@@ -458,7 +458,8 @@ class IssueCatch(Resource):
                 pool_workers = 10
             pool = ThreadPoolExecutor(max_workers=pool_workers)
             with DBHelper(db_name="lifecycle") as database:
-                for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer', 'database_info'],
+                for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer',
+                                                             'databases_info'],
                                          database.engine.table_names()):
                     cls_model = Packages.package_meta(table_name)
                     for package_item in database.session.query(cls_model).filter(

@@ -5,8 +5,8 @@ Description: Initialization of data import
 Class: InitDataBase,MysqlDatabaseOperations,SqliteDatabaseOperations
 """
 import os
-import pathlib
 import yaml
+from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError, InternalError
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 from packageship.libs.exception import ContentNoneException
@@ -16,6 +16,7 @@ from packageship.libs.exception import ConfigurationException
 from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.log import Log
 from packageship.application.models.package import SrcPack
+from packageship.application.models.package import DatabaseInfo
 from packageship.application.models.package import BinPack
 from packageship.application.models.package import BinRequires
 from packageship.application.models.package import SrcRequires
@@ -65,7 +66,8 @@ class InitDataBase():
         # Create life cycle related databases and tables
         if not self.create_database(db_name='lifecycle',
                                     tables=['packages_issue',
-                                            'packages_maintainer'],
+                                            'packages_maintainer',
+                                            'databases_info'],
                                     storage=True):
             raise SQLAlchemyError(
                 'Failed to create the specified database and table：lifecycle')
@@ -129,9 +131,14 @@ class InitDataBase():
         if self.__exists_repeat_database():
             raise DatabaseRepeatException(
                 'There is a duplicate database configuration')
-        if not InitDataBase.delete_settings_file():
-            raise IOError(
-                'An error occurred while deleting the database configuration file')
+
+        if not self.__clear_database():
+            raise SQLAlchemyError(
+                'Failed to delete the database, throw an exception')
+
+        if not InitDataBase.__clear_database_info():
+            raise SQLAlchemyError(
+                'Failed to clear data in database_info or lifecycle database')
 
         for database_config in self.config_file_datas:
             if not database_config.get('dbname'):
@@ -215,8 +222,7 @@ class InitDataBase():
                     'database_name': _db_name,
                     'priority': database_config.get('priority'),
                 }
-                InitDataBase.__updata_settings_file(
-                    database_content=database_content)
+                InitDataBase.__update_database_info(database_content)
 
         except (SQLAlchemyError, ContentNoneException, TypeError,
                 Error, FileNotFoundError) as error_msg:
@@ -498,53 +504,66 @@ class InitDataBase():
         return False
 
     @staticmethod
-    def __updata_settings_file(**Kwargs):
+    def __update_database_info(database_content):
         """
-        update some configuration files related to the database in the system
+        Update the database_name table
 
         Args:
-            **Kwargs: data related to configuration file nodes
-            database_name: Name database
+            database_content:
+                Dictionary of database names and priorities
         Returns:
 
-        Raises:
-            FileNotFoundError: The specified file was not found
-            IOError: File or network operation io abnormal
         """
         try:
-            if not os.path.exists(system_config.DATABASE_FILE_INFO):
-                pathlib.Path(system_config.DATABASE_FILE_INFO).touch()
-            with open(system_config.DATABASE_FILE_INFO, 'a+', encoding='utf8') as file_context:
-                setting_content = []
-                if 'database_content' in Kwargs.keys():
-                    content = Kwargs.get('database_content')
-                    if content:
-                        setting_content.append(content)
-                yaml.dump(setting_content, file_context)
-
-        except FileNotFoundError as not_found:
-            LOGGER.logger.error(not_found)
-        except IOError as exception_msg:
-            LOGGER.logger.error(exception_msg)
+            with DBHelper(db_name="lifecycle") as database_name:
+                name = database_content.get("database_name")
+                priority = database_content.get("priority")
+                database_name.add(DatabaseInfo(
+                    name=name, priority=priority
+                ))
+                database_name.session.commit()
+        except (SQLAlchemyError, Error, AttributeError) as error:
+            LOGGER.logger.error(error)
 
     @staticmethod
-    def delete_settings_file():
+    def __clear_database_info():
         """
-        Delete the configuration file of the database
-
-        Args:
-
+            Delete the tables in the lifecycle except for the specific three tables
         Returns:
-            True if the deletion is successful, otherwise false
-        Raises:
-            IOError: File or network operation io abnormal
-        """
 
+        """
         try:
-            if os.path.exists(system_config.DATABASE_FILE_INFO):
-                os.remove(system_config.DATABASE_FILE_INFO)
-        except (IOError, Error) as exception_msg:
-            LOGGER.logger.error(exception_msg)
+            with DBHelper(db_name="lifecycle") as database_name:
+                clear_sql = """delete from databases_info;"""
+                database_name.session.execute(text(clear_sql))
+                table_list = database_name.engine.table_names()
+                for item in table_list:
+                    if item not in ['packages_maintainer', 'databases_info', 'packages_issue']:
+                        drop_sql = '''DROP TABLE if exists `{table_name}`'''.format(
+                            table_name=item)
+                        database_name.session.execute(text(drop_sql))
+                database_name.session.commit()
+        except SQLAlchemyError as sql_error:
+            LOGGER.logger.error(sql_error)
+            return False
+        else:
+            return True
+
+    def __clear_database(self):
+        """
+            Delete database
+        Returns:
+
+        """
+        try:
+            with DBHelper(db_name='lifecycle') as data_name:
+                name_data_list = data_name.session.query(
+                    DatabaseInfo.name).order_by(DatabaseInfo.priority).all()
+                name_list = [name[0] for name in name_data_list if name[0]]
+                for item in name_list:
+                    self.__del_database(item)
+        except (SQLAlchemyError, Error, IOError) as error:
+            LOGGER.logger.error(error)
             return False
         else:
             return True
@@ -562,25 +581,18 @@ class InitDataBase():
         """
         try:
             del_result = True
-            file_read = open(
-                system_config.DATABASE_FILE_INFO, 'r', encoding='utf-8')
-            _databases = yaml.load(
-                file_read.read(), Loader=yaml.FullLoader)
-            for database in _databases:
-                if database.get('database_name') == db_name:
-                    _databases.remove(database)
-            # Delete the successfully imported database configuration node
-            with open(system_config.DATABASE_FILE_INFO, 'w+', encoding='utf-8') as file_context:
-                yaml.safe_dump(_databases, file_context)
-        except (IOError, Error) as del_config_error:
-            LOGGER.logger.error(del_config_error)
+            with DBHelper(db_name='lifecycle') as database_name:
+                database_name.session.query(DatabaseInfo).filter(
+                    DatabaseInfo.name == db_name).delete()
+                drop_sql = '''DROP TABLE if exists `{table_name}`''' \
+                    .format(table_name=db_name)
+                database_name.session.execute(text(drop_sql))
+                database_name.session.commit()
+        except SQLAlchemyError as sql_error:
+            LOGGER.logger.error(sql_error)
             del_result = False
-        finally:
-            file_read.close()
-
         if del_result:
             del_result = self.__del_database(db_name)
-
         return del_result
 
     def create_database(self, db_name, tables=None, storage=True):

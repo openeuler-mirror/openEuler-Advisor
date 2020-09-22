@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 import datetime as date
 import requests
 import yaml
-from retrying import retry
+
 from sqlalchemy.exc import SQLAlchemyError
 from requests.exceptions import HTTPError
 from packageship import system_config
@@ -124,8 +124,7 @@ class ParseYaml():
         def _save_maintainer_info(maintainer_module):
             with DBHelper(db_name="lifecycle") as database:
                 _packages_maintainer = database.session.query(
-                    PackagesMaintainer).filter(
-                    PackagesMaintainer.name == maintainer_module['name']).first()
+                    PackagesMaintainer).filter(PackagesMaintainer.name == maintainer_module['name']).first()
                 if _packages_maintainer:
                     for key, val in maintainer_module.items():
                         setattr(_packages_maintainer, key, val)
@@ -202,7 +201,8 @@ def update_pkg_info(pkg_info_update=True):
         # Open thread pool
         pool = ThreadPoolExecutor(max_workers=pool_workers)
         with DBHelper(db_name="lifecycle") as database:
-            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer', 'database_info'],
+            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer',
+                                                         'databases_info'],
                                      database.engine.table_names()):
 
                 cls_model = Packages.package_meta(table_name)
