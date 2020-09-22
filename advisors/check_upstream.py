@@ -99,7 +99,7 @@ def dirty_redirect_tricks(url, resp):
         cookie.remove("")
     return need_trick, new_url, list(cookie)
 
-def check_hg_raw(info):
+def check_hg_raw(info, clean_tag=True):
     """
     Check hg version info via raw-tags
     """
@@ -130,11 +130,12 @@ def check_hg_raw(info):
     tags = []
     for line in resp.splitlines():
         tags.append(line.split()[0])
-    result_list = clean_tags(tags, info)
+    if clean_tag:
+        result_list = clean_tags(tags, info)
     return result_list
 
 
-def check_hg(info):
+def check_hg(info, clean_tag=True):
     """
     Check hg version info via json
     """
@@ -167,11 +168,12 @@ def check_hg(info):
     sort_tags = tags_json["tags"]
     sort_tags.sort(reverse=True, key=lambda x: x['date'][0])
     result_list = [tag['tag'] for tag in sort_tags]
-    result_list = clean_tags(result_list, info)
+    if clean_tag:
+        result_list = clean_tags(result_list, info)
     return result_list
 
 
-def check_metacpan(info):
+def check_metacpan(info, clean_tag=True):
     """
     Check perl module version info via metacpan api
     """
@@ -206,11 +208,12 @@ def check_metacpan(info):
     last_query["time_stamp"] = datetime.now()
     last_query["raw_data"] = resp
     info["last_query"] = last_query
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
 
-def check_pypi(info):
+def check_pypi(info, clean_tag=True):
     """
     Check python module version info via pypi api
     """
@@ -229,10 +232,12 @@ def check_pypi(info):
     if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
         sys.exit(1)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
 
-def check_rubygem(info):
+def check_rubygem(info, clean_tag=True):
     """
     Check ruby module version info via rubygem api
     """
@@ -251,6 +256,8 @@ def check_rubygem(info):
     if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
         sys.exit(1)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
 def __check_subprocess(cmd_list):
@@ -309,7 +316,7 @@ def __git_resp_to_tags(resp):
                 tags.append(tag)
     return tags
 
-def check_git(info):
+def check_git(info, clean_tag=True):
     """
     Check version info via git command
     """
@@ -322,11 +329,12 @@ def check_git(info):
         info["last_query"] = last_query
 
     tags = __git_resp_to_tags(resp)
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
 
     return tags
 
-def check_github(info):
+def check_github(info, clean_tag=True):
     """
     Check version info via github api
     """
@@ -345,10 +353,11 @@ def check_github(info):
         info["query_type"] = "git-ls"
 
     tags = __git_resp_to_tags(resp)
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
-def check_gnu_ftp(info):
+def check_gnu_ftp(info, clean_tag=True):
     """
     Check version info via compare ftp release tar file for gnu
     """
@@ -365,10 +374,11 @@ def check_gnu_ftp(info):
         result = re_pattern.search(line)
         if result:
             tags.append(result[1])
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
-def check_ftp(info):
+def check_ftp(info, clean_tag=True):
     """
     Check version info via compare ftp release tar file
     """
@@ -385,10 +395,11 @@ def check_ftp(info):
         result = re_pattern.search(line)
         if result:
             tags.append(result[1])
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
-def check_gnome(info):
+def check_gnome(info, clean_tag=True):
     """
     Check version info via gitlab.gnome.org api
     """
@@ -407,10 +418,11 @@ def check_gnome(info):
         info["last_query"] = last_query
 
     tags = __git_resp_to_tags(resp)
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
-def check_gitee(info):
+def check_gitee(info, clean_tag=True):
     """
     Check version info via gitee
     """
@@ -424,10 +436,11 @@ def check_gitee(info):
         info["last_query"] = last_query
 
     tags = __git_resp_to_tags(resp)
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
-def check_svn(info):
+def check_svn(info, clean_tag=True):
     """
     Check version info via svn
     """
@@ -442,7 +455,8 @@ def check_svn(info):
         info["last_query"] = last_query
 
     tags = __svn_resp_to_tags(resp)
-    tags = clean_tags(tags, info)
+    if clean_tag:
+        tags = clean_tags(tags, info)
     return tags
 
 
