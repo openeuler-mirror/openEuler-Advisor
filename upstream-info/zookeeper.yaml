@@ -1,0 +1,4 @@
+version_control: github
+src_repo: apache/zookeeper
+tag_prefix: release-
+separator: .

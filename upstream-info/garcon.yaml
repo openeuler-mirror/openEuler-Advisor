@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/xfce/garcon
+tag_prefix: garcon-
+separator: .

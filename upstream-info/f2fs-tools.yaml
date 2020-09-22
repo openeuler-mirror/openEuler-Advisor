@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools
+tag_prefix: ^v
+separator: .

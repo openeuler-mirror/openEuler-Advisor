@@ -1,0 +1,4 @@
+version_control: github
+src_repo: gmc-holle/xfdashboard
+tag_prefix: NA
+separator: .

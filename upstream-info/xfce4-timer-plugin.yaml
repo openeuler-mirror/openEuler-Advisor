@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/panel-plugins/xfce4-timer-plugin
+tag_prefix: xfce4-timer-plugin-
+separator: .

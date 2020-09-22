@@ -1,0 +1,4 @@
+version_control: github
+src_repo: coreboot/seabios
+tag_prefix: rel-
+separator: .

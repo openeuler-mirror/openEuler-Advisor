@@ -1,0 +1,4 @@
+version_control: svn
+src_repo: https://svn.code.sf.net/p/ftgl/code
+tag_prefix: FTGL_
+separator: _

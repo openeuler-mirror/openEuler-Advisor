@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/apps/ristretto
+tag_prefix: ristretto-
+separator: .

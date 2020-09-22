@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/panel-plugins/xfce4-embed-plugin
+tag_prefix: xfce4-embed-plugin-
+separator: .

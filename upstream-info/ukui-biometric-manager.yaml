@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ukui/ukui-biometric-manager
+tag_prefix: ^v
+separator: .

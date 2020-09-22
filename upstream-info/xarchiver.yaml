@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ib/xarchiver
+tag_prefix: xarchiver-
+separator: .

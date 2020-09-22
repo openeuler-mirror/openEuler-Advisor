@@ -1,0 +1,4 @@
+version_control: github
+src_repo: Yubico/yubico-c
+tag_prefix: libyubikey-
+separator: .

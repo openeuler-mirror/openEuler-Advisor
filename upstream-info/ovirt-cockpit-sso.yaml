@@ -1,0 +1,4 @@
+version_control: github
+src_repo: oVirt/ovirt-cockpit-sso
+tag_prefix: NA
+separator: .

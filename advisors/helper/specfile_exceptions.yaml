@@ -65,3 +65,18 @@ ndisc6:
 liberation-sans-fonts:
   dir: .
   file: liberation-fonts.spec
+ovirt-node-ng-image-update:
+  dir: .
+  file: ovirt-node-ng.spec
+std_msgs:
+  dir: .
+  file: std_msg.spec
+ukui-menu:
+  dir: .
+  file: ukui-menu-2.0.6.spec
+ukui-themes:
+  dir: .
+  file: ukui-themes-1.3.0.spec
+vcredist:
+  dir: .
+  file: vcredist-x86.spec

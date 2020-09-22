@@ -1,0 +1,4 @@
+version_control: github
+src_repo: oVirt/ovirt-setup-lib
+tag_prefix: ovirt-setup-lib-
+separator: .

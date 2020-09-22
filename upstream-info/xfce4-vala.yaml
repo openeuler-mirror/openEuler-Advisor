@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://gitlab.xfce.org/bindings/xfce4-vala
+tag_prefix: xfce4-vala-
+separator: .

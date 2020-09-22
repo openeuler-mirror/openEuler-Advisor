@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ncopa/xfce-polkit
+tag_prefix: ^v
+separator: .

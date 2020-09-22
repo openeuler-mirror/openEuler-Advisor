@@ -1,0 +1,4 @@
+version_control: github
+src_repo: ClusterLabs/pcs
+tag_prefix: NA
+separator: .
