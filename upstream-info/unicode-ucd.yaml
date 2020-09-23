@@ -1,0 +1,4 @@
+version_control: github
+src_repo: open-i18n/data-unicode-ucd
+tag_prefix: ^v
+separator: .

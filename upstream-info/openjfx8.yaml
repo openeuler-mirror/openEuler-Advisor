@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jschwartzenberg/openjfx8
+tag_prefix: 
+separator: .
