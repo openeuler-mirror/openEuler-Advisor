@@ -1,0 +1,4 @@
+version_control: ftp
+src_repo: http://ftp.gnu.org/gnu/hello/
+tag_pattern: hello-(.*).tar.gz
+separator: "."
