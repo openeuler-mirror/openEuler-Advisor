@@ -24,7 +24,7 @@ def _filter_except(excpts, sources):
     return sources
 
 
-def get_ver_tags(my_gitee, repo, cwd_path=None):
+def get_ver_tags(my_gitee, repo, clean_tag=True, cwd_path=None):
     """
     Get version tags of given package
     """
@@ -65,7 +65,7 @@ def get_ver_tags(my_gitee, repo, cwd_path=None):
 
     check_method = switcher.get(vc_type, None)
     if check_method:
-        tags = check_method(pkg_info)
+        tags = check_method(pkg_info, clean_tag)
     else:
         print("Unsupport version control method {vc}".format(vc=vc_type))
         return None
@@ -100,7 +100,7 @@ def main():
 
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
-
+    
     if cur_version.startswith('v') or cur_version.startswith('V'):
         cur_version = cur_version[1:]
 

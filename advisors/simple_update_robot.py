@@ -22,6 +22,7 @@ import os.path
 import re
 import time
 import datetime
+import shutil
 
 import oa_upgradable
 import version_recommend
@@ -97,7 +98,8 @@ def fork_clone_repo(gt, repo, br):
     
     name = gt.token["user"]
     while True:
-        subprocess.call(["rm", "-rf", "{pkg}".format(pkg=repo)])
+        if os.path.exists(repo):
+            shutil.rmtree(repo, ignore_errors=True)
         subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name, pkg=repo)])
         os.chdir(repo)
         if subprocess.call(["git", "checkout", "{branch}".format(branch=br)]):
