@@ -85,7 +85,7 @@ class InstallDepend():
         result_list, not_found_components, pk_val = map(
             set,
             self.__search_db.get_install_depend(self.__search_list,
-                                                self.__already_pk_value)
+                                                pk_value=self.__already_pk_value)
         )
 
         self.not_found_components.update(not_found_components)

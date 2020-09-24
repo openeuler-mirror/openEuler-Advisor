@@ -94,7 +94,7 @@ class SearchDB():
 
         for db_name, data_base in self.db_object_dict.items():
             try:
-                req_set = self._get_requires(search_set, data_base, _tp='install')
+                req_set = self._get_requires(search_set, data_base, search_type='install')
 
                 if not req_set:
                     continue
@@ -104,7 +104,7 @@ class SearchDB():
                  pk_v,
                  not_fd_com) = self._get_provides_req_info(req_set,
                                                            data_base,
-                                                           pk_val)
+                                                           pk_value=pk_val)
                 pk_val += pk_v
                 res_list, get_list = self._comb_install_list(depend_set,
                                                              req_pk_dict,
@@ -121,7 +121,7 @@ class SearchDB():
                 if not search_set:
                     result_list.extend(
                         self._get_install_pro_in_other_database(provides_not_found,
-                                                                db_name)
+                                                                database_name=db_name)
                     )
                     return result_list, set(provides_not_found.keys()), pk_val
 
@@ -215,13 +215,13 @@ class SearchDB():
 
         return ret_list, get_list
 
-    def _get_install_pro_in_other_database(self, not_found_binary, _db_name=None):
+    def _get_install_pro_in_other_database(self, not_found_binary, database_name=None):
         """
         Description: Binary package name data not found in
         the current database, go to other databases to try
         Args:
             not_found_binary: not_found_build These data cannot be found in the current database
-            _db_name:current database name
+            database_name:current database name
         Returns:
            result_list :[return_tuple1,return_tuple2] package information
         Raises:
@@ -242,7 +242,7 @@ class SearchDB():
         search_set = {k for k, _ in not_found_binary.items()}
 
         for db_name, data_base in self.db_object_dict.items():
-            if db_name == _db_name:
+            if db_name == database_name:
                 continue
 
             parm_tuple = namedtuple("in_tuple", 'req_name')
@@ -362,7 +362,7 @@ class SearchDB():
         for db_name, data_base in self.db_object_dict.items():
 
             try:
-                req_set = self._get_requires(s_name_set, data_base, _tp='build')
+                req_set = self._get_requires(s_name_set, data_base, search_type='build')
 
                 if not req_set:
                     continue
@@ -384,7 +384,7 @@ class SearchDB():
                 s_name_set.symmetric_difference_update(set(get_list))
                 if not s_name_set:
                     build_list.extend(
-                        self._get_binary_in_other_database(provides_not_found, _db_name=db_name)
+                        self._get_binary_in_other_database(provides_not_found, database_name=db_name)
                     )
                     return ResponseCode.SUCCESS, build_list, set(provides_not_found.keys()), pk_val
 
@@ -483,13 +483,13 @@ class SearchDB():
 
         return ret_list, get_list
 
-    def _get_binary_in_other_database(self, not_found_binary, _db_name=None):
+    def _get_binary_in_other_database(self, not_found_binary, database_name=None):
         """
         Description: Binary package name data not found in
         the current database, go to other databases to try
         Args:
             not_found_binary: not_found_build These data cannot be found in the current database
-            _db_name:current database name
+            database_name:current database name
         Returns:
             result_list :[return_tuple1,return_tuple2] package information
         Raises:
@@ -513,7 +513,7 @@ class SearchDB():
 
         for db_name, data_base in self.db_object_dict.items():
 
-            if db_name == _db_name:
+            if db_name == database_name:
                 continue
 
             in_tuple = namedtuple("in_tuple", 'req_name')
@@ -600,20 +600,20 @@ class SearchDB():
 
     # Common methods for install and build
     @staticmethod
-    def _get_requires(search_set, data_base, _tp=None):
+    def _get_requires(search_set, data_base, search_type=None):
         """
         Description: Query the dependent components of the current package
         Args:
             search_set: The package name to be queried
             data_base:current database object
-            _tp:type options build or install
+            search_type: type options build or install
         Returns:
             req_set:List Package information and corresponding component information
         Raises:
             AttributeError: The object does not have this property
             SQLAlchemyError: sqlalchemy error
         """
-        if _tp == 'build':
+        if search_type == 'build':
             sql_com = text("""
                SELECT DISTINCT
                     src_requires.NAME AS req_name,
@@ -623,7 +623,7 @@ class SearchDB():
                     ( SELECT pkgKey, NAME, version, src_name FROM src_pack WHERE {} ) src
                     LEFT JOIN src_requires ON src.pkgKey = src_requires.pkgKey;
                     """.format(literal_column('name').in_(search_set)))
-        elif _tp == 'install':
+        elif search_type == 'install':
             sql_com = text("""
                 SELECT DISTINCT
                     bin_requires.NAME AS req_name,
