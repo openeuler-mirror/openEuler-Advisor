@@ -202,3 +202,13 @@ class PackagesMaintainer(DBHelper.BASE):
     name = Column(String(200), nullable=True)
     maintainer = Column(String(200), nullable=True)
     maintainlevel = Column(Integer, nullable=True)
+
+
+class DatabaseInfo(DBHelper.BASE):
+    """
+        Save the name and priority of the database
+    """
+    __tablename__ = 'databases_info'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=True)
+    priority = Column(Integer, nullable=True)

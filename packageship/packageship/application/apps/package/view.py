@@ -10,21 +10,23 @@ from flask import jsonify
 from flask import current_app
 from flask_restful import Resource
 from sqlalchemy.exc import DisconnectionError
+from sqlalchemy.exc import SQLAlchemyError
 
 from packageship import system_config
 from packageship.application.initsystem.data_import import InitDataBase
 from packageship.libs.configutils.readconfig import ReadConfig
+from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error
 from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DataMergeException
 from packageship.libs.exception import ConfigurationException
 from packageship.libs.log import Log
-from packageship.system_config import DATABASE_FILE_INFO
 from .function.constants import ResponseCode
 from .function.packages import get_all_package_info
 from .function.packages import sing_pack
 from .function.searchdb import db_priority
-from .serialize import AllPackagesSchema, SinglepackSchema
+from .serialize import AllPackagesSchema
+from .serialize import SinglepackSchema
 
 from .serialize import DeletedbSchema
 from .serialize import InitSystemSchema
@@ -37,6 +39,7 @@ from .serialize import InstallDependSchema
 from .serialize import BuildDependSchema
 from .serialize import SelfDependSchema
 from .serialize import have_err_db_name
+from ...models.package import DatabaseInfo
 
 LOGGER = Log(__name__)
 
@@ -201,7 +204,7 @@ class InstallDepend(Resource):
         if not db_pri:
             return jsonify(
                 ResponseCode.response_json(
-                    ResponseCode.FILE_NOT_FIND_ERROR
+                    ResponseCode.NOT_FOUND_DATABASE_INFO
                 )
             )
 
@@ -277,7 +280,7 @@ class BuildDepend(Resource):
         if not db_pri:
             return jsonify(
                 ResponseCode.response_json(
-                    ResponseCode.FILE_NOT_FIND_ERROR
+                    ResponseCode.NOT_FOUND_DATABASE_INFO
                 )
             )
 
@@ -356,7 +359,7 @@ class SelfDepend(Resource):
         if not db_pri:
             return jsonify(
                 ResponseCode.response_json(
-                    ResponseCode.FILE_NOT_FIND_ERROR
+                    ResponseCode.NOT_FOUND_DATABASE_INFO
                 )
             )
         db_list = data.get("db_list") if data.get("db_list") \
@@ -481,23 +484,18 @@ class Repodatas(Resource):
             Error: abnormal Error
         """
         try:
-            with open(DATABASE_FILE_INFO, 'r', encoding='utf-8') as file_context:
-                init_database_date = yaml.load(
-                    file_context.read(), Loader=yaml.FullLoader)
-                if init_database_date is None:
-                    raise ContentNoneException(
-                        "The content of the database initialization configuration "
-                        "file cannot be empty ")
-                init_database_date.sort(
-                    key=lambda x: x['priority'], reverse=False)
+            with DBHelper(db_name='lifecycle') as data_name:
+                name_list = data_name.session.query(
+                    DatabaseInfo.name, DatabaseInfo.priority).order_by(DatabaseInfo.priority).all()
+                data_list = [dict(zip(ven.keys(), ven)) for ven in name_list]
                 return jsonify(
                     ResponseCode.response_json(
                         ResponseCode.SUCCESS,
-                        data=init_database_date))
-        except (FileNotFoundError, TypeError, Error) as file_not_found:
-            current_app.logger.error(file_not_found)
+                        data=data_list))
+        except (SQLAlchemyError, Error) as data_info_error:
+            current_app.logger.error(data_info_error)
             return jsonify(
-                ResponseCode.response_json(ResponseCode.FILE_NOT_FOUND)
+                ResponseCode.response_json(ResponseCode.NOT_FOUND_DATABASE_INFO)
             )
 
     def delete(self):
@@ -536,13 +534,13 @@ class Repodatas(Resource):
         try:
             drop_db = InitDataBase()
             del_result = drop_db.delete_db(db_name)
-            if del_result is False:
+            if not del_result:
                 return jsonify(
                     ResponseCode.response_json(ResponseCode.DELETE_DB_ERROR))
             return jsonify(
                 ResponseCode.response_json(ResponseCode.SUCCESS)
             )
-        except (FileNotFoundError, TypeError, Error) as error:
+        except (SQLAlchemyError, TypeError, Error) as error:
             current_app.logger.error(error)
             return jsonify(
                 ResponseCode.response_json(ResponseCode.DELETE_DB_ERROR)
@@ -612,7 +610,7 @@ class InitSystem(Resource):
         except FileNotFoundError as file_not_found_error:
             LOGGER.logger.error(file_not_found_error)
             abnormal = ResponseCode.FILE_NOT_FIND_ERROR
-        except Error as error:
+        except (Error, SQLAlchemyError) as error:
             LOGGER.logger.error(error)
             abnormal = ResponseCode.FAILED_CREATE_DATABASE_TABLE
         if abnormal is not None:

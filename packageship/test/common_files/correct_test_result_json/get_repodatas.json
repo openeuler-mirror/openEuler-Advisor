@@ -1,10 +1,10 @@
 [
 	{
-		"database_name": "mainline",
+		"name": "mainline",
 		"priority": 1
 	},
 	{
-		"database_name": "fedora30",
+		"name": "fedora30",
 		"priority": 2
 	}
 ]
