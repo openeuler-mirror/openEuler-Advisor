@@ -3,7 +3,10 @@ tracking job
 """
 import logging
 import base64
+import datetime
 import time
+import random
+from sqlalchemy.exc import SQLAlchemyError
 from patch_tracking.util.gitee_api import create_branch, upload_patch, create_gitee_issue
 from patch_tracking.util.gitee_api import create_pull_request, get_path_content, upload_spec, create_spec
 from patch_tracking.util.github_api import GitHubApi
@@ -19,7 +22,7 @@ def upload_patch_to_gitee(track):
     """
     upload a patch file to Gitee
     """
-    cur_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
+    cur_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
     with scheduler.app.app_context():
         logger.info('[Patch Tracking %s] track.scm_commit_id: %s.', cur_time, track.scm_commit)
         patch = get_scm_patch(track)
@@ -114,8 +117,8 @@ def get_scm_patch(track):
                 scm_dict['commit_list'] = commit_list
                 return scm_dict
             logger.info(
-                '[Patch Tracking] Scm_repo: %s Scm_branch: %s.Get latest commit ID: %s From commit ID: %s. Nothing need to do.',
-                scm_dict['scm_repo'], scm_dict['scm_branch'], commit_id, scm_dict['scm_commit']
+                '[Patch Tracking] Scm_repo: %s Scm_branch: %s.Get latest commit ID: %s From commit ID: %s. '
+                'Nothing need to do.', scm_dict['scm_repo'], scm_dict['scm_branch'], commit_id, scm_dict['scm_commit']
             )
     else:
         logger.error(
@@ -142,11 +145,13 @@ def create_patch_issue_pr(patch, cur_time):
         logger.info('[Patch Tracking %s] Successful create branch: %s', cur_time, new_branch)
     else:
         logger.error('[Patch Tracking %s] Fail to create branch: %s', cur_time, new_branch)
+        return None
     patch_lst = list()
-    issue_table = ""
+    issue_table = "| Commit | Datetime | Message |\n| ------ | ------ | ------ |\n"
     for latest_commit in patch['commit_list']:
         scm_commit_url = '/'.join(['https://github.com', patch['scm_repo'], 'commit', latest_commit['commit_id']])
-        issue_table += '[{}]({}) | {} | {}'.format(
+        latest_commit['message'] = latest_commit['message'].replace("\r", "").replace("\n", "<br>")
+        issue_table += '| [{}]({}) | {} | {} |'.format(
             latest_commit['commit_id'][0:7], scm_commit_url, latest_commit['time'], latest_commit['message']
         ) + '\n'
 
@@ -168,21 +173,40 @@ def create_patch_issue_pr(patch, cur_time):
             logger.error(
                 '[Patch Tracking %s] Fail to upload patch file of commit: %s', cur_time, latest_commit['commit_id']
             )
+            return None
         patch_lst.append(str(latest_commit['commit_id']))
 
+    result = upload_spec_to_repo(patch, patch_lst, cur_time)
+    if result == "success":
+        logger.info('[Patch Tracking %s] Successfully upload spec file.', cur_time)
+    else:
+        logger.error('[Patch Tracking %s] Fail to upload spec file. Result: %s', cur_time, result)
+        return None
+
     logger.debug(issue_table)
-    result = create_gitee_issue(patch['repo'], issue_table, cur_time)
+    result = create_gitee_issue(patch['repo'], patch['branch'], issue_table, cur_time)
     if result[0] == 'success':
         issue_num = result[1]
         logger.info('[Patch Tracking %s] Successfully create issue: %s', cur_time, issue_num)
-        ret = create_pull_request(patch['repo'], patch['branch'], new_branch, issue_num, cur_time)
-        if ret == 'success':
-            logger.info('[Patch Tracking %s] Successfully create PR of issue: %s.', cur_time, issue_num)
-        else:
-            logger.error('[Patch Tracking %s] Fail to create PR of issue: %s. Result: %s', cur_time, issue_num, ret)
-        issue_dict['issue'] = issue_num
 
-        upload_spec_to_repo(patch, patch_lst, cur_time)
+        retry_count = 10
+        while retry_count > 0:
+            ret = create_pull_request(patch['repo'], patch['branch'], new_branch, issue_num, cur_time)
+            if ret == 'success':
+                logger.info('[Patch Tracking %s] Successfully create PR of issue: %s.', cur_time, issue_num)
+                break
+            else:
+                logger.warning(
+                    '[Patch Tracking %s] Fail to create PR of issue: %s. Result: %s', cur_time, issue_num, ret
+                )
+                retry_count -= 1
+                time.sleep(random.random() * 2)
+                continue
+        if retry_count == 0:
+            logger.error('[Patch Tracking %s] Fail to create PR of issue: %s.', cur_time, issue_num)
+            return None
+
+        issue_dict['issue'] = issue_num
 
         data = {
             'version_control': patch['version_control'],
@@ -193,9 +217,13 @@ def create_patch_issue_pr(patch, cur_time):
             'scm_branch': patch['scm_branch'],
             'scm_repo': patch['scm_repo']
         }
-        update_tracking(data)
+        try:
+            update_tracking(data)
+        except SQLAlchemyError as err:
+            logger.error('[Patch Tracking %s] Fail to update tracking: %s. Result: %s', cur_time, data, err)
     else:
         logger.error('[Patch Tracking %s] Fail to create issue: %s. Result: %s', cur_time, issue_table, result[1])
+        return None
 
     return issue_dict
 
@@ -219,11 +247,13 @@ def upload_spec_to_repo(patch, patch_lst, cur_time):
         spec_content = str(base64.b64decode(ret['content']), encoding='utf-8')
         spec_sha = ret['sha']
         new_spec = modify_spec(log_title, log_content, patch_file_lst, spec_content)
-        update_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec, spec_sha)
+        result = update_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec, spec_sha)
     else:
         spec_content = ''
         new_spec = modify_spec(log_title, log_content, patch_file_lst, spec_content)
-        create_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec)
+        result = create_spec_to_repo(patch['repo'], new_branch, cur_time, new_spec)
+
+    return result
 
 
 def modify_spec(log_title, log_content, patch_file_lst, spec_content):
@@ -244,6 +274,8 @@ def update_spec_to_repo(repo, branch, cur_time, spec_content, spec_sha):
     else:
         logger.error('[Patch Tracking %s] Fail to update spec file. Result: %s', cur_time, ret)
 
+    return ret
+
 
 def create_spec_to_repo(repo, branch, cur_time, spec_content):
     """
@@ -254,6 +286,8 @@ def create_spec_to_repo(repo, branch, cur_time, spec_content):
         logger.info('[Patch Tracking %s] Successfully create spec file.', cur_time)
     else:
         logger.error('[Patch Tracking %s] Fail to create spec file. Result: %s', cur_time, ret)
+
+    return ret
 
 
 def create_issue_db(issue):

@@ -112,14 +112,19 @@ def upload_spec(repo, branch, cur_time, spec_content, spec_sha):
     return response.json()
 
 
-def create_gitee_issue(repo, issue_body, cur_time):
+def create_gitee_issue(repo, branch, issue_body, cur_time):
     """
     create issue
     """
     gitee_token = current_app.config['GITEE_ACCESS_TOKEN']
     owner, repo = repo.split('/')
     url = '/'.join([REPO_URL, owner, 'issues'])
-    data = {'access_token': gitee_token, 'repo': repo, 'title': '[patch tracking] ' + cur_time, 'body': issue_body}
+    data = {
+        'access_token': gitee_token,
+        'repo': repo,
+        'title': '[patch tracking] ' + branch + ' ' + cur_time,
+        'body': issue_body
+    }
     response = requests.post(url, data=data)
     if response.status_code == 201:
         return 'success', response.json()['number']
