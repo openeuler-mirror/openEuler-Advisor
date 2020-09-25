@@ -8,6 +8,7 @@ from json import JSONDecodeError
 from retrying import retry
 import requests
 from requests.exceptions import HTTPError
+from requests.exceptions import RequestException
 from sqlalchemy.exc import SQLAlchemyError
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.configutils.readconfig import ReadConfig
@@ -42,6 +43,8 @@ class Gitee():
             "patch_files_path")
         self.table_name = table_name
         self.producer_consumer = ProducerConsumer()
+        self._issue_url = None
+        self.total_page = 0
 
     def query_issues_info(self, issue_id=""):
         """
@@ -53,55 +56,58 @@ class Gitee():
         Raises:
 
         """
-        issue_url = self.api_url + \
-                    "/{}/{}/issues/{}".format(self.owner, self.repo, issue_id)
+        self._issue_url = self.api_url + \
+                          "/{}/{}/issues/{}".format(self.owner, self.repo, issue_id)
         try:
-            response = requests.get(
-                issue_url, params={"state": "all", "per_page": 100})
-        except Error as error:
+            response = self._request_issue(0)
+        except (HTTPError, RequestException) as error:
             LOGGER.logger.error(error)
             return None
-        if response.status_code != 200:
-            return None
-        total_page = 1 if issue_id else int(response.headers['total_page'])
+
+        self.total_page = 1 if issue_id else int(
+            response.headers['total_page'])
         total_count = int(response.headers['total_count'])
+
         if total_count > 0:
-            issue_list = self._query_per_page_issue_info(total_page, issue_url)
+            issue_list = self._query_per_page_issue_info()
             if not issue_list:
                 LOGGER.logger.error(
                     "An error occurred while querying {}".format(self.repo))
                 return None
             self._save_issues(issue_list)
 
-    def _query_per_page_issue_info(self, total_page, issue_url):
+    @retry(stop_max_attempt_number=3, stop_max_delay=1000)
+    def _request_issue(self, page):
+        try:
+            response = requests.get(self._issue_url,
+                                    params={"state": "all", "per_page": 100, "page": page})
+        except RequestException as error:
+            raise RequestException(error)
+        if response.status_code != 200:
+            _msg = "There is an exception with the remote service [%s]，" \
+                   "Please try again later.The HTTP error code is：%s" % (self._issue_url, str(
+                response.status_code))
+            raise HTTPError(_msg)
+        return response
+
+    def _query_per_page_issue_info(self):
         """
         Description: View the issue details
         Args:
             total_page: total page
-            issue_url: issue url
 
         Returns:
 
         """
         issue_content_list = []
-        for i in range(1, total_page + 1):
-
-            @retry(stop_max_attempt_number=3, stop_max_delay=1000)
-            def request_issue(page, issue_url):
-                try:
-                    response = requests.get(issue_url,
-                                            params={"state": "all", "per_page": 100, "page": page})
-                except HTTPError:
-                    raise HTTPError('Network request error')
-                return response
-
+        for i in range(1, self.total_page + 1):
             try:
-                response = request_issue(i, issue_url)
-                if response.status_code != 200:
-                    LOGGER.logger.warning(response.content.decode("utf-8"))
-                    continue
+                response = self._request_issue(i)
                 issue_content_list.extend(
                     self.parse_issues_content(response.json()))
+            except (HTTPError, RequestException) as error:
+                LOGGER.logger.error(error)
+                continue
             except (JSONDecodeError, Error) as error:
                 LOGGER.logger.error(error)
         return issue_content_list
@@ -114,12 +120,9 @@ class Gitee():
         try:
             def _save(issue_module):
                 with DBHelper(db_name='lifecycle') as database:
-
                     exist_issues = database.session.query(PackagesIssue).filter(
                         PackagesIssue.issue_id == issue_module['issue_id']).first()
                     if exist_issues:
-
-                        # Save the issue
                         for key, val in issue_module.items():
                             setattr(exist_issues, key, val)
                     else:
@@ -130,11 +133,11 @@ class Gitee():
                 with DBHelper(db_name='lifecycle') as database:
                     database.add(package_module)
 
+            # Save the issue
             for issue_item in issue_list:
-                self.producer_consumer.put(
-                    (copy.deepcopy(issue_item), _save))
+                self.producer_consumer.put((copy.deepcopy(issue_item), _save))
 
-                # The number of various issues in the update package
+            # The number of various issues in the update package
             self.pkg_info.defect = self.defect
             self.pkg_info.feature = self.feature
             self.pkg_info.cve = self.cve
