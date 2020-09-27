@@ -43,6 +43,7 @@ setup(
         'packageship.libs.dbutils.sqlalchemy_helper',
         'packageship.libs.exception.ext',
         'packageship.libs.log.loghelper',
+        'packageship.libs.conf.global_config',
         'packageship.manage',
         'packageship.pkgship',
         'packageship.selfpkg',
