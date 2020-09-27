@@ -910,7 +910,7 @@ class SearchDB():
             except SQLAlchemyError as sql_error:
                 current_app.logger.error(sql_error)
         if not result_list:
-+            return ResponseCode.PACK_NAME_NOT_FOUND, result_list
+            return ResponseCode.PACK_NAME_NOT_FOUND, result_list
         return_tuple = namedtuple(
             'return_tuple', 'subpack_name sub_pack_version search_version search_name')
         for search_name in search_set:
