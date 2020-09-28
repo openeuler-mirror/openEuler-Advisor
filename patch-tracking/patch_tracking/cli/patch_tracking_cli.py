@@ -11,6 +11,8 @@ from requests.auth import HTTPBasicAuth
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+pandas.set_option('display.max_rows', None)
+pandas.set_option('display.width', None)
 
 
 def query_table(args):
@@ -28,7 +30,7 @@ def query_table(args):
                 return 'success', ret
 
             return 'error', ret
-        except Exception as exception:
+        except IOError as exception:
             return 'error', 'Connect server error: ' + str(exception)
     elif args.table == "issue":
         url = '/'.join(['https:/', server, 'issue'])
@@ -39,7 +41,7 @@ def query_table(args):
                 return 'success', ret
 
             return 'error', ret
-        except Exception as exception:
+        except IOError as exception:
             return 'error', 'Connect server error: ' + str(exception)
     return 'error', 'table ' + args.table + ' not found'
 
@@ -81,7 +83,7 @@ def server_check(url):
     """
     try:
         ret = requests.head(url=url, verify=False)
-    except Exception as exception:
+    except IOError as exception:
         print(f"Error: Cannot connect to {url}, please make sure patch-tracking service is running.")
         return 'error', exception
     if ret.status_code == 200 or ret.status_code == 404:
@@ -102,7 +104,7 @@ def repo_branch_check(url):
     }
     try:
         ret = requests.get(url=url, headers=headers)
-    except Exception as exception:
+    except IOError as exception:
         return 'error', exception
     if ret.status_code == 404:
         return 'error', f'{url} not exist.'
@@ -142,13 +144,13 @@ def params_input_track(params, file_path=None):
     password = params['password']
 
     if enabled not in ["True", "true", "False", "false"]:
-        print(add_usage)
+        print(ADD_USAGE)
         return "error", "error: enabled: invalid value: '{}' (choose from 'True', 'true', 'False', 'false')".format(
             enabled
         )
 
     if version_control not in ["github"]:
-        print(add_usage)
+        print(ADD_USAGE)
         return "error", "error: version_control: invalid value: '{}' (choose from 'github')".format(version_control)
 
     err = latin1_encode(user)
@@ -171,7 +173,7 @@ def params_input_track(params, file_path=None):
     }
     try:
         ret = requests.post(url, json=data, verify=False, auth=HTTPBasicAuth(user, password))
-    except Exception as exception:
+    except IOError as exception:
         return 'error', 'Connect server error: ' + str(exception)
     if ret.status_code == 401 or ret.status_code == 403:
         return 'error', 'Authenticate Error. Please make sure user and password are correct.'
@@ -183,6 +185,7 @@ def params_input_track(params, file_path=None):
 
 
 def check_add_param(params):
+    """check add type param"""
     success = True
     required_params = ["repo", "branch", "scm_repo", "scm_branch", "version_control", "enabled"]
     miss_params = list()
@@ -213,7 +216,7 @@ def add(args):
     style3 = bool(args.dir)
 
     if str([style1, style2, style3]).count('True') >= 2:
-        print("usage:" + add_usage)
+        print("usage:" + ADD_USAGE)
         print("patch_tracking_cli add: error: mix different usage style")
         return
 
@@ -271,12 +274,12 @@ def delete(args):
         if ret.status_code == 200 and ret.json()['code'] == '2001':
             print('Tracking delete successfully.')
             return
-        elif ret.status_code == 200 and ret.json()['code'] == '6005':
+        if ret.status_code == 200 and ret.json()['code'] == '6005':
             print('Delete Nothing. Tracking not exist.')
             return
 
         print("Tracking delete failed. Error: {}".format(ret.text))
-    except Exception as exception:
+    except IOError as exception:
         print('Connect server error: ' + str(exception))
 
 
@@ -286,9 +289,9 @@ def query(args):
     """
     status, ret = query_table(args)
     if status == "success":
-        df = pandas.DataFrame.from_dict(ret.json()["data"], orient="columns")
-        df.index = range(1, len(df) + 1)
-        print(df)
+        data_frame = pandas.DataFrame.from_dict(ret.json()["data"], orient="columns")
+        data_frame.index = range(1, len(data_frame) + 1)
+        print(data_frame)
     else:
         print(ret)
 
@@ -364,14 +367,14 @@ authentication_parser.add_argument('--user', required=True, help='authentication
 authentication_parser.add_argument('--password', required=True, help='authentication password')
 
 # add
-add_usage = """
+ADD_USAGE = """
     patch_tracking_cli add --server SERVER --user USER --password PASSWORD
                            --version_control github --scm_repo SCM_REPO --scm_branch SCM_BRANCH
                            --repo REPO --branch BRANCH --enabled True
     patch_tracking_cli add --server SERVER --user USER --password PASSWORD --file FILE
     patch_tracking_cli add --server SERVER --user USER --password PASSWORD --dir DIR"""
 parser_add = subparsers.add_parser(
-    'add', parents=[common_parser, authentication_parser], help="add tracking", usage=add_usage, allow_abbrev=False
+    'add', parents=[common_parser, authentication_parser], help="add tracking", usage=ADD_USAGE, allow_abbrev=False
 )
 parser_add.set_defaults(func=add)
 parser_add.add_argument("--version_control", choices=['github'], help="upstream version control system")
@@ -400,6 +403,7 @@ parser_query.add_argument("--branch", help="source package branch")
 
 
 def main():
+    """main"""
     args_ = parser.parse_args()
     if args_.subparser_name:
         if args_.func(args_) != "success":

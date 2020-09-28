@@ -4,7 +4,7 @@ functionality of invoking GitHub API
 import time
 import logging
 import requests
-from requests.exceptions import ConnectionError as requests_connectionError
+from requests import exceptions
 from flask import current_app
 
 logger = logging.getLogger(__name__)
@@ -29,19 +29,23 @@ def get_user_info(token):
         try:
             ret = requests.get(url, headers=headers)
             if ret.status_code == 200:
-                return 'success', ret.text
-            return 'error', ret.json()
-        except requests_connectionError as err:
+                return True, ret.text
+            return False, ret.json()
+        except exceptions.ConnectionError as err:
             logger.warning(err)
             time.sleep(10)
             count -= 1
             continue
+        except UnicodeEncodeError:
+            return False, 'github token is bad credentials.'
+        except IOError as error:
+            return False, error
     if count == 0:
         logger.error('Fail to connnect to github: %s after retry 30 times.', url)
-        return 'connect error'
+        return False, 'connect error'
 
 
-class GitHubApi:
+class GitHubApi(object):
     """
     Encapsulates GitHub functionality
     """
@@ -67,14 +71,17 @@ class GitHubApi:
             try:
                 response = requests.get(url, headers=self.headers)
                 return response
-            except requests_connectionError as err:
+            except exceptions.ConnectionError as err:
                 logger.warning(err)
                 time.sleep(10)
                 count -= 1
                 continue
+            except IOError as err:
+                logger.error(err)
+                return False
         if count == 0:
             logger.error('Fail to connnect to github: %s after retry 30 times.', url)
-            return 'connect error'
+            return False
 
     def get_commit_info(self, repo_url, commit_id):
         """
@@ -84,7 +91,7 @@ class GitHubApi:
         api_url = 'https://api.github.com/repos'
         url = '/'.join([api_url, repo_url, 'commits', commit_id])
         ret = self.api_request(url)
-        if ret != 'connect error':
+        if ret:
             if ret.status_code == 200:
                 res_dict['commit_id'] = commit_id
                 res_dict['message'] = ret.json()['commit']['message']
@@ -108,7 +115,7 @@ class GitHubApi:
         url = '/'.join([api_url, repo_url, 'branches', branch])
         ret = self.api_request(url)
         res_dict = dict()
-        if ret != 'connect error':
+        if ret:
             if ret.status_code == 200:
                 res_dict['latest_commit'] = ret.json()['commit']['sha']
                 res_dict['message'] = ret.json()['commit']['commit']['message']
@@ -133,7 +140,7 @@ class GitHubApi:
 
         url = '/'.join([api_url, repo_url, 'compare', commit])
         ret = self.api_request(url)
-        if ret != 'connect error':
+        if ret:
             if ret.status_code == 200:
                 patch_content = ret.text
                 ret_dict['status'] = 'success'
