@@ -105,3 +105,6 @@ REDIS_PORT = 6379
 # Maximum number of connections allowed by RedIS server at one time
 
 REDIS_MAX_CONNECTIONS = 10
+
+# Maximum queue length
+QUEUE_MAXSIZE = 1000

@@ -20,28 +20,38 @@ import json
 from importlib import import_module
 from functools import partial
 from redis import Redis, ConnectionPool
+from packageship.libs.conf import configuration
 
 
 REDIS_CONN = Redis(connection_pool=ConnectionPool(
-    host='192.168.205.128', port=6379, max_connections=10, decode_responses=True))
+    host=configuration.REDIS_HOST,
+    port=configuration.REDIS_PORT,
+    max_connections=configuration.REDIS_MAX_CONNECTIONS,
+    decode_responses=True))
 lock = threading.Lock()
 
 
 def hash_key(encrypt_obj):
     """
         After sorting the values of the dictionary type, calculate the md5 encrypted hash value
+
+        Args:
+            encrypt_obj:Dictionaries that need to be computed by hash values
     """
     if isinstance(encrypt_obj, dict):
-        encrypt_obj = sorted(encrypt_obj)
+        encrypt_obj = {key: encrypt_obj[key] for key in sorted(encrypt_obj)}
     md5 = hashlib.md5()
     md5.update(str(encrypt_obj).encode('utf-8'))
     return md5.hexdigest()
 
 
-def import_string(module_path):
+def get_module(module_path):
     """
     Import a dotted module path and return the attribute/class designated by the
     last name in the path. Raise ImportError if the import failed.
+
+    Args:
+        module_path:Module path
     """
     try:
         module_path, class_name = module_path.rsplit('.', 1)
@@ -61,30 +71,43 @@ def import_string(module_path):
 
 def _query_depend(query_parameter, depend_relation_str):
     """
-        Query package dependencies
+        Retrieves dependency data in the RedIS cache or queries
+        dependencies from the database and saves them in the RedIS cache
+
+        Args:
+            query_parameter:The condition of the query is a dictionary-type parameter
+            depend_relation_str:A module string of dependencies
+        Returns:
+            A dictionary form of dependency representation
     """
     depend_relation_key = hash_key(query_parameter)
-    if REDIS_CONN.exists(depend_relation_key):
+
+    def _get_redis_value():
         depend_relation = REDIS_CONN.get(depend_relation_key)
         if depend_relation:
             depend_relation = json.loads(depend_relation, encoding='utf-8')
         return depend_relation
-    # Use thread lock to safely write data in redis
+
+    if REDIS_CONN.exists(depend_relation_key):
+        return _get_redis_value()
+
     lock.acquire()
     if not REDIS_CONN.exists(depend_relation_key + '_flag'):
         REDIS_CONN.set(depend_relation_key + '_flag', 'True')
     else:
         REDIS_CONN.set(depend_relation_key + '_flag', 'False')
     REDIS_CONN.expire(depend_relation_key + '_flag', 600)
-    flag = REDIS_CONN.get(depend_relation_key + '_flag')
     lock.release()
-    if flag != 'True':
-        return "LOADING"
+    while not REDIS_CONN.exists(depend_relation_key) and \
+            REDIS_CONN.get(depend_relation_key + '_flag') == 'False':
+        pass
+    if REDIS_CONN.exists(depend_relation_key):
+        return _get_redis_value()
     # query depend relation
     try:
-        depend_relation = import_string(depend_relation_str)
-    except ImportError:
-        pass
+        depend_relation = get_module(depend_relation_str)
+    except ImportError as err:
+        raise ImportError(err)
     else:
         _depend_result = depend_relation.query_depend_relation(query_parameter)
         REDIS_CONN.set(depend_relation_key, json.dumps(_depend_result))

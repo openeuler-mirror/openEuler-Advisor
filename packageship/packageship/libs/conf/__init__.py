@@ -116,7 +116,7 @@ class Configs():
                         continue
                     if _config_value.isdigit():
                         _config_value = int(_config_value)
-                    if _config_value.lower() in ('true', 'false'):
+                    elif _config_value.lower() in ('true', 'false'):
                         _config_value = bool(_config_value)
                     setattr(self, _key.upper(), _config_value)
 
