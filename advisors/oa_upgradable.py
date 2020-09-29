@@ -5,14 +5,14 @@ This is a script to check upgradable information against upstream
 import os
 import sys
 import argparse
-
+import re
 from pyrpm.spec import Spec, replace_macros
 
 import yaml
-
 import gitee
 import check_upstream
 import version_recommend
+
 
 
 def _filter_except(excpts, sources):
@@ -20,7 +20,10 @@ def _filter_except(excpts, sources):
     Filter except case in sources
     """
     for exp in excpts:
-        sources = [s for s in sources if exp not in s]
+        for source in sources[:]:
+            result = re.fullmatch(exp, source)
+            if result:
+                sources.remove(source)
     return sources
 
 
@@ -100,12 +103,11 @@ def main():
 
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
-    
     if cur_version.startswith('v') or cur_version.startswith('V'):
         cur_version = cur_version[1:]
 
     print("Current version is", cur_version)
-    pkg_tags = get_ver_tags(user_gitee, args.repo, args.default)
+    pkg_tags = get_ver_tags(user_gitee, args.repo, cwd_path=args.default)
     print("known release tags:", pkg_tags)
 
     if pkg_tags is None:
