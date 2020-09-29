@@ -147,6 +147,8 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 ##### a. necessary packages install
 	pip3 install python-rpm-spec (ver:0.9)
 	pip3 install PyYAML (ver:5.3.1)
+	pip3 install requests (ver:2.24.0)
+	yum install rpmdevtools 
 	
 ##### b. json file config
 	~/.gitee_personal_token.json

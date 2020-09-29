@@ -58,6 +58,8 @@ DONE! than you can create a Pull Request.
 ##### 1. necessary packages install
 	pip3 install python-rpm-spec (ver:0.9)
 	pip3 install PyYAML (ver:5.3.1)
+	pip3 install requests (ver:2.24.0)
+	yum install rpmdevtools
 	
 ##### 2. json file config
 	~/.gitee_personal_token.json
