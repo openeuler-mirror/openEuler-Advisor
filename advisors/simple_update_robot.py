@@ -312,7 +312,7 @@ if __name__ == "__main__":
     pars.add_argument("-fc", "--fork_then_clone", help="Fork src-openeuler repo, then "\
                       "clone to local", action="store_true")
     pars.add_argument("-b", "--build_pkg", help="Build package in local", action="store_true")
-    pars.add_argument("-pcpi", "--push_create_pr_issue", help="Push update repo, create "\
+    pars.add_argument("-p", "--push_create_pr_issue", help="Push update repo, create "\
                       "PR and issue", action="store_true")
     args = pars.parse_args()
 

@@ -12,7 +12,7 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 2.1、oa_upgradable.py 这个 python 脚本基于upstream-info，对比制品仓中软件相比社区上游最新版本的差异。
 
-2.2、simple-update-robot.py 这个 python 脚本基于原有 spec 文件信息，下载社区上游指定版本，并生成新的 spec 文件和相应的 PR。
+2.2、simple_update_robot.py 这个 python 脚本基于原有 spec 文件信息，下载社区上游指定版本，并生成新的 spec 文件和相应的 PR。
 
 2.3、check_missing_specs.py 这个 python 脚本，对 src-openeuler 中各2个仓库进行巡检。如果发现仓库中还不存在 spec 文件，可以直接创建相应仓库中的任务。
 
@@ -24,7 +24,7 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 1、@solarhu 团队正在开发工具，计划提供 openEuler 内所有组件依赖关系的查询。
 
-2、对 simple-update-robot.py 做进一步的优化，提高自动化处理升级的能力。
+2、对 simple_update_robot.py 做进一步的优化，提高自动化处理升级的能力。
 
 3、完善 upstream-info，覆盖 openEuler 制品仓中所有软件。并将分散中 openEuler 社区中的各个 YAML 统一到 upstream-info 中，便于后续统一管理。
 
@@ -145,9 +145,9 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 ### 3.2、Introduction of advisors
 #### 3.2.1 Enviroment Setting
 ##### a. necessary packages install
-	pip3 install python-rpm-spec (ver:0.9)
-	pip3 install PyYAML (ver:5.3.1)
-	pip3 install requests (ver:2.24.0)
+	pip3 install python-rpm-spec (ver>=0.10)
+	pip3 install PyYAML (ver>=5.3.1)
+	pip3 install requests (ver>=2.24.0)
 	yum install rpmdevtools 
 	
 ##### b. json file config
@@ -155,17 +155,20 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	content format: {"user":"user_name","access_token":"token_passwd"}
 	
 	setting personal access token: https://gitee.com/profile/personal_access_tokens
+
+##### c. gitee ssh config
+	if not config, please refer: https://gitee.com/help/articles/4181
 	
 #### 3.2.2 Use Instructions
-##### a. simple-update-root.py
-	single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
-	ep: python3 simple-update-root.py -u pkg snappy master
+##### a. simple_update_robot.py
+	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name
+	ep: python3 simple_update_robot.py -u pkg snappy master
 	
-	single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
-	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+	single package manual upgrade: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]
+	ep: python3 simple_update_robot.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
 	
-	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
-	ep: python3 simple-update-root.py -u repo src-openeuler master
+	multi-packages in a repo auto-upgrade: python3 simple_update_robot.py -u repo repo_name branch_name
+	ep: python3 simple_update_robot.py -u repo src-openeuler master
 
 ##### b. oa_upgradable.py 
 	display all tags of target package: python3 oa_upgradable.py pkg_name
