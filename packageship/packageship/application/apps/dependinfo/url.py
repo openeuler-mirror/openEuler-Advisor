@@ -13,4 +13,7 @@
 
 from . import view
 
-urls = []
+urls = [
+    # get all database name
+    (view.DataBaseInfo, '/dependInfo/databases', {'query': ('GET')})
+]
