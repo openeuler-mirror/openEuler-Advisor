@@ -15,7 +15,7 @@ headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/201
 sigs_url = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
 sigs_owner_url_template = "https://gitee.com/openeuler/community/raw/master/sig/{signame}/OWNERS"
 specfile_url_template = "https://gitee.com/src-openeuler/{package}/raw/master/{specfile}"
-specfile_exception_url = "https://gitee.com/shinwell_hu/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
+specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/advisors/helper/specfile_exceptions.yaml"
 
 
 def get_gitee(url):
