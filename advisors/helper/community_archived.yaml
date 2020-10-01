@@ -1,0 +1,23 @@
+#Notice: you need configure 'token' first. 'token' is the access token that access to the GitLab API, 
+#you can generate it according to navigation:Setting->User Settings->Access Tokens on the GitLab project homepage.
+freedesktop:
+  name: freedesktop
+  type: REST
+  restapi: https://gitlab.freedesktop.org/api/v4
+  token: xxxxxxxxxxxxxxxxxxxx
+  group: ""
+  params:
+    archived: 1
+    per_page: 100
+gnome:
+  name: gnome
+  type: REST
+  restapi: https://gitlab.gnome.org/api/v4
+  token: xxxxxxxxxxxxxxxxxxxx
+  group: Archive
+  params:
+    per_page: 100
+gnu:
+  name: gnu
+  type: HTML
+  url: https://www.gnu.org/software/software.en.html
