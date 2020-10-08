@@ -1,5 +1,5 @@
 ---
 version_control: github
-src_rpeo: apache/tomcat-native
+src_repo: apache/tomcat-native
 tag_prefix: "^"
 separator: "."

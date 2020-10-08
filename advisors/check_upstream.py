@@ -12,9 +12,8 @@ from datetime import datetime
 #import yaml
 import json
 from urllib.parse import urljoin
-
 import requests
-
+import yaml2url
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
@@ -109,7 +108,7 @@ def check_hg_raw(info, clean_tag=True):
         headers = {
             'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
             }
-        url = urljoin(info["src_repo"] + "/", "raw-tags")
+        url = yaml2url.yaml2url(info)
         resp = requests.get(url, headers=headers)
         resp = resp.text
         need_trick, url, cookies = dirty_redirect_tricks(url, resp)
@@ -145,7 +144,7 @@ def check_hg(info, clean_tag=True):
         headers = {
             'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
             }
-        url = urljoin(info["src_repo"] + "/", "json-tags")
+        url = yaml2url.yaml2url(info)
         resp = requests.get(url, headers=headers)
         resp = resp.text
         need_trick, url, cookies = dirty_redirect_tricks(url, resp)
@@ -182,7 +181,7 @@ def check_metacpan(info, clean_tag=True):
         headers = {
             'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
             }
-        url = urljoin("https://metacpan.org/release/", info["src_repo"])
+        url = yaml2url.yaml2url(info)
         resp = requests.get(url, headers=headers)
         resp = resp.text
 
@@ -223,7 +222,7 @@ def check_pypi(info, clean_tag=True):
         headers = {
             'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
             }
-        url = urljoin("https://pypi.org/pypi/", info["src_repo"] + "/json")
+        url = yaml2url.yaml2url(info)
         resp = requests.get(url, headers=headers)
 
     data = resp.json()
@@ -247,7 +246,7 @@ def check_rubygem(info, clean_tag=True):
         headers = {
             'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
             }
-        url = urljoin("https://rubygems.org/api/v1/versions/", info["src_repo"] + ".json")
+        url = yaml2url.yaml2url(info)
         resp = requests.get(url, headers=headers)
 
     data = resp.json()
@@ -322,7 +321,8 @@ def check_git(info, clean_tag=True):
     """
     resp = load_last_query_result(info)
     if resp == "":
-        resp = __check_git_helper(info["src_repo"])
+        url = yaml2url.yaml2url(info)
+        resp = __check_git_helper(url)
         last_query = {}
         last_query["time_stamp"] = datetime.now()
         last_query["raw_data"] = resp
@@ -342,7 +342,7 @@ def check_github(info, clean_tag=True):
     if info.get("query_type", "git-ls") != "git-ls":
         resp = ""
 
-    repo_url = "https://github.com/" + info["src_repo"] + ".git"
+    repo_url = yaml2url.yaml2url(info)
 
     if resp == "":
         resp = __check_git_helper(repo_url)
@@ -364,7 +364,7 @@ def check_gnu_ftp(info, clean_tag=True):
     headers = {
         'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
         }
-    url = urljoin("https://ftp.gnu.org/gnu/", info["src_repo"] + "/")
+    url = yaml2url.yaml2url(info)
     eprint("{repo} > List ftp directory".format(repo=url))
     resp = requests.get(url, headers=headers)
     resp = resp.text
@@ -385,7 +385,7 @@ def check_ftp(info, clean_tag=True):
     headers = {
         'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
         }
-    url = urljoin('ftp', info["src_repo"] + "/")
+    url = yaml2url.yaml2url(info)
     eprint("{repo} > List ftp directory".format(repo=url))
     resp = requests.get(url, headers=headers)
     resp = resp.text
@@ -404,11 +404,7 @@ def check_gnome(info, clean_tag=True):
     Check version info via gitlab.gnome.org api
     """
     resp = load_last_query_result(info)
-    src_repos = info["src_repo"].split("/")
-    if len(src_repos) == 1:
-        repo_url = "https://gitlab.gnome.org/GNOME/" + info["src_repo"] + ".git"
-    else:
-        repo_url = "https://gitlab.gnome.org/" + info["src_repo"] + ".git"
+    repo_url = yaml2url.yaml2url(info)
 
     if resp == "":
         resp = __check_git_helper(repo_url)
@@ -427,7 +423,7 @@ def check_gitee(info, clean_tag=True):
     Check version info via gitee
     """
     resp = load_last_query_result(info)
-    repo_url = "https://gitee.com/" + info["src_repo"]
+    repo_url = yaml2url.yaml2url(info)
     if resp == "":
         resp = __check_git_helper(repo_url)
         last_query = {}
@@ -445,8 +441,7 @@ def check_svn(info, clean_tag=True):
     Check version info via svn
     """
     resp = load_last_query_result(info)
-    tag_dir = info.get("tag_dir", "tags")
-    repo_url = info["src_repo"] + "/" + tag_dir
+    repo_url = yaml2url.yaml2url(info)
     if resp == "":
         resp = __check_svn_helper(repo_url)
         last_query = {}
