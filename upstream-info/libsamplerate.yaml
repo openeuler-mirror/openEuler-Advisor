@@ -1,6 +1,5 @@
----
-git_url: https://github.com/erikd/libsamplerate
-version_control: NA
-src_repo: erikd/libsamplerate
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/libsamplerate
+tag_pattern: libsamplerate-(.*).tar..z(2)?
+separator: .
+mirror: true

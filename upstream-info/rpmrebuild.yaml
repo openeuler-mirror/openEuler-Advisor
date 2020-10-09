@@ -1,14 +1,6 @@
 ---
 version_control: git
 src_repo: https://git.code.sf.net/p/rpmrebuild/git
-tag_prefix: "^v"
-separator: _
+tag_prefix: rpmrebuild-
+separator: .
 git_url: https://git.code.sf.net/p/rpmrebuild/git
-git_tag:
-- 2020-02-21 rpmrebuild-2.15
-- 2018-10-19 rpmrebuild-2.14
-- 2018-09-12 rpmrebuild-2.13
-- 2018-07-20 rpmrebuild-2.12-1
-- 2018-07-20 rpmrebuild-2.12
-- 2018-06-10 rpmrebuild-2.11-3
-- 2018-06-10 rpmrebuild-2.11

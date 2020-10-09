@@ -1,5 +1,4 @@
----
-version_control: NA
-src_repo: NA
-tag_pattern: NA
-separator: NA
+version_control: git
+src_repo: https://gitlab.com/paulus/libdv
+tag_prefix: libdv_
+separator: _

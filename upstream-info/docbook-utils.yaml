@@ -1,6 +1,6 @@
----
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/docbook-utils
+tag_pattern: docbook-utils-(.*).tar.gz 
+separator: .
 download: https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
+mirror: true

@@ -1,5 +1,5 @@
 ---
 version_control: svn
 src_repo: https://svn.code.sf.net/p/ctags/code
-tag_prefix: "^Ctags-"
-separator: _
+tag_prefix: "ctags-"
+separator: .

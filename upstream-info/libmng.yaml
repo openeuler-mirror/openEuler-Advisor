@@ -1,6 +1,6 @@
----
-version_control: NA
-src_repo: 
-tag_prefix: 
-separator: "."
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/libmng
+tag_pattern: libmng-(.*).tar..z(2)?
+separator: .
 url: https://sourceforge.net/projects/libmng/
+mirror: true

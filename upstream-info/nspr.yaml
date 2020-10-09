@@ -1,6 +1,6 @@
----
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/nspr
+tag_pattern: nspr-(.*).tar.gz
+separator: .
 download: http://www.mozilla.org/projects/nspr
+mirror: true

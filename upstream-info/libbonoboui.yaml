@@ -1,6 +1,4 @@
----
 version_control: github
 src_repo: Distrotech/libbonoboui
-tag_prefix: "^LIBBONOBOUI"
+tag_prefix: LIBBONOBOUI_
 separator: _
-git_url: https://github.com/Distrotech/libbonoboui.git

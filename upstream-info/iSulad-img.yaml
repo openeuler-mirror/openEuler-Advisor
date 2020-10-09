@@ -1,3 +1,4 @@
 ---
 version_control: gitee
 src_repo: openEuler/iSulad-img
+tag_prefix: ^v

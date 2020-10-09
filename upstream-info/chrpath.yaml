@@ -1,7 +1,5 @@
 ---
-version_control: git
-src_repo: https://salsa.debian.org/themusicgod1-guest/chrpath.git
-tag_prefix: 
-separator: 
-git_url: https://salsa.debian.org/themusicgod1-guest/chrpath.git
-git_tag:
+version_control: github
+src_repo: jwilk-mirrors/chrpath
+tag_prefix: "RELEASE_"
+separator: "_"

@@ -1,5 +1,5 @@
----
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/libmpeg2
+tag_pattern: libmpeg2-(.*).tar.gz
+separator: .
+mirror: true

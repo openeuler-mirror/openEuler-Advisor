@@ -1,5 +1,5 @@
 ---
-version_control: NA
-src_repo: http://matthewwild.co.uk/projects/luaexpat/
-tag_prefix: NA
-separator: NA
+version_control: github
+src_repo: LuaDist/luaexpat
+tag_prefix: 
+separator: 
