@@ -79,14 +79,6 @@ def __get_metacpan_url(pkg_info):
     return url
 
 
-def _get_rubygem_url(pkg_info):
-    """
-    Get rubygem repo url of package
-    """
-    url = urljoin("https://rubygems.org/api/v1/versions/", pkg_info["src_repo"] + ".json")
-    return url
-
-
 def __get_gitee_url(pkg_info):
     """
     Get gitee repo url of package

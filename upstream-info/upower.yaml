@@ -3,7 +3,7 @@ version_control: git
 src_repo: https://gitlab.freedesktop.org/upower/upower.git
 tag_prefix: "^UPOWER_"
 separator: _
-git_url: git://anongit.freedesktop.org/upower
+git_url: https://gitlab.freedesktop.org/upower/upower.git
 git_tag:
 - 2019-09-03 UPOWER_0_99_11
 - 2019-02-20 UPOWER_0_99_10

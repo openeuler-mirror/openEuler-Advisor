@@ -1,5 +1,5 @@
 ---
-git_url: https://github.com/ispell-lt/ispell-lt
+git_url: https://github.com/ispell-lt/ispell-lt.git
 version_control: github
 src_repo: ispell-lt/ispell-lt
 tag_prefix: "^rel-"

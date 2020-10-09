@@ -3,4 +3,4 @@ version_control: git
 src_repo: https://dev.gnupg.org/source/libksba.git
 tag_prefix: "^libksba-"
 separator: "."
-git_url: https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libksba.git;a=summary
+git_url: https://dev.gnupg.org/source/libksba.git
