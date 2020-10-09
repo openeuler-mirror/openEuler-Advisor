@@ -56,9 +56,9 @@ DONE! than you can create a Pull Request.
 ### Introduction of advisors 	
 #### Enviroment Setting
 ##### 1. necessary packages install
-	pip3 install python-rpm-spec (ver:0.9)
-	pip3 install PyYAML (ver:5.3.1)
-	pip3 install requests (ver:2.24.0)
+	pip3 install python-rpm-spec (ver>=0.10)
+	pip3 install PyYAML (ver>=5.3.1)
+	pip3 install requests (ver>=2.24.0)
 	yum install rpmdevtools
 	
 ##### 2. json file config
@@ -66,17 +66,20 @@ DONE! than you can create a Pull Request.
 	content format: {"user":"user_name","access_token":"token_passwd"}
 	
 	setting personal access token: https://gitee.com/profile/personal_access_tokens
-	
-#### Use Instructions
-##### 1. simple-update-root.py
-	single package auto-upgrade: python3 simple-update-root.py -u pkg pkg_name branch_name
-	ep: python3 simple-update-root.py -u pkg snappy master
 
-	single package manual upgrade: python3 simple-update-root.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-p]
-	ep: python3 simple-update-root.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+##### 3. gitee ssh config
+	if not config, please refer: https://gitee.com/help/articles/4181
+
+#### Use Instructions
+##### 1. simple_update_robot.py
+	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name
+	ep: python3 simple_update_robot.py -u pkg snappy master
+
+	single package manual upgrade: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]
+	ep: python3 simple_update_robot.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
 	
-	multi-packages in a repo auto-upgrade: python3 simple-update-root.py -u repo repo_name branch_name
-	ep: python3 simple-update-root.py -u repo src-openeuler master
+	multi-packages in a repo auto-upgrade: python3 simple_update_robot.py -u repo repo_name branch_name
+	ep: python3 simple_update_robot.py -u repo src-openeuler master
 	
 ##### 2. oa_upgradable.py 
 	display all tags of target package: python3 oa_upgradable.py pkg_name
