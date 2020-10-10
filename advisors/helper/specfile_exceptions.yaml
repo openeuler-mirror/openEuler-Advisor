@@ -1,7 +1,4 @@
 ---
-libnetwork:
-  dir: script
-  file: docker-proxy.spec
 lxcfs-tools:
   dir: hack
   file: lxcfs-tools.spec

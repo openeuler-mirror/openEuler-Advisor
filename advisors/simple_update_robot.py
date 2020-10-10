@@ -1,4 +1,16 @@
 #!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+#
+# ******************************************************************************/
 """
 This is a robot to do package upgrade automation
 Expected process:
@@ -231,7 +243,7 @@ def push_create_pr_issue(gt_api, u_pkg, o_ver, u_ver, u_branch):
     subprocess.call(["git commit -m \"upgrade {pkg} to {ver}\"".format(pkg=u_pkg, ver=u_ver)],
                     shell=True)
     subprocess.call(["git push origin"], shell=True)
-    gt_api.create_pr(gt_api.token["user"], u_pkg, u_ver, u_branch)
+    gt_api.create_pr(u_pkg, u_ver, u_branch)
     gt_api.create_issue(u_pkg, u_ver, u_branch)
     os.chdir(os.pardir)
 

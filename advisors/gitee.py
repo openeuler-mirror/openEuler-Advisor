@@ -1,42 +1,44 @@
 #!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+#
+# ******************************************************************************/
 """
 This is a helper script for working with gitee.com
 """
 
+import sys
+import os
+import json
+import base64
 import urllib
 import urllib.request
 import urllib.parse
 import urllib.error
-import argparse
-import yaml
-import re
-import sys
-import os.path
-import json
-import base64
-import pprint
 from datetime import datetime
+import yaml
 
 
-class Gitee(object):
+class Gitee():
     """
-    Gitee is a helper class to abstract gitee.com api 
+    Gitee is a helper class to abstract gitee.com api
     """
     def __init__(self):
         self.secret = open(os.path.expanduser("~/.gitee_personal_token.json"), "r")
         self.token = json.load(self.secret)
 
-        self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) Gecko/20100101 Firefox/50.0'}
-        self.gitee_url = "https://gitee.com/"
-        self.src_openeuler_url = self.gitee_url + "src-openeuler/{package}/raw/{branch}/"
-        self.advisor_url = self.gitee_url + "openeuler/openEuler-Advisor/raw/master/"
-        self.specfile_url_template = self.src_openeuler_url + "{specfile}"
-        self.yamlfile_url_template = self.src_openeuler_url + "{package}.yaml"
-        #self.advisor_url_template = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/{package}.yaml"
-        self.advisor_url_template = self.advisor_url + "upstream-info/{package}.yaml"
-        #self.specfile_exception_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/helper/specfile_exceptions.yaml"
-        self.specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
-        self.version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
+        self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) '\
+                        'Gecko/20100101 Firefox/50.0'}
+        self.src_openeuler_url = "https://gitee.com/src-openeuler/{repo}/raw/{br}/"
+        self.advisor_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/"
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
     def post_gitee(self, url, values, headers=None):
@@ -48,8 +50,8 @@ class Gitee(object):
         data = urllib.parse.urlencode(values).encode('utf-8')
         req = urllib.request.Request(url=url, data=data, headers=headers, method="POST")
         try:
-            u = urllib.request.urlopen(req)
-            return u.read().decode("utf-8")
+            result = urllib.request.urlopen(req)
+            return result.read().decode("utf-8")
         except urllib.error.HTTPError as err:
             print("WARNING:" + str(err.code))
             print("WARNING:" + str(err.headers))
@@ -88,7 +90,7 @@ class Gitee(object):
         url = url_template.format(owner=owner, pkg=repo)
         return self.get_gitee(url)
 
-    def create_pr(self, head, repo, version, branch, owner="src-openeuler"):
+    def create_pr(self, repo, version, branch, owner="src-openeuler"):
         """
         Create PR in gitee
         """
@@ -102,7 +104,7 @@ class Gitee(object):
         values = {}
         values["access_token"] = self.token["access_token"]
         values["title"] = "Upgrade {pkg} to {ver}".format(pkg=repo, ver=version)
-        values["head"] = "{hd}:{br}".format(hd=head, br=branch)
+        values["head"] = "{hd}:{br}".format(hd=self.token["user"], br=branch)
         values["base"] = branch
         values["assignees"] = assignees
         values["body"] = """This is a automatically created PR by openEuler-Advisor.
@@ -132,8 +134,8 @@ class Gitee(object):
         else:
             req = urllib.request.Request(url=url, headers=headers)
         try:
-            u = urllib.request.urlopen(req)
-            return u.read().decode("utf-8")
+            result = urllib.request.urlopen(req)
+            return result.read().decode("utf-8")
         except urllib.error.HTTPError:
             return None
 
@@ -161,7 +163,8 @@ class Gitee(object):
         """
         Get well known spec file exceptions
         """
-        resp = self.get_gitee(self.specfile_exception_url)
+        specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
+        resp = self.get_gitee(specfile_exception_url)
         if not resp:
             print("ERROR: specfile_exceptions.yaml may not exist.")
             sys.exit(1)
@@ -172,18 +175,20 @@ class Gitee(object):
         """
         Get version recommend exceptions
         """
-        resp = self.get_gitee(self.version_exception_url)
+        version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
+        resp = self.get_gitee(version_exception_url)
         if not resp:
             print("ERROR: version_exceptions.yaml may not exist.")
             sys.exit(1)
         excpt = yaml.load(resp, Loader=yaml.Loader)
         return excpt
 
-    def get_spec(self, pkg, br="master"):
+    def get_spec(self, pkg, branch="master"):
         """
         Get openeuler spec file for specific package
         """
-        specurl = self.specfile_url_template.format(branch=br, package=pkg, specfile=pkg + ".spec")
+        specurl = self.src_openeuler_url + "{repo}.spec"
+        specurl = specurl.format(repo=pkg, br=branch)
         excpt_list = self.get_spec_exception()
         if pkg in excpt_list:
             dir_name = excpt_list[pkg]["dir"]
@@ -196,13 +201,14 @@ class Gitee(object):
         """
         Get upstream yaml metadata for specific package
         """
-        yamlurl = self.advisor_url_template.format(package=pkg)
+        yamlurl = self.advisor_url + "upstream-info/{}.yaml".format(pkg)
         resp = self.get_gitee(yamlurl)
         if not resp:
-            yamlurl = self.yamlfile_url_template.format(branch="master", package=pkg)
+            yamlurl = self.src_openeuler_url + "{repo}.yaml"
+            yamlurl = yamlurl.format(repo=pkg, br="master")
             resp = self.get_gitee(yamlurl)
             if not resp:
-                print("WARNING: {repo}.yaml can't be found in upstream-info and repo.".format(repo=pkg))
+                print("WARNING: {}.yaml can't be found in upstream-info and repo.".format(pkg))
         return resp
 
     def get_community(self, repo):
@@ -210,7 +216,7 @@ class Gitee(object):
         Get yaml data from community repo
         """
         yamlurl = "https://gitee.com/api/v5/repos/openeuler/community/contents/"\
-				  "repository/{repo}.yaml".format(repo=repo)
+                  "repository/{repo}.yaml".format(repo=repo)
         resp = self.get_gitee_json(yamlurl)
         resp_str = base64.b64decode(resp["content"])
         return resp_str
@@ -220,7 +226,6 @@ class Gitee(object):
         List all open issues of pkg
         """
         issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues?".format(prj=prj, pkg=pkg)
-        #parameters = "access_token={token}&state=open&sort=created&derection=desc&creator=" + self.token["user"]
         parameters = "state=open&sort=created&direction=desc&page=1&per_page=20"
         return self.get_gitee_json(issues_url + parameters)
 
@@ -245,18 +250,23 @@ class Gitee(object):
         self.post_gitee(issues_url, parameters)
 
     def post_issue_comment(self, pkg, number, comment, prj="src-openeuler"):
-        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues/{number}/comments".format(
-                prj=prj, pkg=pkg, number=number)
+        """
+        Post comment of issue
+        """
+        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues/{number}/"\
+                     "comments".format(prj=prj, pkg=pkg, number=number)
         parameters = {}
         parameters["access_token"] = self.token["access_token"]
         parameters["body"] = comment
         self.post_gitee(issues_url, parameters)
 
     def get_gitee_datetime(self, time_string):
+        """
+        Get datetime of gitee
+        """
         result = datetime.strptime(time_string, self.time_format)
         return result.replace(tzinfo=None)
 
-        
+
 if __name__ == "__main__":
     pass
-
