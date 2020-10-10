@@ -28,23 +28,17 @@ import oa_upgradable
 import version_recommend
 
 
-def download_source_url(pkg, spec_str, o_ver, n_ver):
+def download_source_url(pkg, spec, o_ver, n_ver):
     """
     Download source file from Source or Source0 URL
     """
-    with open("{}.spec".format(pkg), "w") as file_spec:
-        file_spec.write(spec_str)
-
     source_str = subprocess.check_output(["spectool -S {}.spec".format(pkg)],
                                          shell=True).decode("utf-8")
-    subprocess.call(["rm -rf {}.spec".format(pkg)], shell=True)
-
     if source_str:
         source = source_str.split('\n')[0].split(' ')[1]
     else:
-        repo_spec = Spec.from_string(spec_str)
-        if repo_spec.sources_dict:
-            source = replace_macros(repo_spec.sources[0], repo_spec)
+        if spec.sources_dict:
+            source = replace_macros(spec.sources[0], spec)
         else:
             print("WARNING: No source url in specfile.")
             return None
@@ -131,12 +125,12 @@ def fork_clone_repo(gt_api, repo, branch):
             break
 
 
-def download_src(gt_api, pkg, spec_str, o_ver, n_ver):
+def download_src(gt_api, pkg, spec, o_ver, n_ver):
     """
     Download source code for upgraded package
     """
     os.chdir(pkg)
-    source_file = download_source_url(pkg, spec_str, o_ver, n_ver)
+    source_file = download_source_url(pkg, spec, o_ver, n_ver)
     if source_file:
         print(source_file)
         result = True
@@ -156,9 +150,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
     """
     Create new spec file for upgraded package
     """
-    file_spec = open(repo + "_old.spec", "w")
-    file_spec.write(spec_str)
-    file_spec.close()
+    os.rename("{}.spec".format(repo), "{}-old.spec".format(repo))
     file_spec = open(repo + ".spec", "w")
     in_changelog = False
     for line in spec_str.splitlines():
@@ -198,16 +190,27 @@ def build_pkg(u_pkg, u_branch):
         print("WARNING: Please check branch to be upgrade.")
         sys.exit(1)
 
-    if subprocess.call(["osc", "branch", "{prj}".format(prj=project), "{pkg}".format(pkg=u_pkg)]):
-        print("WARNING: {repo} of {br} may not exist on OBS.".format(repo=u_pkg, br=u_branch))
-        return False
+    subprocess.call(["osc", "branch", "{prj}".format(prj=project), "{pkg}".format(pkg=u_pkg)])
 
     user_info = subprocess.getoutput(["osc user"])
     user = user_info.split(':')[0]
     subprocess.call(["osc", "co", "home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project,
                                                                            pkg=u_pkg)])
-    os.chdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg))
-    subprocess.call(["rm * -rf"], shell=True)
+
+    if os.path.isdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg)):
+        os.chdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg))
+    else:
+        print("WARNING: {repo} of {br} may not exist on OBS.".format(repo=u_pkg, br=u_branch))
+        return False
+
+    for file_name in os.listdir("./"):
+        if file_name.startswith("."):
+            continue
+        try:
+            os.remove(file_name)
+        except OSError:
+            shutil.rmtree(file_name, ignore_errors=True)
+
     subprocess.call(["cp ../../{pkg}/* .".format(pkg=u_pkg)], shell=True)
     if subprocess.call(["osc", "build", "standard_aarch64"]):
         result = False
@@ -223,7 +226,7 @@ def push_create_pr_issue(gt_api, u_pkg, o_ver, u_ver, u_branch):
     """
     os.chdir(u_pkg)
     subprocess.call(["git rm *{old_ver}.* -rf".format(old_ver=o_ver)], shell=True)
-    subprocess.call(["rm *_old.spec -f"], shell=True)
+    os.remove("{}-old.spec".format(u_pkg))
     subprocess.call(["git add *"], shell=True)
     subprocess.call(["git commit -m \"upgrade {pkg} to {ver}\"".format(pkg=u_pkg, ver=u_ver)],
                     shell=True)
@@ -263,7 +266,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
     if update_ver_check(u_pkg, pkg_ver, u_ver):
         fork_clone_repo(gt_api, u_pkg, u_branch)
 
-        if not download_src(gt_api, u_pkg, spec_str, pkg_ver, u_ver):
+        if not download_src(gt_api, u_pkg, pkg_spec, pkg_ver, u_ver):
             return
 
         create_spec(u_pkg, spec_str, pkg_ver, u_ver)
