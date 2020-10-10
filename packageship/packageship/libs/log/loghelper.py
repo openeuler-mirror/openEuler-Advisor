@@ -7,38 +7,25 @@ import threading
 import pathlib
 import logging
 from concurrent_log_handler import ConcurrentRotatingFileHandler
-from packageship import system_config
-from packageship.libs.configutils.readconfig import ReadConfig
-
-
-READCONFIG = ReadConfig(system_config.SYS_CONFIG_PATH)
+from packageship.libs.conf import configuration
 
 
 def setup_log(config=None):
     """
         Log logging in the context of flask
     """
+    _level = configuration.LOG_LEVEL
     if config:
-        logging.basicConfig(level=config.LOG_LEVEL)
-    else:
-        _level = READCONFIG.get_config('LOG', 'log_level')
-        if _level is None:
-            _level = 'INFO'
-        logging.basicConfig(level=_level)
-    path = READCONFIG.get_config('LOG', 'log_path')
-    log_name = READCONFIG.get_config('LOG', 'log_name')
-    backup_count = READCONFIG.get_config('LOG', 'backup_count')
+        _level = config.LOG_LEVEL
+    logging.basicConfig(level=_level)
+    backup_count = configuration.BACKUP_COUNT
     if not backup_count or not isinstance(backup_count, int):
         backup_count = 10
-    max_bytes = READCONFIG.get_config('LOG', 'max_bytes')
+    max_bytes = configuration.MAX_BYTES
     if not max_bytes or not isinstance(max_bytes, int):
         max_bytes = 314572800
-    if not log_name:
-        log_name = 'log_info.log'
-    if not path:
-        path = os.path.join(system_config.LOG_FOLDER_PATH, log_name)
-    else:
-        path = os.path.join(path, log_name)
+
+    path = os.path.join(configuration.LOG_PATH, configuration.LOG_NAME)
     if not os.path.exists(path):
         try:
             os.makedirs(os.path.split(path)[0])
@@ -49,7 +36,9 @@ def setup_log(config=None):
         path, maxBytes=max_bytes, backupCount=backup_count)
 
     formatter = logging.Formatter(
-        '%(levelname)s %(filename)s:%(lineno)d %(message)s')
+        '%(asctime)s-%(name)s-%(filename)s-[line:%(lineno)d]'
+        '-%(levelname)s-[ log details ]: %(message)s',
+        datefmt='%a, %d %b %Y %H:%M:%S')
 
     file_log_handler.setFormatter(formatter)
 
@@ -67,37 +56,27 @@ class Log():
 
         self.__file_handler = None
 
-        log_name = READCONFIG.get_config('LOG', 'log_name')
-        if not log_name:
-            log_name = 'log_info.log'
+        self.__path = os.path.join(
+            configuration.LOG_PATH, configuration.LOG_NAME)
         if path:
-            self.__path = os.path.join(system_config.LOG_FOLDER_PATH, path)
-        else:
-            self.__path = READCONFIG.get_config('LOG', 'log_path')
-            if not self.__path:
-                self.__path = os.path.join(
-                    system_config.LOG_FOLDER_PATH, log_name)
-            else:
-                self.__path = os.path.join(self.__path, log_name)
+            self.__path = path
 
         if not os.path.exists(self.__path):
             try:
                 os.makedirs(os.path.split(self.__path)[0])
             except FileExistsError:
                 pathlib.Path(self.__path).touch()
-        self.__level = READCONFIG.get_config('LOG', 'log_level')
-        if self.__level is None:
-            self.__level = 'INFO'
+
+        self.__level = configuration.LOG_LEVEL
         self.__logger = logging.getLogger(self.__name)
         self.__logger.setLevel(self.__level)
-        self.backup_count = READCONFIG.get_config('LOG', 'backup_count') or 10
-        self.max_bytes = READCONFIG.get_config('LOG', 'max_bytes') or 314572800
-        try:
-            self.backup_count = int(self.backup_count)
-            self.max_bytes = int(self.max_bytes)
-        except ValueError:
+        self.backup_count = configuration.BACKUP_COUNT
+        if not self.backup_count or not isinstance(self.backup_count, int):
             self.backup_count = 10
+        self.max_bytes = configuration.MAX_BYTES
+        if not self.max_bytes or not isinstance(self.max_bytes, int):
             self.max_bytes = 314572800
+
         self.__init_handler()
         self.__set_handler()
         self.__set_formatter()
@@ -148,3 +127,6 @@ class Log():
             Get logs
         """
         return self.__logger
+
+
+LOGGER = Log(__name__)

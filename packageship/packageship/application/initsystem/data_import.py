@@ -13,8 +13,8 @@ from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DatabaseRepeatException
 from packageship.libs.exception import Error
 from packageship.libs.exception import ConfigurationException
-from packageship.libs.configutils.readconfig import ReadConfig
-from packageship.libs.log import Log
+from packageship.libs.log import LOGGER
+from packageship.libs.conf import configuration
 from packageship.application.models.package import SrcPack
 from packageship.application.models.package import DatabaseInfo
 from packageship.application.models.package import BinPack
@@ -23,9 +23,6 @@ from packageship.application.models.package import SrcRequires
 from packageship.application.models.package import BinProvides
 from packageship.application.models.package import BinFiles
 from packageship.application.models.package import Packages
-from packageship import system_config
-
-LOGGER = Log(__name__)
 
 
 class InitDataBase():
@@ -47,12 +44,10 @@ class InitDataBase():
             config_file_path: Configuration file path
         """
         self.config_file_path = config_file_path
-
         if self.config_file_path:
             # yaml configuration file content
             self.config_file_datas = self.__read_config_file()
-        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
-        self.db_type = 'sqlite'
+        self.db_type = configuration.DATABASE_ENGINE_TYPE
         self.sql = None
         self._database = None
         self._sqlite_db = None
@@ -727,28 +722,20 @@ class SqliteDatabaseOperations():
             kwargs: data related to configuration file nodes
         """
         self.db_name = db_name
-        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
-        if getattr(kwargs, 'database_path', None) is None:
-            self._database_file_path()
-        else:
+        self.database_file_folder = configuration.DATABASE_FOLDER_PATH
+        if hasattr(kwargs, 'database_path'):
             self.database_file_folder = kwargs.get('database_path')
+        self._make_folder()
         self.tables = tables
         self.storage = storage
 
-    def _database_file_path(self):
+    def _make_folder(self):
         """
-        Database file path
-
-        Returns:
+        Create a folder to hold the database
 
         Raises:
             IOError: File or network operation io abnormal
         """
-        self.database_file_folder = self._read_config.get_system(
-            'data_base_path')
-        if not self.database_file_folder:
-            self.database_file_folder = system_config.DATABASE_FOLDER_PATH
-
         if not os.path.exists(self.database_file_folder):
             try:
                 os.makedirs(self.database_file_folder)
