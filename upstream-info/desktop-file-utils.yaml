@@ -1,6 +1,6 @@
 ---
 version_control: git
-src_repo: https://anongit.freedesktop.org/git/xdg/desktop-file-utils
+src_repo: https://anongit.freedesktop.org/git/xdg/desktop-file-utils.git
 tag_prefix: "^"
 separator: "."
-git_url: https://anongit.freedesktop.org/git/xdg/desktop-file-utils
+git_url: https://anongit.freedesktop.org/git/xdg/desktop-file-utils.git

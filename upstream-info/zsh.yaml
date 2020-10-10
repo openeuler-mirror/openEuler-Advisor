@@ -1,8 +1,8 @@
 ---
 version_control: git
-src_repo: https://git.code.sf.net/p/zsh/code
+src_repo: https://git.code.sf.net/p/zsh/code.git
 tag_prefix: "^zsh-"
 separator: 
-git_url: https://git.code.sf.net/p/zsh/code
+git_url: https://git.code.sf.net/p/zsh/code.git
 git_tag:
 - 2020-07-05 show

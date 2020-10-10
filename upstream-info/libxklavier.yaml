@@ -1,6 +1,6 @@
 ---
 version_control: git
-src_repo: https://anongit.freedesktop.org/git/libxklavier
+src_repo: https://anongit.freedesktop.org/git/libxklavier.git
 tag_prefix: "^libxklavier-"
 separator: "."
-git_url: https://anongit.freedesktop.org/git/libxklavier
+git_url: https://anongit.freedesktop.org/git/libxklavier.git
