@@ -1,5 +1,5 @@
----
-version_control: NA
-src_repo: 
-tag_prefix: 
-separator: 
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/hdparm
+tag_pattern: hdparm-(.*).tar..z(2)?
+separator: .
+mirror: true

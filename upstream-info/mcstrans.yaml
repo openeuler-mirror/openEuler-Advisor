@@ -1,6 +1,6 @@
 ---
-version_control: git
-src_repo: https://src.fedoraproject.org/rpms/mcstrans.git
-tag_prefix: "^mcstrans-"
-separator: "-"
-git_url: https://src.fedoraproject.org/rpms/mcstrans.git
+version_control: github
+src_repo: SELinuxProject/selinux
+tag_prefix: "mcstrans-"
+separator: "."
+git_url: https://github.com/SELinuxProject/selinux

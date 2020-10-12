@@ -1,5 +1,6 @@
----
-version_control: NA
-src_repo: www.oberhumer.com/opensource/lzo/
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/lzo
+tag_pattern: lzo-(.*).tar..z(2)?
+separator: .
+url: www.oberhumer.com/opensource/lzo/
+mirror: true

@@ -1,6 +1,6 @@
----
-version_control: NA
-src_repo: 
-tag_prefix: 
-separator: "."
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/libsexy
+tag_pattern: libsexy-(.*).tar..z(2)?
+separator: .
 url: https://releases.chipx86.com/libsexy/libsexy/
+mirror: true

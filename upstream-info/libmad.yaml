@@ -1,5 +1,5 @@
----
-version_control: NA
-src_repo: NA
-tag_pattern: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/libmad
+tag_pattern: libmad-(.*).tar.gz
+separator: .
+mirror: true

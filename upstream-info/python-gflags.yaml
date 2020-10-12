@@ -1,19 +1,5 @@
 ---
-version_control: github
-src_repo: google/python-gflags
-tag_prefix: "^v"
-separator: "."
-git_url: https://github.com/google/python-gflags.git
-git_tag:
-- 2016-02-09 python-gflags-3.0.2
-- 2016-02-05 python-gflags-3.0.1
-- 2016-01-14 python-gflags-3.0.0
-- 2017-10-27 3.1.2
-- 2017-01-30 3.1.1
-- 2016-11-01 3.1.0
-- 2016-09-09 3.0.7
-- 2016-08-09 3.0.6
-- 2016-05-11 3.0.5
-- 2016-04-15 3.0.4
-- 2016-04-12 3.0.3
-- 2016-02-09 3.0.2
+version_control: pypi
+src_repo: python-gflags
+tag_prefix:
+separator: .

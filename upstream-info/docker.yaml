@@ -1,6 +1,6 @@
 ---
 version_control: github
-src_repo: docker
+src_repo: docker/docker-ce
 tag_prefix: "^v"
 separator: "."
-git_url: https://github.com/docker.git
+git_url: https://github.com/docker/docker-ce.git

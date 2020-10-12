@@ -1,6 +1,5 @@
----
-version_control: NA
+version_control: git
 src_repo: https://git.code.sf.net/p/sblim/sfccommon
-tag_prefix: "^scfCommon_"
-separator: _
+tag_prefix: "sfcCommon_"
+separator: "_"
 git_url: https://sourceforge.net/p/sblim/sfccommon/ci/master/tree

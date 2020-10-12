@@ -1,5 +1,4 @@
----
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: github
+src_repo: openSUSE/open-build-service
+tag_prefix: 
+separator: .

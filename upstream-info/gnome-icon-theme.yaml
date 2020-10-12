@@ -1,5 +1,5 @@
----
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: ftp
+src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/gnome-icon-theme
+tag_pattern: gnome-icon-theme-(.*).tar..z(2)?
+separator: .
+mirror: true

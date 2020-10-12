@@ -1,10 +1,5 @@
 ---
-version_control: git
-src_repo: https://pagure.io/gssproxy.git
+version_control: github
+src_repo: gssapi/gssproxy
 tag_prefix: "^v"
 separator: "."
-git_url: https://pagure.io/gssproxy.git
-git_tag:
-- 2019-04-18 v0.8.2
-- 2019-04-16 v0.8.1
-- 2018-02-09 v0.8.0

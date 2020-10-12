@@ -1,8 +1,5 @@
 ---
 version_control: git
-src_repo: https://gitlab.freedesktop.org/libfprint/libfprint
-tag_prefix: "^v"
-separator: "."
-git_url: https://gitlab.freedesktop.org/libfprint/libfprint
-git_tag:
-- 2020-06-08 v1.90.2
+src_repo: https://gitlab.freedesktop.org/libfprint/fprintd
+tag_prefix: V_
+separator: _

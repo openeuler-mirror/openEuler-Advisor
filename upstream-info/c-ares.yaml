@@ -1,7 +1,7 @@
 ---
 version_control: github
 src_repo: c-ares/c-ares
-tag_prefix: curl-
+tag_prefix: cares-
 separator: _
 git_url: https://github.com/c-ares/c-ares.git
 git_tag:
