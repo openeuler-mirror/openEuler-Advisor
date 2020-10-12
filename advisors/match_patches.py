@@ -168,8 +168,9 @@ def patches_match(gt_api, pkg, branch, c_ver, u_ver):
         part_matched = False
         for line in patch_file.readlines():
             if re.match("index", line):
-                index_num = line[0:13] + re.findall(r'\.\..{7}', line)[0]
-                if index_num in commit_str:
+                index_head = line[0:13]
+                index_tail = re.findall(r'\.\..{7}', line)[0]
+                if index_head and index_tail in commit_str:
                     index_match.append(line.strip('\n'))
                 else:
                     part_matched = True

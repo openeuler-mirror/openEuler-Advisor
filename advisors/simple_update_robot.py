@@ -38,6 +38,7 @@ from pyrpm.spec import Spec, replace_macros
 import gitee
 import oa_upgradable
 import version_recommend
+import match_patches
 
 
 def download_source_url(pkg, spec, o_ver, n_ver):
@@ -156,6 +157,38 @@ def download_src(gt_api, pkg, spec, o_ver, n_ver):
             os.chdir(os.pardir)
             result = False
     return result
+
+
+def modify_patch(repo, patch_match):
+    """
+    delete the patch in spec that has been merged into the new version
+    """
+    os.chdir(repo)
+    patch_nums = []
+    with open(repo + ".spec", "r") as old_file:
+        lines = old_file.readlines()
+
+    with open(repo + ".spec", "w") as new_file:
+        for temp_line in lines:
+            line = "".join(temp_line)
+            if line.startswith("Patch"):
+                patch_name = "".join(line.split(":", 1)[1].split())
+                patch_num_list = "".join(line.split(":", 1)[0].split())
+                patch_num = "".join(re.findall(r"\d+\.?\d*", patch_num_list))
+                if patch_name in patch_match:
+                    patch_nums.append(patch_num)
+                    continue
+                new_file.write(temp_line)
+            elif line.startswith("%patch"):
+                if patch_nums is not None:
+                    current_line_num = "".join(line.split(" ", 1)[0].split())
+                    current_patch_num = "".join(re.findall(r"\d+\.?\d*", current_line_num))
+                    if current_patch_num in patch_nums:
+                        continue
+                    new_file.write(temp_line)
+            else:
+                new_file.write(temp_line)
+    os.chdir(os.pardir)
 
 
 def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
@@ -284,8 +317,9 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
         create_spec(u_pkg, spec_str, pkg_ver, u_ver)
 
         if len(pkg_spec.patches) >= 1:
-            print("WARNING: {repo} has multiple patches, please analyse it.".format(repo=u_pkg))
-            return
+            patch_match = match_patches.patches_match(gt_api, u_pkg, u_branch, pkg_ver, u_ver)
+            if patch_match is not None:
+                modify_patch(u_pkg, patch_match)
 
         if not build_pkg(u_pkg, u_branch):
             return
