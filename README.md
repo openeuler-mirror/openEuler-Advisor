@@ -158,6 +158,9 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 
 ##### c. gitee ssh config
 	if not config, please refer: https://gitee.com/help/articles/4181
+
+##### d. OBS config
+	if not config, please refer: https://openeuler.org/zh/docs/20.09/docs/ApplicationDev/%E6%9E%84%E5%BB%BARPM%E5%8C%85.html
 	
 #### 3.2.2 Use Instructions
 ##### a. simple_update_robot.py
