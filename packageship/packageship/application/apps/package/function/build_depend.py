@@ -91,7 +91,7 @@ class BuildDepend():
          pk_v
          ) = self.search_db.get_build_depend(pkg_list, pk_value=self.__already_pk_val)
 
-        self.__already_pk_val += pk_v
+        self.__already_pk_val = pk_v
         self.not_found_components.update(not_fd_com_build)
         if not build_list:
             return res_status if res_status == ResponseCode.DIS_CONNECTION_DB else \
@@ -102,8 +102,8 @@ class BuildDepend():
 
         code, res_dict, not_fd_com_install = \
             InstallDepend(self.db_list).query_install_depend(search_list,
-                                                             history_pk_val=self.history_dicts,
-                                                             history_dicts=self.__already_pk_val)
+                                                             history_pk_val=self.__already_pk_val,
+                                                             history_dicts=self.history_dicts)
         self.not_found_components.update(not_fd_com_install)
         if not res_dict:
             return code
@@ -207,7 +207,7 @@ class BuildDepend():
          pk_v
          ) = self.search_db.get_build_depend(pkg_name_li,
                                              pk_value=self.__already_pk_val)
-        self.__already_pk_val += pk_v
+        self.__already_pk_val = pk_v
         self.not_found_components.update(not_fd_com)
         if not bin_info_lis:
             return

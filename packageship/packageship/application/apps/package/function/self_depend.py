@@ -143,7 +143,7 @@ class SelfDepend():
         self.result_tmp.clear()
         _, self.result_tmp, not_fd_com = \
             install_depend(self.db_list).query_install_depend(self.search_install_list,
-                                                              self.binary_dict.dictionary)
+                                                              history_dicts=self.binary_dict.dictionary)
         self.not_found_components.update(not_fd_com)
         self.search_install_list.clear()
         for key, values in self.result_tmp.items():

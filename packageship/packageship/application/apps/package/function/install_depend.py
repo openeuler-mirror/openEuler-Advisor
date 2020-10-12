@@ -68,7 +68,7 @@ class InstallDepend():
                 self.__search_list.append(binary)
             else:
                 LOGGER.logger.warning("There is a  NONE in input value: %s", str(binary_list))
-        self.__already_pk_value += history_pk_val if history_pk_val else []
+        self.__already_pk_value = history_pk_val if history_pk_val else []
         while self.__search_list:
             self.__query_single_install_dep(history_dicts)
         return ResponseCode.SUCCESS, self.binary_dict.dictionary, self.not_found_components
@@ -82,14 +82,11 @@ class InstallDepend():
             response_code: response code
         Raises:
         """
-        result_list, not_found_components, pk_val = map(
-            set,
-            self.__search_db.get_install_depend(self.__search_list,
-                                                pk_value=self.__already_pk_value)
-        )
-
+        res_list, not_found_components, pk_val = self.__search_db.get_install_depend(self.__search_list,
+                                                                                     pk_value=self.__already_pk_value)
+        result_list = set(res_list)
         self.not_found_components.update(not_found_components)
-        self.__already_pk_value += pk_val
+        self.__already_pk_value = pk_val
         for search in self.__search_list:
             if search not in self.binary_dict.dictionary:
                 self.binary_dict.init_key(key=search, parent_node=[])
