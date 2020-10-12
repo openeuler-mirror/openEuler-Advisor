@@ -70,6 +70,9 @@ DONE! than you can create a Pull Request.
 ##### 3. gitee ssh config
 	if not config, please refer: https://gitee.com/help/articles/4181
 
+##### 4. OBS config
+	if not config, please refer: https://openeuler.org/zh/docs/20.09/docs/ApplicationDev/%E6%9E%84%E5%BB%BARPM%E5%8C%85.html
+
 #### Use Instructions
 ##### 1. simple_update_robot.py
 	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name
