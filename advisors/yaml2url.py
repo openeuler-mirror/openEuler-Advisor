@@ -83,7 +83,7 @@ def __get_gitee_url(pkg_info):
     """
     Get gitee repo url of package
     """
-    url = "https://gitee.com/" + pkg_info["src_repo"]
+    url = "https://gitee.com/" + pkg_info["src_repo"] + ".git"
     return url
 
 

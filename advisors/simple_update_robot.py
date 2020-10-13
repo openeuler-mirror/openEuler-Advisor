@@ -317,7 +317,9 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
         create_spec(u_pkg, spec_str, pkg_ver, u_ver)
 
         if len(pkg_spec.patches) >= 1:
-            patch_match = match_patches.patches_match(gt_api, u_pkg, u_branch, pkg_ver, u_ver)
+            os.chdir(u_pkg)
+            patch_match = match_patches.patches_match(gt_api, u_pkg, pkg_ver, u_ver)
+            os.chdir(os.pardir)
             if patch_match is not None:
                 modify_patch(u_pkg, patch_match)
 

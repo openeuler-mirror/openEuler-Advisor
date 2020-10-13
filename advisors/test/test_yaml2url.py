@@ -129,7 +129,7 @@ def test_get_gitee_url():
 
     pkg_info = yaml.load(doc, Loader=yaml.Loader)
     url = yaml2url.yaml2url(pkg_info)
-    assert url == "https://gitee.com/openEuler/lcr"
+    assert url == "https://gitee.com/openEuler/lcr.git"
 
 
 def test_get_gnu_ftp_url():
