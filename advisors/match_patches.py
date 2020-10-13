@@ -33,7 +33,7 @@ def _clone_repo(pkg_info):
     Clone repo to local
     """
     repo_url = yaml2url.yaml2url(pkg_info)
-    if not (repo_url and repo_url.endswith(".git")):
+    if not (repo_url and pkg_info["version_control"].startswith("git")):
         print("WARNING: Patch matching only support for git repo.")
         return None
 
