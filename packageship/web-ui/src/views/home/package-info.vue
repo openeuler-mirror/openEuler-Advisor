@@ -305,7 +305,7 @@
                         if(response.total_count){
                             this.total = response.total_count;
                             this.tableData = response.data;
-                            this.excelUrl = "https://api.openeuler.org/pkgmanagedebug/lifeCycle/download/packages?table_name=" + this.formData.tableName;
+                            this.excelUrl = "https://api.openeuler.org/pkgmanage/lifeCycle/download/packages?table_name=" + this.formData.tableName;
                         } else {
                             this.total = 0;
                             this.tableData = [];

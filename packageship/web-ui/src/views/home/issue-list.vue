@@ -3,7 +3,7 @@
         <el-form
             :inline="true"
             class="form">
-            <a class="form-button" href="https://api.openeuler.org/pkgmanagedebug/lifeCycle/download/issues">
+            <a class="form-button" href="https://api.openeuler.org/pkgmanage/lifeCycle/download/issues">
                 <img src="@/assets/images/dowmload.svg" alt="">
                 Export Excel
             </a>

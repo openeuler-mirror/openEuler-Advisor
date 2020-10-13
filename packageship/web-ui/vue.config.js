@@ -36,7 +36,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/api': {
-                target: 'https://api.openeuler.org/pkgmanagedebug/',
+                target: 'https://api.openeuler.org/pkgmanage/',
                 ws: true,
                 changeOrigin: true,
                 pathRewrite: {
