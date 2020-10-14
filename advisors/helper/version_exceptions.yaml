@@ -30,3 +30,5 @@ gmp:
 fcoe-utils:
     - '3.*'
     - '2.6.*'
+nftables:
+    - '099'
