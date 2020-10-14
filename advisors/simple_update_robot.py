@@ -159,7 +159,7 @@ def download_src(gt_api, pkg, spec, o_ver, n_ver):
     return result
 
 
-def modify_patch(repo, patch_match):
+def modify_patch(repo, pkg_spec, patch_match):
     """
     delete the patch in spec that has been merged into the new version
     """
@@ -169,9 +169,10 @@ def modify_patch(repo, patch_match):
         lines = old_file.readlines()
 
     with open(repo + ".spec", "w") as new_file:
-        for temp_line in lines:
-            line = "".join(temp_line)
-            if line.startswith("Patch"):
+        for pre_line in lines:
+            temp_line = "".join(pre_line)
+            if temp_line.startswith("Patch"):
+                line = replace_macros(temp_line, pkg_spec)
                 patch_name = "".join(line.split(":", 1)[1].split())
                 patch_num_list = "".join(line.split(":", 1)[0].split())
                 patch_num = "".join(re.findall(r"\d+\.?\d*", patch_num_list))
@@ -179,7 +180,7 @@ def modify_patch(repo, patch_match):
                     patch_nums.append(patch_num)
                     continue
                 new_file.write(temp_line)
-            elif line.startswith("%patch"):
+            elif temp_line.startswith("%patch"):
                 if patch_nums is not None:
                     current_line_num = "".join(line.split(" ", 1)[0].split())
                     current_patch_num = "".join(re.findall(r"\d+\.?\d*", current_line_num))
@@ -321,7 +322,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
             patch_match = match_patches.patches_match(gt_api, u_pkg, pkg_ver, u_ver)
             os.chdir(os.pardir)
             if patch_match is not None:
-                modify_patch(u_pkg, patch_match)
+                modify_patch(u_pkg, pkg_spec, patch_match)
 
         if not build_pkg(u_pkg, u_branch):
             return
