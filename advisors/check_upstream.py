@@ -455,5 +455,36 @@ def check_svn(info, clean_tag=True):
     return tags
 
 
+def check_sourceforge(info, clean_tag=True):
+    """
+    Check python module version info via sourceforge url
+    """
+    resp = load_last_query_result(info)
+    tags = []
+    if resp == "":
+        headers = {
+            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
+        url = yaml2url.yaml2url(info)
+        print("check_sourceforge, url = " + url)
+        resp = requests.get(url, headers=headers)
+
+    data = resp.text
+    lines = data.splitlines()
+    filter_condition = "\"download_url\": \"" + url
+    for line in lines:
+        if filter_condition in line:
+            tag_infos = line.split(',')
+            for tag_info in tag_infos:
+                if filter_condition in tag_info:
+                    tag = tag_info.strip()
+                    tag = tag.lstrip(filter_condition)
+                    tag = tag.strip("/download\"")
+                    tags.append(tag)
+    if clean_tag:
+        tags = clean_tags(tags, info)
+    return tags
+
+
 if __name__ == "__main__":
     pass

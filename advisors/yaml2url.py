@@ -119,6 +119,14 @@ def __get_rubygem_url(pkg_info):
     return url
 
 
+def __get_sourceforge_url(pkg_info):
+    """
+    Get git repo url of package
+    """
+    url = pkg_info["src_repo"]
+    return url
+
+
 def yaml2url(pkg_info):
     """
     Get url from yaml
@@ -140,7 +148,8 @@ def yaml2url(pkg_info):
         "rubygem": __get_rubygem_url,
         "gitee": __get_gitee_url,
         "gnu-ftp": __get_gnu_ftp_url,
-        "ftp": __get_ftp_url
+        "ftp": __get_ftp_url,
+        "sourceforge": __get_sourceforge_url
     }
 
     get_url_method = switcher.get(vc_type, None)
