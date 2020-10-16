@@ -3,27 +3,27 @@ basic:
   -
     name: PR-title-check
     condition: null
-    claim: PR的标题是否清晰易懂?
+    claim: PR的标题清晰易懂
     explain: 提交标题应该一句话说明本提交实现的内容。
   -
     name: PR-content-check
     condition: null
-    claim: PR的内容描述是否详细具体?
+    claim: PR的内容描述详细具体
     explain: 提交的描述应该用一段话说明本提交的背景和实现原理。
   -
     name: PR-consistency-check
     condition: null
-    claim: PR和实际代码修改是否一致?
+    claim: PR和实际代码修改和内容描述一致
     explain: 提交的说明文字应该和实际代码修改内容保持一致。
   -
     name: PR-standard-check
     condition: null
-    claim: PR是否符合gitee的规范检查要求?
+    claim: PR符合gitee的规范检查要求
     explain: 码云对提交的缺陷扫描、规范扫描告警每一条都需要确认。
   -
     name: PR-one-submission
     condition: null
-    claim: PR中是否只有一次提交?
+    claim: 建议PR中只有一次提交
     explain: 如果PR中包含多次提交，建议整合成一个，保持提交记录整洁。
   -
     name: PR-temp-check
@@ -34,19 +34,24 @@ basic:
   -
     name: static-check
     condition: code-modified
-    claim: 新增代码是否符合规范要求?
+    claim: 新增代码符合规范要求
     explain: 修改涉及代码使用 {lang} 语言开发，建议使用 {checker} 检查并清零告警。
   OpenSourceCompliance:
   -
-    name: license-check
+    name: license-check-001
     condition: new-file-add
-    claim: 新增代码文件起始是否含有License信息?
+    claim: 新增代码文件起始包含License信息
     explain: 代码文件开头需要有Copyright和License信息，所使用的License需和本项目使用的License兼容。
+  -
+    name: license-check-002
+    condition: license-change
+    claim: 新License与openEuler兼容
+    explain: spec中License变化，需确保新的License授权与openEuler兼容。
   SecurityPrivacy:
   -
     name: sensitive-info-check
     condition: code-modified
-    claim: 新增代码是否包含密码、口令、token、密钥等敏感数据?
+    claim: 新增代码不包含密码、口令、token、密钥等敏感数据
     explain: 提交的代码不应包含密码等敏感数据。
 customization:
   community:
@@ -60,56 +65,64 @@ customization:
       claim: "PR必须通过CI检查"
       explain: "sanity_check.py 在这个 PR 中发现错误。"
     success:
-      claim: "是否所有变更的代码仓都被恰当的 SIG 管理?"
+      claim: "所有变更的代码仓都被恰当的 SIG 管理"
       explain: "代码仓应当由有能力且有意愿的SIG管理，同一类的软件尽量归属同一个SIG。"
     lgtm-chk:
-      claim: "{sig}的维护者是否同意变更?"
+      claim: "{sig}的维护者同意变更"
       explain: "需要 {owners} 中至少一人在PR的review中留下 \"/lgtm\" 表示确认。"
     dlt-chk:
-      claim: "是否确认删除 {repo} ?"
+      claim: "已确认删除 {repo} "
       explain: "为了保证兼容性，技术委员会建议将 {repo} 移动到 sig-recycle 管理一段时间，给用户切换时间。"
   -
     name: maintainer-add-explain
     condition: maintainer-change
-    claim: "如果新增维护者，有没有对他/她能力的客观说明?"
+    claim: "如果新增维护者，已对他/她的能力做客观说明"
     explain: "PR提交者需要提出相应的举证说明维护者候选人的技术能力与社区活跃程度。"
   -
     name: maintainer-change-lgtm
     condition: maintainer-change
-    claim: "{sig} 中的其他维护者是否同意增加/删除维护者?"
+    claim: "{sig} 中的其他维护者已同意增加/删除维护者"
     explain: "需要 {owners} 中至少两人代表在此 PR 的 review 中留下 \"/lgtm\" 表示确认同意接纳或者移除维护者。"
   -
     name: sig-update-lgtm
     condition: sig-update
-    claim: "{sig} 是否同意更新 SIG 信息?"
+    claim: "{sig} 已同意更新 SIG 信息"
     explain: "{owners} 中是否有代表通过在此 PR 的 review 中留下 \"/lgtm\" 表示同意。"
   -
     name: repo-info-check
     condition: repo-introduce
-    claim: "是否正确提供代码仓上游信息?"
+    claim: "已正确提供代码仓上游信息"
     explain: "使用软件社区的正式官方网址，或者无单独正式官网的情况下，提供主流代码托管商上面对应的项目网址（如github）。不可使用maven等托管库作为官方网址。"
   -
     name: repo-name-check
     condition: repo-introduce
-    claim: "代码仓名称是否规范?"
+    claim: "代码仓名称规范"
     explain: "代码仓名称必须和上游官网/社区保持一致，不可随意命名。不允许以软件包中的子模块作为代码仓名。当软件是某个语言的开发库时，可以使用前缀予以规范化管理（如 python-，perl-等）。"
   -
     name: upstream-lifecycle-check
     condition: repo-introduce
-    claim: "新引入代码仓的上游是否仍处于生命周期内?"
+    claim: "新引入代码仓的上游仍处于生命周期内"
     explain: "已经衰退的软件，生命周期结束，社区停运，或超过5年没有任何更新的软件，原则上不引入openEuler。如果提交者认为非常有必要，可以考虑在 openeuler 中 fork 以后独立维护。"
   -
     name: repo-license-check
     condition: repo-introduce
-    claim: "新引入的代码仓的 License 授权是否都与 openEuler 兼容?"
+    claim: "新引入的代码仓的 License 授权与 openEuler 兼容"
     explain: "openEuler只能接纳可以被允许集成的软件。"
   -
     name: repo-copyright-check
     condition: repo-introduce
-    claim: "新引入的代码仓的是否有 Copyright 信息?"
+    claim: "新引入的代码仓有 Copyright 信息"
     explain: "我们期望软件有明确的 Copyright 信息。"
   -
-    name: encrypt-algorithm-check
-    condition: repo-introduce
-    claim: "新引入代码仓是否不涉及从美国代码托管网站引入加解密算法的实现?"
-    explain: "openEuler作为开源项目整体已经备案，无论是否涉及都不需要额外处理。"
+    name: repo-ownership-check
+    condition: repo-ownership-change
+    claim: "{repos} 从 **{sig1}** 移交到 **{sig2}** ，需要双方sig中至少各有一位owner同意"
+    explain: "需要 **{sig1}** 的 {owners1} 及 **{sig2}** 的 {owners2} 各有至少一名owner代表在此 PR 中留下 \"/lgtm\" 表示同意移交。"
+    to_recycle:
+      claim: "{repos} 从 **{sig1}** 移交到 **{sig2}** ，需要**sig-release-management**有代表同意"
+      explain: "{repos}存在除master外的其它保护分支，需要**sig-release-management**的 {owners} 中至少一名owner代表在此 PR 中留下 \"/lgtm\" 表示同意。"
+  -
+    name: branch-check
+    condition: new-branch-add
+    claim: "代码仓 {repos} 增加非 master 分支，要得到Release Management团队同意"
+    explain: "代码仓的非master分支会被发布版本构建使用，因此需要 {owners} 中至少一人在PR的review中留下 \"/lgtm\" 表示确认。"
