@@ -20,6 +20,10 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 2.5、create_repo.py 和 create_repo_with_srpm 这两个 python 脚本提供了批量创建新 repo 的功能。2.6、check_abi.py 这个python脚本可以比较新老版本的rpm包，生成两个版本ABI差异分析结果。
 
+2.6、which_archived.py用于检查制品仓软件的上游社区是否已经处于归档状态，便于维护团队及时调整包维护策略。
+
+2.7、review_tool.py用于生成指定软件仓PR的代码审视清单，以规范化PR审视过程。
+
 ## 2、后续计划
 
 1、@solarhu 团队正在开发工具，计划提供 openEuler 内所有组件依赖关系的查询。
@@ -179,18 +183,3 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 
 #### 3.2.3 Consultation for advisors:
 	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
-	
-	
-### 3.3、checkabi 功能介绍
-
-checkabi 功能依赖libabigail 软件包，使用checkabi 功能前需要安装libabigail ，checkabi  提供了2个功能，下面分别介绍。
-
-#### 3.3.1 比较rpm ABI 差异
-
-命令行：./check_abi.py compare_rpm -r  **old.rpm new.rpm** -d **old-debuginfo.rpm new-debuginfo.rpm** 
-
-生成的结果存放到 /var/tmp/ 下 文件名为：xx_all_abidiff.out
-
-#### 3.3.2 比较动态库ABI差异
-
-命令行：./check_abi.py compare_so -s ./old/usr/lib64/libssl.so.1.1.1  ./new/usr/lib64/libssl.so.1.1.1f
