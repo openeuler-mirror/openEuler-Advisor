@@ -74,7 +74,8 @@ def get_ver_tags(my_gitee, repo, clean_tag=True, cwd_path=None):
         "rubygem":check_upstream.check_rubygem,
         "gitee":check_upstream.check_gitee,
         "gnu-ftp":check_upstream.check_gnu_ftp,
-        "ftp":check_upstream.check_ftp
+        "ftp":check_upstream.check_ftp,
+        "sourceforge":check_upstream.check_sourceforge
         }
 
     check_method = switcher.get(vc_type, None)
