@@ -265,44 +265,24 @@ def check_repository_ownership_changes(info):
     return review_body
 
 
-def get_repo(branch, repos):
-    """
-    get repo of specific branch
-    """
-    for repo in repos:
-        if branch in repo['protected_branches']:
-            return repo['name']
-    return None
-
-
 def check_branch_add(info):
     """
     check if new branch add in repo
     """
     review_body = ""
-    repos = []
-    add_lines = subprocess.getoutput(
-            "git diff remotes/origin/master.. \
-            repository/openeuler.yaml | grep '^+[ ][ ]-' | awk '{print $NF}'")
-    openeuler_repos = load_repositories("repository/openeuler.yaml")
-    for add_line in add_lines.splitlines():
-        if add_line.strip() != "master":
-            repo = get_repo(add_line.strip(), openeuler_repos)
-            if repo:
-                repos.append(repo)
+    need_mgmt_lgtm = False
+
     add_lines = subprocess.getoutput(
             "git diff remotes/origin/master.. \
             repository/src-openeuler.yaml | grep '^+[ ][ ]-' | awk '{print $NF}'")
-    src_openeuler_repos = load_repositories("repository/src-openeuler.yaml")
     for add_line in add_lines.splitlines():
         if add_line.strip() != "master":
-            repo = get_repo(add_line.strip(), src_openeuler_repos)
-            if repo:
-                repos.append(repo)
-    if repos:
+            need_mgmt_lgtm = True
+            break
+    if need_mgmt_lgtm:
         owners = load_sig_owners("sig-release-management")
         item = join_check_item(categorizer['customization'], info['claim'], info['explain'])
-        review_body += item.format(repos=" ".join(repos), owners=" ".join(owners))
+        review_body += item.format(owners=" ".join(owners))
     return review_body
 
 
@@ -337,8 +317,6 @@ def check_repository_mgmt_changes(sigs, info):
                         info['dlt-chk']['claim'], info['dlt-chk']['explain'])
                 review_body += chk.format(repo=result.group(1))
     if need_additional_review:
-        review_body += join_check_item(categorizer['customization'],
-                info['success']['claim'], info['success']['explain'])
         review_body += join_check_item(categorizer['customization'],
                 info['success']['claim'], info['success']['explain'])
     return review_body
