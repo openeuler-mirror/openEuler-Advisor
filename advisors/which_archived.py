@@ -31,8 +31,11 @@ import requests
 import yaml
 import bs4
 import urllib3
-import gitee
-import yaml2url
+
+from advisors import gitee
+from advisors import yaml2url
+
+
 urllib3.disable_warnings()
 
 GET_METHOD_PEOJECTS = "/projects"
@@ -42,6 +45,7 @@ headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/201
 gitlab_list = ['gnome', 'freedesktop']
 RECORDER_YAML = ".query_result_lasttime"
 GNU_SOFTWARE_PAGE = "https://www.gnu.org/software/"
+
 
 def __gitlab_get_method(query_url, token, params=None):
     """
@@ -60,8 +64,8 @@ def __gitlab_get_method(query_url, token, params=None):
             data = json.loads(content)
             return data
         return None
-    except requests.RequestException as e:
-        logging.error("request failed, reason=%s", e)
+    except requests.RequestException as excpt:
+        logging.error("request failed, reason=%s", excpt)
         return None
 
 
@@ -91,19 +95,19 @@ def record_pkginfo(py_object):
     """
     record package info for running quickly next time
     """
-    with open(RECORDER_YAML, 'w', encoding='utf-8') as f:
-        yaml.dump(py_object, f)
-        f.close()
+    with open(RECORDER_YAML, 'w', encoding='utf-8') as record_file:
+        yaml.dump(py_object, record_file)
+        record_file.close()
 
 
 def read_pkginfo_lasttime():
     """
     read package info record last time
     """
-    record_file = os.path.join(os.getcwd(), RECORDER_YAML)
+    file_name = os.path.join(os.getcwd(), RECORDER_YAML)
     try:
-        with open(record_file, 'r', encoding='utf-8') as f:
-            return  yaml.load(f.read(), Loader = yaml.Loader)
+        with open(file_name, 'r', encoding='utf-8') as record_file:
+            return  yaml.load(record_file.read(), Loader = yaml.Loader)
     except FileNotFoundError:
         return {}
 
@@ -146,8 +150,8 @@ def load_config():
     load configuration
     """
     try:
-        with open(COMMUNITY_ARCHIVED_YAML, 'r', encoding = 'utf-8') as f:
-            return yaml.load(f.read(), Loader = yaml.Loader)
+        with open(COMMUNITY_ARCHIVED_YAML, 'r', encoding = 'utf-8') as archived_file:
+            return yaml.load(archived_file.read(), Loader = yaml.Loader)
     except OSError as reason:
         print("Load yaml failed!" + str(reason))
         return None

@@ -19,11 +19,11 @@ import sys
 import argparse
 import re
 from pyrpm.spec import Spec, replace_macros
-
 import yaml
-import gitee
-import check_upstream
-import version_recommend
+
+from advisors import gitee
+from advisors import check_upstream
+from advisors import version_recommend
 
 
 def _filter_except(excpts, sources):

@@ -4,22 +4,21 @@ This modules containers methods to check upstream version info
 """
 import re
 import sys
+import json
 import subprocess
 from datetime import datetime
-
-#import http.cookiejar
-#import urllib.request
-#import yaml
-import json
 from urllib.parse import urljoin
 import requests
-import yaml2url
+
+from advisors import yaml2url
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
+
 
 def eprint(*args, **kwargs):
     """Helper for debug print"""
     print("DEBUG: ", *args, file=sys.stderr, **kwargs)
+
 
 def load_last_query_result(info, force_reload=False):
     """
@@ -97,6 +96,7 @@ def dirty_redirect_tricks(url, resp):
     if "" in cookie:
         cookie.remove("")
     return need_trick, new_url, list(cookie)
+
 
 def check_hg_raw(info, clean_tag=True):
     """
@@ -259,6 +259,7 @@ def check_rubygem(info, clean_tag=True):
         tags = clean_tags(tags, info)
     return tags
 
+
 def __check_subprocess(cmd_list):
     """
     Helper to start and check subprocess result
@@ -301,6 +302,7 @@ def __svn_resp_to_tags(resp):
                 break
     return tags
 
+
 def __git_resp_to_tags(resp):
     """
     Helpers to convert git response to tags
@@ -314,6 +316,7 @@ def __git_resp_to_tags(resp):
             if not tag.endswith("^{}"):
                 tags.append(tag)
     return tags
+
 
 def check_git(info, clean_tag=True):
     """
@@ -331,8 +334,8 @@ def check_git(info, clean_tag=True):
     tags = __git_resp_to_tags(resp)
     if clean_tag:
         tags = clean_tags(tags, info)
-
     return tags
+
 
 def check_github(info, clean_tag=True):
     """
@@ -357,6 +360,7 @@ def check_github(info, clean_tag=True):
         tags = clean_tags(tags, info)
     return tags
 
+
 def check_gnu_ftp(info, clean_tag=True):
     """
     Check version info via compare ftp release tar file for gnu
@@ -377,6 +381,7 @@ def check_gnu_ftp(info, clean_tag=True):
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
+
 
 def check_ftp(info, clean_tag=True):
     """
@@ -399,6 +404,7 @@ def check_ftp(info, clean_tag=True):
         tags = clean_tags(tags, info)
     return tags
 
+
 def check_gnome(info, clean_tag=True):
     """
     Check version info via gitlab.gnome.org api
@@ -418,6 +424,7 @@ def check_gnome(info, clean_tag=True):
         tags = clean_tags(tags, info)
     return tags
 
+
 def check_gitee(info, clean_tag=True):
     """
     Check version info via gitee
@@ -435,6 +442,7 @@ def check_gitee(info, clean_tag=True):
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
+
 
 def check_svn(info, clean_tag=True):
     """
