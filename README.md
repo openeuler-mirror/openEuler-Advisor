@@ -146,40 +146,40 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 
   如果软件tag分域本来就是"."，这个时候设置separator是不影响结果的。
 
-### 3.2、Introduction of advisors
-#### 3.2.1 Enviroment Setting
-##### a. necessary packages install
+### 3.2、advisors介绍
+#### 3.2.1 环境配置
+##### a. 必要软件包安装
 	pip3 install python-rpm-spec (ver>=0.10)
 	pip3 install PyYAML (ver>=5.3.1)
 	pip3 install requests (ver>=2.24.0)
 	yum install rpmdevtools 
 	
-##### b. json file config
-	~/.gitee_personal_token.json
-	content format: {"user":"user_name","access_token":"token_passwd"}
+##### b. json文件配置
+	创建json文件：~/.gitee_personal_token.json
+	json文件格式：{"user":"gitee用户名","access_token":"token密码"}
 	
-	setting personal access token: https://gitee.com/profile/personal_access_tokens
+	gitee token密码设置入口：https://gitee.com/profile/personal_access_tokens
 
-##### c. gitee ssh config
-	if not config, please refer: https://gitee.com/help/articles/4181
+##### c. gitee ssh配置
+	如果未配置, 请参考：https://gitee.com/help/articles/4181
 
-##### d. OBS config
-	if not config, please refer: https://openeuler.org/zh/docs/20.09/docs/ApplicationDev/%E6%9E%84%E5%BB%BARPM%E5%8C%85.html
+##### d. OBS配置
+	如果未配置, 请参考：https://openeuler.org/zh/docs/20.09/docs/ApplicationDev/%E6%9E%84%E5%BB%BARPM%E5%8C%85.html
 	
-#### 3.2.2 Use Instructions
+#### 3.2.2 使用说明
 ##### a. simple_update_robot.py
-	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name
-	ep: python3 simple_update_robot.py -u pkg snappy master
+	单软件包自动升级: python3 simple_update_robot.py -u pkg pkg_name branch_name
+	例如: python3 simple_update_robot.py -u pkg snappy master
 	
-	single package manual upgrade: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]
-	ep: python3 simple_update_robot.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
+	单软件包手动升级: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]
+	例如: python3 simple_update_robot.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
 	
-	multi-packages in a repo auto-upgrade: python3 simple_update_robot.py -u repo repo_name branch_name
-	ep: python3 simple_update_robot.py -u repo src-openeuler master
+	多软件包仓库升级: python3 simple_update_robot.py -u repo repo_name branch_name
+	例如: python3 simple_update_robot.py -u repo src-openeuler master
 
 ##### b. oa_upgradable.py 
-	display all tags of target package: python3 oa_upgradable.py pkg_name
-	ep: python3 oa_upgradable.py glibc
+	查询软件包上游社区信息及版本推荐: python3 oa_upgradable.py pkg_name
+	例如: python3 oa_upgradable.py glibc
 
-#### 3.2.3 Consultation for advisors:
-	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
+#### 3.2.3 advisors咨询:
+	如果有其他问题或疑问, 可以邮件联系: leo.fangyufa@huawei.com/leofang_94@163.com
