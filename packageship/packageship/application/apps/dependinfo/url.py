@@ -14,6 +14,10 @@
 from . import view
 
 urls = [
+    # get SelfDepend
+    (view.InfoSelfDepend, '/dependInfo/selfDepend', {'query': ('POST')}),
+    # get BeDepend
+    (view.InfoBeDepend, '/dependInfo/beDepend', {'query': ('POST')}),
     # get all database name
     (view.DataBaseInfo, '/dependInfo/databases', {'query': ('GET')})
 ]

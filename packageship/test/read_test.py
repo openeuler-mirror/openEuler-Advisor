@@ -17,13 +17,15 @@ def read_data_tests():
     from test.test_module.lifecycle.test_maintainer import TestGetMaintainers
     from test.test_module.lifecycle.test_downloadexcel import TestDownloadExcelFile
     from test.test_module.lifecycle.test_get_issues import TestGetIssue
+    from test.test_module.dependinfo_tests.test_dependinfo_self_depend import TestDependInfoSelfDepend
+    from test.test_module.dependinfo_tests.test_dependinfo_be_depend import TestDependInfoBeDepend
 
     suite = unittest.TestSuite()
 
     classes = [TestInstallDepend, TestSelfDepend, TestBeDepend,
                TestGetRepodatas, TestBuildDepend, TestPackages,
                TestGetSinglePack, TestGetMaintainers, TestDownloadExcelFile,
-               TestGetIssue]
+               TestGetIssue, TestDependInfoBeDepend, TestDependInfoSelfDepend]
     for cls in classes:
         suite.addTests(unittest.TestLoader().loadTestsFromTestCase(cls))
     return RUNNER.run(suite)

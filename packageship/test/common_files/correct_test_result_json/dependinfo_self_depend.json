@@ -1,0 +1,334 @@
+[
+  {
+    "input": {
+      "packagename": "A1"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": [
+          {
+            "binary_name": "A2",
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "binary_name": "C1",
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "binary_name": "D1",
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "binary_name": "B1",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          },
+          {
+            "binary_name": "B2",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "source_dicts": [
+          {
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "statistics": [
+          {
+            "binary_num": 5,
+            "database": "mainline",
+            "source_num": 4
+          },
+          {
+            "binary_num": 0,
+            "database": "fedora30",
+            "source_num": 0
+          }
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "C",
+      "packtype": "source"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": [
+          {
+            "binary_name": "A2",
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "binary_name": "D1",
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "binary_name": "A1",
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "binary_name": "B1",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          },
+          {
+            "binary_name": "B2",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "source_dicts": [
+          {
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "statistics": [
+          {
+            "binary_num": 5,
+            "database": "mainline",
+            "source_num": 4
+          },
+          {
+            "binary_num": 0,
+            "database": "fedora30",
+            "source_num": 0
+          }
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A2",
+      "selfbuild": "0",
+      "withsubpack": "1"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": [
+          {
+            "binary_name": "C1",
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "binary_name": "D1",
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "binary_name": "A1",
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "binary_name": "C2",
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "binary_name": "D2",
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "binary_name": "B1",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          },
+          {
+            "binary_name": "B2",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "source_dicts": [
+          {
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "statistics": [
+          {
+            "binary_num": 7,
+            "database": "mainline",
+            "source_num": 4
+          },
+          {
+            "binary_num": 0,
+            "database": "fedora30",
+            "source_num": 0
+          }
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  },
+  {
+    "input": {
+      "packagename": "A",
+      "selfbuild": "0",
+      "withsubpack": "1",
+      "packtype": "source"
+    },
+    "output": {
+      "code": "2001",
+      "data": {
+        "binary_dicts": [
+          {
+            "binary_name": "D1",
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "binary_name": "C1",
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "binary_name": "C2",
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "binary_name": "D2",
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "binary_name": "B1",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          },
+          {
+            "binary_name": "B2",
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "source_dicts": [
+          {
+            "database": "mainline",
+            "source_name": "A",
+            "version": "0.0.23b"
+          },
+          {
+            "database": "mainline",
+            "source_name": "D",
+            "version": "0.11"
+          },
+          {
+            "database": "mainline",
+            "source_name": "C",
+            "version": "0.1"
+          },
+          {
+            "database": "mainline",
+            "source_name": "B",
+            "version": "0.0.2"
+          }
+        ],
+        "statistics": [
+          {
+            "binary_num": 6,
+            "database": "mainline",
+            "source_num": 4
+          },
+          {
+            "binary_num": 0,
+            "database": "fedora30",
+            "source_num": 0
+          }
+        ]
+      },
+      "msg": "Successful Operation!"
+    }
+  }
+]
