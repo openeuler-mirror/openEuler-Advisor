@@ -1,6 +1,5 @@
 ---
-version_control: NA
-src_repo: https://sourceforge.net/p/trousers/tpm-tools/ci/master/tree/
-tag_prefix: "^"
-separator: "."
-git_url: https://sourceforge.net/p/trousers/tpm-tools/ci/master/tree/
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/trousers/files/tpm-tools/
+tag_prefix: 
+separator: .

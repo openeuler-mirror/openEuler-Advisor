@@ -1,5 +1,5 @@
 ---
-version_control: NA
-src_repo: NA
-tag_prefix: NA
-separator: NA
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/aa-project/files/aa-lib
+tag_prefix: 
+separator: 

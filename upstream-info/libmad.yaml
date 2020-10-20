@@ -1,5 +1,4 @@
-version_control: ftp
-src_repo: https://ftp.osuosl.org/pub/blfs/conglomeration/libmad
-tag_pattern: libmad-(.*).tar.gz
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/mad/files/libmad/
+tag_pattern: 
 separator: .
-mirror: true
