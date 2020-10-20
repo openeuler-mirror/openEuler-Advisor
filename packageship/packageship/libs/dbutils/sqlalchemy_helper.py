@@ -15,8 +15,7 @@ from sqlalchemy.engine.url import URL
 from packageship.libs.exception.ext import Error
 from packageship.libs.exception.ext import DbnameNoneException
 from packageship.libs.exception.ext import ContentNoneException
-from packageship.libs.configutils.readconfig import ReadConfig
-from packageship import system_config
+from packageship.libs.conf import configuration
 
 
 class BaseHelper():
@@ -25,7 +24,6 @@ class BaseHelper():
     """
 
     def __init__(self):
-        self.readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
         self.engine = None
 
 
@@ -44,12 +42,11 @@ class MysqlHelper(BaseHelper):
     def __init__(self, user_name=None, password=None, host=None,  # pylint: disable=unused-argument
                  port=None, database=None, **kwargs):
         super(MysqlHelper, self).__init__()
-        self.user_name = user_name or self.readconfig.get_database(
-            'user_name')
-        self.password = password or self.readconfig.get_database('password')
-        self.host = host or self.readconfig.get_database('host')
-        self.port = port or self.readconfig.get_database('port')
-        self.database = database or self.readconfig.get_database('database')
+        self.user_name = user_name or configuration.USER_NAME
+        self.password = password or configuration.PASSWORD
+        self.host = host or configuration.HOST
+        self.port = port or configuration.PORT
+        self.database = database or configuration.DATABASE
         self.connection_type = 'mysql+pymysql'
 
     def create_database_engine(self):
@@ -101,10 +98,7 @@ class SqliteHlper(BaseHelper):
         Raises:
 
         """
-        _database_folder_path = self.readconfig.get_system(
-            'data_base_path')
-        if not _database_folder_path:
-            _database_folder_path = system_config.DATABASE_FOLDER_PATH
+        _database_folder_path = configuration.DATABASE_FOLDER_PATH
         try:
             if not os.path.exists(_database_folder_path):
                 os.makedirs(_database_folder_path)
@@ -144,6 +138,7 @@ class DBHelper(BaseHelper):
     """
     # The base class inherited by the data model
     BASE = declarative_base()
+    ENGINE_CONTAINER = dict()
 
     def __init__(self, user_name=None, password=None, host=None,  # pylint: disable=R0913
                  port=None, db_name=None, connection_type=None, **kwargs):
@@ -157,16 +152,36 @@ class DBHelper(BaseHelper):
             'sqlite': SqliteHlper
         }
         if connection_type is None:
-            connection_type = self.readconfig.get_database(
-                'dbtype') or 'sqlite'
+            connection_type = configuration.DATABASE_ENGINE_TYPE
+        self._engine_pool = connection_type + '_' + db_name
         _database_engine = self._database_engine.get(connection_type)
         if _database_engine is None:
-            raise DisconnectionError('')
-        _engine = _database_engine(user_name=user_name, password=password,
-                                   host=host, port=port, database=db_name, **kwargs)
-        _engine.create_database_engine()
-        self.engine = _engine.engine
+            raise DisconnectionError(
+                'Database engine connection failed'
+                'Not currently supported %s database' % connection_type)
+        _engine = self.ENGINE_CONTAINER.get(self._engine_pool)
+        if _engine:
+            self.engine = _engine
+        else:
+            _engine = _database_engine(user_name=user_name, password=password,
+                                       host=host, port=port, database=db_name, **kwargs)
+            _engine.create_database_engine()
+            self.engine = _engine.engine
+            self.ENGINE_CONTAINER[self._engine_pool] = self.engine
         self.session = None
+
+    def create_engine(self):
+        """
+            Create related database engine connections
+        """
+        session = sessionmaker()
+        try:
+            session.configure(bind=self.engine)
+        except DisconnectionError:
+            self.ENGINE_CONTAINER.pop(self._engine_pool)
+        else:
+            self.session = session()
+        return self
 
     def __enter__(self):
         """
@@ -179,13 +194,8 @@ class DBHelper(BaseHelper):
 
         """
 
-        session = sessionmaker()
-        if not hasattr(self, 'engine'):
-            raise DisconnectionError('Abnormal database connection')
-        session.configure(bind=self.engine)
-
-        self.session = session()
-        return self
+        database_engine = self.create_engine()
+        return database_engine
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """
@@ -200,6 +210,8 @@ class DBHelper(BaseHelper):
         Raises:
 
         """
+        if isinstance(exc_type, (AttributeError)):
+            raise SQLAlchemyError(exc_val)
         self.session.close()
 
     @classmethod
@@ -247,10 +259,8 @@ class DBHelper(BaseHelper):
         if entity is None:
             raise ContentNoneException(
                 'The added entity content cannot be empty')
-
         try:
             self.session.add(entity)
-
         except SQLAlchemyError as sql_error:
             self.session.rollback()
             if isinstance(sql_error, OperationalError):

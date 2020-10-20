@@ -33,10 +33,10 @@ WRITE_PORT = 8080
 QUERY_PORT = 8090
 
 # IP address path with write permission
-WRITE_HOST = '127.0.0.1'
+WRITE_IP_ADDR = '127.0.0.1'
 
 # IP address path with permission to query data
-QUERY_HOST = '127.0.0.1'
+QUERY_IP_ADDR = '127.0.0.1'
 
 # The address of the remote service, the command line can directly
 # call the remote service to complete the data request

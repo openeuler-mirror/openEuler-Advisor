@@ -18,12 +18,9 @@ try:
     from requests.exceptions import HTTPError
     import prettytable
     from prettytable import PrettyTable
-    from packageship import system_config
-    from packageship.libs.log import Log
+    from packageship.libs.conf import configuration
+    from packageship.libs.log import LOGGER
     from packageship.libs.exception import Error
-    from packageship.libs.configutils.readconfig import ReadConfig
-
-    LOGGER = Log(__name__)
 except ImportError as import_error:
     print("Error importing related dependencies,"
           "please check if related dependencies are installed")
@@ -38,9 +35,6 @@ DB_NAME = 0
 def main():
     """
     Description: Command line tool entry, register related commands
-    Args:
-
-    Returns:
 
     Raises:
         Error: An error occurred while executing the command
@@ -50,7 +44,7 @@ def main():
         packship_cmd.parser_args()
     except Error as error:
         LOGGER.logger.error(error)
-        print('command error')
+        print('Command execution error please try again')
 
 
 class BaseCommand():
@@ -67,7 +61,6 @@ class BaseCommand():
         Description: Class instance initialization
 
         """
-        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
         self.write_host = None
         self.read_host = None
         self.__http = 'http://'
@@ -86,9 +79,9 @@ class BaseCommand():
         Raises:
 
         """
-        wirte_port = self._read_config.get_system('write_port')
+        wirte_port = configuration.WRITE_PORT
 
-        write_ip = self._read_config.get_system('write_ip_addr')
+        write_ip = configuration.WRITE_IP_ADDR
         if not all([write_ip, wirte_port]):
             raise Error(
                 "The system does not configure the relevant port and ip correctly")
@@ -104,9 +97,9 @@ class BaseCommand():
         Raises:
 
         """
-        read_port = self._read_config.get_system('query_port')
+        read_port = configuration.QUERY_PORT
 
-        read_ip = self._read_config.get_system('query_ip_addr')
+        read_ip = configuration.QUERY_IP_ADDR
         if all([read_ip, read_port]):
             _read_host = self.__http + read_ip + ":" + read_port
 
@@ -117,8 +110,7 @@ class BaseCommand():
             Set read domain name
         """
         if remote:
-            _host = self._read_config.get_system('remote_host')
-            self.read_host = _host
+            self.read_host = configuration.REMOTE_HOST
         if self.read_host is None:
             raise Error(
                 "The system does not configure the relevant port and ip correctly")
