@@ -17,9 +17,9 @@ This is an automatic script for checking repo is repeated or not
 import argparse
 import os
 import sys
-
 import yaml
-import yaml2url
+
+from advisors import yaml2url
 
 
 def get_url(repo_file):

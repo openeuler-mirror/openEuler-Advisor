@@ -5,11 +5,12 @@ If not, it can be used to push an issue to remind the developer.
 """
 
 import argparse
-import gitee
-import urllib.error
 from datetime import datetime
 
-new_issue_body = """Dear {repo} maintainer:
+from advisors import gitee
+
+
+NEW_ISSUE_BODY = """Dear {repo} maintainer:
 亲爱的 {repo} 维护者：
 
 We found there is no spec file in this repository's master branch yet.
@@ -27,7 +28,7 @@ This is a automatic advise from openEuler-Advisor. If you think the advise is no
 Yours openEuler Advisor.
 """
 
-new_comment = """Dear {repo} maintainer:
+NEW_COMMENT = """Dear {repo} maintainer:
 
 We found this issue has been open for {days} days.
 
@@ -40,10 +41,15 @@ This is a automatic advise from openEuler-Advisor. If you think the advise is no
 Yours openEuler Advisor.
 """
 
-if __name__ == "__main__":
+
+def main():
+    """
+    Main entrance for command line
+    """
     pars = argparse.ArgumentParser()
     pars.add_argument("repo", type=str, help="Repo to be checked")
-    pars.add_argument("-p", "--push", help="Push the advise to gitee.com/src-openeuler", action="store_true")
+    pars.add_argument("-p", "--push", help="Push the advise to gitee.com/src-openeuler",
+                      action="store_true")
 
     args = pars.parse_args()
 
@@ -61,16 +67,18 @@ if __name__ == "__main__":
                         print("Advise has been issues only %d days ago" % ages.days)
                         print("Give developers more time to handle it.")
                         break
-                    else:
-                        my_gitee.post_issue_comment(args.repo, issue["number"],
-                                new_comment.format(repo=args.repo, days=ages.days))
+                    my_gitee.post_issue_comment(args.repo, issue["number"], NEW_COMMENT.format(
+                                                repo=args.repo, days=ages.days))
                     break
             else:
                 my_gitee.post_issue(args.repo,
                         "Submit spec file into this repository",
-                        new_issue_body.format(repo=args.repo))
+                        NEW_ISSUE_BODY.format(repo=args.repo))
         else:
             print("Keep this between us.")
     else:
         print("Everything's fine")
 
+
+if __name__ == "__main__":
+    main()

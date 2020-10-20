@@ -16,7 +16,8 @@ This is an test script for get url from repo name
 """
 import yaml
 
-import yaml2url
+from advisors import yaml2url
+
 
 YAML_DOC = """
     version_control: {version_control}

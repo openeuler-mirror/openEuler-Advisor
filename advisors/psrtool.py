@@ -17,8 +17,10 @@ This script was inspired by previous work from @love_hangzhou
 """
 
 import re
+import sys
 import argparse
 import yaml
+
 
 def list_packages(sigs, sig_name):
     """
@@ -92,7 +94,7 @@ def main():
     except IOError:
         print("Failed to load information from %s" % args.yaml)
         parser.print_help()
-        exit(1)
+        sys.exit(1)
 
     if args.list:
         print_list(list_packages(sigs, args.list))
@@ -102,7 +104,7 @@ def main():
         print_dict(package_to_sigs(sigs, args.query_packages))
     else:
         pass
-    exit(0)
+
 
 if __name__ == "__main__":
     main()

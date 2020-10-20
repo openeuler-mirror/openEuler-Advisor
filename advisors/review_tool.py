@@ -21,7 +21,8 @@ import subprocess
 import shutil
 import urllib
 import yaml
-import gitee
+
+from advisors import gitee
 
 CHK_TABLE_HEADER = """
 **以下为 openEuler-Advisor 的 review_tool 生成审视要求清单**
@@ -474,7 +475,6 @@ def community_review(custom_items):
             review_body += check_repository_ownership_changes(cstm_item)
         elif cstm_item['condition'] == 'new-branch-add':
             review_body += check_branch_add(cstm_item)
-
     return review_body
 
 
@@ -482,7 +482,6 @@ def review(pull_request, repo_name, chklist_path, branch):
     """
     Return check list of this PR
     """
-
     if not pull_request["mergeable"]:
         return "PR中存在冲突，无法自动合并。需要先解决冲突，才可以开展评审。"
 
@@ -624,6 +623,7 @@ def main():
     review_comment = review(pull_request, repo_name, chklist_path, branch)
 
     user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
+
 
 if __name__ == "__main__":
     main()

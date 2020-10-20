@@ -35,10 +35,10 @@ import subprocess
 import yaml
 from pyrpm.spec import Spec, replace_macros
 
-import gitee
-import oa_upgradable
-import version_recommend
-import match_patches
+from advisors import gitee
+from advisors import oa_upgradable
+from advisors import version_recommend
+from advisors import match_patches
 
 
 def download_source_url(pkg, spec, o_ver, n_ver):
@@ -192,10 +192,11 @@ def modify_patch(repo, pkg_spec, patch_match):
     os.chdir(os.pardir)
 
 
-def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
+def create_spec(gt_api, repo, spec_str, o_ver, n_ver):
     """
     Create new spec file for upgraded package
     """
+    pkg_spec = Spec.from_string(spec_str)
     os.rename("{}.spec".format(repo), "{}-old.spec".format(repo))
     file_spec = open(repo + ".spec", "w")
     in_changelog = False
@@ -204,10 +205,7 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
             file_spec.write(re.sub(r"\d+", "1", line) + "\n")
             continue
         if line.startswith("Source:") or line.startswith("Source0:"):
-            if src_fn:
-                file_spec.write("Source:	{src_fn}\n".format(src_fn=src_fn).replace(o_ver, n_ver))
-            else:
-                file_spec.write(line.replace(o_ver, n_ver) + "\n")
+            file_spec.write(line.replace(o_ver, n_ver) + "\n")
             continue
         if not in_changelog:
             line = line.replace(o_ver, n_ver)
@@ -222,6 +220,13 @@ def create_spec(repo, spec_str, o_ver, n_ver, src_fn=None):
             file_spec.write("\n")
     file_spec.close()
     os.chdir(os.pardir)
+
+    if len(pkg_spec.patches) >= 1:
+        os.chdir(repo)
+        patch_match = match_patches.patches_match(gt_api, repo, o_ver, n_ver)
+        os.chdir(os.pardir)
+        if patch_match is not None:
+            modify_patch(repo, pkg_spec, patch_match)
 
 
 def build_pkg(u_pkg, u_branch):
@@ -315,14 +320,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
         if not download_src(gt_api, u_pkg, pkg_spec, pkg_ver, u_ver):
             return
 
-        create_spec(u_pkg, spec_str, pkg_ver, u_ver)
-
-        if len(pkg_spec.patches) >= 1:
-            os.chdir(u_pkg)
-            patch_match = match_patches.patches_match(gt_api, u_pkg, pkg_ver, u_ver)
-            os.chdir(os.pardir)
-            if patch_match is not None:
-                modify_patch(u_pkg, pkg_spec, patch_match)
+        create_spec(gt_api, u_pkg, spec_str, pkg_ver, u_ver)
 
         if not build_pkg(u_pkg, u_branch):
             return
@@ -352,7 +350,49 @@ def auto_update_repo(gt_api, u_repo, u_branch):
         auto_update_pkg(gt_api, pkg_name, u_branch, u_ver)
 
 
-if __name__ == "__main__":
+def __manual_operate(gt_api, op_args):
+    """
+    Manual operation of this module
+    """
+    spec_string = gt_api.get_spec(op_args.repo_pkg, op_args.branch)
+    if not spec_string:
+        print("WARNING: {pkg}.spec can't be found on the {br} branch.".format(
+              pkg=op_args.repo_pkg, br=op_args.branch))
+        sys.exit(1)
+    spec_file = Spec.from_string(spec_string)
+    cur_version = replace_macros(spec_file.version, spec_file)
+
+    if op_args.fork_then_clone:
+        fork_clone_repo(gt_api, op_args.repo_pkg, op_args.branch)
+
+    if op_args.download or op_args.create_spec or op_args.push_create_pr_issue:
+        if not op_args.new_version:
+            print("Please specify the upgraded version of the {}".format(op_args.repo_pkg))
+            sys.exit(1)
+        elif not update_ver_check(op_args.repo_pkg, cur_version, op_args.new_version):
+            sys.exit(1)
+
+    if op_args.download:
+        if not download_src(gt_api, op_args.repo_pkg, spec_file, cur_version,
+                            op_args.new_version):
+            sys.exit(1)
+
+    if op_args.create_spec:
+        create_spec(gt_api, op_args.repo_pkg, spec_string, cur_version, op_args.new_version)
+
+    if op_args.build_pkg:
+        if not build_pkg(op_args.u_repo_pkg, op_args.u_branch):
+            sys.exit(1)
+
+    if op_args.push_create_pr_issue:
+        push_create_pr_issue(gt_api, op_args.repo_pkg, cur_version, op_args.new_version,
+                             op_args.branch)
+
+
+def main():
+    """
+    Main entrance for command line
+    """
     pars = argparse.ArgumentParser()
     pars.add_argument("repo_pkg", type=str, help="The repository or package to be upgraded")
     pars.add_argument("branch", type=str, help="The branch that upgrade based")
@@ -376,40 +416,8 @@ if __name__ == "__main__":
         else:
             auto_update_pkg(user_gitee, args.repo_pkg, args.branch, args.new_version)
     else:
-        spec_string = user_gitee.get_spec(args.repo_pkg, args.branch)
-        if not spec_string:
-            print("WARNING: {pkg}.spec can't be found on the {br} branch.".format(
-                  pkg=args.repo_pkg, br=args.branch))
-            sys.exit(1)
-        spec_file = Spec.from_string(spec_string)
-        cur_version = replace_macros(spec_file.version, spec_file)
+        __manual_operate(user_gitee, args)
 
-        if args.fork_then_clone:
-            fork_clone_repo(user_gitee, args.repo_pkg, args.branch)
 
-        if args.download or args.create_spec or args.push_create_pr_issue:
-            if not args.new_version:
-                print("Please specify the upgraded version of the {}".format(args.repo_pkg))
-                sys.exit(1)
-            elif not update_ver_check(args.repo_pkg, cur_version, args.new_version):
-                sys.exit(1)
-
-        if args.download:
-            if not download_src(user_gitee, args.repo_pkg, spec_file, cur_version,
-                                args.new_version):
-                sys.exit(1)
-
-        if args.create_spec:
-            create_spec(args.repo_pkg, spec_string, cur_version, args.new_version)
-
-        if len(spec_file.patches) >= 1:
-            print("WARNING: {} has multiple patches, please analyse it.".format(args.repo_pkg))
-            sys.exit(1)
-
-        if args.build_pkg:
-            if not build_pkg(args.repo_pkg, args.branch):
-                sys.exit(1)
-
-        if args.push_create_pr_issue:
-            push_create_pr_issue(user_gitee, args.repo_pkg, cur_version, args.new_version,
-                                 args.branch)
+if __name__ == "__main__":
+    main()
