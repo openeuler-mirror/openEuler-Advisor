@@ -1,5 +1,5 @@
 ---
-version_control: NA
-src_repo: NA
-tag_pattern: NA
-separator: NA
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/mad/files/libid3tag/
+tag_prefix:
+separator: .
