@@ -229,27 +229,19 @@ def create_spec(gt_api, repo, spec_str, o_ver, n_ver):
             modify_patch(repo, pkg_spec, patch_match)
 
 
-def build_pkg(u_pkg, u_branch):
+def build_pkg(u_pkg, u_branch, obs_prj):
     """
     Auto build upgrade pkg on obs
     """
-    if u_branch == "master":
-        project = "openEuler:Mainline"
-    elif u_branch == "openEuler-20.03-LTS":
-        project = "openEuler:20.03:LTS"
-    else:
-        print("WARNING: Please check branch to be upgrade.")
-        sys.exit(1)
-
-    subprocess.call(["osc", "branch", "{prj}".format(prj=project), "{pkg}".format(pkg=u_pkg)])
+    subprocess.call(["osc", "branch", "{prj}".format(prj=obs_prj), "{pkg}".format(pkg=u_pkg)])
 
     user_info = subprocess.getoutput(["osc user"])
     user = user_info.split(':')[0]
-    subprocess.call(["osc", "co", "home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project,
+    subprocess.call(["osc", "co", "home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=obs_prj,
                                                                            pkg=u_pkg)])
 
-    if os.path.isdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg)):
-        os.chdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=project, pkg=u_pkg))
+    if os.path.isdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=obs_prj, pkg=u_pkg)):
+        os.chdir("home:{usr}:branches:{prj}/{pkg}".format(usr=user, prj=obs_prj, pkg=u_pkg))
     else:
         print("WARNING: {repo} of {br} may not exist on OBS.".format(repo=u_pkg, br=u_branch))
         return False
@@ -300,19 +292,18 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
     pkg_spec = Spec.from_string(spec_str)
     pkg_ver = replace_macros(pkg_spec.version, pkg_spec)
 
+    branch_info = gt_api.get_branch_info(u_branch)
+
     if not u_ver:
         pkg_tags = oa_upgradable.get_ver_tags(gt_api, u_pkg)
         if pkg_tags is None:
             return
         ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
 
-        if u_branch == "master":
+        if branch_info["recommend_type"] == "master":
             u_ver = ver_rec.latest_version
-        elif re.search(r"LTS", u_branch):
-            u_ver = ver_rec.maintain_version
         else:
-            print("WARNING: Auto-upgrade current not support for {} branch.".format(u_branch))
-            return
+            u_ver = ver_rec.maintain_version
 
     if update_ver_check(u_pkg, pkg_ver, u_ver):
         fork_clone_repo(gt_api, u_pkg, u_branch)
@@ -322,7 +313,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
 
         create_spec(gt_api, u_pkg, spec_str, pkg_ver, u_ver)
 
-        if not build_pkg(u_pkg, u_branch):
+        if not build_pkg(u_pkg, u_branch, branch_info["obs_prj"]):
             return
 
         push_create_pr_issue(gt_api, u_pkg, pkg_ver, u_ver, u_branch)
@@ -362,6 +353,8 @@ def __manual_operate(gt_api, op_args):
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
 
+    branch_info = gt_api.get_branch_info(op_args.branch)
+
     if op_args.fork_then_clone:
         fork_clone_repo(gt_api, op_args.repo_pkg, op_args.branch)
 
@@ -381,7 +374,7 @@ def __manual_operate(gt_api, op_args):
         create_spec(gt_api, op_args.repo_pkg, spec_string, cur_version, op_args.new_version)
 
     if op_args.build_pkg:
-        if not build_pkg(op_args.u_repo_pkg, op_args.u_branch):
+        if not build_pkg(op_args.repo_pkg, op_args.branch, branch_info["obs_prj"]):
             sys.exit(1)
 
     if op_args.push_create_pr_issue:

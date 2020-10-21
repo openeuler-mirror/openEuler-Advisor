@@ -159,6 +159,22 @@ class Gitee():
             json_resp = json.loads(resp)
         return json_resp
 
+    def get_branch_info(self, branch):
+        """
+        Get upgrade branch info
+        """
+        upgrade_branches_url = self.advisor_url + "advisors/helper/upgrade_branches.yaml"
+        resp = self.get_gitee(upgrade_branches_url)
+        if not resp:
+            print("ERROR: upgrade_branches.yaml may not exist.")
+            sys.exit(1)
+        branches_info = yaml.load(resp, Loader=yaml.Loader)
+        for br_info in branches_info["branches"]:
+            if branch == br_info["name"]:
+                return br_info
+        print("WARNING: Don't support branch: {} in auto-upgrade.".format(branch))
+        sys.exit(1)
+
     def get_spec_exception(self):
         """
         Get well known spec file exceptions

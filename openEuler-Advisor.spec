@@ -44,7 +44,6 @@ py.test-%{python3_version} -vv tests || :
 %attr(0755,root,root) %{_bindir}/psrtool
 %attr(0755,root,root) %{_bindir}/review_tool
 %attr(0755,root,root) %{_bindir}/tc_reminder
-%attr(0755,root,root) %{_bindir}/tc_statistic
 %attr(0755,root,root) %{_bindir}/which_archived
 
 %changelog

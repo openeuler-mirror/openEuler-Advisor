@@ -23,12 +23,12 @@ setup(
         'advisors.psrtool',
         'advisors.review_tool',
         'advisors.tc_reminder',
-        'advisors.tc_statistic',
         'advisors.which_archived',
         'advisors.yaml2url',
         'advisors.gitee',
         'legacy.python-packager',
         'legacy.who_maintain',
+        'legacy.tc_statistic',
         'tests.test_yaml2url'],
     requires=['python_rpm_spec (>=0.10)',
               'PyYAML (>=5.3.1)',
@@ -50,6 +50,5 @@ setup(
         ('/usr/bin/', ['command/psrtool']),
         ('/usr/bin/', ['command/review_tool']),
         ('/usr/bin/', ['command/tc_reminder']),
-        ('/usr/bin/', ['command/tc_statistic']),
         ('/usr/bin/', ['command/which_archived'])]
 )
