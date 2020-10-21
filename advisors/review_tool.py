@@ -41,6 +41,7 @@ categorizer = {'PRSubmissionSPEC':'PR提交规范',
             'CleanCode':'Clean Code',
             'OpenSourceCompliance':'开源合规性',
             'SecurityPrivacy':'安全及隐私',
+            'Compatibility':'兼容性',
             'customization':'定制项'}
 SIGS_URL = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/20100101 Firefox/23.0'}
@@ -82,17 +83,29 @@ def check_code_lang(branch):
     return langs, checkers
 
 
-def check_license_change(branch):
+def check_spec_change(branch, keyword):
     """
-    check if spec be modified
+    check if value of keyword changed in spec
     """
-    lst_files = subprocess.getoutput(
+    modify_files = subprocess.getoutput(
             "git diff --name-only --diff-filter=M remotes/origin/{}..".format(branch))
-    for item in lst_files.splitlines():
+    for item in modify_files.splitlines():
         if item.endswith(".spec"):
-            lst_lines = subprocess.getoutput(
-                    "git diff remotes/origin/{}.. ".format(branch) + item + " | grep '^+License'")
-            return bool(lst_lines.splitlines())
+            lines = subprocess.getoutput(
+                    "git diff remotes/origin/{0}.. {1} \
+                    | grep '^[+-]{2}:'".format(branch, item, keyword))
+            lines_list = lines.splitlines()
+            if len(lines_list) != 2:
+                break
+            cur_value = ""
+            new_value = ""
+            for line in lines_list:
+                if line.startswith("+{}:".format(keyword)):
+                    cur_value = line.split(":")[1].strip()
+                elif line.startswith("-{}:".format(keyword)):
+                    new_value = line.split(":")[1].strip()
+            if cur_value != new_value:
+                return True
     return False
 
 
@@ -393,7 +406,10 @@ def basic_review(cklist, branch):
                 if not check_new_code(branch):
                     continue
             elif value2['condition'] == 'license-change':
-                if not check_license_change(branch):
+                if not check_spec_change(branch, "License"):
+                    continue
+            elif value2['condition'] == 'version-change':
+                if not check_spec_change(branch, "Version"):
                     continue
             item = join_check_item(categorizer[key1],
                     value2['claim'], value2['explain'])

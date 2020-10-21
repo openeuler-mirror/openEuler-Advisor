@@ -53,6 +53,12 @@ basic:
     condition: code-modified
     claim: 新增代码不包含密码、口令、token、密钥等敏感数据
     explain: 提交的代码不应包含密码等敏感数据。
+  Compatibility:
+  -
+    name: compatibility-check
+    condition: version-change
+    claim: 新版本能兼容老版本
+    explain: spec中version版本变化，非master分支软件版本升级需考虑兼容性
 customization:
   community:
   -
