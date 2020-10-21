@@ -176,6 +176,19 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	
 	多软件包仓库升级: python3 simple_update_robot.py -u repo repo_name branch_name
 	例如: python3 simple_update_robot.py -u repo src-openeuler master
+	
+	用户可以在本地工作目录配置自动升级yaml文件, 比如: upgrade-example.yaml
+	repositories:
+	- name: A-Tune
+	- name: python-py
+	- name: python-ply
+	如果你想为某些软件包指定升级版本，可以配置为:
+	repositories:
+	- name: A-Tune
+	  u_ver: x.y.z
+	- name: python-py
+	- name: python-ply
+	然后通过工具自动升级upgrade-example: python3 simple_update_robot.py -u repo upgrade-example master
 
 ##### b. oa_upgradable.py 
 	查询软件包上游社区信息及版本推荐: python3 oa_upgradable.py pkg_name
