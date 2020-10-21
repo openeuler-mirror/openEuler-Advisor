@@ -25,7 +25,6 @@ import yaml
 from advisors import gitee
 from advisors import yaml2url
 from advisors import oa_upgradable
-from advisors import simple_update_robot
 
 
 def _clone_repo(pkg_info):
@@ -130,25 +129,3 @@ def patches_match(gt_api, pkg, c_ver, u_ver):
                 patch_match[file_name] = "all"
     print(patch_match)
     return patch_match
-
-
-def main():
-    """
-    Main entrance for command line
-    """
-    pars = argparse.ArgumentParser()
-    pars.add_argument("pkg", type=str, help="The package to be matched.")
-    pars.add_argument("branch", type=str, help="Branch to be matched.")
-    pars.add_argument("cur_ver", type=str, help="Current version of package.")
-    pars.add_argument("up_ver", type=str, help="Upgrade version of package.")
-    args = pars.parse_args()
-
-    user_gitee = gitee.Gitee()
-    simple_update_robot.fork_clone_repo(user_gitee, args.pkg, args.branch)
-    os.chdir(args.pkg)
-    patches_match(user_gitee, args.pkg, args.cur_ver, args.up_ver)
-    os.chdir(os.pardir)
-
-
-if __name__ == "__main__":
-    main()
