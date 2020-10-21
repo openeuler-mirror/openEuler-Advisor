@@ -1,0 +1,11 @@
+branches:
+- name: master
+  recommend_type: master
+  obs_prj: openEuler:Mainline
+- name: openEuler-20.03-LTS
+  recommend_type: LTS
+  obs_prj: openEuler:20.03:LTS
+- name: openEuler-21.03
+  recommend_type: master
+  obs_prj: openEuler:21.03
+
