@@ -5,15 +5,49 @@ Description: marshmallow serialize
 from marshmallow import Schema
 from marshmallow import fields
 from marshmallow import validate
+from marshmallow import ValidationError
 from packageship.application.models.package import PackagesIssue, Packages
+from packageship.libs.log import Log
+
+LOGGER = Log(__name__)
+
+
+def validate_pagenum(pagenum):
+    """
+    Description: Method test
+    Args£º
+        pagenum: pagenum
+    Returns:
+        True or failure
+    Raises:
+        ValidationError: Test failed
+    """
+    if pagenum <= 0 or pagenum > 65535:
+        LOGGER.logger.error("[pagenum:{}] is illegal data ".format(pagenum))
+        raise ValidationError("pagenum is illegal data ")
+
+
+def validate_pagesize(pagesize):
+    """
+    Description: Method test
+    Args£º
+        pagesize: pagesize
+    Returns:
+        True or failure
+    Raises:
+        ValidationError: Test failed
+    """
+    if pagesize <= 0 or pagesize > 65535:
+        LOGGER.logger.error("[pagesize:{}] is illegal data ".format(pagesize))
+        raise ValidationError("pagesize is illegal data ")
 
 
 class IssueSchema(Schema):
     """
     Description: IssueSchema serialize
     """
-    page_num = fields.Integer(required=True)
-    page_size = fields.Integer(required=True)
+    page_num = fields.Integer(required=True, validate=validate_pagenum)
+    page_size = fields.Integer(required=True, validate=validate_pagesize)
     pkg_name = fields.Str(validate=validate.Length(
         max=200), required=False, allow_none=True)
     maintainer = fields.Str(validate=validate.Length(
