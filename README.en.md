@@ -83,7 +83,20 @@ DONE! than you can create a Pull Request.
 	
 	multi-packages in a repo auto-upgrade: python3 simple_update_robot.py -u repo repo_name branch_name
 	ep: python3 simple_update_robot.py -u repo src-openeuler master
-	
+
+	you can config local yaml for auto upgrade, such as: upgrade-example.yaml
+	repositories:
+	- name: A-Tune
+	- name: python-py
+	- name: python-ply
+	if you want to specify upgrade version for some package:
+	repositories:
+	- name: A-Tune
+	  u_ver: x.y.z
+	- name: python-py
+	- name: python-ply
+	then auto upgrade upgrade-example: python3 simple_update_robot.py -u repo upgrade-example master
+
 ##### 2. oa_upgradable.py 
 	display all tags of target package: python3 oa_upgradable.py pkg_name
 	ep: python3 oa_upgradable.py glibc
