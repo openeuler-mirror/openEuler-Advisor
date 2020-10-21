@@ -124,5 +124,5 @@ customization:
   -
     name: branch-check
     condition: new-branch-add
-    claim: "代码仓 {repos} 增加非 master 分支，要得到Release Management团队同意"
+    claim: "代码仓增加非 master 分支，要得到Release Management团队同意"
     explain: "代码仓的非master分支会被发布版本构建使用，因此需要 {owners} 中至少一人在PR的review中留下 \"/lgtm\" 表示确认。"
