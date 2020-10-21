@@ -85,7 +85,7 @@ class BaseCommand():
         if not all([write_ip, wirte_port]):
             raise Error(
                 "The system does not configure the relevant port and ip correctly")
-        _write_host = self.__http + write_ip + ":" + wirte_port
+        _write_host = self.__http + write_ip + ":" + str(wirte_port)
         setattr(self, 'write_host', _write_host)
 
     def load_read_host(self):
@@ -101,7 +101,7 @@ class BaseCommand():
 
         read_ip = configuration.QUERY_IP_ADDR
         if all([read_ip, read_port]):
-            _read_host = self.__http + read_ip + ":" + read_port
+            _read_host = self.__http + read_ip + ":" + str(read_port)
 
             setattr(self, 'read_host', _read_host)
 

@@ -4,7 +4,6 @@ description: Interface processing
 class: BeDepend, BuildDepend, InitSystem, InstallDepend, Packages,
 Repodatas, SelfDepend, SinglePack
 """
-import yaml
 from flask import request
 from flask import jsonify
 from flask import current_app
@@ -12,15 +11,14 @@ from flask_restful import Resource
 from sqlalchemy.exc import DisconnectionError
 from sqlalchemy.exc import SQLAlchemyError
 
-from packageship import system_config
 from packageship.application.initsystem.data_import import InitDataBase
-from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.dbutils import DBHelper
 from packageship.libs.exception import Error
 from packageship.libs.exception import ContentNoneException
 from packageship.libs.exception import DataMergeException
 from packageship.libs.exception import ConfigurationException
 from packageship.libs.log import Log
+from packageship.libs.conf import configuration
 from .function.constants import ResponseCode
 from .function.packages import get_all_package_info
 from .function.packages import sing_pack
@@ -495,7 +493,8 @@ class Repodatas(Resource):
         except (SQLAlchemyError, Error) as data_info_error:
             current_app.logger.error(data_info_error)
             return jsonify(
-                ResponseCode.response_json(ResponseCode.NOT_FOUND_DATABASE_INFO)
+                ResponseCode.response_json(
+                    ResponseCode.NOT_FOUND_DATABASE_INFO)
             )
 
     def delete(self):
@@ -586,9 +585,8 @@ class InitSystem(Resource):
         try:
             abnormal = None
             if not configfile:
-                _config_path = ReadConfig(
-                    system_config.SYS_CONFIG_PATH).get_system('init_conf_path')
-                InitDataBase(config_file_path=_config_path).init_data()
+                InitDataBase(
+                    config_file_path=configuration.INIT_CONF_PATH).init_data()
             else:
                 InitDataBase(config_file_path=configfile).init_data()
         except ContentNoneException as content_none_error:
