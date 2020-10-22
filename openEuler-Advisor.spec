@@ -35,7 +35,6 @@ py.test-%{python3_version} -vv tests || :
 %{python3_sitelib}/*
 %attr(0755,root,root) %{_bindir}/simple_update_robot
 %attr(0755,root,root) %{_bindir}/oa_upgradable
-%attr(0755,root,root) %{_bindir}/match_patches
 %attr(0755,root,root) %{_bindir}/check_missing_specs
 %attr(0755,root,root) %{_bindir}/check_repeated_repo
 %attr(0755,root,root) %{_bindir}/check_source_url

@@ -41,7 +41,6 @@ setup(
     data_files=[
         ('/usr/bin/', ['command/simple_update_robot']),
         ('/usr/bin/', ['command/oa_upgradable']),
-        ('/usr/bin/', ['command/match_patches']),
         ('/usr/bin/', ['command/check_missing_specs']),
         ('/usr/bin/', ['command/check_repeated_repo']),
         ('/usr/bin/', ['command/check_source_url']),
