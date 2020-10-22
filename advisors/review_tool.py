@@ -409,7 +409,7 @@ def basic_review(cklist, branch):
                 if not check_spec_change(branch, "License"):
                     continue
             elif value2['condition'] == 'version-change':
-                if not check_spec_change(branch, "Version"):
+                if branch == "master" or not check_spec_change(branch, "Version"):
                     continue
             item = join_check_item(categorizer[key1],
                     value2['claim'], value2['explain'])
