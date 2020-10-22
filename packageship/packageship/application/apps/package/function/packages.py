@@ -7,7 +7,7 @@ functions: get_packages, buildep_packages, sub_packages, get_single_package,
 import math
 
 
-from flask import current_app, jsonify
+from flask import current_app
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError, DisconnectionError
 
@@ -49,7 +49,7 @@ def get_all_package_info(tablename, pagenum, pagesize,
                     ResponseCode.TABLE_NAME_NOT_EXIST)
                 response['total_count'] = None
                 response['total_page'] = None
-                return jsonify(response)
+                return response
             cls_model = Packages.package_meta(tablename)
             # If srcname is empty, it will query all the information in the
             # library
@@ -84,7 +84,7 @@ def get_all_package_info(tablename, pagenum, pagesize,
             ResponseCode.TABLE_NAME_NOT_EXIST)
         response["total_count"] = None
         response["total_page"] = None
-        return jsonify(response)
+        return response
 
 
 def parsing_dictionary_issuse(packageinfo_dicts):
@@ -146,16 +146,12 @@ def sing_pack(srcname, tablename):
     try:
         with DBHelper(db_name="lifecycle") as database_name:
             if tablename not in database_name.engine.table_names():
-                return jsonify(
-                    ResponseCode.response_json(
-                        ResponseCode.TABLE_NAME_NOT_EXIST))
+                return ResponseCode.response_json(ResponseCode.TABLE_NAME_NOT_EXIST)
             cls_model = Packages.package_meta(tablename)
             package_info_obj = database_name.session.query(
                 cls_model).filter_by(name=srcname).first()
             if package_info_obj is None:
-                return jsonify(
-                    ResponseCode.response_json(
-                        ResponseCode.PACK_NAME_NOT_FOUND))
+                return ResponseCode.response_json(ResponseCode.PACK_NAME_NOT_FOUND)
             pack_info_dict = SinglePackInfoSchema(
                 many=False).dump(package_info_obj)
             pack_info_dict = parsing_maintainner(srcname, pack_info_dict)
@@ -171,14 +167,10 @@ def sing_pack(srcname, tablename):
             pack_info_dict.update(
                 {"license": pack_info_dict.pop("rpm_license")})
             pack_info_dict.update({"pkg_name": pack_info_dict.pop("name")})
-            return jsonify(
-                ResponseCode.response_json(
-                    ResponseCode.SUCCESS, pack_info_dict))
+            return ResponseCode.response_json(ResponseCode.SUCCESS, pack_info_dict)
     except (SQLAlchemyError, DisconnectionError, Error, AttributeError) as error:
         current_app.logger.error(error)
-        return jsonify(
-            ResponseCode.response_json(
-                ResponseCode.DIS_CONNECTION_DB))
+        return ResponseCode.response_json(ResponseCode.DIS_CONNECTION_DB)
 
 
 def parsing_maintainner(srcname, pack_info_dict):
@@ -384,4 +376,4 @@ def _sub_pack(src_name, table_name):
                         }
                     )
         helper([values for k, values in res.items()])
-        return (list(res.values()))
+        return list(res.values())

@@ -103,7 +103,7 @@ class Packages(Resource):
             src_name,
             maintainner,
             maintainlevel)
-        return result
+        return jsonify(result)
 
 
 class SinglePack(Resource):
@@ -154,7 +154,7 @@ class SinglePack(Resource):
         srcname = data.get("pkg_name")
         tablename = data.get("table_name")
         result = sing_pack(srcname, tablename)
-        return result
+        return jsonify(result)
 
 
 class InstallDepend(Resource):
@@ -523,7 +523,7 @@ class Repodatas(Resource):
             )
         db_name = data.get("dbName")
         db_list = db_priority()
-        if db_list is None:
+        if not db_list:
             return jsonify(
                 ResponseCode.response_json(ResponseCode.FILE_NOT_FOUND)
             )
@@ -616,7 +616,7 @@ class InitSystem(Resource):
         if abnormal is not None:
             return jsonify(ResponseCode.response_json(abnormal))
         db_list = db_priority()
-        if db_list is None:
+        if not db_list:
             return jsonify(
                 ResponseCode.response_json(
                     ResponseCode.FAILED_CREATE_DATABASE_TABLE))
