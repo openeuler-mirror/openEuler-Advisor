@@ -551,7 +551,7 @@ def prepare(args, group, repo_name, pull_id, branch):
     if not os.path.exists(work_dir):
         os.makedirs(work_dir)
     repo = group + "/" + repo_name
-    gitee_url = "git@gitee.com:{repo}".format(repo=repo)
+    gitee_url = "https://gitee.com/{repo}.git".format(repo=repo)
     local_path = os.path.join(work_dir, repo_name)
     if not args.reuse:
         if os.path.exists(local_path):
