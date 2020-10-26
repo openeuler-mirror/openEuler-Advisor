@@ -118,7 +118,9 @@ def fork_clone_repo(gt_api, repo, branch):
     """
     Fork repo from src-openEuler to private repository, then clone it to local
     """
+    fork_existed = False
     if not gt_api.fork_repo(repo):
+        fork_existed = True
         print("WARNING: The repo of {pkg} seems to have been forked.".format(pkg=repo))
 
     name = gt_api.token["user"]
@@ -134,6 +136,12 @@ def fork_clone_repo(gt_api, repo, branch):
             os.chdir(os.pardir)
             time.sleep(1)
         else:
+            if fork_existed:
+                upstream_url = "https://gitee.com/src-openeuler/{}.git".format(repo)
+                subprocess.call(["git", "remote", "add", "upstream", upstream_url])
+                subprocess.call(["git", "fetch", "upstream"])
+                subprocess.call(["git", "merge", "upstream/{}".format(branch)])
+                subprocess.call(["git", "push", "origin", "{}".format(branch)])
             os.chdir(os.pardir)
             break
 
