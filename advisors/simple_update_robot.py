@@ -41,11 +41,24 @@ from advisors import version_recommend
 from advisors import match_patches
 
 
-def download_source_url(pkg, spec, o_ver, n_ver):
+def get_spec_path(gt_api, pkg):
+    """
+    Get specfile path in repository
+    """
+    excpt = gt_api.get_spec_exception(pkg)
+    if excpt:
+        spec_path = os.path.join(excpt["dir"], excpt["file"])
+    else:
+        spec_path = "./{}.spec".format(pkg)
+    return spec_path
+
+
+def download_source_url(gt_api, pkg, spec, o_ver, n_ver):
     """
     Download source file from Source or Source0 URL
     """
-    source_str = subprocess.check_output(["spectool -S {}.spec".format(pkg)],
+    spec_path = get_spec_path(gt_api, pkg)
+    source_str = subprocess.check_output(["spectool -S {}".format(spec_path)],
                                          shell=True).decode("utf-8")
     if source_str:
         source = source_str.split('\n')[0].split(' ')[1]
@@ -151,7 +164,7 @@ def download_src(gt_api, pkg, spec, o_ver, n_ver):
     Download source code for upgraded package
     """
     os.chdir(pkg)
-    source_file = download_source_url(pkg, spec, o_ver, n_ver)
+    source_file = download_source_url(gt_api, pkg, spec, o_ver, n_ver)
     if source_file:
         print(source_file)
         result = True
@@ -205,8 +218,9 @@ def create_spec(gt_api, repo, spec_str, o_ver, n_ver):
     Create new spec file for upgraded package
     """
     pkg_spec = Spec.from_string(spec_str)
-    os.rename("{}.spec".format(repo), "{}-old.spec".format(repo))
-    file_spec = open(repo + ".spec", "w")
+    spec_path = get_spec_path(gt_api, repo)
+    os.rename(spec_path, "{}.old".format(spec_path))
+    file_spec = open(spec_path, "w")
     in_changelog = False
     for line in spec_str.splitlines():
         if line.startswith("Release:"):
@@ -276,8 +290,9 @@ def push_create_pr_issue(gt_api, u_pkg, o_ver, u_ver, u_branch):
     Auto push update repo, create upgrade PR and issue.
     """
     os.chdir(u_pkg)
+    spec_path = get_spec_path(gt_api, u_pkg)
     subprocess.call(["git rm *{old_ver}.* -rf".format(old_ver=o_ver)], shell=True)
-    os.remove("{}-old.spec".format(u_pkg))
+    os.remove("{}.old".format(spec_path))
     subprocess.call(["git add *"], shell=True)
     subprocess.call(["git commit -m \"upgrade {pkg} to {ver}\"".format(pkg=u_pkg, ver=u_ver)],
                     shell=True)

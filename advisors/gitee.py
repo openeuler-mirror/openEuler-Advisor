@@ -175,17 +175,19 @@ class Gitee():
         print("WARNING: Don't support branch: {} in auto-upgrade.".format(branch))
         sys.exit(1)
 
-    def get_spec_exception(self):
+    def get_spec_exception(self, repo):
         """
-        Get well known spec file exceptions
+        Get well known spec file exception
         """
         specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
         resp = self.get_gitee(specfile_exception_url)
         if not resp:
             print("ERROR: specfile_exceptions.yaml may not exist.")
             sys.exit(1)
-        excpt = yaml.load(resp, Loader=yaml.Loader)
-        return excpt
+        excpt_list = yaml.load(resp, Loader=yaml.Loader)
+        if repo in excpt_list:
+            return excpt_list[repo]
+        return None
 
     def get_version_exception(self):
         """
@@ -205,11 +207,9 @@ class Gitee():
         """
         specurl = self.src_openeuler_url + "{repo}.spec"
         specurl = specurl.format(repo=pkg, br=branch)
-        excpt_list = self.get_spec_exception()
-        if pkg in excpt_list:
-            dir_name = excpt_list[pkg]["dir"]
-            file_name = excpt_list[pkg]["file"]
-            specurl = urllib.parse.urljoin(specurl, os.path.join(dir_name, file_name))
+        excpt = self.get_spec_exception(pkg)
+        if excpt:
+            specurl = urllib.parse.urljoin(specurl, os.path.join(excpt["dir"], excpt["file"]))
         resp = self.get_gitee(specurl)
         return resp
 
