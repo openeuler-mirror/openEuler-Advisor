@@ -28,12 +28,11 @@ CHK_TABLE_HEADER = """
 **以下为 openEuler-Advisor 的 review_tool 生成审视要求清单**
 如果您是第一次给 openEuler 提交 PR，建议您花一点时间阅读 [Gitee工作流说明](https://gitee.com/openeuler/community/blob/master/zh/contributors/Gitee-workflow.md)
 
-**[Y]** 审视者确认符合要求 | **[N]** 审视者认为不符合要求 | **[NA]** 审视者认为与本PR无关 | **[?]** 审视者无法确认是否符合要求 | **[ ]** 审视过程中
+**{go}** 审视者确认符合要求 | **{nogo}** 审视者认为不符合要求 | **{na}** 审视者认为与本PR无关 | **{question}** 审视者无法确认是否符合要求 | **{ongoing}** 审视过程中
+**NOTE:** use command: "/review status[go/nogo/na/question/ongoing] number_list[0 1 2 ...]" to update status.
 |审视项编号|审视类别|审视要求|审视要求说明|审视结果|
 |:--:|:--:|:--|:--|:--:|
 """
-
-SANITY_CHK_CMD = "python3 zh/technical-committee/governance/sanity_check.py ."
 
 CHECKLIST = "helper/reviewer_checklist.yaml"
 
@@ -46,6 +45,16 @@ categorizer = {'PRSubmissionSPEC':'PR提交规范',
 SIGS_URL = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/20100101 Firefox/23.0'}
 __NUMBER = 0
+
+RRVIEW_STATUS = {
+        'go':'[&#x1F7E2;]',
+        'nogo':'[&#x1F534;]',
+        'na':'[&#x25EF;]',
+        'question':'[&#x1F7E1;]',
+        'ongoing':'[&#x1F535;]'
+        }
+
+FLAG_EDIT_ALL = 999
 
 
 def check_new_code(branch):
@@ -126,7 +135,8 @@ def join_check_item(category, claim, explain):
     join check item as a table row
     """
     global __NUMBER
-    res = "|" + str(__NUMBER) + "|" + category + "|" + claim + "|" + explain + "|[ ]|\n"
+    item_template = "|{}|{}|{}|{}|{}|\n"
+    res = item_template.format(__NUMBER, category, claim, explain, RRVIEW_STATUS['ongoing'])
     __NUMBER += 1
     return res
 
@@ -252,8 +262,8 @@ def check_repository_ownership_changes(info):
     for sig_changes, repos in repo_changes.items():
         sig1_owners = load_sig_owners(sig_changes[0])
         sig2_owners = load_sig_owners(sig_changes[1])
+        repos_need_lgtm = []
         if sig_changes[1] == 'sig-recycle':
-            repos_need_lgtm = []
             for repo in repos:
                 if repo.startswith('openeuler/'):
                     mgmt_repos = oe_mgmt_repos
@@ -479,7 +489,11 @@ def review(pull_request, repo_name, chklist_path, branch):
     if not pull_request["mergeable"]:
         return "PR中存在冲突，无法自动合并。需要先解决冲突，才可以开展评审。"
 
-    review_body = CHK_TABLE_HEADER
+    review_body = CHK_TABLE_HEADER.format(go=RRVIEW_STATUS['go'],
+                                        nogo=RRVIEW_STATUS['nogo'],
+                                        na=RRVIEW_STATUS['na'],
+                                        question=RRVIEW_STATUS['question'],
+                                        ongoing=RRVIEW_STATUS['ongoing'])
     cklist = load_checklist(chklist_path)
     review_body += basic_review(cklist, branch)
     custom_items = cklist['customization'].get(repo_name, None)
@@ -539,6 +553,10 @@ def args_parser(cur_path):
     pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
     pars.add_argument("-w", "--workdir", type=str,
             help="Work directory.Default is current directory.", default=cur_path)
+    pars.add_argument("-e", "--edit", nargs="+", type=int, help="Edit review item")
+    pars.add_argument("-s", "--status", type=str,
+            choices=['go', 'nogo', 'na', 'question', 'ongoing'],
+            help="Review item status need to set")
 
     return pars.parse_args()
 
@@ -590,6 +608,44 @@ def prepare(args, group, repo_name, pull_id, branch):
     subprocess.call(["git", "merge", "--no-edit", "remotes/origin/" + branch])
 
 
+def find_review_comment(user_gitee, group, repo_name, pull_id):
+    """
+    Find the review comment for PR
+    """
+    review_key = "以下为 openEuler-Advisor 的 review_tool 生成审视要求清单"
+    data = user_gitee.get_pr_comments_all(group, repo_name, pull_id)
+    for comment in data:
+        if review_key in comment['body']:
+            return comment
+    return None
+
+def edit_review_status(args, user_gitee, group ,repo_name, pull_id):
+    """
+    Edit review status
+    """
+    comment = find_review_comment(user_gitee, group, repo_name, pull_id)
+    if not comment:
+        print("ERROR: can not find review list")
+        sys.exit(1)
+    items = comment['body'].splitlines(True)
+    need_edit = False
+    head_len = len(CHK_TABLE_HEADER.splitlines())
+    if len(args.edit) == 1 and args.edit[0] == FLAG_EDIT_ALL:
+        need_edit = True
+        for num in range(len(items[head_len:])):
+            items[head_len+num] = re.sub(r"\[.*\]", RRVIEW_STATUS[args.status], items[head_len+num])
+    else:
+        for num in args.edit:
+            if int(num) >=0 and int(num) < len(items[head_len:]):
+                items[head_len+num] = re.sub(r"\[.*\]",
+                                            RRVIEW_STATUS[args.status],
+                                            items[head_len+num])
+                need_edit = True
+    if need_edit:
+        new_body = "".join(items)
+        user_gitee.edit_pr_comment(group, repo_name, comment['id'], new_body)
+
+
 def main():
     """
     Main entrance of the functionality
@@ -609,14 +665,17 @@ def main():
         print("Failed to get PR:%s of repository:%s, make sure the PR is exist."\
                 % (pull_id, repo_name))
         sys.exit(1)
-    branch = pull_request['base']['label']
+    if args.edit and args.status:
+        edit_review_status(args, user_gitee, group, repo_name, pull_id)
+    else:
+        branch = pull_request['base']['label']
 
-    prepare(args, group, repo_name, pull_id, branch)
+        prepare(args, group, repo_name, pull_id, branch)
 
-    chklist_path = os.path.join(cur_path, CHECKLIST)
-    review_comment = review(pull_request, repo_name, chklist_path, branch)
+        chklist_path = os.path.join(cur_path, CHECKLIST)
+        review_comment = review(pull_request, repo_name, chklist_path, branch)
 
-    user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
+        user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
 
 
 if __name__ == "__main__":
