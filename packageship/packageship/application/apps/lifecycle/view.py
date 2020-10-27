@@ -18,23 +18,18 @@ from flask_restful import Resource
 from marshmallow import ValidationError
 from sqlalchemy.exc import DisconnectionError, SQLAlchemyError
 
-from packageship import system_config
-from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error
 from packageship.application.apps.package.function.constants import ResponseCode
 from packageship.libs.dbutils.sqlalchemy_helper import DBHelper
 from packageship.application.models.package import PackagesIssue
 from packageship.application.models.package import Packages
 from packageship.application.models.package import PackagesMaintainer
-from packageship.libs.log import Log
+from packageship.libs.log import LOGGER
+from packageship.libs.conf import configuration
 from .serialize import IssueDownloadSchema, PackagesDownloadSchema, IssuePageSchema, IssueSchema
 from ..package.serialize import DataFormatVerfi, UpdatePackagesSchema
 from .function.gitee import Gitee as gitee
 
-LOGGER = Log(__name__)
-
-
-# pylint: disable = no-self-use
 
 class DownloadFile(Resource):
     """
@@ -449,11 +444,8 @@ class IssueCatch(Resource):
                 ResponseCode.response_json(ResponseCode.PARAM_ERROR))
         pkg_name = data["repository"]["path"]
         try:
-            _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-            pool_workers = _readconfig.get_config('LIFECYCLE', 'pool_workers')
-            _warehouse = _readconfig.get_config('LIFECYCLE', 'warehouse')
-            if _warehouse is None:
-                _warehouse = 'src-openeuler'
+            pool_workers = configuration.POOL_WORKERS
+            _warehouse = configuration.WAREHOUSE
             if not isinstance(pool_workers, int):
                 pool_workers = 10
             pool = ThreadPoolExecutor(max_workers=pool_workers)
@@ -551,8 +543,7 @@ class UpdatePackages(Resource):
             return None
         try:
             yaml_data_list = list()
-            _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-            pool_workers = _readconfig.get_config('LIFECYCLE', 'pool_workers')
+            pool_workers = configuration.POOL_WORKERS
             if not isinstance(pool_workers, int):
                 pool_workers = 10
             with ThreadPoolExecutor(max_workers=pool_workers) as pool:

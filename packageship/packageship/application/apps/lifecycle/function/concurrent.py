@@ -9,9 +9,8 @@ from queue import Queue
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.exc import OperationalError
 from packageship.libs.exception import Error, ContentNoneException
-from packageship.libs.log import Log
-from packageship.libs.configutils.readconfig import ReadConfig
-from packageship import system_config
+from packageship.libs.log import LOGGER
+from packageship.libs.conf import configuration
 
 
 class ProducerConsumer():
@@ -20,13 +19,8 @@ class ProducerConsumer():
         concurrency queue, and the high concurrency is solved
         by the form of the queue
     """
-    _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-    queue_maxsize = int(_readconfig.get_config('LIFECYCLE', 'queue_maxsize'))
-    if not isinstance(queue_maxsize, int):
-        queue_maxsize = 1000
-    _queue = Queue(maxsize=queue_maxsize)
+    _queue = Queue(maxsize=configuration.QUEUE_MAXSIZE)
     _instance_lock = threading.Lock()
-    _log = Log(__name__)
 
     def __init__(self):
         self.thread_queue = threading.Thread(target=self.__queue_process)
@@ -65,11 +59,11 @@ class ProducerConsumer():
             try:
                 method(_queue_value)
             except OperationalError as error:
-                self._log.logger.warning(error)
+                LOGGER.warning(error)
                 time.sleep(0.2)
                 self._queue.put((_queue_value, method))
             except (Error, ContentNoneException, SQLAlchemyError) as error:
-                self._log.logger.error(error)
+                LOGGER.error(error)
 
     def put(self, pending_content):
         """

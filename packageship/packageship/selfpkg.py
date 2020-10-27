@@ -3,27 +3,20 @@
 Description: Entry for project initialization and service startupc
 """
 import os
-from packageship.libs.exception import Error
-from packageship.libs.configutils.readconfig import ReadConfig
-
 try:
-    from packageship import system_config
-    if not os.path.exists(system_config.SYS_CONFIG_PATH):
-        raise FileNotFoundError(
-            'the system configuration file does not exist and the log cannot be started')
-except FileNotFoundError as file_not_found:
-    from packageship.libs.log.loghelper import Log
-    Log(__name__).logger.error(file_not_found)
-    raise Exception(
-        'the system configuration file does not exist and the log cannot be started')
-
-from packageship.application import init_app
-try:
-    app = init_app('query')
-except Error as error:
-    raise Exception('Service failed to start')
+    from packageship.application import init_app
+    if not os.path.exists(os.environ.get('SETTINGS_FILE_PATH')):
+        raise RuntimeError(
+            'System configuration file:%s' % os.environ.get(
+                'SETTINGS_FILE_PATH'),
+            'does not exist, software service cannot be started')
+    app = init_app("query")
+except ImportError as error:
+    raise RuntimeError(
+        "The package management software service failed to start : %s" % error)
 else:
     from packageship.application.app_global import identity_verification
+    from packageship.libs.conf import configuration
 
 
 @app.before_request
@@ -36,7 +29,6 @@ def before_request():
 
 
 if __name__ == "__main__":
-    _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-    port = _readconfig.get_system('query_port')
-    addr = _readconfig.get_system('query_ip_addr')
+    port = configuration.QUERY_PORT
+    addr = configuration.QUERY_IP_ADDR
     app.run(port=port, host=addr)

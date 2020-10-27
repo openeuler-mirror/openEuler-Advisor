@@ -5,10 +5,9 @@
 from flask import Flask
 from flask_session import Session
 from flask_apscheduler import APScheduler
-from packageship import system_config
 from packageship.application.settings import Config
 from packageship.libs.log import setup_log
-from packageship.libs.configutils.readconfig import ReadConfig
+from packageship.libs.conf import configuration
 
 OPERATION = None
 
@@ -20,19 +19,12 @@ def _timed_task(app):
     # disable=import-outside-toplevel Avoid circular import problems,so import inside the function
     # pylint: disable=import-outside-toplevel
     from packageship.application.apps.lifecycle.function.download_yaml import update_pkg_info
-
-    _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-    try:
-        _hour = int(_readconfig.get_config('TIMEDTASK', 'hour') or 3)
-        _minute = int(_readconfig.get_config('TIMEDTASK', 'minute') or 0)
-    except ValueError:
+    _hour = configuration.HOUR
+    _minute = configuration.MINUTE
+    if _hour < 0 or _hour > 23:
         _hour = 3
+    if _minute < 0 or _minute > 59:
         _minute = 0
-    else:
-        if _hour < 0 or _hour > 23:
-            _hour = 3
-        if _minute < 0 or _minute > 59:
-            _minute = 0
 
     # disable=no-member Dynamic variable pylint is not recognized
     app.apscheduler.add_job(  # pylint: disable=no-member

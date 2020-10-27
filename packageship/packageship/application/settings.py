@@ -3,8 +3,7 @@
 Description: Basic configuration of flask framework
 """
 import random
-from packageship import system_config
-from packageship.libs.configutils.readconfig import ReadConfig
+from packageship.libs.conf import configuration
 
 
 class Config():
@@ -23,8 +22,6 @@ class Config():
     SCHEDULER_API_ENABLED = True
 
     def __init__(self):
-
-        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
 
         self.set_config_val()
 
@@ -51,8 +48,4 @@ class Config():
         Raises:
         """
         Config._random_secret_key()
-
-        log_level = self._read_config.get_config('LOG', 'log_level')
-
-        if log_level:
-            Config._set_log_level(log_level)
+        Config._set_log_level(configuration.LOG_LEVEL)

@@ -11,14 +11,10 @@ from requests.exceptions import HTTPError
 from requests.exceptions import RequestException
 from sqlalchemy.exc import SQLAlchemyError
 from packageship.libs.dbutils import DBHelper
-from packageship.libs.configutils.readconfig import ReadConfig
 from packageship.libs.exception import Error, ContentNoneException
 from packageship.application.models.package import PackagesIssue
-from packageship import system_config
-from packageship.libs.log import Log
+from packageship.libs.log import LOGGER
 from .concurrent import ProducerConsumer
-
-LOGGER = Log(__name__)
 
 
 class Gitee():
@@ -31,7 +27,6 @@ class Gitee():
         self.pkg_info = pkg_info
         self.owner = owner
         self.repo = repo
-        self._read_config = ReadConfig(system_config.SYS_CONFIG_PATH)
         self.url = "https://gitee.com/"
         self.api_url = "https://gitee.com/api/v5/repos"
         self.pool = None
@@ -39,8 +34,6 @@ class Gitee():
         self.defect = 0
         self.feature = 0
         self.cve = 0
-        self.patch_files_path = self._read_config.get_system(
-            "patch_files_path")
         self.table_name = table_name
         self.producer_consumer = ProducerConsumer()
         self._issue_url = None
@@ -57,7 +50,7 @@ class Gitee():
 
         """
         self._issue_url = self.api_url + \
-                          "/{}/{}/issues/{}".format(self.owner, self.repo, issue_id)
+            "/{}/{}/issues/{}".format(self.owner, self.repo, issue_id)
         try:
             response = self._request_issue(0)
         except (HTTPError, RequestException) as error:
@@ -86,7 +79,7 @@ class Gitee():
         if response.status_code != 200:
             _msg = "There is an exception with the remote service [%s]，" \
                    "Please try again later.The HTTP error code is：%s" % (self._issue_url, str(
-                response.status_code))
+                       response.status_code))
             raise HTTPError(_msg)
         return response
 
@@ -141,7 +134,8 @@ class Gitee():
             self.pkg_info.defect = self.defect
             self.pkg_info.feature = self.feature
             self.pkg_info.cve = self.cve
-            self.producer_consumer.put((copy.deepcopy(self.pkg_info), _save_package))
+            self.producer_consumer.put(
+                (copy.deepcopy(self.pkg_info), _save_package))
 
         except (Error, ContentNoneException, SQLAlchemyError) as error:
             LOGGER.logger.error(
@@ -217,10 +211,10 @@ class Gitee():
             issue_info_list.append(issue_content)
         if self.feature != 0:
             self.defect, self.feature, self.cve = self.pkg_info.defect, self.pkg_info.feature + \
-                                                  1, self.pkg_info.cve
+                1, self.pkg_info.cve
         if self.defect != 0:
             self.defect, self.feature, self.cve = self.pkg_info.defect + \
-                                                  1, self.pkg_info.feature, self.pkg_info.cve
+                1, self.pkg_info.feature, self.pkg_info.cve
         if self.cve != 0:
             self.defect, self.feature, self.cve = self.pkg_info.defect, self.pkg_info.feature, self.pkg_info.cve + 1
         self._save_issues(issue_info_list)

@@ -10,15 +10,13 @@ import datetime as date
 import requests
 import yaml
 
-from sqlalchemy.exc import SQLAlchemyError
 from requests.exceptions import HTTPError
-from packageship import system_config
 from packageship.application.models.package import Packages
 from packageship.application.models.package import PackagesMaintainer
 from packageship.libs.dbutils import DBHelper
-from packageship.libs.exception import Error, ContentNoneException
-from packageship.libs.configutils.readconfig import ReadConfig
-from .base import Base
+from packageship.libs.exception import Error
+from packageship.libs.conf import configuration
+from packageship.libs.log import LOGGER
 from .gitee import Gitee
 from .concurrent import ProducerConsumer
 
@@ -37,38 +35,17 @@ class ParseYaml():
         _yaml_content: The content of the yaml file
     """
 
-    def __init__(self, pkg_info, base, table_name):
-        self.base = base
+    def __init__(self, pkg_info, table_name):
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) Gecko/20100101 \
+                Firefox / 50.0 '}
         self.pkg = pkg_info
         self._table_name = table_name
-        self.openeuler_advisor_url = self._path_stitching(pkg_info.name)
+        self.openeuler_advisor_url = configuration.WAREHOUSE_REMOTE + \
+            '{pkg_name}.yaml'.format(pkg_name=pkg_info.name)
         self._yaml_content = None
-        self.timed_task_open = self._timed_task_status()
+        self.timed_task_open = configuration.OPEN
         self.producer_consumer = ProducerConsumer()
-
-    def _timed_task_status(self):
-        """
-            The open state of information such as the maintainer in the scheduled task
-        """
-        _timed_task_status = True
-        _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-        open_status = _readconfig.get_config('TIMEDTASK', 'open')
-        if open_status not in ('True', 'False'):
-            self.base.log.logger.error(
-                'Wrong setting of the open state value of the scheduled task')
-        if open_status == 'False':
-            self.timed_task_open = False
-        return _timed_task_status
-
-    def _path_stitching(self, pkg_name):
-        """
-            The path of the remote service call
-        """
-        _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-        _remote_url = _readconfig.get_config('LIFECYCLE', 'warehouse_remote')
-        if _remote_url is None:
-            _remote_url = 'https://gitee.com/openeuler/openEuler-Advisor/raw/master/upstream-info/'
-        return _remote_url + '{pkg_name}.yaml'.format(pkg_name=pkg_name)
 
     def update_database(self):
         """
@@ -82,20 +59,21 @@ class ParseYaml():
         else:
             msg = "The yaml information of the [%s] package has not been" \
                   "obtained yet" % self.pkg.name
-            self.base.log.logger.warning(msg)
+            LOGGER.warning(msg)
 
     def _get_yaml_content(self, url):
         """
-
+            Gets the contents of the YAML file
+            Args:
+                url:The network address where the YAML file exists
         """
         try:
             response = requests.get(
-                url, headers=self.base.headers)
+                url, headers=self.headers)
             if response.status_code == 200:
                 self._yaml_content = yaml.safe_load(response.content)
-
         except HTTPError as error:
-            self.base.log.logger.error(error)
+            LOGGER.error(error)
 
     def _openeuler_advisor_exists_yaml(self):
         """
@@ -113,7 +91,6 @@ class ParseYaml():
             Save the acquired yaml file information to the database
 
             Raises:
-                ContentNoneException: The added entity content is empty
                 Error: An error occurred during data addition
         """
 
@@ -124,7 +101,8 @@ class ParseYaml():
         def _save_maintainer_info(maintainer_module):
             with DBHelper(db_name="lifecycle") as database:
                 _packages_maintainer = database.session.query(
-                    PackagesMaintainer).filter(PackagesMaintainer.name == maintainer_module['name']).first()
+                    PackagesMaintainer).filter(PackagesMaintainer.name ==
+                                               maintainer_module['name']).first()
                 if _packages_maintainer:
                     for key, val in maintainer_module.items():
                         setattr(_packages_maintainer, key, val)
@@ -181,7 +159,7 @@ class ParseYaml():
             self.pkg.used_time = (date.datetime.now() - _end_time).days
 
         except (IndexError, Error) as index_error:
-            self.base.log.logger.error(index_error)
+            LOGGER.error(index_error)
 
 
 def update_pkg_info(pkg_info_update=True):
@@ -190,35 +168,29 @@ def update_pkg_info(pkg_info_update=True):
 
     """
     try:
-        base_control = Base()
-        _readconfig = ReadConfig(system_config.SYS_CONFIG_PATH)
-        pool_workers = _readconfig.get_config('LIFECYCLE', 'pool_workers')
-        _warehouse = _readconfig.get_config('LIFECYCLE', 'warehouse')
-        if _warehouse is None:
-            _warehouse = 'src-openeuler'
-        if not isinstance(pool_workers, int):
-            pool_workers = 10
         # Open thread pool
-        pool = ThreadPoolExecutor(max_workers=pool_workers)
+        pool = ThreadPoolExecutor(max_workers=configuration.POOL_WORKERS)
         with DBHelper(db_name="lifecycle") as database:
-            for table_name in filter(lambda x: x not in ['packages_issue', 'packages_maintainer',
+            for table_name in filter(lambda x: x not in ['packages_issue',
+                                                         'packages_maintainer',
                                                          'databases_info'],
                                      database.engine.table_names()):
-
                 cls_model = Packages.package_meta(table_name)
                 # Query a specific table
                 for package_item in database.session.query(cls_model).all():
                     if pkg_info_update:
                         parse_yaml = ParseYaml(
                             pkg_info=copy.deepcopy(package_item),
-                            base=base_control,
                             table_name=table_name)
                         pool.submit(parse_yaml.update_database)
                     else:
                         # Get the issue of each warehouse and save it
                         gitee_issue = Gitee(
-                            copy.deepcopy(package_item), _warehouse, package_item.name, table_name)
+                            copy.deepcopy(package_item),
+                            configuration.WAREHOUSE,
+                            package_item.name,
+                            table_name)
                         pool.submit(gitee_issue.query_issues_info)
         pool.shutdown()
-    except SQLAlchemyError as error_msg:
-        base_control.log.logger.error(error_msg)
+    except(RuntimeError, Exception) as error:
+        LOGGER.error(error)
