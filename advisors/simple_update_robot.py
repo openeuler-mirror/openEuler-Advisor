@@ -32,6 +32,7 @@ import os.path
 import datetime
 import argparse
 import subprocess
+import tarfile
 import yaml
 from pyrpm.spec import Spec, replace_macros
 
@@ -51,6 +52,21 @@ def get_spec_path(gt_api, pkg):
     else:
         spec_path = "./{}.spec".format(pkg)
     return spec_path
+
+
+def download_helper(src_url, file_name=None):
+    """
+    Source download helper
+    """
+    if not file_name:
+        file_name = os.path.basename(src_url)
+    down_cnt = 0
+    while down_cnt < 2:
+        down_cnt += 1
+        if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=src_url,
+                               name=file_name)], shell=True):
+            break
+    return src_url
 
 
 def download_source_url(gt_api, pkg, spec, o_ver, n_ver):
@@ -76,14 +92,7 @@ def download_source_url(gt_api, pkg, spec, o_ver, n_ver):
         return None
 
     if source.startswith("http") or source.startswith("ftp"):
-        file_name = os.path.basename(source)
-        down_cnt = 0
-        while down_cnt < 2:
-            down_cnt += 1
-            if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=source,
-                               name=file_name)], shell=True):
-                break
-        return file_name
+        return download_helper(source)
 
     print("WARNING: Source url is invalid in specfile.")
     return None
@@ -101,13 +110,7 @@ def download_upstream_url(gt_api, repo, n_ver):
     if rp_yaml["version_control"] == "github":
         url = "https://github.com/{rp}/archive/{nv}.tar.gz".format(rp=rp_yaml["src_repo"], nv=n_ver)
         file_name = "{rp}.{nv}.tar.gz".format(rp=repo, nv=n_ver)
-        down_cnt = 0
-        while down_cnt < 2:
-            down_cnt += 1
-            if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=url,
-                                   name=file_name)], shell=True):
-                break
-        return file_name
+        return download_helper(url, file_name)
 
     print("Handling {vc} is still under developing".format(vc=rp_yaml["version_control"]))
     return None
@@ -151,12 +154,49 @@ def fork_clone_repo(gt_api, repo, branch):
         else:
             if fork_existed:
                 upstream_url = "https://gitee.com/src-openeuler/{}.git".format(repo)
+                subprocess.call(["git", "reset", "--hard", "HEAD^"])
                 subprocess.call(["git", "remote", "add", "upstream", upstream_url])
                 subprocess.call(["git", "fetch", "upstream"])
                 subprocess.call(["git", "merge", "upstream/{}".format(branch)])
-                subprocess.call(["git", "push", "origin", "{}".format(branch)])
+                subprocess.call(["git", "push", "origin", "-f", "{}".format(branch)])
             os.chdir(os.pardir)
             break
+
+
+def cpan_source_helper(src_name, src_url):
+    """
+    Help cpan packages get right source
+    """
+    update_file = True
+    file_name = r"/root/02packages.details.txt"
+    if os.path.exists(file_name):
+        file_time = os.path.getctime(file_name)
+        today = datetime.date.today()
+        today_time = time.mktime(today.timetuple())
+        if file_time > today_time:
+            update_file = False
+
+    if update_file:
+        url = "https://www.cpan.org/modules/02packages.details.txt.gz"
+        subprocess.call(["wget -P /root {}".format(url)], shell=True)
+        if subprocess.call(["gzip -f -d ~/{}".format(os.path.basename(url))], shell=True):
+            print("WARNING: Please check validity of {}".format(url))
+            return
+
+    with open(file_name, "r") as details_file:
+        for line in details_file.readlines():
+            if re.search(r'/{}-\d+'.format(src_name), line):
+                base_url = "https://cpan.metacpan.org/authors/id/"
+                new_url = base_url + line.split(" ")[-1].rstrip("\n")
+                src_file = os.path.basename(src_url)
+                new_url.replace(os.path.basename(new_url), src_file)
+                download_helper(new_url)
+                old_path = src_url.strip(src_file)
+                new_path = new_url.strip(src_file)
+                subprocess.call(["grep -lr {old} | xargs sed -i \'s#{old}#{new}#g\'".format(
+                                old=old_path, new=new_path)], shell=True)
+                break
+    return
 
 
 def download_src(gt_api, pkg, spec, o_ver, n_ver):
@@ -164,19 +204,25 @@ def download_src(gt_api, pkg, spec, o_ver, n_ver):
     Download source code for upgraded package
     """
     os.chdir(pkg)
-    source_file = download_source_url(gt_api, pkg, spec, o_ver, n_ver)
-    if source_file:
-        print(source_file)
+    source = download_source_url(gt_api, pkg, spec, o_ver, n_ver)
+    if source:
+        print(source)
         result = True
     else:
-        source_file = download_upstream_url(gt_api, pkg, n_ver)
-        if source_file:
-            print(source_file)
+        source = download_upstream_url(gt_api, pkg, n_ver)
+        if source:
+            print(source)
             result = True
         else:
             print("WARNING: Failed to download the latest source code.")
             os.chdir(os.pardir)
             result = False
+
+    repo_yaml = gt_api.get_yaml(pkg)
+    pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
+    if result and pkg_info["version_control"] == "metacpan":
+        if not tarfile.is_tarfile(os.path.basename(source)):
+            cpan_source_helper(pkg_info["src_repo"], source)
     return result
 
 
@@ -213,12 +259,15 @@ def modify_patch(repo, pkg_spec, patch_match):
     os.chdir(os.pardir)
 
 
-def create_spec(gt_api, repo, spec_str, o_ver, n_ver):
+def create_spec(gt_api, repo, o_ver, n_ver):
     """
     Create new spec file for upgraded package
     """
-    pkg_spec = Spec.from_string(spec_str)
     spec_path = get_spec_path(gt_api, repo)
+    with open(spec_path, "r") as spec_file:
+        spec_str = spec_file.read()
+
+    pkg_spec = Spec.from_string(spec_str)
     os.rename(spec_path, "{}.old".format(spec_path))
     file_spec = open(spec_path, "w")
     in_changelog = False
@@ -334,7 +383,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
         if not download_src(gt_api, u_pkg, pkg_spec, pkg_ver, u_ver):
             return
 
-        create_spec(gt_api, u_pkg, spec_str, pkg_ver, u_ver)
+        create_spec(gt_api, u_pkg, pkg_ver, u_ver)
 
         if not build_pkg(u_pkg, u_branch, branch_info["obs_prj"]):
             return
@@ -394,7 +443,7 @@ def __manual_operate(gt_api, op_args):
             sys.exit(1)
 
     if op_args.create_spec:
-        create_spec(gt_api, op_args.repo_pkg, spec_string, cur_version, op_args.new_version)
+        create_spec(gt_api, op_args.repo_pkg, cur_version, op_args.new_version)
 
     if op_args.build_pkg:
         if not build_pkg(op_args.repo_pkg, op_args.branch, branch_info["obs_prj"]):

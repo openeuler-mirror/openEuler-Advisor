@@ -2,3 +2,11 @@ repositories:
 - name: A-Tune
 - name: python-py
 - name: python-ply
+- name: python-beautifulsoup4
+- name: ibus
+- name: gobject-introspection
+- name: NetworkManager
+- name: perl-HTML-Parser
+- name: langtable
+- name: python-asn1crypto
+- name: perl-Encode 
