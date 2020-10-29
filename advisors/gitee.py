@@ -164,14 +164,21 @@ class Gitee():
         """
         GET from gitee api
         """
-        if headers is None:
-            req = urllib.request.Request(url=url, headers=self.headers)
+        if '?' in url:
+            new_url = url + "&"
         else:
-            req = urllib.request.Request(url=url, headers=headers)
+            new_url = url + "?"
+        new_url = new_url + "access_token=" + self.token["access_token"]
+        if headers is None:
+            req = urllib.request.Request(url=new_url, headers=self.headers)
+        else:
+            req = urllib.request.Request(url=new_url, headers=headers)
         try:
             result = urllib.request.urlopen(req)
             return result.read().decode("utf-8")
-        except urllib.error.HTTPError:
+        except urllib.error.HTTPError as error:
+            print("get_gitee failed to access: %s" % (url))
+            print("get_gitee failed: %d, %s" % (error.code, error.reason))
             return None
 
     def get_pr(self, repo, num, owner="src-openeuler"):
