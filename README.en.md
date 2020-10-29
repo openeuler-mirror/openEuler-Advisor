@@ -59,7 +59,8 @@ DONE! than you can create a Pull Request.
 	pip3 install python-rpm-spec (ver>=0.10)
 	pip3 install PyYAML (ver>=5.3.1)
 	pip3 install requests (ver>=2.24.0)
-	yum install rpmdevtools
+	yum install rpmdevtools (ver>=8.3)
+	pip3 install beautifulsoup4 (ver>=4.9.3)
 	
 ##### 2. json file config
 	~/.gitee_personal_token.json
@@ -72,6 +73,9 @@ DONE! than you can create a Pull Request.
 
 ##### 4. OBS config
 	if not config, please refer: https://openeuler.org/zh/docs/20.09/docs/ApplicationDev/%E6%9E%84%E5%BB%BARPM%E5%8C%85.html
+
+##### 5. Python enviroment config
+	if in development, you want to use the tool directly, please config Python path firstly: source ./develop_env.sh
 
 #### Use Instructions
 ##### 1. simple_update_robot.py
