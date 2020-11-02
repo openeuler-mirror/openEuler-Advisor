@@ -1,0 +1,5 @@
+---
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/sblim/files/development%20pkgs/sblim-cmpi-devel
+tag_prefix: 
+separator: .

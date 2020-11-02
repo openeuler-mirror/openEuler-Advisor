@@ -486,7 +486,7 @@ def check_sourceforge(info, clean_tag=True):
             for tag_info in tag_infos:
                 if filter_condition in tag_info:
                     tag = tag_info.strip()
-                    tag = tag.lstrip(filter_condition)
+                    tag = tag.replace(filter_condition,"")
                     tag = tag.strip("/download\"")
                     tags.append(tag)
     if clean_tag:

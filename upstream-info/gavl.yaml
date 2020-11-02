@@ -1,5 +1,5 @@
 ---
-version_control: svn
-src_repo: https://svn.code.sf.net/p/gmerlin/code
-tag_prefix: "^"
-separator: "."
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/gmerlin/files/gavl
+tag_prefix:
+separator: .

@@ -1,6 +1,5 @@
 ---
-version_control: svn
-src_repo: https://svn.code.sf.net/p/xmlrpc-c/code
-tag_dir: release_number
-tag_prefix: ''
-separator: "."
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/xmlrpc-c/files/Xmlrpc-c%20Super%20Stable
+tag_prefix: 
+separator: .
