@@ -1,5 +1,5 @@
 ---
-version_control: svn
-src_repo: https://svn.code.sf.net/p/mtx/code
-tag_prefix: "^v"
-separator: _
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/mtx/files/mtx-stable
+tag_prefix: 
+separator: .

@@ -1,0 +1,5 @@
+---
+version_control: ftp
+src_repo: http://ftp.sendmail.org/
+tag_pattern: "sendmail.(.*).tar.gz(.sig)?"
+separator: "." 

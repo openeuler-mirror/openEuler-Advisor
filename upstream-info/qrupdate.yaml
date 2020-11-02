@@ -1,0 +1,5 @@
+---
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/qrupdate/files/qrupdate
+tag_prefix: 
+separator: .

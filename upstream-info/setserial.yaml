@@ -1,0 +1,5 @@
+---
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/setserial/files/setserial
+tag_prefix: 
+separator: .

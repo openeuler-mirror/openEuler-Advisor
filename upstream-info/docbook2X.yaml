@@ -1,7 +1,5 @@
 ---
-version_control: github
-src_repo: Distrotech/docbook2X
-tag_prefix: "^"
-separator: "."
-git_url: https://github.com/Distrotech/docbook2X.git
-git_tag:
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/docbook2x/files/docbook2x
+tag_prefix: 
+separator: .
