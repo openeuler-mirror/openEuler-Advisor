@@ -127,5 +127,6 @@ def patches_match(gt_api, pkg, c_ver, u_ver):
                 patch_match[file_name] = index_match
             else:
                 patch_match[file_name] = "all"
+                os.remove(file_name)
     print(patch_match)
     return patch_match

@@ -226,39 +226,6 @@ def download_src(gt_api, pkg, spec, o_ver, n_ver):
     return result
 
 
-def modify_patch(repo, pkg_spec, patch_match):
-    """
-    delete the patch in spec that has been merged into the new version
-    """
-    os.chdir(repo)
-    patch_nums = []
-    with open(repo + ".spec", "r") as old_file:
-        lines = old_file.readlines()
-
-    with open(repo + ".spec", "w") as new_file:
-        for pre_line in lines:
-            temp_line = "".join(pre_line)
-            if temp_line.startswith("Patch"):
-                line = replace_macros(temp_line, pkg_spec)
-                patch_name = "".join(line.split(":", 1)[1].split())
-                patch_num_list = "".join(line.split(":", 1)[0].split())
-                patch_num = "".join(re.findall(r"\d+\.?\d*", patch_num_list))
-                if patch_name in patch_match:
-                    patch_nums.append(patch_num)
-                    continue
-                new_file.write(temp_line)
-            elif temp_line.startswith("%patch"):
-                if patch_nums is not None:
-                    current_line_num = "".join(line.split(" ", 1)[0].split())
-                    current_patch_num = "".join(re.findall(r"\d+\.?\d*", current_line_num))
-                    if current_patch_num in patch_nums:
-                        continue
-                    new_file.write(temp_line)
-            else:
-                new_file.write(temp_line)
-    os.chdir(os.pardir)
-
-
 def create_spec(gt_api, repo, o_ver, n_ver):
     """
     Create new spec file for upgraded package
@@ -268,18 +235,45 @@ def create_spec(gt_api, repo, o_ver, n_ver):
         spec_str = spec_file.read()
 
     pkg_spec = Spec.from_string(spec_str)
+
+    if len(pkg_spec.patches) >= 1:
+        patch_match = match_patches.patches_match(gt_api, repo, o_ver, n_ver)
+
     os.rename(spec_path, "{}.old".format(spec_path))
     file_spec = open(spec_path, "w")
+
     in_changelog = False
+    patch_num_list = []
+    patch_dict = {}
+
     for line in spec_str.splitlines():
         if line.startswith("Release:"):
             file_spec.write(re.sub(r"\d+", "1", line) + "\n")
             continue
+
         if line.startswith("Source:") or line.startswith("Source0:"):
             file_spec.write(line.replace(o_ver, n_ver) + "\n")
             continue
+
+        if line.startswith("Patch") and patch_match:
+            patch_dict["line"] = replace_macros(line, pkg_spec)
+            patch_dict["pre_name"] = patch_dict["line"].split(":", 1)[1].strip()
+            if patch_dict["pre_name"] in patch_match:
+                patch_dict["pre_tag"] = patch_dict["line"].split(":", 1)[0].strip()
+                patch_dict["pre_num"] = re.findall(r"\d+\.?\d*", patch_dict["pre_tag"])
+                patch_num_list.append(patch_dict["pre_num"])
+                continue
+
+        if line.startswith("%patch") and patch_match:
+            if patch_num_list:
+                patch_dict["ply_tag"] = line.split(" ", 1)[0].strip()
+                patch_dict["ply_num"] = re.findall(r"\d+\.?\d*", patch_dict["ply_tag"])
+                if patch_dict["ply_num"] in patch_num_list:
+                    continue
+
         if not in_changelog:
             line = line.replace(o_ver, n_ver)
+
         file_spec.write(line + "\n")
 
         if line.startswith("%changelog"):
@@ -289,15 +283,10 @@ def create_spec(gt_api, repo, o_ver, n_ver):
                                               " - {ver}-1\n").format(ver=n_ver))
             file_spec.write("- Upgrade to version {ver}\n".format(ver=n_ver))
             file_spec.write("\n")
-    file_spec.close()
-    os.chdir(os.pardir)
 
-    if len(pkg_spec.patches) >= 1:
-        os.chdir(repo)
-        patch_match = match_patches.patches_match(gt_api, repo, o_ver, n_ver)
-        os.chdir(os.pardir)
-        if patch_match is not None:
-            modify_patch(repo, pkg_spec, patch_match)
+    file_spec.close()
+
+    os.chdir(os.pardir)
 
 
 def build_pkg(u_pkg, u_branch, obs_prj):
