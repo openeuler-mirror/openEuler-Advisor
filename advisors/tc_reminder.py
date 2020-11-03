@@ -1,11 +1,22 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# ******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+#
+# ******************************************************************************/
 """
 This is a command line tool to create reminder list for TC member
 """
 
 import os
 import json
-import argparse
 import urllib
 import urllib.request
 import urllib.parse
@@ -13,15 +24,16 @@ from datetime import datetime
 import yaml
 
 
-class Advisor(object):
+class Advisor():
     """
     This is a object abstract TC robot
     """
+
     def __init__(self):
         self.secret = open(os.path.expanduser("~/.gitee_personal_token.json"), "r")
         self.token = json.load(self.secret)
-        self.header = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) "\
-                       "Gecko/20100101 Firefox/50.0"}
+        self.header = {"User-Agent": '''Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0)
+        Gecko/20100101 Firefox/50.0'''}
         self.tc_members = None
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
@@ -31,7 +43,7 @@ class Advisor(object):
         """
         headers = self.header.copy()
         headers["Content-Type"] = "application/json;charset=UTF-8"
-        req = urllib.request.Request(url = url, headers = headers, method = "GET")
+        req = urllib.request.Request(url=url, headers=headers, method="GET")
         with urllib.request.urlopen(req) as result:
             resp = json.loads(result.read().decode("utf-8"))
         return resp
@@ -41,7 +53,7 @@ class Advisor(object):
         Get remote raw file
         """
         url = "https://gitee.com/{repo}/raw/master/{path}".format(repo=repo, path=path)
-        req = urllib.request.Request(url = url, headers = self.header, method = "GET")
+        req = urllib.request.Request(url=url, headers=self.header, method="GET")
         with urllib.request.urlopen(req) as result:
             resp = result.read()
         return resp
@@ -51,7 +63,7 @@ class Advisor(object):
         Get list of PRs
         """
         pulls_url = "https://gitee.com/api/v5/repos/openeuler/community/pulls"
-        list_url = pulls_url + "?access_token={token}&state=open&sort=created&"\
+        list_url = pulls_url + "?access_token={token}&state=open&sort=created&" \
                                "direction=desc&page=1&per_page=100"
         url = list_url.format(token=self.token["access_token"])
         return self.get_json(url)
@@ -87,9 +99,6 @@ def main():
     """
     Main entrance of the functionality
     """
-    par = argparse.ArgumentParser()
-    args = par.parse_args()
-
     advisor = Advisor()
     pr_list = advisor.get_prs()
     pr_list.reverse()
@@ -108,7 +117,7 @@ def main():
             commenters.append(comment["user"]["login"])
             if comment["body"].startswith("new changes are detected"):
                 last_update = datetime.strptime(comment["updated_at"], advisor.time_format)
-                break # older comments are ignored
+                break  # older comments are ignored
             if comment["body"].startswith("***lgtm*** is added in this pull request"):
                 current_lgtm = current_lgtm + 1
             elif comment["body"].startswith("***approved*** is added in this pull request"):

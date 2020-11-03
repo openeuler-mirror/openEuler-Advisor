@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
 # licensed under the Mulan PSL v2.
 # You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -15,7 +15,6 @@
 This is a script to check upgradable information against upstream
 """
 import os
-import sys
 import argparse
 import re
 from pyrpm.spec import Spec, replace_macros
@@ -63,20 +62,20 @@ def get_ver_tags(my_gitee, repo, clean_tag=True, cwd_path=None):
         return None
 
     switcher = {
-        "hg":check_upstream.check_hg,
-        "hg-raw":check_upstream.check_hg_raw,
-        "github":check_upstream.check_github,
-        "git":check_upstream.check_git,
-        "gitlab.gnome":check_upstream.check_gnome,
-        "svn":check_upstream.check_svn,
-        "metacpan":check_upstream.check_metacpan,
-        "pypi":check_upstream.check_pypi,
-        "rubygem":check_upstream.check_rubygem,
-        "gitee":check_upstream.check_gitee,
-        "gnu-ftp":check_upstream.check_gnu_ftp,
-        "ftp":check_upstream.check_ftp,
-        "sourceforge":check_upstream.check_sourceforge
-        }
+        "hg": check_upstream.check_hg,
+        "hg-raw": check_upstream.check_hg_raw,
+        "github": check_upstream.check_github,
+        "git": check_upstream.check_git,
+        "gitlab.gnome": check_upstream.check_gnome,
+        "svn": check_upstream.check_svn,
+        "metacpan": check_upstream.check_metacpan,
+        "pypi": check_upstream.check_pypi,
+        "rubygem": check_upstream.check_rubygem,
+        "gitee": check_upstream.check_gitee,
+        "gnu-ftp": check_upstream.check_gnu_ftp,
+        "ftp": check_upstream.check_ftp,
+        "sourceforge": check_upstream.check_sourceforge
+    }
 
     check_method = switcher.get(vc_type, None)
     if check_method:
@@ -104,14 +103,20 @@ def main():
                             help="Repository to be checked for upstream version info")
 
     args = parameters.parse_args()
+    main_process(args.push, args.default, args.repo)
 
-    print("Checking", args.repo)
+
+def main_process(push, default, repo):
+    """
+    Main process of the functionality
+    """
+    print("Checking", repo)
 
     user_gitee = gitee.Gitee()
-    spec_string = user_gitee.get_spec(args.repo)
+    spec_string = user_gitee.get_spec(repo)
     if not spec_string:
-        print("WARNING: {pkg}.spec can't be found on master".format(pkg=args.repo))
-        sys.exit(1)
+        print("WARNING: {pkg}.spec can't be found on master".format(pkg=repo))
+        return
 
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
@@ -119,14 +124,14 @@ def main():
         cur_version = cur_version[1:]
 
     print("Current version is", cur_version)
-    pkg_tags = get_ver_tags(user_gitee, args.repo, cwd_path=args.default)
+    pkg_tags = get_ver_tags(user_gitee, repo, cwd_path=default)
     print("known release tags:", pkg_tags)
 
     if pkg_tags is None:
-        sys.exit(1)
+        return
 
     if cur_version not in pkg_tags:
-        print("WARNING: Current {ver} doesn't exist in upstream."\
+        print("WARNING: Current {ver} doesn't exist in upstream." \
               "Please double check.".format(ver=cur_version))
 
     ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
@@ -135,8 +140,8 @@ def main():
     print("Maintain version is", ver_rec.maintain_version)
 
     if cur_version != ver_rec.latest_version:
-        if args.push:
-            user_gitee.post_issue(args.repo, "Upgrade to latest release", """Dear {repo} maintainer:
+        if push:
+            user_gitee.post_issue(repo, "Upgrade to latest release", """Dear {repo} maintainer:
 
 We found the latest version of {repo} is {ver}, while the current version in openEuler mainline is {cur_ver}.
 
@@ -145,7 +150,7 @@ Please consider upgrading.
 Yours openEuler Advisor.
 
 If you think this is not proper issue, Please visit https://gitee.com/openeuler/openEuler-Advisor.
-Issues and feedbacks are welcome.""".format(repo=args.repo,
+Issues and feedbacks are welcome.""".format(repo=repo,
                                             ver=ver_rec.latest_version,
                                             cur_ver=cur_version))
 

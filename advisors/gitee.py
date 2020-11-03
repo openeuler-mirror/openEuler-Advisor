@@ -262,6 +262,16 @@ class Gitee():
                 print("WARNING: {}.yaml can't be found in upstream-info and repo.".format(pkg))
         return resp
 
+    def get_sigs(self):
+        """
+        Get upstream sigs
+        """
+        sigs_url = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
+        req = urllib.request.Request(url=sigs_url, headers=self.headers)
+        data = urllib.request.urlopen(req)
+        sigs = yaml.load(data.read().decode("utf-8"), Loader=yaml.Loader)
+        return sigs
+
     def get_community(self, repo):
         """
         Get yaml data from community repo
