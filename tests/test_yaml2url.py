@@ -34,7 +34,7 @@ def test_get_hg_url():
 
     pkg_info = yaml.load(doc, Loader=yaml.Loader)
     url = yaml2url.yaml2url(pkg_info)
-    assert url == "https://hg.mozilla.org/projects/python-nss/raw-tags"
+    assert url == "https://hg.mozilla.org/projects/python-nss/json-tags"
 
 
 def test_get_hg_raw_url():
@@ -46,7 +46,7 @@ def test_get_hg_raw_url():
 
     pkg_info = yaml.load(doc, Loader=yaml.Loader)
     url = yaml2url.yaml2url(pkg_info)
-    assert url == "http://hg.libsdl.org/SDL/json-tags"
+    assert url == "http://hg.libsdl.org/SDL/raw-tags"
 
 
 def test_get_github_url():

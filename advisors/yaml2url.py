@@ -22,7 +22,7 @@ def __get_hg_url(pkg_info):
     """
     Get hg repo url of package
     """
-    url = urljoin(pkg_info["src_repo"] + "/", "raw-tags")
+    url = urljoin(pkg_info["src_repo"] + "/", "json-tags")
     return url
 
 
@@ -30,7 +30,7 @@ def __get_hg_raw_url(pkg_info):
     """
     Get hg raw repo url of package
     """
-    url = urljoin(pkg_info["src_repo"] + "/", "json-tags")
+    url = urljoin(pkg_info["src_repo"] + "/", "raw-tags")
     return url
 
 

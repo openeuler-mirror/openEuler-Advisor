@@ -40,6 +40,7 @@ from advisors import gitee
 from advisors import oa_upgradable
 from advisors import version_recommend
 from advisors import match_patches
+from advisors import package_type
 
 
 def get_spec_path(gt_api, pkg):
@@ -359,12 +360,21 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
         pkg_tags = oa_upgradable.get_ver_tags(gt_api, u_pkg)
         if pkg_tags is None:
             return
-        ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
 
-        if branch_info["recommend_type"] == "master":
+        ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
+        pkg_type = package_type.PackageType(u_pkg)
+
+        if pkg_type.pkg_type == "core":
+            print("WARNING: {} is core package, if need upgrade, please specify "\
+                  "upgarde version for it.".format(u_pkg))
+            return
+        if pkg_type.pkg_type == "app":
             u_ver = ver_rec.latest_version
         else:
-            u_ver = ver_rec.maintain_version
+            if branch_info["recommend_type"] == "master":
+                u_ver = ver_rec.latest_version
+            else:
+                u_ver = ver_rec.maintain_version
 
     if update_ver_check(u_pkg, pkg_ver, u_ver):
         fork_clone_repo(gt_api, u_pkg, u_branch)
