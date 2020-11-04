@@ -58,8 +58,11 @@ def check_repo(repo, branch, batch_num):
     threads = []
     lock = threading.Lock()
     for number in range(thread_num):
-        thread= threading.Thread(target=check_batch, args=(repo_list, branch, number,
-                                                           batch_num, lock))
+        thread = threading.Thread(target=check_batch, args=(repo_list,
+                                                            branch,
+                                                            number,
+                                                            batch_num,
+                                                            lock))
         threads.append(thread)
     for thread in threads:
         thread.start()
@@ -105,13 +108,13 @@ def check_pkg(pkg, branch, check_file, lock):
     """
     user_gitee = gitee.Gitee()
     check_file.writelines("\n-----------------------Checking {}-----------------------".format(
-                          pkg))
+        pkg))
     lock.acquire()
     spec_str = user_gitee.get_spec(pkg, branch)
     lock.acquire()
     if not spec_str:
         check_file.writelines("WARNING: {repo}.spec can't be found on {br}".format(repo=pkg,
-                              br=branch))
+                                                                                   br=branch))
         return False
 
     repo_spec = Spec.from_string(spec_str)
@@ -136,7 +139,8 @@ def check_pkg(pkg, branch, check_file, lock):
         while down_cnt < 2:
             down_cnt += 1
             if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=source,
-                                   name=file_name)], shell=True):
+                                                                                 name=file_name)],
+                                   shell=True):
                 break
         lock.release()
 
