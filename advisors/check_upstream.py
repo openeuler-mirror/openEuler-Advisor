@@ -142,8 +142,8 @@ def check_hg_raw(info, clean_tag=True):
     for line in resp.splitlines():
         tags.append(line.split()[0])
     if clean_tag:
-        result_list = clean_tags(tags, info)
-    return result_list
+        tags = clean_tags(tags, info)
+    return tags
 
 
 def check_hg(info, clean_tag=True):
