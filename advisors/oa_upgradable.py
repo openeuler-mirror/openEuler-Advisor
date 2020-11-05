@@ -111,12 +111,11 @@ def main_process(push, default, repo):
     Main process of the functionality
     """
     print("Checking", repo)
-
     user_gitee = gitee.Gitee()
     spec_string = user_gitee.get_spec(repo)
     if not spec_string:
         print("WARNING: {pkg}.spec can't be found on master".format(pkg=repo))
-        return
+        return None
 
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
@@ -128,7 +127,7 @@ def main_process(push, default, repo):
     print("known release tags:", pkg_tags)
 
     if pkg_tags is None:
-        return
+        return None
 
     if cur_version not in pkg_tags:
         print("WARNING: Current {ver} doesn't exist in upstream." \
@@ -153,7 +152,7 @@ If you think this is not proper issue, Please visit https://gitee.com/openeuler/
 Issues and feedbacks are welcome.""".format(repo=repo,
                                             ver=ver_rec.latest_version,
                                             cur_ver=cur_version))
-
-
+        return repo, cur_version, ver_rec.latest_version
+    return None
 if __name__ == "__main__":
     main()
