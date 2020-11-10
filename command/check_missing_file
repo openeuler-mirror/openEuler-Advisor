@@ -14,7 +14,7 @@ try:
 except:
     pass
 
-from advisors.check_missing_specs import main
+from advisors.check_missing_file import main
 
 
 if __name__ == '__main__':

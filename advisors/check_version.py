@@ -16,25 +16,8 @@ This is an automatic script for checking source url of package
 """
 import os
 import argparse
-from advisors import gitee
 from advisors.oa_upgradable import main_process
-
-
-def get_repos_by_sig(sig):
-    """
-    Get repos by sig
-    """
-    user_gitee = gitee.Gitee()
-    yaml_data = user_gitee.get_sigs()
-
-    repo_list = []
-    for sigs in yaml_data['sigs']:
-        if sig not in (sigs['name'], 'all'):
-            continue
-        repo_name = sigs['repositories']
-        repo_list.append(repo_name)
-    repo_list = [i for item in repo_list for i in item]
-    return repo_list
+from advisors.check_missing_file import get_repos_by_sig
 
 
 def main():
@@ -58,16 +41,36 @@ def main():
         sig = 'all'
 
     repos = get_repos_by_sig(sig)
-
+    total = len(repos)
+    index = 0
+    upgrade_list = []
     for repo in repos:
+        index = index + 1
         url = repo.split('/')[0]
         if url == 'openeuler':
             continue
-        try:
-            main_process(args.push, args.default, repo.split('/')[1])
-        except Exception as error:
-            print("ERROR: Command execution error", error)
+        check_repo = repo.split('/')[1]
+        result = main_process(args.push, args.default, check_repo)
+        if result:
+            print('''INFO: {index} in {total} check {repo} need upgrade \
+from {current} to {latest}'''.format(index=index,
+                                     total=total,
+                                     repo=result[0],
+                                     current=result[1],
+                                     latest=result[2]))
+            upgrade_list.append(result)
+        else:
+            print('''INFO: {index} in {total} check {repo} not need \
+upgrade'''.format(index=index,
+                  total=total,
+                  repo=check_repo))
 
+    if upgrade_list:
+        print("The repos listed below need upgrade:")
+        for upgrade_repo in upgrade_list:
+            print("{repo}   {current}   {latest}".format(repo=upgrade_repo[0],
+                                                         current=upgrade_repo[1],
+                                                         latest=upgrade_repo[2]))
 
 if __name__ == "__main__":
     main()
