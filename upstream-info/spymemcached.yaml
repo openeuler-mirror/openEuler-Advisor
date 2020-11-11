@@ -1,0 +1,4 @@
+version_control: github
+src_repo: dustin/java-memcached-client
+tag_prefix:
+separator: "."

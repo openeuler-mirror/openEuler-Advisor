@@ -348,7 +348,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
     print("\n------------------------Updating {}------------------------".format(u_pkg))
     spec_str = gt_api.get_spec(u_pkg, u_branch)
     if not spec_str:
-        print("WARNING: {pkg}.spec can't be found on the {br} branch.".format(
+        print("WARNING: Spec of {pkg} can't be found on the {br} branch.".format(
             pkg=u_pkg, br=u_branch))
         return
     pkg_spec = Spec.from_string(spec_str)
@@ -418,7 +418,7 @@ def __manual_operate(gt_api, op_args):
     """
     spec_string = gt_api.get_spec(op_args.repo_pkg, op_args.branch)
     if not spec_string:
-        print("WARNING: {pkg}.spec can't be found on the {br} branch.".format(
+        print("WARNING: Spec of {pkg} can't be found on the {br} branch.".format(
               pkg=op_args.repo_pkg, br=op_args.branch))
         sys.exit(1)
     spec_file = Spec.from_string(spec_string)

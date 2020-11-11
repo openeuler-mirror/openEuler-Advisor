@@ -37,8 +37,9 @@ class Gitee():
 
         self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) '\
                         'Gecko/20100101 Firefox/50.0'}
-        self.src_openeuler_url = "https://gitee.com/src-openeuler/{repo}/raw/{br}/"
-        self.advisor_url = "https://gitee.com/openeuler/openEuler-Advisor/raw/master/"
+        self.community_url = "https://gitee.com/api/v5/repos/openeuler/community/contents/"
+        self.src_openeuler_url = "https://gitee.com/api/v5/repos/src-openeuler/{repo}/contents/"
+        self.advisor_url = "https://gitee.com/api/v5/repos/openeuler/openEuler-Advisor/contents/"
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
 
     def __post_gitee(self, url, values, headers=None):
@@ -199,11 +200,12 @@ class Gitee():
         Get upgrade branch info
         """
         upgrade_branches_url = self.advisor_url + "advisors/helper/upgrade_branches.yaml"
-        resp = self.__get_gitee(upgrade_branches_url)
+        resp = self.__get_gitee_json(upgrade_branches_url)
         if not resp:
             print("ERROR: upgrade_branches.yaml may not exist.")
             sys.exit(1)
-        branches_info = yaml.load(resp, Loader=yaml.Loader)
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        branches_info = yaml.load(resp_str, Loader=yaml.Loader)
         for br_info in branches_info["branches"]:
             if branch == br_info["name"]:
                 return br_info
@@ -215,11 +217,12 @@ class Gitee():
         Get well known spec file exception
         """
         specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
-        resp = self.__get_gitee(specfile_exception_url)
+        resp = self.__get_gitee_json(specfile_exception_url)
         if not resp:
             print("ERROR: specfile_exceptions.yaml may not exist.")
             sys.exit(1)
-        excpt_list = yaml.load(resp, Loader=yaml.Loader)
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        excpt_list = yaml.load(resp_str, Loader=yaml.Loader)
         if repo in excpt_list:
             return excpt_list[repo]
         return None
@@ -229,11 +232,12 @@ class Gitee():
         Get version recommend exceptions
         """
         version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
-        resp = self.__get_gitee(version_exception_url)
+        resp = self.__get_gitee_json(version_exception_url)
         if not resp:
             print("ERROR: version_exceptions.yaml may not exist.")
             sys.exit(1)
-        excpt = yaml.load(resp, Loader=yaml.Loader)
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        excpt = yaml.load(resp_str, Loader=yaml.Loader)
         return excpt
 
     def get_spec(self, pkg, branch="master"):
@@ -241,26 +245,30 @@ class Gitee():
         Get openeuler spec file for specific package
         """
         specurl = self.src_openeuler_url + "{repo}.spec"
-        specurl = specurl.format(repo=pkg, br=branch)
+        specurl = specurl.format(repo=pkg)
         excpt = self.get_spec_exception(pkg)
         if excpt:
             specurl = urllib.parse.urljoin(specurl, os.path.join(excpt["dir"], excpt["file"]))
-        resp = self.__get_gitee(specurl)
-        return resp
+        specurl = specurl + "?ref={}".format(branch)
+        resp = self.__get_gitee_json(specurl)
+        resp_str = ""
+        if resp:
+            resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        return resp_str
 
     def get_yaml(self, pkg):
         """
         Get upstream yaml metadata for specific package
         """
         yamlurl = self.advisor_url + "upstream-info/{}.yaml".format(pkg)
-        resp = self.__get_gitee(yamlurl)
+        resp = self.__get_gitee_json(yamlurl)
         if not resp:
             yamlurl = self.src_openeuler_url + "{repo}.yaml"
-            yamlurl = yamlurl.format(repo=pkg, br="master")
-            resp = self.__get_gitee(yamlurl)
+            yamlurl = yamlurl.format(repo=pkg)
+            resp = self.__get_gitee_json(yamlurl)
             if not resp:
                 print("WARNING: {}.yaml can't be found in upstream-info and repo.".format(pkg))
-        return resp
+        return base64.b64decode(resp["content"]).decode("utf-8")
 
     def get_sigs(self):
         """
@@ -276,10 +284,11 @@ class Gitee():
         """
         Get yaml data from community repo
         """
-        yamlurl = "https://gitee.com/api/v5/repos/openeuler/community/contents/"\
-                  "repository/{repo}.yaml".format(repo=repo)
+        yamlurl = self.community_url + "repository/{repo}.yaml".format(repo=repo)
         resp = self.__get_gitee_json(yamlurl)
-        resp_str = base64.b64decode(resp["content"])
+        resp_str = ""
+        if resp:
+            resp_str = base64.b64decode(resp["content"]).decode("utf-8")
         return resp_str
 
     def get_issues(self, pkg, prj="src-openeuler"):

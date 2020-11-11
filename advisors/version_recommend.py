@@ -1146,6 +1146,7 @@ class VersionRecommend(object):
             return False
 
         if 'rc' in version \
+                or 'CR' in version \
                 or 'RC' in version \
                 or 'dev' in version \
                 or 'beta' in version \
@@ -1155,7 +1156,7 @@ class VersionRecommend(object):
                 or 'pl' in version \
                 or 'pre' in version \
                 or 'PRE' in version \
-                or 'bp' in version:  # 仅获取正式版本
+                or 'bp' in version:  # 仅获取正式版本,CR(Candidate Release in Java)
             return False
 
         if 'ubuntu' in version or 'fedora' in version:  # 去掉厂家专用版本号

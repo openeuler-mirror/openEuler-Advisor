@@ -113,8 +113,8 @@ def check_pkg(pkg, branch, check_file, lock):
     spec_str = user_gitee.get_spec(pkg, branch)
     lock.acquire()
     if not spec_str:
-        check_file.writelines("WARNING: {repo}.spec can't be found on {br}".format(repo=pkg,
-                                                                                   br=branch))
+        check_file.writelines("WARNING: Spec of {repo} can't be found on {br}".format(repo=pkg,
+                                                                                      br=branch))
         return False
 
     repo_spec = Spec.from_string(spec_str)

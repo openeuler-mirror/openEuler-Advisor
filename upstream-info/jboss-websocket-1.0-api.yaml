@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss/jboss-websocket-api_spec
+tag_pattern: "jboss-websocket-api_1.0_spec-(.*).Final"
+separator: "."

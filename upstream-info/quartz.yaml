@@ -1,0 +1,4 @@
+version_control: github
+src_repo: quartz-scheduler/quartz
+tag_pattern: "v|quartz-(.*)"
+separator: "."
