@@ -662,8 +662,8 @@ def main():
     user_gitee = gitee.Gitee()
     pull_request = user_gitee.get_pr(repo_name, pull_id, group)
     if not pull_request:
-        print("Failed to get PR:%s of repository:%s, make sure the PR is exist."\
-                % (pull_id, repo_name))
+        print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist."\
+                % (pull_id, group, repo_name))
         sys.exit(1)
     if args.edit and args.status:
         edit_review_status(args, user_gitee, group, repo_name, pull_id)
