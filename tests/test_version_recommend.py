@@ -186,3 +186,33 @@ def test_version_type_pkgconf():
     assert version_type.latest_version == '1.7.3'
     assert version_type.maintain_version == '1.7.3'
 
+
+def test_version_type_mksh():
+    """
+    Test mksh
+    """
+    tags = ['19', '20', '21', '22', '23', '24', '24b', '24c', '25', '26', '26b', '26c',
+            '27', '27d', '27e', '28', '29', '29b', '29c', '29d', '29e', '29f', '29g',
+            '30', '31', '31b', '31c', '31d', '32', '33', '33b', '33c', '33d', '35', '35b',
+            '36', '36b', '37', '37b', '37c', '38', '38b', '38c', '39', '39b', '39c',
+            '40', '40b', '40c', '40d', '40e', '40f', '41', '41b', '41c', '42', '42b',
+            '43', '44', '45', '46', '47', '48', '48b', '49', '50', '50b', '50c',
+            '50d', '50e', '50f', '51', '52', '52b', '52c', '53', '53a', '54', '55',
+            '56', '56b', '56c', '57', '58', '59', '59b', '59c']
+
+    current_version = "56c"
+    version_type = version_recommend.VersionRecommend(tags, current_version, 0)
+    assert version_type.latest_version == '59'
+    assert version_type.maintain_version == '56c'
+
+
+def test_version_type_pyxattr():
+    """
+    Test pyxattr
+    """
+    tags = ['0.1', '0.2.1', '0.2.2', '0.3.0', '0.4.0', '0.5.0', '0.7.0', '0.7.1']
+
+    current_version = "0.6.1"
+    version_type = version_recommend.VersionRecommend(tags, current_version, 0)
+    assert version_type.latest_version == '0.7.1'
+    assert version_type.maintain_version == '0.6.1'

@@ -177,9 +177,11 @@ class VersionType(object):
         """
         Get the latest version.
         """
+        if not version_list:
+            return ''
+
         index = start
         version_candidate = version_list[:]
-
         while True:
             version_entry = version_candidate[:]
             version_candidate.clear()
@@ -195,8 +197,12 @@ class VersionType(object):
             for version in version_entry:
                 if len(version) <= index:
                     continue
+
                 if _y == version[index]:
                     version_candidate.append(version)
+
+            if not version_candidate:
+                return version_entry[0]
 
             if len(version_candidate) == 1:
                 return version_candidate[0]
@@ -255,7 +261,9 @@ class VersionTypeXYZW(VersionType):
                 version_candidate.append(version_temp)  # 将同特性版本的子版本挑选出来
 
         version = self.get_latest_version(version_candidate, 3)
-        return self._separator.join(version)
+        if version:
+            return self._separator.join(version)
+        return current_version
 
     def __init__(self):
         """
@@ -313,7 +321,9 @@ class VersionTypeXYZ(VersionType):
                 version_candidate.append(version_temp)  # 将同特性版本的子版本挑选出来
 
         version = self.get_latest_version(version_candidate, 2)
-        return self._separator.join(version)
+        if version:
+            return self._separator.join(version)
+        return current_version
 
     def __init__(self):
         """
@@ -370,7 +380,9 @@ class VersionTypeXY(VersionType):
                 version_candidate.append(version_temp)  # 将同特性版本的子版本挑选出来
 
         version = self.get_latest_version(version_candidate, 1)
-        return self._separator.join(version)
+        if version:
+            return self._separator.join(version)
+        return current_version
 
 
 class VersionTypeX(VersionType):
@@ -411,7 +423,9 @@ class VersionTypeX(VersionType):
                 version_candidate.append(version_temp)  # 将同特性版本的子版本挑选出来
 
         version = self.get_latest_version(version_candidate, 1)
-        return self._separator.join(version)
+        if version:
+            return self._separator.join(version)
+        return current_version
 
     def __init__(self):
         """
