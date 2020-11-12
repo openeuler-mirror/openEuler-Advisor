@@ -61,6 +61,7 @@ DONE! than you can create a Pull Request.
 	pip3 install requests (ver>=2.24.0)
 	yum install rpmdevtools (ver>=8.3)
 	pip3 install beautifulsoup4 (ver>=4.9.3)
+	yum install yum-utils (ver>=1.1.31)
 	
 ##### 2. json file config
 	~/.gitee_personal_token.json
@@ -79,7 +80,7 @@ DONE! than you can create a Pull Request.
 
 #### Use Instructions
 ##### 1. simple_update_robot.py
-	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name
+	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name [-n new_version]
 	ep: python3 simple_update_robot.py -u pkg snappy master
 
 	single package manual upgrade: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]

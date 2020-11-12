@@ -160,6 +160,7 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	pip3 install requests (ver>=2.24.0)
 	yum install rpmdevtools (ver>=8.3)
 	pip3 install beautifulsoup4 (ver>=4.9.3)
+	yum install yum-utils (ver>=1.1.31)
 	
 ##### b. json文件配置
 	创建json文件：~/.gitee_personal_token.json
@@ -179,7 +180,7 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	
 #### 3.2.2 使用说明
 ##### a. simple_update_robot.py
-	单软件包自动升级: python3 simple_update_robot.py -u pkg pkg_name branch_name
+	单软件包自动升级: python3 simple_update_robot.py -u pkg pkg_name branch_name [-n new_version]
 	例如: python3 simple_update_robot.py -u pkg snappy master
 	
 	单软件包手动升级: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]

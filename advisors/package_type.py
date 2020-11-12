@@ -102,7 +102,7 @@ class PackageType:
         user_gitee = gitee.Gitee()
         spec_string = user_gitee.get_spec(self.repo)
         if not spec_string:
-            print("WARNING: {pkg}.spec can't be found on master".format(pkg=self.repo))
+            print("WARNING: Spec of {pkg} can't be found on master".format(pkg=self.repo))
             return None
 
         lib_list = []

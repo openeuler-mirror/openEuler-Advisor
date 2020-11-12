@@ -1,0 +1,4 @@
+version_control: hg-raw
+src_repo: http://hg.openjdk.java.net/code-tools/jmh
+tag_prefix:
+separator: "."

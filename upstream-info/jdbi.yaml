@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jdbi/jdbi
+tag_prefix: "^v"
+separator: "."
