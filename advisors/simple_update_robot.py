@@ -27,6 +27,7 @@ Expected process:
 import sys
 import re
 import time
+import json
 import shutil
 import os.path
 import datetime
@@ -41,13 +42,22 @@ from advisors import oa_upgradable
 from advisors import version_recommend
 from advisors import match_patches
 from advisors import package_type
+from advisors import check_command
+#import some requires about abi_check
+from advisors import build_rpm_package
+from advisors import check_abi
+from advisors import check_conf
+
+__NUMBER = 0
 
 
 def get_spec_path(gt_api, pkg):
     """
     Get specfile path in repository
     """
+    print("pkg is : {}".format(pkg))
     excpt = gt_api.get_spec_exception(pkg)
+    print("excpt is {}".format(excpt))
     if excpt:
         spec_path = os.path.join(excpt["dir"], excpt["file"])
     else:
@@ -65,8 +75,7 @@ def download_helper(src_url, file_name=None):
     while down_cnt < 2:
         down_cnt += 1
         if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=src_url,
-                                                                             name=file_name)],
-                               shell=True):
+                               name=file_name)], shell=True):
             break
     return src_url
 
@@ -127,9 +136,7 @@ def update_ver_check(repo, o_ver, n_ver):
         result = True
     else:
         print("WARNING: Update failed >> [{pkg}: current_ver:{c_ver}, upgrade_ver:{u_ver}]".format(
-            pkg=repo,
-            c_ver=o_ver,
-            u_ver=n_ver))
+              pkg=repo, c_ver=o_ver, u_ver=n_ver))
         result = False
     return result
 
@@ -148,7 +155,7 @@ def fork_clone_repo(gt_api, repo, branch):
         if os.path.exists(repo):
             shutil.rmtree(repo, ignore_errors=True)
         if subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name,
-                                                                                pkg=repo)]):
+                           pkg=repo)]):
             time.sleep(1)
             continue
         os.chdir(repo)
@@ -198,7 +205,7 @@ def cpan_source_helper(src_name, src_url):
                 old_path = src_url.strip(src_file)
                 new_path = new_url.strip(src_file)
                 subprocess.call(["grep -lr {old} | xargs sed -i \'s#{old}#{new}#g\'".format(
-                    old=old_path, new=new_path)], shell=True)
+                                old=old_path, new=new_path)], shell=True)
                 break
     return
 
@@ -318,19 +325,56 @@ def build_pkg(u_pkg, u_branch, obs_prj):
         except OSError:
             shutil.rmtree(file_name, ignore_errors=True)
 
+    subprocess.call(["osc", "rm", "_service"])
+    subprocess.call(["osc", "up", "-S"])
+    subprocess.call(["for file in `ls _service:*`;" + "do newfile=${file##*:};" +
+                    "mv -v $file $newfile;done"], shell=True)
+
+    #Build old version
+    if subprocess.call(["osc", "build", "standard_aarch64", "--clean"]):
+        result = False
+    else:
+        result = True
+
+    rpmbuildpath = "/var/tmp/build-root/standard_aarch64-aarch64/home/abuild/rpmbuild/RPMS"
+    oldrpmpath = "/root/oldrpms"
+    #Copy rpms to oldrpmpath from rpmbuildpath
+    copyrpms(rpmbuildpath, oldrpmpath)
+
+    #Build update version
     subprocess.call(["cp ../../{pkg}/* .".format(pkg=u_pkg)], shell=True)
     if subprocess.call(["osc", "build", "standard_aarch64"]):
         result = False
     else:
         result = True
+
+    newrpmpath = "/root/newrpms"
+    #Copy rpms to newrpmpath from rpmbuildpath
+    copyrpms(rpmbuildpath, newrpmpath)
+
     os.chdir("../../")
     return result
 
 
-def push_create_pr_issue(gt_api, u_pkg, o_ver, u_ver, u_branch):
+def copyrpms(source_path, target_path):
+    """
+    Copy rpms to the compares path from local osc build rpms path
+    """
+    subprocess.call(["rm", "-rf", "{}".format(target_path)])
+    subprocess.call(["mkdir {}".format(target_path)], shell=True)
+    subprocess.call(["cp -r {source_path} {target_path}".format(source_path=source_path,\
+                     target_path=target_path)], shell=True)
+
+
+def push_create_pr_issue(gt_api, values):
     """
     Auto push update repo, create upgrade PR and issue.
     """
+    u_pkg = values['repo_pkg']
+    o_ver = values['cur_version']
+    u_ver = values['new_version']
+    u_branch = values['branch']
+    check_result = values['check_result']
     os.chdir(u_pkg)
     spec_path = get_spec_path(gt_api, u_pkg)
     subprocess.call(["git rm *{old_ver}.* -rf".format(old_ver=o_ver)], shell=True)
@@ -339,7 +383,9 @@ def push_create_pr_issue(gt_api, u_pkg, o_ver, u_ver, u_branch):
     subprocess.call(["git commit -m \"upgrade {pkg} to {ver}\"".format(pkg=u_pkg, ver=u_ver)],
                     shell=True)
     subprocess.call(["git push origin"], shell=True)
-    gt_api.create_pr(u_pkg, u_ver, u_branch)
+    ret_pr = gt_api.create_pr(u_pkg, u_ver, u_branch)
+    number = json.loads(ret_pr)['number']
+    gt_api.create_pr_comment(u_pkg, number, check_result)
     gt_api.create_issue(u_pkg, u_ver, u_branch)
     os.chdir(os.pardir)
 
@@ -358,9 +404,6 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
     pkg_ver = replace_macros(pkg_spec.version, pkg_spec)
 
     branch_info = gt_api.get_branch_info(u_branch)
-    if not branch_info:
-        print("ERROR: get branch info failed")
-        sys.exit(1)
 
     if not u_ver:
         pkg_tags = oa_upgradable.get_ver_tags(gt_api, u_pkg)
@@ -368,8 +411,9 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
             return
 
         ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
-        pkg_type = package_type.PackageType(u_pkg)
 
+        print("version_recommen ver_rec is :{}".format(ver_rec))
+        pkg_type = package_type.PackageType(u_pkg)
         if pkg_type.pkg_type == "core":
             print("WARNING: {} is core package, if need upgrade, please specify "\
                   "upgarde version for it.".format(u_pkg))
@@ -393,7 +437,9 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
         if not build_pkg(u_pkg, u_branch, branch_info["obs_prj"]):
             return
 
-        push_create_pr_issue(gt_api, u_pkg, pkg_ver, u_ver, u_branch)
+        check_rest = check_rpm_abi(u_pkg)
+        values = make_values(u_pkg, pkg_ver, u_ver, u_branch, check_rest)
+        push_create_pr_issue(gt_api, values)
 
 
 def auto_update_repo(gt_api, u_repo, u_branch):
@@ -404,7 +450,7 @@ def auto_update_repo(gt_api, u_repo, u_branch):
         repo_yaml = open(os.path.join(os.getcwd(), "{repo}.yaml".format(repo=u_repo)))
     except FileNotFoundError:
         print("WARNING: {repo}.yaml can't be found in current working directory.".format(
-            repo=u_repo))
+              repo=u_repo))
         repo_yaml = gt_api.get_community(u_repo)
         if not repo_yaml:
             print("WARNING: {repo}.yaml in community is empty.".format(repo=u_repo))
@@ -418,6 +464,120 @@ def auto_update_repo(gt_api, u_repo, u_branch):
         auto_update_pkg(gt_api, pkg_name, u_branch, u_ver)
 
 
+def check_rpm_abi(u_pkg):
+    """
+    rpm check abi
+    """
+    old_dir = "/root/oldrpms"
+    new_dir = "/root/newrpms"
+    old_rpm_path = get_rpm_debug_path(u_pkg, old_dir)
+    new_rpm_path = get_rpm_debug_path(u_pkg, new_dir)
+
+    rpms = [old_rpm_path[0], new_rpm_path[0]]
+    debuginfos = [old_rpm_path[1], new_rpm_path[1]]
+
+    # check conf in old_rpm and new_rpm
+    check_conf_file = check_conf.CheckConfig(old_rpm_path[0], new_rpm_path[0])
+    check_conf_file.conf_check()
+    ret_conf = check_conf_file.output_file
+    if os.path.getsize(ret_conf) == 0:
+        with open(ret_conf, 'w', encoding='utf-8') as conf_file:
+            conf_file.write("Configs are same")
+
+    print("conf result is : {}".format(ret_conf))
+
+    # check abi in old_rpm and new_rpm
+    check_abi_file = check_abi.CheckAbi()
+    ret_abi = check_abi_file.process_with_rpm(rpms, debuginfos)
+    temp_abi_res = os.path.join(check_abi_file.work_path, "{}_all_result.md".format(u_pkg))
+    ret_abi = os.path.join(check_abi_file.work_path, "{}_result.txt".format(u_pkg))
+    joint_abi_rest(temp_abi_res, ret_abi)
+
+    # check command
+    ret_commd = check_command.process_check_command(rpms)
+    print("ret_commd is : {}".format(ret_commd))
+    review_body = make_check_review(ret_conf, ret_commd, ret_abi)
+    return review_body
+
+
+def get_rpm_debug_path(u_pkg, target_path):
+    """
+    return the rpm package path and debug package path
+    """
+    rpm_packages = build_rpm_package.BuildRPMPackage(u_pkg, target_path)
+    rpm_path = rpm_packages.main_package_local()
+    debug_packages = rpm_packages.debuginfo_package_local()
+    return [rpm_path, debug_packages]
+
+
+def joint_abi_rest(old_file, new_file):
+    """
+    Joint the abi check result, and remove duplicate information
+    """
+    lines_seen = set()
+    if os.path.getsize(old_file) > 0:
+        with open(old_file, 'r', encoding='utf-8') as oldfile:
+            abi_line = oldfile.readlines()
+
+        with open(new_file, 'w') as newfile:
+            for line in abi_line:
+                if line not in lines_seen:
+                    if line.startswith("# Functions changed info"):
+                        newfile.write(line)
+                    if line.startswith("------"):
+                        newfile.write(line)
+                    if line.startswith("Functions changes summary:"):
+                        newfile.write(line)
+                    if line.startswith("Variables changes summary:"):
+                        newfile.write(line)
+                    lines_seen.add(line)
+            newfile.write("Detailed interface changes results in check_abi of openeuler-ci-bot")
+
+
+def make_check_review(ret_conf, ret_commd, ret_abi):
+    """
+    Summary of interface change results
+    """
+    review_body = """**以下为openEuler-Advistor生成的接口变更清单**"""
+    chk_table_header = """<table><tr><th>编号</th><th>检查项</th><th>变更内容</th></tr>"""
+    review_body += chk_table_header
+    print("ret_conf is : {}".format(ret_conf))
+    review_body += check_item("配置文件差异", ret_conf)
+    review_body += check_item("命令差异", ret_commd)
+    review_body += check_item("abi 变更差异", ret_abi)
+    review_body += "</table>"
+    return review_body
+
+
+def check_item(check_name, check_result):
+    """
+    join check item as a table row
+    """
+    item_template = "<tr><th>{}</th><th>{}</th><th>{}</th></tr>"
+    ret_str = ""
+    global __NUMBER
+    with open(check_result, 'r', encoding='utf-8') as ch_file:
+        for line in ch_file.readlines():
+            ret_str += line
+    res = item_template.format(__NUMBER, check_name, ret_str)
+    __NUMBER += 1
+    return res
+
+
+def extract_rpm_name(rpm_fullname):
+    """
+    取出名字部分
+    :param rpm_fullname:
+    :return:
+    """
+    try:
+        rpm_name = re.match("(.*)-[0-9.]+-.*rpm", rpm_fullname)
+    except NameError:
+        return rpm_fullname
+    else:
+        return rpm_name.group(1)
+
+
 def __manual_operate(gt_api, op_args):
     """
     Manual operation of this module
@@ -425,15 +585,12 @@ def __manual_operate(gt_api, op_args):
     spec_string = gt_api.get_spec(op_args.repo_pkg, op_args.branch)
     if not spec_string:
         print("WARNING: Spec of {pkg} can't be found on the {br} branch.".format(
-            pkg=op_args.repo_pkg, br=op_args.branch))
+              pkg=op_args.repo_pkg, br=op_args.branch))
         sys.exit(1)
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
 
     branch_info = gt_api.get_branch_info(op_args.branch)
-    if not branch_info:
-        print("ERROR: get branch info failed")
-        sys.exit(1)
 
     if op_args.fork_then_clone:
         fork_clone_repo(gt_api, op_args.repo_pkg, op_args.branch)
@@ -457,9 +614,26 @@ def __manual_operate(gt_api, op_args):
         if not build_pkg(op_args.repo_pkg, op_args.branch, branch_info["obs_prj"]):
             sys.exit(1)
 
+    if op_args.check_rpm_abi:
+        check_result = check_rpm_abi(op_args.repo_pkg)
+
     if op_args.push_create_pr_issue:
-        push_create_pr_issue(gt_api, op_args.repo_pkg, cur_version, op_args.new_version,
-                             op_args.branch)
+        values = make_values(op_args.repo_pkg, cur_version, op_args.new_version,
+                             op_args.branch, check_result)
+        push_create_pr_issue(gt_api, values)
+
+
+def make_values(repo_pkg, cur_ver, new_ver, branch, check_result):
+    """
+    Make values for push_create_pr_issue
+    """
+    values = {}
+    values["repo_pkg"] = repo_pkg
+    values["cur_version"] = cur_ver
+    values["new_version"] = new_ver
+    values["branch"] = branch
+    values["check_result"] = check_result
+    return values
 
 
 def main():
