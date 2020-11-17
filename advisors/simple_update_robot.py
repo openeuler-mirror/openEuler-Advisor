@@ -65,7 +65,8 @@ def download_helper(src_url, file_name=None):
     while down_cnt < 2:
         down_cnt += 1
         if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=src_url,
-                               name=file_name)], shell=True):
+                                                                             name=file_name)],
+                               shell=True):
             break
     return src_url
 
@@ -126,7 +127,9 @@ def update_ver_check(repo, o_ver, n_ver):
         result = True
     else:
         print("WARNING: Update failed >> [{pkg}: current_ver:{c_ver}, upgrade_ver:{u_ver}]".format(
-              pkg=repo, c_ver=o_ver, u_ver=n_ver))
+            pkg=repo,
+            c_ver=o_ver,
+            u_ver=n_ver))
         result = False
     return result
 
@@ -145,7 +148,7 @@ def fork_clone_repo(gt_api, repo, branch):
         if os.path.exists(repo):
             shutil.rmtree(repo, ignore_errors=True)
         if subprocess.call(["git", "clone", "git@gitee.com:{user}/{pkg}".format(user=name,
-                           pkg=repo)]):
+                                                                                pkg=repo)]):
             time.sleep(1)
             continue
         os.chdir(repo)
@@ -195,7 +198,7 @@ def cpan_source_helper(src_name, src_url):
                 old_path = src_url.strip(src_file)
                 new_path = new_url.strip(src_file)
                 subprocess.call(["grep -lr {old} | xargs sed -i \'s#{old}#{new}#g\'".format(
-                                old=old_path, new=new_path)], shell=True)
+                    old=old_path, new=new_path)], shell=True)
                 break
     return
 
@@ -355,6 +358,9 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
     pkg_ver = replace_macros(pkg_spec.version, pkg_spec)
 
     branch_info = gt_api.get_branch_info(u_branch)
+    if not branch_info:
+        print("ERROR: get branch info failed")
+        sys.exit(1)
 
     if not u_ver:
         pkg_tags = oa_upgradable.get_ver_tags(gt_api, u_pkg)
@@ -398,7 +404,7 @@ def auto_update_repo(gt_api, u_repo, u_branch):
         repo_yaml = open(os.path.join(os.getcwd(), "{repo}.yaml".format(repo=u_repo)))
     except FileNotFoundError:
         print("WARNING: {repo}.yaml can't be found in current working directory.".format(
-              repo=u_repo))
+            repo=u_repo))
         repo_yaml = gt_api.get_community(u_repo)
         if not repo_yaml:
             print("WARNING: {repo}.yaml in community is empty.".format(repo=u_repo))
@@ -419,12 +425,15 @@ def __manual_operate(gt_api, op_args):
     spec_string = gt_api.get_spec(op_args.repo_pkg, op_args.branch)
     if not spec_string:
         print("WARNING: Spec of {pkg} can't be found on the {br} branch.".format(
-              pkg=op_args.repo_pkg, br=op_args.branch))
+            pkg=op_args.repo_pkg, br=op_args.branch))
         sys.exit(1)
     spec_file = Spec.from_string(spec_string)
     cur_version = replace_macros(spec_file.version, spec_file)
 
     branch_info = gt_api.get_branch_info(op_args.branch)
+    if not branch_info:
+        print("ERROR: get branch info failed")
+        sys.exit(1)
 
     if op_args.fork_then_clone:
         fork_clone_repo(gt_api, op_args.repo_pkg, op_args.branch)

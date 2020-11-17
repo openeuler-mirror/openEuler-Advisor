@@ -210,14 +210,14 @@ class Gitee():
         resp = self.__get_gitee_json(upgrade_branches_url)
         if not resp:
             print("ERROR: upgrade_branches.yaml may not exist.")
-            sys.exit(1)
+            return None
         resp_str = base64.b64decode(resp["content"]).decode("utf-8")
         branches_info = yaml.load(resp_str, Loader=yaml.Loader)
         for br_info in branches_info["branches"]:
             if branch == br_info["name"]:
                 return br_info
         print("WARNING: Don't support branch: {} in auto-upgrade.".format(branch))
-        sys.exit(1)
+        return None
 
     def get_spec_exception(self, repo):
         """
@@ -227,7 +227,7 @@ class Gitee():
         resp = self.__get_gitee_json(specfile_exception_url)
         if not resp:
             print("ERROR: specfile_exceptions.yaml may not exist.")
-            sys.exit(1)
+            return None
         resp_str = base64.b64decode(resp["content"]).decode("utf-8")
         excpt_list = yaml.load(resp_str, Loader=yaml.Loader)
         if repo in excpt_list:
@@ -242,7 +242,7 @@ class Gitee():
         resp = self.__get_gitee_json(version_exception_url)
         if not resp:
             print("ERROR: version_exceptions.yaml may not exist.")
-            sys.exit(1)
+            return ''
         resp_str = base64.b64decode(resp["content"]).decode("utf-8")
         excpt = yaml.load(resp_str, Loader=yaml.Loader)
         return excpt
@@ -275,6 +275,7 @@ class Gitee():
             resp = self.__get_gitee_json(yamlurl)
             if not resp:
                 print("WARNING: {}.yaml can't be found in upstream-info and repo.".format(pkg))
+                return ''
         return base64.b64decode(resp["content"]).decode("utf-8")
 
     def get_sigs(self):
