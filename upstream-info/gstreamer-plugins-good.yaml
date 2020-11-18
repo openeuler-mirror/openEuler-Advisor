@@ -1,9 +1,5 @@
 ---
-version_control: github
-src_repo: GStreamer/gst-plugins-good
-tag_prefix: "^"
+version_control: git
+src_repo: https://gitlab.freedesktop.org/gstreamer/gst-plugins-good
+tag_prefix: "^RELEASE-"
 separator: "."
-git_url: https://github.com/GStreamer/gst-plugins-good.git
-git_tag:
-- 2020-07-03 1.17.2
-- 2020-06-19 1.17.1

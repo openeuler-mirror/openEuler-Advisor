@@ -1,7 +1,5 @@
 ---
 version_control: git
-src_repo: https://gitlab.freedesktop.org/mesa/glw.git
-tag_prefix: 
+src_repo: git://git.pld-linux.org/packages/Mesa-libGLw.git 
+tag_prefix: "^auto/th/Mesa-libGLw-" 
 separator: "."
-git_url: https://gitlab.freedesktop.org/mesa/glw.git
-git_tag:

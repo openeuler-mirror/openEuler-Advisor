@@ -1,5 +1,5 @@
 ---
 version_control: git
 src_repo: https://pagure.io/mailcap
-tag_prefix: "^r2-1"
+tag_prefix: "^r"
 separator: "-"

@@ -1,8 +1,5 @@
 ---
 version_control: git
-src_repo: https://gforge.inria.fr/anonscm/git/mpc/mpc.git
-tag_prefix: "^v"
+src_repo: git://git.pld-linux.org/packages/libmpc.git 
+tag_prefix: "^auto/th/libmpc-"
 separator: "."
-git_url: https://gforge.inria.fr/anonscm/git/mpc/mpc.git
-git_tag:
-- 2018-01-11 1.1.0

@@ -750,7 +750,8 @@ class VersionRecommend(object):
         if _m is None:  # 版本号应该是数字开头
             return False
 
-        _m = re.search(r'[ab]', version)
+        # autoconf213 https://git.savannah.gnu.org/git/autoconf.git  
+        _m = re.search(r'[abcd]', version)
         if not _m is None:
             return False
 

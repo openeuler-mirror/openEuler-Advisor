@@ -1,0 +1,5 @@
+---
+version_control: gitee
+src_repo: openeuler/isula-build
+tag_prefix: "^v"
+separator: "."

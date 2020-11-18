@@ -1,38 +1,5 @@
 ---
 version_control: github
-src_repo: ArtifexSoftware/ghostpdl-downloads
-tag_prefix: "^v"
+src_repo: ArtifexSoftware/jbig2dec
+tag_prefix:
 separator: "."
-git_url: https://github.com/ArtifexSoftware/ghostpdl-downloads.git
-git_tag:
-- 2020-03-19 gs952
-- 2019-10-15 gs951rc3
-- 2020-03-12 gs951
-- 2019-04-04 gs950
-- 2019-04-04 gs928rc4
-- 2019-04-04 gs928rc3
-- 2019-04-04 gs928rc2
-- 2019-04-04 gs928rc1
-- 2019-04-04 gs927
-- 2018-09-13 gs926
-- 2018-09-03 gs925rc1
-- 2018-09-03 gs925
-- 2018-03-27 gs924rc2
-- 2018-03-27 gs924
-- 2017-10-04 gs923rc1
-- 2017-10-04 gs923
-- 2017-03-21 gs922rc2
-- 2017-03-21 gs922rc1
-- 2017-10-04 gs922
-- 2017-03-16 gs921
-- 2016-04-28 gs920rc1
-- 2016-09-27 gs920
-- 2016-04-28 gs919
-- 2016-01-26 gs918
-- 2019-04-04 gs9.27
-- 2018-09-13 gs9.26rc1
-- 2019-10-15 ghostpdl-9.51rc2
-- 2020-03-12 ghostpdl-9.51
-- 2018-09-13 9.27rc1
-- 2019-04-04 9.27
-- 2016-09-27 9.21rc1

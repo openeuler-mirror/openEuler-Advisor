@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: apache/commons-chain
+tag_prefix: "^CHAIN_"
+separator: "_"

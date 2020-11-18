@@ -1,4 +1,4 @@
-version_control: git
-src_repo: https://salsa.debian.org/printing-team/hplip
-tag_prefix: upstream/
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/hplip/files/hplip
+tag_prefix:
 separator: .

@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: jboss/jboss-jstl-api_spec
+tag_pattern: "jboss-jstl-api_1.2_spec-(.*).Final"
+separator: "."

@@ -1,0 +1,5 @@
+---
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/emma/files/emma-release
+tag_prefix:
+separator: "."
