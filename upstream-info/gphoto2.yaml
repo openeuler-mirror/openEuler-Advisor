@@ -1,14 +1,6 @@
 ---
 version_control: github
 src_repo: gphoto/gphoto2
-tag_prefix: gphoto2-
-separator: _
+tag_pattern: "gphoto2-(.*)-release"
+separator: "_"
 git_url: https://github.com/gphoto/gphoto2.git
-git_tag:
-- 2015-11-18 gphoto2-2_5_9-release
-- 2019-06-02 gphoto2-2_5_23-release
-- 2018-10-27 gphoto2-2_5_20-release
-- 2018-04-16 gphoto2-2_5_17-release
-- 2017-10-02 gphoto2-2_5_15-release
-- 2016-11-20 gphoto2-2_5_11-release
-- 2016-03-23 gphoto2-2_5_10-release

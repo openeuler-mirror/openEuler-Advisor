@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: apache/commons-csv
+tag_prefix: "^rel/commons-csv-"
+separator: "."

@@ -1,3 +1,5 @@
 ---
 version_control: gitee
-src_repo: openEuler/authz
+src_repo: openeuler/authz
+tag_prefix: "^v"
+separator: "."

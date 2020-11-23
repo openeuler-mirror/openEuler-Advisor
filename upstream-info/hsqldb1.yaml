@@ -1,0 +1,6 @@
+---
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/hsqldb/files/hsqldb
+tag_prefix: "^hsqldb_"
+separator: "_"
+

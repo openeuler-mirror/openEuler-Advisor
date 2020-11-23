@@ -1,6 +1,6 @@
 ---
 version_control: hg
-src_repo: https://gmplib.org/repo/gmp/
+src_repo: https://gmplib.org/repo/gmp
 tag_prefix: "^gmp-"
 separator: "."
 url: https://gmplib.org/devel/repo-usage

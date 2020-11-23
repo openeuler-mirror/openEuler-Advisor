@@ -36,3 +36,5 @@ rabbitmq-server:
     - '6547461e6c2e'
 reflections:
     - '21959e6e'
+initial-setup:
+    - '1091470'

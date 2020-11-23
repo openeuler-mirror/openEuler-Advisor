@@ -1,16 +1,5 @@
 ---
 version_control: git
-src_repo: https://git.code.sf.net/p/autogen/code
+src_repo: https://git.savannah.gnu.org/git/autogen.git
 tag_prefix: "^v"
-separator: "-"
-git_url: https://git.code.sf.net/p/autogen/code
-git_tag:
-- 2016-05-27 v5.18.11
-- 2016-05-24 v5.18.10
-- 2016-05-09 v5.18.9
-- 2016-03-08 v5.18.8
-- 2015-12-06 v5.18.7
-- 2015-09-12 v5.18.6
-- 2015-04-30 v5.18.5
-- 2014-09-01 v5-18-4
-- 2014-05-17 v5-18-3
+separator: "."

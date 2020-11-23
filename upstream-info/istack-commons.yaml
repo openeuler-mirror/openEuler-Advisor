@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: javaee/jaxb-istack-commons
+tag_prefix: "^istack-commons-"
+separator: "."
+

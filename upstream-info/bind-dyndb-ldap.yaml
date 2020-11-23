@@ -1,6 +1,5 @@
 ---
-version_control: github
-src_repo: freeipa/bind-dyndb-ldap
+version_control: git
+src_repo: https://pagure.io/bind-dyndb-ldap.git
 tag_prefix: "^v"
 separator: "."
-git_url: https://github.com/freeipa/bind-dyndb-ldap.git

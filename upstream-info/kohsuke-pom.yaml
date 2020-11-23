@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: kohsuke/pom
+tag_prefix: "^pom-"
+separator:

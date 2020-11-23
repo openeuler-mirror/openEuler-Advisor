@@ -1,5 +1,5 @@
 ---
-version_control: pypi
-src_repo: PyQt4
-tag_prefix: "^"
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/pyqt/files/PyQt4
+tag_prefix: "^PyQt-"
 separator: "."

@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: jnr/jnr-netdb
+tag_prefix: "^jnr-netdb-"
+separator: "."

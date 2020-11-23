@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: cglib/cglib
+tag_prefix: "^RELEASE_"
+separator: "_"

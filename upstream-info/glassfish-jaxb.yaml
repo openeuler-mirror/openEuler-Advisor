@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: javaee/jaxb-v2
+tag_prefix: "^jaxb-" 
+separator: "_"
+

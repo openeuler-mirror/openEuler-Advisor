@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: jboss/jboss-jsf-api_spec
+tag_pattern: "jboss-jsf-api_2.1_spec-(.*).Final"
+separator: "."

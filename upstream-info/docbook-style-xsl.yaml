@@ -1,5 +1,5 @@
 ---
 version_control: github
 src_repo: docbook/xslt10-stylesheets
-tag_prefix: "^snapshot/"
-separator: "-"
+tag_prefix: "^release/"
+separator: "."

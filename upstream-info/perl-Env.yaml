@@ -1,11 +1,5 @@
 ---
-version_control: github
-src_repo: rafl/env
+version_control: metacpan
+src_repo: Env
 tag_prefix: 
 separator: "."
-git_url: https://github.com/rafl/env.git
-git_tag:
-- 2013-03-02 1.40
-- 2011-07-09 1.03
-- 2010-12-15 1.02
-- 2010-12-10 1.01

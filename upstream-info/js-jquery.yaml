@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jquery/jquery
+tag_prefix:
+seperator: "."

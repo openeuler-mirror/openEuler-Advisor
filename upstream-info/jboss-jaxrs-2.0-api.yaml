@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: jboss/jboss-jaxrs-api_spec
+tag_pattern: "jboss-jaxrs-api_2.0_spec-(.*).Final"
+separator: "."
