@@ -1,0 +1,5 @@
+---
+version_control: cvs
+src_repo: http://cvs.ossp.org/pkg/lib/uuid
+tag_prefix: "^uuid-"
+separator: "."

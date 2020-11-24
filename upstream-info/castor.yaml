@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: castor-data-binding/castor
+tag_prefix: "^castor-"
+separator: "."

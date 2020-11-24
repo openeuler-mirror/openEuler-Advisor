@@ -1,4 +1,4 @@
-version_control: git
-src_repo: https://gitlab.gnome.org/Archive/policykit-gnome
-tag_prefix: NA
-separator: .
+version_control: gitlab.gnome
+src_repo: Archive/policykit-gnome
+tag_prefix:
+separator: "."

@@ -1,7 +1,5 @@
 ---
 version_control: github
 src_repo: python/cpython
-tag_prefix: "^v"
+tag_prefix: "^v?2|v1|v0|v"
 separator: "."
-url: https://github.com/python/cpython.git
-git_tag:

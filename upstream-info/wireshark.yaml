@@ -1,0 +1,5 @@
+---
+version_control: git
+src_repo: https://gitlab.com/wireshark/wireshark
+tag_prefix: "wireshark-"
+separator: "."

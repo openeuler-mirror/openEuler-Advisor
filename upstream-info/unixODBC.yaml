@@ -1,5 +1,5 @@
 ---
-version_control: svn
-src_repo: https://svn.code.sf.net/p/unixodbc/code
-tag_prefix: ''
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/unixodbc/files/unixODBC
+tag_prefix:
 separator: "."

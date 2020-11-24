@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: hibernate/hibernate-validator
+tag_pattern: "(.*).Final"
+separator: "."

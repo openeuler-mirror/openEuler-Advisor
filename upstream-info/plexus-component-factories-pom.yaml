@@ -1,0 +1,9 @@
+---
+version_control: github
+src_repo: sonatype/plexus-component-factories
+tag_pattern: "plexus-component-factories-(.*)-alpha-(.*)"
+separator: "."
+git_tag:
+    plexus-component-factories-1.0-alpha-9
+    plexus-component-factories-1.0-alpha-10
+    plexus-component-factories-1.0-alpha-11

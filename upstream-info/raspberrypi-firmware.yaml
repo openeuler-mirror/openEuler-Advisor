@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: raspberrypi/firmware
+tag_prefix: "^1."
+separator: "."

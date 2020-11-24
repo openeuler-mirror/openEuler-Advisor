@@ -1,0 +1,5 @@
+---
+version_control: git
+src_repo: https://salsa.debian.org/debian/usb-modeswitch
+tag_prefix: "^upstream/"
+separator: "."
