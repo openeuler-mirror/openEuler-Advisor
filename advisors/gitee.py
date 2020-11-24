@@ -15,7 +15,6 @@
 This is a helper script for working with gitee.com
 """
 
-import sys
 import os
 import json
 import base64
@@ -146,9 +145,16 @@ class Gitee():
         """
         Get all comments of PR
         """
-        url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/pulls/{number}/comments"
-        url = url_template.format(owner=owner, repo=repo, number=number)
-        return self.__get_gitee_json(url)
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/pulls/{number}/comments"\
+                       "?page={page}&per_page={per_page}"
+        res = []
+        for i in range(1, 101):
+            url = url_template.format(owner=owner, repo=repo, number=number, page=i, per_page=100)
+            comments = self.__get_gitee_json(url)
+            if not comments:
+                break
+            res.extend(comments)
+        return res
 
     def edit_pr_comment(self, owner, repo, comment_id, body):
         """

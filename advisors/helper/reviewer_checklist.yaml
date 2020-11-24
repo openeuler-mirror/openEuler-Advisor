@@ -24,7 +24,7 @@ basic:
     name: PR-one-submission
     condition: null
     claim: 建议PR中只有一次提交
-    explain: 如果PR中包含多次提交，建议整合成一个，保持提交记录整洁。
+    explain: 如果PR中包含多次提交，建议整合成一个，保持提交记录整洁。[[Gitee work flow](https://gitee.com/openeuler/community/blob/master/zh/contributors/Gitee-workflow.md)]
   -
     name: PR-temp-check
     condition: new-file-add
