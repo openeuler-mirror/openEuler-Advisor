@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: raboof/nethogs
+tag_prefix: "^v"
+separator: "."

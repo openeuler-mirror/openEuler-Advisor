@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss/jboss-ejb-api_spec
+tag_pattern: jboss-ejb-api_3.1_spec-(.*).Final
+separator: .

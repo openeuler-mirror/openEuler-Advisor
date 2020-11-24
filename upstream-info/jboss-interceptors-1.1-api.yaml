@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss/jboss-interceptors-api_spec
+tag_pattern: jboss-interceptors-api_1.1_spec-(.*).Final
+separator: .

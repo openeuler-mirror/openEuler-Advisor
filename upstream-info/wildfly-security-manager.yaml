@@ -1,0 +1,4 @@
+version_control: github
+src_repo: wildfly-security/security-manager
+tag_pattern: (.*).Final
+separator: .

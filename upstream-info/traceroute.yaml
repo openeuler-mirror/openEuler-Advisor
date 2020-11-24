@@ -1,5 +1,5 @@
 ---
 version_control: sourceforge
 src_repo: https://sourceforge.net/projects/traceroute/files/traceroute/
-tag_prefix: "-"
+tag_prefix: "traceroute-"
 separator: .

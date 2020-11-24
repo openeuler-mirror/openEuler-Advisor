@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss-modules/jboss-modules
+tag_pattern: (.*).Final
+separator: .

@@ -1,0 +1,4 @@
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/simpleweb/files/simpleweb
+tag_prefix: 
+separator: .

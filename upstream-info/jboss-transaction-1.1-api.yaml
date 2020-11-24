@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss/jboss-transaction-api_spec
+tag_pattern: jboss-transaction-api_1.1_spec-(.*).Final
+separator: .

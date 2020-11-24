@@ -1,0 +1,4 @@
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/jibx/files/jibx
+tag_prefix: jibx-
+separator: .

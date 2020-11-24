@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss/jboss-el-api_spec
+tag_pattern: jboss-el-api_2.2_spec-(.*).Final
+separator: .
