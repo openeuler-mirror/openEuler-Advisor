@@ -1,5 +1,5 @@
 ---
-version_control: github
-src_repo: LuminosoInsight/ordered-set
-tag_prefix: "^release/"
+version_control: pypi
+src_repo: ordered-set
+tag_prefix:
 separator: "."

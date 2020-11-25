@@ -1,0 +1,5 @@
+---
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/pnm2ppa/files/pnm2ppa
+tag_prefix:
+separator: "."

@@ -1,9 +1,5 @@
 ---
-version_control: github
-src_repo: i386x/sox-downstream
-tag_prefix: "^v"
+version_control: git
+src_repo: https://git.code.sf.net/p/sox/code
+tag_prefix: "^sox-"
 separator: "."
-git_url: https://github.com/i386x/sox-downstream.git
-git_tag:
-- 2018-01-18 v14.4.2.modified
-- 2018-01-18 sox-14.4.2.0.modified

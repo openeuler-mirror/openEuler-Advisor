@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: spring-projects/spring-framework
+tag_pattern: "v(.*).RELEASE"
+separator: "."

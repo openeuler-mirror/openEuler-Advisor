@@ -1,5 +1,5 @@
 ---
 version_control: github
-src_repo: silnrsi/font-scheherazade
+src_repo: freemarker/fmpp
 tag_prefix: "^v"
 separator: "."

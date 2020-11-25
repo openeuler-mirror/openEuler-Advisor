@@ -1,5 +1,5 @@
 ---
-version_control: github
-src_repo: rpm-software-management/yum-metadata-parser
-tag_prefix:
-separator:
+version_control: git
+src_repo: https://salsa.debian.org/pkg-rpm-team/yum-metadata-parser.git
+tag_prefix: "^upstream/"
+separator: "."

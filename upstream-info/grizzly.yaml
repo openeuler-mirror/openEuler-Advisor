@@ -1,0 +1,5 @@
+---
+version_control: github
+src_repo: javaee/grizzly
+tag_prefix:
+separator: "_"

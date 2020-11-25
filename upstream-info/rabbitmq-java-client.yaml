@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: rabbitmq/rabbitmq-java-client
+tag_prefix: "^(rabbitmq_)?v"
+separator: "_"
+
