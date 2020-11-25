@@ -29,7 +29,9 @@ CHK_TABLE_HEADER = """
 如果您是第一次给 openEuler 提交 PR，建议您花一点时间阅读 [Gitee工作流说明](https://gitee.com/openeuler/community/blob/master/zh/contributors/Gitee-workflow.md)
 
 **{go}** 审视者确认符合要求 | **{nogo}** 审视者认为不符合要求 | **{na}** 审视者认为与本PR无关 | **{question}** 审视者无法确认是否符合要求 | **{ongoing}** 审视过程中
-**NOTE:** use command: "/review status[go/nogo/na/question/ongoing] number_list[0 1 2 ...]" to update status.
+**NOTE:** use command: "/review status[go/nogo/na/question/ongoing]:number_list[0,1,2 ...] ..." to update status.
+Example: "/review go:0,1,2 nogo:3,4,5".
+You can use "/review status[go/nogo/na/question/ongoing]:999" if you need update all items as one status one time.
 |审视项编号|审视类别|审视要求|审视要求说明|审视结果|
 |:--:|:--:|:--|:--|:--:|
 """
@@ -553,10 +555,8 @@ def args_parser(cur_path):
     pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
     pars.add_argument("-w", "--workdir", type=str,
             help="Work directory.Default is current directory.", default=cur_path)
-    pars.add_argument("-e", "--edit", nargs="+", type=int, help="Edit review item")
-    pars.add_argument("-s", "--status", type=str,
-            choices=['go', 'nogo', 'na', 'question', 'ongoing'],
-            help="Review item status need to set")
+    pars.add_argument("-e", "--edit", type=str,
+            help="Edit items format.Format: status1:number_list1 status2:number_list2 ...")
 
     return pars.parse_args()
 
@@ -619,10 +619,13 @@ def find_review_comment(user_gitee, group, repo_name, pull_id):
             return comment
     return None
 
-def edit_review_status(args, user_gitee, group ,repo_name, pull_id):
+def edit_review_status(edit, user_gitee, group ,repo_name, pull_id):
     """
     Edit review status
     """
+    status_num_dicts = decode_edit_content(edit)
+    if not status_num_dicts:
+        sys.exit(1)
     comment = find_review_comment(user_gitee, group, repo_name, pull_id)
     if not comment:
         print("ERROR: can not find review list")
@@ -631,20 +634,43 @@ def edit_review_status(args, user_gitee, group ,repo_name, pull_id):
     need_edit = False
     head_len = len(CHK_TABLE_HEADER.splitlines())
     match_str = r"\[&#x[0-9A-F]+;\]"
-    if len(args.edit) == 1 and args.edit[0] == FLAG_EDIT_ALL:
+    if len(status_num_dicts) == 1 and FLAG_EDIT_ALL in status_num_dicts.keys():
         need_edit = True
         for num in range(len(items[head_len:])):
-            items[head_len+num] = re.sub(match_str, RRVIEW_STATUS[args.status], items[head_len+num])
+            items[head_len+num] = re.sub(match_str,
+                    RRVIEW_STATUS[status_num_dicts[FLAG_EDIT_ALL]],
+                    items[head_len+num])
     else:
-        for num in args.edit:
+        for num, status in status_num_dicts.items():
             if int(num) >=0 and int(num) < len(items[head_len:]):
                 items[head_len+num] = re.sub(match_str,
-                                            RRVIEW_STATUS[args.status],
+                                            RRVIEW_STATUS[status],
                                             items[head_len+num])
                 need_edit = True
     if need_edit:
         new_body = "".join(items)
         user_gitee.edit_pr_comment(group, repo_name, comment['id'], new_body)
+
+
+def decode_edit_content(edit):
+    """
+    @desc: decode input string
+    @edit: input string
+    @dicts: dict {num: status}
+    """
+    dicts = {}
+    for sect in edit.split():
+        status = sect.split(":")[0]
+        if status not in RRVIEW_STATUS.keys():
+            print("ERROR: review item status \'%s\' undefined." % status)
+            return {}
+        nums = sect.split(":")[1]
+        for num in nums.split(","):
+            if not num.isdigit():
+                print("ERROR: input string contain invalid character.")
+                return {}
+            dicts[int(num)] = status
+    return dicts
 
 
 def main():
@@ -666,8 +692,8 @@ def main():
         print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist."\
                 % (pull_id, group, repo_name))
         sys.exit(1)
-    if args.edit and args.status:
-        edit_review_status(args, user_gitee, group, repo_name, pull_id)
+    if args.edit:
+        edit_review_status(args.edit, user_gitee, group, repo_name, pull_id)
     else:
         branch = pull_request['base']['label']
 
