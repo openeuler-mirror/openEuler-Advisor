@@ -614,7 +614,7 @@ def find_review_comment(user_gitee, group, repo_name, pull_id):
     """
     review_key = "以下为 openEuler-Advisor 的 review_tool 生成审视要求清单"
     data = user_gitee.get_pr_comments_all(group, repo_name, pull_id)
-    for comment in data:
+    for comment in data[::-1]:
         if review_key in comment['body']:
             return comment
     return None
@@ -630,14 +630,15 @@ def edit_review_status(args, user_gitee, group ,repo_name, pull_id):
     items = comment['body'].splitlines(True)
     need_edit = False
     head_len = len(CHK_TABLE_HEADER.splitlines())
+    match_str = r"\[&#x[0-9A-F]+;\]"
     if len(args.edit) == 1 and args.edit[0] == FLAG_EDIT_ALL:
         need_edit = True
         for num in range(len(items[head_len:])):
-            items[head_len+num] = re.sub(r"\[.*\]", RRVIEW_STATUS[args.status], items[head_len+num])
+            items[head_len+num] = re.sub(match_str, RRVIEW_STATUS[args.status], items[head_len+num])
     else:
         for num in args.edit:
             if int(num) >=0 and int(num) < len(items[head_len:]):
-                items[head_len+num] = re.sub(r"\[.*\]",
+                items[head_len+num] = re.sub(match_str,
                                             RRVIEW_STATUS[args.status],
                                             items[head_len+num])
                 need_edit = True
@@ -650,7 +651,7 @@ def main():
     """
     Main entrance of the functionality
     """
-    cur_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+    cur_path = os.path.dirname(os.path.realpath(__file__))
     args = args_parser(cur_path)
     params = extract_params(args)
     if not params:
