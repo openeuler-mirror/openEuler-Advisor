@@ -1,0 +1,4 @@
+version_control: github
+src_repo: undertow-io/undertow
+tag_pattern: (.*).Final
+separator: .

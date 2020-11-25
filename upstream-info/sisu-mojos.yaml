@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.eclipse.org/r/sisu/org.eclipse.sisu.mojos.git
+tag_prefix: ^releases/
+separator: .

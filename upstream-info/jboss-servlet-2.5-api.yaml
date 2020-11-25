@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jboss/jboss-servlet-api_spec
+tag_pattern: jboss-servlet-api_2.5_spec-(.*).Final
+separator: .

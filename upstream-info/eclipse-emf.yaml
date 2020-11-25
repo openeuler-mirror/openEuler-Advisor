@@ -1,0 +1,4 @@
+version_control: git
+src_repo: https://git.eclipse.org/r/emf/org.eclipse.emf.git
+tag_prefix: R
+separator: _

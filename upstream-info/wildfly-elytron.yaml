@@ -1,0 +1,4 @@
+version_control: github
+src_repo: wildfly-security/wildfly-elytron-tool
+tag_pattern: (.*).Final
+separator: .

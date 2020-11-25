@@ -1,4 +1,4 @@
 version_control: git
-src_repo: http://git.eclipse.org/r/ecf/org.eclipse.ecf.git
-tag_prefix: "ECF_"
-separator: "_"
+src_repo: https://git.eclipse.org/r/ecf/org.eclipse.ecf.git
+tag_pattern: ECF_(.*)_Release
+separator: _

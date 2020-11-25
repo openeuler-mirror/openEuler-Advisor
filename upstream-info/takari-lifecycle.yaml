@@ -1,0 +1,4 @@
+version_control: github
+src_repo: takari/takari-lifecycle
+tag_prefix: takari-lifecycle-
+separator: .

@@ -1,0 +1,4 @@
+version_control: github
+src_repo: trustin/os-maven-plugin
+tag_pattern: os-maven-plugin-(.*).Final
+separator: .
