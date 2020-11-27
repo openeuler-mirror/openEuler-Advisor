@@ -14,7 +14,7 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 2.2、simple_update_robot.py 这个 python 脚本用于src-openeuler中软件包自动升级，包括：下载推荐版本源码包、修改spec、本地obs编译、创建PR及issue等。
 
-2.3、check_missing_specs.py 这个 python 脚本，对 src-openeuler 中各2个仓库进行巡检。如果发现仓库中还不存在 spec 文件，可以直接创建相应仓库中的任务。
+2.3、check_missing_file.py 这个 python 脚本，对 src-openeuler 中各个仓库进行巡检。如果发现仓库中还不存在 spec 文件，可以直接创建相应仓库中的任务。
 
 2.4、check_source_url.py 这个 python 脚本，对src-openeuler中各个软件包的source地址进行检查，如果地址无效或不正确，自动创建issue提示修改。
 
