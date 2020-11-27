@@ -15,6 +15,7 @@
 The class of the package_type, used to get the package type of repo.
 """
 
+import sys
 import subprocess
 import tempfile
 from pyrpm.spec import Spec
@@ -99,7 +100,10 @@ class PackageType:
         :returns: library path list of package
         :raises: None
         """
-        user_gitee = gitee.Gitee()
+        try:
+            user_gitee = gitee.Gitee()
+        except NameError:
+            sys.exit(1)
         spec_string = user_gitee.get_spec(self.repo)
         if not spec_string:
             print("WARNING: Spec of {pkg} can't be found on master".format(pkg=self.repo))

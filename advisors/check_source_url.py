@@ -47,7 +47,10 @@ def check_repo(repo, branch, batch_num):
     Check source url of multi-packages in repo like src-openeuler.
     batch_num is batch num of one thread
     """
-    user_gitee = gitee.Gitee()
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
     repo_info = user_gitee.get_community(repo)
     if not repo_info:
         print("WARNING: {repo}.yaml can't be found in community.".format(repo=repo))
@@ -71,11 +74,10 @@ def check_repo(repo, branch, batch_num):
     print("Ending check.")
 
 
-def create_issue(repo, title, body):
+def create_issue(user_gitee, repo, title, body):
     """
     Create issue for repo
     """
-    user_gitee = gitee.Gitee()
     created_issue = False
     issues = user_gitee.get_issues(repo)
     for issue in issues:
@@ -106,7 +108,10 @@ def check_pkg(pkg, branch, check_file, lock):
     """
     Check source url of single package
     """
-    user_gitee = gitee.Gitee()
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
     check_file.writelines("\n-----------------------Checking {}-----------------------".format(
         pkg))
     lock.acquire()
@@ -123,13 +128,13 @@ def check_pkg(pkg, branch, check_file, lock):
     else:
         title = "Source url can't be found in spec on {br}".format(br=branch)
         check_file.writelines("WARNING: {content}".format(content=title))
-        create_issue(pkg, title, BODY_SOURCE)
+        create_issue(user_gitee, pkg, title, BODY_SOURCE)
         return False
 
     if re.search(r"%{.*?}", source):
         title = "Source url can't be parsed with extra macros in spec on {}.".format(branch)
         check_file.writelines("WARNING: {content}".format(content=title))
-        create_issue(pkg, title, BODY_SOURCE)
+        create_issue(user_gitee, pkg, title, BODY_SOURCE)
         return False
 
     if source.startswith("http") or source.startswith("ftp"):
@@ -148,7 +153,7 @@ def check_pkg(pkg, branch, check_file, lock):
         if os.path.exists(file_name):
             if subprocess.call(["tar -tvf {} &>/dev/null".format(file_name)], shell=True):
                 check_file.writelines("WARNING: {content}".format(content=title))
-                create_issue(pkg, title, BODY_SOURCE)
+                create_issue(user_gitee, pkg, title, BODY_SOURCE)
                 result = False
             else:
                 check_file.writelines("Check successfully.")
@@ -156,13 +161,13 @@ def check_pkg(pkg, branch, check_file, lock):
             subprocess.call(["rm -rf {}".format(file_name)], shell=True)
         else:
             check_file.writelines("WARNING: {content}".format(content=title))
-            create_issue(pkg, title, BODY_SOURCE)
+            create_issue(user_gitee, pkg, title, BODY_SOURCE)
             result = False
         return result
 
     title = "Source url is invalid in spec on {br}.".format(br=branch)
     check_file.writelines("WARNING: {content}".format(content=title))
-    create_issue(pkg, title, BODY_SOURCE)
+    create_issue(user_gitee, pkg, title, BODY_SOURCE)
     return False
 
 

@@ -55,9 +55,7 @@ def get_spec_path(gt_api, pkg):
     """
     Get specfile path in repository
     """
-    print("pkg is : {}".format(pkg))
     excpt = gt_api.get_spec_exception(pkg)
-    print("excpt is {}".format(excpt))
     if excpt:
         spec_path = os.path.join(excpt["dir"], excpt["file"])
     else:
@@ -404,6 +402,8 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
     pkg_ver = replace_macros(pkg_spec.version, pkg_spec)
 
     branch_info = gt_api.get_branch_info(u_branch)
+    if not branch_info:
+        sys.exit(1)
 
     if not u_ver:
         pkg_tags = oa_upgradable.get_ver_tags(gt_api, u_pkg)
@@ -591,6 +591,8 @@ def __manual_operate(gt_api, op_args):
     cur_version = replace_macros(spec_file.version, spec_file)
 
     branch_info = gt_api.get_branch_info(op_args.branch)
+    if not branch_info:
+        sys.exit(1)
 
     if op_args.fork_then_clone:
         fork_clone_repo(gt_api, op_args.repo_pkg, op_args.branch)
@@ -599,7 +601,7 @@ def __manual_operate(gt_api, op_args):
         if not op_args.new_version:
             print("Please specify the upgraded version of the {}".format(op_args.repo_pkg))
             sys.exit(1)
-        elif not update_ver_check(op_args.repo_pkg, cur_version, op_args.new_version):
+        if not update_ver_check(op_args.repo_pkg, cur_version, op_args.new_version):
             sys.exit(1)
 
     if op_args.download:
@@ -610,9 +612,9 @@ def __manual_operate(gt_api, op_args):
     if op_args.create_spec:
         create_spec(gt_api, op_args.repo_pkg, cur_version, op_args.new_version)
 
-    if op_args.build_pkg:
-        if not build_pkg(op_args.repo_pkg, op_args.branch, branch_info["obs_prj"]):
-            sys.exit(1)
+    if op_args.build_pkg and not build_pkg(op_args.repo_pkg, op_args.branch,
+                                           branch_info["obs_prj"]):
+        sys.exit(1)
 
     if op_args.check_rpm_abi:
         check_result = check_rpm_abi(op_args.repo_pkg)
@@ -655,7 +657,10 @@ def main():
                       "PR and issue", action="store_true")
     args = pars.parse_args()
 
-    user_gitee = gitee.Gitee()
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
 
     if args.update:
         if args.update == "repo":

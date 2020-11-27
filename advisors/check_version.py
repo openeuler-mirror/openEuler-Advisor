@@ -15,7 +15,9 @@
 This is an automatic script for checking source url of package
 """
 import os
+import sys
 import argparse
+from advisors import gitee
 from advisors.oa_upgradable import main_process
 from advisors.check_missing_file import get_repos_by_sig
 
@@ -40,7 +42,12 @@ def main():
     else:
         sig = 'all'
 
-    repos = get_repos_by_sig(sig)
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
+
+    repos = get_repos_by_sig(user_gitee, sig)
     total = len(repos)
     index = 0
     upgrade_list = []

@@ -22,6 +22,7 @@ import urllib
 import urllib.request
 import urllib.parse
 import urllib.error
+import threading
 from datetime import datetime
 import yaml
 
@@ -30,16 +31,53 @@ class Gitee():
     """
     Gitee is a helper class to abstract gitee.com api
     """
+    _instance_lock = threading.Lock()
+    _first_init = True
+    
+    def __new__(cls):
+        if not hasattr(Gitee, "_instance"):
+            with Gitee._instance_lock:
+                if not hasattr(Gitee, "_instance"):
+                    Gitee._instance = object.__new__(cls)
+        return Gitee._instance
+
     def __init__(self):
-        self.secret = open(os.path.expanduser("~/.gitee_personal_token.json"), "r")
-        self.token = json.load(self.secret)
+        if not self._first_init:
+            return
+        self._first_init = False
+        with open(os.path.expanduser("~/.gitee_personal_token.json"), "r") as secret:
+            self.token = json.load(secret)
 
         self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW 64; rv:50.0) '\
                         'Gecko/20100101 Firefox/50.0'}
         self.community_url = "https://gitee.com/api/v5/repos/openeuler/community/contents/"
         self.src_openeuler_url = "https://gitee.com/api/v5/repos/src-openeuler/{repo}/contents/"
         self.advisor_url = "https://gitee.com/api/v5/repos/openeuler/openEuler-Advisor/contents/"
-        self.time_format = "%Y-%m-%dT%H:%M:%S%z"
+
+        self.helper_info = {}
+        specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
+        resp = self.__get_gitee_json(specfile_exception_url)
+        if not resp:
+            print("ERROR: specfile_exceptions.yaml may not exist.")
+            raise NameError
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        self.helper_info["specfile_excepts"] = yaml.load(resp_str, Loader=yaml.Loader) 
+
+        version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
+        resp = self.__get_gitee_json(version_exception_url)
+        if not resp:
+            print("ERROR: version_exceptions.yaml may not exist.")
+            raise NameError
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        self.helper_info["version_excepts"] = yaml.load(resp_str, Loader=yaml.Loader)
+
+        upgrade_branches_url = self.advisor_url + "advisors/helper/upgrade_branches.yaml"
+        resp = self.__get_gitee_json(upgrade_branches_url)
+        if not resp:
+            print("ERROR: upgrade_branches.yaml may not exist.")
+            raise NameError
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        self.helper_info["upgrade_branches"] = yaml.load(resp_str, Loader=yaml.Loader)
 
     def __post_gitee(self, url, values, headers=None):
         """
@@ -212,46 +250,27 @@ class Gitee():
         """
         Get upgrade branch info
         """
-        upgrade_branches_url = self.advisor_url + "advisors/helper/upgrade_branches.yaml"
-        resp = self.__get_gitee_json(upgrade_branches_url)
-        if not resp:
-            print("ERROR: upgrade_branches.yaml may not exist.")
-            return None
-        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
-        branches_info = yaml.load(resp_str, Loader=yaml.Loader)
+        branches_info = self.helper_info["upgrade_branches"]
         for br_info in branches_info["branches"]:
             if branch == br_info["name"]:
                 return br_info
         print("WARNING: Don't support branch: {} in auto-upgrade.".format(branch))
-        return None
+        return ""
 
     def get_spec_exception(self, repo):
         """
         Get well known spec file exception
         """
-        specfile_exception_url = self.advisor_url + "advisors/helper/specfile_exceptions.yaml"
-        resp = self.__get_gitee_json(specfile_exception_url)
-        if not resp:
-            print("ERROR: specfile_exceptions.yaml may not exist.")
-            return None
-        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
-        excpt_list = yaml.load(resp_str, Loader=yaml.Loader)
+        excpt_list = self.helper_info["specfile_excepts"]
         if repo in excpt_list:
             return excpt_list[repo]
-        return None
+        return ""
 
     def get_version_exception(self):
         """
         Get version recommend exceptions
         """
-        version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
-        resp = self.__get_gitee_json(version_exception_url)
-        if not resp:
-            print("ERROR: version_exceptions.yaml may not exist.")
-            return ''
-        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
-        excpt = yaml.load(resp_str, Loader=yaml.Loader)
-        return excpt
+        return self.helper_info["version_excepts"]
 
     def get_spec(self, pkg, branch="master"):
         """
@@ -344,11 +363,13 @@ class Gitee():
         parameters["body"] = comment
         self.__post_gitee(issues_url, parameters)
 
-    def get_gitee_datetime(self, time_string):
+    @staticmethod
+    def get_gitee_datetime(time_string):
         """
         Get datetime of gitee
         """
-        result = datetime.strptime(time_string, self.time_format)
+        time_format = "%Y-%m-%dT%H:%M:%S%z"
+        result = datetime.strptime(time_string, time_format)
         return result.replace(tzinfo=None)
 
 

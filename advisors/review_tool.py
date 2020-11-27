@@ -659,8 +659,11 @@ def main():
     group = params[0]
     repo_name = params[1]
     pull_id = params[2]
-
-    user_gitee = gitee.Gitee()
+    
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
     pull_request = user_gitee.get_pr(repo_name, pull_id, group)
     if not pull_request:
         print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist."\

@@ -15,6 +15,7 @@
 This is a script to check upgradable information against upstream
 """
 import os
+import sys
 import argparse
 import re
 from pyrpm.spec import Spec, replace_macros
@@ -111,7 +112,10 @@ def main_process(push, default, repo):
     Main process of the functionality
     """
     print("Checking", repo)
-    user_gitee = gitee.Gitee()
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
     spec_string = user_gitee.get_spec(repo)
     if not spec_string:
         print("WARNING: Spec of {pkg} can't be found on master".format(pkg=repo))

@@ -16,6 +16,7 @@ This is a simple script to check if files already been submit into repository.
 If not, it can be used to push an issue to remind the developer.
 """
 
+import sys
 import argparse
 from datetime import datetime
 
@@ -75,7 +76,10 @@ def get_repos_by_sig(sig):
     """
     Get repos by sig
     """
-    user_gitee = gitee.Gitee()
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
     yaml_data = user_gitee.get_sigs()
 
     repo_list = []
@@ -91,7 +95,10 @@ def main_process(repo, push, check_file):
     """
     Main process for command line
     """
-    my_gitee = gitee.Gitee()
+    try:
+        my_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
     if check_file == 'yaml':
         file = my_gitee.get_yaml(repo)
     elif check_file == 'spec':
