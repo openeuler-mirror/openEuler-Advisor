@@ -119,7 +119,11 @@ def get_oe_repo_dict(cwd_path, nocached):
     logging.debug("begin to query oe.")
     data = get_sigs()
     oe_repo_dict = {}
-    my_gitee = gitee.Gitee()
+    try:
+        my_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
+
     last_record_dict = {}
     if not nocached:
         last_record_dict = read_pkginfo_lasttime()
