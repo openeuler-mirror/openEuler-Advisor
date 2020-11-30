@@ -1,0 +1,14 @@
+---
+version_control: git
+src_repo: https://git.savannah.gnu.org/git/lwip.git
+tag_pattern: STABLE-(.*)_RELEASE
+separator: ""
+git_url: https://git.savannah.gnu.org/git/lwip.git
+git_tag:
+- STABLE-2_1_2_RELEASE
+- STABLE-2_1_1_RELEASE
+- STABLE-2_1_0_RELEASE
+- STABLE-2_0_3_RELEASE
+- STABLE-2_0_2_RELEASE
+- STABLE-2_0_1_RELEASE
+- STABLE-2_0_0_RELEASE
