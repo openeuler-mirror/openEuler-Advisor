@@ -8,6 +8,8 @@ typora-copy-images-to: images
 
 v0.1 by Shinwell_Hu 
 
+v0.2 by smileknife, update editing mode for review items
+
 ## 下载配置 review_tool
 
 review_tool 当前是 openEuler-Advisor 的一部分，所以使用的第一步是下载完整的 openEuler-Advisor，并做基本设置
@@ -76,16 +78,30 @@ $ review_tool.py -u https://gitee.com/src-openeuler/lapack/pulls/16 -w review_di
 Maintainer 一方面可以通过 修改 review 清单，来表达当前review的意见和结果，也可以通过命令行来修改。比如：
 
 ```shell
-$ review_tool.py -u https://gitee.com/src-openeuler/lapack/pulls/16 -s go -e 4
+$ review_tool.py -u https://gitee.com/src-openeuler/lapack/pulls/16 -e "go:0,1,2,3,4 nogo:6,7 na:5 question:8"
 ```
 
 ![review_resut](<./review_result.png>)
 
--s选型支持的是review的5种状态，分别是go, nogo, na(not applicable), question，ongoing。
+-e选项支持一个状态编辑列表，表示需要刷新的状态与对应的审视项。该列表为字符串，具体格式：
 
--e选项支持一个列表，表示需要刷新状态的审视项。
+"**状态1:审视项列表1 状态2:审视项列表2 状态3:审视项列表3 ...**"
 
--e 和 -s 选项主要是为了帮助 maintainer 简化手动修改大清单时的麻烦。
+每组**状态:审视项列表**间以空格分隔；
+
+支持5种状态：
+
+- go  对应绿灯，审视者认为符合要求
+- nogo  对应红灯，审视者认为不符合要求
+- na(not applicable) 对应白灯，审视者认为与本PR无关
+- question  对应黄灯，审视者无法确认是否符合要求
+- ongoing  对应蓝灯，审视过程中
+
+审视项列表中的审视项编号之间使用英文逗号分隔；
+
+如果希望更新所有审视项到同一个状态，可以指定编辑列表为"**状态:999**"，如所有审视项全部通过，指定该参数为"go:999"即可；
+
+该选项主要是为了帮助 maintainer 简化手动修改大清单时的麻烦。
 
 
 
