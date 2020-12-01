@@ -30,6 +30,7 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 2.10、review_tool.py 用于生成指定软件仓PR的代码审视清单，以规范化PR审视过程。
 
+3、prow：存放对接CI/CD框架PROW的脚本
 ## 2、后续计划
 
 1、@solarhu 团队正在开发工具，计划提供 openEuler 内所有组件依赖关系的查询。
