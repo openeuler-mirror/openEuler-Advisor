@@ -544,22 +544,37 @@ def extract_params(args):
     return ()
 
 
-def args_parser(cur_path):
+def args_parser():
     """
     arguments parser
     """
     pars = argparse.ArgumentParser()
+    pars.add_argument("-q", "--quiet", action = 'store_true', default = False, \
+            help="No log print")
     pars.add_argument("-n", "--repo", type=str, help="Repository name that include group")
     pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request")
     pars.add_argument("-u", "--url", type=str, help="URL of Pull Request")
     pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
     pars.add_argument("-w", "--workdir", type=str,
-            help="Work directory.Default is current directory.", default=cur_path)
+            help="Work directory.Default is current directory.", \
+                    default=os.path.dirname(os.path.realpath(__file__)))
     pars.add_argument("-e", "--edit", type=str,
             help="Edit items format.Format: status1:number_list1 status2:number_list2 ...")
 
     return pars.parse_args()
 
+def exec_cmd(cmd):
+    """
+    wrapper for Popen
+    @cmd: argument list of command
+    """
+    popen = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = popen.communicate()
+    ret_code = popen.poll()
+    if ret_code != 0:
+        print(str(err, encoding='utf-8'))
+    print(str(out, encoding='utf-8'))
+    return ret_code
 
 def prepare(args, group, repo_name, pull_id, branch):
     """
@@ -574,38 +589,27 @@ def prepare(args, group, repo_name, pull_id, branch):
     if not args.reuse:
         if os.path.exists(local_path):
             shutil.rmtree(local_path)
-        ret_code = subprocess.call(["git", "clone", gitee_url, local_path])
-        if ret_code != 0:
-            sys.exit(1)
+        if exec_cmd(["git", "clone", gitee_url, local_path]) != 0:
+            return 1
     if not os.path.exists(local_path):
         print("%s not exist, can not use option -r" % local_path)
-        sys.exit(1)
+        return 1
     os.chdir(local_path)
-
-    ret_code = subprocess.call(["git", "checkout", branch])
-    if ret_code != 0:
+    if exec_cmd(["git", "checkout", branch]) != 0:
         print("Failed to checkout %s branch" % branch)
-        sys.exit(1)
-
-    subprocess.call(["git", "branch", "-D", "pr_{n}".format(n=pull_id)])
+        return 1
+    exec_cmd(["git", "branch", "-D", "pr_{n}".format(n=pull_id)])
     # It's OK to ignore the result
-
-    ret_code = subprocess.call(["git", "pull"])
-    if ret_code != 0:
+    if exec_cmd(["git", "pull"]) != 0:
         print("Failed to update to latest commit in %s branch" % branch)
-        sys.exit(1)
-
-    ret_code = subprocess.call(["git", "fetch", gitee_url,
-                                "pull/{n}/head:pr_{n}".format(n=pull_id)])
-    if ret_code != 0:
+        return 1
+    if exec_cmd(["git", "fetch", gitee_url, "pull/{n}/head:pr_{n}".format(n=pull_id)]) != 0:
         print("Failed to fetch PR")
-        sys.exit(1)
-
+        return 1
     print("You are reviewing PR:{n}".format(n=pull_id))
-
-    subprocess.call(["git", "checkout", "pr_{n}".format(n=pull_id)])
-
-    subprocess.call(["git", "merge", "--no-edit", "remotes/origin/" + branch])
+    exec_cmd(["git", "checkout", "pr_{n}".format(n=pull_id)])
+    exec_cmd(["git", "merge", "--no-edit", "remotes/origin/" + branch])
+    return 0
 
 
 def find_review_comment(user_gitee, group, repo_name, pull_id):
@@ -625,11 +629,11 @@ def edit_review_status(edit, user_gitee, group ,repo_name, pull_id):
     """
     status_num_dicts = decode_edit_content(edit)
     if not status_num_dicts:
-        sys.exit(1)
+        return 1
     comment = find_review_comment(user_gitee, group, repo_name, pull_id)
     if not comment:
         print("ERROR: can not find review list")
-        sys.exit(1)
+        return 1
     items = comment['body'].splitlines(True)
     need_edit = False
     head_len = len(CHK_TABLE_HEADER.splitlines())
@@ -650,6 +654,7 @@ def edit_review_status(edit, user_gitee, group ,repo_name, pull_id):
     if need_edit:
         new_body = "".join(items)
         user_gitee.edit_pr_comment(group, repo_name, comment['id'], new_body)
+    return 0
 
 
 def decode_edit_content(edit):
@@ -677,11 +682,15 @@ def main():
     """
     Main entrance of the functionality
     """
-    cur_path = os.path.dirname(os.path.realpath(__file__))
-    args = args_parser(cur_path)
+    cur_dir = os.path.dirname(os.path.realpath(__file__))
+    args = args_parser()
+    if args.quiet:
+        sys.stdout = open('/dev/null', 'w')
+        sys.stderr = sys.stdout
+
     params = extract_params(args)
     if not params:
-        sys.exit(1)
+        return 1
     group = params[0]
     repo_name = params[1]
     pull_id = params[2]
@@ -694,19 +703,18 @@ def main():
     if not pull_request:
         print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist."\
                 % (pull_id, group, repo_name))
-        sys.exit(1)
+        return 1
     if args.edit:
-        edit_review_status(args.edit, user_gitee, group, repo_name, pull_id)
+        if edit_review_status(args.edit, user_gitee, group, repo_name, pull_id) != 0:
+            return 1
     else:
         branch = pull_request['base']['label']
-
-        prepare(args, group, repo_name, pull_id, branch)
-
-        chklist_path = os.path.join(cur_path, CHECKLIST)
+        if prepare(args, group, repo_name, pull_id, branch) != 0:
+            return 1
+        chklist_path = os.path.join(cur_dir, CHECKLIST)
         review_comment = review(pull_request, repo_name, chklist_path, branch)
-
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
-
+    return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
