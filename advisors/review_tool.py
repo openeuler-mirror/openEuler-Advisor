@@ -564,6 +564,12 @@ def args_parser():
 
     return pars.parse_args()
 
+def local_repo_name(group, repo_name, pull_id):
+    """
+    combine name to avoid name conflit
+    """
+    return group + '_' + repo_name + '_' + pull_id
+
 def exec_cmd(cmd):
     """
     wrapper for Popen
@@ -577,24 +583,23 @@ def exec_cmd(cmd):
     print(str(out, encoding='utf-8'))
     return ret_code
 
-def prepare(args, group, repo_name, pull_id, branch):
+def prepare_env(work_dir, reuse, pr_tuple, branch):
     """
     prepare local reposity base and PR branch
     """
-    work_dir = os.path.realpath(args.workdir)
+    group = pr_tuple[0]
+    repo_name = pr_tuple[1]
+    pull_id = pr_tuple[2]
     if not os.path.exists(work_dir):
         os.makedirs(work_dir)
     repo = group + "/" + repo_name
     gitee_url = "https://gitee.com/{repo}.git".format(repo=repo)
-    local_path = os.path.join(work_dir, repo_name)
-    if not args.reuse:
-        if os.path.exists(local_path):
-            shutil.rmtree(local_path)
+    local_path = os.path.join(work_dir, local_repo_name(group, repo_name, pull_id))
+    if os.path.exists(local_path) and not reuse:
+        shutil.rmtree(local_path)
+    if not os.path.exists(local_path):
         if exec_cmd(["git", "clone", gitee_url, local_path]) != 0:
             return 1
-    if not os.path.exists(local_path):
-        print("%s not exist, can not use option -r" % local_path)
-        return 1
     os.chdir(local_path)
     if exec_cmd(["git", "checkout", branch]) != 0:
         print("Failed to checkout %s branch" % branch)
@@ -612,12 +617,11 @@ def prepare(args, group, repo_name, pull_id, branch):
     exec_cmd(["git", "merge", "--no-edit", "remotes/origin/" + branch])
     return 0
 
-def cleanup_env(args, repo_name):
+def cleanup_env(work_dir, group, repo_name, pull_id):
     """
     Clena up environment, e.g. temporary directory
     """
-    work_dir = os.path.realpath(args.workdir)
-    shutil.rmtree(os.path.join(work_dir, repo_name))
+    shutil.rmtree(os.path.join(work_dir, local_repo_name(group, repo_name, pull_id)))
 
 def find_review_comment(user_gitee, group, repo_name, pull_id):
     """
@@ -694,14 +698,13 @@ def main():
     if args.quiet:
         sys.stdout = open('/dev/null', 'w')
         sys.stderr = sys.stdout
-
+    work_dir = os.path.realpath(args.workdir)
     params = extract_params(args)
     if not params:
         return 1
     group = params[0]
     repo_name = params[1]
     pull_id = params[2]
-    
     try:
         user_gitee = gitee.Gitee()
     except NameError:
@@ -716,13 +719,13 @@ def main():
             return 1
     else:
         branch = pull_request['base']['label']
-        if prepare(args, group, repo_name, pull_id, branch) != 0:
+        if prepare_env(work_dir, args.reuse, params, branch) != 0:
             return 1
         chklist_path = os.path.join(cur_dir, CHECKLIST)
         review_comment = review(pull_request, repo_name, chklist_path, branch)
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
         if args.clean:
-            cleanup_env(args, repo_name)
+            cleanup_env(work_dir, group, repo_name, pull_id)
     return 0
 
 if __name__ == "__main__":

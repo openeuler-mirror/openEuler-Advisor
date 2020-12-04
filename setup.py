@@ -51,5 +51,5 @@ setup(
         ('/usr/bin/', ['command/review_tool']),
         ('/usr/bin/', ['command/tc_reminder']),
         ('/usr/bin/', ['command/which_archived']),
-        ('/usr/bin/', ['prow/prow_review_tool.py'])]
+        ('/usr/bin/', ['prow/prow_review_tool'])]
 )
