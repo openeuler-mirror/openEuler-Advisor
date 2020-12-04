@@ -31,43 +31,53 @@ import argparse
 import subprocess
 
 
+def get_cmd():
+    """
+    get review_tool real path
+    """
+    cmd_path = os.path.dirname(os.path.realpath(__file__))
+    if cmd_path == "/usr/bin":
+        review_cmd="/usr/bin/review_tool"
+    else:
+        review_cmd = os.path.join(os.path.dirname(cmd_path), "command/review_tool")
+    return review_cmd
+
 if __name__ == '__main__':
-    cur_path = os.path.dirname(os.path.realpath(__file__))
-    advisor_dir=os.path.dirname(cur_path)
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--event", type=str,
             choices=['Merge Request Hook', 'Note Hook'], help="event type")
     parser.add_argument("-p", "--payload", type=str,
             help="json string that PROW framework send")
     args = parser.parse_args()
-    ret_code = 1
+    return_code = 0
     if args.payload:
         data = json.loads(args.payload)
         if args.event == 'Merge Request Hook' and data['action'] == 'open' \
                 or data['action'] == 'update':
-            review_cmd=os.path.join(advisor_dir, "command/review_tool")
-            p = subprocess.Popen(["python3", review_cmd, "-q",
-                    "-u", data['pull_request']['html_url'], "-w", "workdir"],
+            subp = subprocess.run(["python3", get_cmd(),
+                    "-u", data['pull_request']['html_url'], "-w", "/tmp/review_dir", "-c"],
                     stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE)
-            p.communicate()
-            ret_code = p.poll()
+                    stderr=subprocess.STDOUT,
+                    encoding="utf-8",
+                    check=False)
+            return_code = subp.returncode
         elif args.event == 'Note Hook' and data['action'] == 'comment' \
                 and data['noteable_type'] == 'PullRequest':
             if not data['comment']['body'].startswith("/review"):
-                sys.exit(0)
+                sys.exit(2)
             for line in data['comment']['body'].splitlines():
                 if line.strip().startswith("/review"):
                     args = line.strip().split(' ', 1)
                     content = args[1]
-                    review_cmd=os.path.join(advisor_dir, "command/review_tool")
-                    p = subprocess.Popen(["python3", review_cmd, "-q",
-                        "-u", data['pull_request']['html_url'],
-                        "-w", "workdir", "-e", content],
+                    subp = subprocess.run(["python3", get_cmd(),
+                        "-u", data['pull_request']['html_url'], "-e", content],
                         stdout=subprocess.PIPE,
-                        stderr=subprocess.PIPE)
-                    p.communicate()
-                    ret_code = p.poll()
+                        stderr=subprocess.STDOUT,
+                        encoding="utf-8",
+                        check=False)
+                    return_code = subp.returncode
         else:
             print("Event type: %s not support." % args.event)
-    sys.exit(ret_code)
+    if return_code != 0:
+        print(subp.stdout)
+    sys.exit(return_code)

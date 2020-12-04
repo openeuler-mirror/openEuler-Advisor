@@ -44,6 +44,7 @@ py.test-%{python3_version} -vv tests || :
 %attr(0755,root,root) %{_bindir}/review_tool
 %attr(0755,root,root) %{_bindir}/tc_reminder
 %attr(0755,root,root) %{_bindir}/which_archived
+%attr(0755,root,root) %{_bindir}/prow_review_tool.py
 
 %changelog
 * Tue Dec 1 2020 smileknife <jackshan2010@aliyun.com> - 1.0-3
