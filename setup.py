@@ -35,7 +35,7 @@ setup(
               'requests (>=2.24.0)',
               'rpmdevtools (>=8.3)',
               'bs4 (>=0.0.1)',
-              'yum-utils (>=1.1.31)'],
+              'yum_utils (>=1.1.31)'],
     license='Mulan PSL v2',
     author=open('AUTHORS', encoding='utf-8').read(),
     description='collection of automatic tools for easily maintaining openEuler',
