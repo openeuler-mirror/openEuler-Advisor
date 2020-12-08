@@ -560,6 +560,7 @@ def args_parser():
                     default=os.path.dirname(os.path.realpath(__file__)))
     pars.add_argument("-e", "--edit", type=str,
             help="Edit items format.Format: status1:number_list1 status2:number_list2 ...")
+    pars.add_argument("-c", "--clean", help="Clean environment", action="store_true")
 
     return pars.parse_args()
 
@@ -611,6 +612,12 @@ def prepare(args, group, repo_name, pull_id, branch):
     exec_cmd(["git", "merge", "--no-edit", "remotes/origin/" + branch])
     return 0
 
+def cleanup_env(args, repo_name):
+    """
+    Clena up environment, e.g. temporary directory
+    """
+    work_dir = os.path.realpath(args.workdir)
+    shutil.rmtree(os.path.join(work_dir, repo_name))
 
 def find_review_comment(user_gitee, group, repo_name, pull_id):
     """
@@ -714,6 +721,8 @@ def main():
         chklist_path = os.path.join(cur_dir, CHECKLIST)
         review_comment = review(pull_request, repo_name, chklist_path, branch)
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
+        if args.clean:
+            cleanup_env(args, repo_name)
     return 0
 
 if __name__ == "__main__":

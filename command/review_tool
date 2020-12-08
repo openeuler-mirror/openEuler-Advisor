@@ -19,7 +19,8 @@ from advisors.review_tool import main
 
 if __name__ == '__main__':
     try:
-        main()
+        sys.exit(main())
     except Exception as error:
         print("WARNING: Command execution error")
         print(error.message)
+        sys.exit(1)
