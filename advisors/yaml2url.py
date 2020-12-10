@@ -131,6 +131,9 @@ def yaml2url(pkg_info):
     """
     Get url from yaml
     """
+    if not isinstance(pkg_info, dict):
+        print("ERROR: parameter pkg_info type error")
+        return None
     vc_type = pkg_info.get("version_control", None)
     if vc_type is None:
         print("Missing version_control in YAML file")
