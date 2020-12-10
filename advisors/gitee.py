@@ -33,7 +33,7 @@ class Gitee():
     """
     _instance_lock = threading.Lock()
     _first_init = True
-    
+
     def __new__(cls):
         if not hasattr(Gitee, "_instance"):
             with Gitee._instance_lock:
@@ -61,7 +61,7 @@ class Gitee():
             print("ERROR: specfile_exceptions.yaml may not exist.")
             raise NameError
         resp_str = base64.b64decode(resp["content"]).decode("utf-8")
-        self.helper_info["specfile_excepts"] = yaml.load(resp_str, Loader=yaml.Loader) 
+        self.helper_info["specfile_excepts"] = yaml.load(resp_str, Loader=yaml.Loader)
 
         version_exception_url = self.advisor_url + "advisors/helper/version_exceptions.yaml"
         resp = self.__get_gitee_json(version_exception_url)
@@ -78,6 +78,15 @@ class Gitee():
             raise NameError
         resp_str = base64.b64decode(resp["content"]).decode("utf-8")
         self.helper_info["upgrade_branches"] = yaml.load(resp_str, Loader=yaml.Loader)
+
+
+        reviewer_checklist_url = self.advisor_url + "advisors/helper/reviewer_checklist.yaml"
+        resp = self.__get_gitee_json(reviewer_checklist_url)
+        if not resp:
+            print("ERROR: reviewer_checklist.yaml may not exist.")
+            raise NameError
+        resp_str = base64.b64decode(resp["content"]).decode("utf-8")
+        self.helper_info["reviewer_checklist"] = yaml.load(resp_str, Loader=yaml.Loader)
 
     def __post_gitee(self, url, values, headers=None):
         """
@@ -271,6 +280,12 @@ class Gitee():
         Get version recommend exceptions
         """
         return self.helper_info["version_excepts"]
+
+    def get_reviewer_checklist(self):
+        """
+        Get reviewer checklist
+        """
+        return self.helper_info["reviewer_checklist"]
 
     def get_spec(self, pkg, branch="master"):
         """

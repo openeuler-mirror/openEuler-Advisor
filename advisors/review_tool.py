@@ -120,10 +120,16 @@ def check_spec_change(branch, keyword):
     return False
 
 
-def load_checklist(chklist_path):
+def load_checklist(local, user_gitee):
     """
-    load configuration
+    @Desc: load checklist
+    @Notice: this function must be called before prepare_env(),
+    because prepare_env() changed work directory.
     """
+    if not local:
+        return user_gitee.get_reviewer_checklist()
+    cur_dir = os.path.dirname(os.path.realpath(__file__))
+    chklist_path = os.path.join(cur_dir, CHECKLIST)
     try:
         with open(chklist_path, 'r', encoding = 'utf-8') as file_descriptor:
             return yaml.load(file_descriptor.read(), Loader = yaml.Loader)
@@ -484,7 +490,7 @@ def community_review(custom_items):
     return review_body
 
 
-def review(pull_request, repo_name, chklist_path, branch):
+def review(checklist, pull_request, repo_name, branch):
     """
     Return check list of this PR
     """
@@ -496,9 +502,8 @@ def review(pull_request, repo_name, chklist_path, branch):
                                         na=RRVIEW_STATUS['na'],
                                         question=RRVIEW_STATUS['question'],
                                         ongoing=RRVIEW_STATUS['ongoing'])
-    cklist = load_checklist(chklist_path)
-    review_body += basic_review(cklist, branch)
-    custom_items = cklist['customization'].get(repo_name, None)
+    review_body += basic_review(checklist, branch)
+    custom_items = checklist['customization'].get(repo_name, None)
     if custom_items:
         if repo_name == "community":
             review_body += community_review(custom_items)
@@ -555,12 +560,12 @@ def args_parser():
     pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request")
     pars.add_argument("-u", "--url", type=str, help="URL of Pull Request")
     pars.add_argument("-r", "--reuse", help="Reuse current local git dirctory", action="store_true")
-    pars.add_argument("-w", "--workdir", type=str,
-            help="Work directory.Default is current directory.", \
-                    default=os.path.dirname(os.path.realpath(__file__)))
+    pars.add_argument("-w", "--workdir", type=str, default=os.getcwd(),
+            help="Work directory.Default is current directory.")
     pars.add_argument("-e", "--edit", type=str,
             help="Edit items format.Format: status1:number_list1 status2:number_list2 ...")
     pars.add_argument("-c", "--clean", help="Clean environment", action="store_true")
+    pars.add_argument("-l", "--local", help="Using local checklist", action="store_true")
 
     return pars.parse_args()
 
@@ -568,24 +573,26 @@ def local_repo_name(group, repo_name, pull_id):
     """
     combine name to avoid name conflit
     """
-    return group + '_' + repo_name + '_' + pull_id
+    return "{}_{}_{}".format(group, repo_name, pull_id)
 
 def exec_cmd(cmd):
     """
     wrapper for Popen
     @cmd: argument list of command
     """
-    popen = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = popen.communicate()
-    ret_code = popen.poll()
-    if ret_code != 0:
-        print(str(err, encoding='utf-8'))
-    print(str(out, encoding='utf-8'))
-    return ret_code
+    subp = subprocess.run(cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            encoding="utf-8",
+            check=False)
+    print(subp.stdout)
+    return subp.returncode
 
 def prepare_env(work_dir, reuse, pr_tuple, branch):
     """
     prepare local reposity base and PR branch
+    Notice: this will change work directory,
+    action related to obtain path need do before this.
     """
     group = pr_tuple[0]
     repo_name = pr_tuple[1]
@@ -693,7 +700,6 @@ def main():
     """
     Main entrance of the functionality
     """
-    cur_dir = os.path.dirname(os.path.realpath(__file__))
     args = args_parser()
     if args.quiet:
         sys.stdout = open('/dev/null', 'w')
@@ -718,11 +724,13 @@ def main():
         if edit_review_status(args.edit, user_gitee, group, repo_name, pull_id) != 0:
             return 1
     else:
+        checklist = load_checklist(args.local, user_gitee)
+        if not checklist:
+            return 1
         branch = pull_request['base']['label']
         if prepare_env(work_dir, args.reuse, params, branch) != 0:
             return 1
-        chklist_path = os.path.join(cur_dir, CHECKLIST)
-        review_comment = review(pull_request, repo_name, chklist_path, branch)
+        review_comment = review(checklist, pull_request, repo_name, branch)
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
         if args.clean:
             cleanup_env(work_dir, group, repo_name, pull_id)
