@@ -42,12 +42,7 @@ def main():
     else:
         sig = 'all'
 
-    try:
-        user_gitee = gitee.Gitee()
-    except NameError:
-        sys.exit(1)
-
-    repos = get_repos_by_sig(user_gitee, sig)
+    repos = get_repos_by_sig(sig)
     total = len(repos)
     index = 0
     upgrade_list = []
