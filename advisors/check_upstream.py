@@ -487,7 +487,11 @@ def check_sourceforge(info, clean_tag=True):
         }
         url = yaml2url.yaml2url(info)
         print("check_sourceforge, url = " + url)
-        resp = requests.get(url, headers=headers)
+        try:
+            resp = requests.get(url, headers=headers)
+        except ConnectionError as err:
+            print("ERROR: connect {} error.".format(url), err)
+            return ''
 
     data = resp.text
     lines = data.splitlines()
