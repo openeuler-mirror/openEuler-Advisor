@@ -8,7 +8,7 @@ URL:	    https://gitee.com/openeuler/openEuler-Advisor
 Source0:    https://gitee.com/openeuler/openEuler-Advisor/%{name}-%{version}.tar.gz
 BuildArch:  noarch
 BuildRequires: python3 pytest
-Requires:   python3-pyrpm python3-pyyaml python36-requests rpmdevtools python-BeautifulSoup yum-utils
+Requires:   python3-pyrpm python3-pyyaml python3-requests rpmdevtools python3-beautifulsoup4 dnf-plugins-core
 
 %description
 Collection of automatic tools for easily maintaining openEuler
