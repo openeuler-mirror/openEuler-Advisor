@@ -77,3 +77,9 @@ ukui-themes:
 vcredist:
   dir: .
   file: vcredist-x86.spec
+openEuler-release:
+  dir: .
+  file: generic-release.spec
+openEuler-indexhtml:
+  dir: .
+  file: generic-indexhtml.spec
