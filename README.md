@@ -208,4 +208,4 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 	例如: python3 oa_upgradable.py glibc
 
 #### 3.2.3 advisors咨询:
-	如果有其他问题或疑问, 可以邮件联系: leo.fangyufa@huawei.com/leofang_94@163.com
+	如果有其他问题或疑问，请邮件联系：licihua@huawei.com/zwfeng@huawei.com/shanshishi@huawei.com
