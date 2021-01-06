@@ -107,7 +107,7 @@ DONE! than you can create a Pull Request.
 	ep: python3 oa_upgradable.py glibc
 	
 #### Consultation for advisors:
-	if any problem, please contact: leo.fangyufa@huawei.com/leofang_94@163.com
+	if any problem, please contact: licihua@huawei.com/zwfeng@huawei.com/shanshishi@huawei.com
 	
 	
 ## Contribution
