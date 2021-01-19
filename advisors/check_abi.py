@@ -39,7 +39,7 @@ import re
 class CheckAbi():
     """check abi functions"""
 
-    def __init__(self, **config):
+    def __init__(self, config):
         self.work_path = config.get('work_path', "/var/tmp")
         self.result_output_file = config.get('result_output_file', None)
         self.show_all_info = config.get('show_all_info', False)
@@ -390,7 +390,7 @@ class CheckAbi():
         abs_dir = os.path.abspath(os.path.dirname(__file__))
         temp_path = os.path.abspath(tempfile.mkdtemp(dir=self.work_path))
 
-        abi_paths = [self.make_abi_path(temp_path, name)
+        abi_paths = [make_abi_path(temp_path, name)
                      for name in ["previous_package", "current_package"]]
         logging.debug("abi_paths:%s\n", abi_paths)
 
@@ -770,7 +770,8 @@ def main():
     else:
         logging.basicConfig(format='%(message)s', level=logging.INFO)
     config.work_path = os.path.abspath(config.work_path)
-    check_abi_process = CheckAbi(**config)
+
+    check_abi_process = CheckAbi(vars(config))
     ret = config.func(config, check_abi_process)
     sys.exit(ret)
 
