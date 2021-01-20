@@ -39,7 +39,7 @@ import re
 class CheckAbi():
     """check abi functions"""
 
-    def __init__(self, config):
+    def __init__(self, **config):
         self.work_path = config.get('work_path', "/var/tmp")
         self.result_output_file = config.get('result_output_file', None)
         self.show_all_info = config.get('show_all_info', False)
