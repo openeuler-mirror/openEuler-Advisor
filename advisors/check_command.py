@@ -74,18 +74,20 @@ def process_check_command(rpms, work_path="/var/tmp/"):
                         diff_file.write(line)
                 for pre_command in open(pre_bin_file):
                     pre_command = pre_command.strip('\n')
-                    make_check_command(pre_command, diff_file, abi_paths)
+                    make_check_command(pre_command, comd_diff_file, abi_paths)
 
     logging.info("-------------all result write at:%s", comd_diff_file)
     return comd_diff_file
 
-def make_check_command(temp_line, output_file, abi_paths):
+
+def make_check_command(temp_line, comd_diff_file, abi_paths):
     """
     Return the diff file about command in two rpms
     """
-    output_file.write("\n###############")
-    output_file.write("This is a diff about the command: {} ".format(temp_line))
-    output_file.write("###############\n")
+    with open(comd_diff_file, "w") as diff_file:
+        diff_file.write("\n###############")
+        diff_file.write("This is a diff about the command: {} ".format(temp_line))
+        diff_file.write("###############\n")
     pre_cmd_path = two_abs_join(abi_paths[0], temp_line)
     cur_cmd_path = two_abs_join(abi_paths[1], temp_line)
     temp_pre_help = os.path.join(abi_paths[0], "temp_help.txt")
@@ -95,7 +97,7 @@ def make_check_command(temp_line, output_file, abi_paths):
     subprocess.call("{} --help > {}".format(cur_cmd_path, temp_cur_help),
                     shell=True)
     subprocess.call("diff {} {} >> {}".format(temp_pre_help, temp_cur_help,
-                    output_file), shell=True)
+                    comd_diff_file), shell=True)
 
 
 def two_abs_join(abs1, abs2):
