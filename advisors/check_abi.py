@@ -41,7 +41,7 @@ class CheckAbi():
 
     def __init__(self, **config):
         self.work_path = config.get('work_path', "/var/tmp")
-        self.result_output_file = config.get('result_output_file', None)
+        self.result_output_file = config.get('result_output_file', "/var/tmp/result.md")
         self.show_all_info = config.get('show_all_info', False)
         self.input_rpms_path = config.get('input_rpms_path', False)
         self.target_sos = set()
@@ -334,12 +334,13 @@ class CheckAbi():
                         for x in files_last_name]
         logging.debug("result_files:%s", result_files)
 
-        merged_file = os.path.join(self.work_path, "{}_all_result.md".format(base_name))
-
         if self.result_output_file:
             merged_file = os.path.abspath(self.result_output_file)
+        else:
+            merged_file = os.path.join(self.work_path, "{}_all_result.md".format(base_name))
+            self.result_output_file = merged_file
         _ = [write_result(x, merged_file) for x in result_files]
-        logging.info("-------------all result write at:%s", merged_file)
+        logging.error("-------------all result write at:%s", merged_file)
 
     def process_effect_rpms(self, abs_dir, base_name):
         """
@@ -519,11 +520,14 @@ def write_result(result_file, merged_file):
         with open(result_file, "r") as fd_rest:
             lines = fd_rest.readlines()
             fd_rest.close()
-        ofile = open(merged_file, "a+")
+        outfile = open(merged_file, "a+")
         for line in lines:
-            ofile.write(line)
-            ofile.write("\n")
-        ofile.close()
+            outfile.write(line)
+            outfile.write("\n")
+        outfile.close()
+    else:
+        with open(merged_file, "a+") as outfile:
+            outfile.write("\n")
 
 
 def get_rpms_path(rpms_url, dest):
