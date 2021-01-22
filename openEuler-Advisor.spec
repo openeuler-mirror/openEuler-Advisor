@@ -1,6 +1,6 @@
 Name:       openEuler-Advisor
 Version:    1.0
-Release:    3
+Release:    4
 Summary:    Collection of automatic tools for easily maintaining openEuler 
 Group:	    Application
 License:    Mulan PSL v2
@@ -8,7 +8,7 @@ URL:	    https://gitee.com/openeuler/openEuler-Advisor
 Source0:    https://gitee.com/openeuler/openEuler-Advisor/%{name}-%{version}.tar.gz
 BuildArch:  noarch
 BuildRequires: python3 pytest
-Requires:   python3-pyrpm python3-pyyaml python3-requests rpmdevtools python3-beautifulsoup4 dnf-plugins-core
+Requires:   python3-pyrpm python3-pyyaml python36-requests rpmdevtools python-BeautifulSoup yum-utils libabigail
 
 %description
 Collection of automatic tools for easily maintaining openEuler
@@ -47,6 +47,9 @@ py.test-%{python3_version} -vv tests || :
 %attr(0755,root,root) %{_bindir}/prow_review_tool
 
 %changelog
+* Fri Jan 22 2021 licihua <licihua@huawei.com> - 1.0-4
+- check_abi: add miss require "libabigail"
+
 * Tue Dec 1 2020 smileknife <jackshan2010@aliyun.com> - 1.0-3
 - review_tool: support for ci/cd framework prow
 
