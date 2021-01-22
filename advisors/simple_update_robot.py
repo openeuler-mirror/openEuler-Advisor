@@ -27,6 +27,7 @@ Expected process:
 import sys
 import re
 import time
+import platform
 import json
 import shutil
 import os.path
@@ -72,7 +73,7 @@ def download_helper(src_url, file_name=None):
     down_cnt = 0
     while down_cnt < 2:
         down_cnt += 1
-        if not subprocess.call(["timeout 15m wget -c {url} -O {name}".format(url=src_url,
+        if not subprocess.call(["timeout 15m wget -c {url} -O {name} -q".format(url=src_url,
                                name=file_name)], shell=True):
             break
     return src_url
@@ -329,19 +330,27 @@ def build_pkg(u_pkg, u_branch, obs_prj):
                     "mv -v $file $newfile;done"], shell=True)
 
     #Build old version
-    if subprocess.call(["osc", "build", "standard_aarch64", "--clean"]):
+    if 'aarch64' in platform.machine():
+        standard = 'standard_aarch64'
+        standard_path = 'standard_aarch64-aarch64'
+    else:
+        standard = 'standard_x86_64'
+        standard_path = 'standard_x86_64-x86_64'
+
+    if subprocess.call(["osc", "build", '--no-verify', standard, "--clean"]):
         result = False
     else:
         result = True
 
-    rpmbuildpath = "/var/tmp/build-root/standard_aarch64-aarch64/home/abuild/rpmbuild/RPMS"
+    rpmbuildpath = "/var/tmp/build-root/{path}/home/abuild/rpmbuild/RPMS".format(path=standard_path)
     oldrpmpath = "/root/oldrpms"
     #Copy rpms to oldrpmpath from rpmbuildpath
     copyrpms(rpmbuildpath, oldrpmpath)
 
     #Build update version
     subprocess.call(["cp ../../{pkg}/* .".format(pkg=u_pkg)], shell=True)
-    if subprocess.call(["osc", "build", "standard_aarch64"]):
+
+    if subprocess.call(["osc", "build", '--no-verify', standard]):
         result = False
     else:
         result = True
@@ -412,7 +421,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
 
         ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
 
-        print("version_recommen ver_rec is :{}".format(ver_rec))
+
         pkg_type = package_type.PackageType(u_pkg)
         if pkg_type.pkg_type == "core":
             print("WARNING: {} is core package, if need upgrade, please specify "\
@@ -425,6 +434,7 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
                 u_ver = ver_rec.latest_version
             else:
                 u_ver = ver_rec.maintain_version
+        print("version_recommen u_ver is :{}".format(u_ver))
 
     if update_ver_check(u_pkg, pkg_ver, u_ver):
         fork_clone_repo(gt_api, u_pkg, u_branch)
@@ -488,15 +498,17 @@ def check_rpm_abi(u_pkg):
 
     # check abi in old_rpm and new_rpm
     check_abi_file = check_abi.CheckAbi()
-    ret_abi = check_abi_file.process_with_rpm(rpms, debuginfos)
-    temp_abi_res = os.path.join(check_abi_file.work_path, "{}_all_result.md".format(u_pkg))
-    ret_abi = os.path.join(check_abi_file.work_path, "{}_result.txt".format(u_pkg))
-    joint_abi_rest(temp_abi_res, ret_abi)
+    check_abi_file.process_with_rpm(rpms, debuginfos)
 
+    if not os.path.exists(check_abi_file.result_output_file):
+        return ""
+
+    ret_abi = os.path.join(check_abi_file.work_path, "{}_result.txt".format(u_pkg))
+    joint_abi_rest(check_abi_file.result_output_file, ret_abi)
     # check command
-    ret_commd = check_command.process_check_command(rpms)
-    print("ret_commd is : {}".format(ret_commd))
-    review_body = make_check_review(ret_conf, ret_commd, ret_abi)
+    ret_command = check_command.process_check_command(rpms)
+    print("ret_command is : {}".format(ret_command))
+    review_body = make_check_review(ret_conf, ret_command, ret_abi)
     return review_body
 
 
