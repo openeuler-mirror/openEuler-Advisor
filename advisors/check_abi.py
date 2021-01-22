@@ -159,7 +159,7 @@ class CheckAbi():
             ret = subprocess.run(abidiff_cmd, shell=True, check=False)
             abidiff_file = os.path.join(self.work_path,
                                         "{}_{}_abidiff.out".format(base_name,
-                                        os.path.basename(new_so_file)))
+                                                                   os.path.basename(new_so_file)))
             all_abidiff_files.append(abidiff_file)
             logging.info("result write in: %s, returncode:%d", abidiff_file, ret.returncode)
             return_code |= ret.returncode
@@ -259,7 +259,7 @@ class CheckAbi():
         #logging.debug("\n---check if the rpm require target .so files:%s---", rpm_package)
         require_info_file = os.path.join(temp_path, "require_info_file.txt")
         subprocess.call("rpm -qpR {} > {}".format(rpm_package, require_info_file), shell=True,
-                       stderr=subprocess.PIPE)
+                        stderr=subprocess.PIPE)
         logging.debug("write require .sos info at:%s", require_info_file)
 
         with open(require_info_file, 'r') as fd_diff:
@@ -316,7 +316,8 @@ class CheckAbi():
             logging.info("[%d/%d] check effect rpms: %s", count, rpm_number,
                          os.path.basename(rpm_package))
             if self.check_rpm_require_taget_functions(rpm_package, temp_path,
-                                    rpm_require_functions, diff_functions):
+                                                      rpm_require_functions,
+                                                      diff_functions):
                 write_name = os.path.basename(rpm_package) + ":"
                 for func in rpm_require_functions:
                     write_name += (" " + func)
@@ -421,7 +422,7 @@ class CheckAbi():
 
         debuginfo_paths = [os.path.join(x, "usr/lib/debug") for x in abi_paths]
 
-        rpm_base_name =  os.path.basename(rpm_path[0]).rsplit("-", 2)[0]
+        rpm_base_name = os.path.basename(rpm_path[0]).rsplit("-", 2)[0]
 
         returncode = self.do_abidiff(all_so_pairs, rpm_base_name, debuginfo_paths)
         logging.debug("\n--- delete temp directory:%s ---", temp_path)
@@ -453,7 +454,7 @@ class CheckAbi():
             new_rpm_name = find_new_rpm(old_rpm_name, rpms_paths[1])
             if new_rpm_name:
                 rpms_pair = [old_rpm_name, new_rpm_name]
-                debug_rpms_pair = [self.find_debug_rpm(x[0], x[1])
+                debug_rpms_pair = [find_debug_rpm(x[0], x[1])
                                    for x in zip(rpms_pair, rpms_paths)]
                 if not debug_rpms_pair[0] or not debug_rpms_pair[1]:
                     debuginfo_rpm = None
@@ -496,7 +497,7 @@ class CheckAbi():
         logging.debug("begin abidiff between %s and %s", old_so_file, new_so_file)
         abidiff_file = os.path.join(self.work_path,
                                     "{}_{}_abidiff.out".format(base_name,
-                                    os.path.basename(new_so_file)))
+                                                               os.path.basename(new_so_file)))
         so_options = "{} {}".format(old_so_file, new_so_file)
         if self.show_all_info:
             additional_options = "--harmless"
@@ -539,7 +540,10 @@ def get_rpms_path(rpms_url, dest):
         use_args = "-t 5 -r -c -np -nH -nd -R index.html"
         if isinstance(rpms_url, str):
             subprocess.run("wget {} -P {} {} > /dev/null 2>&1".format(use_args,
-                           dest, rpms_url), shell=True, check=False)
+                                                                      dest,
+                                                                      rpms_url),
+                           shell=True,
+                           check=False)
         else:
             count = 0
             need_download = len(rpms_url)
@@ -620,7 +624,8 @@ def scan_target_functions_with_so(so_file, temp_path, rpm_require_functions,
     """
     require_func_file = os.path.join(temp_path, "calls_func_file.txt")
     subprocess.run("nm -D -C -u {} > {}".format(so_file, require_func_file),
-                                                shell=True, check=False)
+                   shell=True,
+                   check=False)
     with open(require_func_file, 'r') as fd_req:
         lines = fd_req.readlines()
         fd_req.close()
@@ -727,13 +732,14 @@ def parse_command_line():
     so_parser.add_argument("-f", "--debuginfo_path", nargs=2, required=False,
                            metavar=('old_debuginfo_path', 'new_debuginfo_path'),
                            help="Path or URL of both the old and new debuginfo files,"
-                           "corresponding to compared .so files.")
+                                "corresponding to compared .so files.")
+
     so_parser.set_defaults(func=process_with_so)
 
     rpms_parser = subparser.add_parser('compare_rpms', help="Compare between two RPMs paths")
     rpms_parser.add_argument("-p", "--paths", required=True, nargs=2,
-                            metavar=('old_path', 'new_path'),
-                            help="Path of both the old RPMs and new RPMs")
+                             metavar=('old_path', 'new_path'),
+                             help="Path of both the old RPMs and new RPMs")
     rpms_parser.set_defaults(func=process_with_rpms)
 
     config = parser.parse_args()
@@ -775,7 +781,7 @@ def main():
         logging.basicConfig(format='%(message)s', level=logging.INFO)
     config.work_path = os.path.abspath(config.work_path)
 
-    check_abi_process = CheckAbi(vars(config))
+    check_abi_process = CheckAbi(**vars(config))
     ret = config.func(config, check_abi_process)
     sys.exit(ret)
 
