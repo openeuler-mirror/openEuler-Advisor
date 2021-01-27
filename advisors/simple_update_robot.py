@@ -50,7 +50,7 @@ from advisors import check_abi
 from advisors import check_conf
 
 __NUMBER = 0
-
+__WORK_PATH = ''
 
 def get_spec_path(gt_api, pkg):
     """
@@ -386,6 +386,8 @@ def push_create_pr_issue(gt_api, values):
     u_ver = values['new_version']
     u_branch = values['branch']
     check_result = values['check_result']
+    global __WORK_PATH
+    os.chdir(__WORK_PATH)
     os.chdir(u_pkg)
     spec_path = get_spec_path(gt_api, u_pkg)
     subprocess.call(["git rm *{old_ver}.* -rf".format(old_ver=o_ver)], shell=True)
@@ -676,7 +678,8 @@ def main():
     pars.add_argument("-p", "--push_create_pr_issue", help="Push update repo, create "\
                       "PR and issue", action="store_true")
     args = pars.parse_args()
-
+    global __WORK_PATH
+    __WORK_PATH = os.getcwd()
     try:
         user_gitee = gitee.Gitee()
     except NameError:
