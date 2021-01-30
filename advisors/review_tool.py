@@ -199,7 +199,7 @@ def is_exist_protected_branch_exclude_master(repo_name, repos):
     """
     for repo in repos:
         if repo_name == repo['name']:
-            if len(repo['protected_branches']) == 1:
+            if len(repo['branches']) == 1:
                 return False
             return True
     return False
