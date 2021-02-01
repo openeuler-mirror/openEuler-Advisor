@@ -339,21 +339,37 @@ class Gitee():
             resp_str = base64.b64decode(resp["content"]).decode("utf-8")
         return resp_str
 
-    def get_issues(self, pkg, prj="src-openeuler"):
+    def get_issues(self, pkg, group="src-openeuler"):
         """
         List all open issues of pkg
         """
-        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues?".format(prj=prj, pkg=pkg)
-        parameters = "state=open&sort=created&direction=desc&page=1&per_page=20"
-        return self.__get_gitee_json(issues_url + parameters)
+        issues_url = "https://gitee.com/api/v5/repos/{owner}/{repo}/issues?"\
+                .format(owner=group, repo=pkg)
+        param_template = "state=open&sort=created&direction=desc&page={}&per_page=100"
+        result = []
+        for i in range(1, 101):
+            parameters = param_template.format(i)
+            issues = self.__get_gitee_json(issues_url + parameters)
+            if not issues:
+                break
+            result.extend(issues)
+        return result
 
-    def get_issue_comments(self, pkg, prj="src-openeuler"):
+    def get_issue_comments(self, pkg, number, group="src-openeuler"):
         """
         Get comments of specific issue
         """
-        issues_url = "https://gitee.com/api/v5/repos/{prj}/{pkg}/issues?".format(prj=prj, pkg=pkg)
-        parameters = "number={num}&page=1&per_page=20&order=asc"
-        return self.__get_gitee_json(issues_url + parameters)
+        issues_url = "https://gitee.com/api/v5/repos/{owner}/{repo}/issues/{number}/comments?"\
+                .format(owner=group, repo=pkg, number=number)
+        param_template = "page={}&per_page=100&order=asc"
+        result = []
+        for i in range(1, 101):
+            parameters = param_template.format(i)
+            comments = self.__get_gitee_json(issues_url + parameters)
+            if not comments:
+                break
+            result.extend(comments)
+        return result
 
     def post_issue(self, pkg, title, body, prj="src-openeuler"):
         """
