@@ -361,7 +361,7 @@ def check_maintainer_changes():
     sigs = {}
     lst_files = subprocess.getoutput("git diff --name-status remotes/origin/master..")
     for line in lst_files.splitlines():
-        status, item = line.split()
+        status, item = line.split(maxsplit=1)
         if status != "M":
             continue
         if item.startswith("sig/") and item.endswith("/OWNERS"):
@@ -383,7 +383,7 @@ def check_sig_information_changes():
     sigs = {}
     lst_files = subprocess.getoutput("git diff --name-status remotes/origin/master..")
     for line in lst_files.splitlines():
-        status, item = line.split()
+        status, item = line.split(maxsplit=1)
         if status != "M":
             continue
         if item == "sig/sigs.yaml":
