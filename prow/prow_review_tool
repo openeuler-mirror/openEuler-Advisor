@@ -52,8 +52,8 @@ if __name__ == '__main__':
     return_code = 0
     if args.payload:
         data = json.loads(args.payload)
-        if args.event == 'Merge Request Hook' and data['action'] == 'open' \
-                or data['action'] == 'update':
+        if args.event == 'Merge Request Hook' and data['action'] == 'open'\
+                or (data['action'] == 'update' and data['action_desc'] == "source_branch_changed"):
             subp = subprocess.run(["python3", get_cmd(),
                     "-u", data['pull_request']['html_url'], "-w", "/tmp/review_dir", "-c"],
                     stdout=subprocess.PIPE,
@@ -77,7 +77,7 @@ if __name__ == '__main__':
                         check=False)
                     return_code = subp.returncode
         else:
-            print("Event type: %s not support." % args.event)
+            print("prow_review_tool: this action type not need to process.")
     if return_code != 0:
         print(subp.stdout)
     sys.exit(return_code)
