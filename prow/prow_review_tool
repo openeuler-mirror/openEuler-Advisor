@@ -63,19 +63,23 @@ if __name__ == '__main__':
             return_code = subp.returncode
         elif args.event == 'Note Hook' and data['action'] == 'comment' \
                 and data['noteable_type'] == 'PullRequest':
-            if not data['comment']['body'].startswith("/review"):
+            if not data['comment']['body'].startswith("/review "):
                 sys.exit(2)
+            sets_li = []
             for line in data['comment']['body'].splitlines():
-                if line.strip().startswith("/review"):
-                    args = line.strip().split(' ', 1)
-                    content = args[1]
-                    subp = subprocess.run(["python3", get_cmd(),
-                        "-u", data['pull_request']['html_url'], "-e", content],
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.STDOUT,
-                        encoding="utf-8",
-                        check=False)
-                    return_code = subp.returncode
+                if line.strip().startswith("/review "):
+                    sets = line.strip().split(maxsplit=1)[1]
+                    sets_li.append(sets)
+            contents = " ".join(sets_li)
+            if not contents:
+                sys.exit(2)
+            subp = subprocess.run(["python3", get_cmd(),
+                "-u", data['pull_request']['html_url'], "-e", contents],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                encoding="utf-8",
+                check=False)
+            return_code = subp.returncode
         else:
             print("prow_review_tool: this action type not need to process.")
     if return_code != 0:

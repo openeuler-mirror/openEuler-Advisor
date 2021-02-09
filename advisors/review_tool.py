@@ -603,6 +603,7 @@ def prepare_env(work_dir, reuse, pr_tuple, branch):
     gitee_url = "https://gitee.com/{repo}.git".format(repo=repo)
     local_path = os.path.join(work_dir, local_repo_name(group, repo_name, pull_id))
     if os.path.exists(local_path) and not reuse:
+        print("WARNING: %s already exist, delete it." % local_path)
         shutil.rmtree(local_path)
     if not os.path.exists(local_path):
         if exec_cmd(["git", "clone", gitee_url, local_path]) != 0:
