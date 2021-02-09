@@ -130,7 +130,7 @@ def main_process(push, default, repo):
     pkg_tags = get_ver_tags(user_gitee, repo, cwd_path=default)
     print("known release tags:", pkg_tags)
 
-    if pkg_tags is None:
+    if not pkg_tags:
         return None
 
     if cur_version not in pkg_tags:

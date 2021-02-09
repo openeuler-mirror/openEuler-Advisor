@@ -263,6 +263,7 @@ class VersionTypeXYZW(VersionType):
         version = self.get_latest_version(version_candidate, 3)
         if version:
             return self._separator.join(version)
+
         return current_version
 
     def __init__(self):
@@ -775,11 +776,15 @@ class VersionRecommend(object):
         return True
 
     def _get_latest_version(self, version_entry):
-        if self.version_type is None:
+        if not version_entry:
+            return ''
+        if not self.version_type:
             return ''
         return self.version_type.latest_version(version_entry)
 
     def _get_maintain_version(self, version_entry, current_version, pkg_type):
+        if not version_entry:
+            return ''
         if self.version_type is None:
             return ''
         return self.version_type.maintain_version(version_entry, current_version, pkg_type)

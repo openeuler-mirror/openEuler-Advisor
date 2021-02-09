@@ -425,11 +425,14 @@ def auto_update_pkg(gt_api, u_pkg, u_branch, u_ver=None):
 
     if not u_ver:
         pkg_tags = oa_upgradable.get_ver_tags(gt_api, u_pkg)
-        if pkg_tags is None:
+        if not pkg_tags:
+            print("WARNING: Can't get {} version list, stop upgrade.".format(u_pkg))
             return
 
         ver_rec = version_recommend.VersionRecommend(pkg_tags, pkg_ver, 0)
-
+        if not ver_rec:
+            print("WARNING: Can't get {} recommend version, stop upgrade.".format(u_pkg))
+            return
 
         pkg_type = package_type.PackageType(u_pkg)
         if pkg_type.pkg_type == "core":
