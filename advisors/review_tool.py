@@ -58,6 +58,8 @@ RRVIEW_STATUS = {
 
 FLAG_EDIT_ALL = 999
 
+PR_CONFLICT_COMMENT = "Conflict exists in PR.Please resolve conflict before review.@{owner}"
+
 
 def check_new_code(branch):
     """
@@ -495,7 +497,7 @@ def review(checklist, pull_request, repo_name, branch):
     Return check list of this PR
     """
     if not pull_request["mergeable"]:
-        return "PR中存在冲突，无法自动合并。需要先解决冲突，才可以开展评审。"
+        return PR_CONFLICT_COMMENT.format(owner=pull_request['user']['login'])
 
     review_body = CHK_TABLE_HEADER.format(go=RRVIEW_STATUS['go'],
                                         nogo=RRVIEW_STATUS['nogo'],
@@ -575,16 +577,27 @@ def local_repo_name(group, repo_name, pull_id):
     """
     return "{}_{}_{}".format(group, repo_name, pull_id)
 
-def exec_cmd(cmd):
+def exec_cmd(cmd, retry_times=0):
     """
     wrapper for Popen
     @cmd: argument list of command
+    @retry_times: retry times if cmd execute failed
     """
     subp = subprocess.run(cmd,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             encoding="utf-8",
             check=False)
+    if subp.returncode != 0 and retry_times > 0:
+        for i in range(1,retry_times+1):
+            print("cmd:%s execute failed,retry:%d" % (cmd,i))
+            subp = subprocess.run(cmd,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                    encoding="utf-8",
+                    check=False)
+            if subp.returncode == 0:
+                break
     print(subp.stdout)
     return subp.returncode
 
@@ -607,27 +620,32 @@ def prepare_env(work_dir, reuse, pr_tuple, branch):
         shutil.rmtree(local_path)
     if not os.path.exists(local_path):
         if exec_cmd(["git", "clone", gitee_url, local_path]) != 0:
+            print("Failed to git clone {}".format(gitee_url))
             return 1
     os.chdir(local_path)
     if exec_cmd(["git", "checkout", branch]) != 0:
         print("Failed to checkout %s branch" % branch)
         return 1
-    exec_cmd(["git", "branch", "-D", "pr_{n}".format(n=pull_id)])
-    # It's OK to ignore the result
     if exec_cmd(["git", "pull"]) != 0:
         print("Failed to update to latest commit in %s branch" % branch)
         return 1
+    lines = subprocess.getoutput("git branch | grep pr_{n}".format(n=pull_id))
+    for br_name in lines.splitlines():
+        exec_cmd(["git", "branch", "-D", br_name.strip()])
     if exec_cmd(["git", "fetch", gitee_url, "pull/{n}/head:pr_{n}".format(n=pull_id)]) != 0:
-        print("Failed to fetch PR")
+        print("Failed to fetch PR:{n}".format(n=pull_id))
         return 1
-    print("You are reviewing PR:{n}".format(n=pull_id))
-    exec_cmd(["git", "checkout", "pr_{n}".format(n=pull_id)])
-    exec_cmd(["git", "merge", "--no-edit", "remotes/origin/" + branch])
+    if exec_cmd(["git", "checkout", "-b", "working_pr_{n}".format(n=pull_id)]) != 0:
+        print("Failed to create working branch working_pr_{n}".format(n=pull_id))
+        return 1
+    if exec_cmd(["git", "merge", "--no-edit", "pr_{n}".format(n=pull_id)],3) != 0:
+        print("Failed to merge PR:{n} to branch:{base}".format(n=pull_id,base=branch))
+        return 2
     return 0
 
 def cleanup_env(work_dir, group, repo_name, pull_id):
     """
-    Clena up environment, e.g. temporary directory
+    Clean up environment, e.g. temporary directory
     """
     shutil.rmtree(os.path.join(work_dir, local_repo_name(group, repo_name, pull_id)))
 
@@ -729,12 +747,17 @@ def main():
         if not checklist:
             return 1
         branch = pull_request['base']['label']
-        if prepare_env(work_dir, args.reuse, params, branch) != 0:
+        ret = prepare_env(work_dir, args.reuse, params, branch)
+        if ret != 0:
+            if ret == 2:
+                user_gitee.create_pr_comment(repo_name, pull_id,
+                        PR_CONFLICT_COMMENT.format(owner=pull_request['user']['login']), group)
             return 1
         review_comment = review(checklist, pull_request, repo_name, branch)
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
         if args.clean:
             cleanup_env(work_dir, group, repo_name, pull_id)
+        print("push review list finish.")
     return 0
 
 if __name__ == "__main__":
