@@ -42,6 +42,30 @@ def get_cmd():
         review_cmd = os.path.join(os.path.dirname(cmd_path), "command/review_tool")
     return review_cmd
 
+def create_review(pr_url):
+    """
+    create review list
+    """
+    subp = subprocess.run(["python3", get_cmd(), "-u", pr_url, "-w", "/tmp/review_dir", "-c"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            encoding="utf-8",
+            check=False)
+    print(subp.stdout)
+    return subp.returncode
+
+def edit_review(pr_url, content):
+    """
+    edit review list
+    """
+    subp = subprocess.run(["python3", get_cmd(), "-u", pr_url, "-e", content],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            encoding="utf-8",
+            check=False)
+    print(subp.stdout)
+    return subp.returncode
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--event", type=str,
@@ -54,34 +78,25 @@ if __name__ == '__main__':
         data = json.loads(args.payload)
         if args.event == 'Merge Request Hook' and data['action'] == 'open'\
                 or (data['action'] == 'update' and data['action_desc'] == "source_branch_changed"):
-            subp = subprocess.run(["python3", get_cmd(),
-                    "-u", data['pull_request']['html_url'], "-w", "/tmp/review_dir", "-c"],
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.STDOUT,
-                    encoding="utf-8",
-                    check=False)
-            return_code = subp.returncode
+            return_code = create_review(data['pull_request']['html_url'])
         elif args.event == 'Note Hook' and data['action'] == 'comment' \
                 and data['noteable_type'] == 'PullRequest':
             if not data['comment']['body'].startswith("/review "):
                 sys.exit(2)
-            sets_li = []
-            for line in data['comment']['body'].splitlines():
-                if line.strip().startswith("/review "):
-                    sets = line.strip().split(maxsplit=1)[1]
-                    sets_li.append(sets)
-            contents = " ".join(sets_li)
-            if not contents:
-                sys.exit(2)
-            subp = subprocess.run(["python3", get_cmd(),
-                "-u", data['pull_request']['html_url'], "-e", contents],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                encoding="utf-8",
-                check=False)
-            return_code = subp.returncode
+            lines = data['comment']['body'].splitlines()
+            # Add command for rebuild review list
+            if len(lines) == 1 and lines[0].strip().split(maxsplit=1)[1] == "retrigger":
+                return_code = create_review(data['pull_request']['html_url'])
+            else:
+                sets_li = []
+                for line in data['comment']['body'].splitlines():
+                    if line.strip().startswith("/review "):
+                        sets = line.strip().split(maxsplit=1)[1]
+                        sets_li.append(sets)
+                contents = " ".join(sets_li)
+                if not contents:
+                    sys.exit(2)
+                return_code = edit_review(data['pull_request']['html_url'], contents)
         else:
             print("prow_review_tool: this action type not need to process.")
-    if return_code != 0:
-        print(subp.stdout)
     sys.exit(return_code)
