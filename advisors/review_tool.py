@@ -30,7 +30,7 @@ CHK_TABLE_HEADER = """
 
 **{go}** 审视者确认符合要求 | **{nogo}** 审视者认为不符合要求 | **{na}** 审视者认为与本PR无关 | **{question}** 审视者无法确认是否符合要求 | **{ongoing}** 审视过程中
 **NOTE:** use command: "/review status[go/nogo/na/question/ongoing]:number_list[0,1,2 ...] ..." to update status.
-Example: "/review go:0,1,2 nogo:3,4,5".
+Example: "/review go:0,1,2 nogo:3,4,5" or "/review go:0-2 nogo:3-5".
 You can use "/review status[go/nogo/na/question/ongoing]:999" if you need update all items as one status one time.
 |审视项编号|审视类别|审视要求|审视要求说明|审视结果|
 |:--:|:--:|:--|:--|:--:|
@@ -59,7 +59,8 @@ RRVIEW_STATUS = {
 FLAG_EDIT_ALL = 999
 
 PR_CONFLICT_COMMENT = "Conflict exists in PR.Please resolve conflict before review.@{owner}"
-
+FAILURE_COMMENT = """
+Failed to create review list.You can try to rebuild using "/review retrigger".:confused:"""
 
 def check_new_code(branch):
     """
@@ -640,7 +641,7 @@ def prepare_env(work_dir, reuse, pr_tuple, branch):
         return 1
     if exec_cmd(["git", "merge", "--no-edit", "pr_{n}".format(n=pull_id)],3) != 0:
         print("Failed to merge PR:{n} to branch:{base}".format(n=pull_id,base=branch))
-        return 2
+        return 1
     return 0
 
 def cleanup_env(work_dir, group, repo_name, pull_id):
@@ -709,9 +710,22 @@ def decode_edit_content(edit):
         nums = sect.split(":")[1]
         for num in nums.split(","):
             if not num.isdigit():
-                print("ERROR: input string contain invalid character.")
-                return {}
-            dicts[int(num)] = status
+                res = re.match("^([0-9]{1,3})-([0-9]{0,3})$",num)
+                if res:
+                    start = int(res.group(1))
+                    end = FLAG_EDIT_ALL
+                    if res.group(2):
+                        end = int(res.group(2))
+                    if start >= end:
+                        print("ERROR: input format error,start number must greater than end.")
+                        return {}
+                    for i in range(start, end+1):
+                        dicts[i] = status
+                else:
+                    print("ERROR: input format error or contain invalid character.")
+                    return {}
+            else:
+                dicts[int(num)] = status
     return dicts
 
 
@@ -749,9 +763,7 @@ def main():
         branch = pull_request['base']['label']
         ret = prepare_env(work_dir, args.reuse, params, branch)
         if ret != 0:
-            if ret == 2:
-                user_gitee.create_pr_comment(repo_name, pull_id,
-                        PR_CONFLICT_COMMENT.format(owner=pull_request['user']['login']), group)
+            user_gitee.create_pr_comment(repo_name, pull_id, FAILURE_COMMENT, group)
             return 1
         review_comment = review(checklist, pull_request, repo_name, branch)
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
