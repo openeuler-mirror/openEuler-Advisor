@@ -30,7 +30,10 @@ openEuler-Advisor 的目标是为 openEuler 制品仓的日常工作提供自动
 
 2.10、review_tool.py 用于生成指定软件仓PR的代码审视清单，以规范化PR审视过程。
 
+2.11、issue_report.py 是一款自动生成版本issue及cve管理表格(csv)和结果报告(markdown)的工具，提供基于openeuler版本生成issue和cve清单的功能。
+
 3、prow：存放对接CI/CD框架PROW的脚本
+
 ## 2、后续计划
 
 1、@solarhu 团队正在开发工具，计划提供 openEuler 内所有组件依赖关系的查询。
@@ -207,6 +210,19 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 ##### b. oa_upgradable.py 
 	查询软件包上游社区信息及版本推荐: python3 oa_upgradable.py pkg_name
 	例如: python3 oa_upgradable.py glibc
+
+##### c. issue_report.py
+	运行环境：python版本 3.8及以上
+	工具使用：
+
+    ```bash
+	python3 issue_report.py -milestone "openEuler 20.03-LTS" "openEuler 20.09" -branch "openEuler-21.03" "openEuler-20.09" -outpath /Users/lilu/Downloads 
+	```
+
+    > 参数说明：  
+		> -milestone: openEuler版本的里程碑，支持输入多个里程碑名。例如："openEuler-21.03", "openEuler 21.03-RC1"等
+		> -branch: src-openEuler仓库下的具体分支名称，支持输入多个分支名。例如："openEuler-21.03", "openEuler-20.09"等
+		> -outpath: 版本管理报告和版本发布报告生成路径
 
 #### 3.2.3 advisors咨询:
 	如果有其他问题或疑问，请邮件联系：licihua@huawei.com/zwfeng@huawei.com/shanshishi@huawei.com
