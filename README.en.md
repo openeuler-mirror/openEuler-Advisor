@@ -9,12 +9,12 @@ Collection of automation tools for easily maintaining openEuler
 |                  | 1.2 Best Version     | release note、test、user feedback   | newest/stable/official/compatible version  |      |
 |                  | 1.3 Best Version Notify | issue/PR | auto issue/PR | |
 | 2.Package        | 2.1 Meta data | summary, deps ...  |  from spec, from other package system    |    |
-|                  | 2.2 Check Old Patch (while updating) | drop upstreamed patch; check conflict  |   | 
-|                  | 2.3 Python to RPM  | way to build python package by pip | turn pip to rpm |   |       
-| 3.Modify         | 3.1 CVE & CVE official fix | CVE notify & official patch/commit  |   |      
+|                  | 2.2 Check Old Patch (while updating) | drop upstreamed patch; check conflict  |   |
+|                  | 2.3 Python to RPM  | way to build python package by pip | turn pip to rpm |   |
+| 3.Modify         | 3.1 CVE & CVE official fix | CVE notify & official patch/commit  |   |
 |                  | 3.2 Patch upstream    | upstream bugzilla/git URL | auto bugzilla/PR  |      |
 | 4.Test           | 4.1 Upstream Test & Feedback   | upstream test entry & feedback channel  | standard test entry & auto feedback  |  |
-| 5.Release        | TODO       |   |   |   
+| 5.Release        | TODO       |   |   |
 
 
 ## Software Metadata
@@ -62,7 +62,7 @@ DONE! than you can create a Pull Request.
 	yum install rpmdevtools (ver>=8.3)
 	pip3 install beautifulsoup4 (ver>=4.9.3)
 	yum install yum-utils (ver>=1.1.31)
-	
+
 ##### 2. json file config
 	~/.gitee_personal_token.json
 	content format: {"user":"user_name","access_token":"token_passwd"}
@@ -82,13 +82,13 @@ DONE! than you can create a Pull Request.
 ##### 1. simple_update_robot.py
 	single package auto-upgrade: python3 simple_update_robot.py -u pkg pkg_name branch_name [-n new_version]
 	ep: python3 simple_update_robot.py -u pkg snappy master
-
+	
 	single package manual upgrade: python3 simple_update_robot.py pkg_name branch_name [-fc] [-d] [-s] [-n new_version] [-b] [-p]
 	ep: python3 simple_update_robot.py snappy openEuler-20.03-LTS -fc -d -s -n 1.8.1
 	
 	multi-packages in a repo auto-upgrade: python3 simple_update_robot.py -u repo repo_name branch_name
 	ep: python3 simple_update_robot.py -u repo src-openeuler master
-
+	
 	you can config local yaml for auto upgrade, such as: upgrade-example.yaml
 	repositories:
 	- name: A-Tune
@@ -105,11 +105,26 @@ DONE! than you can create a Pull Request.
 ##### 2. oa_upgradable.py 
 	display all tags of target package: python3 oa_upgradable.py pkg_name
 	ep: python3 oa_upgradable.py glibc
+
+##### 3. issue_report.py
+
+	Automatically generates issue and CVE management forms (CSV) and result reports (Markdown), based on the openEuler version.
 	
+	useage: 
+		```bash
+		python3 issue_report.py -milestone "openEuler 20.03-LTS" "openEuler 20.09" -branch "openEuler-21.03" "openEuler-20.09" -outpath /Users/lilu/Downloads 
+		```
+	
+	option:
+		> -milestone: openEuler' milestion, multiple inputs supported(e.g., "openEuler-21.03", "openEuler 21.03-RC1").
+		> -branch: src-openEuler branches name, multiple inputs supported (e.g., "openEuler-21.03", "openEuler-20.09").
+		> -outpath: output path for version control reports and release reports
+
 #### Consultation for advisors:
 	if any problem, please contact: licihua@huawei.com/zwfeng@huawei.com/shanshishi@huawei.com
-	
-	
+
+
+​	
 ## Contribution
 
 1.  Fork the repository

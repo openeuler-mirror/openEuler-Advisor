@@ -19,7 +19,9 @@ CMD_INPUT_ARGS = sys.argv[1:]
 
 
 def _to_markdown(df: pd.DataFrame, index=False):
-    cols = df.columns
+    cols = list(df.columns)
+    if index:
+        cols.insert(0, "index")
     title = "|" + "|".join(str(col) for col in cols) + "|\n"
     under_title = "|" + "---|" * len(cols) + "\n"
 
@@ -27,7 +29,7 @@ def _to_markdown(df: pd.DataFrame, index=False):
     for idx, row in df.iterrows():
         curr_row = list(str(r) for r in row)
         if index:
-            curr_row.insert(idx)
+            curr_row.insert(0, str(idx))
         content += "|" + "|".join(curr_row) + "|\n"
 
     return title + under_title + content
@@ -281,7 +283,7 @@ def generate_md(issue_sources, cve_sources, output_path):
         elif response.get("type") == "缺陷" and response.get("state") == "open":
             todo_issue_id.append(response.get("issue_id", "暂无相应信息"))
             todo_issue_title.append(response.get("issue_title", "暂无相应信息"))
-            effect.append(response.get("description", "暂无相应信息"))
+            effect.append("")
             todo_version.append(response.get("milestone", "暂无相应信息"))
 
     dataframe_feature = pd.DataFrame(
