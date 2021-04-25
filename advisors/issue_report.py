@@ -1,16 +1,24 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+#******************************************************************************
+# Copyright (c) Huawei Technologies Co., Ltd. 2020-2021. All rights reserved.
+# licensed under the Mulan PSL v2.
+# You can use this software according to the terms and conditions of the Mulan PSL v2.
+# You may obtain a copy of Mulan PSL v2 at:
+#     http://license.coscl.org.cn/MulanPSL2
+# THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+# PURPOSE.
+# See the Mulan PSL v2 for more details.
+#
+# ******************************************************************************/
 
 """
 Description:generate issue report
 """
-# pylint: disable=inconsistent-return-statements
-# pylint: disable=broad-except
-# pylint: disable=no-else-return
-# pylint: disable=too-many-locals
 import copy
-import os
 import sys
 import json
+import argparse
 import pandas as pd
 import requests
 
@@ -33,48 +41,6 @@ def _to_markdown(df: pd.DataFrame, index=False):
         content += "|" + "|".join(curr_row) + "|\n"
 
     return title + under_title + content
-
-def parse_args(name, input_args):
-    """
-    解析输入的参数
-    Args:
-        name: 运行文件名
-        input_args: 解析出来的参数
-
-    Returns:
-        issue_params, cve_params, output_path
-    """
-    split_index = 0
-    if "-milestone" not in input_args or "-branch" not in input_args:
-        print(
-            "usage: {} [-milestone [Required parameters]] [-branch [Required parameters]] "
-            "[-outpath [Optional parameters]]".format(name)
-        )
-        return
-    if "-outpath" not in input_args and (
-        "/" in input_args[-1] or "\\" in input_args[-1]
-    ):
-        print(
-            "Missing -outpath \n"
-            "usage: {} [-milestone [Required parameters]] [-branch [Required parameters]] "
-            "[-outpath [Optional parameters]]".format(name)
-        )
-        return
-    for index, con in enumerate(input_args):
-        if con == "-branch":
-            split_index = index
-    issue_params = input_args[1:split_index]
-    cve_params = (
-        input_args[split_index + 1 : len(input_args) - 2]
-        if "-outpath" in input_args
-        else input_args[split_index + 1 :]
-    )
-    output_path = input_args[-1] if "-outpath" in input_args else "./"
-    if not os.path.exists(output_path):
-        print("The output path is illegal, please re-enter!")
-        return
-    return issue_params, cve_params, output_path
-
 
 def build_request_parameters(issue_params, cve_params):
     """
@@ -128,13 +94,15 @@ def query_issue_response(parameters_issue):
         )
     except Exception as error:
         print(error)
-        return None
+        return ""
+
+    response_issue_string = ""
+
     if response_issue.status_code == 200:
         response_issue_string = response_issue.json()["data"]
-        return response_issue_string
     else:
         print(response_issue.status_code)
-        return []
+    return response_issue_string
 
 
 def query_cve_response(parameters_cve):
@@ -155,16 +123,16 @@ def query_cve_response(parameters_cve):
         )
     except Exception as error:
         print(error)
-        return None
+        return ""
+
+    response_cve_string = ""
     if response_cve.status_code == 200:
         response_cve_string = response_cve.json()["data"]
-        return response_cve_string
     else:
         print(response_cve.status_code)
-        return []
+    return response_cve_string
 
 
-# pylint: disable=unused-variable
 def filter_cve_content(sources):
     """
     去除cve数据中type字段不是“CVE和安全问题”的元素
@@ -175,7 +143,7 @@ def filter_cve_content(sources):
         filter_source
     """
     filter_source = []
-    for index, response in enumerate(sources):
+    for _index, response in enumerate(sources):
         if response.get("type") == "CVE和安全问题":
             filter_source.append(response)
     return filter_source
@@ -294,7 +262,7 @@ def generate_md(issue_sources, cve_sources, output_path):
     dataframe_fixed_issue = pd.DataFrame(
         {"Issue": fixed_issue_id, "概述": fixed_issue_title, "所属版本": fixed_version}
     )
-    
+
     count = 0
     for col in dataframe_fixed_issue:
         if count < 5:
@@ -302,7 +270,7 @@ def generate_md(issue_sources, cve_sources, output_path):
 
         count += 1
     dataframe_fixed_issue_str = _to_markdown(dataframe_fixed_issue)
- 
+
     dataframe_todo_issue = pd.DataFrame(
         {
             "Issue": todo_issue_id,
@@ -357,29 +325,42 @@ def generate_md(issue_sources, cve_sources, output_path):
         text_file.write(strings)
 
 
-# pylint: disable=broad-except
-def main():
+def args_parser():
+    """
+    Parse arguments
+    """
+    pars = argparse.ArgumentParser()
+    pars.add_argument("-m", "--milestone", nargs='+', type=str, help="Milestone")
+    pars.add_argument("-b", "--branch", nargs='+', type=str, help="Branch")
+    pars.add_argument("-o", "--output_path", default=".", type=str, help="output path")
+
+    config = pars.parse_args()
+    return config
+
+def issue_report():
     """
     Function main program
     Returns:
 
     """
-    try:
-        issue_params, cve_params, output_path = parse_args(FILE_NAME, CMD_INPUT_ARGS)
-    except Exception as error:
-        print(error)
-    else:
-        parameters_issues, parameters_cves = build_request_parameters(
-            issue_params, cve_params
-        )
-        issue_con, cve_con = [], []
-        for parameters_issue in parameters_issues:
-            issue_con.extend(query_issue_response(parameters_issue))
-        for parameters_cve in parameters_cves:
-            cve_con.extend(query_cve_response(parameters_cve))
-        filter_cve_con = filter_cve_content(cve_con)
-        generate_csv(issue_con, filter_cve_con, output_path)
-        generate_md(issue_con, filter_cve_con, output_path)
+    args = args_parser()
+
+    issue_params = args.milestone
+    cve_params = args.branch
+    output_path = args.output_path
+
+    parameters_issues, parameters_cves = build_request_parameters(
+        issue_params, cve_params
+    )
+    issue_con, cve_con = [], []
+    for parameters_issue in parameters_issues:
+        issue_con.extend(query_issue_response(parameters_issue))
+    for parameters_cve in parameters_cves:
+        cve_con.extend(query_cve_response(parameters_cve))
+    filter_cve_con = filter_cve_content(cve_con)
+    generate_csv(issue_con, filter_cve_con, output_path)
+    generate_md(issue_con, filter_cve_con, output_path)
 
 
-main()
+if __name__ == "__main__":
+    issue_report()
