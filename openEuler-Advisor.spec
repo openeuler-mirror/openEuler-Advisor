@@ -45,8 +45,12 @@ py.test-%{python3_version} -vv tests || :
 %attr(0755,root,root) %{_bindir}/tc_reminder
 %attr(0755,root,root) %{_bindir}/which_archived
 %attr(0755,root,root) %{_bindir}/prow_review_tool
+%attr(0755,root,root) %{_bindir}/issue_report
 
 %changelog
+* Mon Apr 24 2021 licihua <licihua@huawei.com> - 1.0-5
+- issue_report: support issue_report
+
 * Fri Jan 22 2021 licihua <licihua@huawei.com> - 1.0-4
 - check_abi: add miss require "libabigail"
 
