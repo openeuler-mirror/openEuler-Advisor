@@ -26,21 +26,22 @@ FILE_NAME = sys.argv[0]
 CMD_INPUT_ARGS = sys.argv[1:]
 
 
-def _to_markdown(df: pd.DataFrame, index=False):
-    cols = list(df.columns)
+def _to_markdown(data_frame: pd.DataFrame, index=False):
+    cols = list(data_frame.columns)
     if index:
         cols.insert(0, "index")
     title = "|" + "|".join(str(col) for col in cols) + "|\n"
     under_title = "|" + "---|" * len(cols) + "\n"
 
     content = ""
-    for idx, row in df.iterrows():
+    for idx, row in data_frame.iterrows():
         curr_row = list(str(r) for r in row)
         if index:
             curr_row.insert(0, str(idx))
         content += "|" + "|".join(curr_row) + "|\n"
 
     return title + under_title + content
+
 
 def build_request_parameters(issue_params, cve_params):
     """
@@ -180,6 +181,7 @@ def generate_csv(issue_sources, cve_sources, output_path):
         closed_at.append(response.get("closed_at", "暂无相应信息"))
         progress.append(response.get("plan_start_at", "暂无相应信息"))
         version.append(response.get("milestone", "暂无相应信息"))
+
     for response in cve_sources:
         issue_id.append(response.get("issue_id", "暂无相应信息"))
         issue_type.append(response.get("type"))
@@ -262,15 +264,7 @@ def generate_md(issue_sources, cve_sources, output_path):
     dataframe_fixed_issue = pd.DataFrame(
         {"Issue": fixed_issue_id, "概述": fixed_issue_title, "所属版本": fixed_version}
     )
-
-    count = 0
-    for col in dataframe_fixed_issue:
-        if count < 5:
-            print(col)
-
-        count += 1
     dataframe_fixed_issue_str = _to_markdown(dataframe_fixed_issue)
-
     dataframe_todo_issue = pd.DataFrame(
         {
             "Issue": todo_issue_id,
@@ -279,7 +273,6 @@ def generate_md(issue_sources, cve_sources, output_path):
             "所属版本": todo_version,
         }
     )
-
 
     dataframe_todo_issue_str = _to_markdown(dataframe_todo_issue)
 
@@ -330,8 +323,8 @@ def args_parser():
     Parse arguments
     """
     pars = argparse.ArgumentParser()
-    pars.add_argument("-m", "--milestone", nargs='+', type=str, help="Milestone")
-    pars.add_argument("-b", "--branch", nargs='+', type=str, help="Branch")
+    pars.add_argument("-m", "--milestone", nargs='+', type=str, required=True, help="Milestone")
+    pars.add_argument("-b", "--branch", nargs='+', type=str, required=True, help="Branch")
     pars.add_argument("-o", "--output_path", default=".", type=str, help="output path")
 
     config = pars.parse_args()
