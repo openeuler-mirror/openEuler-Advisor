@@ -19,7 +19,7 @@ from advisors.issue_report import main
 
 if __name__ == '__main__':
     try:
-        main()
+        issue_report()
     except Exception as error:
         print("WARNING: Command execution error")
         print(error.message)
