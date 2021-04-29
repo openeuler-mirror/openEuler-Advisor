@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2021. All rights reserved.
 # licensed under the Mulan PSL v2.
 # You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -15,15 +15,13 @@
 """
 Description:generate issue report
 """
-import copy
-import sys
-import json
 import argparse
+import copy
+import csv
+import json
+
 import pandas as pd
 import requests
-
-FILE_NAME = sys.argv[0]
-CMD_INPUT_ARGS = sys.argv[1:]
 
 
 def _to_markdown(data_frame: pd.DataFrame, index=False):
@@ -150,6 +148,65 @@ def filter_cve_content(sources):
     return filter_source
 
 
+class Issue():
+    """class for Issue"""
+    def __init__(self):
+        """
+        初始化
+        """
+        self.key = ['issue_id',
+                    'type',
+                    'issue_title',
+                    'assignee_name',
+                    'state',
+                    'plan_deadline_at',
+                    'closed_at',
+                    'plan_start_at',
+                    'milestone']
+        self.issue_data = {}
+
+    def set_issue(self, response):
+        """
+        设置Issue 内容
+        Args:
+            response: 数据原始内容
+        Returns:
+            None
+        """
+        for key in self.key:
+            self.issue_data[key] = response.get(key, "暂无相应信息")
+
+    def set_version(self, version):
+        """
+        设置version 信息
+        Args:
+            version: version信息
+        Returns:
+            None
+        """
+        self.issue_data['milestone'] = version
+
+    def to_dict(self):
+        """
+        获取字典内容
+        Args:
+            Null: Null
+        Returns:
+            Issue 字典
+        """
+        return self.issue_data
+
+    def get_keys(self):
+        """
+        获取字典头
+        Args:
+            Null: Null
+        Returns:
+            字典头
+        """
+        return self.key
+
+
 def generate_csv(issue_sources, cve_sources, output_path):
     """
     将获取的issue数据按照模板输出csv文件
@@ -161,59 +218,31 @@ def generate_csv(issue_sources, cve_sources, output_path):
     Returns:
         csv文件
     """
-    issue_id = []
-    issue_type = []
-    issue_title = []
-    owner = []
-    state = []
-    plan_deadline_at = []
-    closed_at = []
-    progress = []
-    version = []
-
+    issue_list = []
     for response in issue_sources:
-        issue_id.append(response.get("issue_id", "暂无相应信息"))
-        issue_type.append(response.get("type", "暂无相应信息"))
-        issue_title.append(response.get("issue_title", "暂无相应信息"))
-        owner.append(response.get("assignee_name", "暂无相应信息"))
-        state.append(response.get("state", "暂无相应信息"))
-        plan_deadline_at.append(response.get("plan_deadline_at", "暂无相应信息"))
-        closed_at.append(response.get("closed_at", "暂无相应信息"))
-        progress.append(response.get("plan_start_at", "暂无相应信息"))
-        version.append(response.get("milestone", "暂无相应信息"))
+        issue = Issue()
+        issue.set_issue(response)
+        issue_list.append(issue)
 
     for response in cve_sources:
-        issue_id.append(response.get("issue_id", "暂无相应信息"))
-        issue_type.append(response.get("type"))
-        issue_title.append(response.get("issue_title", "暂无相应信息"))
-        owner.append(response.get("assignee_name", "暂无相应信息"))
-        state.append(response.get("state", "暂无相应信息"))
-        progress.append(response.get("plan_start_at", "暂无相应信息"))
-        plan_deadline_at.append(response.get("plan_deadline_at", "暂无相应信息"))
-        closed_at.append(response.get("closed_at", "暂无相应信息"))
-        version.append(
-            ",".join(
-                [
-                    con.replace(":受影响", "").replace(":不受影响", "")
-                    for con in response["milestone"].split(",")
-                ]
-            )
-        )
-    # 字典中的key值即为csv中列名
-    dataframe = pd.DataFrame(
-        {
-            "Issue": issue_id,
-            "类型": issue_type,
-            "概述": issue_title,
-            "责任人": owner,
-            "状态": state,
-            "计划合入时间": plan_deadline_at,
-            "实际关闭时间": closed_at,
-            "进展": progress,
-            "所属版本": version,
-        }
-    )
-    dataframe.to_csv(output_path + "/Issue管理报告.csv", index=False, encoding="utf_8_sig")
+        issue = Issue()
+        issue.set_issue(response)
+        issue.set_version(",".join(
+            [
+                con.replace(":受影响", "").replace(":不受影响", "")
+                for con in response["milestone"].split(",")
+            ]
+        ))
+        issue_list.append(issue)
+
+    issue_dict = []
+    for issue in issue_list:
+        issue_dict.append(issue.to_dict())
+
+    with open(output_path + "/Issue管理报告.csv", 'w', encoding='utf_8_sig', newline='') as file:
+        writer = csv.DictWriter(file, issue_list[0].get_keys())
+        writer.writeheader()
+        writer.writerows(issue_dict)
 
 
 def generate_md(issue_sources, cve_sources, output_path):
@@ -329,6 +358,7 @@ def args_parser():
 
     config = pars.parse_args()
     return config
+
 
 def issue_report():
     """
