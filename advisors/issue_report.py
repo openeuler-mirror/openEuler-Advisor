@@ -91,7 +91,7 @@ def query_issue_response(parameters_issue):
             data=json.dumps(parameters_issue),
             headers={"Content-type": "application/json"},
         )
-    except Exception as error:
+    except requests.exceptions.HTTPError as error:
         print(error)
         return ""
 
@@ -120,7 +120,7 @@ def query_cve_response(parameters_cve):
             data=json.dumps(parameters_cve),
             headers={"Content-type": "application/json"},
         )
-    except Exception as error:
+    except requests.exceptions.HTTPError as error:
         print(error)
         return ""
 
@@ -244,56 +244,75 @@ def generate_csv(issue_sources, cve_sources, output_path):
         writer.writeheader()
         writer.writerows(issue_dict)
 
-
-def generate_md(issue_sources, cve_sources, output_path):
+def get_feature(issue_sources):
     """
-    将获取的issue数据按模板输出MD文件
+    获取特性列表
     Args:
         issue_sources: issue响应数据
-        cve_sources: cve响应数据
-        output_path: 输出路径
-
     Returns:
-        MD文件
+        md 格式字符串
     """
-    description_feature_list = "## 特性清单"
-    description_issue_list = "## 解决问题清单"
-    description_todo_list = "## 遗留问题清单"
-    description_cve_list = "## 解决CVE清单"
     feature_id = []
     feature_issue_title = []
     feature_version = []
-    fixed_issue_id = []
-    fixed_issue_title = []
-    fixed_version = []
-    todo_issue_id = []
-    todo_issue_title = []
-    effect = []
-    todo_version = []
+
     for response in issue_sources:
         if response.get("type") == "需求":
             feature_id.append(response.get("issue_id", "暂无相应信息"))
             feature_issue_title.append(response.get("issue_title", "暂无相应信息"))
             feature_version.append(response.get("milestone", "暂无相应信息"))
-        elif response.get("type") == "缺陷" and response.get("state") == "closed":
-            fixed_issue_id.append(response.get("issue_id", "暂无相应信息"))
-            fixed_issue_title.append(response.get("issue_title", "暂无相应信息"))
-            fixed_version.append(response.get("milestone", "暂无相应信息"))
-        elif response.get("type") == "缺陷" and response.get("state") == "open":
-            todo_issue_id.append(response.get("issue_id", "暂无相应信息"))
-            todo_issue_title.append(response.get("issue_title", "暂无相应信息"))
-            effect.append("")
-            todo_version.append(response.get("milestone", "暂无相应信息"))
 
     dataframe_feature = pd.DataFrame(
         {"Issue": feature_id, "概述": feature_issue_title, "所属版本": feature_version}
     )
     dataframe_feature_str = _to_markdown(dataframe_feature)
 
+    return dataframe_feature_str
+
+def get_fix_issue(issue_sources):
+    """
+    获取已处理Issue列表
+    Args:
+        issue_sources: issue响应数据
+    Returns:
+        md 格式字符串
+    """
+    fixed_issue_id = []
+    fixed_issue_title = []
+    fixed_version = []
+
+    for response in issue_sources:
+        if response.get("type") == "缺陷" and response.get("state") == "closed":
+            fixed_issue_id.append(response.get("issue_id", "暂无相应信息"))
+            fixed_issue_title.append(response.get("issue_title", "暂无相应信息"))
+            fixed_version.append(response.get("milestone", "暂无相应信息"))
+
     dataframe_fixed_issue = pd.DataFrame(
         {"Issue": fixed_issue_id, "概述": fixed_issue_title, "所属版本": fixed_version}
     )
     dataframe_fixed_issue_str = _to_markdown(dataframe_fixed_issue)
+    return dataframe_fixed_issue_str
+
+def get_not_fix_issue(issue_sources):
+    """
+    获取未处理Issue列表
+    Args:
+        issue_sources: issue响应数据
+    Returns:
+        md 格式字符串
+    """
+    todo_issue_id = []
+    todo_issue_title = []
+    todo_version = []
+    effect = []
+    for response in issue_sources:
+        if response.get("type") == "缺陷" and response.get("state") == "open":
+            todo_issue_id.append(response.get("issue_id", "暂无相应信息"))
+            todo_issue_title.append(response.get("issue_title", "暂无相应信息"))
+            effect.append("")
+            todo_version.append(response.get("milestone", "暂无相应信息"))
+
+
     dataframe_todo_issue = pd.DataFrame(
         {
             "Issue": todo_issue_id,
@@ -302,9 +321,17 @@ def generate_md(issue_sources, cve_sources, output_path):
             "所属版本": todo_version,
         }
     )
-
     dataframe_todo_issue_str = _to_markdown(dataframe_todo_issue)
+    return dataframe_todo_issue_str
 
+def get_cve(cve_sources):
+    """
+    获取全量CVE数据
+    Args:
+        cve_sources: cve响应数据
+    Returns:
+        md 格式字符串
+    """
     cve_id = []
     openeuler_score = []
     cve_issue_title = []
@@ -330,15 +357,32 @@ def generate_md(issue_sources, cve_sources, output_path):
         }
     )
     dataframe_cve_str = _to_markdown(dataframe_cve)
+    return dataframe_cve_str
+
+def generate_md(issue_sources, cve_sources, output_path):
+    """
+    将获取的issue数据按模板输出MD文件
+    Args:
+        issue_sources: issue响应数据
+        cve_sources: cve响应数据
+        output_path: 输出路径
+
+    Returns:
+        MD文件
+    """
+    dataframe_feature_str = get_feature(issue_sources)
+    dataframe_fixed_issue_str = get_fix_issue(issue_sources)
+    dataframe_todo_issue_str = get_not_fix_issue(issue_sources)
+    dataframe_cve_str = get_cve(cve_sources)
 
     string = (
-        description_feature_list,
+        "## 特性清单",
         dataframe_feature_str,
-        description_issue_list,
+        "## 解决问题清单",
         dataframe_fixed_issue_str,
-        description_todo_list,
+        "## 遗留问题清单",
         dataframe_todo_issue_str,
-        description_cve_list,
+        "## 解决CVE清单",
         dataframe_cve_str,
     )
     strings = "\n".join(string)
