@@ -43,6 +43,7 @@ categorizer = {'PRSubmissionSPEC': 'PR提交规范',
                'OpenSourceCompliance': '开源合规性',
                'SecurityPrivacy': '安全及隐私',
                'Compatibility': '兼容性',
+               'PackageSubmission': '制品仓要求',
                'customization': '定制项'}
 SIGS_URL = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/20100101 Firefox/23.0'}
@@ -450,6 +451,19 @@ def basic_review(cklist, branch):
             review_body += item
     return review_body
 
+def src_openeuler_review(cklist, branch):
+    """
+    Review items for src-openeuler repos
+    """
+    review_body = ""
+    for key1, value1 in cklist['src-openeuler'].items():
+        for value2 in value1:
+            if value2['name'] == 'PR-latest-version' and branch == 'master':
+                continue
+            item = join_check_item(categorizer[key1],
+                                   value2['claim'], value2['explain'])
+            review_body += item
+    return review_body
 
 def community_maintainer_change_review(cstm_item, sigs):
     """
@@ -506,7 +520,7 @@ def community_review(custom_items):
     return review_body
 
 
-def review(checklist, pull_request, repo_name, branch):
+def review(checklist, pull_request, repo_name, branch, group):
     """
     Return check list of this PR
     """
@@ -519,6 +533,10 @@ def review(checklist, pull_request, repo_name, branch):
                                           question=RRVIEW_STATUS['question'],
                                           ongoing=RRVIEW_STATUS['ongoing'])
     review_body += basic_review(checklist, branch)
+
+    if group == "src-openeuler":
+        review_body += src_openeuler_review(checklist, branch)
+
     custom_items = checklist['customization'].get(repo_name, None)
     if custom_items:
         if repo_name == "community":
@@ -784,7 +802,7 @@ def main():
         if ret != 0:
             user_gitee.create_pr_comment(repo_name, pull_id, FAILURE_COMMENT, group)
             return 1
-        review_comment = review(checklist, pull_request, repo_name, branch)
+        review_comment = review(checklist, pull_request, repo_name, branch, group)
         user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
         if args.clean:
             cleanup_env(work_dir, group, repo_name, pull_id)
