@@ -59,6 +59,61 @@ basic:
     condition: version-change
     claim: 新版本能兼容老版本
     explain: spec中version版本变化，非master分支软件版本升级需考虑兼容性
+src-openeuler:
+  PackageSubmission:
+  -
+    name: PR-latest-version
+    condition: null
+    claim: 提交到 master 分支的新版本，是否已经是主线最新的
+    explain: 原则上 master 分支要求必须是最新的社区上游版本
+
+  - 
+    name: PR-increamental-rls
+    condition: null
+    claim: Version.Release 是否递增
+    explain: 如果Version.Release回退会给升级带来麻烦。如果Version不变则Release增加，如果Version增加则Release归零
+
+  -
+    name: PR-license
+    condition: null
+    claim: License域设置是否正确
+    explain: 原则上 License 应是 SPDX 中已知标准
+
+  -
+    name: PR-source-integerity
+    condition: null
+    claim: 源码包完整来自可信的上游
+    explain: Source0等应该是完整的 URL，来自社区上游的代码托管地址。URL下载得到的源码包与 PR 中提供的二进制完全一致
+
+  -
+    name: PR-clean-description
+    condition: null
+    claim: description 部分清晰可读
+    explain: 如 description 部分为自动抓取生成，需要做清理
+
+  -
+    name: PR-openEuler-clean
+    condition: null
+    claim: 不包含无意义的冗余判断
+    explain: spec 文件中不应该包含对 openEuler 环境无意义宏判断
+
+  -
+    name: PR-selftest
+    condition: null
+    claim: 是否有 %check 内容
+    explain: RPM 应该尽量包含自验证测试用例
+  -
+    name: PR-doc
+    condition: null
+    claim: 是否应单独生成-help子包
+    explain: 若文档内容多，则应独立生成 -help 子包
+
+  -
+    name: PR-changelog
+    condition: null
+    claim: changelog 记录是否合理
+    explain: Changelog 格式要符合要求，变更记录易于阅读理解
+
 customization:
   community:
   -
