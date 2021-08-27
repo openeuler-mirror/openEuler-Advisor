@@ -29,9 +29,9 @@ CHK_TABLE_HEADER = """
 如果您是第一次给 openEuler 提交 PR，建议您花一点时间阅读 [Gitee工作流说明](https://gitee.com/openeuler/community/blob/master/zh/contributors/Gitee-workflow.md)
 
 **{go}** 审视者确认符合要求 | **{nogo}** 审视者认为不符合要求 | **{na}** 审视者认为与本PR无关 | **{question}** 审视者无法确认是否符合要求 | **{ongoing}** 审视过程中
-**NOTE:** use command: "/review status[go/nogo/na/question/ongoing]:number_list[0,1,2 ...] ..." to update status.
+**NOTE:** Comment "/review status[go/nogo/na/question/ongoing]:number_list[0,1,2 ...] ..." to update the status.
 Example: "/review go:0,1,2 nogo:3,4,5" or "/review go:0-2 nogo:3-5".
-You can use "/review status[go/nogo/na/question/ongoing]:999" if you need update all items as one status one time.
+Comment "/review status[go/nogo/na/question/ongoing]:999" if you want to update the status of all items at a time.
 |审视项编号|审视类别|审视要求|审视要求说明|审视结果|
 |:--:|:--:|:--|:--|:--:|
 """
