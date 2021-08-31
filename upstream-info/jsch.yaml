@@ -1,0 +1,5 @@
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/jsch/files/jsch/
+tag_prefix:
+separator: "."
+url: https://sourceforge.net/projects/jsch/files/jsch/

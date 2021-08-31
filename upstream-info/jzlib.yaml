@@ -1,0 +1,5 @@
+version_control: github
+src_repo: ymnk/jzlib
+tag_prefix: "^v"
+separator: "."
+url: https://github.com/ymnk/jzlib.git

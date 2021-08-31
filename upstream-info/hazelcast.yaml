@@ -1,0 +1,5 @@
+version_control: github
+src_repo: hazelcast/hazelcast
+tag_prefix: "^v"
+separator: "."
+url: https://github.com/hazelcast/hazelcast.git

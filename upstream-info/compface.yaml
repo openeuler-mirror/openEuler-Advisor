@@ -1,0 +1,5 @@
+version_control: ftp
+src_repo: http://ftp.xemacs.org/pub/xemacs/aux/
+tag_pattern: compface-(.*).tar.gz
+separator: .
+url: http://ftp.xemacs.org/pub/xemacs/aux/
