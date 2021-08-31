@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://git.tukaani.org/xz-java.git
+tag_prefix: "^v"
+separator: "."
+url: https://git.tukaani.org/xz-java.git/

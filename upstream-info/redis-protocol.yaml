@@ -1,0 +1,5 @@
+version_control: github
+src_repo: spullara/redis-protocol
+tag_prefix: "^redis-"
+separator: "."
+url: http://github.com/spullara/redis-protocol.git

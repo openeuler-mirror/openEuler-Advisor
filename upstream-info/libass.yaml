@@ -1,0 +1,5 @@
+version_control: github
+src_repo: libass/libass
+tag_prefix: ""
+separator: "."
+url: https://github.com/libass/libass.git

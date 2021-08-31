@@ -1,0 +1,5 @@
+version_control: github
+src_repo: michaelrsweet/mxml
+tag_prefix: "^v"
+separator: "."
+url: https://github.com/michaelrsweet/mxml.git

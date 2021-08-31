@@ -1,0 +1,5 @@
+version_control: github
+src_repo: apache/log4j
+tag_prefix: "^v"
+separator: "_"
+url: https://github.com/apache/log4j.git
