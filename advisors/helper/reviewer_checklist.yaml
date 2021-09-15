@@ -121,7 +121,7 @@ customization:
     condition: sanity_check
     claim: ""
     explain: "" 
-    cmd: "python3 zh/technical-committee/governance/sanity_check.py ." 
+    cmd: "python3 ci-scripts/sanity_check.py ."
     failed:
       claim: "PR必须通过CI检查"
       explain: "sanity_check.py 在这个 PR 中发现错误。"
