@@ -1,6 +1,6 @@
 Name:       openEuler-Advisor
-Version:    1.0
-Release:    4
+Version:    1.0.1
+Release:    1
 Summary:    Collection of automatic tools for easily maintaining openEuler 
 Group:	    Application
 License:    Mulan PSL v2
@@ -48,6 +48,9 @@ py.test-%{python3_version} -vv tests || :
 %attr(0755,root,root) %{_bindir}/issue_report
 
 %changelog
+* Mon Sep 22 2021 licihua <licihua@huawei.com> - 1.0.1-1
+- setup.py: fix pipy install error
+
 * Mon Apr 24 2021 licihua <licihua@huawei.com> - 1.0-5
 - issue_report: support issue_report
 

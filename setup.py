@@ -8,7 +8,7 @@ from distutils.core import setup
 
 setup(
     name='openEuler-Advisor',
-    version='1.0',
+    version='1.0.1',
     py_modules=[
         'advisors.simple_update_robot',
         'advisors.build_rpm_package',
@@ -43,7 +43,12 @@ setup(
               'bs4 (>=0.0.1)',
               'yum_utils (>=1.1.31)'],
     license='Mulan PSL v2',
-    author=open('AUTHORS', encoding='utf-8').read(),
+    platforms=["all"],
+    url='https://gitee.com/openeuler/openEuler-Advisor',
+    author='licihua',
+    author_email='licihua@huawei.com',
+    maintainer='licihua',
+    maintainer_email='licihua@huawei.com',
     description='collection of automatic tools for easily maintaining openEuler',
     data_files=[
         ('/usr/bin/', ['command/simple_update_robot']),
