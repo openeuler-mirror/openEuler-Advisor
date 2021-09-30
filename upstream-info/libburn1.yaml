@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://dev.lovelyhq.com/libburnia/libburn.git
+tag_prefix: "^release-"
+separator: "."
+url: https://dev.lovelyhq.com/libburnia/libburn.git

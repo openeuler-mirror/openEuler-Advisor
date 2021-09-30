@@ -1,0 +1,5 @@
+version_control: github
+src_repo: chromium/chromium
+tag_prefix: ""
+separator: "."
+url: https://github.com/chromium/chromium.git

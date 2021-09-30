@@ -1,0 +1,5 @@
+version_control: github
+src_repo: cyrusimap/cyrus-imapd
+tag_prefix: "^cyrus-imapd-"
+separator: "."
+url: https://github.com/cyrusimap/cyrus-imapd.git
