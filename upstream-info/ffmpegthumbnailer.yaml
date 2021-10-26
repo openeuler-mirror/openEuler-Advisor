@@ -1,0 +1,5 @@
+version_control: github
+src_repo: dirkvdb/ffmpegthumbnailer
+tag_prefix: "^ffmpegthumbnailer-"
+separator: .
+url: https://github.com/dirkvdb/ffmpegthumbnailer.git

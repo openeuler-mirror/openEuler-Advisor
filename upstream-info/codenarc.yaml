@@ -1,0 +1,5 @@
+version_control: github
+src_repo: CodeNarc/CodeNarc
+tag_prefix: ^v
+separator: .
+url: https://github.com/CodeNarc/CodeNarc.git

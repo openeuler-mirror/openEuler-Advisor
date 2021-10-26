@@ -1,0 +1,5 @@
+version_control: github
+src_repo: Mindwerks/wildmidi
+tag_prefix: "^wildmidi-"
+separator: .
+url: https://github.com/Mindwerks/wildmidi.git

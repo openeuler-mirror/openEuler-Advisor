@@ -1,0 +1,5 @@
+version_control: github
+src_repo: ccache/ccache
+tag_prefix: ^v
+separator: .
+url: https://github.com/ccache/ccache.git

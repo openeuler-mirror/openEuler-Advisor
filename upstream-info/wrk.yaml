@@ -1,0 +1,5 @@
+version_control: github
+src_repo: wg/wrk
+tag_prefix: ''
+separator: .
+url: https://github.com/wg/wrk.git

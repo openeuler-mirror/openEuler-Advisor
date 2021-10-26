@@ -1,0 +1,5 @@
+version_control: github
+src_repo: tesseract-ocr/tesseract
+tag_prefix: ""
+separator: .
+url: https://github.com/tesseract-ocr/tesseract.git

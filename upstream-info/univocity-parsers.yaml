@@ -1,0 +1,5 @@
+version_control: github
+src_repo: uniVocity/univocity-parsers
+tag_prefix: ^v
+separator: .
+url: https://github.com/uniVocity/univocity-parsers.git

@@ -1,0 +1,5 @@
+version_control: github
+src_repo: sonatype/oss-parents
+tag_prefix: "^forge-parent-"
+separator: ""
+url: https://github.com/sonatype/oss-parents.git

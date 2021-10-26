@@ -1,0 +1,5 @@
+version_control: github
+src_repo: mpv-player/mpv
+tag_prefix: ^v
+separator: .
+url: https://github.com/mpv-player/mpv.git
