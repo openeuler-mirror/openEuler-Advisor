@@ -1,0 +1,5 @@
+version_control: github
+src_repo: etcd-io/etcd
+tag_prefix: ^v
+separator: .
+url: https://github.com/etcd-io/etcd.git

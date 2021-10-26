@@ -1,0 +1,5 @@
+version_control: github
+src_repo: flatpak/xdg-desktop-portal
+tag_prefix: ""
+separator: .
+url: https://github.com/flatpak/xdg-desktop-portal.git

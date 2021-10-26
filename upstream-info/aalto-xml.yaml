@@ -1,0 +1,5 @@
+version_control: github
+src_repo: FasterXML/aalto-xml
+tag_prefix: "^aalto-xml-"
+separator: .
+url: https://github.com/FasterXML/aalto-xml.git

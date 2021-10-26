@@ -1,0 +1,5 @@
+version_control: github
+src_repo: ofesseler/gluster_exporter
+tag_prefix: ^v
+separator: .
+url: https://github.com/ofesseler/gluster_exporter.git

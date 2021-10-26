@@ -1,0 +1,5 @@
+version_control: github
+src_repo: nemomobile/qtdbusextended
+tag_prefix: ""
+separator: .
+url: https://github.com/nemomobile/qtdbusextended.git

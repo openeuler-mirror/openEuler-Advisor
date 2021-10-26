@@ -1,0 +1,5 @@
+version_control: github
+src_repo: ueno/libkkc
+tag_prefix: ^v
+separator: .
+url: https://github.com/ueno/libkkc.git

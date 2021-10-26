@@ -1,0 +1,5 @@
+version_control: github
+src_repo: paul-hammant/qdox
+tag_prefix: '^qdox-'
+separator: .
+url: https://github.com/paul-hammant/qdox.git

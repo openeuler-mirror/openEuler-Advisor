@@ -1,0 +1,5 @@
+version_control: github
+src_repo: clearlinux-pkgs/pyaml
+tag_prefix: ""
+separator: "-"
+url: https://github.com/clearlinux-pkgs/pyaml.git
