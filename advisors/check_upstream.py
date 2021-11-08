@@ -194,7 +194,12 @@ def check_metacpan(info, clean_tag=True):
             'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
             }
         url = yaml2url.yaml2url(info)
-        resp = requests.get(url, headers=headers)
+        try:
+            print(url)
+            resp = requests.get(url, headers=headers)
+        except requests.RequestException as e:
+            eprint("{repo} > requests.get return error: {error}.".format(repo=info["src_repo"], error=e))
+            return ""
         resp = resp.text
 
     tags = []

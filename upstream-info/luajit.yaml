@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://luajit.org/git/luajit.git
+tag_prefix: "^v"
+separator: "."
+url: https://luajit.org/git/luajit.git
