@@ -679,6 +679,8 @@ def main():
                       "clone to local", action="store_true")
     pars.add_argument("-b", "--build_pkg", help="Build package in local", action="store_true")
     pars.add_argument("-p", "--push_create_pr_issue", help="Push update repo, create "\
+                      , action="store_true")
+    pars.add_argument("-c", "--check_rpm_abi", help="Check ABI compatibility."\
                       "PR and issue", action="store_true")
     args = pars.parse_args()
     global __WORK_PATH
