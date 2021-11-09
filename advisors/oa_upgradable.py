@@ -24,6 +24,22 @@ import yaml
 from advisors import gitee
 from advisors import check_upstream
 from advisors import version_recommend
+from datetime import datetime
+
+NEW_COMMENT = """Dear {repo} maintainer:
+
+We found this issue has been open for {days} days.
+
+If you have any problems during implementation, please let the community known.
+
+We'll try our best to help.
+
+This is a automatic recommendation from openEuler-Advisor. If you think the suggestion is incorrect,
+ 
+please fill an issue at https://gitee.com/openeuler/openEuler-Advisor to help us improve.
+
+Yours openEuler Advisor.
+"""
 
 
 def _filter_except(excpts, sources):
@@ -142,9 +158,24 @@ def main_process(push, default, repo):
     print("Latest version is", ver_rec.latest_version)
     print("Maintain version is", ver_rec.maintain_version)
 
+    need_push_issue = True
     if cur_version != ver_rec.latest_version:
         if push:
-            user_gitee.post_issue(repo, "Upgrade to latest release", """Dear {repo} maintainer:
+            issues = user_gitee.get_issues(repo)
+            for issue in issues:
+                if issue["title"] == "Upgrade to latest release":
+                    need_push_issue = False
+                    ages = datetime.now() - user_gitee.get_gitee_datetime(issue["created_at"])
+                    if ages.days <= 30:
+                        print("Advise has been issues only %d days ago" % ages.days)
+                        print("Give developers more time to handle it.")
+                        break
+                    user_gitee.post_issue_comment(repo, issue["number"], NEW_COMMENT.format(
+                        repo=repo,
+                        days=ages.days))
+                    break
+            if need_push_issue:
+                user_gitee.post_issue(repo, "Upgrade to latest release", """Dear {repo} maintainer:
 
 We found the latest version of {repo} is {ver}, while the current version in openEuler mainline is {cur_ver}.
 
@@ -158,5 +189,7 @@ Issues and feedbacks are welcome.""".format(repo=repo,
                                             cur_ver=cur_version))
         return repo, cur_version, ver_rec.latest_version
     return None
+
+
 if __name__ == "__main__":
     main()
