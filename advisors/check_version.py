@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
 # licensed under the Mulan PSL v2.
 # You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -20,6 +20,7 @@ import argparse
 from advisors import gitee
 from advisors.oa_upgradable import main_process
 from advisors.check_missing_file import get_repos_by_sig
+import time
 
 
 def main():
@@ -43,6 +44,7 @@ def main():
         sig = 'all'
 
     repos = get_repos_by_sig(sig)
+    print(repos)
     total = len(repos)
     index = 0
     upgrade_list = []
@@ -52,6 +54,8 @@ def main():
         if url == 'openeuler':
             continue
         check_repo = repo.split('/')[1]
+        # sleep 10 second, avoid limited by github\gitlab
+        time.sleep(10)
         result = main_process(args.push, args.default, check_repo)
         if result:
             print('''INFO: {index} in {total} check {repo} need upgrade \
@@ -73,6 +77,7 @@ upgrade'''.format(index=index,
             print("{repo}   {current}   {latest}".format(repo=upgrade_repo[0],
                                                          current=upgrade_repo[1],
                                                          latest=upgrade_repo[2]))
+
 
 if __name__ == "__main__":
     main()

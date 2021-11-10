@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
 # licensed under the Mulan PSL v2.
 # You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -21,7 +21,6 @@ import argparse
 from datetime import datetime
 
 from advisors import gitee
-
 
 NEW_SPEC_ISSUE_BODY = """Dear {repo} maintainer:
 亲爱的 {repo} 维护者：
@@ -72,6 +71,7 @@ This is a automatic advise from openEuler-Advisor. If you think the advise is no
 Yours openEuler Advisor.
 """
 
+
 def get_repos_by_sig(sig):
     """
     Get repos by sig
@@ -91,6 +91,7 @@ def get_repos_by_sig(sig):
     repo_list = [i for item in repo_list for i in item]
     return repo_list
 
+
 def main_process(repo, push, check_file):
     """
     Main process for command line
@@ -108,22 +109,24 @@ def main_process(repo, push, check_file):
         return 'NOK'
 
     if not file:
+        need_push_issue = True
         print("no {file} file found for {repo} project".format(file=check_file, repo=repo))
         if push:
             issues = my_gitee.get_issues(repo)
             for issue in issues:
                 if issue["title"] == "Submit {file} file into this repository".format(
                         file=check_file):
+                    need_push_issue = False
                     ages = datetime.now() - my_gitee.get_gitee_datetime(issue["created_at"])
                     if ages.days <= 10:
                         print("Advise has been issues only %d days ago" % ages.days)
                         print("Give developers more time to handle it.")
                         break
                     my_gitee.post_issue_comment(repo, issue["number"], NEW_COMMENT.format(
-                                                repo=repo,
+                        repo=repo,
                         days=ages.days))
                     break
-            else:
+            if need_push_issue:
                 if check_file == 'spec':
                     my_gitee.post_issue(repo,
                                         "Submit {file} file into this repository".format(
@@ -185,6 +188,7 @@ def main():
         print('The repos listed below check {file} failed:'.format(file=args.file))
         for repo in fail_list:
             print(repo)
+
 
 if __name__ == "__main__":
     main()

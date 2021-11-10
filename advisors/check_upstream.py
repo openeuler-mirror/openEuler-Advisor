@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
 # licensed under the Mulan PSL v2.
 # You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -21,7 +21,6 @@ import subprocess
 from datetime import datetime
 from urllib.parse import urljoin
 import requests
-
 from advisors import yaml2url
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
@@ -30,6 +29,23 @@ TIME_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 def eprint(*args, **kwargs):
     """Helper for debug print"""
     print("DEBUG: ", *args, file=sys.stderr, **kwargs)
+
+
+def get_resp(url, **kwargs):
+    r"""Sends a GET request.
+
+    :param url: URL for the new :class:`Request` object.
+    :param \*\*kwargs: Optional arguments that ``request`` takes.
+    :return: :class:`Response <Response>` object
+    :rtype: requests.Response
+    """
+    try:
+        resp = requests.get(url, **kwargs)
+    except requests.RequestException as e:
+        eprint("{url} > requests.get return error: {error}.".format(url=url, error=e))
+        return ""
+
+    return resp
 
 
 def load_last_query_result(info, force_reload=False):
@@ -43,7 +59,7 @@ def load_last_query_result(info, force_reload=False):
 
     if "last_query" in info.keys():
         last_query = info.pop("last_query")
-        #age = datetime.now() - datetime.strptime(last_query["time_stamp"], TIME_FORMAT)
+        # age = datetime.now() - datetime.strptime(last_query["time_stamp"], TIME_FORMAT)
         age = datetime.now() - last_query["time_stamp"].replace(tzinfo=None)
         if age.days < 7:
             eprint("{repo} > Reuse Last Query".format(repo=info["src_repo"]))
@@ -114,14 +130,16 @@ def check_hg_raw(info, clean_tag=True):
     """
     Check hg version info via raw-tags
     """
-    eprint("{repo} > Using hg raw-tags".format(repo=info["src_repo"]+"/raw-tags"))
+    eprint("{repo} > Using hg raw-tags".format(repo=info["src_repo"] + "/raw-tags"))
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-            }
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
         url = yaml2url.yaml2url(info)
-        resp = requests.get(url, headers=headers)
+        resp = get_resp(url, headers=headers)
+        if not resp:
+            return ""
         resp = resp.text
         need_trick, url, cookies = dirty_redirect_tricks(url, resp)
         if need_trick:
@@ -131,12 +149,13 @@ def check_hg_raw(info, clean_tag=True):
             for cookie in cookies:
                 key, value = cookie.split('=')
                 c_dict[key] = value
-            resp = requests.get(url, headers=headers, cookies=c_dict)
-            resp = resp.text
 
-    last_query = {}
-    last_query["time_stamp"] = datetime.now()
-    last_query["raw_data"] = resp
+            resp = get_resp(url, headers=headers, cookies=c_dict)
+            if not resp:
+                return ""
+
+            resp = resp.text
+    last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
     tags = []
     for line in resp.splitlines():
@@ -150,14 +169,17 @@ def check_hg(info, clean_tag=True):
     """
     Check hg version info via json
     """
-    eprint("{repo} > Using hg json-tags".format(repo=info["src_repo"]+"/json-tags"))
+    eprint("{repo} > Using hg json-tags".format(repo=info["src_repo"] + "/json-tags"))
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-            }
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
         url = yaml2url.yaml2url(info)
-        resp = requests.get(url, headers=headers)
+        resp = get_resp(url, headers=headers)
+        if not resp:
+            return ""
+
         resp = resp.text
         need_trick, url, cookies = dirty_redirect_tricks(url, resp)
         if need_trick:
@@ -167,12 +189,13 @@ def check_hg(info, clean_tag=True):
             for cookie in cookies:
                 key, value = cookie.split('=')
                 c_dict[key] = value
-            resp = requests.get(url, headers=headers, cookies=c_dict)
-            resp = resp.text
 
-    last_query = {}
-    last_query["time_stamp"] = datetime.now()
-    last_query["raw_data"] = resp
+            resp = get_resp(url, headers=headers, cookies=c_dict)
+            if not resp:
+                return ""
+
+            resp = resp.text
+    last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
     # try and except ?
     tags_json = json.loads(resp)
@@ -191,17 +214,15 @@ def check_metacpan(info, clean_tag=True):
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-            }
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
         url = yaml2url.yaml2url(info)
-        try:
-            print(url)
-            resp = requests.get(url, headers=headers)
-        except requests.RequestException as e:
-            eprint("{repo} > requests.get return error: {error}.".format(repo=info["src_repo"], error=e))
+        print(url)
+        resp = get_resp(url, headers=headers)
+        if not resp:
             return ""
-        resp = resp.text
 
+        resp = resp.text
     tags = []
     tag_list = resp.splitlines()
     condition = "value=\"/release"
@@ -219,10 +240,9 @@ def check_metacpan(info, clean_tag=True):
 
     if not tags:
         eprint("{repo} found unsorted on cpan.metacpan.org".format(repo=info["src_repo"]))
-        sys.exit(1)
-    last_query = {}
-    last_query["time_stamp"] = datetime.now()
-    last_query["raw_data"] = resp
+        return ""
+
+    last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
     if clean_tag:
         tags = clean_tags(tags, info)
@@ -237,17 +257,19 @@ def check_pypi(info, clean_tag=True):
     tags = []
     if resp == "":
         headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-            }
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
         url = yaml2url.yaml2url(info)
-        resp = requests.get(url, headers=headers)
+        resp = get_resp(url, headers=headers)
+        if not resp:
+            return ""
 
     data = resp.json()
     for key in data["releases"].keys():
         tags.append(key)
     if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
-        sys.exit(1)
+        return ""
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
@@ -261,17 +283,19 @@ def check_rubygem(info, clean_tag=True):
     tags = []
     if resp == "":
         headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-            }
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+        }
         url = yaml2url.yaml2url(info)
-        resp = requests.get(url, headers=headers)
+        resp = get_resp(url, headers=headers)
+        if not resp:
+            return ""
 
     data = resp.json()
     for release in data:
         tags.append(release["number"])
     if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
-        sys.exit(1)
+        return ""
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
@@ -383,11 +407,13 @@ def check_gnu_ftp(info, clean_tag=True):
     Check version info via compare ftp release tar file for gnu
     """
     headers = {
-        'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-        }
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+    }
     url = yaml2url.yaml2url(info)
     eprint("{repo} > List ftp directory".format(repo=url))
-    resp = requests.get(url, headers=headers)
+    resp = get_resp(url, headers=headers)
+    if not resp:
+        return ""
     resp = resp.text
     re_pattern = re.compile("href=\"(.*)\">(\\1)</a>")
     tags = []
@@ -405,11 +431,15 @@ def check_ftp(info, clean_tag=True):
     Check version info via compare ftp release tar file
     """
     headers = {
-        'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
-        }
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
+    }
     url = yaml2url.yaml2url(info)
     eprint("{repo} > List ftp directory".format(repo=url))
-    resp = requests.get(url, headers=headers)
+
+    resp = get_resp.get(url, headers=headers)
+    if not resp:
+        return ""
+
     resp = resp.text
     re_pattern = re.compile("href=\"(.*)\">(.*)</a>")
     tags = []
@@ -488,15 +518,13 @@ def check_sourceforge(info, clean_tag=True):
     tags = []
     if resp == "":
         headers = {
-            'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64)'
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
         }
         url = yaml2url.yaml2url(info)
         print("check_sourceforge, url = " + url)
-        try:
-            resp = requests.get(url, headers=headers)
-        except ConnectionError as err:
-            print("ERROR: connect {} error.".format(url), err)
-            return ''
+        resp = get_resp(url, headers=headers)
+        if not resp:
+            return ""
 
     data = resp.text
     lines = data.splitlines()
