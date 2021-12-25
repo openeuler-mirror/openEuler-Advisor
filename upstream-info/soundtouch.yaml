@@ -1,9 +1,5 @@
----
 version_control: git
-src_repo: https://gitlab.com/soundtouch/soundtouch.git
-tag_prefix: "^"
-separator: "."
-git_url: https://gitlab.com/soundtouch/soundtouch.git
-git_tag:
-- 2018-12-02 2.1.2
-- 2018-11-14 2.1.1
+src_repo: https://codeberg.org/soundtouch/soundtouch.git
+tag_prefix: ""
+separator: .
+git_url: https://codeberg.org/soundtouch/soundtouch.git

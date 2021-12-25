@@ -1,0 +1,5 @@
+version_control: github
+src_repo: eclipse/tycho
+tag_prefix: "^tycho-"
+separator: "."
+git_url: https://github.com/eclipse/tycho.git

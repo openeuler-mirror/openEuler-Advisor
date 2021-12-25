@@ -1,0 +1,4 @@
+version_control: github
+src_repo: SCons/scons
+tag_prefix: ^v
+separator: .

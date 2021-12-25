@@ -1,0 +1,5 @@
+version_control: github
+src_repo: leejarvis/slop 
+tag_prefix: "^v"
+separator: "."
+

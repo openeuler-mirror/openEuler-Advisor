@@ -1,0 +1,5 @@
+version_control: github
+src_repo: isaacs/slide-flow-control
+tag_prefix: "^v"
+separator: "."
+

@@ -58,25 +58,36 @@ def main():
         time.sleep(10)
         result = main_process(args.push, args.default, check_repo)
         if result:
-            print('''INFO: {index} in {total} check {repo} need upgrade \
+            if result[1] != result[2]:
+                print('''INFO: {index} in {total} check {repo} need upgrade \
 from {current} to {latest}'''.format(index=index,
-                                     total=total,
-                                     repo=result[0],
-                                     current=result[1],
-                                     latest=result[2]))
-            upgrade_list.append(result)
-        else:
-            print('''INFO: {index} in {total} check {repo} not need \
+                                         total=total,
+                                         repo=result[0],
+                                         current=result[1],
+                                         latest=result[2]))
+                result.append('Y')
+                upgrade_list.append(result)
+            else:
+                result.append('N')
+                upgrade_list.append(result)
+                print('''INFO: {index} in {total} check {repo} not need \
 upgrade'''.format(index=index,
-                  total=total,
-                  repo=check_repo))
+                                  total=total,
+                                  repo=check_repo))
+        else:
+            upgrade_list.append([check_repo, '-', '-', '-'])
+            print('''INFO: {index} in {total} check {repo} \
+latest version failed.'''.format(index=index,
+                                             total=total,
+                                             repo=check_repo))
 
     if upgrade_list:
-        print("The repos listed below need upgrade:")
+        print("Repo upgrade check result:")
         for upgrade_repo in upgrade_list:
-            print("{repo}   {current}   {latest}".format(repo=upgrade_repo[0],
-                                                         current=upgrade_repo[1],
-                                                         latest=upgrade_repo[2]))
+            print("{repo}   {current}   {latest}    {upgrade}".format(repo=upgrade_repo[0],
+                                                                      current=upgrade_repo[1],
+                                                                      latest=upgrade_repo[2],
+                                                                      upgrade=upgrade_repo[3]))
 
 
 if __name__ == "__main__":

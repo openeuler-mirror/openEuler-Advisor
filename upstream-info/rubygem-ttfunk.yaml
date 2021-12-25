@@ -1,0 +1,4 @@
+version_control: github
+src_repo: prawnpdf/ttfunk 
+tag_prefix: ""
+separator: "."
