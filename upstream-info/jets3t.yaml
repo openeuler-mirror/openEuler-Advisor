@@ -1,0 +1,6 @@
+version_control: github
+src_repo: iterate-ch/jets3t
+tag_prefix: "^Release-"
+separator: "."
+git_url: https://github.com/iterate-ch/jets3t.git
+

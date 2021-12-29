@@ -436,7 +436,7 @@ def check_ftp(info, clean_tag=True):
     url = yaml2url.yaml2url(info)
     eprint("{repo} > List ftp directory".format(repo=url))
 
-    resp = get_resp.get(url, headers=headers)
+    resp = get_resp(url, headers=headers)
     if not resp:
         return ""
 

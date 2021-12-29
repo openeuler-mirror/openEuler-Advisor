@@ -1,0 +1,6 @@
+version_control: github
+src_repo: kronosnet
+src_repo: kronosnet/kronosnet
+tag_prefix: "^v"
+separator: "."
+url: https://github.com/kronosnet/kronosnet.git

@@ -187,8 +187,8 @@ If you think this is not proper issue, Please visit https://gitee.com/openeuler/
 Issues and feedbacks are welcome.""".format(repo=repo,
                                             ver=ver_rec.latest_version,
                                             cur_ver=cur_version))
-        return repo, cur_version, ver_rec.latest_version
-    return None
+    return [repo, cur_version, ver_rec.latest_version]
+
 
 
 if __name__ == "__main__":

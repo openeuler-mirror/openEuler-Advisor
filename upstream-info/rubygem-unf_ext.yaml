@@ -1,0 +1,4 @@
+version_control: github
+src_repo: knu/ruby-unf_ext 
+tag_prefix: "^v"
+separator: "."

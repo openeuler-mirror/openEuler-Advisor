@@ -1,0 +1,5 @@
+version_control: github
+src_repo: sindresorhus/is-builtin-module
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/sindresorhus/is-builtin-module.git
