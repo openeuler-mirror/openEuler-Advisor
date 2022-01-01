@@ -8,4 +8,7 @@ branches:
 - name: openEuler-21.03
   recommend_type: master
   obs_prj: openEuler:21.03
+- name: openEuler-22.03-LTS-Next
+  recommend_type: LTS
+  obs_prj: openEuler:22.03:LTS:Next
 
