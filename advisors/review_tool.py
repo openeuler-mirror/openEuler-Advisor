@@ -45,7 +45,6 @@ categorizer = {'PRSubmissionSPEC': 'PR提交规范',
                'Compatibility': '兼容性',
                'PackageSubmission': '制品仓要求',
                'customization': '定制项'}
-SIGS_URL = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/20100101 Firefox/23.0'}
 __NUMBER = 0
 
@@ -158,27 +157,59 @@ def check_repository_changes():
     """
     check if src-openeuler.yaml has been changed
     """
-    lst_files = subprocess.getoutput("git diff remotes/origin/master.. \
-            repository/src-openeuler.yaml | grep '^+- name' | awk '{print $NF}'")
-    return bool(lst_files.splitlines())
+    pr_diff = subprocess.getoutput("git show | grep '^diff --git'").splitlines()
+    diff_files = [diff_file.split(' ')[-1].split('/', 1)[1].strip() for diff_file in pr_diff]
+    lst_files = []
+    for diff_file in diff_files:
+        if diff_file.startswith('sig') and diff_file.endswith('.yaml'):
+            if len(diff_file.split('/')) == 5 and diff_file.split('/')[2] in ['openeuler', 'src-openeuler']:
+                lst_files.append(diff_file)
+    return bool(lst_files)
 
 
-def load_sigs(sigs_file=""):
+def get_current_branch():
+    return subprocess.getoutput("git branch | grep \\*").split(' ')[-1]
+
+
+def load_sigs(branch=None):
     """
-    Load sigs yaml
+    Construct sigs and repositories
     """
-    if sigs_file:
-        try:
-            file_descriptor = open(sigs_file, 'r', encoding='utf-8')
-        except IOError as error:
-            print("Error: open file {} failed", sigs_file, error)
-            return None
-        sigs = yaml.load(file_descriptor.read(), Loader=yaml.Loader)
-    else:
-        req = urllib.request.Request(url=SIGS_URL, headers=headers)
-        res = urllib.request.urlopen(req)
-        sigs = yaml.load(res.read().decode("utf-8"), Loader=yaml.Loader)
-    return sigs['sigs']
+    cur_branch = get_current_branch()
+    if branch and branch != cur_branch:
+        subprocess.call('git checkout {}'.format(branch), shell=True)
+    openeuler_repos = []
+    src_openeuler_repos = []
+    sigs = []
+    for i in os.listdir('sig'):
+        if i in ['README.md', 'sig-template']:
+            continue
+        if i not in [x['name'] for x in sigs]:
+            sigs.append({'name': i, 'repositories': []})
+        if 'openeuler' in os.listdir(os.path.join('sig', i)):
+            for filesdir, _, repos in os.walk(os.path.join('sig', i, 'openeuler')):
+                for repo in repos:
+                    with open(os.path.join(filesdir, repo)) as f:
+                        config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        openeuler_repos.append(config_info)
+                        for sig in sigs:
+                            if sig['name'] == i:
+                                repositories = sig['repositories']
+                                repositories.append(os.path.join('openeuler', repo.split('.yaml')[0]))
+        if 'src-openeuler' in os.listdir(os.path.join('sig', i)):
+            for filesdir, _, src_repos in os.walk(os.path.join('sig', i, 'src-openeuler')):
+                for src_repo in src_repos:
+                    with open(os.path.join(filesdir, src_repo), 'r') as f:
+                        src_config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        src_openeuler_repos.append(src_config_info)
+                        for sig in sigs:
+                            if sig['name'] == i:
+                                repositories = sig['repositories']
+                                repositories.append(os.path.join('src-openeuler', src_repo.split('.yaml')[0]))
+    now_branch = get_current_branch()
+    if now_branch != cur_branch:
+        subprocess.call('git checkout {}'.format(cur_branch), shell=True)
+    return sigs, openeuler_repos, src_openeuler_repos
 
 
 def get_repo_sig_ownership(repo, sigs):
@@ -243,22 +274,21 @@ def get_repo_changes():
     """
     dlt_repos = []
     add_repos = []
-
-    dlt_lines = subprocess.getoutput(
-        "git diff remotes/origin/master.. sig/sigs.yaml | grep '^-[ ][ ]-' | awk '{print $NF}'")
-    for dlt_line in dlt_lines.splitlines():
-        if dlt_line.startswith("openeuler") or dlt_line.startswith("src-openeuler"):
-            dlt_repos.append(dlt_line.strip())
-
-    add_lines = subprocess.getoutput(
-        "git diff remotes/origin/master.. sig/sigs.yaml | grep '^+[ ][ ]-' | awk '{print $NF}'")
-    for add_line in add_lines.splitlines():
-        if add_line.startswith("openeuler") or add_line.startswith("src-openeuler"):
-            add_repos.append(add_line.strip())
-
     repo_changes = {}
-    cur_sigs = load_sigs()
-    tobe_sigs = load_sigs("sig/sigs.yaml")
+    cur_repos = []
+    tobe_repos = []
+    cur_sigs, cur_openeuler_repos, cur_src_openeuler_repos = load_sigs()
+    tobe_sigs, tobe_openeuler_repos, tobe_src_openeuler_repos = load_sigs('master')
+    cur_repos.extend(cur_openeuler_repos)
+    cur_repos.extend(cur_src_openeuler_repos)
+    tobe_repos.extend(tobe_openeuler_repos)
+    tobe_repos.extend(tobe_src_openeuler_repos)
+    for cur_repo in cur_repos:
+        if cur_repo not in tobe_repos:
+            add_repos.append(cur_repo)
+    for tobe_repo in tobe_repos:
+        if tobe_repo not in cur_repos:
+            dlt_repos.append(tobe_repo)
     for dlt_repo in dlt_repos:
         if dlt_repo in add_repos:
             cur_sig = get_repo_sig_ownership(dlt_repo, cur_sigs)
@@ -281,8 +311,7 @@ def check_repository_ownership_changes(info):
     review_body = ""
 
     rls_mgmt_owners = load_sig_owners("sig-release-management")
-    oe_mgmt_repos = load_repositories("repository/openeuler.yaml")
-    src_oe_mgmt_repos = load_repositories("repository/src-openeuler.yaml")
+    _, oe_mgmt_repos, src_oe_mgmt_repos = load_sigs()
     repo_changes = get_repo_changes()
     for sig_changes, repos in repo_changes.items():
         sig1_owners = load_sig_owners(sig_changes[0])
@@ -321,13 +350,20 @@ def check_branch_add(info):
     review_body = ""
     need_mgmt_lgtm = False
 
-    add_lines = subprocess.getoutput(
-        "git diff remotes/origin/master.. \
-        repository/src-openeuler.yaml | grep '^+[ ][ ]-' | awk '{print $NF}'")
-    for add_line in add_lines.splitlines():
-        if add_line.strip() != "master":
-            need_mgmt_lgtm = True
-            break
+    pr_diffs = [diff_file.splitlines() for diff_file in subprocess.getoutput('git show').split('diff --git')[1:]]
+    for diff_file in pr_diffs:
+        diff_file_name = diff_file[0].split(' ')[-1].split('/', 1)[1]
+        if not (diff_file_name.endswith('.yaml') and
+                len(diff_file_name.split('/')) == 5 and
+                diff_file_name.split('/')[0] == 'sig' and
+                diff_file_name.split('/')[2] in ['openeuler', 'src-openeuler']):
+            continue
+        for diff_line in diff_file:
+            if diff_line.startswith('+- name: '):
+                add_branch = diff_line.split('+- name: ')[-1].strip()
+                if add_branch != 'master':
+                    need_mgmt_lgtm = True
+                    break
     if need_mgmt_lgtm:
         owners = load_sig_owners("sig-release-management")
         item = join_check_item(categorizer['customization'], info['claim'], info['explain'])
@@ -451,6 +487,7 @@ def basic_review(cklist, branch):
             review_body += item
     return review_body
 
+
 def src_openeuler_review(cklist, branch):
     """
     Review items for src-openeuler repos
@@ -464,6 +501,7 @@ def src_openeuler_review(cklist, branch):
                                    value2['claim'], value2['explain'])
             review_body += item
     return review_body
+
 
 def community_maintainer_change_review(cstm_item, sigs):
     """
@@ -570,14 +608,14 @@ def extract_params(args):
             group = res.group(2)
             repo_name = res.group(3)
             pull_id = res.group(4)
-            return (group, repo_name, pull_id)
+            return group, repo_name, pull_id
         print("ERROR: URL is wrong, please check!")
         return ()
     if args.repo and args.pull and len(args.repo) > 0 and len(args.pull) > 0:
         group = args.repo.split('/')[0]
         repo_name = args.repo.split('/')[1]
         pull_id = args.pull
-        return (group, repo_name, pull_id)
+        return group, repo_name, pull_id
     print("WARNING: please specify the URL of PR or repository name and  PR's ID.\
             \nDetails use -h/--help option.")
     return ()
@@ -588,8 +626,7 @@ def args_parser():
     arguments parser
     """
     pars = argparse.ArgumentParser()
-    pars.add_argument("-q", "--quiet", action='store_true', default=False, \
-                      help="No log print")
+    pars.add_argument("-q", "--quiet", action='store_true', default=False, help="No log print")
     pars.add_argument("-n", "--repo", type=str, help="Repository name that include group")
     pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request")
     pars.add_argument("-u", "--url", type=str, help="URL of Pull Request")
@@ -721,7 +758,7 @@ def edit_review_status(edit, user_gitee, group, repo_name, pull_id):
                                            items[head_len + num])
     else:
         for num, status in status_num_dicts.items():
-            if int(num) >= 0 and int(num) < len(items[head_len:]):
+            if 0 <= int(num) < len(items[head_len:]):
                 items[head_len + num] = re.sub(match_str,
                                                RRVIEW_STATUS[status],
                                                items[head_len + num])
@@ -787,8 +824,7 @@ def main():
         sys.exit(1)
     pull_request = user_gitee.get_pr(repo_name, pull_id, group)
     if not pull_request:
-        print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." \
-              % (pull_id, group, repo_name))
+        print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo_name))
         return 1
     if args.edit:
         if edit_review_status(args.edit, user_gitee, group, repo_name, pull_id) != 0:
@@ -812,3 +848,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
