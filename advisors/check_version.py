@@ -17,10 +17,10 @@ This is an automatic script for checking source url of package
 import os
 import sys
 import argparse
+import time
 from advisors import gitee
 from advisors.oa_upgradable import main_process
-from advisors.check_missing_file import get_repos_by_sig
-import time
+
 
 
 def main():
@@ -34,37 +34,36 @@ def main():
     parameters.add_argument("-d", "--default", type=str, default=os.getcwd(),
                             help="The fallback place to look for YAML information")
 
-    parameters.add_argument("-s", "--sig",
+    parameters.add_argument("-s", "--sig", required=True,
                             help="Check yaml by Sig")
 
     args = parameters.parse_args()
-    if args.sig:
-        sig = args.sig
-    else:
-        sig = 'all'
 
-    repos = get_repos_by_sig(sig)
+    sig = args.sig
+
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
+
+    repos = user_gitee.get_repos_by_sig(sig)
     print(repos)
     total = len(repos)
     index = 0
     upgrade_list = []
-    for repo in repos:
-        index = index + 1
-        url = repo.split('/')[0]
-        if url == 'openeuler':
-            continue
-        check_repo = repo.split('/')[1]
+    for check_repo in repos:
         # sleep 10 second, avoid limited by github\gitlab
+        index = index + 1
         time.sleep(10)
         result = main_process(args.push, args.default, check_repo)
         if result:
             if result[1] != result[2]:
                 print('''INFO: {index} in {total} check {repo} need upgrade \
 from {current} to {latest}'''.format(index=index,
-                                         total=total,
-                                         repo=result[0],
-                                         current=result[1],
-                                         latest=result[2]))
+                                     total=total,
+                                     repo=result[0],
+                                     current=result[1],
+                                     latest=result[2]))
                 result.append('Y')
                 upgrade_list.append(result)
             else:
@@ -72,14 +71,14 @@ from {current} to {latest}'''.format(index=index,
                 upgrade_list.append(result)
                 print('''INFO: {index} in {total} check {repo} not need \
 upgrade'''.format(index=index,
-                                  total=total,
-                                  repo=check_repo))
+                  total=total,
+                  repo=check_repo))
         else:
             upgrade_list.append([check_repo, '-', '-', '-'])
             print('''INFO: {index} in {total} check {repo} \
 latest version failed.'''.format(index=index,
-                                             total=total,
-                                             repo=check_repo))
+                                 total=total,
+                                 repo=check_repo))
 
     if upgrade_list:
         print("Repo upgrade check result:")
