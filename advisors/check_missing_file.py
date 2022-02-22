@@ -72,24 +72,7 @@ Yours openEuler Advisor.
 """
 
 
-def get_repos_by_sig(sig):
-    """
-    Get repos by sig
-    """
-    try:
-        user_gitee = gitee.Gitee()
-    except NameError:
-        sys.exit(1)
-    yaml_data = user_gitee.get_sigs()
 
-    repo_list = []
-    for sigs in yaml_data['sigs']:
-        if sig not in (sigs['name'], 'all'):
-            continue
-        repo_name = sigs['repositories']
-        repo_list.append(repo_name)
-    repo_list = [i for item in repo_list for i in item]
-    return repo_list
 
 
 def main_process(repo, push, check_file):
@@ -148,7 +131,7 @@ def main():
     Main process for command line
     """
     pars = argparse.ArgumentParser()
-    pars.add_argument("-s", "--sig", type=str, default='all', help="Sig name")
+    pars.add_argument("-s", "--sig", type=str, required=True, help="Sig name")
     pars.add_argument("-p", "--push",
                       help="Push the advise to gitee.com/src-openeuler",
                       action="store_true")
@@ -160,21 +143,18 @@ def main():
         print("ERROR: Not support {file} check".format(file=args.file))
         return
 
-    repos = get_repos_by_sig(args.sig)
-    if not repos:
-        print("ERROR: no repos find is {sig} sig, please check the sig name.".format(
-            sig=args.sig))
-        return
+    try:
+        user_gitee = gitee.Gitee()
+    except NameError:
+        sys.exit(1)
+    repos = user_gitee.get_repos_by_sig(args.sig)
+    print(repos)
     fail_list = []
 
     total = len(repos)
     index = 0
-    for repo in repos:
+    for check_repo in repos:
         index = index + 1
-        url = repo.split('/')[0]
-        if url == 'openeuler':
-            continue
-        check_repo = repo.split('/')[1]
         result = main_process(check_repo, args.push, args.file)
         if result != 'OK':
             fail_list.append(check_repo)

@@ -101,7 +101,7 @@ class Gitee():
             return result.read().decode("utf-8")
         except urllib.error.HTTPError as err:
             print("ERROR: error occurred.\nerrcode: %d\nreason: %s\nheaders:\n%s"
-                    % (err.code, err.reason, str(err.headers)))
+                  % (err.code, err.reason, str(err.headers)))
             return False
 
     def __patch_gitee(self, url, values, headers=None):
@@ -117,7 +117,7 @@ class Gitee():
             return result.read().decode("utf-8")
         except urllib.error.HTTPError as err:
             print("ERROR: error occurred.\nerrcode: %d\nreason: %s\nheaders:\n%s"
-                    % (err.code, err.reason, str(err.headers)))
+                  % (err.code, err.reason, str(err.headers)))
             return False
 
     def fork_repo(self, repo, owner="src-openeuler"):
@@ -318,15 +318,60 @@ class Gitee():
                 return ''
         return base64.b64decode(resp["content"]).decode("utf-8")
 
+    def __get_community_tree(self, sha):
+        """
+        Get openeuler/community tree
+        """
+        url = "https://gitee.com/api/v5/repos/openeuler/community/git/trees/{sha}?".format(sha=sha)
+        dirs = self.__get_gitee_json(url)
+        return dirs['tree']
+
+    def __get_community_sha(self, sha, path):
+        """
+        Get openeuler/community sha by sha and file path
+        """
+        tree = self.__get_community_tree(sha)
+        for my_dir in tree:
+            if my_dir['path'] == path:
+                return my_dir['sha']
+        return ''
+
     def get_sigs(self):
         """
-        Get upstream sigs
+        Get upstream sigs tree info
         """
-        sigs_url = "https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml"
-        req = urllib.request.Request(url=sigs_url, headers=self.headers)
-        data = urllib.request.urlopen(req)
-        sigs = yaml.load(data.read().decode("utf-8"), Loader=yaml.Loader)
+        sigs = {}
+        master_tree = self.__get_community_tree('master')
+        for my_dir in master_tree:
+            if my_dir['type'] == 'tree' and my_dir['path'] == 'sig':
+                sig_sha = my_dir['sha']
+
+        sig_tree = self.__get_community_tree(sig_sha)
+        for my_dir in sig_tree:
+            if my_dir['type'] == 'tree':
+                sigs[my_dir['path']] = my_dir['sha']
+
         return sigs
+
+    def get_repos_by_sig(self, sig):
+        """
+        Get repos list by sig
+        """
+        sigs = self.get_sigs()
+        if sig not in sigs.keys():
+            return ''
+        repo_list = []
+
+        openeuler_sha = self.__get_community_sha(sigs[sig], 'src-openeuler')
+        initials_tree = self.__get_community_tree(openeuler_sha)
+        for initials_dir in initials_tree:
+            openeuler_repo_tree = self.__get_community_tree(initials_dir['sha'])
+            for my_repo_dir in openeuler_repo_tree:
+                repo_name = my_repo_dir['path']
+                repo_name = repo_name[:-5]
+                repo_list.append(repo_name)
+        return repo_list
+
 
     def get_community(self, repo):
         """
