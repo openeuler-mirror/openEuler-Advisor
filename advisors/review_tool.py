@@ -19,6 +19,7 @@ import sys
 import argparse
 import subprocess
 import shutil
+import tempfile
 import urllib
 import yaml
 
@@ -27,7 +28,6 @@ from advisors import gitee
 CHK_TABLE_HEADER = """
 **以下为 openEuler-Advisor 的 review_tool 生成审视要求清单**
 如果您是第一次给 openEuler 提交 PR，建议您花一点时间阅读 [Gitee工作流说明](https://gitee.com/openeuler/community/blob/master/zh/contributors/Gitee-workflow.md)
-
 **{go}** 审视者确认符合要求 | **{nogo}** 审视者认为不符合要求 | **{na}** 审视者认为与本PR无关 | **{question}** 审视者无法确认是否符合要求 | **{ongoing}** 审视过程中
 **NOTE:** Comment "/review status[go/nogo/na/question/ongoing]:number_list[0,1,2 ...] ..." to update the status.
 Example: "/review go:0,1,2 nogo:3,4,5" or "/review go:0-2 nogo:3-5".
@@ -190,7 +190,12 @@ def load_sigs(branch=None):
             for filesdir, _, repos in os.walk(os.path.join('sig', i, 'openeuler')):
                 for repo in repos:
                     with open(os.path.join(filesdir, repo)) as f:
-                        config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        try:
+                            config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        except yaml.MarkedYAMLError as e:
+                            print('Invalid YAML file: {}'.format(os.path.join(filesdir, repo)))
+                            print(e)
+                            sys.exit(1)
                         openeuler_repos.append(config_info)
                         for sig in sigs:
                             if sig['name'] == i:
@@ -200,7 +205,12 @@ def load_sigs(branch=None):
             for filesdir, _, src_repos in os.walk(os.path.join('sig', i, 'src-openeuler')):
                 for src_repo in src_repos:
                     with open(os.path.join(filesdir, src_repo), 'r') as f:
-                        src_config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        try:
+                            src_config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        except yaml.MarkedYAMLError as e:
+                            print('Invalid YAML file: {}'.format(os.path.join(filesdir, src_repo)))
+                            print(e)
+                            sys.exit(1)
                         src_openeuler_repos.append(src_config_info)
                         for sig in sigs:
                             if sig['name'] == i:
@@ -275,20 +285,27 @@ def get_repo_changes():
     dlt_repos = []
     add_repos = []
     repo_changes = {}
-    cur_repos = []
-    tobe_repos = []
-    cur_sigs, cur_openeuler_repos, cur_src_openeuler_repos = load_sigs()
-    tobe_sigs, tobe_openeuler_repos, tobe_src_openeuler_repos = load_sigs('master')
-    cur_repos.extend(cur_openeuler_repos)
-    cur_repos.extend(cur_src_openeuler_repos)
-    tobe_repos.extend(tobe_openeuler_repos)
-    tobe_repos.extend(tobe_src_openeuler_repos)
-    for cur_repo in cur_repos:
-        if cur_repo not in tobe_repos:
-            add_repos.append(cur_repo)
-    for tobe_repo in tobe_repos:
-        if tobe_repo not in cur_repos:
-            dlt_repos.append(tobe_repo)
+    dlt_sigs = []
+    add_sigs = []
+    cur_sigs, _, _ = load_sigs('master')
+    tobe_sigs, _, _ = load_sigs()
+    tmpdir = tempfile.gettempdir()
+    tmp_cur_sigs = os.path.join(tmpdir, 'cur_sigs.yaml')
+    tmp_tobe_sigs = os.path.join(tmpdir, 'tobe_sigs.yaml')
+    with open(tmp_cur_sigs, 'w') as f:
+        yaml.dump(cur_sigs, f, default_flow_style=False)
+    with open(tmp_tobe_sigs, 'w') as f:
+        yaml.dump(tobe_sigs, f, default_flow_style=False)
+    output = subprocess.getoutput('diff {} {}'.format(tmp_cur_sigs, tmp_tobe_sigs))
+    for line in output.splitlines():
+        if line.startswith('<'):
+            dlt_content = line.strip().split(' ')[-1]
+            if dlt_content.startswith('src-openeuler') or dlt_content.startswith('openeuler'):
+                dlt_repos.append(dlt_content)
+        elif line.startswith('>'):
+            add_content = line.strip().split(' ')[-1]
+            if add_content.startswith('src-openeuler') or add_content.startswith('openeuler'):
+                add_repos.append(add_content)
     for dlt_repo in dlt_repos:
         if dlt_repo in add_repos:
             cur_sig = get_repo_sig_ownership(dlt_repo, cur_sigs)
@@ -349,10 +366,16 @@ def check_branch_add(info):
     """
     review_body = ""
     need_mgmt_lgtm = False
-
+    current_branch = get_current_branch()
+    fetch_branch = current_branch.split('_', 1)[1]
+    subprocess.call('git checkout {}'.format(fetch_branch), shell=True)
     pr_diffs = [diff_file.splitlines() for diff_file in subprocess.getoutput('git show').split('diff --git')[1:]]
+    subprocess.call('git checkout {}'.format(current_branch), shell=True)
     for diff_file in pr_diffs:
-        diff_file_name = diff_file[0].split(' ')[-1].split('/', 1)[1]
+        try:
+            diff_file_name = diff_file[0].split(' ')[-1].split('/', 1)[1]
+        except IndexError:
+            diff_file_name = ''
         if not (diff_file_name.endswith('.yaml') and
                 len(diff_file_name.split('/')) == 5 and
                 diff_file_name.split('/')[0] == 'sig' and
