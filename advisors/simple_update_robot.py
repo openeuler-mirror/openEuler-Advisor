@@ -347,7 +347,10 @@ def build_pkg(u_pkg, u_branch, obs_prj):
         result = True
 
     rpmbuildpath = "/var/tmp/build-root/{path}/home/abuild/rpmbuild/RPMS".format(path=standard_path)
-    oldrpmpath = "/root/oldrpms"
+
+    home_path = os.path.expanduser('~')
+    old_dir = os.path.join(home_path, 'oldrpms')
+    oldrpmpath = os.path.join(home_path, 'oldrpms')
     #Copy rpms to oldrpmpath from rpmbuildpath
     copyrpms(rpmbuildpath, oldrpmpath)
 
@@ -358,8 +361,8 @@ def build_pkg(u_pkg, u_branch, obs_prj):
         result = False
     else:
         result = True
-
-    newrpmpath = "/root/newrpms"
+    new_dir = os.path.join(home_path, 'newrpms')
+    newrpmpath = os.path.join(home_path, 'newrpms')
     #Copy rpms to newrpmpath from rpmbuildpath
     copyrpms(rpmbuildpath, newrpmpath)
 
@@ -490,8 +493,9 @@ def check_rpm_abi(u_pkg):
     """
     rpm check abi
     """
-    old_dir = "/root/oldrpms"
-    new_dir = "/root/newrpms"
+    home_path = os.path.expanduser('~')
+    old_dir = os.path.join(home_path, 'oldrpms')
+    new_dir = os.path.join(home_path, 'newrpms')
     old_rpm_path = get_rpm_debug_path(u_pkg, old_dir)
     new_rpm_path = get_rpm_debug_path(u_pkg, new_dir)
 
@@ -688,7 +692,8 @@ def main():
     try:
         user_gitee = gitee.Gitee()
     except NameError:
-        sys.exit(1)
+        print('Error: create gitee failed', NameError)
+        exit()
 
     if args.update:
         if args.update == "repo":
