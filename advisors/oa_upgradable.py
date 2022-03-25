@@ -18,13 +18,13 @@ import os
 import sys
 import argparse
 import re
+from datetime import datetime
 from pyrpm.spec import Spec, replace_macros
 import yaml
 
 from advisors import gitee
 from advisors import check_upstream
 from advisors import version_recommend
-from datetime import datetime
 
 NEW_COMMENT = """Dear {repo} maintainer:
 
@@ -163,7 +163,7 @@ def main_process(push, default, repo):
         if push:
             issues = user_gitee.get_issues(repo)
             for issue in issues:
-                if issue["title"] == "Upgrade to latest release":
+                if "Upgrade to latest release" in issue["title"]:
                     need_push_issue = False
                     ages = datetime.now() - user_gitee.get_gitee_datetime(issue["created_at"])
                     if ages.days <= 30:
@@ -175,7 +175,10 @@ def main_process(push, default, repo):
                         days=ages.days))
                     break
             if need_push_issue:
-                user_gitee.post_issue(repo, "Upgrade to latest release", """Dear {repo} maintainer:
+                tile = """Upgrade to latest release [{repo}: {cur_ver} -> {ver}]""".format(repo=repo,
+                                                                                           ver=ver_rec.latest_version,
+                                                                                           cur_ver=cur_version)
+                body = """Dear {repo} maintainer:
 
 We found the latest version of {repo} is {ver}, while the current version in openEuler mainline is {cur_ver}.
 
@@ -186,9 +189,10 @@ Yours openEuler Advisor.
 If you think this is not proper issue, Please visit https://gitee.com/openeuler/openEuler-Advisor.
 Issues and feedbacks are welcome.""".format(repo=repo,
                                             ver=ver_rec.latest_version,
-                                            cur_ver=cur_version))
-    return [repo, cur_version, ver_rec.latest_version]
+                                            cur_ver=cur_version)
 
+                user_gitee.post_issue(repo, tile, body)
+    return [repo, cur_version, ver_rec.latest_version]
 
 
 if __name__ == "__main__":
