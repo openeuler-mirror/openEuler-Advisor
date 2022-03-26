@@ -363,6 +363,9 @@ class Gitee():
         repo_list = []
 
         openeuler_sha = self.__get_community_sha(sigs[sig], 'src-openeuler')
+        if not openeuler_sha:
+            return ''
+
         initials_tree = self.__get_community_tree(openeuler_sha)
         for initials_dir in initials_tree:
             openeuler_repo_tree = self.__get_community_tree(initials_dir['sha'])
@@ -370,6 +373,7 @@ class Gitee():
                 repo_name = my_repo_dir['path']
                 repo_name = repo_name[:-5]
                 repo_list.append(repo_name)
+
         return repo_list
 
 
