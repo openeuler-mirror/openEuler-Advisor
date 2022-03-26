@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-#encoding: utf-8
-#******************************************************************************
+# encoding: utf-8
+# ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
 # licensed under the Mulan PSL v2.
 # You can use this software according to the terms and conditions of the Mulan PSL
@@ -36,11 +36,10 @@ import urllib3
 from advisors import gitee
 from advisors import yaml2url
 
-
 urllib3.disable_warnings()
 
 GET_METHOD_PEOJECTS = "/projects"
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW 64; rv:23.0) Gecko/20100101 Firefox/23.0'}
 gitlab_list = ['gnome', 'freedesktop']
 RECORDER_YAML = ".query_result_lasttime"
 GNU_SOFTWARE_PAGE = "https://www.gnu.org/software/"
@@ -52,8 +51,8 @@ def __gitlab_get_method(query_url, token, params=None):
     """
     try:
         header_token = {'Private-Token': token}
-        res = requests.get(query_url, headers = header_token, \
-                params=params, verify = False)
+        res = requests.get(query_url, headers=header_token, \
+                           params=params, verify=False)
         logging.debug("status_code: %d", res.status_code)
         content = res.content.decode('utf-8')
         if res.status_code != 200:
@@ -76,7 +75,7 @@ def gitlab_list_project(urlbase, token, params, group_path=""):
         query_url = urlbase + GET_METHOD_PEOJECTS
     else:
         query_url = urlbase + "/groups/" + \
-                group_path.replace("/", "%2F") + GET_METHOD_PEOJECTS
+                    group_path.replace("/", "%2F") + GET_METHOD_PEOJECTS
     return __gitlab_get_method(query_url, token, params)
 
 
@@ -96,12 +95,12 @@ def read_pkginfo_lasttime():
     file_name = os.path.join(os.getcwd(), RECORDER_YAML)
     try:
         with open(file_name, 'r', encoding='utf-8') as record_file:
-            return  yaml.load(record_file.read(), Loader = yaml.Loader)
+            return yaml.load(record_file.read(), Loader=yaml.Loader)
     except FileNotFoundError:
         return {}
 
 
-def get_oe_repo_dict(cwd_path, use_cache):
+def get_oe_repo_dict(cwd_path, use_cache, sig):
     """
     get oe repo list from sigs.yaml
     """
@@ -109,25 +108,33 @@ def get_oe_repo_dict(cwd_path, use_cache):
     oe_repo_dict = {}
     last_record_dict = {}
     my_gitee = gitee.Gitee()
-    data = my_gitee.get_sigs()['sigs']
+    data = []
+    if not sig:
+        sigs = my_gitee.get_sigs()
+        logging.info('start to get sigs info.')
+        for sig_name in sigs.keys():
+            repo_list = my_gitee.get_repos_by_sig(sig_name)
+            data.extend(repo_list)
+            logging.info('sig: %s -> repo: %s', sig_name, repo_list)
+    else:
+        data = my_gitee.get_repos_by_sig(sig)
+    logging.info("repo need to check: %s", data)
+
     if use_cache:
         last_record_dict = read_pkginfo_lasttime()
         if len(last_record_dict) == 0:
             logging.info("last recorder not exist.")
-    for repos in data:
-        for repo in repos['repositories']:
-            if repo.startswith('src-openeuler/'):
-                name = repo.split('/')[1]
-                repo_url = last_record_dict.get(name, None)
-                if repo_url:
-                    logging.info("%s has record.", name)
-                else:
-                    pkginfo = get_pkg_info(my_gitee, name, cwd_path)
-                    if pkginfo:
-                        repo_url = yaml2url.yaml2url(pkginfo)
-                if not repo_url:
-                    repo_url = 'none'
-                oe_repo_dict.update({name: repo_url})
+    for name in data:
+        repo_url = last_record_dict.get(name, None)
+        if repo_url:
+            logging.info("%s has record.", name)
+        else:
+            pkginfo = get_pkg_info(my_gitee, name, cwd_path)
+            if pkginfo:
+                repo_url = yaml2url.yaml2url(pkginfo)
+        if not repo_url:
+            repo_url = 'none'
+        oe_repo_dict.update({name: repo_url})
     logging.info("total %d repositories in src-openeuler", len(oe_repo_dict))
     record_pkginfo(oe_repo_dict)
     return oe_repo_dict
@@ -139,8 +146,8 @@ def load_config():
     """
     try:
         config = os.path.expanduser("~/.community_archived.yaml")
-        with open(config, 'r', encoding = 'utf-8') as archived_file:
-            return yaml.load(archived_file.read(), Loader = yaml.Loader)
+        with open(config, 'r', encoding='utf-8') as archived_file:
+            return yaml.load(archived_file.read(), Loader=yaml.Loader)
     except OSError as reason:
         print("Load yaml failed!" + str(reason))
         return None
@@ -178,16 +185,17 @@ def arg_parser():
     """
     parse arguments
     """
-    parser = argparse.ArgumentParser(description = "check archived \
+    parser = argparse.ArgumentParser(description="check archived \
             projects in upstream.")
-    parser.add_argument('-v', '--verbose', action = 'store_true', \
-            default = False, help = 'print debug log.')
-    parser.add_argument('-n', '--name', type = str, choices = \
-            ['gnome', 'freedesktop', 'gnu'], default = "", help = "community name.")
-    parser.add_argument('-d', '--default', type = str, default = os.getcwd(),
-            help="The fallback place to look for YAML information")
-    parser.add_argument('-x', '--cached', action = 'store_true', \
-            default = False, help = 'use result of last query')
+    parser.add_argument('-s', '--sig', help='sig name.')
+    parser.add_argument('-v', '--verbose', action='store_true', \
+                        default=False, help='print debug log.')
+    parser.add_argument('-n', '--name', type=str, choices= \
+        ['gnome', 'freedesktop', 'gnu'], default="", help="community name.")
+    parser.add_argument('-d', '--default', type=str, default=os.getcwd(),
+                        help="The fallback place to look for YAML information")
+    parser.add_argument('-x', '--cached', action='store_true', \
+                        default=False, help='use result of last query')
     parser.set_defaults(func=cmd_check)
     sub_parser = parser.add_subparsers(title="sub-command list")
     parser_list = sub_parser.add_parser("list", help="list archived projects in upstream.")
@@ -201,9 +209,10 @@ def __query_gitlab(vals, repo_url_list):
         params = vals['params']
         params['page'] = i
         data = gitlab_list_project(vals['restapi'], vals['token'], params, vals['group'])
-        if data is None or len(data) == 0:
+        if not data:
             break
         for entry in data:
+            logging.info("%s:gitlab archived project %s", i, entry['http_url_to_repo'])
             repo_url_list.append(entry['http_url_to_repo'])
 
 
@@ -219,6 +228,7 @@ def parse_gnu_html(url, repo_url_list):
     tags = res[-1].children
     for tag in tags:
         if getattr(tag, 'name', None) == 'a':
+            logging.info("gnu archived project %s", GNU_SOFTWARE_PAGE + tag.string)
             repo_url_list.append(GNU_SOFTWARE_PAGE + tag.string)
 
 
@@ -229,7 +239,8 @@ def get_upstream_repo_url_list(name=""):
     url_list = []
 
     data = load_config()
-    if data is None or len(data) == 0:
+    if not data:
+        print('NLL')
         return []
     if name == "":
         for entry in data.values():
@@ -237,7 +248,7 @@ def get_upstream_repo_url_list(name=""):
                 __query_gitlab(entry, url_list)
             elif entry['type'] == 'HTML':
                 parse_gnu_html(entry['url'], url_list)
-            #here handle other type
+            # here handle other type
         logging.info("Total %d archived projects", len(url_list))
     else:
         entry = data[name]
@@ -269,13 +280,13 @@ def cmd_check(args):
     cmd check handler
     """
     result = {}
-    oe_repo_dict = get_oe_repo_dict(args.default, args.cached)
+    oe_repo_dict = get_oe_repo_dict(args.default, args.cached, args.sig)
     url_list = get_upstream_repo_url_list(args.name)
     if not url_list:
         return 1
     for key1, value1 in oe_repo_dict.items():
         if value1 in url_list:
-            result.update({key1:value1})
+            result.update({key1: value1})
     print("\033[31m")
     print("Total %d archived projects in upstream:" % len(result))
     for repo_id, repo_url in result.items():
@@ -294,7 +305,7 @@ def main():
     args = arg_parser()
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG,
-                format='%(levelname)s: %(message)s')
+                            format='%(levelname)s: %(message)s')
     if args.__contains__("func"):
         return args.func(args)
     return 0
