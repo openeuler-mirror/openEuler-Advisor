@@ -97,8 +97,8 @@ def main_process(repo, push, check_file):
         if push:
             issues = my_gitee.get_issues(repo)
             for issue in issues:
-                if issue["title"] == "Submit {file} file into this repository".format(
-                        file=check_file):
+                if "Submit {file} file into this repository".format(
+                        file=check_file) in issue["title"]:
                     need_push_issue = False
                     ages = datetime.now() - my_gitee.get_gitee_datetime(issue["created_at"])
                     if ages.days <= 10:
@@ -112,16 +112,20 @@ def main_process(repo, push, check_file):
             if need_push_issue:
                 if check_file == 'spec':
                     my_gitee.post_issue(repo,
-                                        "Submit {file} file into this repository".format(
-                                            file=check_file),
+                                        "Submit {file} file into this repository: {repo}".format(
+                                            file=check_file,
+                                            repo=repo),
                                         NEW_SPEC_ISSUE_BODY.format(repo=repo,
                                                                    file=check_file))
-                else:
+                elif my_gitee.get_spec(repo):
                     my_gitee.post_issue(repo,
-                                        "Submit {file} file into this repository".format(
-                                            file=check_file),
+                                        "Submit {file} file into this repository: {repo}".format(
+                                            file=check_file,
+                                            repo=repo),
                                         NEW_YMAL_ISSUE_BODY.format(repo=repo,
                                                                    file=check_file))
+                else:
+                    print("No spec file find in repo {}".format(repo))
         return 'NOK'
     return 'OK'
 
