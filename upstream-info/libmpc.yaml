@@ -1,5 +1,5 @@
 ---
 version_control: git
-src_repo: git://git.pld-linux.org/packages/libmpc.git 
-tag_prefix: "^auto/th/libmpc-"
+src_repo: https://gitlab.inria.fr/mpc/mpc.git
+tag_prefix: ""
 separator: "."
