@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: oVirt/ovirt-dependencies
+tag_prefix: "^"
+separator: "."
+git_url: https://github.com/oVirt/ovirt-dependencies.git

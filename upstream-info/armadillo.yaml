@@ -1,0 +1,6 @@
+---
+version_control: git
+src_repo: https://gitlab.com/conradsnicta/armadillo-code.git
+tag_prefix: 
+separator: 
+git_url: https://gitlab.com/conradsnicta/armadillo-code.git

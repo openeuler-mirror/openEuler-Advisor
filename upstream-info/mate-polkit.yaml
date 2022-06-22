@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: mate-desktop/mate-polkit
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/mate-desktop/mate-polkit.git
