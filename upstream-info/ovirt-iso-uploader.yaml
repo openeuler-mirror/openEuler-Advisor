@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: oVirt/ovirt-iso-uploader
+tag_prefix: "^ovirt-iso-uploader-"
+separator: "."
+git_url: https://github.com/oVirt/ovirt-iso-uploader.git

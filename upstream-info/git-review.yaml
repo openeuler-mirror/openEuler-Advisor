@@ -1,0 +1,6 @@
+---
+version_control: git
+src_repo: https://opendev.org/opendev/git-review.git
+tag_prefix: "^"
+separator: "."
+git_url: https://opendev.org/opendev/git-review.git

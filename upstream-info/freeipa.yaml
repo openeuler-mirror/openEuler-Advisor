@@ -1,0 +1,6 @@
+---
+version_control: git
+src_repo: https://pagure.io/freeipa.git
+tag_prefix: "^release-"
+separator: "-"
+git_url: https://pagure.io/freeipa.git

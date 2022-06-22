@@ -1,0 +1,6 @@
+---
+version_control: github
+src_repo: gssapi/gss-ntlmssp
+tag_prefix: "^v"
+separator: "."
+git_url: https://github.com/gssapi/gss-ntlmssp.git
