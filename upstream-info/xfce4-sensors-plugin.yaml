@@ -1,4 +1,4 @@
 version_control: git
 src_repo: https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin
-tag_prefix: Release_V
+tag_prefix: "^xfce4-sensors-plugin-"
 separator: .
