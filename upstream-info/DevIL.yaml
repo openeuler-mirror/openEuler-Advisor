@@ -1,0 +1,4 @@
+version_control: sourceforge
+src_repo: https://sourceforge.net/projects/openil/files/DevIL/
+tag_prefix:
+separator: "."
