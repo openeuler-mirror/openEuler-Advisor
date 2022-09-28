@@ -1,0 +1,5 @@
+version_control: gnu-ftp
+src_repo: barcode
+tag_pattern: barcode-(.*).tar.gz(sig)? 
+separator: "."
+url: https://ftp.gnu.org/gnu/barcode/

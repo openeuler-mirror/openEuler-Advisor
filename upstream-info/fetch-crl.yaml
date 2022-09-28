@@ -1,0 +1,5 @@
+version_control: ftp
+src_repo: https://dist.eugridpma.info/distribution/util/fetch-crl3/
+tag_pattern: fetch-crl-(.*).suse.tar.gz 
+separator:  "."
+url: https://dist.eugridpma.info/distribution/util/fetch-crl3/

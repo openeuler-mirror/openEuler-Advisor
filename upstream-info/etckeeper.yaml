@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://git.joeyh.name/index.cgi/etckeeper.git
+tag_prefix: ""
+separator: "."
+git_url: https://git.joeyh.name/index.cgi/etckeeper.git

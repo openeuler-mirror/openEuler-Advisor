@@ -1,0 +1,5 @@
+version_control: github
+src_repo: MapServer/MapServer
+tag_prefix: "^rel-"
+separator: "-"
+git_url: https://github.com/MapServer/MapServer.git
