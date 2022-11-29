@@ -159,7 +159,8 @@ def main_process(push, default, repo):
     print("Maintain version is", ver_rec.maintain_version)
 
     need_push_issue = True
-    if cur_version != ver_rec.latest_version:
+    version_type = version_recommend.VersionType()
+    if version_type.compare(ver_rec.latest_version, cur_version) == 1:
         if push:
             issues = user_gitee.get_issues(repo)
             for issue in issues:
@@ -192,7 +193,9 @@ Issues and feedbacks are welcome.""".format(repo=repo,
                                             cur_ver=cur_version)
 
                 user_gitee.post_issue(repo, tile, body)
-    return [repo, cur_version, ver_rec.latest_version]
+        return [repo, cur_version, ver_rec.latest_version]
+    else:
+        return None
 
 
 if __name__ == "__main__":
