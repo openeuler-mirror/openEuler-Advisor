@@ -92,8 +92,9 @@ class VersionType(object):
         :return 0: _z1 equal then _z2
         :raises: None
         """
-        return self._compare(_z1, _z2)
-
+        ret = self._compare(_z1, _z2)
+        return ret
+    
     def _compare(self, _z1, _z2):
         """
         Get the max version.
@@ -105,6 +106,7 @@ class VersionType(object):
         :return 0: version_z1 equal then version_version_z2
         :raises: None
         """
+
         result = 0
         _d1 = tuple(self._split(_z1))  # 第一个参数版本号拆分,获取里面的数字/字母,得到序列
         _d2 = tuple(self._split(_z2))  # 第二个参数版本号拆分,获取里面的数字/字母,得到序列
@@ -120,11 +122,11 @@ class VersionType(object):
                     result = -1
                     break
 
-            if _d1[index].isdigit():
+            elif _d1[index].isdigit():
                 result = 1
                 break
 
-            if _d2[index].isdigit():
+            elif _d2[index].isdigit():
                 result = -1
                 break
 
@@ -144,7 +146,6 @@ class VersionType(object):
 
         if len1 < len2:
             result = -1
-
         return result
 
     def get_version_mode(self):
