@@ -1,0 +1,5 @@
+version_control: github
+src_repo: vmware/open-vm-tools
+tag_prefix: "^stable-"
+separator: "."
+git_url: https://github.com/vmware/open-vm-tools.git

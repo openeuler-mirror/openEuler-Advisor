@@ -14,10 +14,12 @@
 """
 This modules containers methods to check upstream version info
 """
+import os
 import re
 import sys
 import json
 import subprocess
+import time
 from datetime import datetime
 from urllib.parse import urljoin
 import requests
@@ -70,20 +72,31 @@ def load_last_query_result(info, force_reload=False):
 
     return ""
 
-
 def clean_tags(tags, info):
     """
     Clean up tags according to setting
     """
+    result_list = []
     if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
-        result_list = [pattern_regex.sub("\\1", x) for x in tags]
+        for tag in tags:
+            if pattern_regex.match(tag):
+                new_tag = pattern_regex.sub("\\1", tag)
+                result_list.append(new_tag)
+
     elif info.get("tag_reorder", "") != "" and info.get("tag_reorder", "") is not None:
         pattern_regex = re.compile(info["tag_reorder"])
-        result_list = [pattern_regex.sub(info["tag_neworder"], x) for x in tags]
+        for tag in tags:
+            if pattern_regex.match(tag):
+                new_tag = pattern_regex.sub(info["tag_neworder"], tag)
+                result_list.append(new_tag)
+
     elif info.get("tag_prefix", "") != "" and info.get("tag_prefix", "") is not None:
         prefix_regex = re.compile(info["tag_prefix"])
-        result_list = [prefix_regex.sub("", x) for x in tags]
+        for tag in tags:
+            if prefix_regex.match(tag):
+                new_tag = prefix_regex.sub("", tag)
+                result_list.append(new_tag)
     else:
         result_list = tags
 
@@ -325,9 +338,45 @@ def __check_git_helper(repo_url):
     """
     Helper to start git command
     """
-    eprint("{repo} > Using git ls-remote".format(repo=repo_url))
-    cmd_list = ["git", "ls-remote", "--tags", repo_url]
-    return __check_subprocess(cmd_list)
+    if os.path.isdir("git"):
+        os.chdir("git")
+    else:
+        os.mkdir("git")
+        os.chdir("git")
+    git_repo = os.path.basename(repo_url).split('.')[0]
+    if os.path.isdir(git_repo):
+        os.chdir(git_repo)
+        print("INFO:start to git pull", repo_url)
+        cmd_list = ["git", "pull", repo_url]
+        __check_subprocess(cmd_list)
+        os.chdir("..")
+    else:
+        cnt = 0
+        while True:
+            print("INFO:start to git clone", repo_url)
+            cmd_list = ["git", "clone", repo_url]
+            __check_subprocess(cmd_list)
+            if os.path.isdir(git_repo):
+                break
+            elif cnt < 10:
+                time.sleep(1)
+                cnt = cnt + 1
+                print("INFO:try to git clone repo {} cnt = {}".format(repo_url, cnt))
+                continue
+            else:
+                print("ERROR:git clone {} failed".format(repo_url))
+                break
+    try:
+        os.chdir(git_repo)
+    except FileNotFoundError as e:
+        print("ERROR: dir not find", e)
+        os.chdir("..")
+        return ""
+    cmd_list = ["git", "tag"]
+    print("INFO:start to git tag", repo_url)
+    resp = __check_subprocess(cmd_list)
+    os.chdir("../..")
+    return resp
 
 
 def __svn_resp_to_tags(resp):
@@ -349,13 +398,8 @@ def __git_resp_to_tags(resp):
     Helpers to convert git response to tags
     """
     tags = []
-    pattern = re.compile(r"^([^ \t]*)[ \t]*refs\/tags\/([^ \t]*)")
     for line in resp.splitlines():
-        match_result = pattern.match(line)
-        if match_result:
-            tag = match_result.group(2)
-            if not tag.endswith("^{}"):
-                tags.append(tag)
+        tags.append(line)
     return tags
 
 
