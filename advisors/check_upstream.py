@@ -16,6 +16,7 @@ This modules containers methods to check upstream version info
 """
 import os
 import re
+import shutil
 import sys
 import json
 import subprocess
@@ -71,6 +72,7 @@ def load_last_query_result(info, force_reload=False):
         return ""
 
     return ""
+
 
 def clean_tags(tags, info):
     """
@@ -344,6 +346,10 @@ def __check_git_helper(repo_url):
         os.mkdir("git")
         os.chdir("git")
     git_repo = os.path.basename(repo_url).split('.')[0]
+    zip_file = git_repo + ".zip"
+    if os.path.isfile(zip_file):
+        shutil.unpack_archive(zip_file, git_repo)
+        os.remove(zip_file)
     if os.path.isdir(git_repo):
         os.chdir(git_repo)
         print("INFO:start to git pull", repo_url)
@@ -375,7 +381,10 @@ def __check_git_helper(repo_url):
     cmd_list = ["git", "tag"]
     print("INFO:start to git tag", repo_url)
     resp = __check_subprocess(cmd_list)
-    os.chdir("../..")
+    os.chdir("..")
+    shutil.make_archive(git_repo, 'zip', git_repo)
+    shutil.rmtree(git_repo)
+    os.chdir("..")
     return resp
 
 
