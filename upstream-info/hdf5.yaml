@@ -1,38 +1,6 @@
 ---
-git_url: https://github.com/live-clones/hdf5.git
 version_control: github
-src_repo: live-clones/hdf5
-tag_prefix: hdf5-
-separator: _
-git_tag:
-- 2015-02-19 vms_last_support_trunk
-- 2014-03-21 before_removing_mpiposix_vfd
-- 2008-02-25 hdf5-1_0_0-alpha2
-- 2008-02-25 hdf5-1_8_0-beta5
-- 2008-02-25 hdf5-1_8_0-beta4
-- 2008-02-25 hdf5-1_8_0-beta3
-- 2008-02-25 hdf5-1_8_0-beta2
-- 2008-02-25 hdf5-1_8_0-beta1
-- 2008-02-25 hdf5-1_8_0-alpha4
-- 2008-02-25 hdf5-1_8_0-alpha3
-- 2008-02-25 hdf5-1_8_0-alpha2
-- 2008-02-06 hdf5-1_9-start
-- 2006-04-20 before_removing_fphdf5
-- 2005-07-01 before_removing_docs
-- 2005-01-07 before_removing_tbbt_code
-- 2004-12-29 before_signed_unsigned_changes
-- 2004-02-12 hdf5-1_6_2
-- 2003-10-16 hdf5-1_6_1
-- 2003-07-03 hdf5-1_6_0
-- 2001-04-06 hdf5-1_4_1
-- 2001-02-27 hdf5-1_4_0
-- 1999-12-21 hdf5-1_2_1
-- 1999-10-15 hdf5-1_2_0
-- 1999-10-01 hdf5-1_3_1
-- 1999-09-17 hdf5-1_3_0
-- 1999-08-24 hdf5-1_2_0-beta1-update2
-- 1999-08-02 hdf5-1_2_0beta
-- 1999-01-04 hdf5-1_0_1
-- 1998-11-06 hdf5-1_0_0
-- 1998-09-15 r1_1beta1
-- 1997-10-17 proto1
+src_repo:  HDFGroup/hdf5
+tag_prefix: "^hdf5-"
+separator: "_"
+git_url: https://github.com/HDFGroup/hdf5.git

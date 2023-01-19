@@ -52,9 +52,7 @@ def main():
     index = 0
     upgrade_list = []
     for check_repo in repos:
-        # sleep 10 second, avoid limited by github\gitlab
         index = index + 1
-        time.sleep(10)
         result = main_process(args.push, args.default, check_repo)
         if result:
             if result[1] != result[2]:
