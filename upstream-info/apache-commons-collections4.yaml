@@ -1,0 +1,6 @@
+version_control: git
+src_repo: https://gitbox.apache.org/repos/asf/commons-collections.git
+tag_prefix: "^commons-collections-"
+separator: "."
+git_url: https://gitbox.apache.org/repos/asf/commons-collections.git
+

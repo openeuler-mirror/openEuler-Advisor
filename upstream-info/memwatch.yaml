@@ -1,0 +1,5 @@
+version_control: gitee
+src_repo: openeuler/memwatch
+tag_prefix: "^v"
+separator: "."
+git_url: https://gitee.com/openeuler/memwatch.git
