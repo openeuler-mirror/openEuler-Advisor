@@ -345,7 +345,9 @@ def __check_git_helper(repo_url):
     else:
         os.mkdir("git")
         os.chdir("git")
-    git_repo = os.path.basename(repo_url).split('.')[0]
+
+    git_repo_list = os.path.basename(repo_url).split('.')[0:-1]
+    git_repo = ".".join(git_repo_list)
     zip_file = git_repo + ".zip"
     if os.path.isfile(zip_file):
         shutil.unpack_archive(zip_file, git_repo)
