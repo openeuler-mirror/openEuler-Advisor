@@ -1,5 +1,5 @@
----
-version_control: hg-raw
-src_repo: http://hg.libsdl.org/SDL
-tag_prefix: release-(2)?
+version_control: github
+src_repo: libsdl-org/SDL
+tag_prefix: "release-"
 separator: "."
+git_url: https://github.com/libsdl-org/SDL.git
