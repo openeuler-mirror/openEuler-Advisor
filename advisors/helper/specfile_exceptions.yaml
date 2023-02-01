@@ -35,12 +35,6 @@ openEuler-rpm-config:
 openEuler-release:
   dir: .
   file: generic-release.spec
-openjdk-1.8.0:
-  dir: .
-  file: java-1.8.0-openjdk.spec
-openjdk-11:
-  dir: .
-  file: java-11-openjdk.spec
 A-Tune:
   dir: .
   file: atune.spec
