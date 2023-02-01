@@ -47,10 +47,10 @@ def _filter_except(excpts, sources):
     Filter except case in sources
     """
     for exp in excpts:
-        for source in sources[:]:
+        for source in sources.keys():
             result = re.fullmatch(exp, source)
             if result:
-                sources.remove(source)
+                sources.pop(source)
     return sources
 
 
@@ -144,19 +144,34 @@ def main_process(push, default, repo):
 
     print("Current version is", cur_version)
     pkg_tags = get_ver_tags(user_gitee, repo, cwd_path=default)
-    print("known release tags:", pkg_tags)
+    print("known release tags:", list(pkg_tags.keys()))
 
     if not pkg_tags:
         return None
 
-    if cur_version not in pkg_tags:
+    if cur_version not in pkg_tags.keys():
         print("WARNING: Current {ver} doesn't exist in upstream." \
               "Please double check.".format(ver=cur_version))
 
-    ver_rec = version_recommend.VersionRecommend(pkg_tags, cur_version, 0)
+    ver_rec = version_recommend.VersionRecommend(list(pkg_tags.keys()), cur_version, 0)
 
-    print("Latest version is", ver_rec.latest_version)
-    print("Maintain version is", ver_rec.maintain_version)
+    if pkg_tags.get(cur_version):
+        cur_ver_release_time = pkg_tags[cur_version].strftime("%Y/%m/%d")
+    else:
+        cur_ver_release_time = "-/-/-"
+    if pkg_tags.get(ver_rec.latest_version):
+        lasts_version_release_time = pkg_tags[ver_rec.latest_version].strftime("%Y/%m/%d")
+    else:
+        lasts_version_release_time = "-/-/-"
+
+    if pkg_tags.get(ver_rec.maintain_version):
+        maintain_version_release_time = pkg_tags[ver_rec.maintain_version].strftime("%Y/%m/%d")
+    else:
+        maintain_version_release_time = "-/-/-"
+
+    print("current version is {}  {}".format(cur_version, cur_ver_release_time))
+    print("Latest version is {}  {}".format(ver_rec.latest_version, lasts_version_release_time))
+    print("Maintain version is {}  {}".format(ver_rec.maintain_version, maintain_version_release_time))
 
     need_push_issue = True
     version_type = version_recommend.VersionType()
@@ -176,12 +191,16 @@ def main_process(push, default, repo):
                         days=ages.days))
                     break
             if need_push_issue:
-                tile = """Upgrade to latest release [{repo}: {cur_ver} -> {ver}]""".format(repo=repo,
-                                                                                           ver=ver_rec.latest_version,
-                                                                                           cur_ver=cur_version)
+                tile = """Upgrade to latest release [{repo}: {cur_ver} {cur_ver_date} -> {ver} {date}]""".format(
+                    repo=repo,
+                    ver=ver_rec.latest_version,
+                    date=lasts_version_release_time,
+                    cur_ver=cur_version,
+                    cur_ver_date=cur_ver_release_time,
+                    )
                 body = """Dear {repo} maintainer:
 
-We found the latest version of {repo} is {ver}, while the current version in openEuler mainline is {cur_ver}.
+We found the latest version of {repo} is {ver} release at {date}, while the current version in openEuler mainline is {cur_ver} release at {cur_ver_date}.
 
 Please consider upgrading.
 
@@ -190,7 +209,9 @@ Yours openEuler Advisor.
 If you think this is not proper issue, Please visit https://gitee.com/openeuler/openEuler-Advisor.
 Issues and feedbacks are welcome.""".format(repo=repo,
                                             ver=ver_rec.latest_version,
-                                            cur_ver=cur_version)
+                                            date=lasts_version_release_time,
+                                            cur_ver=cur_version,
+                                            cur_ver_date=cur_ver_release_time)
 
                 user_gitee.post_issue(repo, tile, body)
         return [repo, cur_version, ver_rec.latest_version]

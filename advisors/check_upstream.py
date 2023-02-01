@@ -78,43 +78,44 @@ def clean_tags(tags, info):
     """
     Clean up tags according to setting
     """
-    result_list = []
+    result_list = {}
     if info.get("tag_pattern", "") != "" and info.get("tag_pattern", "") is not None:
         pattern_regex = re.compile(info["tag_pattern"])
-        for tag in tags:
+        for tag in tags.keys():
             if pattern_regex.match(tag):
                 new_tag = pattern_regex.sub("\\1", tag)
-                result_list.append(new_tag)
+                result_list[new_tag] = tags[tag]
 
     elif info.get("tag_reorder", "") != "" and info.get("tag_reorder", "") is not None:
         pattern_regex = re.compile(info["tag_reorder"])
-        for tag in tags:
+        for tag in tags.keys():
             if pattern_regex.match(tag):
                 new_tag = pattern_regex.sub(info["tag_neworder"], tag)
-                result_list.append(new_tag)
+                result_list[new_tag] = tags[tag]
 
     elif info.get("tag_prefix", "") != "" and info.get("tag_prefix", "") is not None:
         prefix_regex = re.compile(info["tag_prefix"])
-        for tag in tags:
+        for tag in tags.keys():
             if prefix_regex.match(tag):
                 new_tag = prefix_regex.sub("", tag)
-                result_list.append(new_tag)
+                result_list[new_tag] = tags[tag]
     else:
         result_list = tags
 
-    if info.get("separator", ".") != "." and info.get("separator", ".") is not None:
+    result = {}
+    if info.get("separator", ".") != "." and info.get("separator", "."):
         separator_regex = re.compile(info["separator"])
-        result_list = [separator_regex.sub(".", x) for x in result_list]
-
+        for tag in result_list.keys():
+            result[separator_regex.sub(".", tag)] = result_list[tag]
     # Xinwei used to mis-spell 'separator'.
     # Followings are kept for compatability until all yaml files are fixed.
-    if info.get("seperator", ".") != "." and info.get("seperator", ".") is not None:
+    elif info.get("seperator", ".") != "." and info.get("seperator", "."):
         separator_regex = re.compile(info["seperator"])
-        result_list = [separator_regex.sub(".", x) for x in result_list]
-
-    result_list = [x for x in result_list if x and x[0].isdigit()]
-
-    return result_list
+        for tag in result_list.keys():
+            result[separator_regex.sub(".", tag)] = result_list[tag]
+    else:
+        result = result_list
+    return result
 
 
 def dirty_redirect_tricks(url, resp):
@@ -145,6 +146,7 @@ def check_hg_raw(info, clean_tag=True):
     """
     Check hg version info via raw-tags
     """
+    tags = {}
     eprint("{repo} > Using hg raw-tags".format(repo=info["src_repo"] + "/raw-tags"))
     resp = load_last_query_result(info)
     if resp == "":
@@ -154,7 +156,8 @@ def check_hg_raw(info, clean_tag=True):
         url = yaml2url.yaml2url(info)
         resp = get_resp(url, headers=headers)
         if not resp:
-            return ""
+            return tags
+
         resp = resp.text
         need_trick, url, cookies = dirty_redirect_tricks(url, resp)
         if need_trick:
@@ -167,14 +170,14 @@ def check_hg_raw(info, clean_tag=True):
 
             resp = get_resp(url, headers=headers, cookies=c_dict)
             if not resp:
-                return ""
+                return tags
 
             resp = resp.text
     last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
-    tags = []
+
     for line in resp.splitlines():
-        tags.append(line.split()[0])
+        tags[line.split()[0]] = None
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
@@ -184,6 +187,7 @@ def check_hg(info, clean_tag=True):
     """
     Check hg version info via json
     """
+    result_list = {}
     eprint("{repo} > Using hg json-tags".format(repo=info["src_repo"] + "/json-tags"))
     resp = load_last_query_result(info)
     if resp == "":
@@ -193,7 +197,7 @@ def check_hg(info, clean_tag=True):
         url = yaml2url.yaml2url(info)
         resp = get_resp(url, headers=headers)
         if not resp:
-            return ""
+            return result_list
 
         resp = resp.text
         need_trick, url, cookies = dirty_redirect_tricks(url, resp)
@@ -207,7 +211,7 @@ def check_hg(info, clean_tag=True):
 
             resp = get_resp(url, headers=headers, cookies=c_dict)
             if not resp:
-                return ""
+                return result_list
 
             resp = resp.text
     last_query = {"time_stamp": datetime.now(), "raw_data": resp}
@@ -215,8 +219,12 @@ def check_hg(info, clean_tag=True):
     # try and except ?
     tags_json = json.loads(resp)
     sort_tags = tags_json["tags"]
+
     sort_tags.sort(reverse=True, key=lambda x: x['date'][0])
-    result_list = [tag['tag'] for tag in sort_tags]
+    for tag in sort_tags:
+        tag_date = datetime.fromtimestamp(tag['date'][0])
+        result_list[tag['tag']] = tag_date
+
     if clean_tag:
         result_list = clean_tags(result_list, info)
     return result_list
@@ -226,19 +234,20 @@ def check_metacpan(info, clean_tag=True):
     """
     Check perl module version info via metacpan api
     """
+    tags = {}
     resp = load_last_query_result(info)
     if resp == "":
         headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
         }
         url = yaml2url.yaml2url(info)
-        print(url)
+        eprint(url)
         resp = get_resp(url, headers=headers)
         if not resp:
-            return ""
+            return tags
 
         resp = resp.text
-    tags = []
+
     tag_list = resp.splitlines()
     condition = "value=\"/release"
 
@@ -246,16 +255,17 @@ def check_metacpan(info, clean_tag=True):
     for index in range(len_tag_list):
         if condition in tag_list[index]:
             tag = tag_list[index + 1]
+            print(tag)
             index = index + 1
             if 'DEV' in tag:
                 continue
             tag = tag.lstrip()
             tag = tag.rstrip()
-            tags.append(tag)
+            tags[tag] = None
 
     if not tags:
         eprint("{repo} found unsorted on cpan.metacpan.org".format(repo=info["src_repo"]))
-        return ""
+        return tags
 
     last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
@@ -269,7 +279,7 @@ def check_pypi(info, clean_tag=True):
     Check python module version info via pypi api
     """
     resp = load_last_query_result(info)
-    tags = []
+    tags = {}
     if resp == "":
         headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
@@ -277,14 +287,20 @@ def check_pypi(info, clean_tag=True):
         url = yaml2url.yaml2url(info)
         resp = get_resp(url, headers=headers)
         if not resp:
-            return ""
+            return tags
 
     data = resp.json()
-    for key in data["releases"].keys():
-        tags.append(key)
+    release_date = data["releases"]
+    for tag, value in release_date.items():
+        if value:
+            upload_time = value[0].get('upload_time')
+            upload_time = upload_time.split('T')[0]
+            tags[tag] = datetime.strptime(upload_time, "%Y-%m-%d")
+        else:
+            tags[tag] = None
     if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
-        return ""
+        return tags
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
@@ -295,7 +311,7 @@ def check_rubygem(info, clean_tag=True):
     Check ruby module version info via rubygem api
     """
     resp = load_last_query_result(info)
-    tags = []
+    tags = {}
     if resp == "":
         headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
@@ -303,11 +319,14 @@ def check_rubygem(info, clean_tag=True):
         url = yaml2url.yaml2url(info)
         resp = get_resp(url, headers=headers)
         if not resp:
-            return ""
+            return tags
 
     data = resp.json()
     for release in data:
-        tags.append(release["number"])
+        built_at = release["built_at"]
+        built_at = built_at.split('T')[0]
+        tag = release["number"]
+        tags[tag] = datetime.strptime(built_at, "%Y-%m-%d")
     if not tags:
         eprint("{repo} > No Response or JSON parse failed".format(repo=info["src_repo"]))
         return ""
@@ -336,10 +355,26 @@ def __check_svn_helper(repo_url):
     return __check_subprocess(cmd_list)
 
 
+def __get_git_tag_list(git_repo):
+    """
+    Get tag list
+    """
+    tag_date = {}
+    cmd_list = ["git", "tag", '-l']
+    resp = __check_subprocess(cmd_list)
+    for version in resp.splitlines():
+        cmd_list = ['git', 'log', '-1', '--format=%ai', version]
+        date_resp = __check_subprocess(cmd_list)
+        date = datetime.strptime(date_resp.split(" ")[0], "%Y-%m-%d")
+        tag_date[version] = date
+    return tag_date
+
+
 def __check_git_helper(repo_url):
     """
     Helper to start git command
     """
+    tags = {}
     if os.path.isdir("git"):
         os.chdir("git")
     else:
@@ -354,14 +389,14 @@ def __check_git_helper(repo_url):
         os.remove(zip_file)
     if os.path.isdir(git_repo):
         os.chdir(git_repo)
-        print("INFO:start to git pull", repo_url)
+        eprint("INFO:start to git pull", repo_url)
         cmd_list = ["git", "pull", repo_url]
         __check_subprocess(cmd_list)
         os.chdir("..")
     else:
         cnt = 0
         while True:
-            print("INFO:start to git clone", repo_url)
+            eprint("INFO:start to git clone", repo_url)
             cmd_list = ["git", "clone", repo_url]
             __check_subprocess(cmd_list)
             if os.path.isdir(git_repo):
@@ -369,48 +404,44 @@ def __check_git_helper(repo_url):
             elif cnt < 10:
                 time.sleep(1)
                 cnt = cnt + 1
-                print("INFO:try to git clone repo {} cnt = {}".format(repo_url, cnt))
+                eprint("INFO:try to git clone repo {} cnt = {}".format(repo_url, cnt))
                 continue
             else:
-                print("ERROR:git clone {} failed".format(repo_url))
+                eprint("ERROR:git clone {} failed".format(repo_url))
                 break
     try:
         os.chdir(git_repo)
     except FileNotFoundError as e:
-        print("ERROR: dir not find", e)
+        eprint("ERROR: dir not find", e)
         os.chdir("..")
-        return ""
-    cmd_list = ["git", "tag"]
-    print("INFO:start to git tag", repo_url)
-    resp = __check_subprocess(cmd_list)
+        return tags
+    tags = __get_git_tag_list(git_repo)
     os.chdir("..")
     shutil.make_archive(git_repo, 'zip', git_repo)
     shutil.rmtree(git_repo)
     os.chdir("..")
-    return resp
+    return tags
 
 
 def __svn_resp_to_tags(resp):
     """
     Helper to convert svn response to tags
     """
-    tags = []
+    tags = {}
     for line in resp.splitlines():
         items = line.split()
-        for item in items:
-            if item[-1] == "/":
-                tags.append(item[:-1])
-                break
+        create_date = items[2]
+        tag = items[3]
+        tag = tag[:-1]
+        tags[tag] = datetime.strptime(create_date, "%Y-%m-%d")
+
     return tags
 
 
-def __git_resp_to_tags(resp):
+def __git_resp_to_tags(tags):
     """
     Helpers to convert git response to tags
     """
-    tags = []
-    for line in resp.splitlines():
-        tags.append(line)
     return tags
 
 
@@ -421,15 +452,12 @@ def check_git(info, clean_tag=True):
     resp = load_last_query_result(info)
     if resp == "":
         url = yaml2url.yaml2url(info)
-        resp = __check_git_helper(url)
-        last_query = {}
-        last_query["time_stamp"] = datetime.now()
-        last_query["raw_data"] = resp
+        tag_date = __check_git_helper(url)
+        last_query = {"time_stamp": datetime.now(), "raw_data": tag_data}
         info["last_query"] = last_query
 
-    tags = __git_resp_to_tags(resp)
-    if clean_tag:
-        tags = clean_tags(tags, info)
+    if tag_date:
+        tags = clean_tags(tag_data, info)
     return tags
 
 
@@ -445,9 +473,7 @@ def check_github(info, clean_tag=True):
 
     if resp == "":
         resp = __check_git_helper(repo_url)
-        last_query = {}
-        last_query["time_stamp"] = datetime.now()
-        last_query["raw_data"] = resp
+        last_query = {"time_stamp": datetime.now(), "raw_data": resp}
         info["last_query"] = last_query
         info["query_type"] = "git-ls"
 
@@ -461,6 +487,7 @@ def check_gnu_ftp(info, clean_tag=True):
     """
     Check version info via compare ftp release tar file for gnu
     """
+    tags = {}
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
     }
@@ -468,14 +495,14 @@ def check_gnu_ftp(info, clean_tag=True):
     eprint("{repo} > List ftp directory".format(repo=url))
     resp = get_resp(url, headers=headers)
     if not resp:
-        return ""
+        return tags
     resp = resp.text
     re_pattern = re.compile("href=\"(.*)\">(\\1)</a>")
-    tags = []
+
     for line in resp.splitlines():
         result = re_pattern.search(line)
         if result:
-            tags.append(result[1])
+            tags[result[1]] = None
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
@@ -485,6 +512,7 @@ def check_ftp(info, clean_tag=True):
     """
     Check version info via compare ftp release tar file
     """
+    tags = {}
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
     }
@@ -493,15 +521,16 @@ def check_ftp(info, clean_tag=True):
 
     resp = get_resp(url, headers=headers)
     if not resp:
-        return ""
+        return tags
 
     resp = resp.text
+
     re_pattern = re.compile("href=\"(.*)\">(.*)</a>")
-    tags = []
+
     for line in resp.splitlines():
         result = re_pattern.search(line)
         if result:
-            tags.append(result[1])
+            tags[result[1]] = None
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
@@ -516,9 +545,7 @@ def check_gnome(info, clean_tag=True):
 
     if resp == "":
         resp = __check_git_helper(repo_url)
-        last_query = {}
-        last_query["time_stamp"] = datetime.now()
-        last_query["raw_data"] = resp
+        last_query = {"time_stamp": datetime.now(), "raw_data": resp}
         info["last_query"] = last_query
 
     tags = __git_resp_to_tags(resp)
@@ -535,9 +562,7 @@ def check_gitee(info, clean_tag=True):
     repo_url = yaml2url.yaml2url(info)
     if resp == "":
         resp = __check_git_helper(repo_url)
-        last_query = {}
-        last_query["time_stamp"] = datetime.now()
-        last_query["raw_data"] = resp
+        last_query = {"time_stamp": datetime.now(), "raw_data": resp}
         info["last_query"] = last_query
 
     tags = __git_resp_to_tags(resp)
@@ -570,29 +595,24 @@ def check_sourceforge(info, clean_tag=True):
     Check python module version info via sourceforge url
     """
     resp = load_last_query_result(info)
-    tags = []
+    tags = {}
     if resp == "":
         headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
         }
         url = yaml2url.yaml2url(info)
-        print("check_sourceforge, url = " + url)
+        eprint("check_sourceforge, url = " + url)
         resp = get_resp(url, headers=headers)
         if not resp:
-            return ""
+            return tags
 
     data = resp.text
     lines = data.splitlines()
-    filter_condition = "\"download_url\": \"" + url
+    re_pattern = re.compile("<tr title=\"(.*)\" class=\"folder \">")
     for line in lines:
-        if filter_condition in line:
-            tag_infos = line.split(',')
-            for tag_info in tag_infos:
-                if filter_condition in tag_info:
-                    tag = tag_info.strip()
-                    tag = tag.replace(filter_condition, "")
-                    tag = tag.strip("/download\"")
-                    tags.append(tag)
+        result = re_pattern.search(line)
+        if result:
+            tags[result[1]] = None
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags
