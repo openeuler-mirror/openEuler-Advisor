@@ -1,6 +1,5 @@
 ---
-version_control: git
-src_repo: https://src.fedoraproject.org/rpms/ca-certificates.git
-tag_prefix: ca-certificates-
-separator: "_"
-git_url: https://src.fedoraproject.org/rpms/ca-certificates.git
+version_control: NA
+src_repo: NA
+tag_prefix: NA
+separator: NA
