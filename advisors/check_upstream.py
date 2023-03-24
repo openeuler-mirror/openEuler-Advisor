@@ -452,11 +452,11 @@ def check_git(info, clean_tag=True):
     resp = load_last_query_result(info)
     if resp == "":
         url = yaml2url.yaml2url(info)
-        tag_date = __check_git_helper(url)
+        tag_data = __check_git_helper(url)
         last_query = {"time_stamp": datetime.now(), "raw_data": tag_data}
         info["last_query"] = last_query
 
-    if tag_date:
+    if tag_data:
         tags = clean_tags(tag_data, info)
     return tags
 
