@@ -25,6 +25,7 @@ import yaml
 from advisors import gitee
 from advisors import check_upstream
 from advisors import version_recommend
+from advisors import yaml2url
 
 NEW_COMMENT = """Dear {repo} maintainer:
 
@@ -52,6 +53,27 @@ def _filter_except(excpts, sources):
             if result:
                 sources.pop(source)
     return sources
+
+
+def get_ver_url(my_gitee, repo, cwd_path=None):
+    """
+    Get repo url of given package
+    """
+    if cwd_path:
+        try:
+            repo_yaml = open(os.path.join(cwd_path, "{pkg}.yaml".format(pkg=repo)))
+        except FileNotFoundError:
+            print("WARNING: {pkg}.yaml can't be found in local path: {path}.".format(pkg=repo,
+                                                                                     path=cwd_path))
+            repo_yaml = my_gitee.get_yaml(repo)
+    else:
+        repo_yaml = my_gitee.get_yaml(repo)
+
+    if repo_yaml:
+        pkg_info = yaml.load(repo_yaml, Loader=yaml.Loader)
+    else:
+        return None
+    return yaml2url.yaml2url(pkg_info)
 
 
 def get_ver_tags(my_gitee, repo, clean_tag=True, cwd_path=None):
@@ -145,6 +167,7 @@ def main_process(push, default, repo):
     print("Current version is", cur_version)
     pkg_tags = get_ver_tags(user_gitee, repo, cwd_path=default)
     print("known release tags:", list(pkg_tags.keys()))
+    url = get_ver_url(user_gitee, repo, cwd_path=default)
 
     if not pkg_tags:
         return None
@@ -197,10 +220,10 @@ def main_process(push, default, repo):
                     date=lasts_version_release_time,
                     cur_ver=cur_version,
                     cur_ver_date=cur_ver_release_time,
-                    )
+                )
                 body = """Dear {repo} maintainer:
 
-We found the latest version of {repo} is {ver} release at {date}, while the current version in openEuler mainline is {cur_ver} release at {cur_ver_date}.
+We found the latest version of {repo} is {ver} release at {date}, which url is {url}, while the current version in openEuler mainline is {cur_ver} release at {cur_ver_date}.
 
 Please consider upgrading.
 
@@ -210,6 +233,7 @@ If you think this is not proper issue, Please visit https://gitee.com/openeuler/
 Issues and feedbacks are welcome.""".format(repo=repo,
                                             ver=ver_rec.latest_version,
                                             date=lasts_version_release_time,
+                                            url=url,
                                             cur_ver=cur_version,
                                             cur_ver_date=cur_ver_release_time)
 
