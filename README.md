@@ -214,15 +214,14 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 ##### c. issue_report.py
 	运行环境：python版本 3.8及以上
 	工具使用：
-
-    ```bash
-	python3 issue_report.py -milestone "openEuler 20.03-LTS" "openEuler 20.09" -branch "openEuler-21.03" "openEuler-20.09" -outpath /Users/lilu/Downloads 
-	```
+	python3 issue_report.py --milestone "openEuler 20.03-LTS" "openEuler 20.09" --branch "openEuler-21.03" "openEuler-20.09" --output_path /Users/lilu/Downloads 
+	或
+	python3 issue_report.py -m "openEuler 20.03-LTS" "openEuler 20.09" -b "openEuler-21.03" "openEuler-20.09" -o /Users/lilu/Downloads 
 
     > 参数说明：  
-		> -milestone: openEuler版本的里程碑，支持输入多个里程碑名。例如："openEuler-21.03", "openEuler 21.03-RC1"等
-		> -branch: src-openEuler仓库下的具体分支名称，支持输入多个分支名。例如："openEuler-21.03", "openEuler-20.09"等
-		> -outpath: 版本管理报告和版本发布报告生成路径
+		> --milestone: openEuler版本的里程碑，支持输入多个里程碑名。例如："openEuler-21.03", "openEuler 21.03-RC1"等
+		> --branch: src-openEuler仓库下的具体分支名称，支持输入多个分支名。例如："openEuler-21.03", "openEuler-20.09"等
+		> --output_path: 版本管理报告和版本发布报告生成路径
 
 #### 3.2.3 advisors咨询:
 	如果有其他问题或疑问，请邮件联系：licihua@huawei.com/zwfeng@huawei.com/shanshishi@huawei.com
