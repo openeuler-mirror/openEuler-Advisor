@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://gitlab.freedesktop.org/wayland/weston.git
+tag_prefix: ""
+separator: "."
+git_url: https://gitlab.freedesktop.org/wayland/weston.git

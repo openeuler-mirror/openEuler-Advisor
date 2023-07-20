@@ -1,0 +1,5 @@
+version_control: git
+src_repo: https://git.eclipse.org/r/www.eclipse.org/cbi.git
+tag_prefix: "org.eclipse.cbi.maven.plugins_maven-plugin-parent_"
+separator: "."
+git_url: https://git.eclipse.org/r/www.eclipse.org/cbi.git

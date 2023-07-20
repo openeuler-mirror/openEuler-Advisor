@@ -47,8 +47,10 @@ def _filter_except(excpts, sources):
     """
     Filter except case in sources
     """
+    if not sources:
+        return sources
     for exp in excpts:
-        for source in sources.keys():
+        for source in list(sources):
             result = re.fullmatch(exp, source)
             if result:
                 sources.pop(source)
@@ -166,11 +168,13 @@ def main_process(push, default, repo):
 
     print("Current version is", cur_version)
     pkg_tags = get_ver_tags(user_gitee, repo, cwd_path=default)
+    if not pkg_tags:
+        print("No release tags get, please check", repo)
+        return None
+
     print("known release tags:", list(pkg_tags.keys()))
     url = get_ver_url(user_gitee, repo, cwd_path=default)
 
-    if not pkg_tags:
-        return None
 
     if cur_version not in pkg_tags.keys():
         print("WARNING: Current {ver} doesn't exist in upstream." \

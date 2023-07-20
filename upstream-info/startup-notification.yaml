@@ -1,17 +1,5 @@
----
-version_control: github
-src_repo: freedesktop/startup-notification
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xdg/startup-notification.git
 tag_prefix: "^STARTUP_NOTIFICATION_"
-separator: _
-git_url: https://github.com/freedesktop/startup-notification.git
-git_tag:
-- 2011-05-16 STARTUP_NOTIFICATION_0_12
-- 2011-05-05 STARTUP_NOTIFICATION_0_11
-- 2009-04-13 STARTUP_NOTIFICATION_0_10
-- 2007-03-17 STARTUP_NOTIFICATION_0_9
-- 2004-11-10 STARTUP_NOTIFICATION_0_8
-- 2004-06-24 STARTUP_NOTIFICATION_0_7
-- 2003-01-21 STARTUP_NOTIFICATION_0_5
-- 2002-12-01 STARTUP_NOTIFICATION_0_4
-- 2002-10-29 STARTUP_NOTIFICATION_0_3
-- 2002-10-23 STARTUP_NOTIFICATION_0_2
+separator: "_"
+git_url: https://gitlab.freedesktop.org/xdg/startup-notification.git

@@ -363,10 +363,15 @@ def __get_git_tag_list(git_repo):
     cmd_list = ["git", "tag", '-l']
     resp = __check_subprocess(cmd_list)
     for version in resp.splitlines():
+        if version == '-' or version == 'CHANGES':
+            continue
         cmd_list = ['git', 'log', '-1', '--format=%ai', version]
         date_resp = __check_subprocess(cmd_list)
-        date = datetime.strptime(date_resp.split(" ")[0], "%Y-%m-%d")
-        tag_date[version] = date
+        if not date_resp:
+            tag_date[version] = None
+        else:
+            date = datetime.strptime(date_resp.split(" ")[0], "%Y-%m-%d")
+            tag_date[version] = date
     return tag_date
 
 
@@ -380,9 +385,15 @@ def __check_git_helper(repo_url):
     else:
         os.mkdir("git")
         os.chdir("git")
+    if repo_url[-1] == '/':
+        repo_url = repo_url[0:-1]
+    if repo_url.endswith(".git"):
+        git_repo_list = os.path.basename(repo_url).split('.')[0:-1]
+        git_repo = ".".join(git_repo_list)
+    else:
+        git_repo_list = os.path.basename(repo_url)
+        git_repo = git_repo_list
 
-    git_repo_list = os.path.basename(repo_url).split('.')[0:-1]
-    git_repo = ".".join(git_repo_list)
     zip_file = git_repo + ".zip"
     if os.path.isfile(zip_file):
         shutil.unpack_archive(zip_file, git_repo)
@@ -429,11 +440,17 @@ def __svn_resp_to_tags(resp):
     """
     tags = {}
     for line in resp.splitlines():
+        if 'Redirecting' in line:
+            continue
         items = line.split()
-        create_date = items[2]
-        tag = items[3]
+        create_date = items[2:5]
+        tag = items[5]
         tag = tag[:-1]
-        tags[tag] = datetime.strptime(create_date, "%Y-%m-%d")
+        try:
+            date = datetime.strptime(",".join(create_date), "%b,%d,%Y")
+            tags[tag] = date
+        except ValueError:
+            tags[tag]=None
 
     return tags
 
@@ -455,10 +472,11 @@ def check_git(info, clean_tag=True):
         tag_data = __check_git_helper(url)
         last_query = {"time_stamp": datetime.now(), "raw_data": tag_data}
         info["last_query"] = last_query
-
     if tag_data:
         tags = clean_tags(tag_data, info)
-    return tags
+        return tags
+    else:
+        return None
 
 
 def check_github(info, clean_tag=True):
