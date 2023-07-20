@@ -1,10 +1,5 @@
----
-version_control: github
-src_repo: freedesktop/libmbim
-tag_prefix: "^"
+version_control: git
+src_repo: https://gitlab.freedesktop.org/mobile-broadband/libmbim.git
+tag_prefix: ""
 separator: "."
-git_url: https://github.com/freedesktop/libmbim.git
-git_tag:
-- 2020-06-18 1.24.0
-- 2020-05-27 1.24-rc1
-- 2020-01-15 1.22.0
+git_url: https://gitlab.freedesktop.org/mobile-broadband/libmbim.git

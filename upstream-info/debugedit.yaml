@@ -1,0 +1,4 @@
+version_control: ftp
+src_repo: https://sourceware.org/ftp/debugedit
+tag_prefix: "^v" 
+seperator: "."

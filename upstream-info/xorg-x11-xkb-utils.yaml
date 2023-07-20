@@ -1,6 +1,5 @@
----
-version_control: github
-src_repo: eurolinux-enterprise-linux-sources/xorg-x11-xkb-utils
-tag_prefix: "^xorg-x11-xkb-utils-" 
-separator: "."
-git_url: https://github.com/eurolinux-enterprise-linux-sources/xorg-x11-xkb-utils.git
+version_control: git
+src_repo: https://gitlab.freedesktop.org/xorg/app/xkbutils.git
+tag_prefix: ^xkbutils-
+seperator: .
+

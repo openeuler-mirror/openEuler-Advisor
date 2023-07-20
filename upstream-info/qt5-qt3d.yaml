@@ -1,6 +1,5 @@
----
 version_control: git
-src_repo: https://code.qt.io/cgit/qt/qt3d.git/
+src_repo: https://code.qt.io/qt/qt3d.git
 tag_prefix: "^v"
 separator: "."
-git_url: https://code.qt.io/cgit/qt/qt3d.git/
+git_url: https://code.qt.io/qt/qt3d.git
