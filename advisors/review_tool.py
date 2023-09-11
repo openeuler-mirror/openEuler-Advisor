@@ -518,7 +518,7 @@ def src_openeuler_review(cklist, branch):
     review_body = ""
     for key1, value1 in cklist['src-openeuler'].items():
         for value2 in value1:
-            if value2['name'] == 'PR-latest-version' and branch == 'master':
+            if value2['name'] == 'PR-latest-version' and branch != 'master':
                 continue
             item = join_check_item(categorizer[key1],
                                    value2['claim'], value2['explain'])
@@ -615,7 +615,7 @@ def check_pr_url(url):
     check whether the URL of Pull Request is valid
     """
     if url:
-        pattern = re.compile(r'https://gitee.com/(open_euler/dashboard/projects/)?'
+        pattern = re.compile(r'https://(e.)?gitee.com/(open_euler/repos/)?'
                              + r'(openeuler|src-openeuler)/([A-Za-z0-9-_]*)/pulls/(\d+$)')
         return pattern.match(url)
     return None
@@ -628,10 +628,10 @@ def extract_params(args):
     if args.url and len(args.url) > 0:
         res = check_pr_url(args.url)
         if res:
-            group = res.group(2)
-            repo_name = res.group(3)
-            pull_id = res.group(4)
-            return group, repo_name, pull_id
+            group = res.group(3)
+            repo_name = res.group(4)
+            pull_id = res.group(5)
+            return (group, repo_name, pull_id)
         print("ERROR: URL is wrong, please check!")
         return ()
     if args.repo and args.pull and len(args.repo) > 0 and len(args.pull) > 0:

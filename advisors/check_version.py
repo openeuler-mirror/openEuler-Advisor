@@ -20,7 +20,8 @@ import argparse
 import time
 from advisors import gitee
 from advisors.oa_upgradable import main_process
-
+from advisors import advisor_common
+import time
 
 
 def main():
@@ -34,20 +35,17 @@ def main():
     parameters.add_argument("-d", "--default", type=str, default=os.getcwd(),
                             help="The fallback place to look for YAML information")
 
-    parameters.add_argument("-s", "--sig", required=True,
+    parameters.add_argument("-s", "--sig", type=str, default="sig-recycle",
                             help="Check yaml by Sig")
 
     args = parameters.parse_args()
+    if args.sig:
+        sig = args.sig
+    else:
+        sig = 'sig-recycle'
 
-    sig = args.sig
+    repos = advisor_common.get_repos_by_openeuler_sig(sig)
 
-    try:
-        user_gitee = gitee.Gitee()
-    except NameError:
-        sys.exit(1)
-
-    repos = user_gitee.get_repos_by_sig(sig)
-    print(repos)
     total = len(repos)
     index = 0
     upgrade_list = []
