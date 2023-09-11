@@ -336,22 +336,6 @@ class Gitee():
                 return my_dir['sha']
         return ''
 
-    def get_sigs(self):
-        """
-        Get upstream sigs tree info
-        """
-        sigs = {}
-        master_tree = self.__get_community_tree('master')
-        for my_dir in master_tree:
-            if my_dir['type'] == 'tree' and my_dir['path'] == 'sig':
-                sig_sha = my_dir['sha']
-
-        sig_tree = self.__get_community_tree(sig_sha)
-        for my_dir in sig_tree:
-            if my_dir['type'] == 'tree':
-                sigs[my_dir['path']] = my_dir['sha']
-
-        return sigs
 
     def get_repos_by_sig(self, sig):
         """

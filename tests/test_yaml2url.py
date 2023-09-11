@@ -106,7 +106,7 @@ def test_get_metacpan_url():
 
     pkg_info = yaml.load(doc, Loader=yaml.Loader)
     url = yaml2url.yaml2url(pkg_info)
-    assert url == "https://metacpan.org/release/File-Which"
+    assert url == "https://fastapi.metacpan.org/v1/release/File-Which"
 
 
 def test_get_rubygem_url():

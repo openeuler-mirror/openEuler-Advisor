@@ -248,27 +248,22 @@ def check_metacpan(info, clean_tag=True):
 
         resp = resp.text
 
-    tag_list = resp.splitlines()
-    condition = "value=\"/release"
-
-    len_tag_list = len(tag_list) - 1
-    for index in range(len_tag_list):
-        if condition in tag_list[index]:
-            tag = tag_list[index + 1]
-            print(tag)
-            index = index + 1
-            if 'DEV' in tag:
-                continue
-            tag = tag.lstrip()
-            tag = tag.rstrip()
-            tags[tag] = None
-
-    if not tags:
-        eprint("{repo} found unsorted on cpan.metacpan.org".format(repo=info["src_repo"]))
-        return tags
-
     last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
+
+    tags = []
+    tag = None
+    tags_json = json.loads(resp)
+    if "version" in tags_json:
+        tag = tags_json["version"]
+    elif "version" in tags.json["metadata"]:
+        tag = tags_json["metadata"]["version"]
+    elif "version_numified" in tags_json:
+        tag = str(tags_json["version_numified"])
+    if tag:
+        tag = tag.lstrip('0').rstrip('0')
+        tags.append(tag)
+
     if clean_tag:
         tags = clean_tags(tags, info)
     return tags

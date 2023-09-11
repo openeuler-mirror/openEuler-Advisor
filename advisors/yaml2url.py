@@ -75,7 +75,7 @@ def __get_metacpan_url(pkg_info):
     """
     Get metacpan repo url of package
     """
-    url = urljoin("https://metacpan.org/release/", pkg_info["src_repo"])
+    url = urljoin("https://fastapi.metacpan.org/v1/release/", pkg_info["src_repo"])
     return url
 
 

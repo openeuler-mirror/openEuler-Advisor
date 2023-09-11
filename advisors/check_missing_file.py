@@ -21,6 +21,7 @@ import argparse
 from datetime import datetime
 
 from advisors import gitee
+from advisors import advisor_common
 
 NEW_SPEC_ISSUE_BODY = """Dear {repo} maintainer:
 亲爱的 {repo} 维护者：
@@ -70,9 +71,6 @@ This is a automatic advise from openEuler-Advisor. If you think the advise is no
 
 Yours openEuler Advisor.
 """
-
-
-
 
 
 def main_process(repo, push, check_file):
@@ -147,12 +145,11 @@ def main():
         print("ERROR: Not support {file} check".format(file=args.file))
         return
 
-    try:
-        user_gitee = gitee.Gitee()
-    except NameError:
-        sys.exit(1)
-    repos = user_gitee.get_repos_by_sig(args.sig)
-    print(repos)
+    repos = advisor_common.get_repos_by_openeuler_sig(args.sig)
+    if not repos:
+        print("ERROR: no repos find is {sig} sig, please check the sig name.".format(
+            sig=args.sig))
+        return
     fail_list = []
 
     total = len(repos)
