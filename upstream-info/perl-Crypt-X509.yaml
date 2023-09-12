@@ -1,0 +1,5 @@
+version_control: metacpan
+src_repo: Crypt-X509
+tag_prefix: 
+separator: .
+
