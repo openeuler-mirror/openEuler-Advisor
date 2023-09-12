@@ -49,7 +49,10 @@ def main():
     total = len(repos)
     index = 0
     upgrade_list = []
-    for check_repo in repos:
+    for repo in repos:
+        if repo.startswith('openeuler/'):
+            continue
+        check_repo = repo[len('src-openeuler/'):]
         index = index + 1
         result = main_process(args.push, args.default, check_repo)
         if result:

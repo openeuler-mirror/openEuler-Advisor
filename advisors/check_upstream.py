@@ -251,7 +251,7 @@ def check_metacpan(info, clean_tag=True):
     last_query = {"time_stamp": datetime.now(), "raw_data": resp}
     info["last_query"] = last_query
 
-    tags = []
+    tags = {}
     tag = None
     tags_json = json.loads(resp)
     if "version" in tags_json:
@@ -261,8 +261,8 @@ def check_metacpan(info, clean_tag=True):
     elif "version_numified" in tags_json:
         tag = str(tags_json["version_numified"])
     if tag:
-        tag = tag.lstrip('0').rstrip('0')
-        tags.append(tag)
+        tag = tag.rstrip('0')
+        tags[tag] = datetime.now()
 
     if clean_tag:
         tags = clean_tags(tags, info)
@@ -438,14 +438,15 @@ def __svn_resp_to_tags(resp):
         if 'Redirecting' in line:
             continue
         items = line.split()
-        create_date = items[2:5]
-        tag = items[5]
-        tag = tag[:-1]
         try:
+            create_date = items[2:5]
             date = datetime.strptime(",".join(create_date), "%b,%d,%Y")
-            tags[tag] = date
-        except ValueError:
-            tags[tag]=None
+        except:
+            date = datetime.now()
+
+        tag = items[-1]
+        tag = tag[:-1]
+        tags[tag] = date
 
     return tags
 
