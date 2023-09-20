@@ -1,6 +1,6 @@
 ---
-version_control: pypi
-src_repo: kiwi
+version_control: github
+src_repo: OSInside/kiwi
 tag_prefix: "^v"
 separator: "."
 last_query:
