@@ -1,7 +1,7 @@
 ---
 version_control: metacpan
 src_repo: Authen-SASL
-tag_prefix: "^v"
+tag_prefix: ""
 separator: "."
 last_query:
   time_stamp: 2020-04-26 07:40:37.094827020 +00:00

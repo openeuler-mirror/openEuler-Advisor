@@ -28,10 +28,9 @@ from pyrpm.spec import Spec, replace_macros
 from advisors import gitee
 
 
-BODY_SOURCE = """Dear Maintainer:
-              Due to source url problem checked by openEuler-Advisor, please solve it as soon as
-              possible and check other branch too.
-              If any problem, please create issue in https://gitee.com/openeuler/openEuler-Advisor.
+BODY_SOURCE = """软件包maintainer，您好：
+              openEuler-Advisor 检查发现该软件包的SPEC文件中包含的SOURCE URL可能存在问题。如果您确认SOURCE已经正确设置了URL，也请确认URL是否正确指向了源码包。同时，请确认其他分支上是否存在类似问题。
+              如果您认为这个报告是错误的，请在 https://gitee.com/openeuler/openEuler-Advisor/ 上创建 issue。
               Thanks.
               Yours openEuler-Advisor"""
 BODY_SPEC = """Dear Maintainer:
@@ -112,28 +111,33 @@ def check_pkg(pkg, branch, check_file, lock):
         user_gitee = gitee.Gitee()
     except NameError:
         sys.exit(1)
+    lock.acquire()
     check_file.writelines("\n-----------------------Checking {}-----------------------".format(
         pkg))
-    lock.acquire()
+    lock.release()
     spec_str = user_gitee.get_spec(pkg, branch)
     lock.acquire()
     if not spec_str:
-        check_file.writelines("WARNING: Spec of {repo} can't be found on {br}".format(repo=pkg,
-                                                                                      br=branch))
+        check_file.writelines("WARNING: Spec of {repo} can't be found on {br}".format(repo=pkg, br=branch))
         return False
+    lock.release()
 
     repo_spec = Spec.from_string(spec_str)
     if repo_spec.sources_dict:
         source = replace_macros(repo_spec.sources[0], repo_spec)
     else:
-        title = "Source url can't be found in spec on {br}".format(br=branch)
+        title = "Source url can't be found in spec on branch {br}".format(br=branch)
+        lock.acquire()
         check_file.writelines("WARNING: {content}".format(content=title))
+        lock.release()
         create_issue(user_gitee, pkg, title, BODY_SOURCE)
         return False
 
     if re.search(r"%{.*?}", source):
-        title = "Source url can't be parsed with extra macros in spec on {}.".format(branch)
+        title = "Source url can't be parsed with extra macros in spec on branch {}.".format(branch)
+        lock.acquire()
         check_file.writelines("WARNING: {content}".format(content=title))
+        lock.release()
         create_issue(user_gitee, pkg, title, BODY_SOURCE)
         return False
 
@@ -149,24 +153,32 @@ def check_pkg(pkg, branch, check_file, lock):
                 break
         lock.release()
 
-        title = "Source url may be wrong in spec on {br}.".format(br=branch)
+        title = "Source url may be wrong in spec on branch {br}.".format(br=branch)
         if os.path.exists(file_name):
             if subprocess.call(["tar -tvf {} &>/dev/null".format(file_name)], shell=True):
+                lock.acquire()
                 check_file.writelines("WARNING: {content}".format(content=title))
+                lock.release()
                 create_issue(user_gitee, pkg, title, BODY_SOURCE)
                 result = False
             else:
+                lock.acquire()
                 check_file.writelines("Check successfully.")
+                lock.release()
                 result = True
             subprocess.call(["rm -rf {}".format(file_name)], shell=True)
         else:
+            lock.acquire()	
             check_file.writelines("WARNING: {content}".format(content=title))
+            lock.release()
             create_issue(user_gitee, pkg, title, BODY_SOURCE)
             result = False
         return result
 
-    title = "Source url is invalid in spec on {br}.".format(br=branch)
+    title = "Source url is invalid in spec on branch {br}.".format(br=branch)
+    lock.acquire()
     check_file.writelines("WARNING: {content}".format(content=title))
+    lock.release()
     create_issue(user_gitee, pkg, title, BODY_SOURCE)
     return False
 
