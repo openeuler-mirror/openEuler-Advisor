@@ -265,6 +265,7 @@ def load_sig_owners(sig_name):
     """
     owners = []
     owners_file = "sig/{}/OWNERS".format(sig_name)
+    siginfo_file = "sig/{}/sig-info.yaml".format(sig_name)
     try:
         with open(owners_file, 'r') as file_descriptor:
             lines = file_descriptor.readlines()
@@ -273,7 +274,15 @@ def load_sig_owners(sig_name):
                     owner = line.replace('- ', '@').strip()
                     owners.append(owner)
     except IOError as error:
-        print("Error: 没有找到文件或读取文件失败 {}.", owners_file, error)
+        print("INFO: 没有找到OWNER文件或读取文件失败 {}.", owners_file, error)
+
+    try:
+        with open(siginfo_file, 'r', encoding='utf-8') as file_descriptor:
+            result = yaml.load(file_descriptor, Loader=yaml.Loader)
+            for m in result["maintainers"]:
+                owners.append(m["gitee_id"])
+    except IOError as error:
+        print("ERROR: 没有找到sig-info.yaml文件或者读取文件失败 {}.", siginfo_file, error)
         return None
     return owners
 
