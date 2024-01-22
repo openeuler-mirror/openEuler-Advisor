@@ -1,6 +1,4 @@
----
-version_control: github
-src_repo: eurolinux-enterprise-linux-sources/xorg-x11-fonts
-tag_prefix: "^xorg-x11-fonts-" 
-separator: "."
-git_url: https://github.com/eurolinux-enterprise-linux-sources/xorg-x11-fonts.git
+version_control: NA
+src_repo: NA
+tag_prefix: NA
+separator: NA
