@@ -84,8 +84,13 @@ class Advisor:
         """
         Get list of current SIG maintainers
         """
-        owners = yaml.load(self.get_file("openeuler/community", "sig/{sig}/OWNERS".format(sig=sig)),
-                           Loader=yaml.Loader)
+        try:
+            owners = yaml.load(self.get_file("openeuler/community", "sig/{sig}/sig-info.yaml".format(sig=sig)),
+                               Loader=yaml.Loader)
+        except urllib.error.HTTPError as err:
+            owners = yaml.load(self.get_file("openeuler/community", "sig/{sig}/OWNERS".format(sig=sig)),
+                               Loader=yaml.Loader)
+
         self.tc_members = owners["maintainers"]
         return owners["maintainers"]
 
@@ -125,8 +130,13 @@ def main():
     print("Current {sig} maintainers: ".format(sig=args.sig))
 
     for member in maintainers:
-        eve_list = advisor.get_pub_events(member, args.number, args.member)
-        print("{name}, Total: {number}".format(name=member, number=len(eve_list)))
+        try:
+            member_info = json.loads(str(member).replace("\'", "\"").replace("None","\"None\""))
+            member_id = member_info['gitee_id']
+        except json.decoder.JSONDecodeError as err:
+            member_id = member
+        eve_list = advisor.get_pub_events(member_id, args.number, args.member)
+        print("{name}, Total: {number}".format(name=member_id, number=len(eve_list)))
         if eve_list:
             #print("From: {date2}, To: {date1}".format(
             #    date1=eve_list[0]['date'], date2=eve_list[-1]['date']))
