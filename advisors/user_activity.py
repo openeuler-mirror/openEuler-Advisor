@@ -23,6 +23,7 @@ class Advisor:
                        "Gecko/20100101 Firefox/50.0"}
         self.tc_members = None
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
+        self.repositories = []
 
     def get_json(self, url):
         """
@@ -45,7 +46,7 @@ class Advisor:
             resp = result.read()
         return resp
 
-    def get_pub_events(self, username, limit, ignore_memberevent):
+    def get_pub_events(self, username, limit, ignore_memberevent, ignore_nonsigevent):
         """
         Get list of public events for given user
         """
@@ -64,10 +65,12 @@ class Advisor:
                     continue
                 if ignore_memberevent and event['type'] == 'MemberEvent':
                     continue
-                new_event = {}
                 repo_name = event['repo'].get('full_name', "")
                 if repo_name == "":
                     print("ERROR: " + str(event['id']))
+                if ignore_nonsigevent and self.repositories and repo_name not in self.repositories:
+                    continue
+                new_event = {}
                 new_event['repo'] = repo_name
                 new_event['type'] = event['type']
                 new_event['date'] = event['created_at']
@@ -92,6 +95,19 @@ class Advisor:
                                Loader=yaml.Loader)
 
         self.tc_members = owners["maintainers"]
+
+        try:
+            repositories = owners["repositories"]
+        except KeyError as err:
+            repositories = []
+        if not repositories:
+            print("Failed to get repo list for {sig}".format(sig=sig))
+        else:
+            for repository in repositories:
+                repo = yaml.load(str(repository),Loader=yaml.FullLoader)
+                for r in repo["repo"]:
+                    self.repositories.append(r)
+
         return owners["maintainers"]
 
 def print_statistic(event_list):
@@ -118,7 +134,9 @@ def main():
     par.add_argument("-n", "--number", help="Number of public events to be processed",
                      default=50, type=int)
     par.add_argument("-m", "--member", help="Count in member change events",
-                     default=True, action="store_true")
+                     default=True, action="store_false")
+    par.add_argument("-t", "--strict", help="Not count in events have no relationship with sig repos",
+                     default=False, action="store_true")
 
     args = par.parse_args()
 
@@ -135,7 +153,7 @@ def main():
             member_id = member_info['gitee_id']
         except json.decoder.JSONDecodeError as err:
             member_id = member
-        eve_list = advisor.get_pub_events(member_id, args.number, args.member)
+        eve_list = advisor.get_pub_events(member_id, args.number, args.member, args.strict)
         print("{name}, Total: {number}".format(name=member_id, number=len(eve_list)))
         if eve_list:
             #print("From: {date2}, To: {date1}".format(
