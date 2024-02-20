@@ -57,7 +57,7 @@ def get_license(j):
     for k in j["info"]["classifiers"]:
         if k.startswith("License"):
             ks = k.split("::")
-            return ks[2].strip()
+            return ks[-1].strip()
     return ""
 
 
@@ -105,11 +105,13 @@ def get_requires(j):
     return all requires no matter if extra is required.
     """
     rs = j["info"]["requires_dist"]
+    mod = None
     if rs is None:
         return
     for r in rs:
         idx = r.find(";")
-        mod = transform_module_name(r[:idx])
+        if idx != -1:
+            mod = transform_module_name(r[:idx])
         print("Requires:\t" + mod)
 
 
@@ -223,7 +225,7 @@ def download_source(j, tgtpath):
     """
     download source file from url, and save it to target path
     """
-    if (os.path.exists(tgtpath) == False):
+    if not os.path.exists(tgtpath):
         print("download path %s does not exist\n", tgtpath)
         return False
     s_url = get_source_url(j)
