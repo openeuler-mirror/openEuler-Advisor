@@ -11,6 +11,10 @@ import urllib.parse
 import argparse
 import datetime
 import yaml
+import smtplib
+from email.header import Header
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 class Advisor:
     """
@@ -24,6 +28,7 @@ class Advisor:
         self.tc_members = None
         self.time_format = "%Y-%m-%dT%H:%M:%S%z"
         self.repositories = []
+        self.mentors = []
 
     def get_json(self, url):
         """
@@ -32,8 +37,14 @@ class Advisor:
         headers = self.header.copy()
         headers["Content-Type"] = "application/json;charset=UTF-8"
         req = urllib.request.Request(url=url, headers=headers, method="GET")
-        with urllib.request.urlopen(req) as result:
-            resp = json.loads(result.read().decode("utf-8"))
+        for i in range(3):
+            try:
+                result = urllib.request.urlopen(req)
+                break
+            except ConnectionResetError as err:
+                continue
+        #with urllib.request.urlopen(req) as result:
+        resp = json.loads(result.read().decode("utf-8"))
         return resp
 
     def get_file(self, repo, path):
@@ -42,8 +53,13 @@ class Advisor:
         """
         url = "https://gitee.com/{repo}/raw/master/{path}".format(repo=repo, path=path)
         req = urllib.request.Request(url=url, headers=self.header, method="GET")
-        with urllib.request.urlopen(req) as result:
-            resp = result.read()
+        for i in range(3):
+            try:
+                result = urllib.request.urlopen(req)
+                break
+            except ConnectionResetError as err:
+                continue
+        resp = result.read()
         return resp
 
     def get_pub_events(self, username, limit, ignore_memberevent, ignore_nonsigevent):
@@ -91,10 +107,18 @@ class Advisor:
             owners = yaml.load(self.get_file("openeuler/community", "sig/{sig}/sig-info.yaml".format(sig=sig)),
                                Loader=yaml.Loader)
         except urllib.error.HTTPError as err:
-            owners = yaml.load(self.get_file("openeuler/community", "sig/{sig}/OWNERS".format(sig=sig)),
-                               Loader=yaml.Loader)
+            try:
+                owners = yaml.load(self.get_file("openeuler/community", "sig/{sig}/OWNERS".format(sig=sig)),
+                                   Loader=yaml.Loader)
+            except urllib.error.HTTPError as err:
+                return []
 
         self.tc_members = owners["maintainers"]
+
+        try:
+            self.mentors = owners["mentors"]
+        except KeyError as err:
+            self.mentors = []
 
         try:
             repositories = owners["repositories"]
@@ -110,20 +134,44 @@ class Advisor:
 
         return owners["maintainers"]
 
-def print_statistic(event_list):
-    """
-    Print out the statistic of users activity
-    """
-    event_set = {}
-    for event in event_list:
-        same_kind = event_set.get(event['type'], set())
-        same_kind.add(event['repo'])
-        event_set[event['type']] = same_kind
+    def send_mail(self, sig, message, default_mailreceiver):
+        """
+        Send mail to SIG mentors
+        """
+        sendmail_config = open(os.path.expanduser("~/.user_activities_sendmail_config.json"), "r")
+        mailserver = json.load(sendmail_config)
 
-    for k in event_set:
-        print("{action}: {l}".format(action=k, l=event_set[k]))
+        msg = MIMEMultipart()
+        msg['To'] = ""
+        receivers = []
+        if self.mentors:
+            for mentor in self.mentors:
+                mentor_info = json.loads(str(mentor).replace("\'", "\"").replace("None","\"None\""))
+                email = mentor_info['email']
+                receivers.append(email)
+                msg['To'] += email +";"
+        else:
+            email = default_mailreceiver
+            receivers.append(email)
+            msg['To'] += email +";"
 
-    print("")
+        txt = MIMEText(message, _subtype='plain', _charset='utf-8')
+        msg.attach(txt)
+        msg['From'] = mailserver['sender']
+        subject = "{sig} maintainers activity stats".format(sig=sig)
+        msg['Subject'] = Header(subject, 'utf-8')
+
+        try:
+            server = smtplib.SMTP()
+            server.connect(mailserver['host'], mailserver['port'])
+            server.login(mailserver['user'], mailserver['passward'])
+            server.sendmail(mailserver['sender'], receivers, msg.as_string())
+            server.close()
+            print("Mail has been sent to {receivers}.".format(receivers=receivers))
+            return True
+        except Exception as e:
+            print(str(e))
+            return False
 
 def main():
     """
@@ -135,8 +183,12 @@ def main():
                      default=50, type=int)
     par.add_argument("-m", "--member", help="Count in member change events",
                      default=True, action="store_false")
-    par.add_argument("-t", "--strict", help="Not count in events have no relationship with sig repos",
+    par.add_argument("-t", "--strict", help="Only count in events have relationship with sig repos",
                      default=False, action="store_true")
+    par.add_argument("-e", "--sendmail", help="Send mail to sig mentors. Set mail server host/port/user/password/sender(mail address) in ~/.user_activities_sendmail_config.json",
+                     default=False, action="store_true")
+    par.add_argument("-d", "--mailreceiver", help="Mail receiver if sig has no mentor",
+                     default="huxinwei@huawei.com")
 
     args = par.parse_args()
 
@@ -145,8 +197,10 @@ def main():
     maintainers = advisor.get_sig_members(args.sig)
     if not maintainers:
         print("Failed to get maintainer list for {sig}".format(sig=args.sig))
+        return
     print("Current {sig} maintainers: ".format(sig=args.sig))
 
+    message = "Dear sig mentor, here are the last 50 activity stats of sig maintainers on gitee:\r\n\r\n"
     for member in maintainers:
         try:
             member_info = json.loads(str(member).replace("\'", "\"").replace("None","\"None\""))
@@ -154,7 +208,9 @@ def main():
         except json.decoder.JSONDecodeError as err:
             member_id = member
         eve_list = advisor.get_pub_events(member_id, args.number, args.member, args.strict)
-        print("{name}, Total: {number}".format(name=member_id, number=len(eve_list)))
+        msg = "{name}, Total: {number}".format(name=member_id, number=len(eve_list))
+        message += msg + "\r\n"
+        print(msg)
         if eve_list:
             #print("From: {date2}, To: {date1}".format(
             #    date1=eve_list[0]['date'], date2=eve_list[-1]['date']))
@@ -162,12 +218,32 @@ def main():
             first = datetime.datetime.strptime(eve_list[-1]['date'], advisor.time_format)
             last = datetime.datetime.strptime(eve_list[0]['date'], advisor.time_format)
             duration = last - first
-            print("It has been {days} days since last contribution".format(days=(now_day-last).days))
+            msg = "It has been {days} days since last contribution.".format(days=(now_day-last).days)
+            message += msg + "\r\n"
+            print(msg)
             if duration.days == 0:
-                print("Average {:05.2f} activities per day while active".format(len(eve_list)))
+                msg = "Average {:05.2f} activities per day while active.".format(len(eve_list))
+                message += msg + "\r\n"
+                print(msg)
             else:
-                print("Average {:05.2f} activities per day while active".format(len(eve_list)/duration.days))
-            print_statistic(eve_list)
+                msg = "Average {:05.2f} activities per day while active.".format(len(eve_list)/duration.days)
+                message += msg + "\r\n"
+                print(msg)
+            event_set = {}
+            for event in eve_list:
+                same_kind = event_set.get(event['type'], set())
+                same_kind.add(event['repo'])
+                event_set[event['type']] = same_kind
+            for k in event_set:
+                msg = "{action}: {l}".format(action=k, l=event_set[k])
+                message += msg + "\r\n"
+                print(msg)
+
+            print("")
+            message = message + "\r\n"
+
+    if args.sendmail:
+        advisor.send_mail(args.sig, message, args.mailreceiver)
 
 if __name__ == "__main__":
     main()
