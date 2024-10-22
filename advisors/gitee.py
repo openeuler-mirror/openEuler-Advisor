@@ -243,6 +243,21 @@ class Gitee():
         url = url_template.format(owner=owner, repo=repo, number=num)
         return self.__get_gitee_json(url)
 
+    def get_diff(self, repo, num, owner="src-openeuler"):
+        """
+        Get changes of PR as diff file
+        """
+        url_template = "https://gitee.com/{owner}/{repo}/pulls/{number}.diff"
+        url = url_template.format(owner=owner, repo=repo, number=num)
+        req = urllib.request.Request(url=url, headers=self.headers)
+        try:
+            result = urllib.request.urlopen(req)
+            return result.read().decode("utf-8")
+        except urllib.error.HTTPError as error:
+            print("get diff failed to access: %s" % (url))
+            print("get diff failed: %d, %s" % (error.code, error.reason))
+            return None
+    
     def __get_gitee_json(self, url):
         """
         Get and load gitee json response
