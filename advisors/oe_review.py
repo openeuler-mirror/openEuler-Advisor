@@ -136,6 +136,13 @@ def review_pr(user_gitee, repo_name, pull_id, group, editor):
     review_content = ""
     pull_request = user_gitee.get_pr(repo_name, pull_id, group)
 
+<<<<<<< HEAD
+=======
+    suggest_action = ""
+
+    result = ""
+
+>>>>>>> e05f663 (update oe_review for easy handle)
     review_content += "# !{number}: {title}\n# {body}\n".format(number=pull_request["number"], title=pull_request["title"], body=pull_request["body"])
     if not pull_request["mergeable"]:
         review_content += "# This PR is not mergeable!\n"
@@ -191,11 +198,20 @@ def review_pr(user_gitee, repo_name, pull_id, group, editor):
 
     user_gitee.create_pr_comment(repo_name, pull_id, review_comment, group)
     if suggest_action == "/close":
+<<<<<<< HEAD
         print("!{id}: {title} is closed due to {reason}.".format(id=pull_id, title=pull_request["title"], reason=suggest_reason))
     elif suggest_action == "暂不处理":
         print("!{id}: {title} is skipped due to {reason}.".format(id=pull_id, title=pull_request["title"], reason=suggest_reason))
     else:
         print("push review list finish.")
+=======
+        result = " is closed due to {reason}.".format(reason=suggest_reason)
+    elif suggest_action == "暂不处理":
+        result = " is skipped due to {reason}.".format(reason=suggest_reason)
+    else:
+        result = " is handled and review is published."
+    return result
+>>>>>>> e05f663 (update oe_review for easy handle)
 
 def review_repo(user_gitee, owner, repo, editor):
     """"
@@ -207,8 +223,13 @@ def review_repo(user_gitee, owner, repo, editor):
         return
     else:
         for pr in PRs:
+<<<<<<< HEAD
             result += '\n' + "!{number}: {title}".format(number=pr["number"], title=pr["title"])
             review_pr(user_gitee, repo, pr['number'], owner, editor)
+=======
+            h_res = review_pr(user_gitee, repo, pr['number'], owner, editor)
+            result += '\n' + "!{number}: {title}{res}".format(number=pr["number"], title=pr["title"], res=h_res)
+>>>>>>> e05f663 (update oe_review for easy handle)
         print(result)
 
 def main():
