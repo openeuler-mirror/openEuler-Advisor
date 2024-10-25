@@ -153,6 +153,14 @@ class Gitee():
         url = url_template.format(owner=owner, pkg=repo)
         return self.__get_gitee(url)
 
+    def list_pr(self, repo, owner="src-openeuler"):
+        """
+        List all prs of repo
+        """
+        url_template = "https://gitee.com/api/v5/repos/{owner}/{repo}/pulls?state=open&per_page=100&page=1"
+        url = url_template.format(owner=owner, repo=repo)
+        return self.__get_gitee_json(url)
+
     def create_pr(self, repo, version, branch, owner="src-openeuler"):
         """
         Create PR in gitee
@@ -351,7 +359,44 @@ class Gitee():
                 return my_dir['sha']
         return ''
 
+    def get_sigs(self):
+        """
+        Get list of SIGs in openEuler
+        """
+        sig_sha = self.__get_community_sha('master', 'sig')
+        
+        sig_tree = self.__get_community_tree(sig_sha)
+        sigs = {}
+        for sig in sig_tree:
+            if sig['path'] == 'sig-template':
+                continue
+            else:
+                sigs[sig['path']] = sig['sha']
+        return sigs
 
+    def get_openeuler_repos_by_sig(self, sig):
+        """
+        Get openEuler repos by SIG
+        """
+        repo_list = []
+        sigs = self.get_sigs()
+        if sig not in sigs.keys():
+            return repo_list
+        
+        openeuler_sha = self.__get_community_sha(sigs[sig], 'openeuler')
+        if not openeuler_sha:
+            return ''
+
+        initials_tree = self.__get_community_tree(openeuler_sha)
+        for initials_dir in initials_tree:
+            openeuler_repo_tree = self.__get_community_tree(initials_dir['sha'])
+            for my_repo_dir in openeuler_repo_tree:
+                repo_name = my_repo_dir['path']
+                repo_name = repo_name[:-5]
+                repo_list.append(repo_name)
+
+        return repo_list
+        
     def get_repos_by_sig(self, sig):
         """
         Get repos list by sig
