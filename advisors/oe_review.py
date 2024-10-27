@@ -63,12 +63,12 @@ class ThreadSafeQueue:
         self.condition = threading.Condition(self.lock)
 
     def put(self, item):
-        with self.lock:
+        with self.condition:
             self.queue.append(item)
             self.condition.notify_all()  # Notify all waiting threads that new item is added
 
     def get(self):
-        with self.lock:
+        with self.condition:
             while len(self.queue) == 0:
                 self.condition.wait()  # Wait until there are items in the queue
             item = self.queue.pop(0)
@@ -172,7 +172,7 @@ def easy_classify(pull_request):
     suggest_action = ""
     suggest_reason = ""
     sync_pr = False
-    
+
     if not pull_request["mergeable"]:
         suggest_action = "/close"
         suggest_reason = "存在冲突"
@@ -209,7 +209,7 @@ def sort_pr(user_gitee):
         item = PENDING_PRS.get()
         if not item:
             break
-        print(f"Got {item} from queue")
+        #print(f"Got {item} from queue")
 
         pull_request = user_gitee.get_pr(item["repo"], item["number"], item["owner"])
 
@@ -224,16 +224,19 @@ def sort_pr(user_gitee):
             review_comment_raw = suggest_action + "\n" + suggest_reason
             submitting_pr = {}
             submitting_pr['review_comment'] = review_comment_raw
+            submitting_pr['pull_request'] = pull_request
             submitting_pr['pr_info'] = item
             submitting_pr['suggest_action'] = suggest_action
             submitting_pr['suggest_reason'] = suggest_reason
             SUBMITTING_PRS.put(submitting_pr)
 
     NEED_REVIEW_PRS.put(None)
+    print("sort pr exits")
 
 def ai_review(user_gitee):
     while True:
         item = NEED_REVIEW_PRS.get()
+        #print("ai review works")
         if not item:
             break
         pr_info = item["pr_info"]
@@ -252,10 +255,12 @@ def ai_review(user_gitee):
         manual_review_pr['review_rating'] = review_rating
         MANUAL_REVIEW_PRS.put(manual_review_pr)
     MANUAL_REVIEW_PRS.put(None)
+    print("ai review exits")
 
 def manually_review(user_gitee, editor):
     while True:
         item  = MANUAL_REVIEW_PRS.get()
+        #print("manually review works")
         if not item:
             break
         review_content = ""
@@ -280,6 +285,7 @@ def manually_review(user_gitee, editor):
         SUBMITTING_PRS.put(submitting_pr)
 
     SUBMITTING_PRS.put(None)
+    print("manually review exits")
 
 def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action="", suggest_reason=""):
     result = " is handled and review is published."
@@ -299,7 +305,8 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
 def submmit_review(user_gitee):
     while True:
         item = SUBMITTING_PRS.get()
-        print(item)
+        #print("submit review works")
+        #print(item)
         if not item:
             break
         review_comment = item['review_comment']
@@ -309,7 +316,7 @@ def submmit_review(user_gitee):
         suggest_reason = item.get('suggest_reason', "")
 
         submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
-
+    print("submit review exits")
 
 def review_pr(user_gitee, repo_name, pull_id, group, editor):
     """
@@ -403,7 +410,11 @@ def review_repo(user_gitee, owner, repo):
     Get PRs in give repo, or doing nothing if no PR
     """
     result = f'{owner}/{repo}'.format(owner=owner, repo=repo)
-    PRs = user_gitee.list_pr(repo, owner)
+    try:
+        PRs = user_gitee.list_pr(repo, owner)
+    except urllib.URLErro as e:
+        print(e)
+        print(f'Failed to get PRs in {owner}/{repo}'.format(owner=owner, repo=repo))
     if not PRs:
         return
     else:
