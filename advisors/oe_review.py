@@ -154,9 +154,9 @@ def args_parser():
     pars.add_argument("-u", "--url", type=str, help="URL of Pull Request")
     pars.add_argument("-s", "--sig", type=str, default="TC", help="When active_user is set, review all PRs in specified SIG")
     pars.add_argument("-m", "--model", type=str, help="Model of selection to generate review")
-    pars.add_argument("-e", "--editor", type=str, default="nvim",
+    pars.add_argument("-e", "--editor", type=str, default="neovide",
                       help="Editor of choice to edit content, default to nvim")
-
+    pars.add_argument("-o", "--editor-option", type=str, default="--no-fork", help="Commandline option for editor")
     return pars.parse_args()
     
 def edit_content(text, editor):
@@ -164,7 +164,7 @@ def edit_content(text, editor):
     with os.fdopen(fd, 'w') as tmp:
         tmp.write(text)
         tmp.flush()
-        subprocess.call([editor, path])
+        subprocess.call([editor["editor"], editor["editor-option"], path])
         text_new = open(path).read()
         return text_new
 
@@ -233,6 +233,15 @@ def sort_pr(user_gitee):
     NEED_REVIEW_PRS.put(None)
     print("sort pr exits")
 
+def ai_review_impl(user_gitee, repo, pull_id, group):
+    pr_diff = user_gitee.get_diff(repo, pull_id, group)
+    if not pr_diff:
+        print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo))
+        return "", "", ""
+    review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT)
+    review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT)   
+    return pr_diff, review, review_rating
+
 def ai_review(user_gitee):
     while True:
         item = NEED_REVIEW_PRS.get()
@@ -240,13 +249,12 @@ def ai_review(user_gitee):
         if not item:
             break
         pr_info = item["pr_info"]
-        pr_diff = user_gitee.get_diff(pr_info['repo'], pr_info['number'], pr_info['owner'])
-        if not pr_diff:
-            print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pr_info['number'], pr_info['owner'], pr_info['repo']))
-            continue
-        review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT)
-        review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT)
+
+        pr_diff, review, review_rating = ai_review_impl(user_gitee, pr_info['repo'], pr_info['id'], pr_info['group'])
     
+        if pr_diff == "":
+            continue
+
         manual_review_pr = {}
         manual_review_pr['pr_info'] = pr_info
         manual_review_pr['pull_request'] = item['pull_request']
@@ -257,30 +265,46 @@ def ai_review(user_gitee):
     MANUAL_REVIEW_PRS.put(None)
     print("ai review exits")
 
+def manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor):
+    review_content = ""
+    review_content += "!{number}: {title}\n# {body}\n".format(number=pull_request["number"], title=pull_request["title"], body=pull_request["body"])
+    review_content += "This PR has following labels:\n"
+    for label in pull_request["labels"]:
+        review_content += f"{label['name']}  "
+    target_branch = pull_request["base"]["ref"]
+    review_content += "\nThis PR is submitted to {branch}\n".format(branch=target_branch)
+    history_comment = ""
+    sync_comment = ""
+    comments = user_gitee.get_pr_comments_all(pr_info['owner'], pr_info['repo'], pr_info['number'])
+    for comment in comments:
+        if comment['user']['name'] == "openeuler-ci-bot":
+            continue
+        elif comment['user']['name'] == "openeuler-sync-bot":
+            sync_comment += comment["body"] + "\n"
+        else:
+            history_comment += comment["body"] + "\n"
+    review_content += "\n# Branch Status\n" + sync_comment
+    review_content += "\n# History\n" + history_comment
+    review_comment_raw = edit_content(review_content + '\n\n' + review + '\n\n' + review_rating + '\n\n' + pr_diff, editor)
+    return review_comment_raw
+
 def manually_review(user_gitee, editor):
     while True:
         item  = MANUAL_REVIEW_PRS.get()
         #print("manually review works")
         if not item:
             break
-        review_content = ""
         pull_request = item['pull_request']
-        pr_info = item["pr_info"]
+        pr_info = item['pr_info']
         review = item['review']
         review_rating = item['review_rating']
         pr_diff = item['pr_diff']
 
-        review_content += "!{number}: {title}\n# {body}\n".format(number=pull_request["number"], title=pull_request["title"], body=pull_request["body"])
-
-        review_content += "This PR has following labels:\n"
-        for label in pull_request["labels"]:
-            review_content += f"{label['name']}  "
-            
-        review_comment_raw = edit_content(review_content + '\n\n' + review + '\n\n' + review_rating + '\n\n' + pr_diff, editor)
+        review_comment_raw = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
 
         submitting_pr = {}
         submitting_pr['review_comment'] = review_comment_raw
-        submitting_pr['pr_info'] = item['pr_info']
+        submitting_pr['pr_info'] = pr_info
         submitting_pr['pull_request'] = pull_request
         SUBMITTING_PRS.put(submitting_pr)
 
@@ -317,6 +341,24 @@ def submmit_review(user_gitee):
 
         submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
     print("submit review exits")
+
+def review_pr_new(user_gitee, repo_name, pull_id, group, editor):
+    """
+    New Implementation of Review Pull Request, reuse code from threading implementation
+    """
+    pr_info = {}
+    pr_info["repo"] = repo_name
+    pr_info['number'] = pull_id
+    pr_info['owner'] = group
+
+    pull_request = user_gitee.get_pr(repo_name, pull_id, group)
+
+    suggest_action, suggest_reason = easy_classify(pull_request)
+    pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group)
+    review_comment = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
+    submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
+
+    print("Finish Review")
 
 def review_pr(user_gitee, repo_name, pull_id, group, editor):
     """
@@ -457,11 +499,15 @@ def main():
     except NameError:
         sys.exit(1)
 
+    editor = {}
+    editor["editor"] = args.editor
+    editor["editor-option"] = args.editor_option
+
     if args.active_user:
         generate_pending_prs_thread = threading.Thread(target=generate_pending_prs, args=(user_gitee, args.sig))
         sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee,))
         ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee,))
-        manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, args.editor))
+        manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, editor))
         submmit_review_thread = threading.Thread(target=submmit_review, args=(user_gitee,))
 
         generate_pending_prs_thread.start()
@@ -486,7 +532,7 @@ def main():
         group = params[0]
         repo_name = params[1]
         pull_id = params[2]
-        review_pr(user_gitee, repo_name, pull_id, group, args.editor)
+        review_pr_new(user_gitee, repo_name, pull_id, group, editor)
 
     return 0
 
