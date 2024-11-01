@@ -266,6 +266,21 @@ class Gitee():
             print("get diff failed: %d, %s" % (error.code, error.reason))
             return None
     
+    def get_sig_info(self, sig):
+        """
+        Get sig-info.yaml of specific SIG
+        """
+        url_template = "https://gitee.com/openeuler/community/raw/master/sig/{sig}/sig-info.yaml"
+        url = url_template.format(sig=sig)
+        req = urllib.request.Request(url=url, headers=self.headers)
+        try:
+            result = urllib.request.urlopen(req)
+            return result.read().decode("utf-8")
+        except urllib.error.HTTPError as error:
+            print("get sig-info.yaml failed: %s" % (url))
+            print("get sig-info.yaml failed: %d, %s" %(error.code, error.reason))
+            return None
+
     def __get_gitee_json(self, url):
         """
         Get and load gitee json response
@@ -378,26 +393,9 @@ class Gitee():
         """
         Get openEuler repos by SIG
         """
-        repo_list = []
-        sigs = self.get_sigs()
-        if sig not in sigs.keys():
-            return repo_list
+        return self.get_repos_by_sig(sig, "openeuler")
         
-        openeuler_sha = self.__get_community_sha(sigs[sig], 'openeuler')
-        if not openeuler_sha:
-            return ''
-
-        initials_tree = self.__get_community_tree(openeuler_sha)
-        for initials_dir in initials_tree:
-            openeuler_repo_tree = self.__get_community_tree(initials_dir['sha'])
-            for my_repo_dir in openeuler_repo_tree:
-                repo_name = my_repo_dir['path']
-                repo_name = repo_name[:-5]
-                repo_list.append(repo_name)
-
-        return repo_list
-        
-    def get_repos_by_sig(self, sig):
+    def get_repos_by_sig(self, sig, openeuler="src-openeuler"):
         """
         Get repos list by sig
         """
@@ -406,7 +404,7 @@ class Gitee():
             return ''
         repo_list = []
 
-        openeuler_sha = self.__get_community_sha(sigs[sig], 'src-openeuler')
+        openeuler_sha = self.__get_community_sha(sigs[sig], openeuler)
         if not openeuler_sha:
             return ''
 
@@ -419,7 +417,7 @@ class Gitee():
                 repo_list.append(repo_name)
 
         return repo_list
-
+ 
 
     def get_community(self, repo):
         """

@@ -152,7 +152,7 @@ def args_parser():
     pars.add_argument("-n", "--repo", type=str, help="Repository name that include group")
     pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request")
     pars.add_argument("-u", "--url", type=str, help="URL of Pull Request")
-    pars.add_argument("-s", "--sig", type=str, default="TC", help="When active_user is set, review all PRs in specified SIG")
+    pars.add_argument("-s", "--sig", type=str, default="", help="When active_user is set, review all PRs in specified SIG")
     pars.add_argument("-m", "--model", type=str, help="Model of selection to generate review")
     pars.add_argument("-e", "--editor", type=str, default="neovide",
                       help="Editor of choice to edit content, default to nvim")
@@ -250,7 +250,7 @@ def ai_review(user_gitee):
             break
         pr_info = item["pr_info"]
 
-        pr_diff, review, review_rating = ai_review_impl(user_gitee, pr_info['repo'], pr_info['id'], pr_info['group'])
+        pr_diff, review, review_rating = ai_review_impl(user_gitee, pr_info['repo'], pr_info['number'], pr_info['owner'])
     
         if pr_diff == "":
             continue
@@ -282,6 +282,7 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
         elif comment['user']['name'] == "openeuler-sync-bot":
             sync_comment += comment["body"] + "\n"
         else:
+            history_comment += comment["user"]["name"] + ":\n"
             history_comment += comment["body"] + "\n"
     review_content += "\n# Branch Status\n" + sync_comment
     review_content += "\n# History\n" + history_comment
@@ -314,6 +315,10 @@ def manually_review(user_gitee, editor):
 def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action="", suggest_reason=""):
     result = " is handled and review is published."
 
+    if review_comment == "":
+        print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
+        return
+    
     user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_comment, pr_info['owner'])
 
     if suggest_action == "/close":
@@ -454,7 +459,7 @@ def review_repo(user_gitee, owner, repo):
     result = f'{owner}/{repo}'.format(owner=owner, repo=repo)
     try:
         PRs = user_gitee.list_pr(repo, owner)
-    except urllib.URLErro as e:
+    except urllib.URLerror as e:
         print(e)
         print(f'Failed to get PRs in {owner}/{repo}'.format(owner=owner, repo=repo))
     if not PRs:
@@ -484,6 +489,50 @@ def generate_pending_prs(user_gitee, sig):
     print("DONE PENDING GENERATE")
     return 0
 
+def get_responsible_sigs(user_gitee):
+    """
+    Get responsible sigs from config file
+    """
+    sigs = user_gitee.get_sigs()
+    result = []
+    for sig in sigs:
+        sig_info_str = user_gitee.get_sig_info(sig)
+        if sig_info_str == None:
+            continue
+        sig_info = yaml.load(sig_info_str, Loader=yaml.FullLoader)
+        for maintainer in sig_info["maintainers"]:
+            if maintainer["gitee_id"].lower() == user_gitee.token['user'].lower():
+                result.append((sig_info["name"]))
+    return result
+
+def review_sig(user_gitee, sig, editor):
+    """
+    Review sig
+    1. Generate pending PRs for sig
+    2. Close or accept PR for easy ones
+    3. Generate AI Comments for sophisitcated PR
+    4. Manually edit comment
+    5. Submit PR review
+    """
+
+    print("Reviewing sig: {}".format(sig))
+    generate_pending_prs_thread = threading.Thread(target=generate_pending_prs, args=(user_gitee, sig))
+    sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee,))
+    ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee,))
+    manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, editor))
+    submmit_review_thread = threading.Thread(target=submmit_review, args=(user_gitee,))
+
+    generate_pending_prs_thread.start()
+    sort_pr_thread.start()
+    ai_review_thread.start()
+    manually_review_thread.start()
+    submmit_review_thread.start()
+
+    generate_pending_prs_thread.join()
+    sort_pr_thread.join()
+    ai_review_thread.join()
+    manually_review_thread.join()
+    submmit_review_thread.join()
 
 def main():
     """
@@ -504,27 +553,13 @@ def main():
     editor["editor-option"] = args.editor_option
 
     if args.active_user:
-        generate_pending_prs_thread = threading.Thread(target=generate_pending_prs, args=(user_gitee, args.sig))
-        sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee,))
-        ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee,))
-        manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, editor))
-        submmit_review_thread = threading.Thread(target=submmit_review, args=(user_gitee,))
+        if args.sig == "":
+            sigs = get_responsible_sigs(user_gitee)
+            for sig in sigs:
+                review_sig(user_gitee, sig, editor)
+        else:
+            review_sig(user_gitee, args.sig, editor)
 
-        generate_pending_prs_thread.start()
-        sort_pr_thread.start()
-        ai_review_thread.start()
-        manually_review_thread.start()
-        submmit_review_thread.start()
-
-        generate_pending_prs_thread.join()
-        sort_pr_thread.join()
-        ai_review_thread.join()
-        manually_review_thread.join()
-        submmit_review_thread.join()
-
-        # 获取当前用户所有担任 maintainer 的 sig，以及所有担任 committer 的 代码仓
-        # 此处应考虑建立本地缓存，保留PR的标签，最近更新，如果和本地缓存相比没有更新就忽略，否则更新 review
-        # 然后根据不同的模型生成 review
     else:
         params = extract_params(args)
         if not params:
