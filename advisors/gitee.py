@@ -242,6 +242,9 @@ class Gitee():
             print("get_gitee failed to access: %s" % (url))
             print("get_gitee failed: %d, %s" % (error.code, error.reason))
             return None
+        except urllib.error.URLError as error:
+            print("get_gitee failed to access: %s"  % (url))
+            print("get_gitee failed: %s" % (error.reason))
 
     def get_pr(self, repo, num, owner="src-openeuler"):
         """

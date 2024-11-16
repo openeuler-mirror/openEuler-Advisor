@@ -21,6 +21,7 @@ import subprocess
 import shutil
 import tempfile
 import urllib
+import urllib.error
 import urllib.request
 import urllib.parse
 import yaml
@@ -33,7 +34,9 @@ from advisors import gitee
 OE_REVIEW_PR_PROMPT="""
 You are a code reviewer of a openEuler Pull Request, providing feedback on the code changes below.
       As a code reviewer, your task is:
+      - Above all, you need to decide "/close" the PR, or "/lgtm" and "/approve" the PR.
       - Review the code changes (diffs) in the patch and provide feedback.
+      - If changelog is updated, it should describe visible changes to end-users or developers, not simply say "upgrade to blahblah".
       - If there are any bugs, highlight them.
       - Does the code do what it says in the commit messages?
       - Do not highlight minor issues and nitpicks.
@@ -265,6 +268,14 @@ def ai_review(user_gitee):
     MANUAL_REVIEW_PRS.put(None)
     print("ai review exits")
 
+def clean_advisor_comment(comment):
+    """
+    replace icon in advisor comment
+    """
+    comment = comment.replace('[&#x1F535;]', 'ongoing').replace('[&#x1F7E1;]', 'question')
+    comment = comment.replace('[&#x25EF;]', 'NA').replace('[&#x1F534;]', 'nogo').replace('[&#x1F7E2;]', 'GO')
+    return comment
+
 def manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor):
     review_content = ""
     review_content += "!{number}: {title}\n# {body}\n".format(number=pull_request["number"], title=pull_request["title"], body=pull_request["body"])
@@ -275,10 +286,14 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
     review_content += "\nThis PR is submitted to {branch}\n".format(branch=target_branch)
     history_comment = ""
     sync_comment = ""
+    advisor_comment = ""
     comments = user_gitee.get_pr_comments_all(pr_info['owner'], pr_info['repo'], pr_info['number'])
     for comment in comments:
         if comment['user']['name'] == "openeuler-ci-bot":
-            continue
+
+            if comment['body'].startswith("\n**以下为 openEuler-Advisor"):
+                advisor_comment = comment['body']
+
         elif comment['user']['name'] == "openeuler-sync-bot":
             sync_comment += comment["body"] + "\n"
         else:
@@ -286,7 +301,9 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
             history_comment += comment["body"] + "\n"
     review_content += "\n# Branch Status\n" + sync_comment
     review_content += "\n# History\n" + history_comment
-    review_comment_raw = edit_content(review_content + '\n\n' + review + '\n\n' + review_rating + '\n\n' + pr_diff, editor)
+
+    review_content += "\n# Advisor\n" + clean_advisor_comment(advisor_comment)
+    review_comment_raw = edit_content(review_content + '\n\n# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + pr_diff, editor)
     return review_comment_raw
 
 def manually_review(user_gitee, editor):
@@ -319,7 +336,24 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
         print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
         return
     
-    user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_comment, pr_info['owner'])
+    review_to_submit = ""
+    for line in review_comment.split("\n"):
+        if line == "====":
+            if review_to_submit == "":
+                continue
+            try:
+                user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
+            except http.client.RemoteDisconnected as e:
+                print("Failed to sumit review comment: {error}".format(error=e))
+            review_to_submit = ""
+        else:
+            review_to_submit += line + "\n"
+    else:
+        try:
+            user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
+        except http.client.RemoteDisconnected as e:
+            print("Failed to sumit review comment: {error}".format(error=e))
+
 
     if suggest_action == "/close":
         result = " is closed due to {reason}.".format(reason=suggest_reason)
@@ -459,7 +493,7 @@ def review_repo(user_gitee, owner, repo):
     result = f'{owner}/{repo}'.format(owner=owner, repo=repo)
     try:
         PRs = user_gitee.list_pr(repo, owner)
-    except urllib.URLerror as e:
+    except urllib.error.URLError as e:
         print(e)
         print(f'Failed to get PRs in {owner}/{repo}'.format(owner=owner, repo=repo))
     if not PRs:
@@ -496,6 +530,8 @@ def get_responsible_sigs(user_gitee):
     sigs = user_gitee.get_sigs()
     result = []
     for sig in sigs:
+        if sig == "sig-minzuchess" or sig == "README.md":
+            continue
         sig_info_str = user_gitee.get_sig_info(sig)
         if sig_info_str == None:
             continue
