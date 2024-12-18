@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!python3
 """
 This is a command line tool to collect activities for maintainers of given SIG
 """
@@ -81,6 +81,8 @@ class Advisor:
                     continue
                 if ignore_memberevent and event['type'] == 'MemberEvent':
                     continue
+                if event['type'] == 'FollowEvent':
+                    continue # ignore followevent for now
                 repo_name = event['repo'].get('full_name', "")
                 if repo_name == "":
                     print("ERROR: " + str(event['id']))
