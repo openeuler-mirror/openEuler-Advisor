@@ -18,12 +18,14 @@ import re
 import sys
 import argparse
 import subprocess
-import shutil
+import collections
+import queue
 import tempfile
 import urllib
 import urllib.error
 import urllib.request
 import urllib.parse
+import http.client
 import yaml
 import json
 import requests
@@ -31,6 +33,9 @@ import configparser
 
 from openai import OpenAI
 from advisors import gitee
+
+GLOBAL_MAX_RETRY = 1000
+GLOBAL_TIMEOUT = 60
 
 OE_REVIEW_PR_PROMPT="""
 You are a code reviewer of a openEuler Pull Request, providing feedback on the code changes below.
@@ -60,7 +65,8 @@ a rating number in range 1-100.
 import threading
 import time
 
-class ThreadSafeQueue:
+"""
+class ThreadSafeQueueSimple:
     def __init__(self):
         self.queue = []  # Your data structure (list) can be replaced with any other like deque from collections
         self.lock = threading.Lock()
@@ -81,20 +87,54 @@ class ThreadSafeQueue:
     def qsize(self):
         with self.lock:
             return len(self.queue)
+"""
 
+class ThreadSafeQueueComplex:
+    def __init__(self, maxsize=0):
+        self.queue = collections.deque()  # 使用deque替代list
+        self.lock = threading.Lock()
+        self.condition = threading.Condition(self.lock)
+        self.maxsize = maxsize  # 添加最大容量限制
+    
+    def put(self, item, block=True, timeout=None):
+        with self.condition:
+            while self.maxsize > 0 and len(self.queue) >= self.maxsize:
+                if not block:
+                    raise self.queue.Full
+                if timeout is not None:
+                    if not self.condition.wait(timeout):
+                        raise self.queue.Full
+                else:
+                    self.condition.wait()
+            self.queue.append(item)
+            self.condition.notify()
+    
+    def get(self, block=True, timeout=None):
+        with self.condition:
+            while len(self.queue) == 0:
+                if not block:
+                    raise queue.Empty
+                if timeout is not None:
+                    if not self.condition.wait(timeout):
+                        raise queue.Empty
+                else:
+                    self.condition.wait()
+            item = self.queue.popleft()  # 使用popleft()而不是pop(0)
+            self.condition.notify()
+            return item
 
 # 建三个队列，一个是待处理PR列表，一个是经过预处理的PR列表，一个是待提交PR列表
 # 批处理，首先关闭所有可以关闭的PR，直接合并sync且没有ci_failed的PR
 # 然后对所有其他的PR再进行review
 # define 3 queues to be shared across threads
 # List of PRs to be reviewed, by review_repos()
-PENDING_PRS = ThreadSafeQueue()
+PENDING_PRS = queue.Queue()
 # review_pr() get pr from PENDING_PRS, if can be obviously handled, put comment into submitting_prs, otherwise, move to NEED_REVIEW_PRS
 # that are being preprocessed for review
-NEED_REVIEW_PRS = ThreadSafeQueue()
-MANUAL_REVIEW_PRS = ThreadSafeQueue()
+NEED_REVIEW_PRS = queue.Queue()
+MANUAL_REVIEW_PRS = queue.Queue()
 # PRs that are being submitted 
-SUBMITTING_PRS = ThreadSafeQueue()
+SUBMITTING_PRS = queue.Queue()
 
 #def generate_review_from_ollama(pr_content, prompt, model="llama3.1:8b"):
 def generate_review_from_ollama(pr_content, prompt, model):
@@ -174,7 +214,7 @@ def load_config():
         cf.read(cf_path)
         return cf
     else:
-        print("ERROR: no such file:"+cf_path)
+        print("ERROR: miss config file:"+cf_path)
         return None
 
 def edit_content(text, editor):
@@ -222,34 +262,56 @@ def easy_classify(pull_request):
             pass
     return suggest_action, suggest_reason
 
-def sort_pr(user_gitee):
+def filter_pr(pull_request, filter):
+    #print(filter)
+    for label in pull_request["labels"]:
+        if label["name"] in filter["labels"]:
+            return True
+    if pull_request["user"]["login"] in filter["submitters"]:
+        return True
+    if pull_request["head"]["repo"]["path"] in filter["repos"]:
+        return True    
+    return False
+
+def sort_pr(user_gitee, filter):
+    wait_error = 0
     while True:
-        item = PENDING_PRS.get()
-        if not item:
+        try:
+            review_item = PENDING_PRS.get(timeout=GLOBAL_TIMEOUT)
+        except queue.Empty as e:
+            print("No PR to be sorted in a while.")
+            if wait_error >= GLOBAL_MAX_RETRY:
+                break
+            else:
+                wait_error = wait_error + 1 
+                continue
+        if not review_item:
+            PENDING_PRS.task_done()
             break
         #print(f"Got {item} from queue")
 
-        pull_request = user_gitee.get_pr(item["repo"], item["number"], item["owner"])
+        pull_request = user_gitee.get_pr(review_item["repo"], review_item["number"], review_item["owner"])
+
+        if filter_pr(pull_request, filter):
+            continue
 
         suggest_action, suggest_reason = easy_classify(pull_request)
 
+        PENDING_PRS.task_done()
         if suggest_action == "":
-            need_review_pr = {}
-            need_review_pr['pull_request'] = pull_request
-            need_review_pr['pr_info'] = item
-            NEED_REVIEW_PRS.put(need_review_pr)
+            review_item['pull_request'] = pull_request
+            NEED_REVIEW_PRS.put(review_item)
         else:
             review_comment_raw = suggest_action + "\n" + suggest_reason
-            submitting_pr = {}
-            submitting_pr['review_comment'] = review_comment_raw
-            submitting_pr['pull_request'] = pull_request
-            submitting_pr['pr_info'] = item
-            submitting_pr['suggest_action'] = suggest_action
-            submitting_pr['suggest_reason'] = suggest_reason
-            SUBMITTING_PRS.put(submitting_pr)
+            review_item['review_comment'] = review_comment_raw
+            review_item['pull_request'] = pull_request
+            review_item['suggest_action'] = suggest_action
+            review_item['suggest_reason'] = suggest_reason
+            SUBMITTING_PRS.put(review_item)
 
     NEED_REVIEW_PRS.put(None)
-    print("sort pr exits")
+    print("sort pr finished")
+    NEED_REVIEW_PRS.join()
 
 def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model):
     pr_diff = user_gitee.get_diff(repo, pull_id, group)
@@ -263,27 +325,35 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model):
     return pr_diff, review, review_rating
 
 def ai_review(user_gitee, ai_flag, ai_model):
+    wait_error = 0
     while True:
-        item = NEED_REVIEW_PRS.get()
+        try:
+            review_item = NEED_REVIEW_PRS.get(timeout=GLOBAL_TIMEOUT)
+        except queue.Empty as e:
+            print("No PR to be reviewed by AI in a while.")
+            if wait_error > GLOBAL_MAX_RETRY:
+                break
+            else:
+                wait_error = wait_error + 1
+                continue
         #print("ai review works")
-        if not item:
+        if not review_item:
+            NEED_REVIEW_PRS.task_done()
             break
-        pr_info = item["pr_info"]
 
-        pr_diff, review, review_rating = ai_review_impl(user_gitee, pr_info['repo'], pr_info['number'], pr_info['owner'], ai_flag, ai_model)
+        pr_diff, review, review_rating = ai_review_impl(user_gitee, review_item['repo'], review_item['number'], review_item['owner'], ai_flag, ai_model)
     
         if pr_diff == "":
             continue
 
-        manual_review_pr = {}
-        manual_review_pr['pr_info'] = pr_info
-        manual_review_pr['pull_request'] = item['pull_request']
-        manual_review_pr['pr_diff'] = pr_diff
-        manual_review_pr['review'] = review
-        manual_review_pr['review_rating'] = review_rating
-        MANUAL_REVIEW_PRS.put(manual_review_pr)
+        review_item['pr_diff'] = pr_diff
+        review_item['review'] = review
+        review_item['review_rating'] = review_rating
+        NEED_REVIEW_PRS.task_done()
+        MANUAL_REVIEW_PRS.put(review_item)
     MANUAL_REVIEW_PRS.put(None)
-    print("ai review exits")
+    print("ai review finished")
+    MANUAL_REVIEW_PRS.join()
 
 def clean_advisor_comment(comment):
     """
@@ -291,6 +361,7 @@ def clean_advisor_comment(comment):
     """
     comment = comment.replace('[&#x1F535;]', 'ongoing').replace('[&#x1F7E1;]', 'question')
     comment = comment.replace('[&#x25EF;]', 'NA').replace('[&#x1F534;]', 'nogo').replace('[&#x1F7E2;]', 'GO')
+    comment = comment.replace('[&#x1F600;]', 'smile').replace('[white_checkmark]', 'smile')
     return comment
 
 def manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor):
@@ -307,44 +378,56 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
     comments = user_gitee.get_pr_comments_all(pr_info['owner'], pr_info['repo'], pr_info['number'])
     for comment in comments:
         if comment['user']['name'] == "openeuler-ci-bot":
-
             if comment['body'].startswith("\n**以下为 openEuler-Advisor"):
                 advisor_comment = comment['body']
-
         elif comment['user']['name'] == "openeuler-sync-bot":
             sync_comment += comment["body"] + "\n"
         else:
             history_comment += comment["user"]["name"] + ":\n"
             history_comment += comment["body"] + "\n"
+
     review_content += "\n# Branch Status\n" + sync_comment
     review_content += "\n# History\n" + history_comment
-
     review_content += "\n# Advisor\n" + clean_advisor_comment(advisor_comment)
     review_comment_raw = edit_content(review_content + '\n\n# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + pr_diff, editor)
     return review_comment_raw
 
 def manually_review(user_gitee, editor):
+    wait_error = 0
     while True:
-        item  = MANUAL_REVIEW_PRS.get()
-        #print("manually review works")
-        if not item:
+        try:
+            review_item  = MANUAL_REVIEW_PRS.get(timeout=GLOBAL_TIMEOUT)
+        except queue.Empty as e:
+            print("No PR to be review by hand in a while.")
+            if wait_error >= GLOBAL_MAX_RETRY:
+                break
+            else:
+                wait_error = wait_error + 1
+                continue
+
+        if not review_item:
+            MANUAL_REVIEW_PRS.task_done()
             break
-        pull_request = item['pull_request']
-        pr_info = item['pr_info']
-        review = item['review']
-        review_rating = item['review_rating']
-        pr_diff = item['pr_diff']
 
-        review_comment_raw = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
+        pr_info = {}
+        pr_info["owner"] = review_item['owner']
+        pr_info["repo"] = review_item["repo"]
+        pr_info["number"] = review_item["number"]
 
-        submitting_pr = {}
-        submitting_pr['review_comment'] = review_comment_raw
-        submitting_pr['pr_info'] = pr_info
-        submitting_pr['pull_request'] = pull_request
-        SUBMITTING_PRS.put(submitting_pr)
+        review_comment_raw = manually_review_impl(user_gitee, pr_info, 
+                                                  review_item['pull_request'], 
+                                                  review_item['review'], 
+                                                  review_item['review_rating'], 
+                                                  review_item['pr_diff'], 
+                                                  editor)
+
+        review_item['review_comment'] = review_comment_raw
+        MANUAL_REVIEW_PRS.task_done()
+        SUBMITTING_PRS.put(review_item)
 
     SUBMITTING_PRS.put(None)
-    print("manually review exits")
+    print("manually review finished")
+    SUBMITTING_PRS.join()
 
 def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action="", suggest_reason=""):
     result = " is handled and review is published."
@@ -383,22 +466,39 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
     print("!{number}: {title}{res}".format(number=pr_info["number"], title=pull_request["title"], res=result))
 
 def submmit_review(user_gitee):
+    wait_error = 0
     while True:
-        item = SUBMITTING_PRS.get()
+        try:
+            review_item = SUBMITTING_PRS.get(timeout=GLOBAL_TIMEOUT)
+        except queue.Empty as e:
+            print("No PR review to be summited in a while.")
+            if wait_error >= GLOBAL_MAX_RETRY:
+                break
+            else:
+                wait_error = wait_error + 1
+                continue
         #print("submit review works")
         #print(item)
-        if not item:
+        if not review_item:
+            SUBMITTING_PRS.task_done()
             break
-        review_comment = item['review_comment']
-        pr_info = item['pr_info']
-        pull_request = item['pull_request']
-        suggest_action = item.get('suggest_action', "")
-        suggest_reason = item.get('suggest_reason', "")
+        
+        pr_info = {}
+        pr_info['owner'] = review_item['owner']
+        pr_info['repo'] = review_item['repo']
+        pr_info['number'] = review_item['number']
+        
+        suggest_action = review_item.get('suggest_action', "")
+        suggest_reason = review_item.get('suggest_reason', "")
 
-        submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
-    print("submit review exits")
+        submit_review_impl(user_gitee, pr_info, 
+                           review_item['pull_request'], 
+                           review_item['review_comment'], 
+                           suggest_action, suggest_reason)
+        SUBMITTING_PRS.task_done()
+    print("submit review finish")
 
-def review_pr_new(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model):
+def review_pr_new(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, filter):
     """
     New Implementation of Review Pull Request, reuse code from threading implementation
     """
@@ -409,6 +509,10 @@ def review_pr_new(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_mod
 
     pull_request = user_gitee.get_pr(repo_name, pull_id, group)
 
+    if filter_pr(pull_request, filter):
+        print("PR has been filtered, do not review")
+        return
+    print("Doing review")
     suggest_action, suggest_reason = easy_classify(pull_request)
     pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group, ai_flag, ai_model)
     review_comment = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
@@ -437,20 +541,42 @@ def review_repo(user_gitee, owner, repo):
             #print(pending_pr)
             PENDING_PRS.put(pending_pr)
 
+def print_progress(current, total, percentage):
+    #print current progress when cur is 10%, 20% ... till 100%
+    #keep silent otherwise
+    if (current / total) * 100 > percentage: 
+        print(f'generate_pending_prs in {percentage}%')
+        return True
+    else:
+        return False
+
 def generate_pending_prs(user_gitee, sig):
     """
     Generate pending PRs
     """
     src_oe_repos = user_gitee.get_repos_by_sig(sig)
+    oe_repos = user_gitee.get_openeuler_repos_by_sig(sig)
+    
+    total_len = len(src_oe_repos) + len(oe_repos)
+    current_percentage = 10
+    counter = 0
+
+    print(f"start generate list of pending pr.")
     for repo in src_oe_repos:
+        counter = counter + 1
+        if print_progress(counter, total_len, current_percentage):
+            current_percentage = current_percentage + 10
         review_repo(user_gitee, 'src-openeuler', repo)
 
-    oe_repos = user_gitee.get_openeuler_repos_by_sig(sig)
     for repo in oe_repos:
+        counter = counter + 1
+        if print_progress(counter, total_len, current_percentage):
+            current_percentage = current_percentage + 10
         review_repo(user_gitee, 'openeuler', repo)
 
     PENDING_PRS.put(None)
-    print("DONE PENDING GENERATE")
+    print("generate_pending_pr finished")
+    PENDING_PRS.join()
     return 0
 
 def get_responsible_sigs(user_gitee):
@@ -471,7 +597,7 @@ def get_responsible_sigs(user_gitee):
                 result.append((sig_info["name"]))
     return result
 
-def review_sig(user_gitee, sig, editor, ai_flag, ai_model):
+def review_sig(user_gitee, sig, editor, ai_flag, ai_model, filter):
     """
     Review sig
     1. Generate pending PRs for sig
@@ -483,7 +609,7 @@ def review_sig(user_gitee, sig, editor, ai_flag, ai_model):
 
     print("Reviewing sig: {}".format(sig))
     generate_pending_prs_thread = threading.Thread(target=generate_pending_prs, args=(user_gitee, sig))
-    sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee,))
+    sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee, filter))
     ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee, ai_flag, ai_model))
     manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, editor))
     submmit_review_thread = threading.Thread(target=submmit_review, args=(user_gitee,))
@@ -530,14 +656,18 @@ def main():
     if args.model:
         ai_model = args.model
 
+    filter = {}
+    filter['labels'] = set(cf.get('filter', 'labels').split())
+    filter['submitters'] = set(cf.get('filter', 'submitters').split())
+    filter['repos'] = set(cf.get('filter', 'repos').split())
+
     if args.active_user:
         if args.sig == "":
             sigs = get_responsible_sigs(user_gitee)
             for sig in sigs:
-                review_sig(user_gitee, sig, editor, not args.no_ai, ai_model)
+                review_sig(user_gitee, sig, editor, not args.no_ai, ai_model, filter)
         else:
-            review_sig(user_gitee, args.sig, editor, not args.no_ai, ai_model)
-
+            review_sig(user_gitee, args.sig, editor, not args.no_ai, ai_model, filter)
     else:
         params = extract_params(args)
         if not params:
@@ -545,8 +675,7 @@ def main():
         group = params[0]
         repo_name = params[1]
         pull_id = params[2]
-        print(args.no_ai)
-        review_pr_new(user_gitee, repo_name, pull_id, group, editor, not args.no_ai, ai_model)
+        review_pr_new(user_gitee, repo_name, pull_id, group, editor, not args.no_ai, ai_model, filter)
 
     return 0
 
