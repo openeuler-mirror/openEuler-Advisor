@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # ******************************************************************************
 # Copyright (c) Huawei Technologies Co., Ltd. 2020-2024. All rights reserved.
 # licensed under the Mulan PSL v2.
@@ -269,8 +269,11 @@ def filter_pr(pull_request, filter):
             return True
     if pull_request["user"]["login"] in filter["submitters"]:
         return True
-    if pull_request["head"]["repo"]["path"] in filter["repos"]:
-        return True    
+    for filter_repo in filter["repos"]:
+        if re.match(filter_repo, pull_request["head"]["repo"]["path"]):
+            return True
+    #if pull_request["head"]["repo"]["path"] in filter["repos"]:
+    #    return True    
     return False
 
 def sort_pr(user_gitee, filter):
@@ -279,7 +282,7 @@ def sort_pr(user_gitee, filter):
         try:
             review_item = PENDING_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("No PR to be sorted in a while.")
+            print("PENDING_PRS queue is empty for a while.")
             if wait_error >= GLOBAL_MAX_RETRY:
                 break
             else:
@@ -312,6 +315,7 @@ def sort_pr(user_gitee, filter):
     NEED_REVIEW_PRS.put(None)
     print("sort pr finished")
     NEED_REVIEW_PRS.join()
+    print("NEED_REVIEW_PRS join finished")
 
 def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model):
     pr_diff = user_gitee.get_diff(repo, pull_id, group)
@@ -330,7 +334,7 @@ def ai_review(user_gitee, ai_flag, ai_model):
         try:
             review_item = NEED_REVIEW_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("No PR to be reviewed by AI in a while.")
+            print("NEED_REVIEW_PRS queue is empty for a while.")
             if wait_error > GLOBAL_MAX_RETRY:
                 break
             else:
@@ -354,6 +358,7 @@ def ai_review(user_gitee, ai_flag, ai_model):
     MANUAL_REVIEW_PRS.put(None)
     print("ai review finished")
     MANUAL_REVIEW_PRS.join()
+    print("MANUAL_REVIEW_PRS join finished")
 
 def clean_advisor_comment(comment):
     """
@@ -398,7 +403,7 @@ def manually_review(user_gitee, editor):
         try:
             review_item  = MANUAL_REVIEW_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("No PR to be review by hand in a while.")
+            print("MANUAL_REVIEW_PRS queue is empty for a while.")
             if wait_error >= GLOBAL_MAX_RETRY:
                 break
             else:
@@ -428,6 +433,7 @@ def manually_review(user_gitee, editor):
     SUBMITTING_PRS.put(None)
     print("manually review finished")
     SUBMITTING_PRS.join()
+    print("SUBMITTING_PRS join finished")
 
 def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action="", suggest_reason=""):
     result = " is handled and review is published."
@@ -436,10 +442,15 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
         print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
         return
     
+    last_comment = user_gitee.get_pr_comments_all(pr_info['owner'], pr_info['repo'], pr_info['number'])
+
     review_to_submit = ""
     for line in review_comment.split("\n"):
         if line == "====":
             if review_to_submit == "":
+                continue
+            if last_comment[-1]['body'] == review_to_submit:
+                print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
                 continue
             try:
                 user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
@@ -449,10 +460,13 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
         else:
             review_to_submit += line + "\n"
     else:
-        try:
-            user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
-        except http.client.RemoteDisconnected as e:
-            print("Failed to sumit review comment: {error}".format(error=e))
+        if review_to_submit == last_comment[-1]['body']:
+            print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
+        else:
+            try:
+                user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
+            except http.client.RemoteDisconnected as e:
+                print("Failed to sumit review comment: {error}".format(error=e))
 
 
     if suggest_action == "/close":
@@ -471,7 +485,7 @@ def submmit_review(user_gitee):
         try:
             review_item = SUBMITTING_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("No PR review to be summited in a while.")
+            print("SUBMITTING_PRS queue is empty for a while.")
             if wait_error >= GLOBAL_MAX_RETRY:
                 break
             else:
@@ -498,7 +512,7 @@ def submmit_review(user_gitee):
         SUBMITTING_PRS.task_done()
     print("submit review finish")
 
-def review_pr_new(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, filter):
+def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, filter):
     """
     New Implementation of Review Pull Request, reuse code from threading implementation
     """
@@ -577,6 +591,7 @@ def generate_pending_prs(user_gitee, sig):
     PENDING_PRS.put(None)
     print("generate_pending_pr finished")
     PENDING_PRS.join()
+    print("PENDING_PRS join finished")
     return 0
 
 def get_responsible_sigs(user_gitee):
@@ -675,7 +690,7 @@ def main():
         group = params[0]
         repo_name = params[1]
         pull_id = params[2]
-        review_pr_new(user_gitee, repo_name, pull_id, group, editor, not args.no_ai, ai_model, filter)
+        review_pr(user_gitee, repo_name, pull_id, group, editor, not args.no_ai, ai_model, filter)
 
     return 0
 
