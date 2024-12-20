@@ -65,7 +65,7 @@ a rating number in range 1-100.
 import threading
 import time
 
-"""
+
 class ThreadSafeQueueSimple:
     def __init__(self):
         self.queue = []  # Your data structure (list) can be replaced with any other like deque from collections
@@ -87,7 +87,6 @@ class ThreadSafeQueueSimple:
     def qsize(self):
         with self.lock:
             return len(self.queue)
-"""
 
 class ThreadSafeQueueComplex:
     def __init__(self, maxsize=0):
@@ -129,9 +128,10 @@ class ThreadSafeQueueComplex:
 # define 3 queues to be shared across threads
 # List of PRs to be reviewed, by review_repos()
 PENDING_PRS = queue.Queue()
-# review_pr() get pr from PENDING_PRS, if can be obviously handled, put comment into submitting_prs, otherwise, move to NEED_REVIEW_PRS
+# sort_pr() get pr from PENDING_PRS, if can be obviously handled, put comment into submitting_prs, otherwise, move to NEED_REVIEW_PRS
 # that are being preprocessed for review
 NEED_REVIEW_PRS = queue.Queue()
+# manually_review() get pr from NEED_REVIEW_PRS, and edit comment
 MANUAL_REVIEW_PRS = queue.Queue()
 # PRs that are being submitted 
 SUBMITTING_PRS = queue.Queue()
