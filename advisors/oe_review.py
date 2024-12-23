@@ -680,7 +680,7 @@ def generate_pending_prs(user_gitee, sig):
 
     print_verbose(f"start generate list of pending pr.")
 
-    #print(results)
+    print_verbose("Pending PRs of {sig}: {results}".format(sig=sig, results=results))
     for result in results:
         PENDING_PRS.put(result)
 

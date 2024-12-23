@@ -1,0 +1,4 @@
+openai
+pyrpm
+pyyaml
+requests>=2.32.3
