@@ -30,12 +30,14 @@ import yaml
 import json
 import requests
 import configparser
+import math
 
 from openai import OpenAI
 from advisors import gitee
 
 GLOBAL_MAX_RETRY = 1000
 GLOBAL_TIMEOUT = 60
+GLOBAL_VERBOSE = False
 
 OE_REVIEW_PR_PROMPT="""
 You are a code reviewer of a openEuler Pull Request, providing feedback on the code changes below.
@@ -65,6 +67,9 @@ a rating number in range 1-100.
 import threading
 import time
 
+def print_verbose(msg):
+    if GLOBAL_VERBOSE:
+        print(msg)
 
 class ThreadSafeQueueSimple:
     def __init__(self):
@@ -192,7 +197,8 @@ def args_parser():
     arguments parser
     """
     pars = argparse.ArgumentParser()
-    pars.add_argument("-q", "--quiet", action='store_true', default=False, help="No log print")
+    pars.add_argument("-q", "--quite", action='store_true', default=False, help="Disable all log print")
+    pars.add_argument("-v", "--verbose", action='store_true', default=False, help="Print Verbose Log")
     pars.add_argument("-a", "--active_user", action='store_true', default=False, help="Review all PRs in repositories as maintainer or committer")
     pars.add_argument("-n", "--repo", type=str, help="Repository name that include group")
     pars.add_argument("-p", "--pull", type=str, help="Number ID of Pull Request")
@@ -222,7 +228,11 @@ def edit_content(text, editor):
     with os.fdopen(fd, 'w') as tmp:
         tmp.write(text)
         tmp.flush()
-        subprocess.call([editor["editor"], editor["editor-option"], path])
+
+        result = subprocess.run([editor["editor"], editor["editor-option"], path], capture_output=True, text=True)
+        print_verbose(result.stdout)
+        print_verbose(result.stderr)
+
         text_new = open(path).read()
         return text_new
 
@@ -263,7 +273,7 @@ def easy_classify(pull_request):
     return suggest_action, suggest_reason
 
 def filter_pr(pull_request, filter):
-    #print(filter)
+    print_verbose("filter is: "+str(filter))
     for label in pull_request["labels"]:
         if label["name"] in filter["labels"]:
             return True
@@ -272,8 +282,6 @@ def filter_pr(pull_request, filter):
     for filter_repo in filter["repos"]:
         if re.match(filter_repo, pull_request["head"]["repo"]["path"]):
             return True
-    #if pull_request["head"]["repo"]["path"] in filter["repos"]:
-    #    return True    
     return False
 
 def sort_pr(user_gitee, filter):
@@ -313,9 +321,9 @@ def sort_pr(user_gitee, filter):
             SUBMITTING_PRS.put(review_item)
 
     NEED_REVIEW_PRS.put(None)
-    print("sort pr finished")
+    print_verbose("sort pr finished")
     NEED_REVIEW_PRS.join()
-    print("NEED_REVIEW_PRS join finished")
+    print_verbose("NEED_REVIEW_PRS join finished")
 
 def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model):
     pr_diff = user_gitee.get_diff(repo, pull_id, group)
@@ -334,13 +342,12 @@ def ai_review(user_gitee, ai_flag, ai_model):
         try:
             review_item = NEED_REVIEW_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("NEED_REVIEW_PRS queue is empty for a while.")
+            print_verbose("NEED_REVIEW_PRS queue is empty for a while.")
             if wait_error > GLOBAL_MAX_RETRY:
                 break
             else:
                 wait_error = wait_error + 1
                 continue
-        #print("ai review works")
         if not review_item:
             NEED_REVIEW_PRS.task_done()
             break
@@ -356,9 +363,9 @@ def ai_review(user_gitee, ai_flag, ai_model):
         review_item['review_rating'] = review_rating
         MANUAL_REVIEW_PRS.put(review_item)
     MANUAL_REVIEW_PRS.put(None)
-    print("ai review finished")
+    print_verbose("ai review finished")
     MANUAL_REVIEW_PRS.join()
-    print("MANUAL_REVIEW_PRS join finished")
+    print_verbose("MANUAL_REVIEW_PRS join finished")
 
 def clean_advisor_comment(comment):
     """
@@ -403,7 +410,7 @@ def manually_review(user_gitee, editor):
         try:
             review_item  = MANUAL_REVIEW_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("MANUAL_REVIEW_PRS queue is empty for a while.")
+            print_verbose("MANUAL_REVIEW_PRS queue is empty for a while.")
             if wait_error >= GLOBAL_MAX_RETRY:
                 break
             else:
@@ -431,15 +438,16 @@ def manually_review(user_gitee, editor):
         SUBMITTING_PRS.put(review_item)
 
     SUBMITTING_PRS.put(None)
-    print("manually review finished")
+    print_verbose("manually review finished")
     SUBMITTING_PRS.join()
-    print("SUBMITTING_PRS join finished")
+    print_verbose("SUBMITTING_PRS join finished")
 
 def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action="", suggest_reason=""):
     result = " is handled and review is published."
+    print("{owner}/{repo}!{number}: {title}".format(owner=pr_info["owner"], repo=pr_info["repo"], number=pr_info["number"], title=pull_request["title"]))
 
     if review_comment == "":
-        print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
+        print(" - review comment is ignored due to empty content")
         return
     
     last_comment = user_gitee.get_pr_comments_all(pr_info['owner'], pr_info['repo'], pr_info['number'])
@@ -450,7 +458,7 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
             if review_to_submit == "":
                 continue
             if last_comment[-1]['body'] == review_to_submit:
-                print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
+                print(" - review comment is ignored due to duplication with last comment")
                 continue
             try:
                 user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
@@ -461,7 +469,7 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
             review_to_submit += line + "\n"
     else:
         if review_to_submit == last_comment[-1]['body']:
-            print("!{number}: {title} is ignored".format(number=pr_info["number"], title=pull_request["title"]))
+            print(" - review comment is ignored due to duplication with last comment")
         else:
             try:
                 user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
@@ -477,7 +485,7 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
         result = " is approved due to {reason}.".format(reason=suggest_reason)
     else:
         pass
-    print("!{number}: {title}{res}".format(number=pr_info["number"], title=pull_request["title"], res=result))
+    print(" - PR{res}".format(res=result))
 
 def submmit_review(user_gitee):
     wait_error = 0
@@ -510,7 +518,7 @@ def submmit_review(user_gitee):
                            review_item['review_comment'], 
                            suggest_action, suggest_reason)
         SUBMITTING_PRS.task_done()
-    print("submit review finish")
+    print_verbose("submit review finish")
 
 def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, filter):
     """
@@ -526,13 +534,13 @@ def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, 
     if filter_pr(pull_request, filter):
         print("PR has been filtered, do not review")
         return
-    print("Doing review")
+    print_verbose("Doing review")
     suggest_action, suggest_reason = easy_classify(pull_request)
     pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group, ai_flag, ai_model)
     review_comment = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
     submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
 
-    print("Finish Review")
+    print_verbose("Finish Review")
 
 def review_repo(user_gitee, owner, repo):
     """"
@@ -564,7 +572,7 @@ def print_progress(current, total, percentage):
     else:
         return False
 
-def generate_pending_prs(user_gitee, sig):
+def generate_pending_prs_old(user_gitee, sig):
     """
     Generate pending PRs
     """
@@ -575,7 +583,7 @@ def generate_pending_prs(user_gitee, sig):
     current_percentage = 10
     counter = 0
 
-    print(f"start generate list of pending pr.")
+    print_verbose(f"start generate list of pending pr.")
     for repo in src_oe_repos:
         counter = counter + 1
         if print_progress(counter, total_len, current_percentage):
@@ -589,9 +597,9 @@ def generate_pending_prs(user_gitee, sig):
         review_repo(user_gitee, 'openeuler', repo)
 
     PENDING_PRS.put(None)
-    print("generate_pending_pr finished")
+    print_verbose("generate_pending_pr finished")
     PENDING_PRS.join()
-    print("PENDING_PRS join finished")
+    print_verbose("PENDING_PRS join finished")
     return 0
 
 def get_responsible_sigs(user_gitee):
@@ -611,6 +619,76 @@ def get_responsible_sigs(user_gitee):
             if maintainer["gitee_id"].lower() == user_gitee.token['user'].lower():
                 result.append((sig_info["name"]))
     return result
+
+def get_quickissue(url):
+    try:
+        result = urllib.request.urlopen(url)
+        json_resp = json.loads(result.read().decode("utf-8"))
+        return json_resp
+    except urllib.error.HTTPError as error:
+        print("get_quickissue failed to access: %s" % (url))
+        print("get_quickissue failed: %d, %s" % (error.code, error.reason))
+        return None
+
+def get_quickissue_pulls_by_sig(sig):
+        """
+        GET from quckissue api
+        """
+        quickissue_base_url = "https://quickissue.openeuler.org/api-issues/pulls"
+
+        query_url = quickissue_base_url + "?sig=" + sig + "&page=1&per_page=100&sort=created_at&state=open"
+        results = []
+        total = 0
+        pages = 1
+        json_resp = get_quickissue(query_url)
+        if json_resp == None:
+            return results, total
+        elif json_resp["data"] == None:
+            return results, total
+        
+        total = json_resp["total"]
+        
+        for d in json_resp["data"]:
+            res = {}
+            res['owner'] = d["repo"].split("/")[0]
+            res['repo'] = d["repo"].split("/")[1]
+            res['number'] = d["link"].split("/")[-1]
+            results.append(res)
+
+        pages = math.ceil(json_resp["total"] / json_resp["per_page"])
+
+        for page in range(2, pages + 1):
+            query_url = quickissue_base_url + "?sig=" + sig + "&page=" + str(page) + "&per_page=100&sort=created_at&state=open"
+            json_resp = get_quickissue(query_url)
+            if json_resp == None:
+                return results, total
+            elif json_resp["data"] == None:
+                return results, total
+            for d in json_resp["data"]:
+                res = {}
+                res['owner'] = d["repo"].split("/")[0]
+                res['repo'] = d["repo"].split("/")[1]
+                res['number'] = d["link"].split("/")[-1]
+                results.append(res)
+        return results, total
+
+def generate_pending_prs(user_gitee, sig):
+    """
+    Generating pending PR via quickissue
+    """
+    results, total = get_quickissue_pulls_by_sig(sig)
+
+    print_verbose(f"start generate list of pending pr.")
+
+    #print(results)
+    for result in results:
+        PENDING_PRS.put(result)
+
+    PENDING_PRS.put(None)
+    print_verbose("generate_pending_pr finished")
+    PENDING_PRS.join()
+    print_verbose("PENDING_PRS join finished")
+    return 0
 
 def review_sig(user_gitee, sig, editor, ai_flag, ai_model, filter):
     """
@@ -648,7 +726,10 @@ def main():
     args = args_parser()
     cf = load_config()
 
-    if args.quiet:
+    if args.verbose:
+        GLOBAL_VERBOSE = True
+    
+    if args.quite:
         sys.stdout = open('/dev/null', 'w')
         sys.stderr = sys.stdout
 
