@@ -294,13 +294,13 @@ def sort_pr(user_gitee, filter):
         #print(f"Got {item} from queue")
 
         pull_request = user_gitee.get_pr(review_item["repo"], review_item["number"], review_item["owner"])
+        PENDING_PRS.task_done()
 
         if filter_pr(pull_request, filter):
             continue
 
         suggest_action, suggest_reason = easy_classify(pull_request)
 
-        PENDING_PRS.task_done()
         if suggest_action == "":
             review_item['pull_request'] = pull_request
             NEED_REVIEW_PRS.put(review_item)
@@ -346,6 +346,7 @@ def ai_review(user_gitee, ai_flag, ai_model):
             break
 
         pr_diff, review, review_rating = ai_review_impl(user_gitee, review_item['repo'], review_item['number'], review_item['owner'], ai_flag, ai_model)
+        NEED_REVIEW_PRS.task_done()
     
         if pr_diff == "":
             continue
@@ -353,7 +354,6 @@ def ai_review(user_gitee, ai_flag, ai_model):
         review_item['pr_diff'] = pr_diff
         review_item['review'] = review
         review_item['review_rating'] = review_rating
-        NEED_REVIEW_PRS.task_done()
         MANUAL_REVIEW_PRS.put(review_item)
     MANUAL_REVIEW_PRS.put(None)
     print("ai review finished")
@@ -366,7 +366,7 @@ def clean_advisor_comment(comment):
     """
     comment = comment.replace('[&#x1F535;]', 'ongoing').replace('[&#x1F7E1;]', 'question')
     comment = comment.replace('[&#x25EF;]', 'NA').replace('[&#x1F534;]', 'nogo').replace('[&#x1F7E2;]', 'GO')
-    comment = comment.replace('[&#x1F600;]', 'smile').replace('[white_checkmark]', 'smile')
+    comment = comment.replace('[&#x1F600;]', 'smile').replace('[:white_check_mark:]', 'GO')
     return comment
 
 def manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor):
