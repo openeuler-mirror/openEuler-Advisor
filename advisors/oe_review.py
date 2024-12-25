@@ -33,13 +33,37 @@ import configparser
 import math
 
 from openai import OpenAI
+import chromadb
+
 from advisors import gitee
+
 
 GLOBAL_MAX_RETRY = 1000
 GLOBAL_TIMEOUT = 60
 GLOBAL_VERBOSE = False
 
 OE_REVIEW_PR_PROMPT="""
+You are a code reviewer of a openEuler Pull Request, providing feedback on the code changes below.
+      As a code reviewer, your task is:
+      - Review the code changes (diffs) in the patch and provide feedback.
+      - If changelog is updated, it should describe visible changes to end-users or developers, not simply say "upgrade to blahblah".
+      - If there are any bugs, highlight them.
+      - Does the code do what it says in the commit messages?
+      - Do not highlight minor issues and nitpicks.
+      - Use bullet points if you have multiple comments.
+      - If no suggestions are provided, please give good feedback.
+      - please use chinese to give feedback.
+      - Based on the feedback all above, if the Pull Request is good, you need to decide merge the Pull Request by respones "/lgtm /approve".
+      - If the Pull Request is not good, you need to reject it by response "/close".
+      - Give this decision in the first line.
+Following is a previous example of Pull Request review, You can use it as a reference. 
+{example}
+Now you are provided with the pull request changes in complete format.
+It includes the repository name, target branch, pull request title, pull request body,
+Patch of the Pull Request and Review History of the Pull Request.
+"""
+
+OE_REVIEW_PR_PROMPT_OLD="""
 You are a code reviewer of a openEuler Pull Request, providing feedback on the code changes below.
       As a code reviewer, your task is:
       - Above all, you need to decide "/close" the PR, or "/lgtm" and "/approve" the PR.
@@ -63,11 +87,18 @@ patches from easy patches, core changes from leaf changes. Please evaluate the b
 a rating number in range 1-100.
 """
 
+CHROMADB_DB_PATH = os.path.expanduser("~/.config/openEuler-Advisor/chromadb")
+CHROMADB_COLLECTION_NAME = "oe_review"
+
+g_chromadb_client = None
+g_chromadb_collection = None
+
 # define data structure that contains queue and mutex lock for thread sharing
 import threading
 import time
 
 def print_verbose(msg):
+    global GLOBAL_VERBOSE
     if GLOBAL_VERBOSE:
         print(msg)
 
@@ -151,12 +182,16 @@ def generate_review_from_ollama(pr_content, prompt, model):
     headers["Content-Type"] = "application/json;charset=UTF-8"
     
     url = f"{base_url}/generate"
-
+    num_ctx = math.ceil((len(pr_content) + len(prompt)) / 2048) * 2048
     values = {}
     values["model"] = model
     values['prompt'] = pr_content
     values['system'] = prompt
     values['stream'] = False
+    values['options'] = {"num_ctx": num_ctx}
+    print_verbose("ollama request model: "+model)
+    print_verbose("ollama request prompt: "+prompt)
+    print_verbose("ollama request content: "+pr_content)
     response = requests.post(url, headers=headers, json=values)
     return response.json().get('response', '')
 
@@ -272,6 +307,27 @@ def easy_classify(pull_request):
             pass
     return suggest_action, suggest_reason
 
+def review_history(user_gitee, owner, repo, number, pull_request):
+    review_comment = {}
+    review_comment['target_branch'] = pull_request["base"]["ref"]
+    history_comment = ""
+    sync_comment = ""
+    advisor_comment = ""
+    comments = user_gitee.get_pr_comments_all(owner, repo, number)
+    for comment in comments:
+        if comment['user']['name'] == "openeuler-ci-bot":
+            if comment['body'].startswith("\n**以下为 openEuler-Advisor"):
+                advisor_comment = comment['body']
+        elif comment['user']['name'] == "openeuler-sync-bot":
+            sync_comment += comment["body"] + "\n"
+        else:
+            history_comment += comment["user"]["name"] + ":\n"
+            history_comment += comment["body"] + "\n"
+    review_comment['history_comment'] = history_comment
+    review_comment['sync_comment'] = sync_comment
+    review_comment['advisor_comment'] = advisor_comment
+    return review_comment
+
 def filter_pr(pull_request, filter):
     print_verbose("filter is: "+str(filter))
     for label in pull_request["labels"]:
@@ -309,6 +365,9 @@ def sort_pr(user_gitee, filter):
 
         suggest_action, suggest_reason = easy_classify(pull_request)
 
+        review_comment = review_history(user_gitee, review_item['owner'], review_item['repo'], review_item['number'], pull_request)
+        review_item['review_comment'] = review_comment
+
         if suggest_action == "":
             review_item['pull_request'] = pull_request
             NEED_REVIEW_PRS.put(review_item)
@@ -325,14 +384,50 @@ def sort_pr(user_gitee, filter):
     NEED_REVIEW_PRS.join()
     print_verbose("NEED_REVIEW_PRS join finished")
 
-def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model):
+def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model, review_comment, pull_request):
+    global g_chromadb_client
+    global g_chromadb_collection
+
     pr_diff = user_gitee.get_diff(repo, pull_id, group)
     if not pr_diff:
         print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo))
         return "", "", ""
     if not ai_flag:
         return pr_diff, "", ""
-    review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT, ai_model)
+
+    if g_chromadb_client is None:
+        g_chromadb_client = chromadb.PersistentClient(path=CHROMADB_DB_PATH)
+        g_chromadb_collection = g_chromadb_client.get_or_create_collection(CHROMADB_COLLECTION_NAME)
+
+    chomadb_query_text = pr_diff
+    chromadb_result = g_chromadb_collection.query(
+        query_texts=[chomadb_query_text],
+        n_results=2,
+        include=["documents"]
+    )
+
+    print_verbose(chromadb_result["documents"])
+
+    if len(chromadb_result["documents"][0]) == 0:
+        review_example = chromadb_result["documents"][0]
+    else:
+        review_example = chromadb_result["documents"][0][0]
+
+    review_content = """
+    Pull Request to {owner}/{repo}:{target_branch}
+    Pull Request Title: {title}
+    Pull Request Body: {body}
+    Patch of the Pull Request:
+    {pr_diff}
+    Review History of the Pull Request: 
+    {history_comment}
+    """.format(owner=group, repo=repo, target_branch=pull_request["base"]["ref"],
+               title=pull_request["title"], body=pull_request["body"],
+               pr_diff=pr_diff, history_comment=review_comment["history_comment"])
+    review_prompt = OE_REVIEW_PR_PROMPT.format(example=review_example)
+
+    #review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT, ai_model)
+    review = generate_review_from_ollama(review_content, review_prompt, ai_model)
     review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)   
     return pr_diff, review, review_rating
 
@@ -352,7 +447,8 @@ def ai_review(user_gitee, ai_flag, ai_model):
             NEED_REVIEW_PRS.task_done()
             break
 
-        pr_diff, review, review_rating = ai_review_impl(user_gitee, review_item['repo'], review_item['number'], review_item['owner'], ai_flag, ai_model)
+        pr_diff, review, review_rating = ai_review_impl(user_gitee, review_item['repo'], review_item['number'], review_item['owner'], 
+                                                        ai_flag, ai_model, review_item['review_comment'], review_item['pull_request'])
         NEED_REVIEW_PRS.task_done()
     
         if pr_diff == "":
@@ -402,6 +498,34 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
     review_content += "\n# History\n" + history_comment
     review_content += "\n# Advisor\n" + clean_advisor_comment(advisor_comment)
     review_comment_raw = edit_content(review_content + '\n\n# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + pr_diff, editor)
+
+    global g_chromadb_client
+    global g_chromadb_collection
+    # save review_comment_raw to chromadb
+    if g_chromadb_client is None:
+        g_chromadb_client = chromadb.PersistentClient(path=CHROMADB_DB_PATH)
+        g_chromadb_collection = g_chromadb_client.get_or_create_collection(CHROMADB_COLLECTION_NAME)
+
+    chromadb_document = """
+    Pull Request to {owner}/{repo}:{target_branch}
+    Pull Request Title: {title}
+    Pull Request Body: {body}
+    Patch of the Pull Request:
+    {pr_diff}
+    Review History of the Pull Request: 
+    {history_comment}
+    My Review Comment:
+    {review_comment}
+    """.format(owner=pr_info["owner"], repo=pr_info["repo"], target_branch=target_branch,
+               title=pull_request["title"], body=pull_request["body"], 
+               pr_diff=pr_diff, history_comment=history_comment, 
+               review_comment=review_comment_raw)
+    
+    g_chromadb_collection.upsert(
+        documents=[chromadb_document],
+        metadatas=[{"owner": pr_info["owner"], "repo": pr_info["repo"]}],
+        ids=[str(pr_info["owner"]) + "/" + str(pr_info["repo"]) + "/" + str(pr_info["number"])]
+    )
     return review_comment_raw
 
 def manually_review(user_gitee, editor):
@@ -536,7 +660,8 @@ def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, 
         return
     print_verbose("Doing review")
     suggest_action, suggest_reason = easy_classify(pull_request)
-    pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group, ai_flag, ai_model)
+    review_history_comment = review_history(user_gitee, group, repo_name, pull_id, pull_request)
+    pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group, ai_flag, ai_model, review_history_comment, pull_request)
     review_comment = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
     submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
 
@@ -727,6 +852,7 @@ def main():
     cf = load_config()
 
     if args.verbose:
+        global GLOBAL_VERBOSE
         GLOBAL_VERBOSE = True
     
     if args.quite:
@@ -756,6 +882,11 @@ def main():
     filter['labels'] = set(cf.get('filter', 'labels').split())
     filter['submitters'] = set(cf.get('filter', 'submitters').split())
     filter['repos'] = set(cf.get('filter', 'repos').split())
+
+    global g_chromadb_client
+    global g_chromadb_collection
+    g_chromadb_client = chromadb.PersistentClient(path=CHROMADB_DB_PATH)
+    g_chromadb_collection = g_chromadb_client.get_or_create_collection(CHROMADB_COLLECTION_NAME)
 
     if args.active_user:
         if args.sig == "":
