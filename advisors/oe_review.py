@@ -38,7 +38,7 @@ import chromadb
 from advisors import gitee
 
 
-GLOBAL_MAX_RETRY = 1000
+GLOBAL_MAX_RETRY = 60 * 24 * 3
 GLOBAL_TIMEOUT = 60
 GLOBAL_VERBOSE = False
 
@@ -101,62 +101,6 @@ def print_verbose(msg):
     global GLOBAL_VERBOSE
     if GLOBAL_VERBOSE:
         print(msg)
-
-class ThreadSafeQueueSimple:
-    def __init__(self):
-        self.queue = []  # Your data structure (list) can be replaced with any other like deque from collections
-        self.lock = threading.Lock()
-        self.condition = threading.Condition(self.lock)
-
-    def put(self, item):
-        with self.condition:
-            self.queue.append(item)
-            self.condition.notify_all()  # Notify all waiting threads that new item is added
-
-    def get(self):
-        with self.condition:
-            while len(self.queue) == 0:
-                self.condition.wait()  # Wait until there are items in the queue
-            item = self.queue.pop(0)
-            return item
-
-    def qsize(self):
-        with self.lock:
-            return len(self.queue)
-
-class ThreadSafeQueueComplex:
-    def __init__(self, maxsize=0):
-        self.queue = collections.deque()  # 使用deque替代list
-        self.lock = threading.Lock()
-        self.condition = threading.Condition(self.lock)
-        self.maxsize = maxsize  # 添加最大容量限制
-    
-    def put(self, item, block=True, timeout=None):
-        with self.condition:
-            while self.maxsize > 0 and len(self.queue) >= self.maxsize:
-                if not block:
-                    raise self.queue.Full
-                if timeout is not None:
-                    if not self.condition.wait(timeout):
-                        raise self.queue.Full
-                else:
-                    self.condition.wait()
-            self.queue.append(item)
-            self.condition.notify()
-    
-    def get(self, block=True, timeout=None):
-        with self.condition:
-            while len(self.queue) == 0:
-                if not block:
-                    raise queue.Empty
-                if timeout is not None:
-                    if not self.condition.wait(timeout):
-                        raise queue.Empty
-                else:
-                    self.condition.wait()
-            item = self.queue.popleft()  # 使用popleft()而不是pop(0)
-            self.condition.notify()
-            return item
 
 # 建三个队列，一个是待处理PR列表，一个是经过预处理的PR列表，一个是待提交PR列表
 # 批处理，首先关闭所有可以关闭的PR，直接合并sync且没有ci_failed的PR
@@ -727,7 +671,7 @@ def generate_pending_prs_old(user_gitee, sig):
     print_verbose("PENDING_PRS join finished")
     return 0
 
-def get_responsible_sigs(user_gitee):
+def get_responsible_sigs(user_gitee, filter):
     """
     Get responsible sigs from config file
     """
@@ -735,6 +679,9 @@ def get_responsible_sigs(user_gitee):
     result = []
     for sig in sigs:
         if sig == "sig-minzuchess" or sig == "README.md":
+            continue
+        if sig in filter["sigs"]:
+            print_verbose(f"sig {sig} is filtered".format(sig=sig))
             continue
         sig_info_str = user_gitee.get_sig_info(sig)
         if sig_info_str == None:
@@ -882,6 +829,7 @@ def main():
     filter['labels'] = set(cf.get('filter', 'labels').split())
     filter['submitters'] = set(cf.get('filter', 'submitters').split())
     filter['repos'] = set(cf.get('filter', 'repos').split())
+    filter['sigs'] = set(cf.get('filter', 'sigs').split())
 
     global g_chromadb_client
     global g_chromadb_collection
@@ -890,7 +838,7 @@ def main():
 
     if args.active_user:
         if args.sig == "":
-            sigs = get_responsible_sigs(user_gitee)
+            sigs = get_responsible_sigs(user_gitee, filter)
             for sig in sigs:
                 review_sig(user_gitee, sig, editor, not args.no_ai, ai_model, filter)
         else:
