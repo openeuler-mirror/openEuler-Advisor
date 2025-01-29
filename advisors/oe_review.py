@@ -33,6 +33,7 @@ import configparser
 import math
 
 from openai import OpenAI
+import openai
 import chromadb
 
 from advisors import gitee
@@ -97,15 +98,71 @@ g_chromadb_collection = None
 import threading
 import time
 
+# define data structure to contain AI model information
+class oe_review_ai_model:
+    def __init__(self, type):
+        if type == "local":
+            self._type = type
+            self._base_url = "http://localhost:11434/api"
+            self._model_name = "llama3.1:8b"
+        elif type == "deepseek":
+            self._type = "deepseek"
+            self._base_url = "https://api.deepseek.com"
+            self._model_name = "deepseek-chat"
+            self._api_key = ""
+        elif type == "bailian":
+            self._type = "bailian"
+            self._base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+            self._model_name = "deepseek-v3"
+            self._api_key = ""
+        elif type == "no":
+            self._type = "no"
+        else:
+            self._type = type
+
+    @property
+    def type(self):
+        return self._type
+    @type.setter
+    def type(self, new_value):
+        self._type = new_value
+
+    @property
+    def base_url(self):
+        return self._base_url
+    @base_url.setter
+    def base_url(self, new_value):
+        self._base_url = new_value
+
+    @property
+    def model_name(self):
+        return self._model_name
+    @model_name.setter
+    def model_name(self, new_value):
+        self._model_name = new_value
+
+    @property
+    def api_key(self):
+        if self._type != "local" and self.type != "no":
+            return self._api_key
+        else:
+            return ""
+    @api_key.setter
+    def api_key(self, new_value):
+        if self._type != "local" and self.type != "no":
+            self._api_key = new_value
+        else:
+            pass # we dont need api_key for local or no
+
 def print_verbose(msg):
     global GLOBAL_VERBOSE
     if GLOBAL_VERBOSE:
         print(msg)
 
-# 建三个队列，一个是待处理PR列表，一个是经过预处理的PR列表，一个是待提交PR列表
+# 建四个队列，一个是待处理PR队列，一个是经过预处理的PR队列，一个是待人工审核的PR队列，一个是待提交PR队列
 # 批处理，首先关闭所有可以关闭的PR，直接合并sync且没有ci_failed的PR
 # 然后对所有其他的PR再进行review
-# define 3 queues to be shared across threads
+# define 4 queues to be shared across threads
 # List of PRs to be reviewed, by review_repos()
 PENDING_PRS = queue.Queue()
 # sort_pr() get pr from PENDING_PRS, if can be obviously handled, put comment into submitting_prs, otherwise, move to NEED_REVIEW_PRS
@@ -117,7 +174,7 @@ MANUAL_REVIEW_PRS = queue.Queue()
 SUBMITTING_PRS = queue.Queue()
 
 #def generate_review_from_ollama(pr_content, prompt, model="llama3.1:8b"):
-def generate_review_from_ollama(pr_content, prompt, model):
+def generate_review_from_ollama(pr_content, prompt, ai_model):
     base_url = "http://localhost:11434/api"
     json_resp = []
     resp = None
@@ -128,6 +185,7 @@ def generate_review_from_ollama(pr_content, prompt, model):
     url = f"{base_url}/generate"
     num_ctx = math.ceil((len(pr_content) + len(prompt)) / 2048) * 2048
     values = {}
+    model = ai_model.model_name
     values["model"] = model
     values['prompt'] = pr_content
     values['system'] = prompt
@@ -138,6 +196,39 @@ def generate_review_from_ollama(pr_content, prompt, model):
     print_verbose("ollama request content: "+pr_content)
     response = requests.post(url, headers=headers, json=values)
     return response.json().get('response', '')
+
+def generate_review_from_openai(pr_content, prompt, model):
+    #Get URL and API Key from config file
+    print_verbose("api_key: " + model.api_key)
+    print_verbose("base_url: " + model.base_url)
+    print_verbose("model_name: " + model.model_name)
+    client = OpenAI(api_key=model.api_key, base_url=model.base_url)
+    try:
+        response = client.chat.completions.create(
+            model = model.model_name,
+            messages = [
+                {'role': 'system', 'content': urllib.parse.quote(prompt)},
+                {'role': 'user', 'content': urllib.parse.quote(pr_content)},
+            ],
+            stream = False
+        )
+        print(response.model_dump_json())
+        return (response.choices[0].message.content)
+    except openai.APIError as e:
+        print(f"API Error: {e.status_code} - {e.message}")
+    except openai.APIConnectionError as e:
+        print(f"Connection error: {e}")
+    except openai.RateLimitError as e:
+        print(f"Rate limit exceeded: {e}")
+    except openai.AuthenticationError as e:
+        print(f"Authentication failed: {e}")
+    except openai.BadRequestError as e:
+        print(f"Invalid request: {e}")
+    except openai.OpenAIError as e:
+        print(f"OpenAI error: {e}")    
+    except Exception as e:
+        print(f"Unexpected error: {type(e).__name__}, {str(e)}")
+
 
 def check_pr_url(url):
     """
@@ -185,7 +276,7 @@ def args_parser():
     pars.add_argument("-s", "--sig", type=str, default="", help="When active_user is set, review all PRs in specified SIG")
     pars.add_argument("-m", "--model", type=str, help="Model of selection to generate review")
     pars.add_argument("-e", "--editor", type=str, help="Editor of choice to edit content, default to nvim")
-    pars.add_argument("-b", "--no_ai", action='store_true', default=False, help="No AI to generate review")
+    pars.add_argument("-i", "--intelligent", type=str, help="Select Intelligent from local/deepseek/no")
     pars.add_argument("-o", "--editor-option", type=str, help="Commandline option for editor")
     return pars.parse_args()
 
@@ -203,14 +294,21 @@ def load_config():
         return None
 
 def edit_content(text, editor):
+    print_verbose("starting edit_content")
     fd, path = tempfile.mkstemp(suffix=".tmp", prefix="oe_review")
     with os.fdopen(fd, 'w') as tmp:
         tmp.write(text)
         tmp.flush()
 
-        result = subprocess.run([editor["editor"], editor["editor-option"], path], capture_output=True, text=True)
-        print_verbose(result.stdout)
-        print_verbose(result.stderr)
+        print_verbose(editor["editor-option"])
+        if editor["editor-option"] == '""':
+            result = subprocess.Popen([editor["editor"]] + [path])
+            result.wait()
+        else:
+            result = subprocess.run([editor["editor"], editor["editor-option"], path])
+            #result = subprocess.run([editor["editor"], editor["editor-option"], path], capture_output=True, text=True)
+            print_verbose(result.stdout)
+            print_verbose(result.stderr)
 
         text_new = open(path).read()
         return text_new
@@ -328,21 +426,25 @@ def sort_pr(user_gitee, filter):
     NEED_REVIEW_PRS.join()
     print_verbose("NEED_REVIEW_PRS join finished")
 
-def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model, review_comment, pull_request):
+def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, pull_request):
     global g_chromadb_client
     global g_chromadb_collection
 
+    print_verbose("start getting diff")
     pr_diff = user_gitee.get_diff(repo, pull_id, group)
     if not pr_diff:
         print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo))
         return "", "", ""
-    if not ai_flag:
+    
+    if ai_model.type == "no":
         return pr_diff, "", ""
 
+    print_verbose("initialize chromadb instance")
     if g_chromadb_client is None:
         g_chromadb_client = chromadb.PersistentClient(path=CHROMADB_DB_PATH)
         g_chromadb_collection = g_chromadb_client.get_or_create_collection(CHROMADB_COLLECTION_NAME)
 
+    print_verbose(f"start querying chromadb")
     chomadb_query_text = pr_diff
     chromadb_result = g_chromadb_collection.query(
         query_texts=[chomadb_query_text],
@@ -350,7 +452,7 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model, review_c
         include=["documents"]
     )
 
-    print_verbose(chromadb_result["documents"])
+    print_verbose(f"chromadb search result: {chromadb_result['documents']}")
 
     if len(chromadb_result["documents"][0]) == 0:
         review_example = chromadb_result["documents"][0]
@@ -370,12 +472,18 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_flag, ai_model, review_c
                pr_diff=pr_diff, history_comment=review_comment["history_comment"])
     review_prompt = OE_REVIEW_PR_PROMPT.format(example=review_example)
 
-    #review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT, ai_model)
-    review = generate_review_from_ollama(review_content, review_prompt, ai_model)
-    review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)   
+    print_verbose(f"review_prompt is: {review_prompt}")
+
+    if ai_model.type == "local":
+        #review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT, ai_model)
+        review = generate_review_from_ollama(review_content, review_prompt, ai_model)
+        review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
+    elif ai_model.type == "deepseek" or ai_model.type == "bailian":
+        review = generate_review_from_openai(review_content, review_prompt, ai_model)
+        review_rating = generate_review_from_openai(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
     return pr_diff, review, review_rating
 
-def ai_review(user_gitee, ai_flag, ai_model):
+def ai_review(user_gitee, ai_model):
     wait_error = 0
     while True:
         try:
@@ -392,7 +500,7 @@ def ai_review(user_gitee, ai_flag, ai_model):
             break
 
         pr_diff, review, review_rating = ai_review_impl(user_gitee, review_item['repo'], review_item['number'], review_item['owner'], 
-                                                        ai_flag, ai_model, review_item['review_comment'], review_item['pull_request'])
+                                                        ai_model, review_item['review_comment'], review_item['pull_request'])
         NEED_REVIEW_PRS.task_done()
     
         if pr_diff == "":
@@ -441,6 +549,11 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
     review_content += "\n# Branch Status\n" + sync_comment
     review_content += "\n# History\n" + history_comment
     review_content += "\n# Advisor\n" + clean_advisor_comment(advisor_comment)
+
+    if review is None:
+        review = ""
+    if review_rating is None:
+        review_rating = ""
     review_comment_raw = edit_content(review_content + '\n\n# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + pr_diff, editor)
 
     global g_chromadb_client
@@ -588,7 +701,7 @@ def submmit_review(user_gitee):
         SUBMITTING_PRS.task_done()
     print_verbose("submit review finish")
 
-def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, filter):
+def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_model, filter):
     """
     New Implementation of Review Pull Request, reuse code from threading implementation
     """
@@ -604,8 +717,10 @@ def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_flag, ai_model, 
         return
     print_verbose("Doing review")
     suggest_action, suggest_reason = easy_classify(pull_request)
+    print_verbose(f"suggest_action: {suggest_action}")
     review_history_comment = review_history(user_gitee, group, repo_name, pull_id, pull_request)
-    pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group, ai_flag, ai_model, review_history_comment, pull_request)
+    print_verbose(f"review_history: {review_history_comment}")
+    pr_diff, review, review_rating = ai_review_impl(user_gitee, repo_name, pull_id, group, ai_model, review_history_comment, pull_request)
     review_comment = manually_review_impl(user_gitee, pr_info, pull_request, review, review_rating, pr_diff, editor)
     submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action, suggest_reason)
 
@@ -762,7 +877,7 @@ def generate_pending_prs(user_gitee, sig):
     print_verbose("PENDING_PRS join finished")
     return 0
 
-def review_sig(user_gitee, sig, editor, ai_flag, ai_model, filter):
+def review_sig(user_gitee, sig, editor, ai_model, filter):
     """
     Review sig
     1. Generate pending PRs for sig
@@ -775,7 +890,7 @@ def review_sig(user_gitee, sig, editor, ai_flag, ai_model, filter):
     print("Reviewing sig: {}".format(sig))
     generate_pending_prs_thread = threading.Thread(target=generate_pending_prs, args=(user_gitee, sig))
     sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee, filter))
-    ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee, ai_flag, ai_model))
+    ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee, ai_model))
     manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, editor))
     submmit_review_thread = threading.Thread(target=submmit_review, args=(user_gitee,))
 
@@ -797,6 +912,9 @@ def main():
     """
     args = args_parser()
     cf = load_config()
+
+    my_model = None
+    no_ai = False
 
     if args.verbose:
         global GLOBAL_VERBOSE
@@ -821,9 +939,26 @@ def main():
     if args.editor_option:
         editor["editor-option"] = args.editor_option
 
-    ai_model = cf.get('model', 'name')
-    if args.model:
-        ai_model = args.model
+    print_verbose(f"editor option is: {editor['editor-option']}")
+    if args.intelligent == "local":
+        my_model = oe_review_ai_model("local")
+        my_model.model_name = cf.get('model', 'name')
+        if args.model:
+            my_model.model_name = args.model
+    elif args.intelligent == "deepseek":
+        my_model = oe_review_ai_model("deepseek")
+        my_model.model_name = cf.get('deepseek', 'name')
+        my_model.api_key = cf.get('deepseek', 'api_key')
+        my_model.base_url = cf.get('deepseek', 'base_url')
+    elif args.intelligent == "bailian":
+        my_model = oe_review_ai_model("bailian")
+        my_model.model_name = cf.get('bailian', 'name')
+        my_model.api_key = cf.get('bailian', 'api_key')
+        my_model.base_url = cf.get('bailian', 'base_url')
+    elif args.intelligent == "no":
+        my_model = oe_review_ai_model("no")
+    else:
+        my_model = oe_review_ai_model("no")
 
     filter = {}
     filter['labels'] = set(cf.get('filter', 'labels').split())
@@ -840,17 +975,17 @@ def main():
         if args.sig == "":
             sigs = get_responsible_sigs(user_gitee, filter)
             for sig in sigs:
-                review_sig(user_gitee, sig, editor, not args.no_ai, ai_model, filter)
+                review_sig(user_gitee, sig, editor, my_model, filter)
         else:
-            review_sig(user_gitee, args.sig, editor, not args.no_ai, ai_model, filter)
+            review_sig(user_gitee, args.sig, editor, my_model, filter)
     else:
         params = extract_params(args)
         if not params:
-            return 1
+            return 1 
         group = params[0]
         repo_name = params[1]
         pull_id = params[2]
-        review_pr(user_gitee, repo_name, pull_id, group, editor, not args.no_ai, ai_model, filter)
+        review_pr(user_gitee, repo_name, pull_id, group, editor, my_model, filter)
 
     return 0
 
