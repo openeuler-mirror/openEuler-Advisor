@@ -212,7 +212,7 @@ def generate_review_from_openai(pr_content, prompt, model):
             ],
             stream = False
         )
-        print(response.model_dump_json())
+        print_verbose(f"response is {response.model_dump_json()}")
         return (response.choices[0].message.content)
     except openai.APIError as e:
         print(f"API Error: {e.status_code} - {e.message}")
