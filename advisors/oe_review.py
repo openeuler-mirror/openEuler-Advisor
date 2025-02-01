@@ -105,21 +105,25 @@ class oe_review_ai_model:
             self._type = type
             self._base_url = "http://localhost:11434/api"
             self._model_name = "llama3.1:8b"
+            self._method = "ollama"
         elif type == "deepseek":
             self._type = "deepseek"
             self._base_url = "https://api.deepseek.com"
             self._model_name = "deepseek-chat"
             self._api_key = ""
+            self._method = "openai"
         elif type == "bailian":
             self._type = "bailian"
             self._base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
             self._model_name = "deepseek-v3"
             self._api_key = ""
+            self._method = "openai"
         elif type == "siliconflow":
             self._type = "siliconflow"
             self._base_url = "https://api.siliconflow.cn/v1/chat/completions"
             self._model_name = "deepseek-r1"
-            self._api_key = "sk-riamcwezutshhoxdifdddyfipvhuhxofmuqtejmbdmokjjda"
+            self._api_key = ""
+            self._method = "openai"
         elif type == "no":
             self._type = "no"
         else:
@@ -158,6 +162,13 @@ class oe_review_ai_model:
             self._api_key = new_value
         else:
             pass # we dont need api_key for local or no
+
+    @property
+    def method(self):
+        return self._method
+    @method.setter
+    def method(self, new_value):
+        self._method = new_value
 
 def print_verbose(msg):
     global GLOBAL_VERBOSE
@@ -510,10 +521,11 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
         #review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT, ai_model)
         review = generate_review_from_ollama(review_content, review_prompt, ai_model)
         review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
-    elif ai_model.type == "deepseek" or ai_model.type == "bailian":
+#    elif ai_model.type == "deepseek" or ai_model.type == "bailian" or ai_model.type == "siliconflow":
+    elif ai_model.method == "openai":
         review = generate_review_from_openai(review_content, review_prompt, ai_model)
         review_rating = generate_review_from_openai(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
-    elif ai_model.type == "siliconflow":
+    elif ai_model.method == "requests":
         review = generate_review_from_request(review_content, review_prompt, ai_model)
         review_rating = generate_review_from_request(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
     return pr_diff, review, review_rating
@@ -978,27 +990,31 @@ def main():
     if args.intelligent == "local":
         my_model = oe_review_ai_model("local")
         my_model.model_name = cf.get('model', 'name')
-        if args.model:
-            my_model.model_name = args.model
     elif args.intelligent == "deepseek":
         my_model = oe_review_ai_model("deepseek")
         my_model.model_name = cf.get('deepseek', 'name')
         my_model.api_key = cf.get('deepseek', 'api_key')
         my_model.base_url = cf.get('deepseek', 'base_url')
+        my_model.method = cf.get('deepseek', 'method')
     elif args.intelligent == "bailian":
         my_model = oe_review_ai_model("bailian")
         my_model.model_name = cf.get('bailian', 'name')
         my_model.api_key = cf.get('bailian', 'api_key')
         my_model.base_url = cf.get('bailian', 'base_url')
+        my_model.method = cf.get('bailian', 'method')
     elif args.intelligent == "siliconflow":
         my_model = oe_review_ai_model("siliconflow")
         my_model.model_name = cf.get('siliconflow', 'name')
         my_model.api_key = cf.get('siliconflow', 'api_key')
         my_model.base_url = cf.get('siliconflow', 'base_url')
+        my_model.method = cf.get('siliconflow', 'method')
     elif args.intelligent == "no":
         my_model = oe_review_ai_model("no")
     else:
         my_model = oe_review_ai_model("no")
+
+    if args.model:
+        my_model.model_name = args.model
 
     filter = {}
     filter['labels'] = set(cf.get('filter', 'labels').split())
