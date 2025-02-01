@@ -115,6 +115,11 @@ class oe_review_ai_model:
             self._base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
             self._model_name = "deepseek-v3"
             self._api_key = ""
+        elif type == "siliconflow":
+            self._type = "siliconflow"
+            self._base_url = "https://api.siliconflow.cn/v1/chat/completions"
+            self._model_name = "deepseek-r1"
+            self._api_key = "sk-riamcwezutshhoxdifdddyfipvhuhxofmuqtejmbdmokjjda"
         elif type == "no":
             self._type = "no"
         else:
@@ -196,6 +201,29 @@ def generate_review_from_ollama(pr_content, prompt, ai_model):
     print_verbose("ollama request content: "+pr_content)
     response = requests.post(url, headers=headers, json=values)
     return response.json().get('response', '')
+
+def generate_review_from_request(pr_content, prompt, model):
+    payload = {
+        "model": model.model_name,
+        "messages": [
+            {   "role": "user",
+                "content": urllib.parse.quote(pr_content)
+            },
+            {   'role': 'system', 
+                'content': urllib.parse.quote(prompt)
+            },
+        ],
+        "stream": False,
+    }
+    headers = {
+        "Authorization": f"Bearer {model.api_key}",
+        "Content-Type": "application/json"
+    }
+    # print_verbose(f"payload is: {payload}")
+    # print_verbose(f"header is {headers}")
+    response = requests.request("POST", model.base_url, json=payload, headers=headers)
+
+    return (response.text)  
 
 def generate_review_from_openai(pr_content, prompt, model):
     #Get URL and API Key from config file
@@ -435,7 +463,9 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
     if not pr_diff:
         print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo))
         return "", "", ""
-    
+    else:
+        print_verbose(f"pr_diff is {pr_diff}")
+
     if ai_model.type == "no":
         return pr_diff, "", ""
 
@@ -459,6 +489,8 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
     else:
         review_example = chromadb_result["documents"][0][0]
 
+    print_verbose(f"review example is {review_example}")
+
     review_content = """
     Pull Request to {owner}/{repo}:{target_branch}
     Pull Request Title: {title}
@@ -481,6 +513,9 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
     elif ai_model.type == "deepseek" or ai_model.type == "bailian":
         review = generate_review_from_openai(review_content, review_prompt, ai_model)
         review_rating = generate_review_from_openai(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
+    elif ai_model.type == "siliconflow":
+        review = generate_review_from_request(review_content, review_prompt, ai_model)
+        review_rating = generate_review_from_request(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
     return pr_diff, review, review_rating
 
 def ai_review(user_gitee, ai_model):
@@ -955,6 +990,11 @@ def main():
         my_model.model_name = cf.get('bailian', 'name')
         my_model.api_key = cf.get('bailian', 'api_key')
         my_model.base_url = cf.get('bailian', 'base_url')
+    elif args.intelligent == "siliconflow":
+        my_model = oe_review_ai_model("siliconflow")
+        my_model.model_name = cf.get('siliconflow', 'name')
+        my_model.api_key = cf.get('siliconflow', 'api_key')
+        my_model.base_url = cf.get('siliconflow', 'base_url')
     elif args.intelligent == "no":
         my_model = oe_review_ai_model("no")
     else:
