@@ -517,11 +517,9 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
 
     print_verbose(f"review_prompt is: {review_prompt}")
 
-    if ai_model.type == "local":
-        #review = generate_review_from_ollama(pr_diff, OE_REVIEW_PR_PROMPT, ai_model)
+    if ai_model.method == "ollama":
         review = generate_review_from_ollama(review_content, review_prompt, ai_model)
         review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
-#    elif ai_model.type == "deepseek" or ai_model.type == "bailian" or ai_model.type == "siliconflow":
     elif ai_model.method == "openai":
         review = generate_review_from_openai(review_content, review_prompt, ai_model)
         review_rating = generate_review_from_openai(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
@@ -987,33 +985,26 @@ def main():
         editor["editor-option"] = args.editor_option
 
     print_verbose(f"editor option is: {editor['editor-option']}")
-    if args.intelligent == "local":
-        my_model = oe_review_ai_model("local")
-        my_model.model_name = cf.get('model', 'name')
-    elif args.intelligent == "deepseek":
-        my_model = oe_review_ai_model("deepseek")
-        my_model.model_name = cf.get('deepseek', 'name')
-        my_model.api_key = cf.get('deepseek', 'api_key')
-        my_model.base_url = cf.get('deepseek', 'base_url')
-        my_model.method = cf.get('deepseek', 'method')
-    elif args.intelligent == "bailian":
-        my_model = oe_review_ai_model("bailian")
-        my_model.model_name = cf.get('bailian', 'name')
-        my_model.api_key = cf.get('bailian', 'api_key')
-        my_model.base_url = cf.get('bailian', 'base_url')
-        my_model.method = cf.get('bailian', 'method')
-    elif args.intelligent == "siliconflow":
-        my_model = oe_review_ai_model("siliconflow")
-        my_model.model_name = cf.get('siliconflow', 'name')
-        my_model.api_key = cf.get('siliconflow', 'api_key')
-        my_model.base_url = cf.get('siliconflow', 'base_url')
-        my_model.method = cf.get('siliconflow', 'method')
-    elif args.intelligent == "no":
+
+    if args.intelligent == "no":
         my_model = oe_review_ai_model("no")
     else:
-        my_model = oe_review_ai_model("no")
+        if not cf.has_section(args.intelligent):
+            print("Section of config not found in config file.")
+            return 1
+        else:
+            try:
+                my_model = oe_review_ai_model(args.intelligent)
+                my_model.model_name = cf.get(args.intelligent, 'model')
+                my_model.api_key = cf.get(args.intelligent, 'api_key')
+                my_model.base_url = cf.get(args.intelligent, 'base_url')
+                my_model.method = cf.get(args.intelligent, 'method')
+            except configparser.NoOptionError as e:
+                print(f"Config option is missing: {e}")
+                return 1
 
     if args.model:
+        print_verbose(f"command line model is overriding config file")
         my_model.model_name = args.model
 
     filter = {}
