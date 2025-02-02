@@ -82,17 +82,17 @@ method = openai
 ### 1. 命令行参数
 该工具支持以下命令行参数：
 
-. -q, --quite: 禁用所有日志输出。
-. -v, --verbose: 启用详细日志输出。
-. -a, --active_user: 以维护者或提交者身份审核所有仓库中的 PR。
-. -n, --repo: 指定仓库名称（包括组名）。
-. -p, --pull: 指定 PR 的 ID。
-. -u, --url: 指定 PR 的 URL。
-. -s, --sig: 当 --active_user 启用时，审核指定 SIG 中的所有 PR。
-. -m, --model: 选择用于生成审核的 AI 模型。
-. -e, --editor: 选择用于编辑内容的编辑器，默认为 nvim。
-. -i, --intelligent: 选择智能模型（local、deepseek、no）。
-. -o, --editor-option: 编辑器的命令行选项。
+- -q, --quite: 禁用所有日志输出。
+- -v, --verbose: 启用详细日志输出。
+- -a, --active_user: 以维护者或提交者身份审核所有仓库中的 PR。
+- -n, --repo: 指定仓库名称（包括组名）。
+- -p, --pull: 指定 PR 的 ID。
+- -u, --url: 指定 PR 的 URL。
+- -s, --sig: 当 --active_user 启用时，审核指定 SIG 中的所有 PR。
+- -m, --model: 选择用于生成审核的 AI 模型。
+- -e, --editor: 选择用于编辑内容的编辑器，默认为 nvim。
+- -i, --intelligent: 选择智能模型（local、deepseek、no）。
+- -o, --editor-option: 编辑器的命令行选项。
 
 ### 2. 审核单个 PR
 要审核单个 PR，可以使用以下命令：
@@ -122,8 +122,9 @@ python3 advisors/oe_review.py -n src-openeuler/repo_name -p 123 -e vim
 ## 审核流程
 - 生成待审核 PR 列表: 工具会从指定的仓库或 SIG 中获取所有待审核的 PR。
 - 简单分类: 工具会根据 PR 的标签和状态进行简单分类，决定是否可以直接关闭或合并。
-- AI 审核: 对于需要进一步审核的 PR，工具会调用 AI 模型生成审核意见。
+- AI 审核: 对于需要进一步审核的 PR，工具从本地向量数据库中获取类似审核信息，作为范例提供给 AI 模型，并生成建议审核意见。
 - 人工审核: 工具会调用指定的编辑器，允许用户手动编辑 AI 生成的审核意见。
+- 保存审核意见：工具会将人工审核的意见，连同PR相关信息一起保存到本地的向量数据库
 - 提交审核: 工具会将最终的审核意见提交到 Gitee。
 
 ## 常见问题
