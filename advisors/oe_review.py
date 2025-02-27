@@ -599,7 +599,8 @@ def manually_review_impl(user_gitee, pr_info, pull_request, review, review_ratin
         review = ""
     if review_rating is None:
         review_rating = ""
-    review_comment_raw = edit_content(review_content + '\n\n# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + pr_diff, editor)
+    #review_comment_raw = edit_content(review_content + '\n\n# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + pr_diff, editor)
+    review_comment_raw = edit_content('# ReviewBot\n\n' + review + '\n\n# ReviewRating\n\n' + review_rating + '\n\n' + review_content + '\n\n' + pr_diff, editor)
 
     global g_chromadb_client
     global g_chromadb_collection
