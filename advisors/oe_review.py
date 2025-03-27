@@ -18,7 +18,6 @@ import re
 import sys
 import argparse
 import subprocess
-import collections
 import queue
 import tempfile
 import urllib
@@ -96,7 +95,6 @@ g_chromadb_collection = None
 
 # define data structure that contains queue and mutex lock for thread sharing
 import threading
-import time
 
 # define data structure to contain AI model information
 class oe_review_ai_model:
@@ -214,27 +212,25 @@ def generate_review_from_ollama(pr_content, prompt, ai_model):
     return response.json().get('response', '')
 
 def generate_review_from_request(pr_content, prompt, model):
+    """Send review request to API endpoint and return response"""
+    messages = [
+        {"role": "user", "content": urllib.parse.quote(pr_content)},
+        {"role": "system", "content": urllib.parse.quote(prompt)}
+    ]
+    
     payload = {
         "model": model.model_name,
-        "messages": [
-            {   "role": "user",
-                "content": urllib.parse.quote(pr_content)
-            },
-            {   'role': 'system', 
-                'content': urllib.parse.quote(prompt)
-            },
-        ],
-        "stream": False,
+        "messages": messages,
+        "stream": False
     }
+    
     headers = {
         "Authorization": f"Bearer {model.api_key}",
         "Content-Type": "application/json"
     }
-    # print_verbose(f"payload is: {payload}")
-    # print_verbose(f"header is {headers}")
-    response = requests.request("POST", model.base_url, json=payload, headers=headers)
 
-    return (response.text)  
+    response = requests.post(model.base_url, json=payload, headers=headers)
+    return response.text
 
 def generate_review_from_openai(pr_content, prompt, model):
     #Get URL and API Key from config file
@@ -286,19 +282,15 @@ def extract_params(args):
     if args.url and len(args.url) > 0:
         res = check_pr_url(args.url)
         if res:
-            group = res.group(3)
-            repo_name = res.group(4)
-            pull_id = res.group(5)
-            return (group, repo_name, pull_id)
+            return (res.group(3), res.group(4), res.group(5))
         print("ERROR: URL is wrong, please check!")
         return ()
-    if args.repo and args.pull and len(args.repo) > 0 and len(args.pull) > 0:
-        group = args.repo.split('/')[0]
-        repo_name = args.repo.split('/')[1]
-        pull_id = args.pull
-        return group, repo_name, pull_id
-    print("WARNING: please specify the URL of PR or repository name and  PR's ID.\
-            \nDetails use -h/--help option.")
+        
+    if args.repo and args.pull:
+        group, repo_name = args.repo.split('/')
+        return (group, repo_name, args.pull)
+
+    print("WARNING: please specify the URL of PR or repository name and PR's ID.\nDetails use -h/--help option.")
     return ()
 
 def args_parser():
@@ -333,24 +325,42 @@ def load_config():
         return None
 
 def edit_content(text, editor):
+    """
+    Edit content using the specified editor.
+    
+    Args:
+        text (str): The text content to edit
+        editor (dict): Dictionary containing editor and editor options
+    
+    Returns:
+        str: The edited text content
+    """
     print_verbose("starting edit_content")
-    fd, path = tempfile.mkstemp(suffix=".tmp", prefix="oe_review")
-    with os.fdopen(fd, 'w') as tmp:
-        tmp.write(text)
-        tmp.flush()
+    
+    # Create temporary file
+    fd, temp_path = tempfile.mkstemp(suffix=".tmp", prefix="oe_review")
+    
+    # Write content to temp file
+    with os.fdopen(fd, 'w') as temp_file:
+        temp_file.write(text)
+        temp_file.flush()
 
-        print_verbose(editor["editor-option"])
-        if editor["editor-option"] == '""':
-            result = subprocess.Popen([editor["editor"]] + [path])
-            result.wait()
-        else:
-            result = subprocess.run([editor["editor"], editor["editor-option"], path])
-            #result = subprocess.run([editor["editor"], editor["editor-option"], path], capture_output=True, text=True)
-            print_verbose(result.stdout)
-            print_verbose(result.stderr)
+    print_verbose(editor["editor-option"])
+    
+    # Launch editor based on options
+    if editor["editor-option"] == '""':
+        # Simple editor launch
+        editor_process = subprocess.Popen([editor["editor"], temp_path])
+        editor_process.wait()
+    else:
+        # Launch with additional options
+        result = subprocess.run([editor["editor"], editor["editor-option"], temp_path])
+        print_verbose(result.stdout)
+        print_verbose(result.stderr)
 
-        text_new = open(path).read()
-        return text_new
+    # Read and return edited content
+    with open(temp_path) as edited_file:
+        return edited_file.read()
 
 def easy_classify(pull_request):
     suggest_action = ""
@@ -389,25 +399,18 @@ def easy_classify(pull_request):
     return suggest_action, suggest_reason
 
 def review_history(user_gitee, owner, repo, number, pull_request):
-    review_comment = {}
-    review_comment['target_branch'] = pull_request["base"]["ref"]
-    history_comment = ""
-    sync_comment = ""
-    advisor_comment = ""
     comments = user_gitee.get_pr_comments_all(owner, repo, number)
-    for comment in comments:
-        if comment['user']['name'] == "openeuler-ci-bot":
-            if comment['body'].startswith("\n**以下为 openEuler-Advisor"):
-                advisor_comment = comment['body']
-        elif comment['user']['name'] == "openeuler-sync-bot":
-            sync_comment += comment["body"] + "\n"
-        else:
-            history_comment += comment["user"]["name"] + ":\n"
-            history_comment += comment["body"] + "\n"
-    review_comment['history_comment'] = history_comment
-    review_comment['sync_comment'] = sync_comment
-    review_comment['advisor_comment'] = advisor_comment
-    return review_comment
+    
+    return {
+        'target_branch': pull_request["base"]["ref"],
+        'advisor_comment': next((c['body'] for c in comments 
+                               if c['user']['name'] == "openeuler-ci-bot" 
+                               and c['body'].startswith("\n**以下为 openEuler-Advisor")), ""),
+        'sync_comment': ''.join(c['body'] + '\n' for c in comments 
+                              if c['user']['name'] == "openeuler-sync-bot"),
+        'history_comment': ''.join(f"{c['user']['name']}:\n{c['body']}\n" for c in comments
+                                 if c['user']['name'] not in ["openeuler-ci-bot", "openeuler-sync-bot"])
+    }
 
 def filter_pr(pull_request, filter):
     print_verbose("filter is: "+str(filter))
@@ -868,41 +871,35 @@ def get_quickissue_pulls_by_sig(sig):
         GET from quckissue api
         """
         quickissue_base_url = "https://quickissue.openeuler.org/api-issues/pulls"
-
-        query_url = quickissue_base_url + "?sig=" + sig + "&page=1&per_page=100&sort=created_at&state=open"
         results = []
         total = 0
-        pages = 1
-        json_resp = get_quickissue(query_url)
-        if json_resp == None:
-            return results, total
-        elif json_resp["data"] == None:
-            return results, total
-        
-        total = json_resp["total"]
-        
-        for d in json_resp["data"]:
-            res = {}
-            res['owner'] = d["repo"].split("/")[0]
-            res['repo'] = d["repo"].split("/")[1]
-            res['number'] = d["link"].split("/")[-1]
-            results.append(res)
 
-        pages = math.ceil(json_resp["total"] / json_resp["per_page"])
-
-        for page in range(2, pages + 1):
-            query_url = quickissue_base_url + "?sig=" + sig + "&page=" + str(page) + "&per_page=100&sort=created_at&state=open"
-            json_resp = get_quickissue(query_url)
-            if json_resp == None:
-                return results, total
-            elif json_resp["data"] == None:
-                return results, total
+        def process_response(json_resp):
+            if not json_resp or not json_resp.get("data"):
+                return False
             for d in json_resp["data"]:
-                res = {}
-                res['owner'] = d["repo"].split("/")[0]
-                res['repo'] = d["repo"].split("/")[1]
-                res['number'] = d["link"].split("/")[-1]
-                results.append(res)
+                repo_parts = d["repo"].split("/")
+                results.append({
+                    'owner': repo_parts[0],
+                    'repo': repo_parts[1],
+                    'number': d["link"].split("/")[-1]
+                })
+            return True
+
+        # Get first page
+        query_url = f"{quickissue_base_url}?sig={sig}&page=1&per_page=100&sort=created_at&state=open"
+        json_resp = get_quickissue(query_url)
+        if not process_response(json_resp):
+            return results, total
+
+        total = json_resp["total"]
+        pages = math.ceil(total / json_resp["per_page"])
+
+        # Get remaining pages
+        for page in range(2, pages + 1):
+            query_url = f"{quickissue_base_url}?sig={sig}&page={page}&per_page=100&sort=created_at&state=open"
+            process_response(get_quickissue(query_url))
+
         return results, total
 
 def generate_pending_prs(user_gitee, sig):
