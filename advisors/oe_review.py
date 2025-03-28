@@ -264,7 +264,6 @@ def generate_review_from_openai(pr_content, prompt, model):
     except Exception as e:
         print(f"Unexpected error: {type(e).__name__}, {str(e)}")
 
-
 def check_pr_url(url):
     """
     check whether the URL of Pull Request is valid
@@ -809,29 +808,22 @@ def generate_pending_prs_old(user_gitee, sig):
     """
     Generate pending PRs
     """
-    src_oe_repos = user_gitee.get_repos_by_sig(sig)
-    oe_repos = user_gitee.get_openeuler_repos_by_sig(sig)
+    print_verbose("start generate list of pending pr.")
     
-    total_len = len(src_oe_repos) + len(oe_repos)
-    current_percentage = 10
-    counter = 0
-
-    print_verbose(f"start generate list of pending pr.")
-    for repo in src_oe_repos:
-        counter = counter + 1
-        if print_progress(counter, total_len, current_percentage):
-            current_percentage = current_percentage + 10
-        review_repo(user_gitee, 'src-openeuler', repo)
-
-    for repo in oe_repos:
-        counter = counter + 1
-        if print_progress(counter, total_len, current_percentage):
-            current_percentage = current_percentage + 10
-        review_repo(user_gitee, 'openeuler', repo)
+    repos = {
+        'src-openeuler': user_gitee.get_repos_by_sig(sig),
+        'openeuler': user_gitee.get_openeuler_repos_by_sig(sig)
+    }
+    
+    total = sum(len(r) for r in repos.values())
+    for owner, repo_list in repos.items():
+        for i, repo in enumerate(repo_list, 1):
+            if print_progress(i, total, (i/total)*100):
+                review_repo(user_gitee, owner, repo)
 
     PENDING_PRS.put(None)
     print_verbose("generate_pending_pr finished")
-    PENDING_PRS.join()
+    PENDING_PRS.join() 
     print_verbose("PENDING_PRS join finished")
     return 0
 
@@ -1033,7 +1025,6 @@ def main():
         review_pr(user_gitee, repo_name, pull_id, group, editor, my_model, filter)
 
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
