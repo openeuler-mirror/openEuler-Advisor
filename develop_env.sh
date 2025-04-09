@@ -16,3 +16,16 @@ if [ $existed -eq 0 ]; then
 	export PYTHONPATH=${PYTHONPATH}:${advisor_path}
 fi
 echo "PYTHONPATH=${PYTHONPATH}"
+
+existed=0
+for p in ${PATH}
+do
+    if [ "${advisor_path}/advisors" = $p ]; then 
+        existed=1
+    fi
+done
+
+if [ $existed -eq 0 ]; then
+    export PATH=${PATH}:${advisor_path}/advisors:${advisor_path}/command
+fi
+echo "PATH=${PATH}"

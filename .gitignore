@@ -4,3 +4,5 @@
 *.pyc
 # 排查python 生成的中间文件夹
 __pycache__
+oE_ENV/
+.venv/
