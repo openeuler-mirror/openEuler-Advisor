@@ -365,6 +365,7 @@ def easy_classify(pull_request):
     suggest_action = ""
     suggest_reason = ""
     sync_pr = False
+    no_ci_triggered = True
 
     if not pull_request["mergeable"]:
         suggest_action = "/close"
@@ -377,12 +378,14 @@ def easy_classify(pull_request):
         if label['name'] == "ci_failed":
             suggest_action = "/close"
             suggest_reason = "CI 失败"
+            no_ci_triggered = False
         elif label['name'] == 'openeuler-cla/no':
             suggest_action = "/check-cla"
             suggest_reason = "CLA 未签署"
         elif label['name'] == 'ci_processing':
             suggest_action = "暂不处理"
             suggest_reason = "等待 CI 处理结果"
+            no_ci_triggered = False
         elif label['name'] == 'kind/wait_for_update':
             suggest_action = "暂不处理"
             suggest_reason = "等待提交人更新"
@@ -390,11 +393,15 @@ def easy_classify(pull_request):
             suggest_action = "暂不处理"
             suggest_reason = "等待相关开发者确认"
         elif label['name'] == 'ci_successful':
+            no_ci_triggered = False
             if sync_pr == True:
                 suggest_action = "/lgtm\n/approve"
                 suggest_reason = "分支同步 PR，构建成功，默认合入。"
         else:
             pass
+    if no_ci_triggered:
+        suggest_action = "/close"
+        suggest_reason = "CI 未触发，请检查 CI 配置"
     return suggest_action, suggest_reason
 
 def review_history(user_gitee, owner, repo, number, pull_request):
