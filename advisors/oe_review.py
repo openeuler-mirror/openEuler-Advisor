@@ -40,7 +40,7 @@ from advisors import gitee
 
 GLOBAL_MAX_RETRY = 60 * 24 * 3
 GLOBAL_TIMEOUT = 60
-GLOBAL_VERBOSE = False
+GLOBAL_VERBOSE_LEVEL = 1
 
 OE_REVIEW_PR_PROMPT="""
 You are a code reviewer of a openEuler Pull Request, providing feedback on the code changes below.
@@ -168,9 +168,9 @@ class oe_review_ai_model:
     def method(self, new_value):
         self._method = new_value
 
-def print_verbose_impl(msg):
-    global GLOBAL_VERBOSE
-    if GLOBAL_VERBOSE:
+def print_verbose_impl(msg, level):
+    global GLOBAL_VERBOSE_LEVEL
+    if GLOBAL_VERBOSE_LEVEL >= level:
         print(msg)
 
 
@@ -192,22 +192,30 @@ CONSOLE_INFO = queue.Queue()
 
 console_lock = threading.Lock()
 
-def print_verbose(msg):
-    CONSOLE_INFO.put(msg)
+def print_verbose(msg, level=2):
+#    if msg is None:
+#        raise ValueError("msg is None")
+    CONSOLE_INFO.put((msg, level))
 
 def print_console_info(info):
     global CONSOLE_INFO 
+    global console_lock
     while True:
         try:
-            msg = CONSOLE_INFO.get(timeout=GLOBAL_TIMEOUT)
+            msg, level = CONSOLE_INFO.get(timeout=1)
         except queue.Empty as e:
             continue
+        print_verbose_impl("console_info is alive", 5)
         if msg is None:
+            print_verbose_impl("console_info is done", 5)
             CONSOLE_INFO.task_done()
             break
         else:
+            print_verbose_impl("console_lock ready to be acquired in print_console_info", 5)
             with console_lock:
-                print_verbose_impl(msg)
+                print_verbose_impl("console_lock acquired in print_console_info", 5)
+                print_verbose_impl(msg, level)
+            print_verbose_impl("console_lock released in print_console_info", 5)
 
 #def generate_review_from_ollama(pr_content, prompt, model="llama3.1:8b"):
 def generate_review_from_ollama(pr_content, prompt, ai_model):
@@ -272,19 +280,19 @@ def generate_review_from_openai(pr_content, prompt, model):
         print_verbose(f"response is {response.model_dump_json()}")
         return (response.choices[0].message.content)
     except openai.APIError as e:
-        print(f"API Error: {e.status_code} - {e.message}")
+        print_verbose(f"API Error: {e.status_code} - {e.message}", 1)
     except openai.APIConnectionError as e:
-        print(f"Connection error: {e}")
+        print_verbose(f"Connection error: {e}", 1)
     except openai.RateLimitError as e:
-        print(f"Rate limit exceeded: {e}")
+        print_verbose(f"Rate limit exceeded: {e}", 1)
     except openai.AuthenticationError as e:
-        print(f"Authentication failed: {e}")
+        print_verbose(f"Authentication failed: {e}", 1)
     except openai.BadRequestError as e:
-        print(f"Invalid request: {e}")
+        print_verbose(f"Invalid request: {e}", 1)
     except openai.OpenAIError as e:
-        print(f"OpenAI error: {e}")    
+        print_verbose(f"OpenAI error: {e}", 1)    
     except Exception as e:
-        print(f"Unexpected error: {type(e).__name__}, {str(e)}")
+        print_verbose(f"Unexpected error: {type(e).__name__}, {str(e)}", 1)
 
 def check_pr_url(url):
     """
@@ -304,14 +312,14 @@ def extract_params(args):
         res = check_pr_url(args.url)
         if res:
             return (res.group(3), res.group(4), res.group(5))
-        print("ERROR: URL is wrong, please check!")
+        print_verbose("ERROR: URL is wrong, please check!", 1)
         return ()
         
     if args.repo and args.pull:
         group, repo_name = args.repo.split('/')
         return (group, repo_name, args.pull)
 
-    print("WARNING: please specify the URL of PR or repository name and PR's ID.\nDetails use -h/--help option.")
+    print_verbose("WARNING: please specify the URL of PR or repository name and PR's ID.\nDetails use -h/--help option.", 1)
     return ()
 
 def args_parser():
@@ -342,7 +350,7 @@ def load_config():
         cf.read(cf_path)
         return cf
     else:
-        print("ERROR: miss config file:"+cf_path)
+        print_verbose("ERROR: miss config file:"+cf_path, 1)
         return None
 
 def edit_content(text, editor):
@@ -368,7 +376,10 @@ def edit_content(text, editor):
 
     print_verbose(editor["editor-option"])
     
+    global console_lock
+    print_verbose_impl("console_lock ready to be acquired in edit_content", 5)
     console_lock.acquire()
+    print_verbose_impl("console_lock acquired in edit_content", 5)
     # Launch editor based on options
     if editor["editor-option"] == '""':
         # Simple editor launch
@@ -377,9 +388,13 @@ def edit_content(text, editor):
     else:
         # Launch with additional options
         result = subprocess.run([editor["editor"], editor["editor-option"], temp_path])
-        print_verbose(result.stdout)
-        print_verbose(result.stderr)
+        if result.stdout is not None:
+            print_verbose(result.stdout)
+        if result.stderr is not None:
+            print_verbose(result.stderr)
+    print_verbose_impl("console_lock ready to be released in edit_content", 5)
     console_lock.release()
+    print_verbose_impl("console_lock released in edit_content", 5)
 
     # Read and return edited content
     with open(temp_path) as edited_file:
@@ -460,7 +475,7 @@ def sort_pr(user_gitee, filter):
         try:
             review_item = PENDING_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("PENDING_PRS queue is empty for a while.")
+            print_verbose("PENDING_PRS queue is empty for a while.", 1)
             if wait_error >= GLOBAL_MAX_RETRY:
                 break
             else:
@@ -505,7 +520,7 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
     print_verbose("start getting diff")
     pr_diff = user_gitee.get_diff(repo, pull_id, group)
     if not pr_diff:
-        print("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo))
+        print_verbose("Failed to get PR:%s of repository:%s/%s, make sure the PR is exist." % (pull_id, group, repo), 1 )
         return "", "", ""
     else:
         print_verbose(f"pr_diff is {pr_diff}")
@@ -704,10 +719,10 @@ def manually_review(user_gitee, editor):
 
 def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, suggest_action="", suggest_reason=""):
     result = " is handled and review is published."
-    print("{owner}/{repo}!{number}: {title}".format(owner=pr_info["owner"], repo=pr_info["repo"], number=pr_info["number"], title=pull_request["title"]))
+    print_verbose("{owner}/{repo}!{number}: {title}".format(owner=pr_info["owner"], repo=pr_info["repo"], number=pr_info["number"], title=pull_request["title"]), 1)
 
     if review_comment == "":
-        print(" - review comment is ignored due to empty content")
+        print_verbose(" - review comment is ignored due to empty content", 1)
         return
     
     last_comment = user_gitee.get_pr_comments_all(pr_info['owner'], pr_info['repo'], pr_info['number'])
@@ -718,23 +733,23 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
             if review_to_submit == "":
                 continue
             if last_comment[-1]['body'] == review_to_submit:
-                print(" - review comment is ignored due to duplication with last comment")
+                print_verbose(" - review comment is ignored due to duplication with last comment", 1)
                 continue
             try:
                 user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
             except http.client.RemoteDisconnected as e:
-                print("Failed to sumit review comment: {error}".format(error=e))
+                print_verbose("Failed to sumit review comment: {error}".format(error=e), 1)
             review_to_submit = ""
         else:
             review_to_submit += line + "\n"
     else:
         if review_to_submit == last_comment[-1]['body']:
-            print(" - review comment is ignored due to duplication with last comment")
+            print_verbose(" - review comment is ignored due to duplication with last comment", 1)
         else:
             try:
                 user_gitee.create_pr_comment(pr_info['repo'], pr_info['number'], review_to_submit, pr_info['owner'])
             except http.client.RemoteDisconnected as e:
-                print("Failed to sumit review comment: {error}".format(error=e))
+                print_verbose("Failed to sumit review comment: {error}".format(error=e), 1)
 
 
     if suggest_action == "/close":
@@ -745,7 +760,7 @@ def submit_review_impl(user_gitee, pr_info, pull_request, review_comment, sugges
         result = " is approved due to {reason}.".format(reason=suggest_reason)
     else:
         pass
-    print(" - PR{res}".format(res=result))
+    print_verbose(" - PR{res}".format(res=result), 1)
 
 def submmit_review(user_gitee):
     wait_error = 0
@@ -753,14 +768,13 @@ def submmit_review(user_gitee):
         try:
             review_item = SUBMITTING_PRS.get(timeout=GLOBAL_TIMEOUT)
         except queue.Empty as e:
-            print("SUBMITTING_PRS queue is empty for a while.")
+            print_verbose("SUBMITTING_PRS queue is empty for a while.", 2)
             if wait_error >= GLOBAL_MAX_RETRY:
                 break
             else:
                 wait_error = wait_error + 1
                 continue
-        #print("submit review works")
-        #print(item)
+
         if not review_item:
             SUBMITTING_PRS.task_done()
             break
@@ -792,7 +806,7 @@ def review_pr(user_gitee, repo_name, pull_id, group, editor, ai_model, filter):
     pull_request = user_gitee.get_pr(repo_name, pull_id, group)
 
     if filter_pr(pull_request, filter):
-        print("PR has been filtered, do not review")
+        print_verbose("PR has been filtered, do not review", 1)
         return
     print_verbose("Doing review")
     suggest_action, suggest_reason = easy_classify(pull_request)
@@ -830,7 +844,7 @@ def print_progress(current, total, percentage):
     #print current progress when cur is 10%, 20% ... till 100%
     #keep silent otherwise
     if (current / total) * 100 > percentage: 
-        print(f'generate_pending_prs in {percentage}%')
+        print_verbose(f'generate_pending_prs in {percentage}%', 2)
         return True
     else:
         return False
@@ -885,8 +899,8 @@ def get_quickissue(url):
         json_resp = json.loads(result.read().decode("utf-8"))
         return json_resp
     except urllib.error.HTTPError as error:
-        print("get_quickissue failed to access: %s" % (url))
-        print("get_quickissue failed: %d, %s" % (error.code, error.reason))
+        print_verbose("get_quickissue failed to access: %s" % (url), 1)
+        print_verbose("get_quickissue failed: %d, %s" % (error.code, error.reason), 1)
         return None
 
 def get_quickissue_pulls_by_sig(sig):
@@ -953,7 +967,7 @@ def review_sig(user_gitee, sig, editor, ai_model, filter):
     5. Submit PR review
     """
 
-    print("Reviewing sig: {}".format(sig))
+    print_verbose("Reviewing sig: {}".format(sig), 1)
     generate_pending_prs_thread = threading.Thread(target=generate_pending_prs, args=(user_gitee, sig))
     sort_pr_thread = threading.Thread(target=sort_pr, args=(user_gitee, filter))
     ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee, ai_model))
@@ -973,7 +987,7 @@ def review_sig(user_gitee, sig, editor, ai_model, filter):
     ai_review_thread.join()
     manually_review_thread.join()
     submmit_review_thread.join()
-    CONSOLE_INFO.put(None)
+    CONSOLE_INFO.put((None, 1))
     console_info_thread.join()
 
 def main():
@@ -1015,7 +1029,7 @@ def main():
         my_model = oe_review_ai_model("no")
     else:
         if not cf.has_section(args.intelligent):
-            print("Section of config not found in config file.")
+            print_verbose("Section of config not found in config file.", 1)
             return 1
         else:
             try:
@@ -1025,7 +1039,7 @@ def main():
                 my_model.base_url = cf.get(args.intelligent, 'base_url')
                 my_model.method = cf.get(args.intelligent, 'method')
             except configparser.NoOptionError as e:
-                print(f"Config option is missing: {e}")
+                print_verbose(f"Config option is missing: {e}", 1)
                 return 1
 
     if args.model:
