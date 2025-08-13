@@ -567,14 +567,14 @@ def ai_review_impl(user_gitee, repo, pull_id, group, ai_model, review_comment, p
 
     if ai_model.method == "ollama":
         review = generate_review_from_ollama(review_content, review_prompt, ai_model)
-        review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
+        # review_rating = generate_review_from_ollama(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
     elif ai_model.method == "openai":
         review = generate_review_from_openai(review_content, review_prompt, ai_model)
-        review_rating = generate_review_from_openai(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
+        # review_rating = generate_review_from_openai(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
     elif ai_model.method == "requests":
         review = generate_review_from_request(review_content, review_prompt, ai_model)
-        review_rating = generate_review_from_request(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
-    return pr_diff, review, review_rating
+        # review_rating = generate_review_from_request(pr_diff, OE_REVIEW_RATING_PROMPT, ai_model)
+    return pr_diff, review, ""
 
 def ai_review(user_gitee, ai_model):
     wait_error = 0
