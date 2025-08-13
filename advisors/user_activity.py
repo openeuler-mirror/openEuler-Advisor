@@ -32,20 +32,25 @@ class Advisor:
 
     def get_json(self, url):
         """
-        Return object parsed from remote json
+        Return object parsed from remote json, or None on HTTP error
         """
         headers = self.header.copy()
         headers["Content-Type"] = "application/json;charset=UTF-8"
         req = urllib.request.Request(url=url, headers=headers, method="GET")
+        result = None
         for i in range(3):
             try:
                 result = urllib.request.urlopen(req)
                 break
-            except ConnectionResetError as err:
+            except Exception:
                 continue
-        #with urllib.request.urlopen(req) as result:
-        resp = json.loads(result.read().decode("utf-8"))
-        return resp
+        if result is None:
+            return None
+        try:
+            resp = json.loads(result.read().decode("utf-8"))
+            return resp
+        except Exception:
+            return None
 
     def get_file(self, repo, path):
         """
@@ -79,6 +84,8 @@ class Advisor:
                 last_id = event['id']
                 if not event['type']:
                     continue
+                if not event['repo']:
+                    continue
                 if ignore_memberevent and event['type'] == 'MemberEvent':
                     continue
                 if event['type'] == 'FollowEvent':
@@ -98,6 +105,8 @@ class Advisor:
             #print(new_url)
             #print(len(event_list))
             events = self.get_json(new_url)
+            if events is None:
+                break
 
         return event_list
 
