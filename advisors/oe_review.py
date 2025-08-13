@@ -168,10 +168,11 @@ class oe_review_ai_model:
     def method(self, new_value):
         self._method = new_value
 
-def print_verbose(msg):
+def print_verbose_impl(msg):
     global GLOBAL_VERBOSE
     if GLOBAL_VERBOSE:
         print(msg)
+
 
 # 建四个队列，一个是待处理PR队列，一个是经过预处理的PR队列，一个是待人工审核的PR队列，一个是待提交PR队列
 # 批处理，首先关闭所有可以关闭的PR，直接合并sync且没有ci_failed的PR
@@ -186,6 +187,27 @@ NEED_REVIEW_PRS = queue.Queue()
 MANUAL_REVIEW_PRS = queue.Queue()
 # PRs that are being submitted 
 SUBMITTING_PRS = queue.Queue()
+# Info to be printed to console
+CONSOLE_INFO = queue.Queue()
+
+console_lock = threading.Lock()
+
+def print_verbose(msg):
+    CONSOLE_INFO.put(msg)
+
+def print_console_info(info):
+    global CONSOLE_INFO 
+    while True:
+        try:
+            msg = CONSOLE_INFO.get(timeout=GLOBAL_TIMEOUT)
+        except queue.Empty as e:
+            continue
+        if msg is None:
+            CONSOLE_INFO.task_done()
+            break
+        else:
+            with console_lock:
+                print_verbose_impl(msg)
 
 #def generate_review_from_ollama(pr_content, prompt, model="llama3.1:8b"):
 def generate_review_from_ollama(pr_content, prompt, ai_model):
@@ -346,6 +368,7 @@ def edit_content(text, editor):
 
     print_verbose(editor["editor-option"])
     
+    console_lock.acquire()
     # Launch editor based on options
     if editor["editor-option"] == '""':
         # Simple editor launch
@@ -356,6 +379,7 @@ def edit_content(text, editor):
         result = subprocess.run([editor["editor"], editor["editor-option"], temp_path])
         print_verbose(result.stdout)
         print_verbose(result.stderr)
+    console_lock.release()
 
     # Read and return edited content
     with open(temp_path) as edited_file:
@@ -935,7 +959,9 @@ def review_sig(user_gitee, sig, editor, ai_model, filter):
     ai_review_thread = threading.Thread(target=ai_review, args=(user_gitee, ai_model))
     manually_review_thread = threading.Thread(target=manually_review, args=(user_gitee, editor))
     submmit_review_thread = threading.Thread(target=submmit_review, args=(user_gitee,))
+    console_info_thread = threading.Thread(target=print_console_info, args=(CONSOLE_INFO,))
 
+    console_info_thread.start()
     generate_pending_prs_thread.start()
     sort_pr_thread.start()
     ai_review_thread.start()
@@ -947,6 +973,8 @@ def review_sig(user_gitee, sig, editor, ai_model, filter):
     ai_review_thread.join()
     manually_review_thread.join()
     submmit_review_thread.join()
+    CONSOLE_INFO.put(None)
+    console_info_thread.join()
 
 def main():
     """
