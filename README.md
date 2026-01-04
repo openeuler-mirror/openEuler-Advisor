@@ -223,5 +223,40 @@ tag中版本的间隔符，如果 tag是 v1_0_1，然后配置separator 为"_"�
 		> --branch: src-openEuler仓库下的具体分支名称，支持输入多个分支名。例如："openEuler-21.03", "openEuler-20.09"等
 		> --output_path: 版本管理报告和版本发布报告生成路径
 
-#### 3.2.3 advisors咨询:
+#### 3.2.3 PR 审视工具
+
+##### a. 单个 PR 审视（推荐）
+
+```bash
+# 使用独立的审视工具
+python3 review_pr.py openeuler/iSulad 123
+
+# 使用仓库和PR号（旧版方式）
+python3 advisors/oe_review.py -n openeuler/iSulad -p 123
+
+# 使用PR URL
+python3 review_pr.py --url https://gitcode.com/openeuler/iSulad/merge_requests/123
+```
+
+##### b. 交互式 PR 选择
+
+```bash
+# 键盘导航的交互式选择
+python3 interactive_pr_review.py --sig infra
+
+# 简单的命令行选择
+python3 select_pr_review.py --repo src-openeuler python-marshmallow
+```
+
+##### c. 批量审视（维护者/提交者）
+
+```bash
+# 审视所有需要您关注的PR
+python3 advisors/oe_review.py --active_user
+
+# 审视特定SIG中的所有PR
+python3 advisors/oe_review.py --active_user --sig devkit
+```
+
+#### 3.2.4 advisors咨询:
 	如果有其他问题或疑问，请邮件联系：licihua@huawei.com/zwfeng@huawei.com/shanshishi@huawei.com
